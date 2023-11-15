@@ -1,0 +1,89 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100258",
+  "version": "646",
+  "metadata": {
+    "title": "RHSA-2010:0258: pam_krb5 security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0258",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0258",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-1384",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1384",
+        "source": "CVE"
+      }
+    ],
+    "description": "The pam_krb5 module allows Pluggable Authentication Modules (PAM) aware\napplications to use Kerberos to verify user identities by obtaining user\ncredentials at log in time.\n\nA flaw was found in pam_krb5. In some non-default configurations\n(specifically, those where pam_krb5 would be the first module to prompt for\na password), the text of the password prompt varied based on whether or not\nthe username provided was a username known to the system. A remote attacker\ncould use this flaw to recognize valid usernames, which would aid a\ndictionary-based password guess attack. (CVE-2009-1384)\n\nThis update also fixes the following bugs:\n\n* certain applications which do not properly implement PAM conversations\nmay fail to authenticate users whose passwords have expired and must be\nchanged, or may succeed without forcing the user's password to be changed.\nThis bug is triggered by a previously-applied fix to pam_krb5 which makes\nit comply more closely to PAM specifications. If an application misbehaves,\nenabling the \"chpw_prompt\" option for its service should restore the old\nbehavior. (BZ#509092)\n\n* pam_krb5 does not allow the user to change an expired password in cases\nwhere the Key Distribution Center (KDC) is configured to refuse attempts to\nobtain forwardable password-changing credentials. This update fixes this\nissue. (BZ#489015)\n\n* failure to verify TGT because of wrong keytab handling. (BZ#450776)\n\nUsers of pam_krb5 are advised to upgrade to these updated packages, which\nresolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-29"
+      },
+      "updated": {
+        "date": "2010-03-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-1384",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1384",
+          "impact": "low",
+          "public": "20090527",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-1384 pam_krb5: Password prompt varies for existent and non-existent users",
+          "href": "https://bugzilla.redhat.com/502602",
+          "id": "502602"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100258001",
+            "comment": "pam_krb5 is earlier than 0:2.2.14-15"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080907002",
+            "comment": "pam_krb5 is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

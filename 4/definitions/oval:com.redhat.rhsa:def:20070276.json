@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070276",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2007:0276: shadow-utils security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0276",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0276",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-1174",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1174",
+        "source": "CVE"
+      }
+    ],
+    "description": "The shadow-utils package includes the necessary programs for converting\nUNIX password files to the shadow password format, as well as programs for\nmanaging user and group accounts.\n\nA flaw was found in the useradd tool in shadow-utils. A new user's\nmailbox, when created, could have random permissions for a short period.\nThis could allow a local attacker to read or modify the mailbox.\n(CVE-2006-1174)\n\nThis update also fixes the following bugs:\n\n* shadow-utils debuginfo package was empty.\n\n* faillog was unusable on 64-bit systems. It checked every UID from 0 to\nthe max UID, which was an excessively large number on 64-bit systems.\n\n* typo bug in login.defs file\n\nAll users of shadow-utils are advised to upgrade to these updated packages,\nwhich contain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-05-01"
+      },
+      "updated": {
+        "date": "2007-05-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-1174",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1174",
+          "impact": "low",
+          "public": "20050223"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-1174 security flaw",
+          "href": "https://bugzilla.redhat.com/1618029",
+          "id": "1618029"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070276001",
+            "comment": "shadow-utils is earlier than 2:4.0.3-61.RHEL4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070276002",
+            "comment": "shadow-utils is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

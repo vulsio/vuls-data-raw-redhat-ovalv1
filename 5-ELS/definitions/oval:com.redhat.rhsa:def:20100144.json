@@ -1,0 +1,107 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100144",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2010:0144: cpio security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0144",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0144",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-4476",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4476",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0624",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0624",
+        "source": "CVE"
+      }
+    ],
+    "description": "GNU cpio copies files into or out of a cpio or tar archive.\n\nA heap-based buffer overflow flaw was found in the way cpio expanded\narchive files. If a user were tricked into expanding a specially-crafted\narchive, it could cause the cpio executable to crash or execute arbitrary\ncode with the privileges of the user running cpio. (CVE-2010-0624)\n\nRed Hat would like to thank Jakob Lell for responsibly reporting the\nCVE-2010-0624 issue.\n\nA denial of service flaw was found in the way cpio expanded archive files.\nIf a user expanded a specially-crafted archive, it could cause the cpio\nexecutable to crash. (CVE-2007-4476)\n\nUsers of cpio are advised to upgrade to this updated package, which\ncontains backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-16"
+      },
+      "updated": {
+        "date": "2010-03-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-4476",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4476",
+          "impact": "low",
+          "public": "20070817",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-0624",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0624",
+          "impact": "moderate",
+          "public": "20100310",
+          "cwe": "CWE-122",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-4476 tar/cpio stack crashing in safer_name_suffix",
+          "href": "https://bugzilla.redhat.com/280961",
+          "id": "280961"
+        },
+        {
+          "text": "CVE-2010-0624 tar, cpio: Heap-based buffer overflow by expanding a specially-crafted archive",
+          "href": "https://bugzilla.redhat.com/564368",
+          "id": "564368"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100144001",
+            "comment": "cpio is earlier than 0:2.6-23.el5_4.1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100144002",
+            "comment": "cpio is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

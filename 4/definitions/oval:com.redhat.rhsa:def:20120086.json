@@ -1,0 +1,146 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120086",
+  "version": "634",
+  "metadata": {
+    "title": "RHSA-2012:0086: openssl security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0086",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0086",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-4576",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4576",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-4619",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4619",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nAn information leak flaw was found in the SSL 3.0 protocol implementation\nin OpenSSL. Incorrect initialization of SSL record padding bytes could\ncause an SSL client or server to send a limited amount of possibly\nsensitive data to its SSL peer via the encrypted connection.\n(CVE-2011-4576)\n\nIt was discovered that OpenSSL did not limit the number of TLS/SSL\nhandshake restarts required to support Server Gated Cryptography. A remote\nattacker could use this flaw to make a TLS/SSL server using OpenSSL consume\nan excessive amount of CPU by continuously restarting the handshake.\n(CVE-2011-4619)\n\nAll OpenSSL users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. For the update to take effect,\nall services linked to the OpenSSL library must be restarted, or the system\nrebooted.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-02-01"
+      },
+      "updated": {
+        "date": "2012-02-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-4576",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-4576",
+          "impact": "moderate",
+          "public": "20120104",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-4619",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-4619",
+          "impact": "moderate",
+          "public": "20120104",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-4576 openssl: uninitialized SSL 3.0 padding",
+          "href": "https://bugzilla.redhat.com/771775",
+          "id": "771775"
+        },
+        {
+          "text": "CVE-2011-4619 openssl: SGC restart DoS attack",
+          "href": "https://bugzilla.redhat.com/771780",
+          "id": "771780"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120086001",
+                    "comment": "openssl is earlier than 0:0.9.7a-43.18.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661004",
+                    "comment": "openssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120086003",
+                    "comment": "openssl-devel is earlier than 0:0.9.7a-43.18.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661006",
+                    "comment": "openssl-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120086005",
+                    "comment": "openssl-perl is earlier than 0:0.9.7a-43.18.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661008",
+                    "comment": "openssl-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

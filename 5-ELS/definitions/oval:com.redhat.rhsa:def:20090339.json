@@ -1,0 +1,164 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090339",
+  "version": "644",
+  "metadata": {
+    "title": "RHSA-2009:0339: lcms security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0339",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0339",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-0581",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0581",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-0723",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0723",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-0733",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0733",
+        "source": "CVE"
+      }
+    ],
+    "description": "Little Color Management System (LittleCMS, or simply \"lcms\") is a\nsmall-footprint, speed-optimized open source color management engine.\n\nMultiple integer overflow flaws which could lead to heap-based buffer\noverflows, as well as multiple insufficient input validation flaws, were\nfound in LittleCMS. An attacker could use these flaws to create a\nspecially-crafted image file which could cause an application using\nLittleCMS to crash, or, possibly, execute arbitrary code when opened by a\nvictim. (CVE-2009-0723, CVE-2009-0733)\n\nA memory leak flaw was found in LittleCMS. An application using LittleCMS\ncould use excessive amount of memory, and possibly crash after using all\navailable memory, if used to open specially-crafted images. (CVE-2009-0581)\n\nRed Hat would like to thank Chris Evans from the Google Security Team for\nreporting these issues.\n\nAll users of LittleCMS should install these updated packages, which upgrade\nLittleCMS to version 1.18. All running applications using the lcms library\nmust be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-03-19"
+      },
+      "updated": {
+        "date": "2009-03-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-0581",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0581",
+          "impact": "low",
+          "public": "20090319",
+          "cwe": "CWE-401",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-0723",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0723",
+          "impact": "moderate",
+          "public": "20090319",
+          "cwe": "CWE-190",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2009-0733",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0733",
+          "impact": "moderate",
+          "public": "20090319",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-0723 LittleCms integer overflow",
+          "href": "https://bugzilla.redhat.com/487508",
+          "id": "487508"
+        },
+        {
+          "text": "CVE-2009-0581 LittleCms memory leak",
+          "href": "https://bugzilla.redhat.com/487509",
+          "id": "487509"
+        },
+        {
+          "text": "CVE-2009-0733 LittleCms lack of upper-bounds check on sizes",
+          "href": "https://bugzilla.redhat.com/487512",
+          "id": "487512"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090339001",
+                    "comment": "lcms is earlier than 0:1.18-0.1.beta1.el5_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011002",
+                    "comment": "lcms is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090339003",
+                    "comment": "lcms-devel is earlier than 0:1.18-0.1.beta1.el5_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011004",
+                    "comment": "lcms-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090339005",
+                    "comment": "python-lcms is earlier than 0:1.18-0.1.beta1.el5_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011006",
+                    "comment": "python-lcms is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090457",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2009:0457: libwmf security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0457",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0457",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-1364",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1364",
+        "source": "CVE"
+      }
+    ],
+    "description": "libwmf is a library for reading and converting Windows Metafile Format\n(WMF) vector graphics. libwmf is used by applications such as GIMP and\nImageMagick.\n\nA pointer use-after-free flaw was found in the GD graphics library embedded\nin libwmf. An attacker could create a specially-crafted WMF file that would\ncause an application using libwmf to crash or, potentially, execute\narbitrary code as the user running the application when opened by a victim.\n(CVE-2009-1364)\n\nNote: This flaw is specific to the GD graphics library embedded in libwmf.\nIt does not affect the GD graphics library from the \"gd\" packages, or\napplications using it.\n\nRed Hat would like to thank Tavis Ormandy of the Google Security Team for\nresponsibly reporting this flaw.\n\nAll users of libwmf are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. After installing the\nupdate, all applications using libwmf must be restarted for the update\nto take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-04-30"
+      },
+      "updated": {
+        "date": "2009-04-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-1364",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1364",
+          "impact": "moderate",
+          "public": "20090427",
+          "cwe": "CWE-416",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-1364 libwmf: embedded gd use-after-free error",
+          "href": "https://bugzilla.redhat.com/496864",
+          "id": "496864"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090457001",
+                    "comment": "libwmf is earlier than 0:0.2.8.3-5.8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090457002",
+                    "comment": "libwmf is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090457003",
+                    "comment": "libwmf-devel is earlier than 0:0.2.8.3-5.8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090457004",
+                    "comment": "libwmf-devel is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090457006",
+                    "comment": "libwmf is earlier than 0:0.2.8.4-10.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090457007",
+                    "comment": "libwmf is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090457008",
+                    "comment": "libwmf-devel is earlier than 0:0.2.8.4-10.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090457009",
+                    "comment": "libwmf-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

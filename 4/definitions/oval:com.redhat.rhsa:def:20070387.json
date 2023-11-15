@@ -1,0 +1,145 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070387",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2007:0387: tcpdump security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0387",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0387",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-1218",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1218",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3798",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3798",
+        "source": "CVE"
+      }
+    ],
+    "description": "Tcpdump is a command line tool for monitoring network traffic.\n\nMoritz Jodeit discovered a denial of service bug in the tcpdump IEEE\n802.11 processing code. An attacker could inject a carefully crafted frame\nonto the IEEE 802.11 network that could crash a running tcpdump session if\na certain link type was explicitly specified. (CVE-2007-1218)\n\nAn integer overflow flaw was found in tcpdump's BGP processing code. An\nattacker could execute arbitrary code with the privilege of the pcap user\nby injecting a crafted frame onto the network. (CVE-2007-3798)\n\nIn addition, the following bugs have been addressed: \n\n* if called with -C and -W switches, tcpdump would create the first\nsavefile with the privileges of the user that executed tcpdump (usually\nroot), rather than with ones of the pcap user.  This could result in the\ninability to save the complete traffic log file properly without the\nimmediate notice of the user running tcpdump.\n\n* the arpwatch service initialization script would exit prematurely,\nreturning a successful exit status incorrectly and preventing the status\ncommand from running in case networking is not available.\n\nUsers of tcpdump are advised to upgrade to these erratum packages, which\ncontain backported patches that correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-15"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-1218",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1218",
+          "impact": "low",
+          "public": "20070301"
+        },
+        {
+          "text": "CVE-2007-3798",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3798",
+          "impact": "low",
+          "public": "20070710",
+          "cwe": "CWE-190"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-1218 tcpdump denial of service",
+          "href": "https://bugzilla.redhat.com/232347",
+          "id": "232347"
+        },
+        {
+          "text": "CVE-2007-3798 tcpdump BGP integer overflow",
+          "href": "https://bugzilla.redhat.com/250275",
+          "id": "250275"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070387001",
+                    "comment": "arpwatch is earlier than 14:2.1a13-12.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070387002",
+                    "comment": "arpwatch is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070387003",
+                    "comment": "libpcap is earlier than 14:0.8.3-12.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070387004",
+                    "comment": "libpcap is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070387005",
+                    "comment": "tcpdump is earlier than 14:3.8.2-12.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070387006",
+                    "comment": "tcpdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

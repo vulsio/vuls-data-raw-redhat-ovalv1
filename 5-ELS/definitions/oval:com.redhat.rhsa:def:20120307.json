@@ -1,0 +1,106 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120307",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2012:0307: util-linux security, bug fix, and enhancement update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0307",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0307",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1675",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1675",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1677",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1677",
+        "source": "CVE"
+      }
+    ],
+    "description": "The util-linux package contains a large variety of low-level system\nutilities that are necessary for a Linux system to function. Among others,\nutil-linux contains the fdisk configuration tool and the login program.\n\nMultiple flaws were found in the way the mount and umount commands\nperformed mtab (mounted file systems table) file updates. A local,\nunprivileged user allowed to mount or unmount file systems could use these\nflaws to corrupt the mtab file and create a stale lock file, preventing\nother users from mounting and unmounting file systems. (CVE-2011-1675,\nCVE-2011-1677)\n\nThis update also fixes the following bugs:\n\n* When the user logged into a telnet server, the login utility did not\nupdate the utmp database properly if the utility was executed from the\ntelnetd daemon. This was due to telnetd not creating an appropriate entry\nin a utmp file before executing login. With this update, correct entries\nare created and the database is updated properly. (BZ#646300)\n\n* Various options were not described on the blockdev(8) manual page. With\nthis update, the blockdev(8) manual page includes all the relevant options.\n(BZ#650937)\n\n* Prior to this update, the build process of the util-linux package failed\nin the po directory with the following error message: \"@MKINSTALLDIRS@:\nNo such file or directory\". An upstream patch has been applied to address\nthis issue, and the util-linux package now builds successfully. (BZ#677452)\n\n* Previously, the ipcs(1) and ipcrm(1) manual pages mentioned an invalid\noption, \"-b\". With this update, only valid options are listed on those\nmanual pages. (BZ#678407)\n\n* Previously, the mount(8) manual page contained incomplete information\nabout the ext4 and XFS file systems. With this update, the mount(8) manual\npage contains the missing information. (BZ#699639)\n\nIn addition, this update adds the following enhancements:\n\n* Previously, if DOS mode was enabled on a device, the fdisk utility could\nreport error messages similar to the following:\n\nPartition 1 has different physical/logical beginnings (non-Linux?):\nphys=(0, 1, 1) logical=(0, 2, 7)\n\nThis update enables users to switch off DOS compatible mode (by specifying\nthe \"-c\" option), and such error messages are no longer displayed.\n(BZ#678430)\n\n* This update adds the \"fsfreeze\" command which halts access to a file\nsystem on a disk. (BZ#726572)\n\nAll users of util-linux are advised to upgrade to this updated package,\nwhich contains backported patches to correct these issues and add these\nenhancements.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-02-21"
+      },
+      "updated": {
+        "date": "2012-02-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1675",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1675",
+          "impact": "low",
+          "public": "20110303",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2011-1677",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1677",
+          "impact": "low",
+          "public": "20110303",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1675 util-linux: mount fails to anticipate RLIMIT_FSIZE",
+          "href": "https://bugzilla.redhat.com/695916",
+          "id": "695916"
+        },
+        {
+          "text": "CVE-2011-1677 util-linux: umount may fail to remove /etc/mtab~ lock file",
+          "href": "https://bugzilla.redhat.com/695924",
+          "id": "695924"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20120307001",
+            "comment": "util-linux is earlier than 0:2.13-0.59.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20090070002",
+            "comment": "util-linux is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20150164",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2015:0164: kernel security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2015:0164",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2015:0164",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2014-7822",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-7822",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\n* A flaw was found in the way the Linux kernel's splice() system call\nvalidated its parameters. On certain file systems, a local, unprivileged\nuser could use this flaw to write past the maximum file size, and thus\ncrash the system. (CVE-2014-7822, Moderate)\n\nRed Hat would like to thank Akira Fujita of NEC for reporting this issue.\n\nThis update also fixes the following bugs:\n\n* Previously, hot-unplugging of a virtio-blk device could in some cases\nlead to a kernel panic, for example during in-flight I/O requests.\nThis update fixes race condition in the hot-unplug code in the\nvirtio_blk.ko module. As a result, hot unplugging of the virtio-blk device\nno longer causes the guest kernel oops when there are in-flight I/O\nrequests. (BZ#1006536)\n\n* Before this update, due to a bug in the error-handling path, a corrupted\nmetadata block could be used as a valid block. With this update, the error\nhandling path has been fixed and more checks have been added to verify the\nmetadata block. Now, when a corrupted metadata block is encountered, it is\nproperly marked as corrupted and handled accordingly. (BZ#1034403)\n\n* Previously, an incorrectly initialized variable resulted in a random\nvalue being stored in the variable that holds the number of default ACLs,\nand is sent in the SET_PATH_INFO data structure. Consequently, the setfacl\ncommand could, under certain circumstances, fail with an \"Invalid argument\"\nerror. With this update, the variable is correctly initialized to zero,\nthus fixing the bug. (BZ#1105625)\n\nAll kernel users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The system must be\nrebooted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2015 Red Hat, Inc.",
+      "issued": {
+        "date": "2015-02-10"
+      },
+      "updated": {
+        "date": "2015-02-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2014-7822",
+          "href": "https://access.redhat.com/security/cve/CVE-2014-7822",
+          "impact": "moderate",
+          "public": "20150128",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2014-7822 kernel: splice: lack of generic write checks",
+          "href": "https://bugzilla.redhat.com/1163792",
+          "id": "1163792"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20150164025",
+                "comment": "kernel earlier than 0:2.6.18-402.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20150164026",
+                "comment": "kernel earlier than 0:2.6.18-402.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164001",
+                    "comment": "kernel is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20150164023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-402.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

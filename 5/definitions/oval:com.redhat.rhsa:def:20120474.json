@@ -1,0 +1,249 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120474",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2012:0474: tomcat5 security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0474",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0474",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-4858",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4858",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-0022",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0022",
+        "source": "CVE"
+      }
+    ],
+    "description": "Apache Tomcat is a servlet container for the Java Servlet and JavaServer\nPages (JSP) technologies.\n\nIt was found that the Java hashCode() method implementation was susceptible\nto predictable hash collisions. A remote attacker could use this flaw to\ncause Tomcat to use an excessive amount of CPU time by sending an HTTP\nrequest with a large number of parameters whose names map to the same hash\nvalue. This update introduces a limit on the number of parameters processed\nper request to mitigate this issue. The default limit is 512 for\nparameters and 128 for headers. These defaults can be changed by setting\nthe org.apache.tomcat.util.http.Parameters.MAX_COUNT and\norg.apache.tomcat.util.http.MimeHeaders.MAX_COUNT system properties.\n(CVE-2011-4858)\n\nIt was found that Tomcat did not handle large numbers of parameters and\nlarge parameter values efficiently. A remote attacker could make Tomcat\nuse an excessive amount of CPU time by sending an HTTP request containing a\nlarge number of parameters or large parameter values. This update\nintroduces limits on the number of parameters and headers processed per\nrequest to address this issue. Refer to the CVE-2011-4858 description for\ninformation about the org.apache.tomcat.util.http.Parameters.MAX_COUNT and\norg.apache.tomcat.util.http.MimeHeaders.MAX_COUNT system properties.\n(CVE-2012-0022) \n\nRed Hat would like to thank oCERT for reporting CVE-2011-4858. oCERT\nacknowledges Julian Wälde and Alexander Klink as the original reporters of\nCVE-2011-4858.\n\nUsers of Tomcat should upgrade to these updated packages, which correct\nthese issues. Tomcat must be restarted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-04-11"
+      },
+      "updated": {
+        "date": "2012-04-11"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-4858",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-4858",
+          "impact": "moderate",
+          "public": "20111228",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-0022",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-0022",
+          "impact": "moderate",
+          "public": "20120117",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-4858 tomcat: hash table collisions CPU usage DoS (oCERT-2011-003)",
+          "href": "https://bugzilla.redhat.com/750521",
+          "id": "750521"
+        },
+        {
+          "text": "CVE-2012-0022 tomcat: large number of parameters DoS",
+          "href": "https://bugzilla.redhat.com/783359",
+          "id": "783359"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474001",
+                    "comment": "tomcat5 is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327002",
+                    "comment": "tomcat5 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474003",
+                    "comment": "tomcat5-admin-webapps is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327004",
+                    "comment": "tomcat5-admin-webapps is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474005",
+                    "comment": "tomcat5-common-lib is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327006",
+                    "comment": "tomcat5-common-lib is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474007",
+                    "comment": "tomcat5-jasper is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327008",
+                    "comment": "tomcat5-jasper is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474009",
+                    "comment": "tomcat5-jasper-javadoc is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327010",
+                    "comment": "tomcat5-jasper-javadoc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474011",
+                    "comment": "tomcat5-jsp-2.0-api is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327012",
+                    "comment": "tomcat5-jsp-2.0-api is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474013",
+                    "comment": "tomcat5-jsp-2.0-api-javadoc is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327014",
+                    "comment": "tomcat5-jsp-2.0-api-javadoc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474015",
+                    "comment": "tomcat5-server-lib is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327016",
+                    "comment": "tomcat5-server-lib is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474017",
+                    "comment": "tomcat5-servlet-2.4-api is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327018",
+                    "comment": "tomcat5-servlet-2.4-api is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474019",
+                    "comment": "tomcat5-servlet-2.4-api-javadoc is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327020",
+                    "comment": "tomcat5-servlet-2.4-api-javadoc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120474021",
+                    "comment": "tomcat5-webapps is earlier than 0:5.5.23-0jpp.31.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070327022",
+                    "comment": "tomcat5-webapps is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

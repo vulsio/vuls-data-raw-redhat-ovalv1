@@ -1,0 +1,140 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110496",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2011:0496: xen security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0496",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0496",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1583",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1583",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-3262",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3262",
+        "source": "CVE"
+      }
+    ],
+    "description": "The xen packages contain administration tools and the xend service for\nmanaging the kernel-xen kernel for virtualization on Red Hat Enterprise\nLinux.\n\nIt was found that the xc_try_bzip2_decode() and xc_try_lzma_decode() decode\nroutines did not correctly check for a possible buffer size overflow in the\ndecoding loop. As well, several integer overflow flaws and missing\nerror/range checking were found that could lead to an infinite loop. A\nprivileged guest user could use these flaws to crash the guest or,\npossibly, execute arbitrary code in the privileged management domain\n(Dom0). (CVE-2011-1583)\n\nAll xen users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The system must be\nrebooted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-05-09"
+      },
+      "updated": {
+        "date": "2011-05-09"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1583",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1583",
+          "impact": "important",
+          "public": "20110509",
+          "cvss_2": "6.0/AV:L/AC:H/Au:S/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2011-3262",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-3262",
+          "impact": "important",
+          "public": "20110509",
+          "cvss_2": "6.0/AV:L/AC:H/Au:S/C:C/I:C/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1583 CVE-2011-3262 xen: insufficiencies in pv kernel image validation",
+          "href": "https://bugzilla.redhat.com/696927",
+          "id": "696927"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::server",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110496001",
+                    "comment": "xen is earlier than 0:3.0.3-120.el5_6.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+                    "comment": "xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110496003",
+                    "comment": "xen-devel is earlier than 0:3.0.3-120.el5_6.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+                    "comment": "xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110496005",
+                    "comment": "xen-libs is earlier than 0:3.0.3-120.el5_6.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+                    "comment": "xen-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

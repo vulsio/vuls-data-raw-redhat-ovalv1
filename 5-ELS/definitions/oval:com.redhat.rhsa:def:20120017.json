@@ -1,0 +1,218 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120017",
+  "version": "634",
+  "metadata": {
+    "title": "RHSA-2012:0017: libxml2 security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0017",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0017",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-4008",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4008",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-0216",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-0216",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1944",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1944",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-2834",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2834",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-3905",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3905",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-3919",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3919",
+        "source": "CVE"
+      }
+    ],
+    "description": "The libxml2 library is a development toolbox providing the implementation\nof various XML standards. One of those standards is the XML Path Language\n(XPath), which is a language for addressing parts of an XML document.\n\nA heap-based buffer overflow flaw was found in the way libxml2 decoded\nentity references with long names. A remote attacker could provide a\nspecially-crafted XML file that, when opened in an application linked\nagainst libxml2, would cause the application to crash or, potentially,\nexecute arbitrary code with the privileges of the user running the\napplication. (CVE-2011-3919)\n\nAn off-by-one error, leading to a heap-based buffer overflow, was found in\nthe way libxml2 parsed certain XML files. A remote attacker could provide a\nspecially-crafted XML file that, when opened in an application linked\nagainst libxml2, would cause the application to crash or, potentially,\nexecute arbitrary code with the privileges of the user running the\napplication. (CVE-2011-0216)\n\nAn integer overflow flaw, leading to a heap-based buffer overflow, was\nfound in the way libxml2 parsed certain XPath expressions. If an attacker\nwere able to supply a specially-crafted XML file to an application using\nlibxml2, as well as an XPath expression for that application to run against\nthe crafted file, it could cause the application to crash or, possibly,\nexecute arbitrary code. (CVE-2011-1944)\n\nFlaws were found in the way libxml2 parsed certain XPath expressions. If an\nattacker were able to supply a specially-crafted XML file to an application\nusing libxml2, as well as an XPath expression for that application to run\nagainst the crafted file, it could cause the application to crash.\n(CVE-2010-4008, CVE-2011-2834)\n\nAn out-of-bounds memory read flaw was found in libxml2. A remote attacker\ncould provide a specially-crafted XML file that, when opened in an\napplication linked against libxml2, would cause the application to crash.\n(CVE-2011-3905)\n\nNote: Red Hat does not ship any applications that use libxml2 in a way that\nwould allow the CVE-2011-1944, CVE-2010-4008, and CVE-2011-2834 flaws to be\nexploited; however, third-party applications may allow XPath expressions to\nbe passed which could trigger these flaws.\n\nRed Hat would like to thank the Google Security Team for reporting the\nCVE-2010-4008 issue. Upstream acknowledges Bui Quang Minh from Bkis as the\noriginal reporter of CVE-2010-4008.\n\nAll users of libxml2 are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues. The desktop must\nbe restarted (log out, then log back in) for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-01-11"
+      },
+      "updated": {
+        "date": "2012-01-11"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-4008",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4008",
+          "impact": "low",
+          "public": "20101104",
+          "cwe": "CWE-476",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-0216",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-0216",
+          "impact": "low",
+          "public": "20110720",
+          "cwe": "CWE-122",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2011-1944",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1944",
+          "impact": "low",
+          "public": "20110527",
+          "cwe": "CWE-122",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2011-2834",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2834",
+          "impact": "low",
+          "public": "20111011",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-3905",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-3905",
+          "impact": "low",
+          "public": "20111213",
+          "cwe": "CWE-125",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-3919",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-3919",
+          "impact": "important",
+          "public": "20120106",
+          "cwe": "CWE-122",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-4008 libxml2: Crash (stack frame overflow or NULL pointer dereference) by traversal of XPath axis",
+          "href": "https://bugzilla.redhat.com/645341",
+          "id": "645341"
+        },
+        {
+          "text": "CVE-2011-1944 libxml, libxml2: Heap-based buffer overflow by adding new namespace node to an existing nodeset or merging nodesets",
+          "href": "https://bugzilla.redhat.com/709747",
+          "id": "709747"
+        },
+        {
+          "text": "CVE-2011-0216 libxml2: Off-by-one error leading to heap-based buffer overflow in encoding",
+          "href": "https://bugzilla.redhat.com/724906",
+          "id": "724906"
+        },
+        {
+          "text": "CVE-2011-2834 libxml2: double-free caused by malformed XPath expression in XSLT",
+          "href": "https://bugzilla.redhat.com/735751",
+          "id": "735751"
+        },
+        {
+          "text": "CVE-2011-3905 libxml2 out of bounds read",
+          "href": "https://bugzilla.redhat.com/767387",
+          "id": "767387"
+        },
+        {
+          "text": "CVE-2011-3919 libxml2: Heap-based buffer overflow when decoding an entity reference with a long name",
+          "href": "https://bugzilla.redhat.com/771896",
+          "id": "771896"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120017001",
+                    "comment": "libxml2 is earlier than 0:2.6.26-2.1.12.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080032009",
+                    "comment": "libxml2 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120017003",
+                    "comment": "libxml2-devel is earlier than 0:2.6.26-2.1.12.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080032011",
+                    "comment": "libxml2-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120017005",
+                    "comment": "libxml2-python is earlier than 0:2.6.26-2.1.12.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080032013",
+                    "comment": "libxml2-python is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080946",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0946: ed security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0946",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0946",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-3916",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3916",
+        "source": "CVE"
+      }
+    ],
+    "description": "ed is a line-oriented text editor, used to create, display, and modify\ntext files (both interactively and via shell scripts).\n\nA heap-based buffer overflow was discovered in the way ed, the GNU line\neditor, processed long file names. An attacker could create a file with a\nspecially-crafted name that could possibly execute an arbitrary code when\nopened in the ed editor. (CVE-2008-3916)\n\nUsers of ed should upgrade to this updated package, which contains\na backported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-10-21"
+      },
+      "updated": {
+        "date": "2008-10-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-3916",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3916",
+          "impact": "moderate",
+          "public": "20080630",
+          "cwe": "CWE-122"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-3916 ed: Heap-based buffer overflow (arb. code execution)",
+          "href": "https://bugzilla.redhat.com/462584",
+          "id": "462584"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080946001",
+            "comment": "ed is earlier than 0:0.2-36.el4_7.1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080946002",
+            "comment": "ed is signed with Red Hat master key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080946004",
+            "comment": "ed is earlier than 0:0.2-39.el5_2"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080946005",
+            "comment": "ed is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060500",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2006:0500: freetype security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0500",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0500",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-0747",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0747",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1861",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1861",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-2661",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-2661",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-3467",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3467",
+        "source": "CVE"
+      }
+    ],
+    "description": "FreeType is a free, high-quality, and portable font engine.\n\nChris Evans discovered several integer underflow and overflow flaws in the\nFreeType font engine. If a user loads a carefully crafted font file with a\nprogram linked against FreeType, it could cause the application to crash or\nexecute arbitrary code as the user. While it is uncommon for a user to\nexplicitly load a font file, there are several application file formats\nwhich contain embedded fonts that are parsed by FreeType. (CVE-2006-0747,\nCVE-2006-1861, CVE-2006-3467)\n\nA NULL pointer dereference flaw was found in the FreeType font engine. An\napplication linked against FreeType can crash upon loading a malformed font\nfile. (CVE-2006-2661)\n\nUsers of FreeType should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-07-18"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-0747",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0747",
+          "impact": "moderate",
+          "public": "20060515"
+        },
+        {
+          "text": "CVE-2006-1861",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1861",
+          "impact": "moderate",
+          "public": "20060515",
+          "cwe": "CWE-190"
+        },
+        {
+          "text": "CVE-2006-2661",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-2661",
+          "impact": "low",
+          "public": "20060515"
+        },
+        {
+          "text": "CVE-2006-3467",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-3467",
+          "impact": "moderate",
+          "public": "20060718",
+          "cwe": "CWE-190"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-1861 freetype: multiple integer overflow vulnerabilities",
+          "href": "https://bugzilla.redhat.com/484437",
+          "id": "484437"
+        },
+        {
+          "text": "CVE-2006-3467 freetype: integer overflow vulnerability due to incomplete fix for CVE-2006-1861",
+          "href": "https://bugzilla.redhat.com/487070",
+          "id": "487070"
+        },
+        {
+          "text": "CVE-2006-0747 security flaw",
+          "href": "https://bugzilla.redhat.com/1618019",
+          "id": "1618019"
+        },
+        {
+          "text": "CVE-2006-2661 security flaw",
+          "href": "https://bugzilla.redhat.com/1618110",
+          "id": "1618110"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060500001",
+                    "comment": "freetype is earlier than 0:2.1.9-1.rhel4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060500002",
+                    "comment": "freetype is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060500003",
+                    "comment": "freetype-demos is earlier than 0:2.1.9-1.rhel4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060500004",
+                    "comment": "freetype-demos is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060500005",
+                    "comment": "freetype-devel is earlier than 0:2.1.9-1.rhel4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060500006",
+                    "comment": "freetype-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060500007",
+                    "comment": "freetype-utils is earlier than 0:2.1.9-1.rhel4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060500008",
+                    "comment": "freetype-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

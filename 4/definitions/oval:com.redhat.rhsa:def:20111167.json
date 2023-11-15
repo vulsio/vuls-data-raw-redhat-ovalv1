@@ -1,0 +1,185 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20111167",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2011:1167: seamonkey security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:1167",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1167",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-2982",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2982",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-2983",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2983",
+        "source": "CVE"
+      }
+    ],
+    "description": "SeaMonkey is an open source web browser, email and newsgroup client, IRC\nchat client, and HTML editor.\n\nSeveral flaws were found in the processing of malformed web content. A web\npage containing malicious content could cause SeaMonkey to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nSeaMonkey. (CVE-2011-2982)\n\nA flaw was found in the way SeaMonkey handled malformed JavaScript. A web\npage containing malicious JavaScript could cause SeaMonkey to access\nalready freed memory, causing SeaMonkey to crash or, potentially, execute\narbitrary code with the privileges of the user running SeaMonkey.\n(CVE-2011-2983)\n\nAll SeaMonkey users should upgrade to these updated packages, which correct\nthese issues. After installing the update, SeaMonkey must be restarted for\nthe changes to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-08-16"
+      },
+      "updated": {
+        "date": "2011-08-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-2982",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2982",
+          "impact": "critical",
+          "public": "20110816",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2011-2983",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2983",
+          "impact": "critical",
+          "public": "20110816",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-2982 Mozilla: Miscellaneous memory safety hazards",
+          "href": "https://bugzilla.redhat.com/730518",
+          "id": "730518"
+        },
+        {
+          "text": "CVE-2011-2983 Mozilla: Private data leakage using RegExp.input",
+          "href": "https://bugzilla.redhat.com/730523",
+          "id": "730523"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111167001",
+                    "comment": "seamonkey is earlier than 0:1.0.9-72.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609002",
+                    "comment": "seamonkey is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111167003",
+                    "comment": "seamonkey-chat is earlier than 0:1.0.9-72.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609004",
+                    "comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111167005",
+                    "comment": "seamonkey-devel is earlier than 0:1.0.9-72.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609006",
+                    "comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111167007",
+                    "comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-72.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609008",
+                    "comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111167009",
+                    "comment": "seamonkey-js-debugger is earlier than 0:1.0.9-72.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609010",
+                    "comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111167011",
+                    "comment": "seamonkey-mail is earlier than 0:1.0.9-72.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609012",
+                    "comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

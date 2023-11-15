@@ -1,0 +1,231 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110436",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2011:0436: avahi security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0436",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0436",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1002",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1002",
+        "source": "CVE"
+      }
+    ],
+    "description": "Avahi is an implementation of the DNS Service Discovery and Multicast DNS\nspecifications for Zero Configuration Networking. It facilitates service\ndiscovery on a local network. Avahi and Avahi-aware applications allow you\nto plug your computer into a network and, with no configuration, view other\npeople to chat with, view printers to print to, and find shared files on\nother computers.\n\nA flaw was found in the way the Avahi daemon (avahi-daemon) processed\nMulticast DNS (mDNS) packets with an empty payload. An attacker on the\nlocal network could use this flaw to cause avahi-daemon on a target system\nto enter an infinite loop via an empty mDNS UDP packet. (CVE-2011-1002)\n\nAll users are advised to upgrade to these updated packages, which contain\na backported patch to correct this issue. After installing the update,\navahi-daemon will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-04-12"
+      },
+      "updated": {
+        "date": "2011-04-12"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1002",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1002",
+          "impact": "moderate",
+          "public": "20110104",
+          "cwe": "CWE-835",
+          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1002 avahi: daemon infinite loop triggered by an empty UDP packet (CVE-2010-2244 fix regression)",
+          "href": "https://bugzilla.redhat.com/667187",
+          "id": "667187"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436001",
+                    "comment": "avahi is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013002",
+                    "comment": "avahi is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436003",
+                    "comment": "avahi-compat-howl is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013004",
+                    "comment": "avahi-compat-howl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436005",
+                    "comment": "avahi-compat-howl-devel is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013006",
+                    "comment": "avahi-compat-howl-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436007",
+                    "comment": "avahi-compat-libdns_sd is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013008",
+                    "comment": "avahi-compat-libdns_sd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436009",
+                    "comment": "avahi-compat-libdns_sd-devel is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013010",
+                    "comment": "avahi-compat-libdns_sd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436011",
+                    "comment": "avahi-devel is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013012",
+                    "comment": "avahi-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436013",
+                    "comment": "avahi-glib is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013014",
+                    "comment": "avahi-glib is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436015",
+                    "comment": "avahi-glib-devel is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013016",
+                    "comment": "avahi-glib-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436017",
+                    "comment": "avahi-qt3 is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013018",
+                    "comment": "avahi-qt3 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436019",
+                    "comment": "avahi-qt3-devel is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013020",
+                    "comment": "avahi-qt3-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110436021",
+                    "comment": "avahi-tools is earlier than 0:0.6.16-10.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090013022",
+                    "comment": "avahi-tools is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

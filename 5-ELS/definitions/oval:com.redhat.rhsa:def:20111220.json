@@ -1,0 +1,246 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20111220",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2011:1220: samba3x security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:1220",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1220",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1678",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1678",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-2522",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2522",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-2694",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2694",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-2724",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2724",
+        "source": "CVE"
+      }
+    ],
+    "description": "Samba is a suite of programs used by machines to share files, printers, and\nother information.\n\nA cross-site scripting (XSS) flaw was found in the password change page of\nthe Samba Web Administration Tool (SWAT). If a remote attacker could trick\na user, who was logged into the SWAT interface, into visiting a\nspecially-crafted URL, it would lead to arbitrary web script execution in\nthe context of the user's SWAT session. (CVE-2011-2694)\n\nIt was found that SWAT web pages did not protect against Cross-Site\nRequest Forgery (CSRF) attacks. If a remote attacker could trick a user,\nwho was logged into the SWAT interface, into visiting a specially-crafted\nURL, the attacker could perform Samba configuration changes with the\nprivileges of the logged in user. (CVE-2011-2522)\n\nIt was found that the fix for CVE-2010-0547, provided by the Samba rebase\nin RHBA-2011:0054, was incomplete. The mount.cifs tool did not properly\nhandle share or directory names containing a newline character, allowing a\nlocal attacker to corrupt the mtab (mounted file systems table) file via a\nspecially-crafted CIFS (Common Internet File System) share mount request,\nif mount.cifs had the setuid bit set. (CVE-2011-2724)\n\nIt was found that the mount.cifs tool did not handle certain errors\ncorrectly when updating the mtab file. If mount.cifs had the setuid bit\nset, a local attacker could corrupt the mtab file by setting a small file\nsize limit before running mount.cifs. (CVE-2011-1678)\n\nNote: mount.cifs from the samba3x packages distributed by Red Hat does not\nhave the setuid bit set. We recommend that administrators do not manually\nset the setuid bit for mount.cifs.\n\nRed Hat would like to thank the Samba project for reporting CVE-2011-2694\nand CVE-2011-2522, and Dan Rosenberg for reporting CVE-2011-1678. Upstream\nacknowledges Nobuhiro Tsuji of NTT DATA Security Corporation as the\noriginal reporter of CVE-2011-2694, and Yoshihiro Ishikawa of LAC Co., Ltd.\nas the original reporter of CVE-2011-2522.\n\nUsers of Samba are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues. After installing this\nupdate, the smb service will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-08-29"
+      },
+      "updated": {
+        "date": "2011-08-29"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1678",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1678",
+          "impact": "low",
+          "public": "20110303",
+          "cvss_2": "3.3/AV:L/AC:M/Au:N/C:N/I:P/A:P"
+        },
+        {
+          "text": "CVE-2011-2522",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2522",
+          "impact": "moderate",
+          "public": "20110726",
+          "cwe": "CWE-352",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2011-2694",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2694",
+          "impact": "moderate",
+          "public": "20110726",
+          "cwe": "CWE-79",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2011-2724",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2724",
+          "impact": "low",
+          "public": "20110729",
+          "cvss_2": "2.6/AV:L/AC:H/Au:N/C:N/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1678 samba/cifs-utils: mount.cifs and umount.cifs fail to anticipate RLIMIT_FSIZE",
+          "href": "https://bugzilla.redhat.com/695925",
+          "id": "695925"
+        },
+        {
+          "text": "CVE-2011-2522 samba (SWAT): Absent CSRF protection in various Samba web configuration formulars",
+          "href": "https://bugzilla.redhat.com/721348",
+          "id": "721348"
+        },
+        {
+          "text": "CVE-2011-2694 samba (SWAT): XSS flaw in Change Password page",
+          "href": "https://bugzilla.redhat.com/722537",
+          "id": "722537"
+        },
+        {
+          "text": "CVE-2011-2724 samba, cifs-utils: mount.cifs incorrect fix for CVE-2010-0547",
+          "href": "https://bugzilla.redhat.com/726691",
+          "id": "726691"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111220001",
+                    "comment": "samba3x is earlier than 0:3.5.4-0.83.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054002",
+                    "comment": "samba3x is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111220003",
+                    "comment": "samba3x-client is earlier than 0:3.5.4-0.83.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054004",
+                    "comment": "samba3x-client is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111220005",
+                    "comment": "samba3x-common is earlier than 0:3.5.4-0.83.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054006",
+                    "comment": "samba3x-common is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111220007",
+                    "comment": "samba3x-doc is earlier than 0:3.5.4-0.83.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054008",
+                    "comment": "samba3x-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111220009",
+                    "comment": "samba3x-domainjoin-gui is earlier than 0:3.5.4-0.83.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054010",
+                    "comment": "samba3x-domainjoin-gui is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111220011",
+                    "comment": "samba3x-swat is earlier than 0:3.5.4-0.83.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054012",
+                    "comment": "samba3x-swat is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111220013",
+                    "comment": "samba3x-winbind is earlier than 0:3.5.4-0.83.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054014",
+                    "comment": "samba3x-winbind is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111220015",
+                    "comment": "samba3x-winbind-devel is earlier than 0:3.5.4-0.83.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054016",
+                    "comment": "samba3x-winbind-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110025",
+  "version": "648",
+  "metadata": {
+    "title": "RHSA-2011:0025: gcc security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0025",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0025",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0831",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0831",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2322",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2322",
+        "source": "CVE"
+      }
+    ],
+    "description": "The gcc packages include C, C++, Java, Fortran, Objective C, and Ada 95 GNU\ncompilers, along with related support libraries. The libgcj package\nprovides fastjar, an archive tool for Java Archive (JAR) files.\n\nTwo directory traversal flaws were found in the way fastjar extracted JAR\narchive files. If a local, unsuspecting user extracted a specially-crafted\nJAR file, it could cause fastjar to overwrite arbitrary files writable by\nthe user running fastjar. (CVE-2010-0831, CVE-2010-2322)\n\nThis update also fixes the following bugs:\n\n* The option -print-multi-os-directory in the gcc --help output is not in\nthe gcc(1) man page. This update applies an upstream patch to amend this.\n(BZ#529659)\n\n* An internal assertion in the compiler tried to check that a C++ static\ndata member is external which resulted in errors. This was because when the\ncompiler optimizes C++ anonymous namespaces the declarations were no longer\nmarked external as everything on anonymous namespaces is local to the\ncurrent translation. This update corrects the assertion to resolve this\nissue. (BZ#503565, BZ#508735, BZ#582682)\n\n* Attempting to compile certain .cpp files could have resulted in an\ninternal compiler error. This update resolves this issue. (BZ#527510)\n\n* PrintServiceLookup.lookupPrintServices with an appropriate DocFlavor\nfailed to return a list of printers under gcj. This update includes a\nbackported patch to correct this bug in the printer lookup service.\n(BZ#578382)\n\n* GCC would not build against xulrunner-devel-1.9.2. This update removes\ngcjwebplugin from the GCC RPM. (BZ#596097)\n\n* When a SystemTap generated kernel module was compiled, gcc reported an\ninternal compiler error and gets a segmentation fault. This update applies\na patch that, instead of crashing, assumes it can point to anything.\n(BZ#605803)\n\n* There was a performance issue with libstdc++ regarding all objects\nderived from or using std::streambuf because of lock contention between\nthreads. This patch ensures reload uses the same value from _S_global for\nthe comparison, _M_add_reference () and _M_impl member of the class.\n(BZ#635708)\n\nAll gcc users should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-01-13"
+      },
+      "updated": {
+        "date": "2011-01-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0831",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0831",
+          "impact": "low",
+          "public": "20100606",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2010-2322",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2322",
+          "impact": "low",
+          "public": "20100606",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0831 CVE-2010-2322 fastjar: directory traversal vulnerabilities",
+          "href": "https://bugzilla.redhat.com/594497",
+          "id": "594497"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025001",
+                    "comment": "cpp is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039059",
+                    "comment": "cpp is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025003",
+                    "comment": "gcc is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039061",
+                    "comment": "gcc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025005",
+                    "comment": "gcc-c++ is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039063",
+                    "comment": "gcc-c++ is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025007",
+                    "comment": "gcc-gfortran is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039065",
+                    "comment": "gcc-gfortran is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025009",
+                    "comment": "gcc-gnat is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039067",
+                    "comment": "gcc-gnat is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025011",
+                    "comment": "gcc-java is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039069",
+                    "comment": "gcc-java is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025013",
+                    "comment": "gcc-objc is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039071",
+                    "comment": "gcc-objc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025015",
+                    "comment": "gcc-objc++ is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039073",
+                    "comment": "gcc-objc++ is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025017",
+                    "comment": "libgcc is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039075",
+                    "comment": "libgcc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025019",
+                    "comment": "libgcj is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039077",
+                    "comment": "libgcj is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025021",
+                    "comment": "libgcj-devel is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039079",
+                    "comment": "libgcj-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025023",
+                    "comment": "libgcj-src is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039081",
+                    "comment": "libgcj-src is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025025",
+                    "comment": "libgfortran is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039083",
+                    "comment": "libgfortran is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025027",
+                    "comment": "libgnat is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039085",
+                    "comment": "libgnat is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025029",
+                    "comment": "libmudflap is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039087",
+                    "comment": "libmudflap is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025031",
+                    "comment": "libmudflap-devel is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039089",
+                    "comment": "libmudflap-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025033",
+                    "comment": "libobjc is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039091",
+                    "comment": "libobjc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025035",
+                    "comment": "libstdc++ is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039093",
+                    "comment": "libstdc++ is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110025037",
+                    "comment": "libstdc++-devel is earlier than 0:4.1.2-50.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100039095",
+                    "comment": "libstdc++-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

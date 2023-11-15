@@ -1,0 +1,116 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070353",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2007:0353: evolution security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0353",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0353",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-1558",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1558",
+        "source": "CVE"
+      }
+    ],
+    "description": "Evolution is the GNOME collection of personal information management (PIM)\ntools.\n\nA flaw was found in the way Evolution processed certain APOP authentication\nrequests. A remote attacker could potentially acquire certain portions of a\nuser's authentication credentials by sending certain responses when\nevolution-data-server attempted to authenticate against an APOP server.\n(CVE-2007-1558)\n\nAll users of Evolution should upgrade to these updated packages, which\ncontain a backported patch which resolves this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-05-17"
+      },
+      "updated": {
+        "date": "2007-05-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-1558",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1558",
+          "impact": "moderate",
+          "public": "20070402",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-1558 fetchmail/mutt/evolution/...: APOP password disclosure vulnerability",
+          "href": "https://bugzilla.redhat.com/241191",
+          "id": "241191"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070353001",
+                    "comment": "evolution is earlier than 0:2.0.2-35.0.2.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070353002",
+                    "comment": "evolution is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070353003",
+                    "comment": "evolution-devel is earlier than 0:2.0.2-35.0.2.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070353004",
+                    "comment": "evolution-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

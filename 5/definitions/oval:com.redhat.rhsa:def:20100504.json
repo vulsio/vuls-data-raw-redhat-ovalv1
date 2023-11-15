@@ -1,0 +1,397 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100504",
+  "version": "665",
+  "metadata": {
+    "title": "RHSA-2010:0504: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0504",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0504",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0291",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0291",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0622",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0622",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1087",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1087",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1088",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1088",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1173",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1173",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1187",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1187",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1436",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1436",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1437",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1437",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1641",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1641",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* multiple flaws were found in the mmap and mremap implementations. A local\nuser could use these flaws to cause a local denial of service or escalate\ntheir privileges. (CVE-2010-0291, Important)\n\n* a NULL pointer dereference flaw was found in the Fast Userspace Mutexes\n(futexes) implementation. The unlock code path did not check if the futex\nvalue associated with pi_state->owner had been modified. A local user could\nuse this flaw to modify the futex value, possibly leading to a denial of\nservice or privilege escalation when the pi_state->owner pointer is\ndereferenced. (CVE-2010-0622, Important)\n\n* a NULL pointer dereference flaw was found in the Linux kernel Network\nFile System (NFS) implementation. A local user on a system that has an\nNFS-mounted file system could use this flaw to cause a denial of service or\nescalate their privileges on that system. (CVE-2010-1087, Important)\n\n* a flaw was found in the sctp_process_unk_param() function in the Linux\nkernel Stream Control Transmission Protocol (SCTP) implementation. A remote\nattacker could send a specially-crafted SCTP packet to an SCTP listening\nport on a target system, causing a kernel panic (denial of service).\n(CVE-2010-1173, Important)\n\n* a flaw was found in the Linux kernel Transparent Inter-Process\nCommunication protocol (TIPC) implementation. If a client application, on a\nlocal system where the tipc module is not yet in network mode, attempted to\nsend a message to a remote TIPC node, it would dereference a NULL pointer\non the local system, causing a kernel panic (denial of service).\n(CVE-2010-1187, Important)\n\n* a buffer overflow flaw was found in the Linux kernel Global File System 2\n(GFS2) implementation. In certain cases, a quota could be written past the\nend of a memory page, causing memory corruption, leaving the quota stored\non disk in an invalid state. A user with write access to a GFS2 file system\ncould trigger this flaw to cause a kernel crash (denial of service) or\nescalate their privileges on the GFS2 server. This issue can only be\ntriggered if the GFS2 file system is mounted with the \"quota=on\" or\n\"quota=account\" mount option. (CVE-2010-1436, Important)\n\n* a race condition between finding a keyring by name and destroying a freed\nkeyring was found in the Linux kernel key management facility. A local user\ncould use this flaw to cause a kernel panic (denial of service) or escalate\ntheir privileges. (CVE-2010-1437, Important)\n\n* a flaw was found in the link_path_walk() function in the Linux kernel.\nUsing the file descriptor returned by the open() function with the\nO_NOFOLLOW flag on a subordinate NFS-mounted file system, could result in a\nNULL pointer dereference, causing a denial of service or privilege\nescalation. (CVE-2010-1088, Moderate)\n\n* a missing permission check was found in the gfs2_set_flags() function in\nthe Linux kernel GFS2 implementation. A local user could use this flaw to\nchange certain file attributes of files, on a GFS2 file system, that they\ndo not own. (CVE-2010-1641, Low)\n\nRed Hat would like to thank Jukka Taimisto and Olli Jarva of Codenomicon\nLtd, Nokia Siemens Networks, and Wind River on behalf of their customer,\nfor responsibly reporting CVE-2010-1173; Mario Mikocevic for responsibly\nreporting CVE-2010-1436; and Dan Rosenberg for responsibly reporting\nCVE-2010-1641.\n\nThis update also fixes several bugs. Documentation for these bug fixes will\nbe available shortly from\nhttp://www.redhat.com/docs/en-US/errata/RHSA-2010-0504/Kernel_Security_Update/index.html\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-07-01"
+      },
+      "updated": {
+        "date": "2010-07-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0291",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0291",
+          "impact": "important",
+          "public": "20091207",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-0622",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0622",
+          "impact": "moderate",
+          "public": "20100202",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-1087",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1087",
+          "impact": "important",
+          "public": "20100219",
+          "cwe": "CWE-662->CWE-362->CWE-672->CWE-119",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-1088",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1088",
+          "impact": "moderate",
+          "public": "20100219",
+          "cvss_2": "6.9/AV:L/AC:M/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-1173",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1173",
+          "impact": "important",
+          "public": "20100429",
+          "cwe": "CWE-228->CWE-119",
+          "cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-1187",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1187",
+          "impact": "important",
+          "public": "20100219",
+          "cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-1436",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1436",
+          "impact": "important",
+          "public": "20100115",
+          "cwe": "CWE-119",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-1437",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1437",
+          "impact": "important",
+          "public": "20100423",
+          "cwe": "CWE-672->CWE-119",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-1641",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1641",
+          "impact": "low",
+          "public": "20100524",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0291 kernel: untangle the do_mremap()",
+          "href": "https://bugzilla.redhat.com/556703",
+          "id": "556703"
+        },
+        {
+          "text": "CVE-2010-0622 kernel: futex: Handle user space corruption gracefully",
+          "href": "https://bugzilla.redhat.com/563091",
+          "id": "563091"
+        },
+        {
+          "text": "CVE-2010-1087 kernel: NFS: Fix an Oops when truncating a file",
+          "href": "https://bugzilla.redhat.com/567184",
+          "id": "567184"
+        },
+        {
+          "text": "CVE-2010-1088 kernel: fix LOOKUP_FOLLOW on automount \"symlinks\"",
+          "href": "https://bugzilla.redhat.com/567813",
+          "id": "567813"
+        },
+        {
+          "text": "CVE-2010-1187 kernel: tipc: Fix oops on send prior to entering networked mode",
+          "href": "https://bugzilla.redhat.com/578057",
+          "id": "578057"
+        },
+        {
+          "text": "CVE-2010-1173 kernel: sctp: crash due to malformed SCTPChunkInit packet",
+          "href": "https://bugzilla.redhat.com/584645",
+          "id": "584645"
+        },
+        {
+          "text": "CVE-2010-1437 kernel: keyrings: find_keyring_by_name() can gain the freed keyring",
+          "href": "https://bugzilla.redhat.com/585094",
+          "id": "585094"
+        },
+        {
+          "text": "CVE-2010-1436 kernel: gfs2 buffer overflow",
+          "href": "https://bugzilla.redhat.com/586006",
+          "id": "586006"
+        },
+        {
+          "text": "CVE-2010-1641 kernel: GFS2: The setflags ioctl() doesn't check file ownership",
+          "href": "https://bugzilla.redhat.com/595579",
+          "id": "595579"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20100504025",
+                "comment": "kernel earlier than 0:2.6.18-194.8.1.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20100504026",
+                "comment": "kernel earlier than 0:2.6.18-194.8.1.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504001",
+                    "comment": "kernel is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100504023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-194.8.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

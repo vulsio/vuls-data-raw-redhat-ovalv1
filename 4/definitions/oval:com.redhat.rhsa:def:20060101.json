@@ -1,0 +1,449 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060101",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2006:0101: kernel security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0101",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0101",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2002-2185",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2002-2185",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2004-1190",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2004-1190",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-2458",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2458",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-2709",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2709",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-2800",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2800",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3044",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3044",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3106",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3106",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3109",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3109",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3276",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3276",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3356",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3356",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3358",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3358",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3784",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3784",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3806",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3806",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3848",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3848",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3857",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3857",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3858",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3858",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-4605",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-4605",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Linux kernel handles the basic functions of the operating system.\n\nThese new kernel packages contain fixes for the security issues\ndescribed below:\n\n- a flaw in network IGMP processing that a allowed a remote user on the\nlocal network to cause a denial of service (disabling of multicast reports)\nif the system is running multicast applications (CVE-2002-2185, moderate)\n\n- a flaw which allowed a local user to write to firmware on read-only\nopened /dev/cdrom devices (CVE-2004-1190, moderate) \n\n- a flaw in gzip/zlib handling internal to the kernel that may allow a\nlocal user to cause a denial of service (crash) (CVE-2005-2458, low) \n\n- a flaw in procfs handling during unloading of modules that allowed a\nlocal user to cause a denial of service or potentially gain privileges\n(CVE-2005-2709, moderate)\n\n- a flaw in the SCSI procfs interface that allowed a local user to cause a\ndenial of service (crash) (CVE-2005-2800, moderate)\n\n- a flaw in 32-bit-compat handling of the TIOCGDEV ioctl that allowed\na local user to cause a denial of service (crash) (CVE-2005-3044, important)\n\n- a race condition when threads share memory mapping that allowed local\nusers to cause a denial of service (deadlock) (CVE-2005-3106, important)\n\n- a flaw when trying to mount a non-hfsplus filesystem using hfsplus that\nallowed local users to cause a denial of service (crash) (CVE-2005-3109,\nmoderate)\n\n- a minor info leak with the get_thread_area() syscall that allowed\na local user to view uninitialized kernel stack data (CVE-2005-3276, low) \n\n- a flaw in mq_open system call that allowed a local user to cause a denial\nof service (crash) (CVE-2005-3356, important)\n\n- a flaw in set_mempolicy that allowed a local user on some 64-bit\narchitectures to cause a denial of service (crash) (CVE-2005-3358, important)\n\n- a flaw in the auto-reap of child processes that allowed a local user to\ncause a denial of service (crash) (CVE-2005-3784, important)\n\n- a flaw in the IPv6 flowlabel code that allowed a local user to cause a\ndenial of service (crash) (CVE-2005-3806, important)\n\n- a flaw in network ICMP processing that allowed a local user to cause\na denial of service (memory exhaustion) (CVE-2005-3848, important)\n\n- a flaw in file lease time-out handling that allowed a local user to cause\na denial of service (log file overflow) (CVE-2005-3857, moderate) \n\n- a flaw in network IPv6 xfrm handling that allowed a local user to\ncause a denial of service (memory exhaustion) (CVE-2005-3858, important) \n\n- a flaw in procfs handling that allowed a local user to read kernel memory\n(CVE-2005-4605, important)\n\nAll Red Hat Enterprise Linux 4 users are advised to upgrade their kernels\nto the packages associated with their machine architectures and\nconfigurations as listed in this erratum.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-01-17"
+      },
+      "updated": {
+        "date": "2006-01-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2002-2185",
+          "href": "https://access.redhat.com/security/cve/CVE-2002-2185",
+          "impact": "moderate",
+          "public": "20020625"
+        },
+        {
+          "text": "CVE-2004-1190",
+          "href": "https://access.redhat.com/security/cve/CVE-2004-1190",
+          "impact": "moderate",
+          "public": "20040730"
+        },
+        {
+          "text": "CVE-2005-2458",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-2458",
+          "impact": "low",
+          "public": "19990625"
+        },
+        {
+          "text": "CVE-2005-2709",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-2709",
+          "impact": "moderate",
+          "public": "20051108:1400"
+        },
+        {
+          "text": "CVE-2005-2800",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-2800",
+          "impact": "moderate",
+          "public": "20050827"
+        },
+        {
+          "text": "CVE-2005-3044",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3044",
+          "impact": "important",
+          "public": "20050909"
+        },
+        {
+          "text": "CVE-2005-3106",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3106",
+          "impact": "important",
+          "public": "20050115"
+        },
+        {
+          "text": "CVE-2005-3109",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3109",
+          "impact": "moderate",
+          "public": "20050501"
+        },
+        {
+          "text": "CVE-2005-3276",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3276",
+          "impact": "low",
+          "public": "20050727"
+        },
+        {
+          "text": "CVE-2005-3356",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3356",
+          "impact": "important",
+          "public": "20060114"
+        },
+        {
+          "text": "CVE-2005-3358",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3358",
+          "impact": "important",
+          "public": "20051213"
+        },
+        {
+          "text": "CVE-2005-3784",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3784",
+          "impact": "important",
+          "public": "20051110"
+        },
+        {
+          "text": "CVE-2005-3806",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3806",
+          "impact": "important",
+          "public": "20051025"
+        },
+        {
+          "text": "CVE-2005-3848",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3848",
+          "impact": "important",
+          "public": "20050818"
+        },
+        {
+          "text": "CVE-2005-3857",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3857",
+          "impact": "moderate",
+          "public": "20051113"
+        },
+        {
+          "text": "CVE-2005-3858",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3858",
+          "impact": "important",
+          "public": "20050826"
+        },
+        {
+          "text": "CVE-2005-4605",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-4605",
+          "impact": "important",
+          "public": "20051223"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2002-2185 security flaw",
+          "href": "https://bugzilla.redhat.com/1616930",
+          "id": "1616930"
+        },
+        {
+          "text": "CVE-2004-1190 security flaw",
+          "href": "https://bugzilla.redhat.com/1617395",
+          "id": "1617395"
+        },
+        {
+          "text": "CVE-2005-2458 security flaw",
+          "href": "https://bugzilla.redhat.com/1617720",
+          "id": "1617720"
+        },
+        {
+          "text": "CVE-2005-2709 security flaw",
+          "href": "https://bugzilla.redhat.com/1617751",
+          "id": "1617751"
+        },
+        {
+          "text": "CVE-2005-2800 security flaw",
+          "href": "https://bugzilla.redhat.com/1617758",
+          "id": "1617758"
+        },
+        {
+          "text": "CVE-2005-3044 security flaw",
+          "href": "https://bugzilla.redhat.com/1617776",
+          "id": "1617776"
+        },
+        {
+          "text": "CVE-2005-3106 security flaw",
+          "href": "https://bugzilla.redhat.com/1617782",
+          "id": "1617782"
+        },
+        {
+          "text": "CVE-2005-3109 security flaw",
+          "href": "https://bugzilla.redhat.com/1617786",
+          "id": "1617786"
+        },
+        {
+          "text": "CVE-2005-3276 security flaw",
+          "href": "https://bugzilla.redhat.com/1617813",
+          "id": "1617813"
+        },
+        {
+          "text": "CVE-2005-3356 security flaw",
+          "href": "https://bugzilla.redhat.com/1617817",
+          "id": "1617817"
+        },
+        {
+          "text": "CVE-2005-3358 security flaw",
+          "href": "https://bugzilla.redhat.com/1617819",
+          "id": "1617819"
+        },
+        {
+          "text": "CVE-2005-3784 security flaw",
+          "href": "https://bugzilla.redhat.com/1617839",
+          "id": "1617839"
+        },
+        {
+          "text": "CVE-2005-3806 security flaw",
+          "href": "https://bugzilla.redhat.com/1617840",
+          "id": "1617840"
+        },
+        {
+          "text": "CVE-2005-3848 security flaw",
+          "href": "https://bugzilla.redhat.com/1617841",
+          "id": "1617841"
+        },
+        {
+          "text": "CVE-2005-3857 security flaw",
+          "href": "https://bugzilla.redhat.com/1617842",
+          "id": "1617842"
+        },
+        {
+          "text": "CVE-2005-3858 security flaw",
+          "href": "https://bugzilla.redhat.com/1617843",
+          "id": "1617843"
+        },
+        {
+          "text": "CVE-2005-4605 security flaw",
+          "href": "https://bugzilla.redhat.com/1617860",
+          "id": "1617860"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20060101015",
+                "comment": "kernel earlier than 0:2.6.9-22.0.2.EL is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20060101016",
+                "comment": "kernel earlier than 0:2.6.9-22.0.2.EL is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060101001",
+                    "comment": "kernel is earlier than 0:2.6.9-22.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060101003",
+                    "comment": "kernel-devel is earlier than 0:2.6.9-22.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060101005",
+                    "comment": "kernel-doc is earlier than 0:2.6.9-22.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060101007",
+                    "comment": "kernel-hugemem is earlier than 0:2.6.9-22.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
+                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060101009",
+                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-22.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
+                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060101011",
+                    "comment": "kernel-smp is earlier than 0:2.6.9-22.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
+                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060101013",
+                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-22.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
+                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

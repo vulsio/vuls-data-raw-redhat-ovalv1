@@ -1,0 +1,89 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080815",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2008:0815: yum-rhn-plugin security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0815",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0815",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-3270",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3270",
+        "source": "CVE"
+      }
+    ],
+    "description": "The yum-rhn-plugin provides support for yum to securely access a Red Hat\nNetwork (RHN) server for software updates.\n\nIt was discovered that yum-rhn-plugin did not verify the SSL certificate\nfor all communication with a Red Hat Network server. An attacker able to\nredirect the network communication between a victim and an RHN server could\nuse this flaw to provide malicious repository metadata. This metadata could\nbe used to block the victim from receiving specific security updates.\n(CVE-2008-3270)\n\nThis flaw did not allow an attacker to install malicious packages. Package\nsignatures were verified and only packages signed with a trusted Red Hat\nGPG key were installed.\n\nRed Hat would like to thank Justin Cappos and Justin Samuel for discussing\nvarious package update mechanism flaws which led to our discovery of this\nissue.\n\nUsers of yum-rhn-plugin are advised to upgrade to this updated packages,\nwhich resolves this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-08-14"
+      },
+      "updated": {
+        "date": "2008-08-14"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-3270",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3270",
+          "impact": "moderate",
+          "public": "20080814",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-3270 yum-rhn-plugin: does not verify SSL certificate for all communication with RHN server",
+          "href": "https://bugzilla.redhat.com/457113",
+          "id": "457113"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080815001",
+            "comment": "yum-rhn-plugin is earlier than 0:0.5.3-12.el5_2.9"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080815002",
+            "comment": "yum-rhn-plugin is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110486",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2011:0486: xmlsec1 security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0486",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0486",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1425",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1425",
+        "source": "CVE"
+      }
+    ],
+    "description": "The XML Security Library is a C library based on libxml2 and OpenSSL that\nimplements the XML Digital Signature and XML Encryption standards.\n\nA flaw was found in the way xmlsec1 handled XML files that contain an XSLT\ntransformation specification. A specially-crafted XML file could cause\nxmlsec1 to create or overwrite an arbitrary file while performing the\nverification of a file's digital signature. (CVE-2011-1425)\n\nRed Hat would like to thank Nicolas Grégoire and Aleksey Sanin for\nreporting this issue.\n\nThis update also fixes the following bug:\n\n* xmlsec1 previously used an incorrect search path when searching for\ncrypto plug-in libraries, possibly trying to access such libraries using a\nrelative path. (BZ#558480, BZ#700467)\n\nUsers of xmlsec1 should upgrade to these updated packages, which contain\nbackported patches to correct these issues. After installing the update,\nall running applications that use the xmlsec1 library must be restarted for\nthe update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-05-04"
+      },
+      "updated": {
+        "date": "2011-05-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1425",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1425",
+          "impact": "moderate",
+          "public": "20110331",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1425 xmlsec1: arbitrary file creation when verifying signatures",
+          "href": "https://bugzilla.redhat.com/692133",
+          "id": "692133"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486001",
+                    "comment": "xmlsec1 is earlier than 0:1.2.6-3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428002",
+                    "comment": "xmlsec1 is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486003",
+                    "comment": "xmlsec1-devel is earlier than 0:1.2.6-3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428004",
+                    "comment": "xmlsec1-devel is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486005",
+                    "comment": "xmlsec1-openssl is earlier than 0:1.2.6-3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428006",
+                    "comment": "xmlsec1-openssl is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486007",
+                    "comment": "xmlsec1-openssl-devel is earlier than 0:1.2.6-3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428008",
+                    "comment": "xmlsec1-openssl-devel is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486010",
+                    "comment": "xmlsec1 is earlier than 0:1.2.9-8.1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428011",
+                    "comment": "xmlsec1 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486012",
+                    "comment": "xmlsec1-devel is earlier than 0:1.2.9-8.1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428013",
+                    "comment": "xmlsec1-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486014",
+                    "comment": "xmlsec1-gnutls is earlier than 0:1.2.9-8.1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428015",
+                    "comment": "xmlsec1-gnutls is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486016",
+                    "comment": "xmlsec1-gnutls-devel is earlier than 0:1.2.9-8.1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428017",
+                    "comment": "xmlsec1-gnutls-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486018",
+                    "comment": "xmlsec1-nss is earlier than 0:1.2.9-8.1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428019",
+                    "comment": "xmlsec1-nss is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486020",
+                    "comment": "xmlsec1-nss-devel is earlier than 0:1.2.9-8.1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428021",
+                    "comment": "xmlsec1-nss-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486022",
+                    "comment": "xmlsec1-openssl is earlier than 0:1.2.9-8.1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428023",
+                    "comment": "xmlsec1-openssl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110486024",
+                    "comment": "xmlsec1-openssl-devel is earlier than 0:1.2.9-8.1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091428025",
+                    "comment": "xmlsec1-openssl-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

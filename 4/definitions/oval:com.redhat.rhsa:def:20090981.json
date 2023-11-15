@@ -1,0 +1,91 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090981",
+  "version": "644",
+  "metadata": {
+    "title": "RHSA-2009:0981: util-linux security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0981",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0981",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1926",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1926",
+        "source": "CVE"
+      }
+    ],
+    "description": "The util-linux package contains a collection of basic system utilities,\nsuch as fdisk and mount.\n\nA log injection attack was found in util-linux when logging log in attempts\nvia the audit subsystem of the Linux kernel. A remote attacker could use\nthis flaw to modify certain parts of logged events, possibly hiding their\nactivities on a system. (CVE-2008-1926)\n\nThis updated package also fixes the following bugs:\n\n* partitions created by VMware ESX™ were not included in the list of\nrecognized file systems used by fdisk. Consequently, if VMware ESX was\ninstalled, \"fdisk -l\" returned \"Unknown\" for these partitions. With this\nupdate, information regarding the VMKcore and VMFS partitions has been\nadded to the file systems list. On systems running VMware ESX, \"fdisk -l\"\nnow lists information about these partitions as expected. (BZ#447264)\n\n* if a username was not set, the login command would fail with a\nSegmentation fault. With this update, login lets the audit system handle\nNULL usernames (it sends an AUDIT_USER_LOGIN message to the audit system in\nthe event there is no username set). (BZ#456213)\n\n* the nfs(5) man page listed version 2 as the default. This is incorrect:\nunless otherwise specified, the NFS client uses NFS version 3. The man page\nhas been corrected. (BZ#458539)\n\n* in certain situations, backgrounded NFS mounts died shortly after being\nbackgrounded when the mount command was executed by the initlog command,\nwhich, for example, would occur when running an init script, such as\nrunning the \"service netfs start\" command. In these situations, running the\n\"ps -ef\" command showed backgrounded NFS mounts disappearing shortly after\nbeing backgrounded. In this updated package, backgrounded mount processes\ndetach from the controlling terminal, which resolves this issue.\n(BZ#461488)\n\n* if a new partition's starting cylinder was beyond one terabyte, fdisk\ncould not create the partition. This has been fixed. (BZ#471372)\n\n* in rare cases \"mount -a\" ignored fstab order and tried to re-mount file\nsystems on mpath devices. With this update, mount honors fstab order even\nin the rare cases reported. (BZ#472186)\n\n* the \"mount --move\" command moved a file system's mount point as expected\n(for example, /proc/mounts showed the changed mount point as expected) but\ndid not update /etc/mtab properly. With this update, the \"mount --move\"\ncommand gathers all necessary information about the old mount point, copies\nit to the new mount point and then deletes the old point, ensuring\n/etc/mtab is updated properly. (BZ#485004)\n\nUtil-linux users are advised to upgrade to this updated package, which\naddresses this vulnerability and resolves these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-05-18"
+      },
+      "updated": {
+        "date": "2009-05-18"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1926",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1926",
+          "impact": "low",
+          "public": "20080421",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1926 util-linux: audit log injection via login",
+          "href": "https://bugzilla.redhat.com/443925",
+          "id": "443925"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20090981001",
+            "comment": "util-linux is earlier than 0:2.12a-24.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070235002",
+            "comment": "util-linux is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

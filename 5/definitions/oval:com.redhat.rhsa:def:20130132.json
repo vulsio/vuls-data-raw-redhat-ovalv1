@@ -1,0 +1,89 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20130132",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2013:0132: autofs security, bug fix, and enhancement update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:0132",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0132",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-2697",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-2697",
+        "source": "CVE"
+      }
+    ],
+    "description": "The autofs utility controls the operation of the automount daemon. The\nautomount daemon automatically mounts and unmounts file systems.\n\nA bug fix included in RHBA-2012:0264 introduced a denial of service flaw in\nautofs. When using autofs with LDAP, a local user could use this flaw to\ncrash autofs, preventing future mount requests from being processed until\nthe autofs service was restarted. Note: This flaw did not impact existing\nmounts (except for preventing mount expiration). (CVE-2012-2697)\n\nRed Hat would like to thank Ray Rocker for reporting this issue.\n\nThis update also fixes the following bugs:\n\n* The autofs init script sometimes timed out waiting for the automount\ndaemon to exit and returned a shutdown failure if the daemon failed to exit\nin time. To resolve this problem, the amount of time that the init script\nwaits for the daemon has been increased to allow for cases where servers\nare slow to respond or there are many active mounts. (BZ#585058)\n\n* Due to an omission when backporting a change, autofs attempted to\ndownload the entire LDAP map at startup. This mistake has now been\ncorrected. (BZ#767428)\n\n* A function to check the validity of a mount location was meant to check\nonly for a small subset of map location errors. A recent modification in\nerror reporting inverted a logic test in this validating function.\nConsequently, the scope of the test was widened, which caused the automount\ndaemon to report false positive failures. With this update, the faulty\nlogic test has been corrected and false positive failures no longer occur.\n(BZ#798448)\n\n* When there were many attempts to access invalid or non-existent keys, the\nautomount daemon used excessive CPU resources. As a consequence, systems\nsometimes became unresponsive. The code has been improved so that automount\nchecks for invalid keys earlier in the process which has eliminated a\nsignificant amount of the processing overhead. (BZ#847101)\n\n* The auto.master(5) man page did not document the \"-t, --timeout\" option\nin the FORMAT options section. This update adds this information to the man\npage. (BZ#859890)\n\nThis update also adds the following enhancement:\n\n* Previously, it was not possible to configure separate timeout values for\nindividual direct map entries in the autofs master map. This update adds\nthis functionality. (BZ#690404)\n\nAll users of autofs are advised to upgrade to this updated package, which\ncontains backported patches to correct these issues and add this\nenhancement.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-01-08"
+      },
+      "updated": {
+        "date": "2013-01-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-2697",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-2697",
+          "impact": "low",
+          "public": "20130107",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-2697 autofs: denial of service when using an LDAP-based automount map",
+          "href": "https://bugzilla.redhat.com/831772",
+          "id": "831772"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20130132001",
+            "comment": "autofs is earlier than 1:5.0.1-0.rc2.177.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20071128002",
+            "comment": "autofs is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

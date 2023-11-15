@@ -1,0 +1,89 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120312",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2012:0312: initscripts security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0312",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0312",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1198",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1198",
+        "source": "CVE"
+      }
+    ],
+    "description": "The initscripts package contains system scripts to boot your system, change\nrunlevels, activate and deactivate most network interfaces, and shut the\nsystem down cleanly.\n\nWith the default IPsec (Internet Protocol Security) ifup script\nconfiguration, the racoon IKE key management daemon used aggressive IKE\nmode instead of main IKE mode. This resulted in the preshared key (PSK)\nhash being sent unencrypted, which could make it easier for an attacker\nable to sniff network traffic to obtain the plain text PSK from a\ntransmitted hash. (CVE-2008-1198)\n\nRed Hat would like to thank Aleksander Adamowski for reporting this issue.\n\nThis update also fixes the following bugs:\n\n* Prior to this update, the DHCPv6 client was not terminated when the\nnetwork service was stopped. This update modifies the source so that the\nclient is now terminated when stopping the network service. (BZ#568896)\n\n* Prior to this update, on some systems the rm command failed and reported\nthe error message \"rm: cannot remove directory `/var/run/dovecot/login/':\nIs a directory\" during system boot. This update modifies the source so that\nthis error message no longer appears. (BZ#679998)\n\n* Prior to this update, the netconsole script could not discover and\nresolve the MAC address of the router specified in the\n/etc/sysconfig/netconsole file. This update modifies the netconsole script\nso that the script no longer fails when the arping tool returns the MAC\naddress of the router more than once. (BZ#744734)\n\n* Prior to this update, the arp_ip_target was, due to a logic error, not\ncorrectly removed via sysfs. As a consequence, the error \"ifdown-eth: line\n64: echo: write error: Invalid argument\" was reported when attempting to\nshut down a bonding device. This update modifies the script so that the\nerror no longer appears and arp_ip_target is now correctly removed.\n(BZ#745681)\n\nAll users of initscripts are advised to upgrade to this updated package,\nwhich fixes these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-02-21"
+      },
+      "updated": {
+        "date": "2012-02-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1198",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1198",
+          "impact": "low",
+          "public": "20080228",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1198 initscripts: IPSec ifup script allows for aggressive IKE mode",
+          "href": "https://bugzilla.redhat.com/435274",
+          "id": "435274"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20120312001",
+            "comment": "initscripts is earlier than 0:8.45.42-1.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20120312002",
+            "comment": "initscripts is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

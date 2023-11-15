@@ -1,0 +1,417 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110162",
+  "version": "652",
+  "metadata": {
+    "title": "RHSA-2011:0162: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0162",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0162",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-3859",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3859",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-3876",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3876",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4072",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4072",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4073",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4073",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4075",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4075",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4080",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4080",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4083",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4083",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4157",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4157",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4158",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4158",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4242",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4242",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4249",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4249",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* A heap overflow flaw was found in the Linux kernel's Transparent\nInter-Process Communication protocol (TIPC) implementation. A local,\nunprivileged user could use this flaw to escalate their privileges.\n(CVE-2010-3859, Important)\n\n* Missing sanity checks were found in gdth_ioctl_alloc() in the gdth driver\nin the Linux kernel. A local user with access to \"/dev/gdth\" on a 64-bit\nsystem could use these flaws to cause a denial of service or escalate their\nprivileges. (CVE-2010-4157, Moderate)\n\n* A NULL pointer dereference flaw was found in the Bluetooth HCI UART\ndriver in the Linux kernel. A local, unprivileged user could use this flaw\nto cause a denial of service. (CVE-2010-4242, Moderate)\n\n* A flaw was found in the Linux kernel's garbage collector for AF_UNIX\nsockets. A local, unprivileged user could use this flaw to trigger a\ndenial of service (out-of-memory condition). (CVE-2010-4249, Moderate)\n\n* Missing initialization flaws were found in the Linux kernel. A local,\nunprivileged user could use these flaws to cause information leaks.\n(CVE-2010-3876, CVE-2010-4072, CVE-2010-4073, CVE-2010-4075, CVE-2010-4080,\nCVE-2010-4083, CVE-2010-4158, Low)\n\nRed Hat would like to thank Alan Cox for reporting CVE-2010-4242; Vegard\nNossum for reporting CVE-2010-4249; Vasiliy Kulikov for reporting\nCVE-2010-3876; Kees Cook for reporting CVE-2010-4072; and Dan Rosenberg for\nreporting CVE-2010-4073, CVE-2010-4075, CVE-2010-4080, CVE-2010-4083, and\nCVE-2010-4158.\n\nThis update also fixes the following bugs:\n\n* A flaw was found in the Linux kernel where, if used in conjunction with\nanother flaw that can result in a kernel Oops, could possibly lead to\nprivilege escalation. It does not affect Red Hat Enterprise Linux 4 as the\nsysctl panic_on_oops variable is turned on by default. However, as a\npreventive measure if the variable is turned off by an administrator, this\nupdate addresses the issue. Red Hat would like to thank Nelson Elhage for\nreporting this vulnerability. (BZ#659568)\n\n* On Intel I/O Controller Hub 9 (ICH9) hardware, jumbo frame support is\nachieved by using page-based sk_buff buffers without any packet split. The\nentire frame data is copied to the page(s) rather than some to the\nskb->data area and some to the page(s) when performing a typical\npacket-split. This caused problems with the filtering code and frames were\ngetting dropped before they were received by listening applications. This\nbug could eventually lead to the IP address being released and not being\nable to be re-acquired from DHCP if the MTU (Maximum Transfer Unit) was\nchanged (for an affected interface using the e1000e driver). With this\nupdate, frames are no longer dropped and an IP address is correctly\nre-acquired after a previous release. (BZ#664667)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-01-18"
+      },
+      "updated": {
+        "date": "2011-01-18"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-3859",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-3859",
+          "impact": "important",
+          "public": "20101022",
+          "cvss_2": "6.9/AV:L/AC:M/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-3876",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-3876",
+          "impact": "low",
+          "public": "20101031",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2010-4072",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4072",
+          "impact": "low",
+          "public": "20101006",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2010-4073",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4073",
+          "impact": "low",
+          "public": "20101006",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2010-4075",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4075",
+          "impact": "low",
+          "public": "20100915",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2010-4080",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4080",
+          "impact": "low",
+          "public": "20100925",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2010-4083",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4083",
+          "impact": "low",
+          "public": "20100923",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2010-4157",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4157",
+          "impact": "moderate",
+          "public": "20101108",
+          "cwe": "CWE-190",
+          "cvss_2": "6.0/AV:L/AC:H/Au:S/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-4158",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4158",
+          "impact": "low",
+          "public": "20101110",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-4242",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4242",
+          "impact": "moderate",
+          "public": "20101008",
+          "cvss_2": "4.0/AV:L/AC:H/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-4249",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4249",
+          "impact": "moderate",
+          "public": "20101124",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-4242 kernel: missing tty ops write function presence check in hci_uart_tty_open()",
+          "href": "https://bugzilla.redhat.com/641410",
+          "id": "641410"
+        },
+        {
+          "text": "CVE-2010-3859 kernel: tipc: heap overflow in tipc_msg_build()",
+          "href": "https://bugzilla.redhat.com/645867",
+          "id": "645867"
+        },
+        {
+          "text": "CVE-2010-4072 kernel: ipc/shm.c: reading uninitialized stack memory",
+          "href": "https://bugzilla.redhat.com/648656",
+          "id": "648656"
+        },
+        {
+          "text": "CVE-2010-4073 kernel: ipc/compat*.c: reading uninitialized stack memory",
+          "href": "https://bugzilla.redhat.com/648658",
+          "id": "648658"
+        },
+        {
+          "text": "CVE-2010-4075 kernel: drivers/serial/serial_core.c: reading uninitialized stack memory",
+          "href": "https://bugzilla.redhat.com/648660",
+          "id": "648660"
+        },
+        {
+          "text": "CVE-2010-4080 kernel: drivers/sound/pci/rme9652/hdsp.c: reading uninitialized stack memory",
+          "href": "https://bugzilla.redhat.com/648669",
+          "id": "648669"
+        },
+        {
+          "text": "CVE-2010-4083 kernel: ipc/sem.c: reading uninitialized stack memory",
+          "href": "https://bugzilla.redhat.com/648673",
+          "id": "648673"
+        },
+        {
+          "text": "CVE-2010-3876 kernel: net/packet/af_packet.c: reading uninitialized stack memory",
+          "href": "https://bugzilla.redhat.com/649715",
+          "id": "649715"
+        },
+        {
+          "text": "CVE-2010-4157 kernel: gdth: integer overflow in ioc_general()",
+          "href": "https://bugzilla.redhat.com/651147",
+          "id": "651147"
+        },
+        {
+          "text": "CVE-2010-4158 kernel: socket filters infoleak",
+          "href": "https://bugzilla.redhat.com/651698",
+          "id": "651698"
+        },
+        {
+          "text": "CVE-2010-4249 kernel: unix socket local dos",
+          "href": "https://bugzilla.redhat.com/656756",
+          "id": "656756"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20110162023",
+                "comment": "kernel earlier than 0:2.6.9-89.35.1.EL is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20110162024",
+                "comment": "kernel earlier than 0:2.6.9-89.35.1.EL is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162001",
+                    "comment": "kernel is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162003",
+                    "comment": "kernel-devel is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162005",
+                    "comment": "kernel-doc is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162007",
+                    "comment": "kernel-hugemem is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
+                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162009",
+                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
+                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162011",
+                    "comment": "kernel-largesmp is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
+                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162013",
+                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
+                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162015",
+                    "comment": "kernel-smp is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
+                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162017",
+                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
+                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162019",
+                    "comment": "kernel-xenU is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
+                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110162021",
+                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.35.1.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
+                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

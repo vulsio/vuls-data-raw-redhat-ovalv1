@@ -1,0 +1,106 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100651",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2010:0651: spice-xpi security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0651",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0651",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-2792",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2792",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2794",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2794",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Simple Protocol for Independent Computing Environments (SPICE) is a\nremote display protocol used in Red Hat Enterprise Linux for viewing\nvirtualized guests running on the Kernel-based Virtual Machine (KVM)\nhypervisor, or on Red Hat Enterprise Virtualization Hypervisor.\n\nThe spice-xpi package provides a plug-in that allows the SPICE client to\nrun from within Mozilla Firefox.\n\nA race condition was found in the way the SPICE Firefox plug-in and the\nSPICE client communicated. A local attacker could use this flaw to trick\nthe plug-in and the SPICE client into communicating over an\nattacker-controlled socket, possibly gaining access to authentication\ndetails, or resulting in a man-in-the-middle attack on the SPICE\nconnection. (CVE-2010-2792)\n\nIt was found that the SPICE Firefox plug-in used a predictable name for its\nlog file. A local attacker could use this flaw to conduct a symbolic link\nattack, allowing them to overwrite arbitrary files accessible to the user\nrunning Firefox. (CVE-2010-2794)\n\nThis update also fixes the following bugs:\n\n* a bug prevented users of Red Hat Enterprise Linux 5.5, with all updates\napplied, from running the SPICE Firefox plug-in when using Firefox 3.6.4.\nWith this update, the plug-in works correctly with Firefox 3.6.4 and the\nlatest version in Red Hat Enterprise Linux 5.5, Firefox 3.6.7. (BZ#618244)\n\n* unused code has been removed during source code refactoring. This also\nresolves a bug in the SPICE Firefox plug-in that caused it to close random\nfile descriptors. (BZ#594006, BZ#619067)\n\nNote: This update should be installed together with the RHSA-2010:0632\nqspice-client update: https://rhn.redhat.com/errata/RHSA-2010-0632.html\n\nUsers of spice-xpi should upgrade to this updated package, which contains\nbackported patches to correct these issues. After installing the update,\nFirefox must be restarted for the changes to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-08-25"
+      },
+      "updated": {
+        "date": "2010-08-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-2792",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2792",
+          "impact": "moderate",
+          "public": "20100825",
+          "cvss_2": "3.3/AV:L/AC:M/Au:N/C:P/I:P/A:N"
+        },
+        {
+          "text": "CVE-2010-2794",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2794",
+          "impact": "low",
+          "public": "20100825",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-2792 spice-xpi/qspice-client unix socket race",
+          "href": "https://bugzilla.redhat.com/620350",
+          "id": "620350"
+        },
+        {
+          "text": "CVE-2010-2794 spice-xpi symlink attack",
+          "href": "https://bugzilla.redhat.com/620356",
+          "id": "620356"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_productivity:5",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100651001",
+            "comment": "spice-xpi is earlier than 0:2.2-2.3.el5_5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100651002",
+            "comment": "spice-xpi is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

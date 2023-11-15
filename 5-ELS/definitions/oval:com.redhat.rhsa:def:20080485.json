@@ -1,0 +1,114 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080485",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:0485: compiz security update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0485",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0485",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3920",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3920",
+        "source": "CVE"
+      }
+    ],
+    "description": "Compiz is an OpenGL-based window and compositing manager.\n\nMost screen savers create a top-level fullscreen window to cover the\ndesktop, and grab the input with that window. Compiz has an option to\nun-redirect that window, but in some cases, this breaks the grab and\ncompromises the locked screen. (CVE-2007-3920)\n\nUsers of compiz are advised to upgrade to these updated packages, which\nremove this option to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-05-19"
+      },
+      "updated": {
+        "date": "2008-05-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3920",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3920",
+          "impact": "low",
+          "public": "20071019"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3920 gnome-screensaver loses keyboard grab when running under compiz",
+          "href": "https://bugzilla.redhat.com/350271",
+          "id": "350271"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_productivity:5",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080485001",
+                    "comment": "compiz is earlier than 0:0.0.13-0.37.20060817git.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080485002",
+                    "comment": "compiz is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080485003",
+                    "comment": "compiz-devel is earlier than 0:0.0.13-0.37.20060817git.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080485004",
+                    "comment": "compiz-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

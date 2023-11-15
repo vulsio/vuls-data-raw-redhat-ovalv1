@@ -1,0 +1,163 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070501",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2007:0501: libexif integer overflow (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0501",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0501",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-4168",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4168",
+        "source": "CVE"
+      }
+    ],
+    "description": "The libexif package contains the EXIF library. Applications use this\nlibrary to parse EXIF image files.\n\nAn integer overflow flaw was found in the way libexif parses EXIF image\ntags. If a victim opens a carefully crafted EXIF image file it could cause\nthe application linked against libexif to execute arbitrary code or crash.\n(CVE-2007-4168)\n\nUsers of libexif should upgrade to these updated packages, which contain a\nbackported patch and are not vulnerable to this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-06-14"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-4168",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4168",
+          "impact": "moderate",
+          "public": "20070613",
+          "cwe": "CWE-190"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-4168 libexif integer overflow",
+          "href": "https://bugzilla.redhat.com/243888",
+          "id": "243888"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501001",
+                    "comment": "libexif is earlier than 0:0.5.12-5.1.0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501002",
+                    "comment": "libexif is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501003",
+                    "comment": "libexif-devel is earlier than 0:0.5.12-5.1.0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501004",
+                    "comment": "libexif-devel is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501006",
+                    "comment": "libexif is earlier than 0:0.6.13-4.0.2.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501007",
+                    "comment": "libexif is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501008",
+                    "comment": "libexif-devel is earlier than 0:0.6.13-4.0.2.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501009",
+                    "comment": "libexif-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

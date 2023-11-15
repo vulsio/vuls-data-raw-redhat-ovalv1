@@ -1,0 +1,113 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091490",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2009:1490: squirrelmail security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1490",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1490",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-2964",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2964",
+        "source": "CVE"
+      }
+    ],
+    "description": "SquirrelMail is a standards-based webmail package written in PHP.\n\nForm submissions in SquirrelMail did not implement protection against\nCross-Site Request Forgery (CSRF) attacks. If a remote attacker tricked a\nuser into visiting a malicious web page, the attacker could hijack that\nuser's authentication, inject malicious content into that user's\npreferences, or possibly send mail without that user's permission.\n(CVE-2009-2964)\n\nUsers of SquirrelMail should upgrade to this updated package, which\ncontains a backported patch to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-10-08"
+      },
+      "updated": {
+        "date": "2009-10-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-2964",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2964",
+          "impact": "moderate",
+          "public": "20090812",
+          "cwe": "CWE-352",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-2964 squirrelmail: CSRF issues in all forms",
+          "href": "https://bugzilla.redhat.com/517312",
+          "id": "517312"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20091490001",
+            "comment": "squirrelmail is earlier than 0:1.4.8-5.el4_8.8"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070358002",
+            "comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20091490004",
+            "comment": "squirrelmail is earlier than 0:1.4.8-5.el5_4.10"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070358002",
+            "comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

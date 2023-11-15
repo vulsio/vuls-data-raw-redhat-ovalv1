@@ -1,0 +1,197 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20111324",
+  "version": "644",
+  "metadata": {
+    "title": "RHSA-2011:1324: qt4 security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:1324",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1324",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-0242",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-0242",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-3193",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3193",
+        "source": "CVE"
+      }
+    ],
+    "description": "Qt 4 is a software toolkit that simplifies the task of writing and\nmaintaining GUI (Graphical User Interface) applications for the X Window\nSystem. HarfBuzz is an OpenType text shaping engine.\n\nA flaw in the way Qt 4 expanded certain UTF-8 characters could be used to\nprevent a Qt 4 based application from properly sanitizing user input.\nDepending on the application, this could allow an attacker to perform\ndirectory traversal, or for web applications, a cross-site scripting (XSS)\nattack. (CVE-2007-0242)\n\nA buffer overflow flaw was found in the harfbuzz module in Qt 4. If a user\nloaded a specially-crafted font file with an application linked against Qt\n4, it could cause the application to crash or, possibly, execute arbitrary\ncode with the privileges of the user running the application.\n(CVE-2011-3193)\n\nUsers of Qt 4 should upgrade to these updated packages, which contain\nbackported patches to correct these issues. All running applications linked\nagainst Qt 4 libraries must be restarted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-09-21"
+      },
+      "updated": {
+        "date": "2011-09-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-0242",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-0242",
+          "impact": "moderate",
+          "public": "20070329",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2011-3193",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-3193",
+          "impact": "moderate",
+          "public": "20110719",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-0242 QT UTF8 improper character expansion",
+          "href": "https://bugzilla.redhat.com/234633",
+          "id": "234633"
+        },
+        {
+          "text": "CVE-2011-3193 qt/harfbuzz buffer overflow",
+          "href": "https://bugzilla.redhat.com/733118",
+          "id": "733118"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324001",
+                    "comment": "qt4 is earlier than 0:4.2.1-1.el5_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324002",
+                    "comment": "qt4 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324003",
+                    "comment": "qt4-devel is earlier than 0:4.2.1-1.el5_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324004",
+                    "comment": "qt4-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324005",
+                    "comment": "qt4-doc is earlier than 0:4.2.1-1.el5_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324006",
+                    "comment": "qt4-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324007",
+                    "comment": "qt4-mysql is earlier than 0:4.2.1-1.el5_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324008",
+                    "comment": "qt4-mysql is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324009",
+                    "comment": "qt4-odbc is earlier than 0:4.2.1-1.el5_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324010",
+                    "comment": "qt4-odbc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324011",
+                    "comment": "qt4-postgresql is earlier than 0:4.2.1-1.el5_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324012",
+                    "comment": "qt4-postgresql is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324013",
+                    "comment": "qt4-sqlite is earlier than 0:4.2.1-1.el5_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111324014",
+                    "comment": "qt4-sqlite is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090427",
+  "version": "647",
+  "metadata": {
+    "title": "RHSA-2009:0427: udev security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0427",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0427",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-1185",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1185",
+        "source": "CVE"
+      }
+    ],
+    "description": "udev provides a user-space API and implements a dynamic device directory,\nproviding only the devices present on the system. udev replaces devfs in\norder to provide greater hot plug functionality. Netlink is a datagram\noriented service, used to transfer information between kernel modules and\nuser-space processes.\n\nIt was discovered that udev did not properly check the origin of Netlink\nmessages. A local attacker could use this flaw to gain root privileges via\na crafted Netlink message sent to udev, causing it to create a\nworld-writable block device file for an existing system block device (for\nexample, the root file system). (CVE-2009-1185)\n\nRed Hat would like to thank Sebastian Krahmer of the SUSE Security Team for\nresponsibly reporting this flaw.\n\nUsers of udev are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. After installing the\nupdate, the udevd daemon will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-04-16"
+      },
+      "updated": {
+        "date": "2009-04-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-1185",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1185",
+          "impact": "important",
+          "public": "20090415",
+          "cwe": "CWE-862",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-1185 udev: Uncheck origin of NETLINK messages",
+          "href": "https://bugzilla.redhat.com/495051",
+          "id": "495051"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090427001",
+                    "comment": "libvolume_id is earlier than 0:095-14.20.el5_3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090427002",
+                    "comment": "libvolume_id is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090427003",
+                    "comment": "libvolume_id-devel is earlier than 0:095-14.20.el5_3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090427004",
+                    "comment": "libvolume_id-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090427005",
+                    "comment": "udev is earlier than 0:095-14.20.el5_3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090427006",
+                    "comment": "udev is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

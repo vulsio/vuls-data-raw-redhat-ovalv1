@@ -1,0 +1,193 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080599",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2008:0599: seamonkey security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0599",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0599",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-2785",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2785",
+        "source": "CVE"
+      }
+    ],
+    "description": "SeaMonkey is an open source Web browser, advanced email and newsgroup\nclient, IRC chat client, and HTML editor.\n\nAn integer overflow flaw was found in the way SeaMonkey displayed certain\nweb content. A malicious web site could cause SeaMonkey to crash or execute\narbitrary code with the permissions of the user running SeaMonkey.\n(CVE-2008-2785)\n\nAll seamonkey users should upgrade to these updated packages, which contain\na backported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-07-16"
+      },
+      "updated": {
+        "date": "2008-07-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-2785",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2785",
+          "impact": "critical",
+          "public": "20080716"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2785 mozilla: CSS reference counter overflow (ZDI-CAN-349)",
+          "href": "https://bugzilla.redhat.com/452204",
+          "id": "452204"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080599001",
+                    "comment": "seamonkey is earlier than 0:1.0.9-16.4.el4_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609002",
+                    "comment": "seamonkey is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080599003",
+                    "comment": "seamonkey-chat is earlier than 0:1.0.9-16.4.el4_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609004",
+                    "comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080599005",
+                    "comment": "seamonkey-devel is earlier than 0:1.0.9-16.4.el4_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609006",
+                    "comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080599007",
+                    "comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-16.4.el4_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609008",
+                    "comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080599009",
+                    "comment": "seamonkey-js-debugger is earlier than 0:1.0.9-16.4.el4_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609010",
+                    "comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080599011",
+                    "comment": "seamonkey-mail is earlier than 0:1.0.9-16.4.el4_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609012",
+                    "comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080599013",
+                    "comment": "devhelp is earlier than 0:0.10-0.8.1.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060329002",
+                    "comment": "devhelp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080599015",
+                    "comment": "devhelp-devel is earlier than 0:0.10-0.8.1.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060329004",
+                    "comment": "devhelp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

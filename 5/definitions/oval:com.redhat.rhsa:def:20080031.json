@@ -1,0 +1,231 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080031",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2008:0031: xorg-x11-server security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0031",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0031",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5760",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5760",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-5958",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5958",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-6427",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6427",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-6428",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6428",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-6429",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6429",
+        "source": "CVE"
+      }
+    ],
+    "description": "X.Org is an open source implementation of the X Window System. It provides\nbasic low-level functionality that full-fledged graphical user interfaces\nare designed upon.\n\nTwo integer overflow flaws were found in the X.Org server's EVI and MIT-SHM\nmodules. A malicious authorized client could exploit these issues to cause\na denial of service (crash), or potentially execute arbitrary code with\nroot privileges on the X.Org server. (CVE-2007-6429)\n\nA memory corruption flaw was found in the X.Org server's XInput extension.\nA malicious authorized client could exploit this issue to cause a denial of\nservice (crash), or potentially execute arbitrary code with root privileges\non the X.Org server. (CVE-2007-6427)\n\nAn input validation flaw was found in the X.Org server's XFree86-Misc\nextension. A malicious authorized client could exploit this issue to cause\na denial of service (crash), or potentially execute arbitrary code with\nroot privileges on the X.Org server. (CVE-2007-5760)\n\nAn information disclosure flaw was found in the X.Org server's TOG-CUP\nextension. A malicious authorized client could exploit this issue to cause\na denial of service (crash), or potentially view arbitrary memory content\nwithin the X server's address space. (CVE-2007-6428)\n\nA flaw was found in the X.Org server's XC-SECURITY extension, that could\nhave allowed a local user to verify the existence of an arbitrary file,\neven in directories that are not normally accessible to that user.\n(CVE-2007-5958)\n\nUsers of xorg-x11-server should upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-01-17"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5760",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5760",
+          "impact": "important",
+          "public": "20080117:1400"
+        },
+        {
+          "text": "CVE-2007-5958",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5958",
+          "impact": "low",
+          "public": "20080117"
+        },
+        {
+          "text": "CVE-2007-6427",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6427",
+          "impact": "important",
+          "public": "20080117:1400"
+        },
+        {
+          "text": "CVE-2007-6428",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6428",
+          "impact": "low",
+          "public": "20080117:1400"
+        },
+        {
+          "text": "CVE-2007-6429",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6429",
+          "impact": "important",
+          "public": "20080117:1400",
+          "cwe": "CWE-190"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5958 Xorg / XFree86 file existence disclosure vulnerability",
+          "href": "https://bugzilla.redhat.com/391841",
+          "id": "391841"
+        },
+        {
+          "text": "CVE-2007-6429 xorg / xfree86: integer overflow in EVI extension",
+          "href": "https://bugzilla.redhat.com/413721",
+          "id": "413721"
+        },
+        {
+          "text": "CVE-2007-6428 xorg / xfree86: information disclosure via TOG-CUP extension",
+          "href": "https://bugzilla.redhat.com/413791",
+          "id": "413791"
+        },
+        {
+          "text": "CVE-2007-6427 xorg / xfree86: memory corruption via XInput extension",
+          "href": "https://bugzilla.redhat.com/413811",
+          "id": "413811"
+        },
+        {
+          "text": "CVE-2007-5760 xorg: invalid array indexing in XFree86-Misc extension",
+          "href": "https://bugzilla.redhat.com/414031",
+          "id": "414031"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080031001",
+                    "comment": "xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.26.el5_1.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127002",
+                    "comment": "xorg-x11-server-Xdmx is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080031003",
+                    "comment": "xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.26.el5_1.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127004",
+                    "comment": "xorg-x11-server-Xephyr is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080031005",
+                    "comment": "xorg-x11-server-Xnest is earlier than 0:1.1.1-48.26.el5_1.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127006",
+                    "comment": "xorg-x11-server-Xnest is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080031007",
+                    "comment": "xorg-x11-server-Xorg is earlier than 0:1.1.1-48.26.el5_1.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127008",
+                    "comment": "xorg-x11-server-Xorg is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080031009",
+                    "comment": "xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.26.el5_1.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127010",
+                    "comment": "xorg-x11-server-Xvfb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080031011",
+                    "comment": "xorg-x11-server-sdk is earlier than 0:1.1.1-48.26.el5_1.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127012",
+                    "comment": "xorg-x11-server-sdk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

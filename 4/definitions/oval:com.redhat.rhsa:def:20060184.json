@@ -1,0 +1,115 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060184",
+  "version": "644",
+  "metadata": {
+    "title": "RHSA-2006:0184: kdelibs security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0184",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0184",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-0019",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0019",
+        "source": "CVE"
+      }
+    ],
+    "description": "kdelibs contains libraries for the K Desktop Environment (KDE).\n\nA heap overflow flaw was discovered affecting kjs, the JavaScript\ninterpreter engine used by Konqueror and other parts of KDE.  An attacker\ncould create a malicious web site containing carefully crafted JavaScript\ncode that would trigger this flaw and possibly lead to arbitrary code\nexecution.  The Common Vulnerabilities and Exposures project assigned the\nname CVE-2006-0019 to this issue.\n\nNOTE: this issue does not affect KDE in Red Hat Enterprise Linux 3 or 2.1.\n\nUsers of KDE should upgrade to these updated packages, which contain a\nbackported patch from the KDE security team correcting this issue as well\nas two bug fixes.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-01-19"
+      },
+      "updated": {
+        "date": "2006-01-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-0019",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0019",
+          "impact": "critical",
+          "public": "20060119:1700"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-0019 security flaw",
+          "href": "https://bugzilla.redhat.com/1617866",
+          "id": "1617866"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060184001",
+                    "comment": "kdelibs is earlier than 6:3.3.1-3.14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060184002",
+                    "comment": "kdelibs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060184003",
+                    "comment": "kdelibs-devel is earlier than 6:3.3.1-3.14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060184004",
+                    "comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

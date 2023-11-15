@@ -1,0 +1,114 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20071051",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2007:1051: kdegraphics security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:1051",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1051",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5393",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5393",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kdegraphics packages contain applications for the K Desktop\nEnvironment. This includes kpdf, a PDF file viewer.\n\nAlin Rad Pop discovered a flaw in the handling of PDF files. An attacker\ncould create a malicious PDF file that would cause kpdf to crash, or\npotentially execute arbitrary code when opened. (CVE-2007-5393)\n\nAll kdegraphics users are advised to upgrade to these updated packages,\nwhich contain backported patches to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-12"
+      },
+      "updated": {
+        "date": "2007-11-12"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5393",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5393",
+          "impact": "important",
+          "public": "20071107"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5393 xpdf buffer overflow in CCITTFaxStream::lookChar()",
+          "href": "https://bugzilla.redhat.com/345121",
+          "id": "345121"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_productivity:5",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071051001",
+                    "comment": "kdegraphics is earlier than 7:3.5.4-5.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070729007",
+                    "comment": "kdegraphics is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071051003",
+                    "comment": "kdegraphics-devel is earlier than 7:3.5.4-5.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070729009",
+                    "comment": "kdegraphics-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

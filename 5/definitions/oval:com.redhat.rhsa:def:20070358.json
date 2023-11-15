@@ -1,0 +1,129 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070358",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:0358: squirrelmail security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0358",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0358",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-1262",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1262",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-2589",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2589",
+        "source": "CVE"
+      }
+    ],
+    "description": "SquirrelMail is a standards-based webmail package written in PHP4. \n\nSeveral HTML filtering bugs were discovered in SquirrelMail.  An attacker\ncould inject arbitrary JavaScript leading to cross-site scripting attacks\nby sending an e-mail viewed by a user within SquirrelMail. \n(CVE-2007-1262)\n\nSquirrelmail did not sufficiently check arguments to IMG tags in HTML\ne-mail messages. This could be exploited by an attacker by sending\narbitrary e-mail messages on behalf of a squirrelmail user tricked into opening\na maliciously crafted HTML e-mail message.  (CVE-2007-2589)\n\nUsers of SquirrelMail should upgrade to this erratum package, which\ncontains a backported patch to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-05-17"
+      },
+      "updated": {
+        "date": "2007-05-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-1262",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1262",
+          "impact": "moderate",
+          "public": "20070509",
+          "cwe": "CWE-79"
+        },
+        {
+          "text": "CVE-2007-2589",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-2589",
+          "impact": "moderate",
+          "public": "20070509",
+          "cwe": "CWE-352"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-1262 XSS through HTML message in squirrelmail",
+          "href": "https://bugzilla.redhat.com/239647",
+          "id": "239647"
+        },
+        {
+          "text": "CVE-2007-2589 CSRF through HTML message in squirrelmail",
+          "href": "https://bugzilla.redhat.com/239828",
+          "id": "239828"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070358001",
+            "comment": "squirrelmail is earlier than 0:1.4.8-4.0.1.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070358002",
+            "comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070358004",
+            "comment": "squirrelmail is earlier than 0:1.4.8-4.0.1.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070358002",
+            "comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

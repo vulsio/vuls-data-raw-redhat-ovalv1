@@ -1,0 +1,244 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080967",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:0967: httpd security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0967",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0967",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-2364",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2364",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2939",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2939",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Apache HTTP Server is a popular Web server.\n\nA flaw was found in the mod_proxy Apache module. An attacker in control of\na Web server to which requests were being proxied could have caused a\nlimited denial of service due to CPU consumption and stack exhaustion.\n(CVE-2008-2364)\n\nA flaw was found in the mod_proxy_ftp Apache module. If Apache was\nconfigured to support FTP-over-HTTP proxying, a remote attacker could have\nperformed a cross-site scripting attack. (CVE-2008-2939)\n\nIn addition, these updated packages fix a bug found in the handling of the\n\"ProxyRemoteMatch\" directive in the Red Hat Enterprise Linux 4 httpd\npackages. This bug is not present in the Red Hat Enterprise Linux 3 or Red\nHat Enterprise Linux 5 packages.\n\nUsers of httpd should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-11-11"
+      },
+      "updated": {
+        "date": "2008-11-11"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-2364",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2364",
+          "impact": "moderate",
+          "public": "20080610"
+        },
+        {
+          "text": "CVE-2008-2939",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2939",
+          "impact": "low",
+          "public": "20080805",
+          "cwe": "CWE-79"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2364 httpd: mod_proxy_http DoS via excessive interim responses from the origin server",
+          "href": "https://bugzilla.redhat.com/451615",
+          "id": "451615"
+        },
+        {
+          "text": "CVE-2008-2939 httpd: mod_proxy_ftp globbing XSS",
+          "href": "https://bugzilla.redhat.com/458250",
+          "id": "458250"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967001",
+                    "comment": "httpd is earlier than 0:2.0.52-41.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159002",
+                    "comment": "httpd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967003",
+                    "comment": "httpd-devel is earlier than 0:2.0.52-41.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967005",
+                    "comment": "httpd-manual is earlier than 0:2.0.52-41.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967007",
+                    "comment": "httpd-suexec is earlier than 0:2.0.52-41.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159008",
+                    "comment": "httpd-suexec is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967009",
+                    "comment": "mod_ssl is earlier than 1:2.0.52-41.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159010",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967012",
+                    "comment": "httpd is earlier than 0:2.2.3-11.el5_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159002",
+                    "comment": "httpd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967013",
+                    "comment": "httpd-devel is earlier than 0:2.2.3-11.el5_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967014",
+                    "comment": "httpd-manual is earlier than 0:2.2.3-11.el5_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080967015",
+                    "comment": "mod_ssl is earlier than 1:2.2.3-11.el5_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159010",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

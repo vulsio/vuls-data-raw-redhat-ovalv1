@@ -1,0 +1,282 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080110",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0110: openldap security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0110",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0110",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-6698",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6698",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0658",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0658",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenLDAP is an open source suite of Lightweight Directory Access Protocol\n(LDAP) applications and development tools. LDAP is a set of protocols for\naccessing directory services.\n\nThese updated openldap packages fix a flaw in the way the OpenLDAP slapd\ndaemon handled modify and modrdn requests with NOOP control on objects\nstored in a Berkeley DB (BDB) storage backend.  An authenticated attacker\nwith permission to perform modify or modrdn operations on such LDAP objects\ncould cause slapd to crash. (CVE-2007-6698, CVE-2008-0658)\n\nUsers of openldap should upgrade to these updated packages, which contain a\nbackported patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-02-21"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-6698",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6698",
+          "impact": "moderate",
+          "public": "20070411"
+        },
+        {
+          "text": "CVE-2008-0658",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0658",
+          "impact": "moderate",
+          "public": "20080207"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-6698 openldap: slapd crash on NOOP control operation on entry in bdb storage",
+          "href": "https://bugzilla.redhat.com/431203",
+          "id": "431203"
+        },
+        {
+          "text": "CVE-2008-0658 openldap: slapd crash on modrdn operation with NOOP control on entry in bdb storage",
+          "href": "https://bugzilla.redhat.com/432008",
+          "id": "432008"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110001",
+                    "comment": "compat-openldap is earlier than 0:2.1.30-8.el4_6.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110002",
+                    "comment": "compat-openldap is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110003",
+                    "comment": "openldap is earlier than 0:2.2.13-8.el4_6.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110004",
+                    "comment": "openldap is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110005",
+                    "comment": "openldap-clients is earlier than 0:2.2.13-8.el4_6.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110006",
+                    "comment": "openldap-clients is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110007",
+                    "comment": "openldap-devel is earlier than 0:2.2.13-8.el4_6.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110008",
+                    "comment": "openldap-devel is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110009",
+                    "comment": "openldap-servers is earlier than 0:2.2.13-8.el4_6.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110010",
+                    "comment": "openldap-servers is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110011",
+                    "comment": "openldap-servers-sql is earlier than 0:2.2.13-8.el4_6.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110012",
+                    "comment": "openldap-servers-sql is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110014",
+                    "comment": "compat-openldap is earlier than 0:2.3.27_2.2.29-8.el5_1.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071037002",
+                    "comment": "compat-openldap is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110016",
+                    "comment": "openldap is earlier than 0:2.3.27-8.el5_1.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071037004",
+                    "comment": "openldap is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110018",
+                    "comment": "openldap-clients is earlier than 0:2.3.27-8.el5_1.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071037006",
+                    "comment": "openldap-clients is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110020",
+                    "comment": "openldap-devel is earlier than 0:2.3.27-8.el5_1.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071037008",
+                    "comment": "openldap-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110022",
+                    "comment": "openldap-servers is earlier than 0:2.3.27-8.el5_1.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071037010",
+                    "comment": "openldap-servers is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080110024",
+                    "comment": "openldap-servers-sql is earlier than 0:2.3.27-8.el5_1.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071037012",
+                    "comment": "openldap-servers-sql is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

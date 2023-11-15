@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070086",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2007:0086: gnomemeeting security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0086",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0086",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-1007",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1007",
+        "source": "CVE"
+      }
+    ],
+    "description": "GnomeMeeting is a tool to communicate with video and audio over the Internet.\n\nA format string flaw was found in the way GnomeMeeting processes certain\nmessages. If a user is running GnomeMeeting, a remote attacker who can\nconnect to GnomeMeeting could trigger this flaw and potentially execute\narbitrary code with the privileges of the user. (CVE-2007-1007)\n\nUsers of GnomeMeeting should upgrade to these updated packages which\ncontain a backported patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-02-20"
+      },
+      "updated": {
+        "date": "2007-02-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-1007",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1007",
+          "impact": "critical",
+          "public": "20070213"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-1007 security flaw",
+          "href": "https://bugzilla.redhat.com/1618292",
+          "id": "1618292"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070086001",
+            "comment": "gnomemeeting is earlier than 0:1.0.2-9"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070086002",
+            "comment": "gnomemeeting is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

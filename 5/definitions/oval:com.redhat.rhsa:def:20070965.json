@@ -1,0 +1,221 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070965",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2007:0965: ruby security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0965",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0965",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5162",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5162",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-5770",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5770",
+        "source": "CVE"
+      }
+    ],
+    "description": "Ruby is an interpreted scripting language for object-oriented programming.\n\nAn SSL certificate validation flaw was discovered in several Ruby Net\nmodules. The libraries were not checking the requested host name against\nthe common name (CN) in the SSL server certificate, possibly allowing a man\nin the middle attack. (CVE-2007-5162, CVE-2007-5770)\n\nUsers of Ruby should upgrade to these updated packages, which contain a\nbackported patch to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-13"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5162",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5162",
+          "impact": "moderate",
+          "public": "20070927"
+        },
+        {
+          "text": "CVE-2007-5770",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5770",
+          "impact": "moderate",
+          "public": "20071008"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5162 ruby Net:HTTP insufficient verification of SSL certificate",
+          "href": "https://bugzilla.redhat.com/313691",
+          "id": "313691"
+        },
+        {
+          "text": "CVE-2007-5770 ruby insufficient verification of SSL certificate in various net::* modules",
+          "href": "https://bugzilla.redhat.com/362081",
+          "id": "362081"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965001",
+                    "comment": "ruby is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965002",
+                    "comment": "ruby is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965003",
+                    "comment": "ruby-devel is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965004",
+                    "comment": "ruby-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965005",
+                    "comment": "ruby-docs is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965006",
+                    "comment": "ruby-docs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965007",
+                    "comment": "ruby-irb is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965008",
+                    "comment": "ruby-irb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965009",
+                    "comment": "ruby-libs is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965010",
+                    "comment": "ruby-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965011",
+                    "comment": "ruby-mode is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965012",
+                    "comment": "ruby-mode is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965013",
+                    "comment": "ruby-rdoc is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965014",
+                    "comment": "ruby-rdoc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965015",
+                    "comment": "ruby-ri is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965016",
+                    "comment": "ruby-ri is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965017",
+                    "comment": "ruby-tcltk is earlier than 0:1.8.5-5.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965018",
+                    "comment": "ruby-tcltk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

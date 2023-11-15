@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070322",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2007:0322: xscreensaver security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0322",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0322",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-1859",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1859",
+        "source": "CVE"
+      }
+    ],
+    "description": "XScreenSaver is a collection of screensavers.\n\nAlex Yamauchi discovered a flaw in the way XScreenSaver verifies user\npasswords. When a system is using a remote directory service for login\ncredentials, a local attacker may be able to cause a network outage causing\nXScreenSaver to crash, unlocking the screen. (CVE-2007-1859)\n\nUsers of XScreenSaver should upgrade to this updated package, which\ncontains a backported patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-05-02"
+      },
+      "updated": {
+        "date": "2007-05-02"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-1859",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1859",
+          "impact": "important",
+          "public": "20070503"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-1859 xscreensaver authentication bypass",
+          "href": "https://bugzilla.redhat.com/237003",
+          "id": "237003"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070322001",
+            "comment": "xscreensaver is earlier than 1:4.18-5.rhel4.14"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070322002",
+            "comment": "xscreensaver is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

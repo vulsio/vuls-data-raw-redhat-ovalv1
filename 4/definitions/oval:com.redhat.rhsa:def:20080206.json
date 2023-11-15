@@ -1,0 +1,163 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080206",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:0206: cups security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0206",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0206",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-0053",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0053",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1373",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1373",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1374",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1374",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX(R) operating systems.\n\nTwo overflows were discovered in the HP-GL/2-to-PostScript filter. An\nattacker could create a malicious HP-GL/2 file that could possibly execute\narbitrary code as the \"lp\" user if the file is printed. (CVE-2008-0053)\n\nA buffer overflow flaw was discovered in the GIF decoding routines used by\nCUPS image converting filters \"imagetops\" and \"imagetoraster\". An attacker\ncould create a malicious GIF file that could possibly execute arbitrary\ncode as the \"lp\" user if the file was printed. (CVE-2008-1373)\n\nIt was discovered that the patch used to address CVE-2004-0888 in CUPS\npackages in Red Hat Enterprise Linux 3 and 4 did not completely resolve the\ninteger overflow in the \"pdftops\" filter on 64-bit platforms.  An attacker\ncould create a malicious PDF file that could possibly execute arbitrary\ncode as the \"lp\" user if the file was printed. (CVE-2008-1374)\n\nAll cups users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-04-01"
+      },
+      "updated": {
+        "date": "2008-04-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-0053",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0053",
+          "impact": "moderate",
+          "public": "20080318",
+          "cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2008-1373",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1373",
+          "impact": "moderate",
+          "public": "20080401:1400",
+          "cvss_2": "4.3/AV:A/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2008-1374",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1374",
+          "impact": "moderate",
+          "public": "20080401:1400",
+          "cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-0053 cups: buffer overflows in HP-GL/2 filter",
+          "href": "https://bugzilla.redhat.com/438117",
+          "id": "438117"
+        },
+        {
+          "text": "CVE-2008-1373 cups: overflow in gif image filter",
+          "href": "https://bugzilla.redhat.com/438303",
+          "id": "438303"
+        },
+        {
+          "text": "CVE-2008-1374 cups: incomplete fix for CVE-2004-0888 / CVE-2005-0206",
+          "href": "https://bugzilla.redhat.com/438336",
+          "id": "438336"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080206001",
+                    "comment": "cups is earlier than 1:1.1.22-0.rc1.9.20.2.el4_6.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060163002",
+                    "comment": "cups is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080206003",
+                    "comment": "cups-devel is earlier than 1:1.1.22-0.rc1.9.20.2.el4_6.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060163004",
+                    "comment": "cups-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080206005",
+                    "comment": "cups-libs is earlier than 1:1.1.22-0.rc1.9.20.2.el4_6.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060163006",
+                    "comment": "cups-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

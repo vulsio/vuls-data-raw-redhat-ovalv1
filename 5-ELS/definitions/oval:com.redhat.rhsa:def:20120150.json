@@ -1,0 +1,257 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120150",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2012:0150: Red Hat Enterprise Linux 5.8 kernel update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0150",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0150",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1083",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1083",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issue:\n\n* A flaw was found in the way the Linux kernel's Event Poll (epoll)\nsubsystem handled large, nested epoll structures. A local, unprivileged\nuser could use this flaw to cause a denial of service. (CVE-2011-1083,\nModerate)\n\nRed Hat would like to thank Nelson Elhage for reporting this issue.\n\nThese updated kernel packages include a number of bug fixes and\nenhancements. Space precludes documenting all of these changes in this\nadvisory. Users are directed to the Red Hat Enterprise Linux 5.8 Technical\nNotes, linked to in the References, for information on the most significant\nof these changes.\n\nAll Red Hat Enterprise Linux 5 users are advised to install these updated\npackages, which correct these issues and add these enhancements. The system\nmust be rebooted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-02-21"
+      },
+      "updated": {
+        "date": "2012-02-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1083",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1083",
+          "impact": "moderate",
+          "public": "20110225",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1083 kernel: excessive in kernel CPU consumption when creating large nested epoll structures",
+          "href": "https://bugzilla.redhat.com/681578",
+          "id": "681578"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20120150025",
+                "comment": "kernel earlier than 0:2.6.18-308.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20120150026",
+                "comment": "kernel earlier than 0:2.6.18-308.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150001",
+                    "comment": "kernel is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120150023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-308.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

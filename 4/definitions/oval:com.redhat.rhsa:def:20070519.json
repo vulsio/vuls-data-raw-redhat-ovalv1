@@ -1,0 +1,323 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070519",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:0519: xorg-x11 security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0519",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0519",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3103",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3103",
+        "source": "CVE"
+      }
+    ],
+    "description": "X.org is an open source implementation of the X Window System. It provides\nthe basic low-level functionality that full-fledged graphical user\ninterfaces are designed upon.\n\nA temporary file flaw was found in the way the X.Org X11 xfs font server\nstartup script executes. A local user could modify the permissions of the\nfile of their choosing, possibly elevating their local privileges\n(CVE-2007-3103).\n\nUsers of X.org should upgrade to these updated packages, which contain a\nbackported patch and are not vulnerable to these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-07-12"
+      },
+      "updated": {
+        "date": "2007-07-12"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3103",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3103",
+          "impact": "moderate",
+          "public": "20070711"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3103 security flaw",
+          "href": "https://bugzilla.redhat.com/1618310",
+          "id": "1618310"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519001",
+                    "comment": "xorg-x11 is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451002",
+                    "comment": "xorg-x11 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519003",
+                    "comment": "xorg-x11-Mesa-libGL is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451004",
+                    "comment": "xorg-x11-Mesa-libGL is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519005",
+                    "comment": "xorg-x11-Mesa-libGLU is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451006",
+                    "comment": "xorg-x11-Mesa-libGLU is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519007",
+                    "comment": "xorg-x11-Xdmx is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451008",
+                    "comment": "xorg-x11-Xdmx is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519009",
+                    "comment": "xorg-x11-Xnest is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451010",
+                    "comment": "xorg-x11-Xnest is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519011",
+                    "comment": "xorg-x11-Xvfb is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451012",
+                    "comment": "xorg-x11-Xvfb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519013",
+                    "comment": "xorg-x11-deprecated-libs is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451014",
+                    "comment": "xorg-x11-deprecated-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519015",
+                    "comment": "xorg-x11-deprecated-libs-devel is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451016",
+                    "comment": "xorg-x11-deprecated-libs-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519017",
+                    "comment": "xorg-x11-devel is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451018",
+                    "comment": "xorg-x11-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519019",
+                    "comment": "xorg-x11-doc is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451020",
+                    "comment": "xorg-x11-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519021",
+                    "comment": "xorg-x11-font-utils is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451022",
+                    "comment": "xorg-x11-font-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519023",
+                    "comment": "xorg-x11-libs is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451024",
+                    "comment": "xorg-x11-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519025",
+                    "comment": "xorg-x11-sdk is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451026",
+                    "comment": "xorg-x11-sdk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519027",
+                    "comment": "xorg-x11-tools is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451028",
+                    "comment": "xorg-x11-tools is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519029",
+                    "comment": "xorg-x11-twm is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451030",
+                    "comment": "xorg-x11-twm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519031",
+                    "comment": "xorg-x11-xauth is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451032",
+                    "comment": "xorg-x11-xauth is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519033",
+                    "comment": "xorg-x11-xdm is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451034",
+                    "comment": "xorg-x11-xdm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070519035",
+                    "comment": "xorg-x11-xfs is earlier than 0:6.8.2-1.EL.19"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060451036",
+                    "comment": "xorg-x11-xfs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

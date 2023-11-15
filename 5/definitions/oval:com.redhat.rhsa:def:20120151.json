@@ -1,0 +1,131 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120151",
+  "version": "648",
+  "metadata": {
+    "title": "RHSA-2012:0151: conga security, bug fix, and enhancement update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0151",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0151",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-1104",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1104",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1948",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1948",
+        "source": "CVE"
+      }
+    ],
+    "description": "The conga packages provide a web-based administration tool for remote\ncluster and storage management.\n\nMultiple cross-site scripting (XSS) flaws were found in luci, the conga\nweb-based administration application. If a remote attacker could trick a\nuser, who was logged into the luci interface, into visiting a\nspecially-crafted URL, it would lead to arbitrary web script execution in\nthe context of the user's luci session. (CVE-2010-1104, CVE-2011-1948)\n\nThese updated conga packages include several bug fixes and an enhancement.\nSpace precludes documenting all of these changes in this advisory. Users\nare directed to the Red Hat Enterprise Linux 5.8 Technical Notes, linked to\nin the References, for information on the most significant of these\nchanges.\n\nUsers of conga are advised to upgrade to these updated packages, which\ncorrect these issues and add this enhancement. After installing the updated\npackages, luci must be restarted (\"service luci restart\") for the update to\ntake effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-02-21"
+      },
+      "updated": {
+        "date": "2012-02-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-1104",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1104",
+          "impact": "moderate",
+          "public": "20100113",
+          "cwe": "CWE-79",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2011-1948",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1948",
+          "impact": "moderate",
+          "public": "20110531",
+          "cwe": "CWE-79",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-1104 zope: XSS on error page",
+          "href": "https://bugzilla.redhat.com/577019",
+          "id": "577019"
+        },
+        {
+          "text": "CVE-2011-1948 plone: A reflected cross site scripting vulnerability",
+          "href": "https://bugzilla.redhat.com/711494",
+          "id": "711494"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_cluster:5"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120151001",
+                    "comment": "luci is earlier than 0:0.12.2-51.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070331002",
+                    "comment": "luci is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120151003",
+                    "comment": "ricci is earlier than 0:0.12.2-51.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070331004",
+                    "comment": "ricci is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

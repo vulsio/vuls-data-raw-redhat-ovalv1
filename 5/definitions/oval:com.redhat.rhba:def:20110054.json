@@ -1,0 +1,210 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhba:def:20110054",
+  "version": "640",
+  "metadata": {
+    "title": "RHBA-2011:0054: samba3x bug fix and enhancement update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHBA-2011:0054",
+        "ref_url": "https://access.redhat.com/errata/RHBA-2011:0054",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0547",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0547",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0787",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0787",
+        "source": "CVE"
+      }
+    ],
+    "description": "Samba is a suite of programs used by machines for authentication, and file and printer sharing.\n\nThese updated samba3x packages provide fixes for the following bugs:\n\n* Users of trusted child domains were not authenticated correctly. As a result, some users of such domains did not appear as members of the parent domain even if the child domain allowed full inheriting from the parent domain. With this update, all users of a trusted child domain are authenticated successfully. (BZ#459842)\n\n* The smb.conf manual page  contained an ambiguous description of the 'default case' parameter. With this update, the description is updated and gives a clear description. (BZ#480405)\n\n* Service principal names were not always created correctly and as a result, the system was attempting to acquire a service ticket using a wrong hostname. This caused the Kerberos authentication to fail. With this update, service principal names are created correctly. (BZ#560239)\n\n* CUPS printing could fail in an Active Directory environment with Kerberos. With this update, regular users can print in such environment. (BZ#565774)\n\n* When the 'normalize names' setting was enabled, the winbindd service could have failed after user authentication. With this update, authentication is successful. (BZ#565915)\n\n* Packages requiring samba cannot recognize samba3x as an updated samba version. With this update, dependent packages recognize samba3x as the new samba version. (BZ#582756)\n\n* Some remote users could not authenticate from workstations running Windows. This occurred, because the winbind service failed to authenticate to Windows Server 2008 using the \"ntlm-server-1\" ntm_auth protocol. With this update, the service works correctly. (BZ#590766)\n\n* In the offline mode, the winbind service could have logged the following message: \"Exceeding 200 client connections, no idle connection found.\" With this update, the error no longer occurs and you can set the client limit manually with the command 'winbind max clients'. (BZ#604081)\n\n* The winbindd client limit was set to 200 and could not be changed. With this update, you can set the client limit manually with the command 'winbind max clients'. (BZ#641379)\n\n* Previously, the samba3x package considered any samba package a conflicting package. With this update, samba3x checks for possible non-conflicting versions of the samba package. (BZ#609578)\n\n* When using non-standard character sets, the command 'wbinfo' displayed user and group names with accented characters incorrectly. With this update, those names are displayed correctly with all supported character sets. (BZ#649708)\n\n* Samba could have failed to connect to workstations running Windows 7 with Live Essentials installed due to a SPNEGO parsing failure. With this update, the connection succeeds. (BZ#651722)\n\nIn addition, these updated packages provide the following enhancements:\n\n* Interoperation with Windows 7 and Windows Server 2008 was fixed. Secure channel connections to servers with Windows Server 2008 R2 and interdomain trusts with Windows Server 2008 domains are now supported. Previously also, due to errors in the secure channel to Windows 7 and Windows Server 2008 R2, the winbind daemon could corrupt the secure channel. With this update, this no longer occurs. (BZ#527997)\n\n* In Red Hat Enterprise Linux 5.6, the samba3x package no longer provides the libtalloc library. The library is now provided in a separate source RPM. (BZ#596883)\n\n* In Red Hat Enterprise Linux 5.6, the samba3x package no longer provides the libtdb library. The library is now provided in a separate source RPM. (BZ#596886)\n\nUsers are advised to upgrade to these updated samba3x packages, which resolve these issues and add these enhancements.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-01-13"
+      },
+      "updated": {
+        "date": "2011-01-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0547",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0547",
+          "impact": "low",
+          "public": "20100126",
+          "cvss_2": "2.6/AV:L/AC:H/Au:N/C:N/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-0787",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0787",
+          "impact": "low",
+          "public": "20100126",
+          "cvss_2": "1.7/AV:L/AC:L/Au:S/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0547 samba: mount.cifs improper device name and mountpoint strings sanitization",
+          "href": "https://bugzilla.redhat.com/562156",
+          "id": "562156"
+        },
+        {
+          "text": "CVE-2010-0787 samba: Race condition by mount (mount.cifs) operations",
+          "href": "https://bugzilla.redhat.com/577277",
+          "id": "577277"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054001",
+                    "comment": "samba3x is earlier than 0:3.5.4-0.70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054002",
+                    "comment": "samba3x is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054003",
+                    "comment": "samba3x-client is earlier than 0:3.5.4-0.70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054004",
+                    "comment": "samba3x-client is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054005",
+                    "comment": "samba3x-common is earlier than 0:3.5.4-0.70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054006",
+                    "comment": "samba3x-common is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054007",
+                    "comment": "samba3x-doc is earlier than 0:3.5.4-0.70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054008",
+                    "comment": "samba3x-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054009",
+                    "comment": "samba3x-domainjoin-gui is earlier than 0:3.5.4-0.70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054010",
+                    "comment": "samba3x-domainjoin-gui is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054011",
+                    "comment": "samba3x-swat is earlier than 0:3.5.4-0.70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054012",
+                    "comment": "samba3x-swat is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054013",
+                    "comment": "samba3x-winbind is earlier than 0:3.5.4-0.70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054014",
+                    "comment": "samba3x-winbind is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054015",
+                    "comment": "samba3x-winbind-devel is earlier than 0:3.5.4-0.70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054016",
+                    "comment": "samba3x-winbind-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

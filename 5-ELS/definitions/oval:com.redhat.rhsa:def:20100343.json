@@ -1,0 +1,142 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100343",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2010:0343: krb5 security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0343",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0343",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0629",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0629",
+        "source": "CVE"
+      }
+    ],
+    "description": "Kerberos is a network authentication system which allows clients and\nservers to authenticate to each other using symmetric encryption and a\ntrusted third party, the Key Distribution Center (KDC).\n\nA use-after-free flaw was discovered in the MIT Kerberos administration\ndaemon, kadmind. A remote, authenticated attacker could use this flaw to\ncrash the kadmind daemon. Administrative privileges are not required to\ntrigger this flaw, as any realm user can request information about their\nown principal from kadmind. (CVE-2010-0629)\n\nThis update also fixes the following bug:\n\n* when a Kerberos client seeks tickets for use with a service, it must\ncontact the Key Distribution Center (KDC) to obtain them. The client must\nalso determine which realm the service belongs to and it typically does\nthis with a combination of client configuration detail, DNS information and\nguesswork.\n\nIf the service belongs to a realm other than the client's, cross-realm\nauthentication is required. Using a combination of client configuration and\nguesswork, the client determines the trust relationship sequence which\nforms the trusted path between the client's realm and the service's realm.\nThis may include one or more intermediate realms.\n\nAnticipating the KDC has better knowledge of extant trust relationships,\nthe client then requests a ticket from the service's KDC, indicating it\nwill accept guidance from the service's KDC by setting a special flag in\nthe request. A KDC which recognizes the flag can, at its option, return a\nticket-granting ticket for the next realm along the trust path the client\nshould be following.\n\nIf the ticket-granting ticket returned by the service's KDC is for use with\na realm the client has already determined was in the trusted path, the\nclient accepts this as an optimization and continues. If, however, the\nticket is for use in a realm the client is not expecting, the client\nresponds incorrectly: it treats the case as an error rather than continuing\nalong the path suggested by the service's KDC.\n\nFor this update, the krb5 1.7 modifications which allow the client to trust\nsuch KDCs to send them along the correct path, resulting in the client\nobtaining the tickets it originally desired, were backported to krb 1.6.1\n(the version shipped with Red Hat Enterprise Linux 5.5). (BZ#578540)\n\nAll krb5 users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. All running KDC services must\nbe restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-04-06"
+      },
+      "updated": {
+        "date": "2010-04-06"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0629",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0629",
+          "impact": "important",
+          "public": "20100126",
+          "cwe": "CWE-416",
+          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0629 krb5: kadmind use-after-free remote crash (MITKRB5-SA-2010-003)",
+          "href": "https://bugzilla.redhat.com/576011",
+          "id": "576011"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100343001",
+                    "comment": "krb5-devel is earlier than 0:1.6.1-36.el5_5.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095011",
+                    "comment": "krb5-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100343003",
+                    "comment": "krb5-libs is earlier than 0:1.6.1-36.el5_5.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095013",
+                    "comment": "krb5-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100343005",
+                    "comment": "krb5-server is earlier than 0:1.6.1-36.el5_5.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095015",
+                    "comment": "krb5-server is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100343007",
+                    "comment": "krb5-workstation is earlier than 0:1.6.1-36.el5_5.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095017",
+                    "comment": "krb5-workstation is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

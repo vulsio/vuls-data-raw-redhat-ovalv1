@@ -1,0 +1,180 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100616",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2010:0616: dbus-glib security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0616",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0616",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-1172",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1172",
+        "source": "CVE"
+      }
+    ],
+    "description": "dbus-glib is an add-on library to integrate the standard D-Bus library with\nthe GLib main loop and threading model. NetworkManager is a network link\nmanager that attempts to keep a wired or wireless network connection active\nat all times.\n\nIt was discovered that dbus-glib did not enforce the \"access\" flag on\nexported GObject properties. If such a property were read/write internally\nbut specified as read-only externally, a malicious, local user could use\nthis flaw to modify that property of an application. Such a change could\nimpact the application's behavior (for example, if an IP address were\nchanged the network may not come up properly after reboot) and possibly\nlead to a denial of service. (CVE-2010-1172)\n\nDue to the way dbus-glib translates an application's XML definitions of\nservice interfaces and properties into C code at application build time,\napplications built against dbus-glib that use read-only properties needed\nto be rebuilt to fully fix the flaw. As such, this update provides\nNetworkManager packages that have been rebuilt against the updated\ndbus-glib packages. No other applications shipped with Red Hat Enterprise\nLinux 5 were affected.\n\nAll dbus-glib and NetworkManager users are advised to upgrade to these\nupdated packages, which contain a backported patch to correct this issue.\nRunning instances of NetworkManager must be restarted (service\nNetworkManager restart) for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-08-10"
+      },
+      "updated": {
+        "date": "2010-08-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-1172",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1172",
+          "impact": "moderate",
+          "public": "20100810",
+          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-1172 dbus-glib: property access not validated",
+          "href": "https://bugzilla.redhat.com/585394",
+          "id": "585394"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616001",
+                    "comment": "dbus-glib is earlier than 0:0.73-10.el5_5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616002",
+                    "comment": "dbus-glib is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616003",
+                    "comment": "dbus-glib-devel is earlier than 0:0.73-10.el5_5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616004",
+                    "comment": "dbus-glib-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616005",
+                    "comment": "NetworkManager is earlier than 1:0.7.0-10.el5_5.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090361002",
+                    "comment": "NetworkManager is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616007",
+                    "comment": "NetworkManager-devel is earlier than 1:0.7.0-10.el5_5.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090361004",
+                    "comment": "NetworkManager-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616009",
+                    "comment": "NetworkManager-glib is earlier than 1:0.7.0-10.el5_5.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090361006",
+                    "comment": "NetworkManager-glib is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616011",
+                    "comment": "NetworkManager-glib-devel is earlier than 1:0.7.0-10.el5_5.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090361008",
+                    "comment": "NetworkManager-glib-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100616013",
+                    "comment": "NetworkManager-gnome is earlier than 1:0.7.0-10.el5_5.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090361010",
+                    "comment": "NetworkManager-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

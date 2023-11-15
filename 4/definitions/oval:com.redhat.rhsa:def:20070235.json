@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070235",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:0235: util-linux security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0235",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0235",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-7108",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-7108",
+        "source": "CVE"
+      }
+    ],
+    "description": "The util-linux package contains a collection of basic system utilities.\n\nA flaw was found in the way the login process handled logins which did not\nrequire authentication. Certain processes which conduct their own\nauthentication could allow a remote user to bypass intended access policies\nwhich would normally be enforced by the login process. (CVE-2006-7108)\n\nThis update also fixes the following bugs:\n\n* The partx, addpart and delpart commands were not documented.\n\n* The \"umount -l\" command did not work on hung NFS mounts with cached data.\n\n* The mount command did not mount NFS V3 share where sec=none was specified.\n\n* The mount command did not read filesystem LABEL from unpartitioned disks.\n\n* The mount command did not recognize labels on VFAT filesystems.\n\n* The fdisk command did not support 4096 sector size for the \"-b\" option.\n\n* The mount man page did not list option \"mand\" or information about\n/etc/mtab limitations.\n\nAll users of util-linux should upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-05-01"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-7108",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-7108",
+          "impact": "low",
+          "public": "20060109"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-7108 security flaw",
+          "href": "https://bugzilla.redhat.com/1618255",
+          "id": "1618255"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070235001",
+            "comment": "util-linux is earlier than 0:2.12a-16.EL4.25"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070235002",
+            "comment": "util-linux is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

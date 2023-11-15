@@ -1,0 +1,203 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20140305",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2014:0305: samba security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2014:0305",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2014:0305",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2013-0213",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-0213",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-0214",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-0214",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4124",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4124",
+        "source": "CVE"
+      }
+    ],
+    "description": "Samba is an open-source implementation of the Server Message Block (SMB) or\nCommon Internet File System (CIFS) protocol, which allows PC-compatible\nmachines to share files, printers, and other information.\n\nIt was discovered that the Samba Web Administration Tool (SWAT) did not\nprotect against being opened in a web page frame. A remote attacker could\npossibly use this flaw to conduct a clickjacking attack against SWAT users\nor users with an active SWAT session. (CVE-2013-0213)\n\nA flaw was found in the Cross-Site Request Forgery (CSRF) protection\nmechanism implemented in SWAT. An attacker with the knowledge of a victim's\npassword could use this flaw to bypass CSRF protections and conduct a CSRF\nattack against the victim SWAT user. (CVE-2013-0214)\n\nAn integer overflow flaw was found in the way Samba handled an Extended\nAttribute (EA) list provided by a client. A malicious client could send a\nspecially crafted EA list that triggered an overflow, causing the server to\nloop and reprocess the list using an excessive amount of memory.\n(CVE-2013-4124)\n\nNote: This issue did not affect the default configuration of the Samba\nserver.\n\nRed Hat would like to thank the Samba project for reporting CVE-2013-0213\nand CVE-2013-0214. Upstream acknowledges Jann Horn as the original reporter\nof CVE-2013-0213 and CVE-2013-0214.\n\nAll users of Samba are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the smb service will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2014 Red Hat, Inc.",
+      "issued": {
+        "date": "2014-03-17"
+      },
+      "updated": {
+        "date": "2014-03-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-0213",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-0213",
+          "impact": "moderate",
+          "public": "20130130",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2013-0214",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-0214",
+          "impact": "moderate",
+          "public": "20130130",
+          "cwe": "CWE-352",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2013-4124",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4124",
+          "impact": "moderate",
+          "public": "20130805",
+          "cwe": "CWE-190",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2013-0213 samba: clickjacking vulnerability in SWAT",
+          "href": "https://bugzilla.redhat.com/905700",
+          "id": "905700"
+        },
+        {
+          "text": "CVE-2013-0214 samba: cross-site request forgery vulnerability in SWAT",
+          "href": "https://bugzilla.redhat.com/905704",
+          "id": "905704"
+        },
+        {
+          "text": "CVE-2013-4124 samba: DoS via integer overflow when reading an EA list",
+          "href": "https://bugzilla.redhat.com/984401",
+          "id": "984401"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20140305001",
+                    "comment": "libsmbclient is earlier than 0:3.0.33-3.40.el5_10"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100488011",
+                    "comment": "libsmbclient is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20140305003",
+                    "comment": "libsmbclient-devel is earlier than 0:3.0.33-3.40.el5_10"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100488013",
+                    "comment": "libsmbclient-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20140305005",
+                    "comment": "samba is earlier than 0:3.0.33-3.40.el5_10"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061002",
+                    "comment": "samba is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20140305007",
+                    "comment": "samba-client is earlier than 0:3.0.33-3.40.el5_10"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061004",
+                    "comment": "samba-client is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20140305009",
+                    "comment": "samba-common is earlier than 0:3.0.33-3.40.el5_10"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061006",
+                    "comment": "samba-common is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20140305011",
+                    "comment": "samba-swat is earlier than 0:3.0.33-3.40.el5_10"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061008",
+                    "comment": "samba-swat is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

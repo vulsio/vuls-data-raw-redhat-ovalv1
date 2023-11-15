@@ -1,0 +1,256 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20131860",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2013:1860: kernel security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:1860",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:1860",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2013-4299",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4299",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\n* An information leak flaw was found in the way the Linux kernel's device\nmapper subsystem, under certain conditions, interpreted data written to\nsnapshot block devices. An attacker could use this flaw to read data from\ndisk blocks in free space, which are normally inaccessible. (CVE-2013-4299,\nModerate)\n\nRed Hat would like to thank Fujitsu for reporting this issue.\n\nThis update also fixes the following bugs:\n\n* A previous fix to the kernel did not contain a memory barrier in the percpu_up_write() function. Consequently, under certain circumstances, a race condition could occur, leading to memory corruption and a subsequent kernel panic. This update introduces a new memory barrier pair, light_mb() and heavy_mb(), for per-CPU basis read and write semaphores (percpu-rw-semaphores) ensuring that the race condition can no longer occur. In addition, the read path performance of \"percpu-rw-semaphores\" has been improved. (BZ#884735)\n\n* Due to several related bugs in the be2net driver, the driver did not handle firmware manipulation of the network cards using the Emulex XE201 I/O controller properly. As a consequence, these NICs could not recover from an error successfully. A series of patches has been applied that fix the initialization sequence, and firmware download and activation for the XE201 controller. Error recovery now works as expected for the be2net NICs using the Emulex XE201 I/O controller. (BZ#1019892)\n\n* A bug in the be2net driver could cause packet corruption when handling VLAN-tagged packets with no assigned VLAN group. This happened because the be2net driver called a function responsible for VLAN tag reinsertion in a wrong order in the code. The code has been restructured and the be2net driver now calls the __vlan_put_tag() function correctly, thus avoiding the packet corruption. (BZ#1019893)\n\n* A previous patch to the kernel introduced the \"VLAN tag re-insertion\" workaround to resolve a problem with incorrectly handled VLAN-tagged packets with no assigned VLAN group while the be2net driver was in promiscuous mode. However, this solution led to packet corruption and a subsequent kernel oops if such a processed packet was a GRO packet. Therefore, a patch has been applied to restrict VLAN tag re-insertion only to non-GRO packets. The be2net driver now processes VLAN-tagged packets with no assigned VLAN group correctly in this situation. (BZ#1023347)\n\nAll kernel users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The system must be\nrebooted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-12-19"
+      },
+      "updated": {
+        "date": "2013-12-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-4299",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4299",
+          "impact": "moderate",
+          "public": "20131016",
+          "cvss_2": "4.3/AV:A/AC:H/Au:S/C:C/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2013-4299 kernel: dm: dm-snapshot data leak",
+          "href": "https://bugzilla.redhat.com/1004233",
+          "id": "1004233"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20131860025",
+                "comment": "kernel earlier than 0:2.6.18-348.21.1.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20131860026",
+                "comment": "kernel earlier than 0:2.6.18-348.21.1.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860001",
+                    "comment": "kernel is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131860023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-348.21.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

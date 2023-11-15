@@ -1,0 +1,256 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20181353",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2018:1353: kernel security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5 Extended Lifecycle Support"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2018:1353",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2018:1353",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2018-8897",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2018-8897",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux operating system.\n\nSecurity Fix(es):\n\n* Kernel: error in exception handling leads to DoS (CVE-2018-8897)\n\nFor more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.\n\nRed Hat would like to thank Nick Peterson (Everdox Tech LLC) and Andy Lutomirski for reporting this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2018 Red Hat, Inc.",
+      "issued": {
+        "date": "2018-05-08"
+      },
+      "updated": {
+        "date": "2018-05-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2018-8897",
+          "href": "https://access.redhat.com/security/cve/CVE-2018-8897",
+          "impact": "moderate",
+          "public": "20180508",
+          "cwe": "CWE-250",
+          "cvss_3": "6.5/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2018-8897 Kernel: error in exception handling leads to DoS",
+          "href": "https://bugzilla.redhat.com/1567074",
+          "id": "1567074"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:rhel_els:5"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20181353025",
+                "comment": "kernel earlier than 0:2.6.18-431.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20181353026",
+                "comment": "kernel earlier than 0:2.6.18-431.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353001",
+                    "comment": "kernel is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20181353023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-431.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

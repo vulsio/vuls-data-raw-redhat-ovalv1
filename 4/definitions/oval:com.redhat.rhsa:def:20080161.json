@@ -1,0 +1,147 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080161",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0161: cups security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0161",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0161",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-0596",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0596",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0597",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0597",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX(R) operating systems.\n\nA flaw was found in the way CUPS handled the addition and removal of remote\nshared printers via IPP.  A remote attacker could send malicious UDP IPP\npackets causing the CUPS daemon to attempt to dereference already freed\nmemory and crash. (CVE-2008-0597)\n\nA memory management flaw was found in the way CUPS handled the addition and\nremoval of remote shared printers via IPP.  When shared printer was\nremoved, allocated memory was not properly freed, leading to a memory leak\npossibly causing CUPS daemon crash after exhausting available memory.\n(CVE-2008-0596)\n\nThese issues were found during the investigation of CVE-2008-0882, which\ndid not affect Red Hat Enterprise Linux 4.\n\nNote that the default configuration of CUPS on Red Hat Enterprise Linux\n4 allow requests of this type only from the local subnet.\n\nAll CUPS users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-02-25"
+      },
+      "updated": {
+        "date": "2008-02-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-0596",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0596",
+          "impact": "moderate",
+          "public": "20080225",
+          "cwe": "CWE-401",
+          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2008-0597",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0597",
+          "impact": "moderate",
+          "public": "20080225",
+          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-0596 cups: memory leak handling IPP browse requests",
+          "href": "https://bugzilla.redhat.com/433825",
+          "id": "433825"
+        },
+        {
+          "text": "CVE-2008-0597 cups: dereference of free'd memory handling IPP browse requests",
+          "href": "https://bugzilla.redhat.com/433847",
+          "id": "433847"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080161001",
+                    "comment": "cups is earlier than 1:1.1.22-0.rc1.9.20.2.el4_6.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060163002",
+                    "comment": "cups is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080161003",
+                    "comment": "cups-devel is earlier than 1:1.1.22-0.rc1.9.20.2.el4_6.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060163004",
+                    "comment": "cups-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080161005",
+                    "comment": "cups-libs is earlier than 1:1.1.22-0.rc1.9.20.2.el4_6.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060163006",
+                    "comment": "cups-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100607",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2010:0607: freetype security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0607",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0607",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-1797",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1797",
+        "source": "CVE"
+      }
+    ],
+    "description": "FreeType is a free, high-quality, portable font engine that can open and\nmanage font files. It also loads, hints, and renders individual glyphs\nefficiently. The freetype packages for Red Hat Enterprise Linux 3 and 4\nprovide both the FreeType 1 and FreeType 2 font engines. The freetype\npackages for Red Hat Enterprise Linux 5 provide only the FreeType 2 font\nengine.\n\nTwo stack overflow flaws were found in the way the FreeType font engine\nprocessed certain Compact Font Format (CFF) character strings (opcodes). If\na user loaded a specially-crafted font file with an application linked\nagainst FreeType, it could cause the application to crash or, possibly,\nexecute arbitrary code with the privileges of the user running the\napplication. (CVE-2010-1797)\n\nRed Hat would like to thank Braden Thomas of the Apple Product Security\nteam for reporting these issues.\n\nNote: CVE-2010-1797 only affects the FreeType 2 font engine.\n\nUsers are advised to upgrade to these updated packages, which contain a\nbackported patch to correct these issues. The X server must be restarted\n(log out, then log back in) for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-08-05"
+      },
+      "updated": {
+        "date": "2010-08-05"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-1797",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1797",
+          "impact": "important",
+          "public": "20100805",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-1797 FreeType: Multiple stack overflows by processing CFF opcodes",
+          "href": "https://bugzilla.redhat.com/621144",
+          "id": "621144"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100607001",
+                    "comment": "freetype is earlier than 0:2.1.9-15.el4.8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070150002",
+                    "comment": "freetype is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100607003",
+                    "comment": "freetype-demos is earlier than 0:2.1.9-15.el4.8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070150004",
+                    "comment": "freetype-demos is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100607005",
+                    "comment": "freetype-devel is earlier than 0:2.1.9-15.el4.8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070150006",
+                    "comment": "freetype-devel is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100607007",
+                    "comment": "freetype-utils is earlier than 0:2.1.9-15.el4.8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070150008",
+                    "comment": "freetype-utils is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100607010",
+                    "comment": "freetype is earlier than 0:2.2.1-26.el5_5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070150011",
+                    "comment": "freetype is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100607012",
+                    "comment": "freetype-demos is earlier than 0:2.2.1-26.el5_5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070150013",
+                    "comment": "freetype-demos is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100607014",
+                    "comment": "freetype-devel is earlier than 0:2.2.1-26.el5_5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070150015",
+                    "comment": "freetype-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

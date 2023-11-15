@@ -1,0 +1,91 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060663",
+  "version": "646",
+  "metadata": {
+    "title": "RHSA-2006:0663: ncompress security update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0663",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0663",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-1168",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1168",
+        "source": "CVE"
+      }
+    ],
+    "description": "The ncompress package contains file compression and decompression\nutilities, which are compatible with the original UNIX compress utility (.Z\nfile extensions).\n\nTavis Ormandy of the Google Security Team discovered a lack of bounds\nchecking in ncompress. An attacker could create a carefully crafted file\nthat could execute arbitrary code if uncompressed by a victim. (CVE-2006-1168)\n\nIn addition, two bugs that affected Red Hat Enterprise Linux 4 ncompress\npackages were fixed:\n\n* The display statistics and compression results in verbose mode were not\nshown when operating on zero length files.\n\n* An attempt to compress zero length files resulted in an unexpected return\ncode.\n\nUsers of ncompress are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-09-12"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-1168",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1168",
+          "impact": "moderate",
+          "public": "20060808",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-1168 ncompress: .bss buffer underflow in decompression",
+          "href": "https://bugzilla.redhat.com/201919",
+          "id": "201919"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060663001",
+            "comment": "ncompress is earlier than 0:4.2.4-43.rhel4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060663002",
+            "comment": "ncompress is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

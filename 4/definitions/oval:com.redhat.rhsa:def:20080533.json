@@ -1,0 +1,370 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080533",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0533: bind security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0533",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0533",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1447",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1447",
+        "source": "CVE"
+      }
+    ],
+    "description": "ISC BIND (Berkeley Internet Name Domain) is an implementation of the DNS\n(Domain Name System) protocols.\n\nThe DNS protocol protects against spoofing attacks by requiring an attacker\nto predict both the DNS transaction ID and UDP source port of a request. In\nrecent years, a number of papers have found problems with DNS\nimplementations which make it easier for an attacker to perform DNS\ncache-poisoning attacks.\n\nPrevious versions of BIND did not use randomized UDP source ports. If an\nattacker was able to predict the random DNS transaction ID, this could make\nDNS cache-poisoning attacks easier. In order to provide more resilience,\nBIND has been updated to use a range of random UDP source ports.\n(CVE-2008-1447)\n\nNote: This errata also updates SELinux policy on Red Hat Enterprise Linux 4\nand 5 to allow BIND to use random UDP source ports.\n\nUsers of BIND are advised to upgrade to these updated packages, which\ncontain a backported patch to add this functionality.\n\nRed Hat would like to thank Dan Kaminsky for reporting this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-07-08"
+      },
+      "updated": {
+        "date": "2008-07-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1447",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1447",
+          "impact": "important",
+          "public": "20080708:1800"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1447 bind: implement source UDP port randomization (CERT VU#800113)",
+          "href": "https://bugzilla.redhat.com/449345",
+          "id": "449345"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533001",
+                    "comment": "bind is earlier than 20:9.2.4-28.0.1.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044002",
+                    "comment": "bind is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533003",
+                    "comment": "bind-chroot is earlier than 20:9.2.4-28.0.1.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044004",
+                    "comment": "bind-chroot is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533005",
+                    "comment": "bind-devel is earlier than 20:9.2.4-28.0.1.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044006",
+                    "comment": "bind-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533007",
+                    "comment": "bind-libs is earlier than 20:9.2.4-28.0.1.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044008",
+                    "comment": "bind-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533009",
+                    "comment": "bind-utils is earlier than 20:9.2.4-28.0.1.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044010",
+                    "comment": "bind-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533011",
+                    "comment": "selinux-policy-targeted is earlier than 0:1.17.30-2.150.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533012",
+                    "comment": "selinux-policy-targeted is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533013",
+                    "comment": "selinux-policy-targeted-sources is earlier than 0:1.17.30-2.150.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533014",
+                    "comment": "selinux-policy-targeted-sources is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533016",
+                    "comment": "selinux-policy is earlier than 0:2.4.6-137.1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533017",
+                    "comment": "selinux-policy is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533018",
+                    "comment": "selinux-policy-devel is earlier than 0:2.4.6-137.1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533019",
+                    "comment": "selinux-policy-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533020",
+                    "comment": "selinux-policy-mls is earlier than 0:2.4.6-137.1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533021",
+                    "comment": "selinux-policy-mls is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533022",
+                    "comment": "selinux-policy-strict is earlier than 0:2.4.6-137.1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533023",
+                    "comment": "selinux-policy-strict is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533024",
+                    "comment": "selinux-policy-targeted is earlier than 0:2.4.6-137.1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533012",
+                    "comment": "selinux-policy-targeted is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533025",
+                    "comment": "bind is earlier than 30:9.3.4-6.0.2.P1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044002",
+                    "comment": "bind is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533026",
+                    "comment": "bind-chroot is earlier than 30:9.3.4-6.0.2.P1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044004",
+                    "comment": "bind-chroot is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533027",
+                    "comment": "bind-devel is earlier than 30:9.3.4-6.0.2.P1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044006",
+                    "comment": "bind-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533028",
+                    "comment": "bind-libbind-devel is earlier than 30:9.3.4-6.0.2.P1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070740016",
+                    "comment": "bind-libbind-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533030",
+                    "comment": "bind-libs is earlier than 30:9.3.4-6.0.2.P1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044008",
+                    "comment": "bind-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533031",
+                    "comment": "bind-sdb is earlier than 30:9.3.4-6.0.2.P1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070740019",
+                    "comment": "bind-sdb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533033",
+                    "comment": "bind-utils is earlier than 30:9.3.4-6.0.2.P1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070044010",
+                    "comment": "bind-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080533034",
+                    "comment": "caching-nameserver is earlier than 30:9.3.4-6.0.2.P1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070740022",
+                    "comment": "caching-nameserver is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

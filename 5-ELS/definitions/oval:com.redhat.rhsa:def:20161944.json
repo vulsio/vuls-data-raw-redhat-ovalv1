@@ -1,0 +1,499 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20161944",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2016:1944: bind security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5",
+        "Red Hat Enterprise Linux 6",
+        "Red Hat Enterprise Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2016:1944",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2016:1944",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2016-2776",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2016-2776",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain Name System (DNS) protocols. BIND includes a DNS server (named); a resolver library (routines for applications to use when interfacing with DNS); and tools for verifying that the DNS server is operating correctly.\n\nSecurity Fix(es):\n\n* A denial of service flaw was found in the way BIND constructed a response to a query that met certain criteria. A remote attacker could use this flaw to make named exit unexpectedly with an assertion failure via a specially crafted DNS request packet. (CVE-2016-2776)\n\nRed Hat would like to thank ISC for reporting this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2016 Red Hat, Inc.",
+      "issued": {
+        "date": "2016-09-28"
+      },
+      "updated": {
+        "date": "2016-09-28"
+      },
+      "cve": [
+        {
+          "text": "CVE-2016-2776",
+          "href": "https://access.redhat.com/security/cve/CVE-2016-2776",
+          "impact": "important",
+          "public": "20160927",
+          "cwe": "CWE-617",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P",
+          "cvss_3": "7.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2016-2776 bind: assertion failure in buffer.c while building responses to a specifically constructed request",
+          "href": "https://bugzilla.redhat.com/1378380",
+          "id": "1378380"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server",
+          "cpe:/o:redhat:enterprise_linux:6",
+          "cpe:/o:redhat:enterprise_linux:6::client",
+          "cpe:/o:redhat:enterprise_linux:6::computenode",
+          "cpe:/o:redhat:enterprise_linux:6::server",
+          "cpe:/o:redhat:enterprise_linux:6::workstation",
+          "cpe:/o:redhat:enterprise_linux:7",
+          "cpe:/o:redhat:enterprise_linux:7::client",
+          "cpe:/o:redhat:enterprise_linux:7::computenode",
+          "cpe:/o:redhat:enterprise_linux:7::server",
+          "cpe:/o:redhat:enterprise_linux:7::workstation"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944001",
+                    "comment": "bind is earlier than 30:9.3.6-25.P1.el5_11.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057002",
+                    "comment": "bind is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944003",
+                    "comment": "bind-chroot is earlier than 30:9.3.6-25.P1.el5_11.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057004",
+                    "comment": "bind-chroot is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944005",
+                    "comment": "bind-devel is earlier than 30:9.3.6-25.P1.el5_11.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057006",
+                    "comment": "bind-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944007",
+                    "comment": "bind-libbind-devel is earlier than 30:9.3.6-25.P1.el5_11.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057008",
+                    "comment": "bind-libbind-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944009",
+                    "comment": "bind-libs is earlier than 30:9.3.6-25.P1.el5_11.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057010",
+                    "comment": "bind-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944011",
+                    "comment": "bind-sdb is earlier than 30:9.3.6-25.P1.el5_11.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057012",
+                    "comment": "bind-sdb is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944013",
+                    "comment": "bind-utils is earlier than 30:9.3.6-25.P1.el5_11.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057014",
+                    "comment": "bind-utils is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944015",
+                    "comment": "caching-nameserver is earlier than 30:9.3.6-25.P1.el5_11.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057016",
+                    "comment": "caching-nameserver is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944018",
+                    "comment": "bind is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845013",
+                    "comment": "bind is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944020",
+                    "comment": "bind-chroot is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845015",
+                    "comment": "bind-chroot is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944022",
+                    "comment": "bind-devel is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845017",
+                    "comment": "bind-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944024",
+                    "comment": "bind-libs is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845019",
+                    "comment": "bind-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944026",
+                    "comment": "bind-libs-lite is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141984027",
+                    "comment": "bind-libs-lite is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944028",
+                    "comment": "bind-license is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141984029",
+                    "comment": "bind-license is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944030",
+                    "comment": "bind-lite-devel is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141984031",
+                    "comment": "bind-lite-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944032",
+                    "comment": "bind-pkcs11 is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20160073042",
+                    "comment": "bind-pkcs11 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944034",
+                    "comment": "bind-pkcs11-devel is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20160073044",
+                    "comment": "bind-pkcs11-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944036",
+                    "comment": "bind-pkcs11-libs is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20160073046",
+                    "comment": "bind-pkcs11-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944038",
+                    "comment": "bind-pkcs11-utils is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20160073048",
+                    "comment": "bind-pkcs11-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944040",
+                    "comment": "bind-sdb is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845021",
+                    "comment": "bind-sdb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944042",
+                    "comment": "bind-sdb-chroot is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141984035",
+                    "comment": "bind-sdb-chroot is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944044",
+                    "comment": "bind-utils is earlier than 32:9.9.4-29.el7_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845023",
+                    "comment": "bind-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20140741012",
+            "comment": "Red Hat Enterprise Linux 7 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944047",
+                    "comment": "bind is earlier than 32:9.8.2-0.47.rc1.el6_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845013",
+                    "comment": "bind is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944048",
+                    "comment": "bind-chroot is earlier than 32:9.8.2-0.47.rc1.el6_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845015",
+                    "comment": "bind-chroot is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944049",
+                    "comment": "bind-devel is earlier than 32:9.8.2-0.47.rc1.el6_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845017",
+                    "comment": "bind-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944050",
+                    "comment": "bind-libs is earlier than 32:9.8.2-0.47.rc1.el6_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845019",
+                    "comment": "bind-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944051",
+                    "comment": "bind-sdb is earlier than 32:9.8.2-0.47.rc1.el6_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845021",
+                    "comment": "bind-sdb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20161944052",
+                    "comment": "bind-utils is earlier than 32:9.8.2-0.47.rc1.el6_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845023",
+                    "comment": "bind-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100889023",
+            "comment": "Red Hat Enterprise Linux 6 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060486",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2006:0486: mailman security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0486",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0486",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-0052",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0052",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mailman is software to help manage email discussion lists.\n\nA flaw was found in the way Mailman handles MIME multipart messages. An\nattacker could send a carefully crafted MIME multipart email message to a\nmailing list run by Mailman which would cause that particular mailing list\nto stop working. (CVE-2006-0052)\n\nUsers of Mailman should upgrade to this updated package, which contains\nbackported patches to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-06-09"
+      },
+      "updated": {
+        "date": "2006-06-09"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-0052",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0052",
+          "impact": "moderate",
+          "public": "20050606"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-0052 security flaw",
+          "href": "https://bugzilla.redhat.com/1617871",
+          "id": "1617871"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060486001",
+            "comment": "mailman is earlier than 3:2.1.5.1-34.rhel4.3"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060204002",
+            "comment": "mailman is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

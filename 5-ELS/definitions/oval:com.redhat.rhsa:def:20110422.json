@@ -1,0 +1,179 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110422",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2011:0422: postfix security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0422",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0422",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-2937",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2937",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-0411",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-0411",
+        "source": "CVE"
+      }
+    ],
+    "description": "Postfix is a Mail Transport Agent (MTA), supporting LDAP, SMTP AUTH (SASL),\nand TLS.\n\nIt was discovered that Postfix did not flush the received SMTP commands\nbuffer after switching to TLS encryption for an SMTP session. A\nman-in-the-middle attacker could use this flaw to inject SMTP commands into\na victim's session during the plain text phase. This would lead to those\ncommands being processed by Postfix after TLS encryption is enabled,\npossibly allowing the attacker to steal the victim's mail or authentication\ncredentials. (CVE-2011-0411)\n\nIt was discovered that Postfix did not properly check the permissions of\nusers' mailbox files. A local attacker able to create files in the mail\nspool directory could use this flaw to create mailbox files for other local\nusers, and be able to read mail delivered to those users. (CVE-2008-2937)\n\nRed Hat would like to thank the CERT/CC for reporting CVE-2011-0411, and\nSebastian Krahmer of the SuSE Security Team for reporting CVE-2008-2937.\nThe CERT/CC acknowledges Wietse Venema as the original reporter of\nCVE-2011-0411.\n\nUsers of Postfix are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues. After installing this\nupdate, the postfix service will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-04-06"
+      },
+      "updated": {
+        "date": "2011-04-06"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-2937",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2937",
+          "impact": "low",
+          "public": "20080814",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-0411",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-0411",
+          "impact": "moderate",
+          "public": "20110305",
+          "cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2937 postfix improper mailbox permissions",
+          "href": "https://bugzilla.redhat.com/456347",
+          "id": "456347"
+        },
+        {
+          "text": "CVE-2011-0411 postfix: SMTP commands injection during plaintext to TLS session switch",
+          "href": "https://bugzilla.redhat.com/674814",
+          "id": "674814"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110422001",
+                    "comment": "postfix is earlier than 2:2.2.10-1.4.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839002",
+                    "comment": "postfix is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110422003",
+                    "comment": "postfix-pflogsumm is earlier than 2:2.2.10-1.4.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839004",
+                    "comment": "postfix-pflogsumm is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110422006",
+                    "comment": "postfix is earlier than 2:2.3.3-2.2.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839007",
+                    "comment": "postfix is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110422008",
+                    "comment": "postfix-pflogsumm is earlier than 2:2.3.3-2.2.el5_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839009",
+                    "comment": "postfix-pflogsumm is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

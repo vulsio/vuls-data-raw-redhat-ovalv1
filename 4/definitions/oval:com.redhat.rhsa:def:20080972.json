@@ -1,0 +1,326 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080972",
+  "version": "645",
+  "metadata": {
+    "title": "RHSA-2008:0972: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0972",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0972",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5093",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5093",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-6716",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6716",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1514",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1514",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3272",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3272",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3528",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3528",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-4210",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4210",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\n* a flaw was found in the Linux kernel's Direct-IO implementation. This\ncould have allowed a local unprivileged user to cause a denial of service.\n(CVE-2007-6716, Important)\n\n* when running ptrace in 31-bit mode on an IBM S/390 or IBM System z\nkernel, a local unprivileged user could cause a denial of service by\nreading from or writing into a padding area in the user_regs_struct32\nstructure. (CVE-2008-1514, Important)\n\n* the do_truncate() and generic_file_splice_write() functions did not clear\nthe setuid and setgid bits. This could have allowed a local unprivileged\nuser to obtain access to privileged information. (CVE-2008-4210, Important)\n\n* Tobias Klein reported a missing check in the Linux kernel's Open Sound\nSystem (OSS) implementation. This deficiency could have led to an\ninformation leak. (CVE-2008-3272, Moderate)\n\n* a potential denial of service attack was discovered in the Linux kernel's\nPWC USB video driver. A local unprivileged user could have used this flaw\nto bring the kernel USB subsystem into the busy-waiting state.\n(CVE-2007-5093, Low)\n\n* the ext2 and ext3 file systems code failed to properly handle corrupted\ndata structures, leading to a possible local denial of service issue when\nread or write operations were performed. (CVE-2008-3528, Low)\n\nIn addition, these updated packages fix the following bugs:\n\n* when using the CIFS \"forcedirectio\" option, appending to an open file on\na CIFS share resulted in that file being overwritten with the data to be\nappended.\n\n* a kernel panic occurred when a device with PCI ID 8086:10c8 was present\non a system with a loaded ixgbe driver.\n\n* due to an aacraid driver regression, the kernel failed to boot when trying\nto load the aacraid driver and printed the following error message:\n\"aac_srb: aac_fib_send failed with status: 8195\".\n\n* due to an mpt driver regression, when RAID 1 was configured on Primergy\nsystems with an LSI SCSI IME 53C1020/1030 controller, the kernel panicked\nduring boot.\n\n* the mpt driver produced a large number of extraneous debugging messages\nwhen performing a \"Host reset\" operation.\n\n* due to a regression in the sym driver, the kernel panicked when a SCSI\nhot swap was performed using MCP18 hardware.\n\n* all cores on a multi-core system now scale their frequencies in\naccordance with the policy set by the system's CPU frequency governor.\n\n* the netdump subsystem suffered from several stability issues. These are\naddressed in this updated kernel.\n\n* under certain conditions, the ext3 file system reported a negative count\nof used blocks.\n\n* reading /proc/self/mem incorrectly returned \"Invalid argument\" instead of\n\"input/output error\" due to a regression.\n\n* under certain conditions, the kernel panicked when a USB device was\nremoved while the system was busy accessing the device.\n\n* a race condition in the kernel could have led to a kernel crash during\nthe creation of a new process.\n\nAll Red Hat Enterprise Linux 4 Users should upgrade to these updated\npackages, which contain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-11-19"
+      },
+      "updated": {
+        "date": "2008-11-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5093",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5093",
+          "impact": "low",
+          "public": "20070821"
+        },
+        {
+          "text": "CVE-2007-6716",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6716",
+          "impact": "important",
+          "public": "20070726"
+        },
+        {
+          "text": "CVE-2008-1514",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1514",
+          "impact": "important",
+          "public": "20080318"
+        },
+        {
+          "text": "CVE-2008-3272",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3272",
+          "impact": "moderate",
+          "public": "20080802"
+        },
+        {
+          "text": "CVE-2008-3528",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3528",
+          "impact": "low",
+          "public": "20080913",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2008-4210",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4210",
+          "impact": "important",
+          "public": "20070502"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5093 kernel PWC driver DoS",
+          "href": "https://bugzilla.redhat.com/306591",
+          "id": "306591"
+        },
+        {
+          "text": "CVE-2008-1514 kernel: ptrace: Padding area write - unprivileged kernel crash",
+          "href": "https://bugzilla.redhat.com/438147",
+          "id": "438147"
+        },
+        {
+          "text": "CVE-2008-3272 kernel snd_seq_oss_synth_make_info leak",
+          "href": "https://bugzilla.redhat.com/457995",
+          "id": "457995"
+        },
+        {
+          "text": "CVE-2008-3528 Linux kernel ext[234] directory corruption denial of service",
+          "href": "https://bugzilla.redhat.com/459577",
+          "id": "459577"
+        },
+        {
+          "text": "CVE-2007-6716 kernel: dio: zero struct dio with kzalloc instead of manually",
+          "href": "https://bugzilla.redhat.com/461082",
+          "id": "461082"
+        },
+        {
+          "text": "CVE-2008-4210 kernel: open() call allows setgid bit when user is not in new file's group",
+          "href": "https://bugzilla.redhat.com/463661",
+          "id": "463661"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080972023",
+                "comment": "kernel earlier than 0:2.6.9-78.0.8.EL is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080972024",
+                "comment": "kernel earlier than 0:2.6.9-78.0.8.EL is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972001",
+                    "comment": "kernel is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972003",
+                    "comment": "kernel-devel is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972005",
+                    "comment": "kernel-doc is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972007",
+                    "comment": "kernel-hugemem is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
+                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972009",
+                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
+                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972011",
+                    "comment": "kernel-largesmp is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
+                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972013",
+                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
+                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972015",
+                    "comment": "kernel-smp is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
+                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972017",
+                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
+                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972019",
+                    "comment": "kernel-xenU is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
+                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080972021",
+                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-78.0.8.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
+                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

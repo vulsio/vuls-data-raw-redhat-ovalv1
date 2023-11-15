@@ -1,0 +1,257 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110163",
+  "version": "646",
+  "metadata": {
+    "title": "RHSA-2011:0163: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0163",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0163",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-4526",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4526",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issue:\n\n* A flaw was found in the sctp_icmp_proto_unreachable() function in the\nLinux kernel's Stream Control Transmission Protocol (SCTP) implementation.\nA remote attacker could use this flaw to cause a denial of service.\n(CVE-2010-4526, Important)\n\nThis update also fixes the following bugs:\n\n* Due to an off-by-one error, gfs2_grow failed to take the very last \"rgrp\"\nparameter into account when adding up the new free space. With this update,\nthe GFS2 kernel properly counts all the new resource groups and fixes the\n\"statfs\" file correctly. (BZ#666792)\n\n* Prior to this update, a multi-threaded application, which invoked\npopen(3) internally, could cause a thread stall by FILE lock corruption.\nThe application program waited for a FILE lock in glibc, but the lock\nseemed to be corrupted, which was caused by a race condition in the COW (Copy On Write) logic. With this update, the race condition was corrected and FILE lock corruption no longer occurs. (BZ#667050)\n\n* If an error occurred during I/O, the SCSI driver reset the \"megaraid_sas\"\ncontroller to restore it to normal state. However, on Red Hat Enterprise\nLinux 5, the waiting time to allow a full reset completion for the\n\"megaraid_sas\" controller was too short. The driver incorrectly recognized\nthe controller as stalled, and, as a result, the system stalled as well.\nWith this update, more time is given to the controller to properly restart,\nthus, the controller operates as expected after being reset. (BZ#667141)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-01-18"
+      },
+      "updated": {
+        "date": "2011-01-18"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-4526",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4526",
+          "impact": "important",
+          "public": "20100506",
+          "cwe": "CWE-662->CWE-362->CWE-672->CWE-119",
+          "cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-4526 kernel: sctp: a race between ICMP protocol unreachable and connect()",
+          "href": "https://bugzilla.redhat.com/664914",
+          "id": "664914"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20110163025",
+                "comment": "kernel earlier than 0:2.6.18-238.1.1.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20110163026",
+                "comment": "kernel earlier than 0:2.6.18-238.1.1.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163001",
+                    "comment": "kernel is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110163023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-238.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

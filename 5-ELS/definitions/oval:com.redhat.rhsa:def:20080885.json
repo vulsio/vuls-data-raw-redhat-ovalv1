@@ -1,0 +1,320 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080885",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2008:0885: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0885",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0885",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-6417",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6417",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-6716",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6716",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2931",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2931",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3272",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3272",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3275",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3275",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity fixes:\n\n* a missing capability check was found in the Linux kernel do_change_type\nroutine. This could allow a local unprivileged user to gain privileged\naccess or cause a denial of service. (CVE-2008-2931, Important)\n\n* a flaw was found in the Linux kernel Direct-IO implementation. This could\nallow a local unprivileged user to cause a denial of service.\n(CVE-2007-6716, Important)\n\n* Tobias Klein reported a missing check in the Linux kernel Open Sound\nSystem (OSS) implementation. This deficiency could lead to a possible\ninformation leak. (CVE-2008-3272, Moderate)\n\n* a deficiency was found in the Linux kernel virtual filesystem (VFS)\nimplementation. This could allow a local unprivileged user to attempt file\ncreation within deleted directories, possibly causing a denial of service.\n(CVE-2008-3275, Moderate)\n\n* a flaw was found in the Linux kernel tmpfs implementation. This could\nallow a local unprivileged user to read sensitive information from the\nkernel. (CVE-2007-6417, Moderate)\n\nBug fixes:\n\n* when copying a small IPoIB packet from the original skb it was received\nin to a new, smaller skb, all fields in the new skb were not initialized.\nThis may have caused a kernel oops.\n\n* previously, data may have been written beyond the end of an array,\ncausing memory corruption on certain systems, resulting in hypervisor\ncrashes during context switching.\n\n* a kernel crash may have occurred on heavily-used Samba servers after 24\nto 48 hours of use.\n\n* under heavy memory pressure, pages may have been swapped out from under\nthe SGI Altix XPMEM driver, causing silent data corruption in the kernel.\n\n* the ixgbe driver is untested, but support was advertised for the Intel\n82598 network card. If this card was present when the ixgbe driver was\nloaded, a NULL pointer dereference and a panic occurred.\n\n* on certain systems, if multiple InfiniBand queue pairs simultaneously\nfell into an error state, an overrun may have occurred, stopping traffic.\n\n* with bridging, when forward delay was set to zero, setting an interface\nto the forwarding state was delayed by one or possibly two timers,\ndepending on whether STP was enabled. This may have caused long delays in\nmoving an interface to the forwarding state. This issue caused packet loss\nwhen migrating virtual machines, preventing them from being migrated\nwithout interrupting applications.\n\n* on certain multinode systems, IPMI device nodes were created in reverse\norder of where they physically resided.\n\n* process hangs may have occurred while accessing application data files\nvia asynchronous direct I/O system calls.\n\n* on systems with heavy lock traffic, a possible deadlock may have caused\nanything requiring locks over NFS to stop, or be very slow. Errors such as\n\"lockd: server [IP] not responding, timed out\" were logged on client\nsystems.\n\n* unexpected removals of USB devices may have caused a NULL pointer\ndereference in kobject_get_path.\n\n* on Itanium-based systems, repeatedly creating and destroying Windows\nguests may have caused Dom0 to crash, due to the \"XENMEM_add_to_physmap\"\nhypercall, used by para-virtualized drivers on HVM, being SMP-unsafe.\n\n* when using an MD software RAID, crashes may have occurred when devices\nwere removed or changed while being iterated through. Correct locking is\nnow used.\n\n* break requests had no effect when using \"Serial Over Lan\" with the Intel\n82571 network card. This issue may have caused log in problems.\n\n* on Itanium-based systems, module_free() referred the first parameter\nbefore checking it was valid. This may have caused a kernel panic when\nexiting SystemTap.\n\nRed Hat Enterprise Linux 5 users are advised to upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-09-24"
+      },
+      "updated": {
+        "date": "2008-09-24"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-6417",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6417",
+          "impact": "moderate",
+          "public": "20071128"
+        },
+        {
+          "text": "CVE-2007-6716",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6716",
+          "impact": "important",
+          "public": "20070726"
+        },
+        {
+          "text": "CVE-2008-2931",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2931",
+          "impact": "important",
+          "public": "20070508"
+        },
+        {
+          "text": "CVE-2008-3272",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3272",
+          "impact": "moderate",
+          "public": "20080802"
+        },
+        {
+          "text": "CVE-2008-3275",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3275",
+          "impact": "moderate",
+          "public": "20080702"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-6417 tmpfs: restore missing clear_highpage (kernels from 2.6.11 up)",
+          "href": "https://bugzilla.redhat.com/426081",
+          "id": "426081"
+        },
+        {
+          "text": "CVE-2008-2931 kernel: missing check before setting mount propagation",
+          "href": "https://bugzilla.redhat.com/454388",
+          "id": "454388"
+        },
+        {
+          "text": "CVE-2008-3275 Linux kernel local filesystem DoS",
+          "href": "https://bugzilla.redhat.com/457858",
+          "id": "457858"
+        },
+        {
+          "text": "CVE-2008-3272 kernel snd_seq_oss_synth_make_info leak",
+          "href": "https://bugzilla.redhat.com/457995",
+          "id": "457995"
+        },
+        {
+          "text": "CVE-2007-6716 kernel: dio: zero struct dio with kzalloc instead of manually",
+          "href": "https://bugzilla.redhat.com/461082",
+          "id": "461082"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080885025",
+                "comment": "kernel earlier than 0:2.6.18-92.1.13.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080885026",
+                "comment": "kernel earlier than 0:2.6.18-92.1.13.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885001",
+                    "comment": "kernel is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080885023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-92.1.13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

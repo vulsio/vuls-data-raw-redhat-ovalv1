@@ -1,0 +1,257 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070909",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2007:0909: kdelibs security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0909",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0909",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-0242",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-0242",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-0537",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-0537",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-1308",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1308",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-1564",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1564",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3820",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3820",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4224",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4224",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kdelibs package provides libraries for the K Desktop Environment (KDE).\n\nTwo cross-site-scripting flaws were found in the way Konqueror processes\ncertain HTML content. This could result in a malicious attacker presenting\nmisleading content to an unsuspecting user. (CVE-2007-0242, CVE-2007-0537)\n\nA flaw was found in KDE JavaScript implementation.  A web page containing\nmalicious JavaScript code could cause Konqueror to crash. (CVE-2007-1308)\n\nA flaw was found in the way Konqueror handled certain FTP PASV commands.\nA malicious FTP server could use this flaw to perform a rudimentary\nport-scan of machines behind a user's firewall. (CVE-2007-1564)\n\nTwo Konqueror address spoofing flaws have been discovered. It was\npossible for a malicious website to cause the Konqueror address bar to\ndisplay information which could trick a user into believing they are at a \ndifferent website than they actually are. (CVE-2007-3820, CVE-2007-4224)\n\nUsers of KDE should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-10-08"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-0242",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-0242",
+          "impact": "moderate",
+          "public": "20070329",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2007-0537",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-0537",
+          "impact": "low",
+          "public": "20070124",
+          "cwe": "CWE-79"
+        },
+        {
+          "text": "CVE-2007-1308",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1308",
+          "impact": "low",
+          "public": "20070304"
+        },
+        {
+          "text": "CVE-2007-1564",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1564",
+          "impact": "low",
+          "public": "20070322"
+        },
+        {
+          "text": "CVE-2007-3820",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3820",
+          "impact": "low",
+          "public": "20070714"
+        },
+        {
+          "text": "CVE-2007-4224",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4224",
+          "impact": "low",
+          "public": "20070807"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-0537 konqueror XSS",
+          "href": "https://bugzilla.redhat.com/229606",
+          "id": "229606"
+        },
+        {
+          "text": "CVE-2007-1564 FTP protocol PASV design flaw affects konqueror",
+          "href": "https://bugzilla.redhat.com/233592",
+          "id": "233592"
+        },
+        {
+          "text": "CVE-2007-0242 QT UTF8 improper character expansion",
+          "href": "https://bugzilla.redhat.com/234633",
+          "id": "234633"
+        },
+        {
+          "text": "CVE-2007-3820 Spoofing of URI possible in Konqueror's address bar",
+          "href": "https://bugzilla.redhat.com/248537",
+          "id": "248537"
+        },
+        {
+          "text": "CVE-2007-4224 URL spoof in address bar",
+          "href": "https://bugzilla.redhat.com/251708",
+          "id": "251708"
+        },
+        {
+          "text": "CVE-2007-1308 kdelibs KDE JavaScript denial of service (crash)",
+          "href": "https://bugzilla.redhat.com/299891",
+          "id": "299891"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909001",
+                    "comment": "kdelibs is earlier than 6:3.3.1-9.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909002",
+                    "comment": "kdelibs is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909003",
+                    "comment": "kdelibs-devel is earlier than 6:3.3.1-9.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909004",
+                    "comment": "kdelibs-devel is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909006",
+                    "comment": "kdelibs is earlier than 6:3.5.4-13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909007",
+                    "comment": "kdelibs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909008",
+                    "comment": "kdelibs-apidocs is earlier than 6:3.5.4-13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909009",
+                    "comment": "kdelibs-apidocs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909010",
+                    "comment": "kdelibs-devel is earlier than 6:3.5.4-13.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909011",
+                    "comment": "kdelibs-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

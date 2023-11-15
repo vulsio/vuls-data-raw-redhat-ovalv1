@@ -1,0 +1,229 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20131310",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2013:1310: samba3x security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:1310",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:1310",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2013-0213",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-0213",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-0214",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-0214",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4124",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4124",
+        "source": "CVE"
+      }
+    ],
+    "description": "Samba is an open-source implementation of the Server Message Block (SMB) or\nCommon Internet File System (CIFS) protocol, which allows PC-compatible\nmachines to share files, printers, and other information.\n\nIt was discovered that the Samba Web Administration Tool (SWAT) did not\nprotect against being opened in a web page frame. A remote attacker could\npossibly use this flaw to conduct a clickjacking attack against SWAT users\nor users with an active SWAT session. (CVE-2013-0213)\n\nA flaw was found in the Cross-Site Request Forgery (CSRF) protection\nmechanism implemented in SWAT. An attacker with the knowledge of a victim's\npassword could use this flaw to bypass CSRF protections and conduct a CSRF\nattack against the victim SWAT user. (CVE-2013-0214)\n\nAn integer overflow flaw was found in the way Samba handled an Extended\nAttribute (EA) list provided by a client. A malicious client could send a\nspecially crafted EA list that triggered an overflow, causing the server to\nloop and reprocess the list using an excessive amount of memory.\n(CVE-2013-4124)\n\nNote: This issue did not affect the default configuration of the Samba\nserver.\n\nRed Hat would like to thank the Samba project for reporting CVE-2013-0213\nand CVE-2013-0214. Upstream acknowledges Jann Horn as the original reporter\nof CVE-2013-0213 and CVE-2013-0214.\n\nThese updated samba3x packages also include numerous bug fixes. Space\nprecludes documenting all of these changes in this advisory. Users are\ndirected to the Red Hat Enterprise Linux 5.10 Technical Notes, linked to in\nthe References, for information on the most significant of these changes.\n\nAll samba3x users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the smb service will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-09-30"
+      },
+      "updated": {
+        "date": "2013-09-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-0213",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-0213",
+          "impact": "moderate",
+          "public": "20130130",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2013-0214",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-0214",
+          "impact": "moderate",
+          "public": "20130130",
+          "cwe": "CWE-352",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2013-4124",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4124",
+          "impact": "moderate",
+          "public": "20130805",
+          "cwe": "CWE-190",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2013-0213 samba: clickjacking vulnerability in SWAT",
+          "href": "https://bugzilla.redhat.com/905700",
+          "id": "905700"
+        },
+        {
+          "text": "CVE-2013-0214 samba: cross-site request forgery vulnerability in SWAT",
+          "href": "https://bugzilla.redhat.com/905704",
+          "id": "905704"
+        },
+        {
+          "text": "CVE-2013-4124 samba: DoS via integer overflow when reading an EA list",
+          "href": "https://bugzilla.redhat.com/984401",
+          "id": "984401"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131310001",
+                    "comment": "samba3x is earlier than 0:3.6.6-0.136.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054002",
+                    "comment": "samba3x is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131310003",
+                    "comment": "samba3x-client is earlier than 0:3.6.6-0.136.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054004",
+                    "comment": "samba3x-client is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131310005",
+                    "comment": "samba3x-common is earlier than 0:3.6.6-0.136.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054006",
+                    "comment": "samba3x-common is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131310007",
+                    "comment": "samba3x-doc is earlier than 0:3.6.6-0.136.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054008",
+                    "comment": "samba3x-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131310009",
+                    "comment": "samba3x-domainjoin-gui is earlier than 0:3.6.6-0.136.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054010",
+                    "comment": "samba3x-domainjoin-gui is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131310011",
+                    "comment": "samba3x-swat is earlier than 0:3.6.6-0.136.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054012",
+                    "comment": "samba3x-swat is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131310013",
+                    "comment": "samba3x-winbind is earlier than 0:3.6.6-0.136.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054014",
+                    "comment": "samba3x-winbind is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131310015",
+                    "comment": "samba3x-winbind-devel is earlier than 0:3.6.6-0.136.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054016",
+                    "comment": "samba3x-winbind-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

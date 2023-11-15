@@ -1,0 +1,336 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080233",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2008:0233: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0233",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0233",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5498",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5498",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0007",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0007",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1367",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1367",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1375",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1375",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1619",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1619",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1669",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1669",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThese updated packages fix the following security issues:\n\n* the absence of a protection mechanism when attempting to access a\ncritical section of code has been found in the Linux kernel open file\ndescriptors control mechanism, fcntl. This could allow a local unprivileged\nuser to simultaneously execute code, which would otherwise be protected\nagainst parallel execution. As well, a race condition when handling locks\nin the Linux kernel fcntl functionality, may have allowed a process\nbelonging to a local unprivileged user to gain re-ordered access to the\ndescriptor table. (CVE-2008-1669, Important)\n\n* a possible hypervisor panic was found in the Linux kernel. A privileged\nuser of a fully virtualized guest could initiate a stress-test File\nTransfer Protocol (FTP) transfer between the guest and the hypervisor,\npossibly leading to hypervisor panic. (CVE-2008-1619, Important)\n\n* the absence of a protection mechanism when attempting to access a\ncritical section of code, as well as a race condition, have been found\nin the Linux kernel file system event notifier, dnotify. This could allow a\nlocal unprivileged user to get inconsistent data, or to send arbitrary\nsignals to arbitrary system processes. (CVE-2008-1375, Important)\n\nRed Hat would like to thank Nick Piggin for responsibly disclosing the\nfollowing issue:\n\n* when accessing kernel memory locations, certain Linux kernel drivers\nregistering a fault handler did not perform required range checks. A local\nunprivileged user could use this flaw to gain read or write access to\narbitrary kernel memory, or possibly cause a kernel crash.\n(CVE-2008-0007, Important)\n\n* the absence of sanity-checks was found in the hypervisor block backend\ndriver, when running 32-bit paravirtualized guests on a 64-bit host. The\nnumber of blocks to be processed per one request from guest to host, or\nvice-versa, was not checked for its maximum value, which could have allowed\na local privileged user of the guest operating system to cause a denial of\nservice. (CVE-2007-5498, Important)\n\n* it was discovered that the Linux kernel handled string operations in the\nopposite way to the GNU Compiler Collection (GCC). This could allow a local\nunprivileged user to cause memory corruption. (CVE-2008-1367, Low)\n\nAs well, these updated packages fix the following bugs:\n\n* on IBM System z architectures, when running QIOASSIST enabled QDIO\ndevices in an IBM z/VM environment, the output queue stalled under heavy\nload. This caused network performance to degrade, possibly causing network\nhangs and outages.\n\n* multiple buffer overflows were discovered in the neofb video driver. It\nwas not possible for an unprivileged user to exploit these issues, and as\nsuch, they have not been handled as security issues.\n\n* when running Microsoft Windows in a HVM, a bug in vmalloc/vfree caused\nnetwork performance to degrade.\n\n* on certain architectures, a bug in the libATA sata_nv driver may have\ncaused infinite reboots, and an \"ata1: CPB flags CMD err flags 0x11\" error.\n\n* repeatedly hot-plugging a PCI Express card may have caused \"Bad DLLP\"\nerrors.\n\n* a NULL pointer dereference in NFS, which may have caused applications to\ncrash, has been resolved.\n\n* when attempting to kexec reboot, either manually or via a panic-triggered\nkdump, the Unisys ES7000/one hanged after rebooting in the new kernel,\nafter printing the \"Memory: 32839688k/33685504k available\" line.\n\nRed Hat Enterprise Linux 5 users are advised to upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-05-07"
+      },
+      "updated": {
+        "date": "2008-05-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5498",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5498",
+          "impact": "important",
+          "public": "20080422"
+        },
+        {
+          "text": "CVE-2008-0007",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0007",
+          "impact": "important",
+          "public": "20080208"
+        },
+        {
+          "text": "CVE-2008-1367",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1367",
+          "impact": "low",
+          "public": "20080305"
+        },
+        {
+          "text": "CVE-2008-1375",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1375",
+          "impact": "important",
+          "public": "20080501"
+        },
+        {
+          "text": "CVE-2008-1619",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1619",
+          "impact": "important",
+          "public": "20080103"
+        },
+        {
+          "text": "CVE-2008-1669",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1669",
+          "impact": "important",
+          "public": "20080506"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5498 missing sanity check in xen block backend driver",
+          "href": "https://bugzilla.redhat.com/369531",
+          "id": "369531"
+        },
+        {
+          "text": "CVE-2008-0007 kernel: insufficient range checks in fault handlers with mremap",
+          "href": "https://bugzilla.redhat.com/428961",
+          "id": "428961"
+        },
+        {
+          "text": "CVE-2008-1367 Kernel doesn't clear DF for signal handlers",
+          "href": "https://bugzilla.redhat.com/437312",
+          "id": "437312"
+        },
+        {
+          "text": "CVE-2008-1619 [xen-ia64] Dom0 panic while we run ftp test tool between HVM and Dom0.",
+          "href": "https://bugzilla.redhat.com/437770",
+          "id": "437770"
+        },
+        {
+          "text": "CVE-2008-1375 kernel: race condition in dnotify (local DoS, local roothole possible)",
+          "href": "https://bugzilla.redhat.com/439754",
+          "id": "439754"
+        },
+        {
+          "text": "CVE-2008-1669 kernel: add rcu_read_lock() to fcheck() in both dnotify, locks.c and fix fcntl store/load race in locks.c",
+          "href": "https://bugzilla.redhat.com/443433",
+          "id": "443433"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080233025",
+                "comment": "kernel earlier than 0:2.6.18-53.1.19.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080233026",
+                "comment": "kernel earlier than 0:2.6.18-53.1.19.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233001",
+                    "comment": "kernel is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080233023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-53.1.19.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060619",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2006:0619: httpd security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0619",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0619",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-3918",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3918",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Apache HTTP Server is a popular Web server available for free.\n\nA bug was found in Apache where an invalid Expect header sent to the server\nwas returned to the user in an unescaped error message.  This could\nallow an attacker to perform a cross-site scripting attack if a victim was\ntricked into connecting to a site and sending a carefully crafted Expect\nheader.  (CVE-2006-3918)\n\nWhile a web browser cannot be forced to send an arbitrary Expect\nheader by a third-party attacker, it was recently discovered that\ncertain versions of the Flash plugin can manipulate request headers.\nIf users running such versions can be persuaded to load a web page\nwith a malicious Flash applet, a cross-site scripting attack against\nthe server may be possible.\n\nOn Red Hat Enterprise Linux 3 and 4 systems, due to an unrelated issue in\nthe handling of malformed Expect headers, the page produced by the\ncross-site scripting attack will only be returned after a timeout expires\n(2-5 minutes by default) if not first canceled by the user.\n\nUsers of httpd should update to these erratum packages, which contain a\nbackported patch to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-08-10"
+      },
+      "updated": {
+        "date": "2006-08-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-3918",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-3918",
+          "impact": "moderate",
+          "public": "20060508",
+          "cwe": "CWE-79"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-3918 httpd: Expect header XSS",
+          "href": "https://bugzilla.redhat.com/200732",
+          "id": "200732"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060619001",
+                    "comment": "httpd is earlier than 0:2.0.52-28.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159002",
+                    "comment": "httpd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060619003",
+                    "comment": "httpd-devel is earlier than 0:2.0.52-28.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060619005",
+                    "comment": "httpd-manual is earlier than 0:2.0.52-28.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060619007",
+                    "comment": "httpd-suexec is earlier than 0:2.0.52-28.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159008",
+                    "comment": "httpd-suexec is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060619009",
+                    "comment": "mod_ssl is earlier than 1:2.0.52-28.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159010",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

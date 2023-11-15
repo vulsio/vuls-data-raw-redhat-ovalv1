@@ -1,0 +1,115 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060598",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2006:0598: gimp security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0598",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0598",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-3404",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3404",
+        "source": "CVE"
+      }
+    ],
+    "description": "The GIMP (GNU Image Manipulation Program) is an image composition and\nediting program.\n\nHenning Makholm discovered a buffer overflow bug in The GIMP XCF file\nloader. An attacker could create a carefully crafted image that could\nexecute arbitrary code if opened by a victim.  (CVE-2006-3404)\n\nPlease note that this issue did not affect the gimp packages in Red Hat\nEnterprise Linux 2.1, or 3.\n\nUsers of The GIMP should update to these erratum packages which contain a\nbackported fix to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-07-18"
+      },
+      "updated": {
+        "date": "2006-07-18"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-3404",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-3404",
+          "impact": "moderate",
+          "public": "20060706"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-3404 security flaw",
+          "href": "https://bugzilla.redhat.com/1618141",
+          "id": "1618141"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060598001",
+                    "comment": "gimp is earlier than 1:2.0.5-6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060598002",
+                    "comment": "gimp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060598003",
+                    "comment": "gimp-devel is earlier than 1:2.0.5-6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060598004",
+                    "comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

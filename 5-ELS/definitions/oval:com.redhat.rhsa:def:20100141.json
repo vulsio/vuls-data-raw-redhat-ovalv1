@@ -1,0 +1,130 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100141",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2010:0141: tar security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0141",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0141",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-4476",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4476",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0624",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0624",
+        "source": "CVE"
+      }
+    ],
+    "description": "The GNU tar program saves many files together in one archive and can\nrestore individual files (or all of the files) from that archive.\n\nA heap-based buffer overflow flaw was found in the way tar expanded archive\nfiles. If a user were tricked into expanding a specially-crafted archive,\nit could cause the tar executable to crash or execute arbitrary code with\nthe privileges of the user running tar. (CVE-2010-0624)\n\nRed Hat would like to thank Jakob Lell for responsibly reporting the\nCVE-2010-0624 issue.\n\nA denial of service flaw was found in the way tar expanded archive files.\nIf a user expanded a specially-crafted archive, it could cause the tar\nexecutable to crash. (CVE-2007-4476)\n\nUsers of tar are advised to upgrade to this updated package, which contains\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-15"
+      },
+      "updated": {
+        "date": "2010-03-15"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-4476",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4476",
+          "impact": "low",
+          "public": "20070817",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-0624",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0624",
+          "impact": "moderate",
+          "public": "20100310",
+          "cwe": "CWE-122",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-4476 tar/cpio stack crashing in safer_name_suffix",
+          "href": "https://bugzilla.redhat.com/280961",
+          "id": "280961"
+        },
+        {
+          "text": "CVE-2010-0624 tar, cpio: Heap-based buffer overflow by expanding a specially-crafted archive",
+          "href": "https://bugzilla.redhat.com/564368",
+          "id": "564368"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100141001",
+            "comment": "tar is earlier than 0:1.14-13.el4_8.1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070860002",
+            "comment": "tar is signed with Red Hat master key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100141004",
+            "comment": "tar is earlier than 2:1.15.1-23.0.1.el5_4.2"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070860005",
+            "comment": "tar is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

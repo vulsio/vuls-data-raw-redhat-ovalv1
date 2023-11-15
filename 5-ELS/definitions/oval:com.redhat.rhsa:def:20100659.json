@@ -1,0 +1,158 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100659",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2010:0659: httpd security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0659",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0659",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-1452",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1452",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2791",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2791",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Apache HTTP Server is a popular web server.\n\nA flaw was discovered in the way the mod_proxy module of the Apache HTTP\nServer handled the timeouts of requests forwarded by a reverse proxy to the\nback-end server. If the proxy was configured to reuse existing back-end\nconnections, it could return a response intended for another user under\ncertain timeout conditions, possibly leading to information disclosure.\n(CVE-2010-2791)\n\nA flaw was found in the way the mod_dav module of the Apache HTTP Server\nhandled certain requests. If a remote attacker were to send a carefully\ncrafted request to the server, it could cause the httpd child process to\ncrash. (CVE-2010-1452)\n\nThis update also fixes the following bugs:\n\n* numerous issues in the INFLATE filter provided by mod_deflate. \"Inflate\nerror -5 on flush\" errors may have been logged. This update upgrades\nmod_deflate to the newer upstream version from Apache HTTP Server 2.2.15.\n(BZ#625435)\n\n* the response would be corrupted if mod_filter applied the DEFLATE filter\nto a resource requiring a subrequest with an internal redirect. (BZ#625451)\n\n* the OID() function used in the mod_ssl \"SSLRequire\" directive did not\ncorrectly evaluate extensions of an unknown type. (BZ#625452)\n\nAll httpd users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. After installing the updated\npackages, the httpd daemon must be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-08-30"
+      },
+      "updated": {
+        "date": "2010-08-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-1452",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1452",
+          "impact": "low",
+          "public": "20100721",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-2791",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2791",
+          "impact": "moderate",
+          "public": "20100723",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-2791 httpd: Reverse proxy sends wrong responses after time-outs",
+          "href": "https://bugzilla.redhat.com/617523",
+          "id": "617523"
+        },
+        {
+          "text": "CVE-2010-1452 httpd mod_cache, mod_dav: DoS (httpd child process crash) by parsing URI structure with missing path segments",
+          "href": "https://bugzilla.redhat.com/618189",
+          "id": "618189"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100659001",
+                    "comment": "httpd is earlier than 0:2.2.3-43.el5_5.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556002",
+                    "comment": "httpd is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100659003",
+                    "comment": "httpd-devel is earlier than 0:2.2.3-43.el5_5.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100659005",
+                    "comment": "httpd-manual is earlier than 0:2.2.3-43.el5_5.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100659007",
+                    "comment": "mod_ssl is earlier than 1:2.2.3-43.el5_5.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556008",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100519",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2010:0519: libtiff security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0519",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0519",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-1411",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1411",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2481",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2481",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2483",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2483",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2595",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2595",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2597",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2597",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4665",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4665",
+        "source": "CVE"
+      }
+    ],
+    "description": "The libtiff packages contain a library of functions for manipulating Tagged\nImage File Format (TIFF) files.\n\nMultiple integer overflow flaws, leading to a buffer overflow, were\ndiscovered in libtiff. An attacker could use these flaws to create a\nspecially-crafted TIFF file that, when opened, would cause an application\nlinked against libtiff to crash or, possibly, execute arbitrary code.\n(CVE-2010-1411)\n\nMultiple input validation flaws were discovered in libtiff. An attacker\ncould use these flaws to create a specially-crafted TIFF file that, when\nopened, would cause an application linked against libtiff to crash.\n(CVE-2010-2481, CVE-2010-2483, CVE-2010-2595, CVE-2010-2597)\n\nRed Hat would like to thank Apple Product Security for responsibly\nreporting the CVE-2010-1411 flaw, who credit Kevin Finisterre of\ndigitalmunition.com for the discovery of the issue.\n\nAll libtiff users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues. All running\napplications linked against libtiff must be restarted for this update to\ntake effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-07-08"
+      },
+      "updated": {
+        "date": "2010-07-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-1411",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1411",
+          "impact": "important",
+          "public": "20100614",
+          "cwe": "CWE-190",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-2481",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2481",
+          "impact": "low",
+          "public": "20100623",
+          "cwe": "CWE-125",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-2483",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2483",
+          "impact": "low",
+          "public": "20100616",
+          "cwe": "CWE-125",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-2595",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2595",
+          "impact": "low",
+          "public": "20100416",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-2597",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2597",
+          "impact": "low",
+          "public": "20100612",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-4665",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4665",
+          "impact": "low",
+          "public": "20100622",
+          "cwe": "CWE-190",
+          "cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-1411 libtiff: integer overflows leading to heap overflow in Fax3SetupState",
+          "href": "https://bugzilla.redhat.com/592361",
+          "id": "592361"
+        },
+        {
+          "text": "CVE-2010-2595 libtiff: Array index error due improper handling of invalid ReferenceBlackWhite values",
+          "href": "https://bugzilla.redhat.com/610684",
+          "id": "610684"
+        },
+        {
+          "text": "CVE-2010-2597 libtiff: use of uninitialized values crash",
+          "href": "https://bugzilla.redhat.com/610776",
+          "id": "610776"
+        },
+        {
+          "text": "CVE-2010-2481 libtiff: TIFFExtractData out-of-bounds read crash",
+          "href": "https://bugzilla.redhat.com/611895",
+          "id": "611895"
+        },
+        {
+          "text": "CVE-2010-2483 libtiff: out-of-bounds read crash on images with invalid SamplesPerPixel values",
+          "href": "https://bugzilla.redhat.com/611900",
+          "id": "611900"
+        },
+        {
+          "text": "CVE-2010-4665 libtiff tiffdump integer overflow",
+          "href": "https://bugzilla.redhat.com/695887",
+          "id": "695887"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100519001",
+                    "comment": "libtiff is earlier than 0:3.6.1-12.el4_8.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060425002",
+                    "comment": "libtiff is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100519003",
+                    "comment": "libtiff-devel is earlier than 0:3.6.1-12.el4_8.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060425004",
+                    "comment": "libtiff-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100519006",
+                    "comment": "libtiff is earlier than 0:3.8.2-7.el5_5.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060425002",
+                    "comment": "libtiff is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100519007",
+                    "comment": "libtiff-devel is earlier than 0:3.8.2-7.el5_5.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060425004",
+                    "comment": "libtiff-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

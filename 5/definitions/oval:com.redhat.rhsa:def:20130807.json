@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20130807",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2013:0807: hypervkvpd security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:0807",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0807",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-5532",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5532",
+        "source": "CVE"
+      }
+    ],
+    "description": "The hypervkvpd package contains hypervkvpd, the guest Microsoft Hyper-V\nKey-Value Pair (KVP) daemon. The daemon passes basic information to the\nhost through VMBus, such as the guest IP address, fully qualified domain\nname, operating system name, and operating system release number.\n\nA denial of service flaw was found in the way hypervkvpd processed certain\nNetlink messages. A local, unprivileged user in a guest (running on\nMicrosoft Hyper-V) could send a Netlink message that, when processed, would\ncause the guest's hypervkvpd daemon to exit. (CVE-2012-5532)\n\nThe CVE-2012-5532 issue was discovered by Florian Weimer of the Red Hat\nProduct Security Team.\n\nThis update also fixes the following bug:\n\n* The hypervkvpd daemon did not close the file descriptors for pool files\nwhen they were updated. This could eventually lead to hypervkvpd crashing\nwith a \"KVP: Failed to open file, pool: 1\" error after consuming all\navailable file descriptors. With this update, the file descriptors are\nclosed, correcting this issue. (BZ#953502)\n\nUsers of hypervkvpd are advised to upgrade to this updated package, which\ncontains backported patches to correct these issues. After installing the\nupdate, it is recommended to reboot all guest machines.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-05-09"
+      },
+      "updated": {
+        "date": "2013-05-09"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-5532",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-5532",
+          "impact": "low",
+          "public": "20120606",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-5532 hypervkvpd: Netlink source address validation allows denial of service",
+          "href": "https://bugzilla.redhat.com/877572",
+          "id": "877572"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::server",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20130807001",
+            "comment": "hypervkvpd is earlier than 0:0-0.7.el5_9.3"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20130807002",
+            "comment": "hypervkvpd is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

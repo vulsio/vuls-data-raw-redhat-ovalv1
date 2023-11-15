@@ -1,0 +1,128 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070732",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:0732: poppler security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0732",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0732",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3387",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3387",
+        "source": "CVE"
+      }
+    ],
+    "description": "Poppler is a PDF rendering library, used by applications such as evince.\n\nMaurycy Prodeus discovered an integer overflow flaw in the processing\nof PDF files.  An attacker could create a malicious PDF file that would\ncause an application linked with poppler to crash or potentially execute\narbitrary code when opened.  (CVE-2007-3387)\n\nAll users of poppler should upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-07-30"
+      },
+      "updated": {
+        "date": "2007-07-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3387",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3387",
+          "impact": "important",
+          "public": "20070728",
+          "cwe": "CWE-190"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3387 xpdf integer overflow",
+          "href": "https://bugzilla.redhat.com/248194",
+          "id": "248194"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070732001",
+                    "comment": "poppler is earlier than 0:0.5.4-4.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070732002",
+                    "comment": "poppler is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070732003",
+                    "comment": "poppler-devel is earlier than 0:0.5.4-4.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070732004",
+                    "comment": "poppler-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070732005",
+                    "comment": "poppler-utils is earlier than 0:0.5.4-4.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070732006",
+                    "comment": "poppler-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

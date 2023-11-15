@@ -1,0 +1,176 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091601",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2009:1601: kdelibs security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1601",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1601",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-0689",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0689",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kdelibs packages provide libraries for the K Desktop Environment (KDE).\n\nA buffer overflow flaw was found in the kdelibs string to floating point\nconversion routines. A web page containing malicious JavaScript could crash\nKonqueror or, potentially, execute arbitrary code with the privileges of\nthe user running Konqueror. (CVE-2009-0689)\n\nUsers should upgrade to these updated packages, which contain a backported\npatch to correct this issue. The desktop must be restarted (log out, then\nlog back in) for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-11-24"
+      },
+      "updated": {
+        "date": "2009-11-24"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-0689",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0689",
+          "impact": "critical",
+          "public": "20091120",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-0689 array index error in dtoa implementation of many products",
+          "href": "https://bugzilla.redhat.com/539784",
+          "id": "539784"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091601001",
+                    "comment": "kdelibs is earlier than 6:3.3.1-17.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909002",
+                    "comment": "kdelibs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091601003",
+                    "comment": "kdelibs-devel is earlier than 6:3.3.1-17.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909004",
+                    "comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091601006",
+                    "comment": "kdelibs is earlier than 6:3.5.4-25.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909002",
+                    "comment": "kdelibs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091601007",
+                    "comment": "kdelibs-apidocs is earlier than 6:3.5.4-25.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909008",
+                    "comment": "kdelibs-apidocs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091601009",
+                    "comment": "kdelibs-devel is earlier than 6:3.5.4-25.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070909004",
+                    "comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

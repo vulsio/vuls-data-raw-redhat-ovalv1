@@ -1,0 +1,131 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060727",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2006:0727: texinfo security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0727",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0727",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2005-3011",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3011",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4810",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4810",
+        "source": "CVE"
+      }
+    ],
+    "description": "Texinfo is a documentation system that can produce both online information\nand printed output from a single source file.\n\nA buffer overflow flaw was found in Texinfo's texindex command. An attacker\ncould construct a carefully crafted Texinfo file that could cause texindex\nto crash or possibly execute arbitrary code when opened. (CVE-2006-4810)\n\nA flaw was found in the way Texinfo's texindex command creates temporary\nfiles. A local user could leverage this flaw to overwrite files the user\nexecuting texindex has write access to. (CVE-2005-3011)\n\nUsers of Texinfo should upgrade to these updated packages which contain\nbackported patches and are not vulnerable to these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-11-08"
+      },
+      "updated": {
+        "date": "2006-11-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2005-3011",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3011",
+          "impact": "low",
+          "public": "20000209"
+        },
+        {
+          "text": "CVE-2006-4810",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4810",
+          "impact": "moderate",
+          "public": "20061108"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2005-3011 security flaw",
+          "href": "https://bugzilla.redhat.com/1617775",
+          "id": "1617775"
+        },
+        {
+          "text": "CVE-2006-4810 security flaw",
+          "href": "https://bugzilla.redhat.com/1618203",
+          "id": "1618203"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060727001",
+                    "comment": "info is earlier than 0:4.7-5.el4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060727002",
+                    "comment": "info is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060727003",
+                    "comment": "texinfo is earlier than 0:4.7-5.el4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060727004",
+                    "comment": "texinfo is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

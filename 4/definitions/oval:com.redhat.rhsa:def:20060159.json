@@ -1,0 +1,187 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060159",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2006:0159: httpd security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0159",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0159",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2005-2970",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2970",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3352",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3352",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3357",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3357",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Apache HTTP Server is a popular and freely-available Web server.\n\nA memory leak in the worker MPM could allow remote attackers to cause a\ndenial of service (memory consumption) via aborted connections, which\nprevents the memory for the transaction pool from being reused for other\nconnections.  The Common Vulnerabilities and Exposures project assigned the\nname CVE-2005-2970 to this issue.  This vulnerability only affects users\nwho are using the non-default worker MPM.\n\nA flaw in mod_imap when using the Referer directive with image maps was\ndiscovered.  With certain site configurations, a remote attacker could\nperform a cross-site scripting attack if a victim can be forced to visit a\nmalicious URL using certain web browsers.  (CVE-2005-3352)\n\nA NULL pointer dereference flaw in mod_ssl was discovered affecting server\nconfigurations where an SSL virtual host is configured with access control\nand a custom 400 error document.  A remote attacker could send a carefully\ncrafted request to trigger this issue which would lead to a crash.  This\ncrash would only be a denial of service if using the non-default worker\nMPM.  (CVE-2005-3357)\n\nUsers of httpd should update to these erratum packages which contain\nbackported patches to correct these issues along with some additional bugs.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-01-05"
+      },
+      "updated": {
+        "date": "2006-01-05"
+      },
+      "cve": [
+        {
+          "text": "CVE-2005-2970",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-2970",
+          "impact": "low",
+          "public": "20051025"
+        },
+        {
+          "text": "CVE-2005-3352",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3352",
+          "impact": "moderate",
+          "public": "20051212",
+          "cwe": "CWE-79"
+        },
+        {
+          "text": "CVE-2005-3357",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3357",
+          "impact": "low",
+          "public": "20051205"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2005-3352 httpd cross-site scripting flaw in mod_imap",
+          "href": "https://bugzilla.redhat.com/430524",
+          "id": "430524"
+        },
+        {
+          "text": "CVE-2005-2970 security flaw",
+          "href": "https://bugzilla.redhat.com/1617769",
+          "id": "1617769"
+        },
+        {
+          "text": "CVE-2005-3357 security flaw",
+          "href": "https://bugzilla.redhat.com/1617818",
+          "id": "1617818"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159001",
+                    "comment": "httpd is earlier than 0:2.0.52-22.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159002",
+                    "comment": "httpd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159003",
+                    "comment": "httpd-devel is earlier than 0:2.0.52-22.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159005",
+                    "comment": "httpd-manual is earlier than 0:2.0.52-22.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159007",
+                    "comment": "httpd-suexec is earlier than 0:2.0.52-22.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159008",
+                    "comment": "httpd-suexec is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159009",
+                    "comment": "mod_ssl is earlier than 1:2.0.52-22.ent"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159010",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

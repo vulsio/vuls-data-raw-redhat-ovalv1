@@ -1,0 +1,362 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100610",
+  "version": "659",
+  "metadata": {
+    "title": "RHSA-2010:0610: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0610",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0610",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-1084",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1084",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2066",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2066",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2070",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2070",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2226",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2226",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2248",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2248",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2521",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2521",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2524",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2524",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* instances of unsafe sprintf() use were found in the Linux kernel\nBluetooth implementation. Creating a large number of Bluetooth L2CAP, SCO,\nor RFCOMM sockets could result in arbitrary memory pages being overwritten.\nA local, unprivileged user could use this flaw to cause a kernel panic\n(denial of service) or escalate their privileges. (CVE-2010-1084,\nImportant)\n\n* a flaw was found in the Xen hypervisor implementation when using the\nIntel Itanium architecture, allowing guests to enter an unsupported state.\nAn unprivileged guest user could trigger this flaw by setting the BE (Big\nEndian) bit of the Processor Status Register (PSR), leading to the guest\ncrashing (denial of service). (CVE-2010-2070, Important)\n\n* a flaw was found in the CIFSSMBWrite() function in the Linux kernel\nCommon Internet File System (CIFS) implementation. A remote attacker could\nsend a specially-crafted SMB response packet to a target CIFS client,\nresulting in a kernel panic (denial of service). (CVE-2010-2248, Important)\n\n* buffer overflow flaws were found in the Linux kernel's implementation of\nthe server-side External Data Representation (XDR) for the Network File\nSystem (NFS) version 4. An attacker on the local network could send a\nspecially-crafted large compound request to the NFSv4 server, which could\npossibly result in a kernel panic (denial of service) or, potentially, code\nexecution. (CVE-2010-2521, Important)\n\n* a flaw was found in the handling of the SWAPEXT IOCTL in the Linux kernel\nXFS file system implementation. A local user could use this flaw to read\nwrite-only files, that they do not own, on an XFS file system. This could\nlead to unintended information disclosure. (CVE-2010-2226, Moderate)\n\n* a flaw was found in the dns_resolver upcall used by CIFS. A local,\nunprivileged user could redirect a Microsoft Distributed File System link\nto another IP address, tricking the client into mounting the share from a\nserver of the user's choosing. (CVE-2010-2524, Moderate)\n\n* a missing check was found in the mext_check_arguments() function in the\next4 file system code. A local user could use this flaw to cause the\nMOVE_EXT IOCTL to overwrite the contents of an append-only file on an ext4\nfile system, if they have write permissions for that file. (CVE-2010-2066,\nLow)\n\nRed Hat would like to thank Neil Brown for reporting CVE-2010-1084, and Dan\nRosenberg for reporting CVE-2010-2226 and CVE-2010-2066.\n\nThis update also fixes several bugs. Documentation for these bug fixes will\nbe available shortly from the Technical Notes document linked to in the\nReferences.\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-08-10"
+      },
+      "updated": {
+        "date": "2010-08-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-1084",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1084",
+          "impact": "important",
+          "public": "20100321",
+          "cwe": "CWE-119",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-2066",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2066",
+          "impact": "low",
+          "public": "20100602",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2010-2070",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2070",
+          "impact": "important",
+          "public": "20070911",
+          "cvss_2": "4.7/AV:L/AC:M/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-2226",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2226",
+          "impact": "moderate",
+          "public": "20100617",
+          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:P/I:P/A:N"
+        },
+        {
+          "text": "CVE-2010-2248",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2248",
+          "impact": "important",
+          "public": "20100331",
+          "cwe": "CWE-617",
+          "cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-2521",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2521",
+          "impact": "important",
+          "public": "20100420",
+          "cwe": "CWE-119",
+          "cvss_2": "8.3/AV:A/AC:L/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-2524",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2524",
+          "impact": "moderate",
+          "public": "20100722",
+          "cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-1084 kernel: bluetooth: potential bad memory access with sysfs files",
+          "href": "https://bugzilla.redhat.com/576018",
+          "id": "576018"
+        },
+        {
+          "text": "CVE-2010-2070 /kernel/security/CVE-2006-0742 test cause kernel-xen panic on ia64",
+          "href": "https://bugzilla.redhat.com/586415",
+          "id": "586415"
+        },
+        {
+          "text": "CVE-2010-2066 kernel: ext4: Make sure the MOVE_EXT ioctl can't overwrite append-only files",
+          "href": "https://bugzilla.redhat.com/601006",
+          "id": "601006"
+        },
+        {
+          "text": "CVE-2010-2226 kernel: xfs swapext ioctl minor security issue",
+          "href": "https://bugzilla.redhat.com/605158",
+          "id": "605158"
+        },
+        {
+          "text": "CVE-2010-2248 kernel: cifs: Fix a kernel BUG with remote OS/2 server",
+          "href": "https://bugzilla.redhat.com/608583",
+          "id": "608583"
+        },
+        {
+          "text": "CVE-2010-2521 kernel: nfsd4: bug in read_buf",
+          "href": "https://bugzilla.redhat.com/612028",
+          "id": "612028"
+        },
+        {
+          "text": "CVE-2010-2524 kernel: dns_resolver upcall security issue",
+          "href": "https://bugzilla.redhat.com/612166",
+          "id": "612166"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20100610025",
+                "comment": "kernel earlier than 0:2.6.18-194.11.1.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20100610026",
+                "comment": "kernel earlier than 0:2.6.18-194.11.1.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610001",
+                    "comment": "kernel is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100610023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-194.11.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090336",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2009:0336: glib2 security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0336",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0336",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-4316",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4316",
+        "source": "CVE"
+      }
+    ],
+    "description": "GLib is the low-level core library that forms the basis for projects such\nas GTK+ and GNOME. It provides data structure handling for C, portability\nwrappers, and interfaces for such runtime functionality as an event loop,\nthreads, dynamic loading, and an object system.\n\nDiego Pettenò discovered multiple integer overflows causing heap-based\nbuffer overflows in GLib's Base64 encoding and decoding functions. An\nattacker could use these flaws to crash an application using GLib's Base64\nfunctions to encode or decode large, untrusted inputs, or, possibly,\nexecute arbitrary code as the user running the application. (CVE-2008-4316)\n\nNote: No application shipped with Red Hat Enterprise Linux 5 uses the\naffected functions. Third-party applications may, however, be affected.\n\nAll users of glib2 should upgrade to these updated packages, which contain\nbackported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-03-24"
+      },
+      "updated": {
+        "date": "2009-03-24"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-4316",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4316",
+          "impact": "moderate",
+          "public": "20090312",
+          "cwe": "CWE-190"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-4316 glib2: integer overflows in the base64 handling functions (oCERT-2008-015)",
+          "href": "https://bugzilla.redhat.com/474770",
+          "id": "474770"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090336001",
+                    "comment": "glib2 is earlier than 0:2.12.3-4.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090336002",
+                    "comment": "glib2 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090336003",
+                    "comment": "glib2-devel is earlier than 0:2.12.3-4.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090336004",
+                    "comment": "glib2-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

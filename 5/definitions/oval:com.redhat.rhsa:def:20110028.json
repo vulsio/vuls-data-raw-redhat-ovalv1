@@ -1,0 +1,153 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110028",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2011:0028: kvm security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0028",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0028",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-4525",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4525",
+        "source": "CVE"
+      }
+    ],
+    "description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA data structure field in kvm_vcpu_ioctl_x86_get_vcpu_events() in QEMU-KVM\nwas not initialized properly before being copied to user-space. A\nprivileged host user with access to \"/dev/kvm\" could use this flaw to leak\nkernel stack memory to user-space. (CVE-2010-4525)\n\nRed Hat would like to thank Stephan Mueller of atsec information security\nfor reporting this issue.\n\nThese updated packages also fix several bugs. Documentation for these bug\nfixes will be available shortly in the \"kvm\" section of the Red Hat\nEnterprise Linux 5.6 Technical Notes, linked to in the References.\n\nAll KVM users should upgrade to these updated packages, which resolve this\nissue as well as fixing the bugs noted in the Technical Notes. Note: The\nprocedure in the Solution section must be performed before this update will\ntake effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-01-13"
+      },
+      "updated": {
+        "date": "2011-01-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-4525",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4525",
+          "impact": "low",
+          "public": "20110105",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-4525 kvm: x86: zero kvm_vcpu_events->interrupt.pad infoleak",
+          "href": "https://bugzilla.redhat.com/665470",
+          "id": "665470"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::client",
+          "cpe:/a:redhat:rhel_virtualization:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110028001",
+                    "comment": "kmod-kvm is earlier than 0:83-224.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465002",
+                    "comment": "kmod-kvm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110028003",
+                    "comment": "kmod-kvm-debug is earlier than 0:83-224.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110028004",
+                    "comment": "kmod-kvm-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110028005",
+                    "comment": "kvm is earlier than 0:83-224.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465004",
+                    "comment": "kvm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110028007",
+                    "comment": "kvm-qemu-img is earlier than 0:83-224.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465006",
+                    "comment": "kvm-qemu-img is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110028009",
+                    "comment": "kvm-tools is earlier than 0:83-224.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465008",
+                    "comment": "kvm-tools is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

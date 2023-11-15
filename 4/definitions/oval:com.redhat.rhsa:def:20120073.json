@@ -1,0 +1,128 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120073",
+  "version": "632",
+  "metadata": {
+    "title": "RHSA-2012:0073: Red Hat Enterprise Linux 4 - 30 day End Of Life Notice (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0073",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0073",
+        "source": "RHSA"
+      }
+    ],
+    "description": "In accordance with the Red Hat Enterprise Linux Errata Support Policy,\nthe 7 year life-cycle of Red Hat Enterprise Linux 4 will end on February\n29, 2012 and your subscription services for that version will change.\nActive Red Hat Enterprise Linux subscribers using Red Hat Enterprise\nLinux 4 will have the option to upgrade to currently supported versions\nof Red Hat Enterprise Linux and receive the full benefits of the\nsubscription.\n\nAfter February 29, 2012, Red Hat will discontinue technical support\nservices as well as software maintenance services for Red Hat Enterprise\nLinux 4 meaning that new bug fixes, security errata and product\nenhancements will no longer be provided for the following products:\n\n* Red Hat Enterprise Linux AS 4\n* Red Hat Enterprise Linux ES 4\n* Red Hat Enterprise Linux WS 4\n* Red Hat Desktop 4\n* Red Hat Global File System 4\n* Red Hat Cluster Suite 4\n\nCustomers who choose to continue to deploy Red Hat Enterprise Linux 4\nofferings will continue to have access via Red Hat Network (RHN) to the\nfollowing content as part of their active Red Hat Enterprise Linux\nsubscription:\n\n- Previously released bug fixes, security errata and product\n  enhancements.\n- Red Hat Knowledge Base and other content (whitepapers, reference\n  architectures, etc) found in the Red Hat Customer Portal.\n- All Red Hat Enterprise Linux 4 documentation.\n\nCustomers are strongly encouraged to take advantage of the upgrade\nbenefits of their active Red Hat Enterprise Linux subscription and\nmigrate to an active version of Red Hat Enterprise Linux such as\nversion 5 or 6.\n\nFor customers who are unable to migrate off Red Hat Enterprise Linux 4\nbefore its end-of-life date and require software maintenance and/or\ntechnical support, Red Hat offers an optional support extension called\nthe Extended Life-cycle Support (ELS) Add-On Subscription. The ELS\nSubscription provides up to three additional years of limited Software\nMaintenance (Production 3 Phase) for Red Hat Enterprise Linux 4 with\nunlimited technical support, critical Security Advisories (RHSAs) and\nselected Urgent Priority Bug Advisories (RHBAs). For more information,\ncontact your Red Hat sales representative or channel partner.\n\nDetails of the Red Hat Enterprise Linux life-cycle can be found on the\nRed Hat website: https://access.redhat.com/support/policy/updates/errata/",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-01-31"
+      },
+      "updated": {
+        "date": "2012-01-31"
+      },
+      "bugzilla": [
+        {
+          "text": "Send Out RHEL 4 30 day EOL Notice",
+          "href": "https://bugzilla.redhat.com/761581",
+          "id": "761581"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120073001",
+                    "comment": "redhat-release is earlier than 0:4AS-10.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+                    "comment": "redhat-release is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120073003",
+                    "comment": "redhat-release is earlier than 0:4ES-10.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+                    "comment": "redhat-release is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120073004",
+                    "comment": "redhat-release is earlier than 0:4WS-10.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+                    "comment": "redhat-release is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120073005",
+                    "comment": "redhat-release is earlier than 0:4Desktop-10.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+                    "comment": "redhat-release is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

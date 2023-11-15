@@ -1,0 +1,115 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060582",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2006:0582: kdebase security fix (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0582",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0582",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2005-2494",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2494",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kdebase packages provide the core applications for KDE, the K Desktop\nEnvironment. These core packages include the file manager Konqueror.\n\nIlja van Sprundel discovered a lock file handling flaw in kcheckpass.  If\nthe directory /var/lock is writable by a user who is allowed to run\nkcheckpass, that user could gain root privileges.  In Red Hat Enterprise\nLinux, the /var/lock directory is not writable by users and therefore this\nflaw could only have been exploited if the permissions on that directory\nhave been badly configured.  A patch to block this issue has been included\nin this update.  (CVE-2005-2494)\n\nThe following bugs have also been addressed:\n\n- kstart --tosystray does not send the window to the system tray in Kicker\n\n- When the customer enters or selects URLs in Firefox's address field, the\ndesktop freezes for a couple of seconds\n\n- fish kioslave is broken on 64-bit systems\n\nAll users of kdebase should upgrade to these updated packages, which\ncontain patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-08-10"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2005-2494",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-2494",
+          "impact": "low",
+          "public": "20050905"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2005-2494 security flaw",
+          "href": "https://bugzilla.redhat.com/1617726",
+          "id": "1617726"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060582001",
+                    "comment": "kdebase is earlier than 6:3.3.1-5.13"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060548002",
+                    "comment": "kdebase is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060582003",
+                    "comment": "kdebase-devel is earlier than 6:3.3.1-5.13"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060548004",
+                    "comment": "kdebase-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

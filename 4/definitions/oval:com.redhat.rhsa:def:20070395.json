@@ -1,0 +1,161 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070395",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2007:0395: mod_perl security update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0395",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0395",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-1349",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1349",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mod_perl incorporates a Perl interpreter into the Apache web server,\nso that the Apache web server can directly execute Perl code.\n\nAn issue was found in the \"namespace_from_uri\" method of the\nModPerl::RegistryCooker class.  If a server implemented a mod_perl registry\nmodule using this method, a remote attacker requesting a carefully crafted\nURI can cause resource consumption, which could lead to a denial of service\n(CVE-2007-1349).\n\nUsers of mod_perl should update to these erratum packages which contain a\nbackported fix to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-06-14"
+      },
+      "updated": {
+        "date": "2007-06-14"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-1349",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1349",
+          "impact": "moderate",
+          "public": "20070322"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-1349 mod_perl PerlRun denial of service",
+          "href": "https://bugzilla.redhat.com/240423",
+          "id": "240423"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070395001",
+                    "comment": "mod_perl is earlier than 0:1.99_16-4.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070395002",
+                    "comment": "mod_perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070395003",
+                    "comment": "mod_perl-devel is earlier than 0:1.99_16-4.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070395004",
+                    "comment": "mod_perl-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070395006",
+                    "comment": "mod_perl is earlier than 0:2.0.2-6.3.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070395002",
+                    "comment": "mod_perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070395007",
+                    "comment": "mod_perl-devel is earlier than 0:2.0.2-6.3.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070395004",
+                    "comment": "mod_perl-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

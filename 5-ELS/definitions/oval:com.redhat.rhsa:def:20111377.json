@@ -1,0 +1,536 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20111377",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2011:1377: postgresql security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5",
+        "Red Hat Enterprise Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:1377",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1377",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-2483",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2483",
+        "source": "CVE"
+      }
+    ],
+    "description": "PostgreSQL is an advanced object-relational database management system\n(DBMS).\n\nA signedness issue was found in the way the crypt() function in the\nPostgreSQL pgcrypto module handled 8-bit characters in passwords when using\nBlowfish hashing. Up to three characters immediately preceding a non-ASCII\ncharacter (one with the high bit set) had no effect on the hash result,\nthus shortening the effective password length. This made brute-force\nguessing more efficient as several different passwords were hashed to the\nsame value. (CVE-2011-2483)\n\nNote: Due to the CVE-2011-2483 fix, after installing this update some users\nmay not be able to log in to applications that store user passwords, hashed\nwith Blowfish using the PostgreSQL crypt() function, in a back-end\nPostgreSQL database. Unsafe processing can be re-enabled for specific\npasswords (allowing affected users to log in) by changing their hash prefix\nto \"$2x$\".\n\nFor Red Hat Enterprise Linux 6, the updated postgresql packages upgrade\nPostgreSQL to version 8.4.9. Refer to the PostgreSQL Release Notes for a\nfull list of changes:\n\nhttp://www.postgresql.org/docs/8.4/static/release.html\n\nFor Red Hat Enterprise Linux 4 and 5, the updated postgresql packages\ncontain a backported patch.\n\nAll PostgreSQL users are advised to upgrade to these updated packages,\nwhich correct this issue. If the postgresql service is running, it will be\nautomatically restarted after installing this update.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-10-17"
+      },
+      "updated": {
+        "date": "2011-10-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-2483",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2483",
+          "impact": "moderate",
+          "public": "20110620",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-2483 crypt_blowfish: 8-bit character mishandling allows different password pairs to produce the same hash",
+          "href": "https://bugzilla.redhat.com/715025",
+          "id": "715025"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server",
+          "cpe:/o:redhat:enterprise_linux:6",
+          "cpe:/o:redhat:enterprise_linux:6::client",
+          "cpe:/o:redhat:enterprise_linux:6::computenode",
+          "cpe:/o:redhat:enterprise_linux:6::server",
+          "cpe:/o:redhat:enterprise_linux:6::workstation"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377001",
+                    "comment": "postgresql is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336002",
+                    "comment": "postgresql is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377003",
+                    "comment": "postgresql-contrib is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336004",
+                    "comment": "postgresql-contrib is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377005",
+                    "comment": "postgresql-devel is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336006",
+                    "comment": "postgresql-devel is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377007",
+                    "comment": "postgresql-docs is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336008",
+                    "comment": "postgresql-docs is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377009",
+                    "comment": "postgresql-jdbc is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336010",
+                    "comment": "postgresql-jdbc is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377011",
+                    "comment": "postgresql-libs is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336012",
+                    "comment": "postgresql-libs is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377013",
+                    "comment": "postgresql-pl is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336014",
+                    "comment": "postgresql-pl is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377015",
+                    "comment": "postgresql-python is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336016",
+                    "comment": "postgresql-python is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377017",
+                    "comment": "postgresql-server is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336018",
+                    "comment": "postgresql-server is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377019",
+                    "comment": "postgresql-tcl is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336020",
+                    "comment": "postgresql-tcl is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377021",
+                    "comment": "postgresql-test is earlier than 0:7.4.30-3.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070336022",
+                    "comment": "postgresql-test is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377024",
+                    "comment": "postgresql is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197025",
+                    "comment": "postgresql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377026",
+                    "comment": "postgresql-contrib is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197027",
+                    "comment": "postgresql-contrib is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377028",
+                    "comment": "postgresql-devel is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197029",
+                    "comment": "postgresql-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377030",
+                    "comment": "postgresql-docs is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197031",
+                    "comment": "postgresql-docs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377032",
+                    "comment": "postgresql-libs is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197033",
+                    "comment": "postgresql-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377034",
+                    "comment": "postgresql-plperl is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197035",
+                    "comment": "postgresql-plperl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377036",
+                    "comment": "postgresql-plpython is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197037",
+                    "comment": "postgresql-plpython is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377038",
+                    "comment": "postgresql-pltcl is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197039",
+                    "comment": "postgresql-pltcl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377040",
+                    "comment": "postgresql-server is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197041",
+                    "comment": "postgresql-server is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377042",
+                    "comment": "postgresql-test is earlier than 0:8.4.9-1.el6_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110197043",
+                    "comment": "postgresql-test is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100889023",
+            "comment": "Red Hat Enterprise Linux 6 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377045",
+                    "comment": "postgresql is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068002",
+                    "comment": "postgresql is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377047",
+                    "comment": "postgresql-contrib is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068004",
+                    "comment": "postgresql-contrib is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377049",
+                    "comment": "postgresql-devel is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068006",
+                    "comment": "postgresql-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377051",
+                    "comment": "postgresql-docs is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068008",
+                    "comment": "postgresql-docs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377053",
+                    "comment": "postgresql-libs is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068010",
+                    "comment": "postgresql-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377055",
+                    "comment": "postgresql-pl is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068012",
+                    "comment": "postgresql-pl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377057",
+                    "comment": "postgresql-python is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068014",
+                    "comment": "postgresql-python is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377059",
+                    "comment": "postgresql-server is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068016",
+                    "comment": "postgresql-server is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377061",
+                    "comment": "postgresql-tcl is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068018",
+                    "comment": "postgresql-tcl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111377063",
+                    "comment": "postgresql-test is earlier than 0:8.1.23-1.el5_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068020",
+                    "comment": "postgresql-test is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

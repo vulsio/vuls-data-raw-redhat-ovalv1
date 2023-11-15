@@ -1,0 +1,128 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080131",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2008:0131: netpbm security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0131",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0131",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-0554",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0554",
+        "source": "CVE"
+      }
+    ],
+    "description": "The netpbm package contains a library of functions for editing and\nconverting between various graphics file formats, including .pbm (portable\nbitmaps), .pgm (portable graymaps), .pnm (portable anymaps), .ppm (portable\npixmaps) and others. The package includes no interactive tools and is\nprimarily used by other programs (eg CGI scripts that manage web-site\nimages).\n\nAn input validation flaw was discovered in the GIF-to-PNM converter\n(giftopnm) shipped with the netpbm package. An attacker could create a\ncarefully crafted GIF file which could cause giftopnm to crash or possibly\nexecute arbitrary code as the user running giftopnm. (CVE-2008-0554)\n\nAll users are advised to upgrade to these updated packages which contain a\nbackported patch which resolves this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-02-28"
+      },
+      "updated": {
+        "date": "2008-02-28"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-0554",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0554",
+          "impact": "moderate",
+          "public": "20080201"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-0554 netpbm: GIF handling buffer overflow in giftopnm",
+          "href": "https://bugzilla.redhat.com/431525",
+          "id": "431525"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080131001",
+                    "comment": "netpbm is earlier than 0:10.25-2.EL4.6.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080131002",
+                    "comment": "netpbm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080131003",
+                    "comment": "netpbm-devel is earlier than 0:10.25-2.EL4.6.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080131004",
+                    "comment": "netpbm-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080131005",
+                    "comment": "netpbm-progs is earlier than 0:10.25-2.EL4.6.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080131006",
+                    "comment": "netpbm-progs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

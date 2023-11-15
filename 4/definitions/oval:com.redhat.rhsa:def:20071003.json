@@ -1,0 +1,145 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20071003",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:1003: openssl security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:1003",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1003",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3108",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3108",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-5135",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5135",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, and is also a\nfull-strength general-purpose cryptography library.\n\nA flaw was found in the SSL_get_shared_ciphers() utility function. An\nattacker could send a list of ciphers to an application that used this\nfunction and overrun a buffer by a single byte (CVE-2007-5135). Few\napplications make use of this vulnerable function and generally it is used\nonly when applications are compiled for debugging. \n\nA number of possible side-channel attacks were discovered affecting\nOpenSSL. A local attacker could possibly obtain RSA private keys being used\non a system. In practice these attacks would be difficult to perform\noutside of a lab environment. This update contains backported patches to\nmitigate these issues. (CVE-2007-3108)\n\nAs well, these updated packages fix the following bugs:\n\n* multithreaded applications could cause a segmentation fault or deadlock\nwhen calling the random number generator initialization (RAND_poll) in the\nOpenSSL library, for a large number of threads simultaneously.\n\n* in certain circumstances, if an application using the OpenSSL library\nreused the SSL session cache for multiple purposes (with various parameters\nof the SSL protocol), the session parameters could be mismatched.\n\n* a segmentation fault could occur when a corrupted pkcs12 file was being\nloaded using the \"openssl pkcs12 -in [pkcs12-file]\" command, where\n[pkcs12-file] is the pkcs12 file.\n\nUsers of OpenSSL should upgrade to these updated packages, which contain\nbackported patches to resolve these issues.\n\nNote: After installing this update, users are advised to either restart all\nservices that use OpenSSL or restart their system.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-15"
+      },
+      "updated": {
+        "date": "2007-11-15"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3108",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3108",
+          "impact": "moderate",
+          "public": "20070801"
+        },
+        {
+          "text": "CVE-2007-5135",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5135",
+          "impact": "moderate",
+          "public": "20070927",
+          "cwe": "CWE-193"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3108 openssl: RSA side-channel attack",
+          "href": "https://bugzilla.redhat.com/245732",
+          "id": "245732"
+        },
+        {
+          "text": "CVE-2007-5135 openssl: SSL_get_shared_ciphers() off-by-one",
+          "href": "https://bugzilla.redhat.com/309801",
+          "id": "309801"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071003001",
+                    "comment": "openssl is earlier than 0:0.9.7a-43.17.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661004",
+                    "comment": "openssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071003003",
+                    "comment": "openssl-devel is earlier than 0:0.9.7a-43.17.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661006",
+                    "comment": "openssl-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071003005",
+                    "comment": "openssl-perl is earlier than 0:0.9.7a-43.17.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661008",
+                    "comment": "openssl-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

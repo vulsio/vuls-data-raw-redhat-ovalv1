@@ -1,0 +1,245 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080167",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2008:0167: kernel security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0167",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0167",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5904",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5904",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nA buffer overflow flaw was found in the CIFS virtual file system. A\nremote authenticated user could issue a request that could lead to\na denial of service. (CVE-2007-5904, Moderate)\n\nAs well, these updated packages fix the following bugs:\n\n* a bug was found in the Linux kernel audit subsystem. When the audit\ndaemon was setup to log the execve system call with a large number\nof arguments, the kernel could run out out memory while attempting to\ncreate audit log messages. This could cause a kernel panic. In these\nupdated packages, large audit messages are split into acceptable sizes,\nwhich resolves this issue.\n\n* on certain Intel chipsets, it was not possible to load the acpiphp\nmodule using the \"modprobe acpiphp\" command. Because the acpiphp module\ndid not recurse across PCI bridges, hardware detection for PCI hot plug\nslots failed. In these updated packages, hardware detection works\ncorrectly.\n\n* on IBM System z architectures that run the IBM z/VM hypervisor, the IBM\neServer zSeries HiperSockets network interface (layer 3) allowed ARP\npackets to be sent and received, even when the \"NOARP\" flag was set. These\nARP packets caused problems for virtual machines.\n\n* it was possible for the iounmap function to sleep while holding a lock.\nThis may have caused a deadlock for drivers and other code that uses the\niounmap function. In these updated packages, the lock is dropped before\nthe sleep code is called, which resolves this issue.\n\nRed Hat Enterprise Linux 4 users are advised to upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-03-14"
+      },
+      "updated": {
+        "date": "2008-03-14"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5904",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5904",
+          "impact": "moderate",
+          "public": "20071108"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5904 Buffer overflow in CIFS VFS",
+          "href": "https://bugzilla.redhat.com/372701",
+          "id": "372701"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080167023",
+                "comment": "kernel earlier than 0:2.6.9-67.0.7.EL is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080167024",
+                "comment": "kernel earlier than 0:2.6.9-67.0.7.EL is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167001",
+                    "comment": "kernel is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167003",
+                    "comment": "kernel-devel is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167005",
+                    "comment": "kernel-doc is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167007",
+                    "comment": "kernel-hugemem is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
+                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167009",
+                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
+                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167011",
+                    "comment": "kernel-largesmp is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
+                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167013",
+                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
+                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167015",
+                    "comment": "kernel-smp is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
+                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167017",
+                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
+                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167019",
+                    "comment": "kernel-xenU is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
+                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080167021",
+                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-67.0.7.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
+                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

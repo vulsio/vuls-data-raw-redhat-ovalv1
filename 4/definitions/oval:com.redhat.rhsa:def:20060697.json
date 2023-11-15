@@ -1,0 +1,170 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060697",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2006:0697: openssh security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0697",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0697",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-4924",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4924",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-5051",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-5051",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenSSH is OpenBSD's SSH (Secure SHell) protocol implementation. This\npackage includes the core files necessary for both the OpenSSH client and\nserver.\n\nMark Dowd discovered a signal handler race condition in the OpenSSH sshd\nserver. A remote attacker could possibly leverage this flaw to cause a\ndenial of service (crash). (CVE-2006-5051) The OpenSSH project believes the\nlikelihood of successful exploitation leading to arbitrary code execution\nappears remote. However, the Red Hat Security Response Team have not yet\nbeen able to verify this claim due to lack of upstream vulnerability\ninformation. We are therefore including a fix for this flaw and have rated\nit important security severity in the event our continued investigation\nfinds this issue to be exploitable.\n\nTavis Ormandy of the Google Security Team discovered a denial of service\nbug in the OpenSSH sshd server. A remote attacker can send a specially\ncrafted SSH-1 request to the server causing sshd to consume a large\nquantity of CPU resources. (CVE-2006-4924)\n\nAll users of openssh should upgrade to these updated packages, which\ncontain backported patches that resolves these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-09-29"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-4924",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4924",
+          "impact": "moderate",
+          "public": "20060919"
+        },
+        {
+          "text": "CVE-2006-5051",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-5051",
+          "impact": "important",
+          "public": "20060928"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-4924 openssh DoS",
+          "href": "https://bugzilla.redhat.com/207957",
+          "id": "207957"
+        },
+        {
+          "text": "CVE-2006-5051 unsafe GSSAPI signal handler",
+          "href": "https://bugzilla.redhat.com/208347",
+          "id": "208347"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060697001",
+                    "comment": "openssh is earlier than 0:3.9p1-8.RHEL4.17"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044002",
+                    "comment": "openssh is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060697003",
+                    "comment": "openssh-askpass is earlier than 0:3.9p1-8.RHEL4.17"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044004",
+                    "comment": "openssh-askpass is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060697005",
+                    "comment": "openssh-askpass-gnome is earlier than 0:3.9p1-8.RHEL4.17"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044006",
+                    "comment": "openssh-askpass-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060697007",
+                    "comment": "openssh-clients is earlier than 0:3.9p1-8.RHEL4.17"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044008",
+                    "comment": "openssh-clients is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060697009",
+                    "comment": "openssh-server is earlier than 0:3.9p1-8.RHEL4.17"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044010",
+                    "comment": "openssh-server is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

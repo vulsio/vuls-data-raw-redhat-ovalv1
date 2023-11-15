@@ -1,0 +1,242 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120332",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2012:0332: samba security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0332",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0332",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-0870",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0870",
+        "source": "CVE"
+      }
+    ],
+    "description": "Samba is a suite of programs used by machines to share files, printers, and\nother information.\n\nAn input validation flaw was found in the way Samba handled Any Batched\n(AndX) requests. A remote, unauthenticated attacker could send a\nspecially-crafted SMB packet to the Samba server, possibly resulting in\narbitrary code execution with the privileges of the Samba server (root).\n(CVE-2012-0870)\n\nRed Hat would like to thank the Samba team for reporting this issue.\nUpstream acknowledges Andy Davis of NGS Secure as the original reporter.\n\nUsers of Samba are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing this\nupdate, the smb service will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-02-23"
+      },
+      "updated": {
+        "date": "2012-02-23"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-0870",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-0870",
+          "impact": "critical",
+          "public": "20120221",
+          "cwe": "CWE-674->CWE-119",
+          "cvss_2": "8.3/AV:A/AC:L/Au:N/C:C/I:C/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-0870 samba: Any Batched (\"AndX\") request processing infinite recursion and heap-based buffer overflow",
+          "href": "https://bugzilla.redhat.com/795509",
+          "id": "795509"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332001",
+                    "comment": "samba is earlier than 0:3.0.33-0.35.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070354002",
+                    "comment": "samba is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332003",
+                    "comment": "samba-client is earlier than 0:3.0.33-0.35.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070354004",
+                    "comment": "samba-client is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332005",
+                    "comment": "samba-common is earlier than 0:3.0.33-0.35.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070354006",
+                    "comment": "samba-common is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332007",
+                    "comment": "samba-swat is earlier than 0:3.0.33-0.35.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070354008",
+                    "comment": "samba-swat is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332010",
+                    "comment": "libsmbclient is earlier than 0:3.0.33-3.38.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100488011",
+                    "comment": "libsmbclient is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332012",
+                    "comment": "libsmbclient-devel is earlier than 0:3.0.33-3.38.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100488013",
+                    "comment": "libsmbclient-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332014",
+                    "comment": "samba is earlier than 0:3.0.33-3.38.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061002",
+                    "comment": "samba is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332016",
+                    "comment": "samba-client is earlier than 0:3.0.33-3.38.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061004",
+                    "comment": "samba-client is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332018",
+                    "comment": "samba-common is earlier than 0:3.0.33-3.38.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061006",
+                    "comment": "samba-common is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120332020",
+                    "comment": "samba-swat is earlier than 0:3.0.33-3.38.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061008",
+                    "comment": "samba-swat is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

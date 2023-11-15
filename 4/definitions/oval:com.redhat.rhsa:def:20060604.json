@@ -1,0 +1,180 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060604",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2006:0604: ruby security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0604",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0604",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-3694",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3694",
+        "source": "CVE"
+      }
+    ],
+    "description": "Ruby is an interpreted scripting language for object-oriented programming. \n\nA number of flaws were found in the safe-level restrictions in Ruby.  It\nwas possible for an attacker to create a carefully crafted malicious script\nthat can allow the bypass of certain safe-level restrictions. (CVE-2006-3694)\n\nUsers of Ruby should update to these erratum packages, which contain a\nbackported patch and are not vulnerable to this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-07-27"
+      },
+      "updated": {
+        "date": "2006-07-27"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-3694",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-3694",
+          "impact": "moderate",
+          "public": "20060711"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-3694 security flaw",
+          "href": "https://bugzilla.redhat.com/1618154",
+          "id": "1618154"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060604001",
+                    "comment": "irb is earlier than 0:1.8.1-7.EL4.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427002",
+                    "comment": "irb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060604003",
+                    "comment": "ruby is earlier than 0:1.8.1-7.EL4.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427004",
+                    "comment": "ruby is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060604005",
+                    "comment": "ruby-devel is earlier than 0:1.8.1-7.EL4.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427006",
+                    "comment": "ruby-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060604007",
+                    "comment": "ruby-docs is earlier than 0:1.8.1-7.EL4.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427008",
+                    "comment": "ruby-docs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060604009",
+                    "comment": "ruby-libs is earlier than 0:1.8.1-7.EL4.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427010",
+                    "comment": "ruby-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060604011",
+                    "comment": "ruby-mode is earlier than 0:1.8.1-7.EL4.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427012",
+                    "comment": "ruby-mode is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060604013",
+                    "comment": "ruby-tcltk is earlier than 0:1.8.1-7.EL4.6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427014",
+                    "comment": "ruby-tcltk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

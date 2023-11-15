@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080715",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2008:0715: nss_ldap security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0715",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0715",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5794",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5794",
+        "source": "CVE"
+      }
+    ],
+    "description": "The nss_ldap package contains the nss_ldap and pam_ldap modules. The\nnss_ldap module is a plug-in which allows applications to retrieve\ninformation about users and groups from a directory server. The pam_ldap\nmodule allows PAM-aware applications to use a directory server to verify\nuser passwords.\n\nA race condition was discovered in nss_ldap, which affected certain\napplications that make LDAP connections, such as Dovecot. This could cause\nnss_ldap to answer a request for information about one user with the\ninformation about a different user. (CVE-2007-5794)\n\nAs well, this updated package fixes the following bugs:\n\n* in certain situations, on Itanium(R) architectures, when an application\nperformed an LDAP lookup for a highly populated group, for example,\ncontaining more than 150 members, the application crashed, or may have\ncaused a segmentation fault. As well, this issue may have caused commands,\nsuch as \"ls\", to return a \"ber_free_buf: Assertion\" error.\n\n* when an application enumerated members of a netgroup, the nss_ldap\nmodule returned a successful status result and the netgroup name, even\nwhen the netgroup did not exist. This behavior was not consistent with\nother modules. In this updated package, nss_ldap no longer returns a\nsuccessful status when the netgroup does not exist.\n\n* in master and slave server environments, with systems that were\nconfigured to use a read-only directory server, if user log in attempts\nwere denied because their passwords had expired, and users attempted to\nimmediately change their passwords, the replication server returned an LDAP\nreferral, instructing the pam_ldap module to resissue its request to a\ndifferent server; however, the pam_ldap module failed to do so. In these\nsituations, an error such as the following occurred:\n\nLDAP password information update failed: Can't contact LDAP server\nInsufficient 'write' privilege to the 'userPassword' attribute of entry\n[entry]\n\nIn this updated package, password changes are allowed when binding against\na slave server, which resolves this issue.\n\n* when a system used a directory server for naming information, and\n\"nss_initgroups_ignoreusers root\" was configured in \"/etc/ldap.conf\",\ndbus-daemon-1 would hang. Running the \"service messagebus start\" command\ndid not start the service, and it did not fail, which would stop the boot\nprocess if it was not cancelled.\n\nAs well, this updated package upgrades nss_ldap to the version as shipped\nwith Red Hat Enterprise Linux 5.\n\nUsers of nss_ldap are advised to upgrade to this updated package, which\nresolves these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-07-24"
+      },
+      "updated": {
+        "date": "2008-07-24"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5794",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5794",
+          "impact": "low",
+          "public": "20050409"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5794 nss_ldap randomly replying with wrong user's data",
+          "href": "https://bugzilla.redhat.com/367461",
+          "id": "367461"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080715001",
+            "comment": "nss_ldap is earlier than 0:253-5.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060719002",
+            "comment": "nss_ldap is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

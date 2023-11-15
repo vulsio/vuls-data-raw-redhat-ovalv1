@@ -1,0 +1,154 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060733",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2006:0733: firefox security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0733",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0733",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-5462",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-5462",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-5463",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-5463",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-5464",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-5464",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-5747",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-5747",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-5748",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-5748",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Firefox is an open source Web browser.\n\nSeveral flaws were found in the way Firefox processes certain malformed\nJavascript code. A malicious web page could cause the execution of\nJavascript code in such a way that could cause Firefox to crash or execute\narbitrary code as the user running Firefox. (CVE-2006-5463, CVE-2006-5747,\nCVE-2006-5748)\n\nSeveral flaws were found in the way Firefox renders web pages. A malicious\nweb page could cause the browser to crash or possibly execute arbitrary\ncode as the user running Firefox. (CVE-2006-5464) \n\nA flaw was found in the way Firefox verifies RSA signatures. For RSA keys\nwith exponent 3 it is possible for an attacker to forge a signature that\nwould be incorrectly verified by the NSS library. Firefox as shipped trusts\nseveral root Certificate Authorities that use exponent 3. An attacker could\nhave created a carefully crafted SSL certificate which be incorrectly\ntrusted when their site was visited by a victim. This flaw was previously\nthought to be fixed in Firefox 1.5.0.7, however Ulrich Kuehn discovered the\nfix was incomplete (CVE-2006-5462)\n\nUsers of Firefox are advised to upgrade to these erratum packages, which\ncontain Firefox version 1.5.0.8 that corrects these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-11-08"
+      },
+      "updated": {
+        "date": "2006-11-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-5462",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-5462",
+          "impact": "important",
+          "public": "20061108:0103"
+        },
+        {
+          "text": "CVE-2006-5463",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-5463",
+          "impact": "critical",
+          "public": "20061108:0103"
+        },
+        {
+          "text": "CVE-2006-5464",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-5464",
+          "impact": "critical",
+          "public": "20061108:0103"
+        },
+        {
+          "text": "CVE-2006-5747",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-5747",
+          "impact": "critical",
+          "public": "20061108:0103"
+        },
+        {
+          "text": "CVE-2006-5748",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-5748",
+          "impact": "critical",
+          "public": "20061108:0103"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "seamonkey < 1.0.6 multiple vulnerabilities",
+          "href": "https://bugzilla.redhat.com/214822",
+          "id": "214822"
+        },
+        {
+          "text": "CVE-2006-5462 security flaw",
+          "href": "https://bugzilla.redhat.com/1618211",
+          "id": "1618211"
+        },
+        {
+          "text": "CVE-2006-5463 security flaw",
+          "href": "https://bugzilla.redhat.com/1618212",
+          "id": "1618212"
+        },
+        {
+          "text": "CVE-2006-5464 security flaw",
+          "href": "https://bugzilla.redhat.com/1618214",
+          "id": "1618214"
+        },
+        {
+          "text": "CVE-2006-5747 security flaw",
+          "href": "https://bugzilla.redhat.com/1618223",
+          "id": "1618223"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060733001",
+            "comment": "firefox is earlier than 0:1.5.0.8-0.1.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+            "comment": "firefox is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

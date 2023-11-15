@@ -1,0 +1,116 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091123",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2009:1123: gstreamer-plugins-good security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1123",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1123",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-1932",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1932",
+        "source": "CVE"
+      }
+    ],
+    "description": "GStreamer is a streaming media framework, based on graphs of filters which\noperate on media data. GStreamer Good Plug-ins is a collection of\nwell-supported, good quality GStreamer plug-ins.\n\nMultiple integer overflow flaws, that could lead to a buffer overflow, were\nfound in the GStreamer Good Plug-ins PNG decoding handler. An attacker\ncould create a specially-crafted PNG file that would cause an application\nusing the GStreamer Good Plug-ins library to crash or, potentially, execute\narbitrary code as the user running the application when parsed.\n(CVE-2009-1932)\n\nAll users of gstreamer-plugins-good are advised to upgrade to these updated\npackages, which contain a backported patch to correct these issues. After\ninstalling the update, all applications using GStreamer Good Plug-ins (such\nas some media playing applications) must be restarted for the changes to\ntake effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-06-25"
+      },
+      "updated": {
+        "date": "2009-06-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-1932",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1932",
+          "impact": "moderate",
+          "public": "20090603",
+          "cwe": "CWE-190",
+          "cvss_2": "4.3/AV:A/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-1932 gstreamer-plugins-good: PNG decoder integer overflow",
+          "href": "https://bugzilla.redhat.com/504199",
+          "id": "504199"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091123001",
+                    "comment": "gstreamer-plugins-good is earlier than 0:0.10.9-1.el5_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090271002",
+                    "comment": "gstreamer-plugins-good is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091123003",
+                    "comment": "gstreamer-plugins-good-devel is earlier than 0:0.10.9-1.el5_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090271004",
+                    "comment": "gstreamer-plugins-good-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

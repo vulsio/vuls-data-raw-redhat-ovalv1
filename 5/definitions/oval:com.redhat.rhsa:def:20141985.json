@@ -1,0 +1,154 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20141985",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2014:1985: bind97 security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2014:1985",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2014:1985",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2014-8500",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-8500",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain\nName System (DNS) protocols. BIND includes a DNS server (named); a resolver\nlibrary (routines for applications to use when interfacing with DNS); and\ntools for verifying that the DNS server is operating correctly.\n\nA denial of service flaw was found in the way BIND followed DNS\ndelegations. A remote attacker could use a specially crafted zone\ncontaining a large number of referrals which, when looked up and processed,\nwould cause named to use excessive amounts of memory or crash.\n(CVE-2014-8500)\n\nAll bind97 users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. After installing the\nupdate, the BIND daemon (named) will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2014 Red Hat, Inc.",
+      "issued": {
+        "date": "2014-12-12"
+      },
+      "updated": {
+        "date": "2014-12-12"
+      },
+      "cve": [
+        {
+          "text": "CVE-2014-8500",
+          "href": "https://access.redhat.com/security/cve/CVE-2014-8500",
+          "impact": "important",
+          "public": "20141208",
+          "cwe": "CWE-400",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2014-8500 bind: delegation handling denial of service",
+          "href": "https://bugzilla.redhat.com/1171912",
+          "id": "1171912"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141985001",
+                    "comment": "bind97 is earlier than 32:9.7.0-21.P2.el5_11.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845002",
+                    "comment": "bind97 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141985003",
+                    "comment": "bind97-chroot is earlier than 32:9.7.0-21.P2.el5_11.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845004",
+                    "comment": "bind97-chroot is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141985005",
+                    "comment": "bind97-devel is earlier than 32:9.7.0-21.P2.el5_11.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845006",
+                    "comment": "bind97-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141985007",
+                    "comment": "bind97-libs is earlier than 32:9.7.0-21.P2.el5_11.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845008",
+                    "comment": "bind97-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141985009",
+                    "comment": "bind97-utils is earlier than 32:9.7.0-21.P2.el5_11.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845010",
+                    "comment": "bind97-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

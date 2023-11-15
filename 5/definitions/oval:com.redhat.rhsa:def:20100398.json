@@ -1,0 +1,326 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100398",
+  "version": "672",
+  "metadata": {
+    "title": "RHSA-2010:0398: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0398",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0398",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0307",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0307",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0410",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0410",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0730",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0730",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1085",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1085",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1086",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1086",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* a flaw was found in the Unidirectional Lightweight Encapsulation (ULE)\nimplementation. A remote attacker could send a specially-crafted ISO\nMPEG-2 Transport Stream (TS) frame to a target system, resulting in an\ninfinite loop (denial of service). (CVE-2010-1086, Important)\n\n* on AMD64 systems, it was discovered that the kernel did not ensure the\nELF interpreter was available before making a call to the SET_PERSONALITY\nmacro. A local attacker could use this flaw to cause a denial of service by\nrunning a 32-bit application that attempts to execute a 64-bit application.\n(CVE-2010-0307, Moderate)\n\n* a flaw was found in the kernel connector implementation. A local,\nunprivileged user could trigger this flaw by sending an arbitrary number\nof notification requests using specially-crafted netlink messages,\nresulting in a denial of service. (CVE-2010-0410, Moderate)\n\n* a flaw was found in the Memory-mapped I/O (MMIO) instruction decoder in\nthe Xen hypervisor implementation. An unprivileged guest user could use\nthis flaw to trick the hypervisor into emulating a certain instruction,\nwhich could crash the guest (denial of service). (CVE-2010-0730, Moderate)\n\n* a divide-by-zero flaw was found in the azx_position_ok() function in the\ndriver for Intel High Definition Audio, snd-hda-intel. A local,\nunprivileged user could trigger this flaw to cause a kernel crash (denial\nof service). (CVE-2010-1085, Moderate)\n\nThis update also fixes the following bugs:\n\n* in some cases, booting a system with the \"iommu=on\" kernel parameter\nresulted in a Xen hypervisor panic. (BZ#580199)\n\n* the fnic driver flushed the Rx queue instead of the Tx queue after\nfabric login. This caused crashes in some cases. (BZ#580829)\n\n* \"kernel unaligned access\" warnings were logged to the dmesg log on some\nsystems. (BZ#580832)\n\n* the \"Northbridge Error, node 1, core: -1 K8 ECC error\" error occurred on\nsome systems using the amd64_edac driver. (BZ#580836)\n\n* in rare circumstances, when using kdump and booting a kernel with\n\"crashkernel=128M@16M\", the kdump kernel did not boot after a crash.\n(BZ#580838)\n\n* TLB page table entry flushing was done incorrectly on IBM System z,\npossibly causing crashes, subtle data inconsistency, or other issues.\n(BZ#580839)\n\n* iSCSI failover times were slower than in Red Hat Enterprise Linux 5.3.\n(BZ#580840)\n\n* fixed floating point state corruption after signal. (BZ#580841)\n\n* in certain circumstances, under heavy load, certain network interface\ncards using the bnx2 driver and configured to use MSI-X, could stop\nprocessing interrupts and then network connectivity would cease.\n(BZ#587799)\n\n* cnic parts resets could cause a deadlock when the bnx2 device was\nenslaved in a bonding device and that device had an associated VLAN.\n(BZ#581148)\n\n* some BIOS implementations initialized interrupt remapping hardware in a\nway the Xen hypervisor implementation did not expect. This could have\ncaused a system hang during boot. (BZ#581150)\n\n* AMD Magny-Cours systems panicked when booting a 32-bit kernel.\n(BZ#580846)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-05-06"
+      },
+      "updated": {
+        "date": "2010-05-06"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0307",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0307",
+          "impact": "moderate",
+          "public": "20100128",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-0410",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0410",
+          "impact": "moderate",
+          "public": "20100202",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-0730",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0730",
+          "impact": "moderate",
+          "public": "20100506",
+          "cvss_2": "4.7/AV:L/AC:M/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-1085",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1085",
+          "impact": "moderate",
+          "public": "20100205",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2010-1086",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1086",
+          "impact": "important",
+          "public": "20100225",
+          "cwe": "CWE-835",
+          "cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0307 kernel: DoS on x86_64",
+          "href": "https://bugzilla.redhat.com/560547",
+          "id": "560547"
+        },
+        {
+          "text": "CVE-2010-0410 kernel: OOM/crash in drivers/connector",
+          "href": "https://bugzilla.redhat.com/561682",
+          "id": "561682"
+        },
+        {
+          "text": "CVE-2010-1085 kernel: ALSA: hda-intel: Avoid divide by zero crash",
+          "href": "https://bugzilla.redhat.com/567168",
+          "id": "567168"
+        },
+        {
+          "text": "CVE-2010-1086 kernel: dvb-core: DoS bug in ULE decapsulation code",
+          "href": "https://bugzilla.redhat.com/569237",
+          "id": "569237"
+        },
+        {
+          "text": "CVE-2010-0730 xen: emulator instruction decoding inconsistency",
+          "href": "https://bugzilla.redhat.com/572971",
+          "id": "572971"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20100398025",
+                "comment": "kernel earlier than 0:2.6.18-194.3.1.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20100398026",
+                "comment": "kernel earlier than 0:2.6.18-194.3.1.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398001",
+                    "comment": "kernel is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100398023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-194.3.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

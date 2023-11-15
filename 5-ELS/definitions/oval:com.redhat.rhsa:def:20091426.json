@@ -1,0 +1,1923 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091426",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2009:1426: openoffice.org security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1426",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1426",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-0200",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0200",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-0201",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0201",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenOffice.org is an office productivity suite that includes desktop\napplications, such as a word processor, spreadsheet, presentation manager,\nformula editor, and a drawing program.\n\nAn integer underflow flaw and a boundary error flaw, both possibly leading\nto a heap-based buffer overflow, were found in the way OpenOffice.org\nparses certain records in Microsoft Word documents. An attacker could\ncreate a specially-crafted Microsoft Word document, which once opened by an\nunsuspecting user, could cause OpenOffice.org to crash or, potentially,\nexecute arbitrary code with the permissions of the user running\nOpenOffice.org. (CVE-2009-0200, CVE-2009-0201)\n\nAll users of OpenOffice.org are advised to upgrade to these updated\npackages, which contain backported patches to correct these issues. All\nrunning instances of OpenOffice.org applications must be restarted for\nthis update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-09-04"
+      },
+      "updated": {
+        "date": "2009-09-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-0200",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0200",
+          "impact": "important",
+          "public": "20090901",
+          "cwe": "CWE-190",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2009-0201",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0201",
+          "impact": "important",
+          "public": "20090901",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-0200 OpenOffice.org Word document Integer Underflow",
+          "href": "https://bugzilla.redhat.com/500993",
+          "id": "500993"
+        },
+        {
+          "text": "CVE-2009-0201 OpenOffice.org Word document buffer overflow",
+          "href": "https://bugzilla.redhat.com/502194",
+          "id": "502194"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_productivity:5",
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426001",
+                    "comment": "openoffice.org is earlier than 0:1.1.5-10.6.0.7.EL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406002",
+                    "comment": "openoffice.org is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426003",
+                    "comment": "openoffice.org-i18n is earlier than 0:1.1.5-10.6.0.7.EL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406004",
+                    "comment": "openoffice.org-i18n is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426005",
+                    "comment": "openoffice.org-kde is earlier than 0:1.1.5-10.6.0.7.EL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406006",
+                    "comment": "openoffice.org-kde is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426007",
+                    "comment": "openoffice.org-libs is earlier than 0:1.1.5-10.6.0.7.EL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406008",
+                    "comment": "openoffice.org-libs is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426009",
+                    "comment": "openoffice.org2-base is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406010",
+                    "comment": "openoffice.org2-base is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426011",
+                    "comment": "openoffice.org2-calc is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406012",
+                    "comment": "openoffice.org2-calc is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426013",
+                    "comment": "openoffice.org2-core is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406014",
+                    "comment": "openoffice.org2-core is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426015",
+                    "comment": "openoffice.org2-draw is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406016",
+                    "comment": "openoffice.org2-draw is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426017",
+                    "comment": "openoffice.org2-emailmerge is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406018",
+                    "comment": "openoffice.org2-emailmerge is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426019",
+                    "comment": "openoffice.org2-graphicfilter is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406020",
+                    "comment": "openoffice.org2-graphicfilter is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426021",
+                    "comment": "openoffice.org2-impress is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406022",
+                    "comment": "openoffice.org2-impress is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426023",
+                    "comment": "openoffice.org2-javafilter is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406024",
+                    "comment": "openoffice.org2-javafilter is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426025",
+                    "comment": "openoffice.org2-langpack-af_ZA is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406026",
+                    "comment": "openoffice.org2-langpack-af_ZA is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426027",
+                    "comment": "openoffice.org2-langpack-ar is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406028",
+                    "comment": "openoffice.org2-langpack-ar is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426029",
+                    "comment": "openoffice.org2-langpack-bg_BG is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406030",
+                    "comment": "openoffice.org2-langpack-bg_BG is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426031",
+                    "comment": "openoffice.org2-langpack-bn is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406032",
+                    "comment": "openoffice.org2-langpack-bn is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426033",
+                    "comment": "openoffice.org2-langpack-ca_ES is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406034",
+                    "comment": "openoffice.org2-langpack-ca_ES is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426035",
+                    "comment": "openoffice.org2-langpack-cs_CZ is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406036",
+                    "comment": "openoffice.org2-langpack-cs_CZ is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426037",
+                    "comment": "openoffice.org2-langpack-cy_GB is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406038",
+                    "comment": "openoffice.org2-langpack-cy_GB is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426039",
+                    "comment": "openoffice.org2-langpack-da_DK is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406040",
+                    "comment": "openoffice.org2-langpack-da_DK is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426041",
+                    "comment": "openoffice.org2-langpack-de is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406042",
+                    "comment": "openoffice.org2-langpack-de is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426043",
+                    "comment": "openoffice.org2-langpack-el_GR is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406044",
+                    "comment": "openoffice.org2-langpack-el_GR is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426045",
+                    "comment": "openoffice.org2-langpack-es is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406046",
+                    "comment": "openoffice.org2-langpack-es is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426047",
+                    "comment": "openoffice.org2-langpack-et_EE is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406048",
+                    "comment": "openoffice.org2-langpack-et_EE is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426049",
+                    "comment": "openoffice.org2-langpack-eu_ES is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406050",
+                    "comment": "openoffice.org2-langpack-eu_ES is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426051",
+                    "comment": "openoffice.org2-langpack-fi_FI is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406052",
+                    "comment": "openoffice.org2-langpack-fi_FI is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426053",
+                    "comment": "openoffice.org2-langpack-fr is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406054",
+                    "comment": "openoffice.org2-langpack-fr is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426055",
+                    "comment": "openoffice.org2-langpack-ga_IE is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406056",
+                    "comment": "openoffice.org2-langpack-ga_IE is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426057",
+                    "comment": "openoffice.org2-langpack-gl_ES is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406058",
+                    "comment": "openoffice.org2-langpack-gl_ES is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426059",
+                    "comment": "openoffice.org2-langpack-gu_IN is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406060",
+                    "comment": "openoffice.org2-langpack-gu_IN is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426061",
+                    "comment": "openoffice.org2-langpack-he_IL is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406062",
+                    "comment": "openoffice.org2-langpack-he_IL is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426063",
+                    "comment": "openoffice.org2-langpack-hi_IN is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406064",
+                    "comment": "openoffice.org2-langpack-hi_IN is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426065",
+                    "comment": "openoffice.org2-langpack-hr_HR is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406066",
+                    "comment": "openoffice.org2-langpack-hr_HR is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426067",
+                    "comment": "openoffice.org2-langpack-hu_HU is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406068",
+                    "comment": "openoffice.org2-langpack-hu_HU is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426069",
+                    "comment": "openoffice.org2-langpack-it is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406070",
+                    "comment": "openoffice.org2-langpack-it is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426071",
+                    "comment": "openoffice.org2-langpack-ja_JP is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406072",
+                    "comment": "openoffice.org2-langpack-ja_JP is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426073",
+                    "comment": "openoffice.org2-langpack-ko_KR is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406074",
+                    "comment": "openoffice.org2-langpack-ko_KR is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426075",
+                    "comment": "openoffice.org2-langpack-lt_LT is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406076",
+                    "comment": "openoffice.org2-langpack-lt_LT is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426077",
+                    "comment": "openoffice.org2-langpack-ms_MY is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406078",
+                    "comment": "openoffice.org2-langpack-ms_MY is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426079",
+                    "comment": "openoffice.org2-langpack-nb_NO is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406080",
+                    "comment": "openoffice.org2-langpack-nb_NO is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426081",
+                    "comment": "openoffice.org2-langpack-nl is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406082",
+                    "comment": "openoffice.org2-langpack-nl is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426083",
+                    "comment": "openoffice.org2-langpack-nn_NO is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406084",
+                    "comment": "openoffice.org2-langpack-nn_NO is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426085",
+                    "comment": "openoffice.org2-langpack-pa_IN is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406086",
+                    "comment": "openoffice.org2-langpack-pa_IN is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426087",
+                    "comment": "openoffice.org2-langpack-pl_PL is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406088",
+                    "comment": "openoffice.org2-langpack-pl_PL is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426089",
+                    "comment": "openoffice.org2-langpack-pt_BR is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406090",
+                    "comment": "openoffice.org2-langpack-pt_BR is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426091",
+                    "comment": "openoffice.org2-langpack-pt_PT is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406092",
+                    "comment": "openoffice.org2-langpack-pt_PT is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426093",
+                    "comment": "openoffice.org2-langpack-ru is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406094",
+                    "comment": "openoffice.org2-langpack-ru is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426095",
+                    "comment": "openoffice.org2-langpack-sk_SK is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406096",
+                    "comment": "openoffice.org2-langpack-sk_SK is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426097",
+                    "comment": "openoffice.org2-langpack-sl_SI is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406098",
+                    "comment": "openoffice.org2-langpack-sl_SI is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426099",
+                    "comment": "openoffice.org2-langpack-sr_CS is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406100",
+                    "comment": "openoffice.org2-langpack-sr_CS is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426101",
+                    "comment": "openoffice.org2-langpack-sv is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406102",
+                    "comment": "openoffice.org2-langpack-sv is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426103",
+                    "comment": "openoffice.org2-langpack-ta_IN is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406104",
+                    "comment": "openoffice.org2-langpack-ta_IN is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426105",
+                    "comment": "openoffice.org2-langpack-th_TH is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406106",
+                    "comment": "openoffice.org2-langpack-th_TH is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426107",
+                    "comment": "openoffice.org2-langpack-tr_TR is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406108",
+                    "comment": "openoffice.org2-langpack-tr_TR is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426109",
+                    "comment": "openoffice.org2-langpack-zh_CN is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406110",
+                    "comment": "openoffice.org2-langpack-zh_CN is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426111",
+                    "comment": "openoffice.org2-langpack-zh_TW is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406112",
+                    "comment": "openoffice.org2-langpack-zh_TW is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426113",
+                    "comment": "openoffice.org2-langpack-zu_ZA is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406114",
+                    "comment": "openoffice.org2-langpack-zu_ZA is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426115",
+                    "comment": "openoffice.org2-math is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406116",
+                    "comment": "openoffice.org2-math is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426117",
+                    "comment": "openoffice.org2-pyuno is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406118",
+                    "comment": "openoffice.org2-pyuno is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426119",
+                    "comment": "openoffice.org2-testtools is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406120",
+                    "comment": "openoffice.org2-testtools is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426121",
+                    "comment": "openoffice.org2-writer is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406122",
+                    "comment": "openoffice.org2-writer is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426123",
+                    "comment": "openoffice.org2-xsltfilter is earlier than 1:2.0.4-5.7.0.6.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070406124",
+                    "comment": "openoffice.org2-xsltfilter is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426126",
+                    "comment": "openoffice.org-base is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069002",
+                    "comment": "openoffice.org-base is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426128",
+                    "comment": "openoffice.org-calc is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069004",
+                    "comment": "openoffice.org-calc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426130",
+                    "comment": "openoffice.org-core is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069006",
+                    "comment": "openoffice.org-core is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426132",
+                    "comment": "openoffice.org-draw is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069008",
+                    "comment": "openoffice.org-draw is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426134",
+                    "comment": "openoffice.org-emailmerge is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069010",
+                    "comment": "openoffice.org-emailmerge is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426136",
+                    "comment": "openoffice.org-graphicfilter is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069012",
+                    "comment": "openoffice.org-graphicfilter is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426138",
+                    "comment": "openoffice.org-headless is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080537131",
+                    "comment": "openoffice.org-headless is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426140",
+                    "comment": "openoffice.org-impress is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069014",
+                    "comment": "openoffice.org-impress is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426142",
+                    "comment": "openoffice.org-javafilter is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069016",
+                    "comment": "openoffice.org-javafilter is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426144",
+                    "comment": "openoffice.org-langpack-af_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069018",
+                    "comment": "openoffice.org-langpack-af_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426146",
+                    "comment": "openoffice.org-langpack-ar is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069020",
+                    "comment": "openoffice.org-langpack-ar is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426148",
+                    "comment": "openoffice.org-langpack-as_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069022",
+                    "comment": "openoffice.org-langpack-as_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426150",
+                    "comment": "openoffice.org-langpack-bg_BG is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069024",
+                    "comment": "openoffice.org-langpack-bg_BG is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426152",
+                    "comment": "openoffice.org-langpack-bn is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069026",
+                    "comment": "openoffice.org-langpack-bn is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426154",
+                    "comment": "openoffice.org-langpack-ca_ES is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069028",
+                    "comment": "openoffice.org-langpack-ca_ES is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426156",
+                    "comment": "openoffice.org-langpack-cs_CZ is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069030",
+                    "comment": "openoffice.org-langpack-cs_CZ is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426158",
+                    "comment": "openoffice.org-langpack-cy_GB is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069032",
+                    "comment": "openoffice.org-langpack-cy_GB is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426160",
+                    "comment": "openoffice.org-langpack-da_DK is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069034",
+                    "comment": "openoffice.org-langpack-da_DK is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426162",
+                    "comment": "openoffice.org-langpack-de is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069036",
+                    "comment": "openoffice.org-langpack-de is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426164",
+                    "comment": "openoffice.org-langpack-el_GR is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069038",
+                    "comment": "openoffice.org-langpack-el_GR is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426166",
+                    "comment": "openoffice.org-langpack-es is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069040",
+                    "comment": "openoffice.org-langpack-es is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426168",
+                    "comment": "openoffice.org-langpack-et_EE is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069042",
+                    "comment": "openoffice.org-langpack-et_EE is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426170",
+                    "comment": "openoffice.org-langpack-eu_ES is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069044",
+                    "comment": "openoffice.org-langpack-eu_ES is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426172",
+                    "comment": "openoffice.org-langpack-fi_FI is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069046",
+                    "comment": "openoffice.org-langpack-fi_FI is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426174",
+                    "comment": "openoffice.org-langpack-fr is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069048",
+                    "comment": "openoffice.org-langpack-fr is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426176",
+                    "comment": "openoffice.org-langpack-ga_IE is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069050",
+                    "comment": "openoffice.org-langpack-ga_IE is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426178",
+                    "comment": "openoffice.org-langpack-gl_ES is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069052",
+                    "comment": "openoffice.org-langpack-gl_ES is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426180",
+                    "comment": "openoffice.org-langpack-gu_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069054",
+                    "comment": "openoffice.org-langpack-gu_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426182",
+                    "comment": "openoffice.org-langpack-he_IL is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069056",
+                    "comment": "openoffice.org-langpack-he_IL is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426184",
+                    "comment": "openoffice.org-langpack-hi_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069058",
+                    "comment": "openoffice.org-langpack-hi_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426186",
+                    "comment": "openoffice.org-langpack-hr_HR is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069060",
+                    "comment": "openoffice.org-langpack-hr_HR is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426188",
+                    "comment": "openoffice.org-langpack-hu_HU is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069062",
+                    "comment": "openoffice.org-langpack-hu_HU is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426190",
+                    "comment": "openoffice.org-langpack-it is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069064",
+                    "comment": "openoffice.org-langpack-it is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426192",
+                    "comment": "openoffice.org-langpack-ja_JP is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069066",
+                    "comment": "openoffice.org-langpack-ja_JP is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426194",
+                    "comment": "openoffice.org-langpack-kn_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069068",
+                    "comment": "openoffice.org-langpack-kn_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426196",
+                    "comment": "openoffice.org-langpack-ko_KR is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069070",
+                    "comment": "openoffice.org-langpack-ko_KR is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426198",
+                    "comment": "openoffice.org-langpack-lt_LT is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069072",
+                    "comment": "openoffice.org-langpack-lt_LT is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426200",
+                    "comment": "openoffice.org-langpack-ml_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069074",
+                    "comment": "openoffice.org-langpack-ml_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426202",
+                    "comment": "openoffice.org-langpack-mr_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069076",
+                    "comment": "openoffice.org-langpack-mr_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426204",
+                    "comment": "openoffice.org-langpack-ms_MY is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069078",
+                    "comment": "openoffice.org-langpack-ms_MY is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426206",
+                    "comment": "openoffice.org-langpack-nb_NO is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069080",
+                    "comment": "openoffice.org-langpack-nb_NO is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426208",
+                    "comment": "openoffice.org-langpack-nl is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069082",
+                    "comment": "openoffice.org-langpack-nl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426210",
+                    "comment": "openoffice.org-langpack-nn_NO is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069084",
+                    "comment": "openoffice.org-langpack-nn_NO is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426212",
+                    "comment": "openoffice.org-langpack-nr_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069086",
+                    "comment": "openoffice.org-langpack-nr_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426214",
+                    "comment": "openoffice.org-langpack-nso_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069088",
+                    "comment": "openoffice.org-langpack-nso_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426216",
+                    "comment": "openoffice.org-langpack-or_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069090",
+                    "comment": "openoffice.org-langpack-or_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426218",
+                    "comment": "openoffice.org-langpack-pa_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069092",
+                    "comment": "openoffice.org-langpack-pa_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426220",
+                    "comment": "openoffice.org-langpack-pl_PL is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069094",
+                    "comment": "openoffice.org-langpack-pl_PL is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426222",
+                    "comment": "openoffice.org-langpack-pt_BR is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069096",
+                    "comment": "openoffice.org-langpack-pt_BR is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426224",
+                    "comment": "openoffice.org-langpack-pt_PT is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069098",
+                    "comment": "openoffice.org-langpack-pt_PT is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426226",
+                    "comment": "openoffice.org-langpack-ru is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069100",
+                    "comment": "openoffice.org-langpack-ru is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426228",
+                    "comment": "openoffice.org-langpack-sk_SK is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069102",
+                    "comment": "openoffice.org-langpack-sk_SK is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426230",
+                    "comment": "openoffice.org-langpack-sl_SI is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069104",
+                    "comment": "openoffice.org-langpack-sl_SI is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426232",
+                    "comment": "openoffice.org-langpack-sr_CS is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069106",
+                    "comment": "openoffice.org-langpack-sr_CS is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426234",
+                    "comment": "openoffice.org-langpack-ss_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069108",
+                    "comment": "openoffice.org-langpack-ss_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426236",
+                    "comment": "openoffice.org-langpack-st_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069110",
+                    "comment": "openoffice.org-langpack-st_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426238",
+                    "comment": "openoffice.org-langpack-sv is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069112",
+                    "comment": "openoffice.org-langpack-sv is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426240",
+                    "comment": "openoffice.org-langpack-ta_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069114",
+                    "comment": "openoffice.org-langpack-ta_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426242",
+                    "comment": "openoffice.org-langpack-te_IN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069116",
+                    "comment": "openoffice.org-langpack-te_IN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426244",
+                    "comment": "openoffice.org-langpack-th_TH is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069118",
+                    "comment": "openoffice.org-langpack-th_TH is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426246",
+                    "comment": "openoffice.org-langpack-tn_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069120",
+                    "comment": "openoffice.org-langpack-tn_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426248",
+                    "comment": "openoffice.org-langpack-tr_TR is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069122",
+                    "comment": "openoffice.org-langpack-tr_TR is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426250",
+                    "comment": "openoffice.org-langpack-ts_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069124",
+                    "comment": "openoffice.org-langpack-ts_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426252",
+                    "comment": "openoffice.org-langpack-ur is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069126",
+                    "comment": "openoffice.org-langpack-ur is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426254",
+                    "comment": "openoffice.org-langpack-ve_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069128",
+                    "comment": "openoffice.org-langpack-ve_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426256",
+                    "comment": "openoffice.org-langpack-xh_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069130",
+                    "comment": "openoffice.org-langpack-xh_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426258",
+                    "comment": "openoffice.org-langpack-zh_CN is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069132",
+                    "comment": "openoffice.org-langpack-zh_CN is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426260",
+                    "comment": "openoffice.org-langpack-zh_TW is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069134",
+                    "comment": "openoffice.org-langpack-zh_TW is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426262",
+                    "comment": "openoffice.org-langpack-zu_ZA is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069136",
+                    "comment": "openoffice.org-langpack-zu_ZA is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426264",
+                    "comment": "openoffice.org-math is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069138",
+                    "comment": "openoffice.org-math is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426266",
+                    "comment": "openoffice.org-pyuno is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069140",
+                    "comment": "openoffice.org-pyuno is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426268",
+                    "comment": "openoffice.org-sdk is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080537261",
+                    "comment": "openoffice.org-sdk is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426270",
+                    "comment": "openoffice.org-sdk-doc is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080537263",
+                    "comment": "openoffice.org-sdk-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426272",
+                    "comment": "openoffice.org-testtools is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069142",
+                    "comment": "openoffice.org-testtools is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426274",
+                    "comment": "openoffice.org-writer is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069144",
+                    "comment": "openoffice.org-writer is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091426276",
+                    "comment": "openoffice.org-xsltfilter is earlier than 1:2.3.0-6.11.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070069146",
+                    "comment": "openoffice.org-xsltfilter is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

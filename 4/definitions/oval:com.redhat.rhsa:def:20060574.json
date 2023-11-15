@@ -1,0 +1,219 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060574",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2006:0574: kernel security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0574",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0574",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-2451",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-2451",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Linux kernel handles the basic functions of the operating system.\n\nDuring security research, Red Hat discovered a behavioral flaw in core dump\nhandling.  A local user could create a program that would cause a core file\nto be dumped into a directory they would not normally have permissions to\nwrite to.  This could lead to a denial of service (disk consumption), or\nallow the local user to gain root privileges.  (CVE-2006-2451)\n\nPrior to applying this update, users can remove the ability to escalate\nprivileges using this flaw by configuring core files to dump to an absolute\nlocation.  By default, core files are created in the working directory of\nthe faulting application, but this can be overridden by specifying an\nabsolute location for core files in /proc/sys/kernel/core_pattern.  To\navoid a potential denial of service, a separate partition for the core\nfiles should be used.\n\nAll Red Hat Enterprise Linux 4 users are advised to upgrade their kernels\nto the packages associated with their machine architectures and\nconfigurations as listed in this erratum.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-07-07"
+      },
+      "updated": {
+        "date": "2006-07-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-2451",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-2451",
+          "impact": "important",
+          "public": "20060706"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-2451 Possible privilege escalation through prctl() and suid_dumpable",
+          "href": "https://bugzilla.redhat.com/195902",
+          "id": "195902"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20060574019",
+                "comment": "kernel earlier than 0:2.6.9-34.0.2.EL is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20060574020",
+                "comment": "kernel earlier than 0:2.6.9-34.0.2.EL is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574001",
+                    "comment": "kernel is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574003",
+                    "comment": "kernel-devel is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574005",
+                    "comment": "kernel-doc is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574007",
+                    "comment": "kernel-hugemem is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
+                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574009",
+                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
+                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574011",
+                    "comment": "kernel-largesmp is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
+                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574013",
+                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
+                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574015",
+                    "comment": "kernel-smp is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
+                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060574017",
+                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-34.0.2.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
+                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20111240",
+  "version": "633",
+  "metadata": {
+    "title": "RHSA-2011:1240: Red Hat Enterprise Linux 4 - 6-Month End Of Life Notice (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:1240",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1240",
+        "source": "RHSA"
+      }
+    ],
+    "description": "In accordance with the Red Hat Enterprise Linux Errata Support Policy, the\nregular 7 year life-cycle of Red Hat Enterprise Linux 4 will end on\nFebruary 29, 2012.\n\nAfter this date, Red Hat will discontinue the regular subscription services\nfor Red Hat Enterprise Linux 4. Therefore, new bug fix, enhancement, and\nsecurity errata updates, as well as technical support services will no\nlonger be available for the following products:\n\n* Red Hat Enterprise Linux AS 4\n* Red Hat Enterprise Linux ES 4\n* Red Hat Enterprise Linux WS 4\n* Red Hat Enterprise Linux Extras 4\n* Red Hat Desktop 4\n* Red Hat Global File System 4\n* Red Hat Cluster Suite 4\n\nCustomers still running production workloads on Red Hat Enterprise Linux 4\nare advised to begin planning the upgrade to Red Hat Enterprise Linux 5 or\n6. Active subscribers of Red Hat Enterprise Linux already have access to\nall currently maintained versions of Red Hat Enterprise Linux, as part of\ntheir subscription without additional fees.\n\nFor customers who are unable to migrate off Red Hat Enterprise Linux 4\nbefore its end-of-life date, Red Hat intends to offer a limited, optional\nextension program. For more information, contact your Red Hat sales\nrepresentative or channel partner.\n\nDetails of the Red Hat Enterprise Linux life-cycle can be found on the Red\nHat website: https://access.redhat.com/support/policy/updates/errata/",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-08-31"
+      },
+      "updated": {
+        "date": "2011-08-31"
+      },
+      "bugzilla": [
+        {
+          "text": "Send Out RHEL 4 6-Month EOL Notice",
+          "href": "https://bugzilla.redhat.com/732722",
+          "id": "732722"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111240001",
+                    "comment": "redhat-release is earlier than 0:4AS-10.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+                    "comment": "redhat-release is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111240003",
+                    "comment": "redhat-release is earlier than 0:4ES-10.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+                    "comment": "redhat-release is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111240004",
+                    "comment": "redhat-release is earlier than 0:4WS-10.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+                    "comment": "redhat-release is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111240005",
+                    "comment": "redhat-release is earlier than 0:4Desktop-10.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+                    "comment": "redhat-release is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080529",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:0529: net-snmp security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0529",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0529",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-0960",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0960",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2292",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2292",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Simple Network Management Protocol (SNMP) is a protocol used for\nnetwork management.\n\nA flaw was found in the way Net-SNMP checked an SNMPv3 packet's Keyed-Hash\nMessage Authentication Code (HMAC). An attacker could use this flaw to\nspoof an authenticated SNMPv3 packet. (CVE-2008-0960)\n\nA buffer overflow was found in the Perl bindings for Net-SNMP. This could\nbe exploited if an attacker could convince an application using the\nNet-SNMP Perl module to connect to a malicious SNMP agent. (CVE-2008-2292)\n\nAll users of net-snmp should upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-06-10"
+      },
+      "updated": {
+        "date": "2008-06-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-0960",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0960",
+          "impact": "moderate",
+          "public": "20080609",
+          "cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+        },
+        {
+          "text": "CVE-2008-2292",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2292",
+          "impact": "moderate",
+          "public": "20071105"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2292 net-snmp: buffer overflow in perl module's Perl Module __snprint_value()",
+          "href": "https://bugzilla.redhat.com/447262",
+          "id": "447262"
+        },
+        {
+          "text": "CVE-2008-0960 net-snmp SNMPv3 authentication bypass (VU#877044)",
+          "href": "https://bugzilla.redhat.com/447974",
+          "id": "447974"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529001",
+                    "comment": "net-snmp is earlier than 0:5.1.2-11.el4_6.11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045002",
+                    "comment": "net-snmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529003",
+                    "comment": "net-snmp-devel is earlier than 0:5.1.2-11.el4_6.11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045004",
+                    "comment": "net-snmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529005",
+                    "comment": "net-snmp-libs is earlier than 0:5.1.2-11.el4_6.11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045006",
+                    "comment": "net-snmp-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529007",
+                    "comment": "net-snmp-perl is earlier than 0:5.1.2-11.el4_6.11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045008",
+                    "comment": "net-snmp-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529009",
+                    "comment": "net-snmp-utils is earlier than 0:5.1.2-11.el4_6.11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045010",
+                    "comment": "net-snmp-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529012",
+                    "comment": "net-snmp is earlier than 1:5.3.1-24.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045002",
+                    "comment": "net-snmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529013",
+                    "comment": "net-snmp-devel is earlier than 1:5.3.1-24.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045004",
+                    "comment": "net-snmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529014",
+                    "comment": "net-snmp-libs is earlier than 1:5.3.1-24.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045006",
+                    "comment": "net-snmp-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529015",
+                    "comment": "net-snmp-perl is earlier than 1:5.3.1-24.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045008",
+                    "comment": "net-snmp-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080529016",
+                    "comment": "net-snmp-utils is earlier than 1:5.3.1-24.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071045010",
+                    "comment": "net-snmp-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20131115",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2013:1115: bind97 security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:1115",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:1115",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2013-4854",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4854",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Berkeley Internet Name Domain (BIND) is an implementation of the\nDomain Name System (DNS) protocols. BIND includes a DNS server (named); a\nresolver library (routines for applications to use when interfacing with\nDNS); and tools for verifying that the DNS server is operating correctly.\n\nA denial of service flaw was found in BIND. A remote attacker could use\nthis flaw to send a specially-crafted DNS query to named that, when\nprocessed, would cause named to crash when rejecting the malformed query.\n(CVE-2013-4854)\n\nAll bind97 users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. After installing the\nupdate, the BIND daemon (named) will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-07-30"
+      },
+      "updated": {
+        "date": "2013-07-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-4854",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4854",
+          "impact": "important",
+          "public": "20130726",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2013-4854 bind: named crash with an assertion failure on parsing malformed rdata",
+          "href": "https://bugzilla.redhat.com/988999",
+          "id": "988999"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131115001",
+                    "comment": "bind97 is earlier than 32:9.7.0-17.P2.el5_9.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845002",
+                    "comment": "bind97 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131115003",
+                    "comment": "bind97-chroot is earlier than 32:9.7.0-17.P2.el5_9.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845004",
+                    "comment": "bind97-chroot is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131115005",
+                    "comment": "bind97-devel is earlier than 32:9.7.0-17.P2.el5_9.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845006",
+                    "comment": "bind97-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131115007",
+                    "comment": "bind97-libs is earlier than 32:9.7.0-17.P2.el5_9.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845008",
+                    "comment": "bind97-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131115009",
+                    "comment": "bind97-utils is earlier than 32:9.7.0-17.P2.el5_9.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110845010",
+                    "comment": "bind97-utils is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

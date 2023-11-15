@@ -1,0 +1,115 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100273",
+  "version": "657",
+  "metadata": {
+    "title": "RHSA-2010:0273: curl security, bug fix and enhancement update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0273",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0273",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0734",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0734",
+        "source": "CVE"
+      }
+    ],
+    "description": "cURL is a tool for getting files from FTP, HTTP, Gopher, Telnet, and DICT\nservers, using any of the supported protocols. cURL is designed to work\nwithout user interaction or any kind of interactivity.\n\nWesley Miaw discovered that when deflate compression was used, libcurl\ncould call the registered write callback function with data exceeding the\ndocumented limit. A malicious server could use this flaw to crash an\napplication using libcurl or, potentially, execute arbitrary code. Note:\nThis issue only affected applications using libcurl that rely on the\ndocumented data size limit, and that copy the data to the insufficiently\nsized buffer. (CVE-2010-0734)\n\nThis update also fixes the following bugs:\n\n* when using curl to upload a file, if the connection was broken or reset\nby the server during the transfer, curl immediately started using 100% CPU\nand failed to acknowledge that the transfer had failed. With this update,\ncurl displays an appropriate error message and exits when an upload fails\nmid-transfer due to a broken or reset connection. (BZ#479967)\n\n* libcurl experienced a segmentation fault when attempting to reuse a\nconnection after performing GSS-negotiate authentication, which in turn\ncaused the curl program to crash. This update fixes this bug so that reused\nconnections are able to be successfully established even after\nGSS-negotiate authentication has been performed. (BZ#517199)\n\nAs well, this update adds the following enhancements:\n\n* curl now supports loading Certificate Revocation Lists (CRLs) from a\nPrivacy Enhanced Mail (PEM) file. When curl attempts to access sites that\nhave had their certificate revoked in a CRL, curl refuses access to those\nsites. (BZ#532069)\n\n* the curl(1) manual page has been updated to clarify that the \"--socks4\"\nand \"--socks5\" options do not work with the IPv6, FTPS, or LDAP protocols.\n(BZ#473128)\n\n* the curl utility's program help, which is accessed by running \"curl -h\",\nhas been updated with descriptions for the \"--ftp-account\" and\n\"--ftp-alternative-to-user\" options. (BZ#517084)\n\nUsers of curl should upgrade to these updated packages, which contain\nbackported patches to correct these issues and add these enhancements. All\nrunning applications using libcurl must be restarted for the update to take\neffect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-29"
+      },
+      "updated": {
+        "date": "2010-03-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0734",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0734",
+          "impact": "moderate",
+          "public": "20100209",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0734 curl: zlib-compression causes curl to pass more than CURL_MAX_WRITE_SIZE bytes to write callback",
+          "href": "https://bugzilla.redhat.com/563220",
+          "id": "563220"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100273001",
+                    "comment": "curl is earlier than 0:7.15.5-9.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090341007",
+                    "comment": "curl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100273003",
+                    "comment": "curl-devel is earlier than 0:7.15.5-9.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090341009",
+                    "comment": "curl-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20180014",
+  "version": "633",
+  "metadata": {
+    "title": "RHSA-2018:0014: linux-firmware security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2018:0014",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2018:0014",
+        "source": "RHSA"
+      }
+    ],
+    "description": "The linux-firmware packages contain all of the firmware files that are required by various devices to operate.\n\nSecurity Fix(es):\n\n* An industry-wide issue was found in the way many modern microprocessor designs have implemented speculative execution of instructions (a commonly used performance optimization). There are three primary variants of the issue which differ in the way the speculative execution can be exploited. Variant CVE-2017-5715 triggers the speculative execution by utilizing branch target injection. It relies on the presence of a precisely-defined instruction sequence in the privileged code as well as the fact that memory accesses may cause allocation into the microprocessor's data cache even for speculatively executed instructions that never actually commit (retire). As a result, an unprivileged attacker could use this flaw to cross the syscall and guest/host boundaries and read privileged memory by conducting targeted cache side-channel attacks. (CVE-2017-5715)\n\nNote: This is the microcode counterpart of the CVE-2017-5715 kernel mitigation.\n\nRed Hat would like to thank Google Project Zero for reporting this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2018 Red Hat, Inc.",
+      "issued": {
+        "date": "2018-01-04"
+      },
+      "updated": {
+        "date": "2018-01-04"
+      },
+      "bugzilla": [
+        {
+          "text": "CVE-2017-5715 hw: cpu: speculative execution branch target injection",
+          "href": "https://bugzilla.redhat.com/1519780",
+          "id": "1519780"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:7",
+          "cpe:/o:redhat:enterprise_linux:7::client",
+          "cpe:/o:redhat:enterprise_linux:7::computenode",
+          "cpe:/o:redhat:enterprise_linux:7::server",
+          "cpe:/o:redhat:enterprise_linux:7::workstation"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014001",
+                    "comment": "iwl100-firmware is earlier than 0:39.31.5.1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014002",
+                    "comment": "iwl100-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014003",
+                    "comment": "iwl1000-firmware is earlier than 1:39.31.5.1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014004",
+                    "comment": "iwl1000-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014005",
+                    "comment": "iwl105-firmware is earlier than 0:18.168.6.1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014006",
+                    "comment": "iwl105-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014007",
+                    "comment": "iwl135-firmware is earlier than 0:18.168.6.1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014008",
+                    "comment": "iwl135-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014009",
+                    "comment": "iwl2000-firmware is earlier than 0:18.168.6.1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014010",
+                    "comment": "iwl2000-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014011",
+                    "comment": "iwl2030-firmware is earlier than 0:18.168.6.1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014012",
+                    "comment": "iwl2030-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014013",
+                    "comment": "iwl3160-firmware is earlier than 0:22.0.7.0-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014014",
+                    "comment": "iwl3160-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014015",
+                    "comment": "iwl3945-firmware is earlier than 0:15.32.2.9-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014016",
+                    "comment": "iwl3945-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014017",
+                    "comment": "iwl4965-firmware is earlier than 0:228.61.2.24-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014018",
+                    "comment": "iwl4965-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014019",
+                    "comment": "iwl5000-firmware is earlier than 0:8.83.5.1_1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014020",
+                    "comment": "iwl5000-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014021",
+                    "comment": "iwl5150-firmware is earlier than 0:8.24.2.2-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014022",
+                    "comment": "iwl5150-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014023",
+                    "comment": "iwl6000-firmware is earlier than 0:9.221.4.1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014024",
+                    "comment": "iwl6000-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014025",
+                    "comment": "iwl6000g2a-firmware is earlier than 0:17.168.5.3-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014026",
+                    "comment": "iwl6000g2a-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014027",
+                    "comment": "iwl6000g2b-firmware is earlier than 0:17.168.5.2-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014028",
+                    "comment": "iwl6000g2b-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014029",
+                    "comment": "iwl6050-firmware is earlier than 0:41.28.5.1-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014030",
+                    "comment": "iwl6050-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014031",
+                    "comment": "iwl7260-firmware is earlier than 0:22.0.7.0-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014032",
+                    "comment": "iwl7260-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014033",
+                    "comment": "iwl7265-firmware is earlier than 0:22.0.7.0-57.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014034",
+                    "comment": "iwl7265-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014035",
+                    "comment": "linux-firmware is earlier than 0:20170606-57.gitc990aae.el7_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20180014036",
+                    "comment": "linux-firmware is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20150364027",
+            "comment": "Red Hat Enterprise Linux 7 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20150364028",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

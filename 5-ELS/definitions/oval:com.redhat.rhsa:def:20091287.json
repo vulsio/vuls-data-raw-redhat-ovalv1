@@ -1,0 +1,140 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091287",
+  "version": "644",
+  "metadata": {
+    "title": "RHSA-2009:1287: openssh security, bug fix, and enhancement update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1287",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1287",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-5161",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5161",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenSSH is OpenBSD's SSH (Secure Shell) protocol implementation. These\npackages include the core files necessary for both the OpenSSH client and\nserver.\n\nA flaw was found in the SSH protocol. An attacker able to perform a\nman-in-the-middle attack may be able to obtain a portion of plain text from\nan arbitrary ciphertext block when a CBC mode cipher was used to encrypt\nSSH communication. This update helps mitigate this attack: OpenSSH clients\nand servers now prefer CTR mode ciphers to CBC mode, and the OpenSSH server\nnow reads SSH packets up to their full possible length when corruption is\ndetected, rather than reporting errors early, reducing the possibility of\nsuccessful plain text recovery. (CVE-2008-5161)\n\nThis update also fixes the following bug:\n\n* the ssh client hung when trying to close a session in which a background\nprocess still held tty file descriptors open. With this update, this\nso-called \"hang on exit\" error no longer occurs and the ssh client closes\nthe session immediately. (BZ#454812)\n\nIn addition, this update adds the following enhancements:\n\n* the SFTP server can now chroot users to various directories, including\na user's home directory, after log in. A new configuration option --\nChrootDirectory -- has been added to \"/etc/ssh/sshd_config\" for setting\nthis up (the default is not to chroot users). Details regarding configuring\nthis new option are in the sshd_config(5) manual page. (BZ#440240)\n\n* the executables which are part of the OpenSSH FIPS module which is being\nvalidated will check their integrity and report their FIPS mode status to\nthe system log or to the terminal. (BZ#467268, BZ#492363)\n\nAll OpenSSH users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues and add these\nenhancements. After installing this update, the OpenSSH server daemon\n(sshd) will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-09-02"
+      },
+      "updated": {
+        "date": "2009-09-02"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-5161",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-5161",
+          "impact": "low",
+          "public": "20081119",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-5161 OpenSSH: Plaintext Recovery Attack against CBC ciphers",
+          "href": "https://bugzilla.redhat.com/472068",
+          "id": "472068"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091287001",
+                    "comment": "openssh is earlier than 0:4.3p2-36.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070540002",
+                    "comment": "openssh is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091287003",
+                    "comment": "openssh-askpass is earlier than 0:4.3p2-36.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070540004",
+                    "comment": "openssh-askpass is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091287005",
+                    "comment": "openssh-clients is earlier than 0:4.3p2-36.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070540006",
+                    "comment": "openssh-clients is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091287007",
+                    "comment": "openssh-server is earlier than 0:4.3p2-36.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070540008",
+                    "comment": "openssh-server is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

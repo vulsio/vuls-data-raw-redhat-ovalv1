@@ -1,0 +1,337 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091201",
+  "version": "663",
+  "metadata": {
+    "title": "RHSA-2009:1201: java-1.6.0-openjdk security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1201",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1201",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-0217",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0217",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2475",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2475",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2476",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2476",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2625",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2625",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2670",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2670",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2671",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2671",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2672",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2672",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2673",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2673",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2674",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2674",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2675",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2675",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2689",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2689",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2690",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2690",
+        "source": "CVE"
+      }
+    ],
+    "description": "These packages provide the OpenJDK 6 Java Runtime Environment and the\nOpenJDK 6 Software Development Kit. The Java Runtime Environment (JRE)\ncontains the software and tools that users need to run applications written\nusing the Java programming language.\n\nA flaw was found in the way the XML Digital Signature implementation in the\nJRE handled HMAC-based XML signatures. An attacker could use this flaw to\ncreate a crafted signature that could allow them to bypass authentication,\nor trick a user, applet, or application into accepting untrusted content.\n(CVE-2009-0217)\n\nSeveral potential information leaks were found in various mutable static\nvariables. These could be exploited in application scenarios that execute\nuntrusted scripting code. (CVE-2009-2475)\n\nIt was discovered that OpenType checks can be bypassed. This could allow a\nrogue application to bypass access restrictions by acquiring references to\nprivileged objects through finalizer resurrection. (CVE-2009-2476)\n\nA denial of service flaw was found in the way the JRE processes XML. A\nremote attacker could use this flaw to supply crafted XML that would lead\nto a denial of service. (CVE-2009-2625)\n\nA flaw was found in the JRE audio system. An untrusted applet or\napplication could use this flaw to gain read access to restricted System\nproperties. (CVE-2009-2670)\n\nTwo flaws were found in the JRE proxy implementation. An untrusted applet\nor application could use these flaws to discover the usernames of users\nrunning applets and applications, or obtain web browser cookies and use\nthem for session hijacking attacks. (CVE-2009-2671, CVE-2009-2672)\n\nAn additional flaw was found in the proxy mechanism implementation. This\nflaw allowed an untrusted applet or application to bypass access\nrestrictions and communicate using non-authorized socket or URL connections\nto hosts other than the origin host. (CVE-2009-2673) \n\nAn integer overflow flaw was found in the way the JRE processes JPEG\nimages. An untrusted application could use this flaw to extend its\nprivileges, allowing it to read and write local files, as well as to\nexecute local applications with the privileges of the user running the\napplication. (CVE-2009-2674)\n\nAn integer overflow flaw was found in the JRE unpack200 functionality. An\nuntrusted applet or application could extend its privileges, allowing it to\nread and write local files, as well as to execute local applications with\nthe privileges of the user running the applet or application. (CVE-2009-2675)\n\nIt was discovered that JDK13Services grants unnecessary privileges to\ncertain object types. This could be misused by an untrusted applet or\napplication to use otherwise restricted functionality. (CVE-2009-2689)\n\nAn information disclosure flaw was found in the way private Java variables\nwere handled. An untrusted applet or application could use this flaw to\nobtain information from variables that would otherwise be private.\n(CVE-2009-2690)\n\nNote: The flaws concerning applets in this advisory, CVE-2009-2475,\nCVE-2009-2670, CVE-2009-2671, CVE-2009-2672, CVE-2009-2673, CVE-2009-2675,\nCVE-2009-2689, and CVE-2009-2690, can only be triggered in\njava-1.6.0-openjdk by calling the \"appletviewer\" application.\n\nThis update also fixes the following bug:\n\n* the EVR in the java-1.6.0-openjdk package as shipped with Red Hat\nEnterprise Linux allowed the java-1.6.0-openjdk package from the EPEL\nrepository to take precedence (appear newer). Users using\njava-1.6.0-openjdk from EPEL would not have received security updates since\nOctober 2008. This update prevents the packages from EPEL from taking\nprecedence. (BZ#499079)\n\nAll users of java-1.6.0-openjdk are advised to upgrade to these updated\npackages, which resolve these issues. All running instances of OpenJDK Java\nmust be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-08-06"
+      },
+      "updated": {
+        "date": "2009-08-06"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-0217",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0217",
+          "impact": "moderate",
+          "public": "20090714",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-2475",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2475",
+          "impact": "low",
+          "public": "20090805",
+          "cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-2476",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2476",
+          "impact": "low",
+          "public": "20090805",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2009-2625",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2625",
+          "impact": "moderate",
+          "public": "20090805",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-2670",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2670",
+          "impact": "moderate",
+          "public": "20090805",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2009-2671",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2671",
+          "impact": "important",
+          "public": "20090805",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2009-2672",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2672",
+          "impact": "important",
+          "public": "20090805",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2009-2673",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2673",
+          "impact": "important",
+          "public": "20090805",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2009-2674",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2674",
+          "impact": "critical",
+          "public": "20090805",
+          "cwe": "CWE-190",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2009-2675",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2675",
+          "impact": "critical",
+          "public": "20090805",
+          "cwe": "CWE-190",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2009-2689",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2689",
+          "impact": "low",
+          "public": "20090805",
+          "cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-2690",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2690",
+          "impact": "low",
+          "public": "20090805",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-0217 xmlsec1, mono, xml-security-c, xml-security-1.3.0-1jpp.ep1.*: XMLDsig HMAC-based signatures spoofing and authentication bypass",
+          "href": "https://bugzilla.redhat.com/511915",
+          "id": "511915"
+        },
+        {
+          "text": "CVE-2009-2670 OpenJDK Untrusted applet System properties access (6738524)",
+          "href": "https://bugzilla.redhat.com/512896",
+          "id": "512896"
+        },
+        {
+          "text": "CVE-2009-2671 CVE-2009-2672 OpenJDK Proxy mechanism information leaks  (6801071)",
+          "href": "https://bugzilla.redhat.com/512907",
+          "id": "512907"
+        },
+        {
+          "text": "CVE-2009-2673 OpenJDK proxy mechanism allows non-authorized socket connections  (6801497)",
+          "href": "https://bugzilla.redhat.com/512914",
+          "id": "512914"
+        },
+        {
+          "text": "CVE-2009-2674 Java Web Start Buffer JPEG processing integer overflow (6823373)",
+          "href": "https://bugzilla.redhat.com/512915",
+          "id": "512915"
+        },
+        {
+          "text": "CVE-2009-2675 Java Web Start Buffer unpack200 processing integer overflow (6830335)",
+          "href": "https://bugzilla.redhat.com/512920",
+          "id": "512920"
+        },
+        {
+          "text": "CVE-2009-2625 xerces-j2, JDK: XML parsing Denial-Of-Service (6845701)",
+          "href": "https://bugzilla.redhat.com/512921",
+          "id": "512921"
+        },
+        {
+          "text": "CVE-2009-2475 OpenJDK information leaks in mutable variables (6588003,6656586,6656610,6656625,6657133,6657619,6657625,6657695,6660049,6660539,6813167)",
+          "href": "https://bugzilla.redhat.com/513215",
+          "id": "513215"
+        },
+        {
+          "text": "CVE-2009-2476 OpenJDK OpenType checks can be bypassed (6736293)",
+          "href": "https://bugzilla.redhat.com/513220",
+          "id": "513220"
+        },
+        {
+          "text": "CVE-2009-2689 OpenJDK JDK13Services grants unnecessary privileges  (6777448)",
+          "href": "https://bugzilla.redhat.com/513222",
+          "id": "513222"
+        },
+        {
+          "text": "CVE-2009-2690 OpenJDK private variable information disclosure (6777487)",
+          "href": "https://bugzilla.redhat.com/513223",
+          "id": "513223"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091201001",
+                    "comment": "java-1.6.0-openjdk is earlier than 1:1.6.0.0-1.2.b09.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090377002",
+                    "comment": "java-1.6.0-openjdk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091201003",
+                    "comment": "java-1.6.0-openjdk-demo is earlier than 1:1.6.0.0-1.2.b09.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090377004",
+                    "comment": "java-1.6.0-openjdk-demo is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091201005",
+                    "comment": "java-1.6.0-openjdk-devel is earlier than 1:1.6.0.0-1.2.b09.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090377006",
+                    "comment": "java-1.6.0-openjdk-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091201007",
+                    "comment": "java-1.6.0-openjdk-javadoc is earlier than 1:1.6.0.0-1.2.b09.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090377008",
+                    "comment": "java-1.6.0-openjdk-javadoc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091201009",
+                    "comment": "java-1.6.0-openjdk-src is earlier than 1:1.6.0.0-1.2.b09.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090377010",
+                    "comment": "java-1.6.0-openjdk-src is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

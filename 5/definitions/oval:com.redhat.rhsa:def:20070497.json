@@ -1,0 +1,99 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070497",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:0497: iscsi-initiator-utils security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0497",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0497",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3099",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3099",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3100",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3100",
+        "source": "CVE"
+      }
+    ],
+    "description": "The iscsi package provides the server daemon for the iSCSI protocol, as\nwell as the utility programs used to manage it. iSCSI is a protocol for\ndistributed disk access using SCSI commands sent over Internet Protocol\nnetworks.\n\nOlaf Kirch discovered two flaws in open-iscsi.  A local attacker could use\nthese flaws to cause the server daemon to stop responding, leading to a\ndenial of service.  (CVE-2007-3099, CVE-2007-3100).\n\nAll users of open-iscsi should upgrade to this updated package which\nresolves these issues.\n\nNote: This issue did not affect Red Hat Enterprise Linux 2.1, 3, or 4.\nopen-iscsi is available in Red Hat Enterprise Linux 5 as a Technology\nPreview.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-06-14"
+      },
+      "updated": {
+        "date": "2007-06-14"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3099",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3099",
+          "impact": "moderate",
+          "public": "20070611"
+        },
+        {
+          "text": "CVE-2007-3100",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3100",
+          "impact": "moderate",
+          "public": "20070611"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3099 dos flaws in open-iscsi (CVE-2007-3100)",
+          "href": "https://bugzilla.redhat.com/243719",
+          "id": "243719"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070497001",
+            "comment": "iscsi-initiator-utils is earlier than 0:6.2.0.742-0.6.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070497002",
+            "comment": "iscsi-initiator-utils is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

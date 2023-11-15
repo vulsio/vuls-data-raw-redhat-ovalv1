@@ -1,0 +1,156 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070858",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2007:0858: krb5 security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0858",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0858",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3999",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3999",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4000",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4000",
+        "source": "CVE"
+      }
+    ],
+    "description": "Kerberos is a network authentication system which allows clients and\nservers to authenticate to each other through use of symmetric encryption\nand a trusted third party, the KDC.  kadmind is the KADM5 administration\nserver.\n\nTenable Network Security discovered a stack buffer overflow flaw in the RPC\nlibrary used by kadmind.   A remote unauthenticated attacker who can access\nkadmind could trigger this flaw and cause kadmind to crash.  On Red Hat\nEnterprise Linux 5 it is not possible to exploit this flaw to run arbitrary\ncode as the overflow is blocked by FORTIFY_SOURCE.  (CVE-2007-3999)\n\nGarrett Wollman discovered an uninitialized pointer flaw in kadmind.  A\nremote unauthenticated attacker who can access kadmind could trigger this\nflaw and cause kadmind to crash.  (CVE-2007-4000)\n\nThese issues did not affect the versions of Kerberos distributed with Red\nHat Enterprise Linux 2.1, 3, or 4.\n\nUsers of krb5-server are advised to update to these erratum packages which\ncontain backported fixes to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-09-04"
+      },
+      "updated": {
+        "date": "2007-09-06"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3999",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3999",
+          "impact": "important",
+          "public": "20070904:1900"
+        },
+        {
+          "text": "CVE-2007-4000",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4000",
+          "impact": "important",
+          "public": "20070904:1900"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3999 krb5 RPC library buffer overflow",
+          "href": "https://bugzilla.redhat.com/250973",
+          "id": "250973"
+        },
+        {
+          "text": "CVE-2007-4000 krb5 kadmind uninitialized pointer",
+          "href": "https://bugzilla.redhat.com/250976",
+          "id": "250976"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070858001",
+                    "comment": "krb5-devel is earlier than 0:1.5-29"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095002",
+                    "comment": "krb5-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070858003",
+                    "comment": "krb5-libs is earlier than 0:1.5-29"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095004",
+                    "comment": "krb5-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070858005",
+                    "comment": "krb5-server is earlier than 0:1.5-29"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095006",
+                    "comment": "krb5-server is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070858007",
+                    "comment": "krb5-workstation is earlier than 0:1.5-29"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095008",
+                    "comment": "krb5-workstation is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

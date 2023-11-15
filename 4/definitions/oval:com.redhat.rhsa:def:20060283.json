@@ -1,0 +1,122 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060283",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2006:0283: squirrelmail security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0283",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0283",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-0188",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0188",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-0195",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0195",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-0377",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0377",
+        "source": "CVE"
+      }
+    ],
+    "description": "SquirrelMail is a standards-based webmail package written in PHP4.\n\nA bug was found in the way SquirrelMail presents the right frame to the\nuser. If a user can be tricked into opening a carefully crafted URL, it is\npossible to present the user with arbitrary HTML data. (CVE-2006-0188)\n\nA bug was found in the way SquirrelMail filters incoming HTML email. It is\npossible to cause a victim's web browser to request remote content by\nopening a HTML email while running a web browser that processes certain\ntypes of invalid style sheets. Only Internet Explorer is known to process\nsuch malformed style sheets. (CVE-2006-0195)\n\nA bug was found in the way SquirrelMail processes a request to select an\nIMAP mailbox. If a user can be tricked into opening a carefully crafted\nURL, it is possible to execute arbitrary IMAP commands as the user viewing\ntheir mail with SquirrelMail. (CVE-2006-0377)\n\nUsers of SquirrelMail are advised to upgrade to this updated package, which\ncontains SquirrelMail version 1.4.6 and is not vulnerable to these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-05-03"
+      },
+      "updated": {
+        "date": "2006-05-03"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-0188",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0188",
+          "impact": "moderate",
+          "public": "20060201"
+        },
+        {
+          "text": "CVE-2006-0195",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0195",
+          "impact": "moderate",
+          "public": "20060210"
+        },
+        {
+          "text": "CVE-2006-0377",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0377",
+          "impact": "moderate",
+          "public": "20060215"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-0188 security flaw",
+          "href": "https://bugzilla.redhat.com/1617876",
+          "id": "1617876"
+        },
+        {
+          "text": "CVE-2006-0195 security flaw",
+          "href": "https://bugzilla.redhat.com/1617877",
+          "id": "1617877"
+        },
+        {
+          "text": "CVE-2006-0377 security flaw",
+          "href": "https://bugzilla.redhat.com/1617884",
+          "id": "1617884"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060283001",
+            "comment": "squirrelmail is earlier than 0:1.4.6-5.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060283002",
+            "comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

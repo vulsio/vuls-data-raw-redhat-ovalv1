@@ -1,0 +1,290 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20130168",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2013:0168: kernel security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:0168",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0168",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-1568",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-1568",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-4444",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4444",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-5515",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5515",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* It was found that the Xen hypervisor implementation did not perform\nrange checking on the guest provided values in multiple hypercalls. A\nprivileged guest user could use this flaw to trigger long loops, leading\nto a denial of service (Xen hypervisor hang). (CVE-2012-5515, Moderate)\n\n* It was found that when running a 32-bit binary that uses a large number\nof shared libraries, one of the libraries would always be loaded at a\npredictable address in memory. An attacker could use this flaw to bypass\nthe Address Space Layout Randomization (ASLR) security feature.\n(CVE-2012-1568, Low)\n\n* A flaw was found in the way the Linux kernel's IPv6 implementation\nhandled overlapping, fragmented IPv6 packets. A remote attacker could\npotentially use this flaw to bypass protection mechanisms (such as a\nfirewall or intrusion detection system (IDS)) when sending network packets\nto a target system. (CVE-2012-4444, Low)\n\nRed Hat would like to thank the Xen project for reporting CVE-2012-5515,\nand Antonios Atlasis working with Beyond Security's SecuriTeam Secure\nDisclosure program and Loganaden Velvindron of AFRINIC for reporting\nCVE-2012-4444.\n\nThis update also fixes several bugs. Space precludes documenting all of\nthese changes in this advisory. Documentation for these changes will be\navailable shortly from the Red Hat Enterprise Linux 5.9 Technical Notes\ndocument linked to in the References section.\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-01-22"
+      },
+      "updated": {
+        "date": "2013-01-22"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-1568",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-1568",
+          "impact": "low",
+          "public": "20120317",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2012-4444",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-4444",
+          "impact": "low",
+          "public": "20091201",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2012-5515",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-5515",
+          "impact": "moderate",
+          "public": "20121203",
+          "cvss_2": "5.5/AV:A/AC:L/Au:S/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-1568 kernel: execshield: predictable ascii armour base address",
+          "href": "https://bugzilla.redhat.com/804947",
+          "id": "804947"
+        },
+        {
+          "text": "CVE-2012-4444 kernel: net: acceptation of overlapping ipv6 fragments",
+          "href": "https://bugzilla.redhat.com/874835",
+          "id": "874835"
+        },
+        {
+          "text": "CVE-2012-5515 kernel: xen: Several memory hypercall operations allow invalid extent order values",
+          "href": "https://bugzilla.redhat.com/877397",
+          "id": "877397"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20130168025",
+                "comment": "kernel earlier than 0:2.6.18-348.1.1.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20130168026",
+                "comment": "kernel earlier than 0:2.6.18-348.1.1.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168001",
+                    "comment": "kernel is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130168023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-348.1.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

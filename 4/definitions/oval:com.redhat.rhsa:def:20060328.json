@@ -1,0 +1,378 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060328",
+  "version": "648",
+  "metadata": {
+    "title": "RHSA-2006:0328: firefox security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0328",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0328",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-0748",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0748",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-0749",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0749",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1724",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1724",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1727",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1727",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1728",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1728",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1729",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1729",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1730",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1730",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1731",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1731",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1732",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1732",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1733",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1733",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1734",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1734",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1735",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1735",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1737",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1737",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1738",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1738",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1739",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1739",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1740",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1740",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1741",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1741",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1742",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1742",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1790",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1790",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Firefox is an open source Web browser.\n\nSeveral bugs were found in the way Firefox processes malformed javascript.\nA malicious web page could modify the content of a different open web page,\npossibly stealing sensitive information or conducting a cross-site\nscripting attack. (CVE-2006-1731, CVE-2006-1732, CVE-2006-1741)\n\nSeveral bugs were found in the way Firefox processes certain javascript\nactions. A malicious web page could execute arbitrary javascript\ninstructions with the permissions of \"chrome\", allowing the page to steal\nsensitive information or install browser malware. (CVE-2006-1727,\nCVE-2006-1728, CVE-2006-1733, CVE-2006-1734, CVE-2006-1735, CVE-2006-1742)\n\nSeveral bugs were found in the way Firefox processes malformed web pages.\nA carefully crafted malicious web page could cause the execution of\narbitrary code as the user running Firefox. (CVE-2006-0748, CVE-2006-0749,\nCVE-2006-1724, CVE-2006-1730, CVE-2006-1737, CVE-2006-1738, CVE-2006-1739,\nCVE-2006-1790) \n\nA bug was found in the way Firefox displays the secure site icon. If a\nbrowser is configured to display the non-default secure site modal warning\ndialog, it may be possible to trick a user into believing they are viewing\na secure site. (CVE-2006-1740)\n\nA bug was found in the way Firefox allows javascript mutation events on\n\"input\" form elements. A malicious web page could be created in such a way\nthat when a user submits a form, an arbitrary file could be uploaded to the\nattacker. (CVE-2006-1729)\n\nUsers of Firefox are advised to upgrade to these updated packages\ncontaining Firefox version 1.0.8 which corrects these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-04-14"
+      },
+      "updated": {
+        "date": "2006-04-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-0748",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0748",
+          "impact": "critical",
+          "public": "20060421"
+        },
+        {
+          "text": "CVE-2006-0749",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0749",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1724",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1724",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1727",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1727",
+          "impact": "moderate",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1728",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1728",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1729",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1729",
+          "impact": "moderate",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1730",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1730",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1731",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1731",
+          "impact": "moderate",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1732",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1732",
+          "impact": "moderate",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1733",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1733",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1734",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1734",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1735",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1735",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1737",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1737",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1738",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1738",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1739",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1739",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1740",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1740",
+          "impact": "low",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1741",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1741",
+          "impact": "moderate",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1742",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1742",
+          "impact": "critical",
+          "public": "20060414"
+        },
+        {
+          "text": "CVE-2006-1790",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1790",
+          "impact": "critical",
+          "public": "20060414"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-0749 Firefox Tag Order Vulnerability",
+          "href": "https://bugzilla.redhat.com/183537",
+          "id": "183537"
+        },
+        {
+          "text": "CVE-2006-0748 security flaw",
+          "href": "https://bugzilla.redhat.com/1618020",
+          "id": "1618020"
+        },
+        {
+          "text": "CVE-2006-1724 security flaw",
+          "href": "https://bugzilla.redhat.com/1618047",
+          "id": "1618047"
+        },
+        {
+          "text": "CVE-2006-1727 security flaw",
+          "href": "https://bugzilla.redhat.com/1618048",
+          "id": "1618048"
+        },
+        {
+          "text": "CVE-2006-1728 security flaw",
+          "href": "https://bugzilla.redhat.com/1618049",
+          "id": "1618049"
+        },
+        {
+          "text": "CVE-2006-1729 security flaw",
+          "href": "https://bugzilla.redhat.com/1618050",
+          "id": "1618050"
+        },
+        {
+          "text": "CVE-2006-1730 security flaw",
+          "href": "https://bugzilla.redhat.com/1618051",
+          "id": "1618051"
+        },
+        {
+          "text": "CVE-2006-1731 security flaw",
+          "href": "https://bugzilla.redhat.com/1618052",
+          "id": "1618052"
+        },
+        {
+          "text": "CVE-2006-1732 security flaw",
+          "href": "https://bugzilla.redhat.com/1618053",
+          "id": "1618053"
+        },
+        {
+          "text": "CVE-2006-1733 security flaw",
+          "href": "https://bugzilla.redhat.com/1618054",
+          "id": "1618054"
+        },
+        {
+          "text": "CVE-2006-1734 security flaw",
+          "href": "https://bugzilla.redhat.com/1618055",
+          "id": "1618055"
+        },
+        {
+          "text": "CVE-2006-1735 security flaw",
+          "href": "https://bugzilla.redhat.com/1618056",
+          "id": "1618056"
+        },
+        {
+          "text": "CVE-2006-1737 security flaw",
+          "href": "https://bugzilla.redhat.com/1618057",
+          "id": "1618057"
+        },
+        {
+          "text": "CVE-2006-1738 security flaw",
+          "href": "https://bugzilla.redhat.com/1618058",
+          "id": "1618058"
+        },
+        {
+          "text": "CVE-2006-1739 security flaw",
+          "href": "https://bugzilla.redhat.com/1618059",
+          "id": "1618059"
+        },
+        {
+          "text": "CVE-2006-1740 security flaw",
+          "href": "https://bugzilla.redhat.com/1618060",
+          "id": "1618060"
+        },
+        {
+          "text": "CVE-2006-1741 security flaw",
+          "href": "https://bugzilla.redhat.com/1618061",
+          "id": "1618061"
+        },
+        {
+          "text": "CVE-2006-1742 security flaw",
+          "href": "https://bugzilla.redhat.com/1618062",
+          "id": "1618062"
+        },
+        {
+          "text": "CVE-2006-1790 security flaw",
+          "href": "https://bugzilla.redhat.com/1618063",
+          "id": "1618063"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060328001",
+            "comment": "firefox is earlier than 0:1.0.8-1.4.1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+            "comment": "firefox is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

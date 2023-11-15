@@ -1,0 +1,155 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060271",
+  "version": "645",
+  "metadata": {
+    "title": "RHSA-2006:0271: freeradius security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0271",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0271",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2005-4744",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-4744",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1354",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1354",
+        "source": "CVE"
+      }
+    ],
+    "description": "FreeRADIUS is a high-performance and highly configurable free RADIUS server\ndesigned to allow centralized authentication and authorization for a network. \n\nA bug was found in the way FreeRADIUS authenticates users via the MSCHAP V2\nprotocol. It is possible for a remote attacker to authenticate as a victim\nby sending a malformed MSCHAP V2 login request to the FreeRADIUS server.\n(CVE-2006-1354)\n\nPlease note that FreeRADIUS installations not using the MSCHAP V2 protocol\nfor authentication are not vulnerable to this issue.\n\nA bug was also found in the way FreeRADIUS logs SQL errors from the\nsql_unixodbc module. It may be possible for an attacker to cause FreeRADIUS\nto crash or execute arbitrary code if they are able to manipulate the SQL\ndatabase FreeRADIUS is connecting to. (CVE-2005-4744)\n\nUsers of FreeRADIUS should update to these erratum packages, which contain\nbackported patches and are not vulnerable to these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-04-04"
+      },
+      "updated": {
+        "date": "2006-04-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2005-4744",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-4744",
+          "impact": "low",
+          "public": "20050909"
+        },
+        {
+          "text": "CVE-2006-1354",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1354",
+          "impact": "important",
+          "public": "20060320"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2005-4744 security flaw",
+          "href": "https://bugzilla.redhat.com/1617862",
+          "id": "1617862"
+        },
+        {
+          "text": "CVE-2006-1354 security flaw",
+          "href": "https://bugzilla.redhat.com/1618034",
+          "id": "1618034"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::es"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060271001",
+                    "comment": "freeradius is earlier than 0:1.0.1-3.RHEL4.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060271002",
+                    "comment": "freeradius is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060271003",
+                    "comment": "freeradius-mysql is earlier than 0:1.0.1-3.RHEL4.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060271004",
+                    "comment": "freeradius-mysql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060271005",
+                    "comment": "freeradius-postgresql is earlier than 0:1.0.1-3.RHEL4.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060271006",
+                    "comment": "freeradius-postgresql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060271007",
+                    "comment": "freeradius-unixODBC is earlier than 0:1.0.1-3.RHEL4.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060271008",
+                    "comment": "freeradius-unixODBC is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060675",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2006:0675: firefox security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0675",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0675",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-4253",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4253",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4340",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4340",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4565",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4565",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4566",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4566",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4567",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4567",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4568",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4568",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4569",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4569",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4571",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4571",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Firefox is an open source Web browser.\n\nTwo flaws were found in the way Firefox processed certain regular\nexpressions.  A malicious web page could crash the browser or possibly\nexecute arbitrary code as the user running Firefox.  (CVE-2006-4565,\nCVE-2006-4566)\n\nA number of flaws were found in Firefox.  A malicious web page could crash\nthe browser or possibly execute arbitrary code as the user running Firefox.\n (CVE-2006-4571)\n\nA flaw was found in the handling of Javascript timed events.  A malicious\nweb page could crash the browser or possibly execute arbitrary code as the\nuser running Firefox. (CVE-2006-4253)\n\nDaniel Bleichenbacher recently described an implementation error in RSA\nsignature verification.  For RSA keys with exponent 3 it is possible for an\nattacker to forge a signature that would be incorrectly verified by the NSS\nlibrary. Firefox as shipped trusts several root Certificate Authorities\nthat use exponent 3.  An attacker could have created a carefully crafted\nSSL certificate which be incorrectly trusted when their site was visited by\na victim. (CVE-2006-4340)\n\nA flaw was found in the Firefox auto-update verification system.  An\nattacker who has the ability to spoof a victim's DNS could get Firefox to\ndownload and install malicious code. In order to exploit this issue an\nattacker would also need to get a victim to previously accept an\nunverifiable certificate. (CVE-2006-4567)\n\nFirefox did not properly prevent a frame in one domain from injecting\ncontent into a sub-frame that belongs to another domain, which facilitates\nwebsite spoofing and other attacks (CVE-2006-4568)\n\nFirefox did not load manually opened, blocked popups in the right domain\ncontext, which could lead to cross-site scripting attacks.  In order to\nexploit this issue an attacker would need to find a site which would frame\ntheir malicious page and convince the user to manually open a blocked\npopup. (CVE-2006-4569)\n\nUsers of Firefox are advised to upgrade to this update, which contains\nFirefox version 1.5.0.7 that corrects these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-09-15"
+      },
+      "updated": {
+        "date": "2006-09-15"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-4253",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4253",
+          "impact": "important",
+          "public": "20060812"
+        },
+        {
+          "text": "CVE-2006-4340",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4340",
+          "impact": "important",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4565",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4565",
+          "impact": "critical",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4566",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4566",
+          "impact": "critical",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4567",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4567",
+          "impact": "moderate",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4568",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4568",
+          "impact": "moderate",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4569",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4569",
+          "impact": "low",
+          "public": "20060915"
+        },
+        {
+          "text": "CVE-2006-4571",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4571",
+          "impact": "critical",
+          "public": "20060915:0001"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "seamonkey < 1.0.5 multiple vulnerabilities; to replace Mozilla",
+          "href": "https://bugzilla.redhat.com/209167",
+          "id": "209167"
+        },
+        {
+          "text": "CVE-2006-4253 security flaw",
+          "href": "https://bugzilla.redhat.com/1618177",
+          "id": "1618177"
+        },
+        {
+          "text": "CVE-2006-4340 security flaw",
+          "href": "https://bugzilla.redhat.com/1618183",
+          "id": "1618183"
+        },
+        {
+          "text": "CVE-2006-4565 security flaw",
+          "href": "https://bugzilla.redhat.com/1618191",
+          "id": "1618191"
+        },
+        {
+          "text": "CVE-2006-4566 security flaw",
+          "href": "https://bugzilla.redhat.com/1618192",
+          "id": "1618192"
+        },
+        {
+          "text": "CVE-2006-4567 security flaw",
+          "href": "https://bugzilla.redhat.com/1618193",
+          "id": "1618193"
+        },
+        {
+          "text": "CVE-2006-4568 security flaw",
+          "href": "https://bugzilla.redhat.com/1618194",
+          "id": "1618194"
+        },
+        {
+          "text": "CVE-2006-4569 security flaw",
+          "href": "https://bugzilla.redhat.com/1618195",
+          "id": "1618195"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060675001",
+            "comment": "firefox is earlier than 0:1.5.0.7-0.1.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+            "comment": "firefox is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

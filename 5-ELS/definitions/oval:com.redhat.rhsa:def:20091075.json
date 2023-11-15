@@ -1,0 +1,159 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091075",
+  "version": "645",
+  "metadata": {
+    "title": "RHSA-2009:1075: httpd security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1075",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1075",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1678",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1678",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-1195",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1195",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Apache HTTP Server is a popular and freely-available Web server.\n\nA flaw was found in the handling of compression structures between mod_ssl\nand OpenSSL. If too many connections were opened in a short period of time,\nall system memory and swap space would be consumed by httpd, negatively\nimpacting other processes, or causing a system crash. (CVE-2008-1678)\n\nNote: The CVE-2008-1678 issue did not affect Red Hat Enterprise Linux 5\nprior to 5.3. The problem was introduced via the RHBA-2009:0181 errata in\nRed Hat Enterprise Linux 5.3, which upgraded OpenSSL to the newer 0.9.8e\nversion.\n\nA flaw was found in the handling of the \"Options\" and \"AllowOverride\"\ndirectives. In configurations using the \"AllowOverride\" directive with\ncertain \"Options=\" arguments, local users were not restricted from\nexecuting commands from a Server-Side-Include script as intended.\n(CVE-2009-1195)\n\nAll httpd users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. Users must restart httpd for\nthis update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-05-27"
+      },
+      "updated": {
+        "date": "2009-05-27"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1678",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1678",
+          "impact": "moderate",
+          "public": "20080430",
+          "cwe": "CWE-401",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-1195",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1195",
+          "impact": "low",
+          "public": "20090422",
+          "cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1678 httpd: mod_ssl per-connection memory leak for connections with zlib compression",
+          "href": "https://bugzilla.redhat.com/447268",
+          "id": "447268"
+        },
+        {
+          "text": "CVE-2009-1195 httpd: AllowOverride Options=IncludesNoExec allows Options Includes",
+          "href": "https://bugzilla.redhat.com/489436",
+          "id": "489436"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091075001",
+                    "comment": "httpd is earlier than 0:2.2.3-22.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556002",
+                    "comment": "httpd is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091075003",
+                    "comment": "httpd-devel is earlier than 0:2.2.3-22.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091075005",
+                    "comment": "httpd-manual is earlier than 0:2.2.3-22.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091075007",
+                    "comment": "mod_ssl is earlier than 1:2.2.3-22.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556008",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

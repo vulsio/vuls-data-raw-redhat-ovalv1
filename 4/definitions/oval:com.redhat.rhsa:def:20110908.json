@@ -1,0 +1,232 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110908",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2011:0908: ruby security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0908",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0908",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-4492",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4492",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0541",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0541",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-0188",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-0188",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1005",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1005",
+        "source": "CVE"
+      }
+    ],
+    "description": "Ruby is an extensible, interpreted, object-oriented, scripting language. It\nhas features to process text files and to do system management tasks.\n\nA flaw was found in the way large amounts of memory were allocated on\n64-bit systems when using the BigDecimal class. A context-dependent\nattacker could use this flaw to cause memory corruption, causing a Ruby\napplication that uses the BigDecimal class to crash or, possibly, execute\narbitrary code. This issue did not affect 32-bit systems. (CVE-2011-0188)\n\nIt was found that WEBrick (the Ruby HTTP server toolkit) did not filter\nterminal escape sequences from its log files. A remote attacker could use\nspecially-crafted HTTP requests to inject terminal escape sequences into\nthe WEBrick log files. If a victim viewed the log files with a terminal\nemulator, it could result in control characters being executed with the\nprivileges of that user. (CVE-2009-4492)\n\nA cross-site scripting (XSS) flaw was found in the way WEBrick displayed\nerror pages. A remote attacker could use this flaw to perform a cross-site\nscripting attack against victims by tricking them into visiting a\nspecially-crafted URL. (CVE-2010-0541)\n\nA flaw was found in the method for translating an exception message into a\nstring in the Exception class. A remote attacker could use this flaw to\nbypass safe level 4 restrictions, allowing untrusted (tainted) code to\nmodify arbitrary, trusted (untainted) strings, which safe level 4\nrestrictions would otherwise prevent. (CVE-2011-1005)\n\nRed Hat would like to thank Drew Yao of Apple Product Security for\nreporting the CVE-2011-0188 and CVE-2010-0541 issues.\n\nAll Ruby users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-06-28"
+      },
+      "updated": {
+        "date": "2011-06-28"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-4492",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4492",
+          "impact": "low",
+          "public": "20100111",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2010-0541",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0541",
+          "impact": "low",
+          "public": "20100527",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2011-0188",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-0188",
+          "impact": "moderate",
+          "public": "20110301",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2011-1005",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1005",
+          "impact": "low",
+          "public": "20110218",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-4492 ruby WEBrick log escape sequence",
+          "href": "https://bugzilla.redhat.com/554485",
+          "id": "554485"
+        },
+        {
+          "text": "CVE-2010-0541 Ruby WEBrick javascript injection flaw",
+          "href": "https://bugzilla.redhat.com/587731",
+          "id": "587731"
+        },
+        {
+          "text": "CVE-2011-1005 Ruby: Untrusted codes able to modify arbitrary strings",
+          "href": "https://bugzilla.redhat.com/678920",
+          "id": "678920"
+        },
+        {
+          "text": "CVE-2011-0188 ruby: memory corruption in BigDecimal on 64bit platforms",
+          "href": "https://bugzilla.redhat.com/682332",
+          "id": "682332"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110908001",
+                    "comment": "irb is earlier than 0:1.8.1-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427002",
+                    "comment": "irb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110908003",
+                    "comment": "ruby is earlier than 0:1.8.1-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427004",
+                    "comment": "ruby is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110908005",
+                    "comment": "ruby-devel is earlier than 0:1.8.1-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427006",
+                    "comment": "ruby-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110908007",
+                    "comment": "ruby-docs is earlier than 0:1.8.1-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427008",
+                    "comment": "ruby-docs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110908009",
+                    "comment": "ruby-libs is earlier than 0:1.8.1-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427010",
+                    "comment": "ruby-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110908011",
+                    "comment": "ruby-mode is earlier than 0:1.8.1-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427012",
+                    "comment": "ruby-mode is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110908013",
+                    "comment": "ruby-tcltk is earlier than 0:1.8.1-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060427014",
+                    "comment": "ruby-tcltk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

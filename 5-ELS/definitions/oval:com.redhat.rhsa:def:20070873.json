@@ -1,0 +1,111 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070873",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:0873: star security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0873",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0873",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-4134",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4134",
+        "source": "CVE"
+      }
+    ],
+    "description": "Star is a tar-like archiver. It saves multiple files into a single tape or\ndisk archive, and can restore individual files from the archive. Star\nincludes multi-volume support, automatic archive format detection and ACL\nsupport.\n\nA path traversal flaw was discovered in the way star extracted archives. A\nmalicious user could create a tar archive that would cause star to write to\narbitrary files to which the user running star had write access.\n(CVE-2007-4134)\n\nRed Hat would like to thank Robert Buchholz for reporting this issue.\n\nAs well, this update adds the command line argument \"-..\" to the Red Hat\nEnterprise Linux 3 version of star. This allows star to extract files\ncontaining \"/../\" in their pathname.\n\nUsers of star should upgrade to this updated package, which contain\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-09-04"
+      },
+      "updated": {
+        "date": "2007-09-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-4134",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4134",
+          "impact": "moderate",
+          "public": "20070821"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-4134 star directory traversal vulnerability",
+          "href": "https://bugzilla.redhat.com/253856",
+          "id": "253856"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070873001",
+            "comment": "star is earlier than 0:1.5a25-8"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070873002",
+            "comment": "star is signed with Red Hat master key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070873004",
+            "comment": "star is earlier than 0:1.5a75-2"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070873005",
+            "comment": "star is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

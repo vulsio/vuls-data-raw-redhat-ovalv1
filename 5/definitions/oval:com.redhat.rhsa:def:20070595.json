@@ -1,0 +1,230 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070595",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:0595: kernel security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0595",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0595",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3107",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3107",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Linux kernel handles the basic functions of the operating system.\n\nThese new kernel packages contain a fix for the following security issue:\n\n* a flaw in the signal handling on PowerPC-based systems that allowed a\nlocal user to cause a denial of service (floating point corruption).\n(CVE-2007-3107, Moderate).\n\nIn addition to the security issue described above, a fix for the following\nhave been included:\n\n* a bug that can lead to data corruption with ServerWorks IDE controllers.\n\nRed Hat Enterprise Linux 5 users are advised to upgrade to these packages,\nwhich contain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-07-10"
+      },
+      "updated": {
+        "date": "2007-07-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3107",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3107",
+          "impact": "moderate",
+          "public": "20070703"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3107 security flaw",
+          "href": "https://bugzilla.redhat.com/1618313",
+          "id": "1618313"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20070595021",
+                "comment": "kernel earlier than 0:2.6.18-8.1.8.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20070595022",
+                "comment": "kernel earlier than 0:2.6.18-8.1.8.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595001",
+                    "comment": "kernel is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595007",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595009",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595011",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595013",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595015",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595017",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070595019",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-8.1.8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

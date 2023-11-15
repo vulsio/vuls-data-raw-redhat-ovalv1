@@ -1,0 +1,112 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080214",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0214: squid security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0214",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0214",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1612",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1612",
+        "source": "CVE"
+      }
+    ],
+    "description": "Squid is a high-performance proxy caching server for Web clients,\nsupporting FTP, gopher, and HTTP data objects.\n\nA flaw was found in the way squid manipulated HTTP headers for cached\nobjects stored in system memory. An attacker could use this flaw to cause a\nsquid child process to exit. This interrupted existing connections and made\nproxy services unavailable. Note: the parent squid process started a new\nchild process, so this attack only resulted in a temporary denial of\nservice. (CVE-2008-1612)\n\nUsers of squid are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-04-08"
+      },
+      "updated": {
+        "date": "2008-04-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1612",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1612",
+          "impact": "moderate",
+          "public": "20080322",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1612 squid: regression in SQUID-2007:2 / CVE-2007-6239",
+          "href": "https://bugzilla.redhat.com/439801",
+          "id": "439801"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080214001",
+            "comment": "squid is earlier than 7:2.5.STABLE14-1.4E.el4_6.2"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060052002",
+            "comment": "squid is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080214004",
+            "comment": "squid is earlier than 7:2.6.STABLE6-5.el5_1.3"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060052002",
+            "comment": "squid is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

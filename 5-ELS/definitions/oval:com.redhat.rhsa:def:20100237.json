@@ -1,0 +1,157 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100237",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2010:0237: sendmail security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0237",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0237",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-7176",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-7176",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-4565",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4565",
+        "source": "CVE"
+      }
+    ],
+    "description": "Sendmail is a very widely used Mail Transport Agent (MTA). MTAs deliver\nmail from one machine to another. Sendmail is not a client program, but\nrather a behind-the-scenes daemon that moves email over networks or the\nInternet to its final destination.\n\nThe configuration of sendmail in Red Hat Enterprise Linux was found to not\nreject the \"localhost.localdomain\" domain name for email messages that come\nfrom external hosts. This could allow remote attackers to disguise spoofed\nmessages. (CVE-2006-7176)\n\nA flaw was found in the way sendmail handled NUL characters in the\nCommonName field of X.509 certificates. An attacker able to get a\ncarefully-crafted certificate signed by a trusted Certificate Authority\ncould trick sendmail into accepting it by mistake, allowing the attacker to\nperform a man-in-the-middle attack or bypass intended client certificate\nauthentication. (CVE-2009-4565)\n\nNote: The CVE-2009-4565 issue only affected configurations using TLS with\ncertificate verification and CommonName checking enabled, which is not a\ntypical configuration.\n\nThis update also fixes the following bugs:\n\n* sendmail was unable to parse files specified by the ServiceSwitchFile\noption which used a colon as a separator. (BZ#512871)\n\n* sendmail incorrectly returned a zero exit code when free space was low.\n(BZ#299951)\n\n* the sendmail manual page had a blank space between the -qG option and\nparameter. (BZ#250552)\n\n* the comments in the sendmail.mc file specified the wrong path to SSL\ncertificates. (BZ#244012)\n\n* the sendmail packages did not provide the MTA capability. (BZ#494408)\n\nAll users of sendmail are advised to upgrade to these updated packages,\nwhich resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-29"
+      },
+      "updated": {
+        "date": "2010-03-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-7176",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-7176",
+          "impact": "low",
+          "public": "20051026"
+        },
+        {
+          "text": "CVE-2009-4565",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4565",
+          "impact": "low",
+          "public": "20091230",
+          "cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-7176 sendmail allows external mail with from address xxx@localhost.localdomain",
+          "href": "https://bugzilla.redhat.com/238540",
+          "id": "238540"
+        },
+        {
+          "text": "CVE-2009-4565 sendmail: incorrect verification of SSL certificate with NUL in name",
+          "href": "https://bugzilla.redhat.com/552622",
+          "id": "552622"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100237001",
+                    "comment": "sendmail is earlier than 0:8.13.8-8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100237002",
+                    "comment": "sendmail is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100237003",
+                    "comment": "sendmail-cf is earlier than 0:8.13.8-8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100237004",
+                    "comment": "sendmail-cf is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100237005",
+                    "comment": "sendmail-devel is earlier than 0:8.13.8-8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100237006",
+                    "comment": "sendmail-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100237007",
+                    "comment": "sendmail-doc is earlier than 0:8.13.8-8.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100237008",
+                    "comment": "sendmail-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

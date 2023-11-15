@@ -1,0 +1,155 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100175",
+  "version": "644",
+  "metadata": {
+    "title": "RHSA-2010:0175: httpd security, bug fix, and enhancement update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0175",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0175",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0434",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0434",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Apache HTTP Server is a popular web server.\n\nA use-after-free flaw was discovered in the way the Apache HTTP Server\nhandled request headers in subrequests. In configurations where subrequests\nare used, a multithreaded MPM (Multi-Processing Module) could possibly leak\ninformation from other requests in request replies. (CVE-2010-0434)\n\nThis update also fixes the following bug:\n\n* a bug was found in the mod_dav module. If a PUT request for an existing\nfile failed, that file would be unexpectedly deleted and a \"Could not get\nnext bucket brigade\" error logged. With this update, failed PUT requests no\nlonger cause mod_dav to delete files, which resolves this issue.\n(BZ#572932)\n\nAs well, this update adds the following enhancement:\n\n* with the updated openssl packages from RHSA-2010:0163 installed, mod_ssl\nwill refuse to renegotiate a TLS/SSL connection with an unpatched client\nthat does not support RFC 5746. This update adds the\n\"SSLInsecureRenegotiation\" configuration directive. If this directive is\nenabled, mod_ssl will renegotiate insecurely with unpatched clients.\n(BZ#575805)\n\nRefer to the following Red Hat Knowledgebase article for more details about\nthe changed mod_ssl behavior: http://kbase.redhat.com/faq/docs/DOC-20491\n\nAll httpd users should upgrade to these updated packages, which contain\nbackported patches to correct these issues and add this enhancement. After\ninstalling the updated packages, the httpd daemon must be restarted for the\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-25"
+      },
+      "updated": {
+        "date": "2010-03-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0434",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0434",
+          "impact": "low",
+          "public": "20091209",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0434 httpd: request header information leak",
+          "href": "https://bugzilla.redhat.com/570171",
+          "id": "570171"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100175001",
+                    "comment": "httpd is earlier than 0:2.0.52-41.ent.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159002",
+                    "comment": "httpd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100175003",
+                    "comment": "httpd-devel is earlier than 0:2.0.52-41.ent.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100175005",
+                    "comment": "httpd-manual is earlier than 0:2.0.52-41.ent.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100175007",
+                    "comment": "httpd-suexec is earlier than 0:2.0.52-41.ent.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159008",
+                    "comment": "httpd-suexec is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100175009",
+                    "comment": "mod_ssl is earlier than 1:2.0.52-41.ent.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159010",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

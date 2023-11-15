@@ -1,0 +1,415 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080897",
+  "version": "645",
+  "metadata": {
+    "title": "RHSA-2008:0897: ruby security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0897",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0897",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1145",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1145",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3443",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3443",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3655",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3655",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3656",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3656",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3657",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3657",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3790",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3790",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3905",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3905",
+        "source": "CVE"
+      }
+    ],
+    "description": "Ruby is an interpreted scripting language for quick and easy\nobject-oriented programming.\n\nThe Ruby DNS resolver library, resolv.rb, used predictable transaction IDs\nand a fixed source port when sending DNS requests. A remote attacker could\nuse this flaw to spoof a malicious reply to a DNS query. (CVE-2008-3905)\n\nRuby's XML document parsing module (REXML) was prone to a denial of service\nattack via XML documents with large XML entity definitions recursion. A\nspecially-crafted XML file could cause a Ruby application using the REXML\nmodule to use an excessive amount of CPU and memory. (CVE-2008-3790)\n\nAn insufficient \"taintness\" check flaw was discovered in Ruby's DL module,\nwhich provides direct access to the C language functions. An attacker could\nuse this flaw to bypass intended safe-level restrictions by calling\nexternal C functions with the arguments from an untrusted tainted inputs.\n(CVE-2008-3657)\n\nA denial of service flaw was discovered in WEBrick, Ruby's HTTP server\ntoolkit. A remote attacker could send a specially-crafted HTTP request to a\nWEBrick server that would cause the server to use an excessive amount of\nCPU time. (CVE-2008-3656)\n\nA number of flaws were found in the safe-level restrictions in Ruby. It\nwas possible for an attacker to create a carefully crafted malicious script\nthat can allow the bypass of certain safe-level restrictions. (CVE-2008-3655)\n\nA denial of service flaw was found in Ruby's regular expression engine. If\na Ruby script tried to process a large amount of data via a regular\nexpression, it could cause Ruby to enter an infinite-loop and crash.\n(CVE-2008-3443)\n\nUsers of ruby should upgrade to these updated packages, which contain\nbackported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-10-21"
+      },
+      "updated": {
+        "date": "2008-10-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1145",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1145",
+          "impact": "low",
+          "public": "20080303",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2008-3443",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3443",
+          "impact": "moderate",
+          "public": "20080814"
+        },
+        {
+          "text": "CVE-2008-3655",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3655",
+          "impact": "moderate",
+          "public": "20080808"
+        },
+        {
+          "text": "CVE-2008-3656",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3656",
+          "impact": "moderate",
+          "public": "20080808"
+        },
+        {
+          "text": "CVE-2008-3657",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3657",
+          "impact": "low",
+          "public": "20080808"
+        },
+        {
+          "text": "CVE-2008-3790",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3790",
+          "impact": "moderate",
+          "public": "20080823"
+        },
+        {
+          "text": "CVE-2008-3905",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3905",
+          "impact": "moderate",
+          "public": "20080808"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1145 ruby: webrick directory traversal",
+          "href": "https://bugzilla.redhat.com/435902",
+          "id": "435902"
+        },
+        {
+          "text": "CVE-2008-3655 ruby: multiple insufficient safe mode restrictions",
+          "href": "https://bugzilla.redhat.com/458948",
+          "id": "458948"
+        },
+        {
+          "text": "CVE-2008-3656 ruby: WEBrick DoS vulnerability (CPU consumption)",
+          "href": "https://bugzilla.redhat.com/458953",
+          "id": "458953"
+        },
+        {
+          "text": "CVE-2008-3657 ruby: missing \"taintness\" checks in dl module",
+          "href": "https://bugzilla.redhat.com/458966",
+          "id": "458966"
+        },
+        {
+          "text": "CVE-2008-3443 ruby: Memory allocation failure in Ruby regex engine (remotely exploitable DoS)",
+          "href": "https://bugzilla.redhat.com/459266",
+          "id": "459266"
+        },
+        {
+          "text": "CVE-2008-3790 ruby: DoS vulnerability in the REXML module",
+          "href": "https://bugzilla.redhat.com/460134",
+          "id": "460134"
+        },
+        {
+          "text": "CVE-2008-3905 ruby: use of predictable source port and transaction id in DNS requests done by resolv.rb module",
+          "href": "https://bugzilla.redhat.com/461495",
+          "id": "461495"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897001",
+                    "comment": "irb is earlier than 0:1.8.1-7.el4_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080561002",
+                    "comment": "irb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897003",
+                    "comment": "ruby is earlier than 0:1.8.1-7.el4_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965002",
+                    "comment": "ruby is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897005",
+                    "comment": "ruby-devel is earlier than 0:1.8.1-7.el4_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965004",
+                    "comment": "ruby-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897007",
+                    "comment": "ruby-docs is earlier than 0:1.8.1-7.el4_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965006",
+                    "comment": "ruby-docs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897009",
+                    "comment": "ruby-libs is earlier than 0:1.8.1-7.el4_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965010",
+                    "comment": "ruby-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897011",
+                    "comment": "ruby-mode is earlier than 0:1.8.1-7.el4_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965012",
+                    "comment": "ruby-mode is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897013",
+                    "comment": "ruby-tcltk is earlier than 0:1.8.1-7.el4_7.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965018",
+                    "comment": "ruby-tcltk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897016",
+                    "comment": "ruby is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965002",
+                    "comment": "ruby is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897017",
+                    "comment": "ruby-devel is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965004",
+                    "comment": "ruby-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897018",
+                    "comment": "ruby-docs is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965006",
+                    "comment": "ruby-docs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897019",
+                    "comment": "ruby-irb is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965008",
+                    "comment": "ruby-irb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897021",
+                    "comment": "ruby-libs is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965010",
+                    "comment": "ruby-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897022",
+                    "comment": "ruby-mode is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965012",
+                    "comment": "ruby-mode is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897023",
+                    "comment": "ruby-rdoc is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965014",
+                    "comment": "ruby-rdoc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897025",
+                    "comment": "ruby-ri is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965016",
+                    "comment": "ruby-ri is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080897027",
+                    "comment": "ruby-tcltk is earlier than 0:1.8.5-5.el5_2.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965018",
+                    "comment": "ruby-tcltk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

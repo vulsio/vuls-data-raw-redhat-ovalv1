@@ -1,0 +1,180 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091615",
+  "version": "646",
+  "metadata": {
+    "title": "RHSA-2009:1615: xerces-j2 security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1615",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1615",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-2625",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2625",
+        "source": "CVE"
+      }
+    ],
+    "description": "The xerces-j2 packages provide the Apache Xerces2 Java Parser, a\nhigh-performance XML parser. A Document Type Definition (DTD) defines the\nlegal syntax (and also which elements can be used) for certain types of\nfiles, such as XML files.\n\nA flaw was found in the way the Apache Xerces2 Java Parser processed the\nSYSTEM identifier in DTDs. A remote attacker could provide a\nspecially-crafted XML file, which once parsed by an application using the\nApache Xerces2 Java Parser, would lead to a denial of service (application\nhang due to excessive CPU use). (CVE-2009-2625)\n\nUsers should upgrade to these updated packages, which contain a backported\npatch to correct this issue. Applications using the Apache Xerces2 Java\nParser must be restarted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-11-30"
+      },
+      "updated": {
+        "date": "2009-11-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-2625",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2625",
+          "impact": "moderate",
+          "public": "20090805",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-2625 xerces-j2, JDK: XML parsing Denial-Of-Service (6845701)",
+          "href": "https://bugzilla.redhat.com/512921",
+          "id": "512921"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615001",
+                    "comment": "xerces-j2 is earlier than 0:2.7.1-7jpp.2.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615002",
+                    "comment": "xerces-j2 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615003",
+                    "comment": "xerces-j2-demo is earlier than 0:2.7.1-7jpp.2.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615004",
+                    "comment": "xerces-j2-demo is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615005",
+                    "comment": "xerces-j2-javadoc-apis is earlier than 0:2.7.1-7jpp.2.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615006",
+                    "comment": "xerces-j2-javadoc-apis is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615007",
+                    "comment": "xerces-j2-javadoc-impl is earlier than 0:2.7.1-7jpp.2.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615008",
+                    "comment": "xerces-j2-javadoc-impl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615009",
+                    "comment": "xerces-j2-javadoc-other is earlier than 0:2.7.1-7jpp.2.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615010",
+                    "comment": "xerces-j2-javadoc-other is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615011",
+                    "comment": "xerces-j2-javadoc-xni is earlier than 0:2.7.1-7jpp.2.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615012",
+                    "comment": "xerces-j2-javadoc-xni is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615013",
+                    "comment": "xerces-j2-scripts is earlier than 0:2.7.1-7jpp.2.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091615014",
+                    "comment": "xerces-j2-scripts is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

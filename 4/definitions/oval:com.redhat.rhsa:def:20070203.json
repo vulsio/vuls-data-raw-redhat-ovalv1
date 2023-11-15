@@ -1,0 +1,106 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070203",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2007:0203: unzip security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0203",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0203",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2005-2475",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2475",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-4667",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-4667",
+        "source": "CVE"
+      }
+    ],
+    "description": "The unzip utility is used to list, test, or extract files from a zip archive.\n\nA race condition was found in Unzip. Local users could use this flaw to\nmodify permissions of arbitrary files via a hard link attack on a file\nwhile it was being decompressed (CVE-2005-2475)\n\nA buffer overflow was found in Unzip command line argument handling.\nIf a user could be tricked into running Unzip with a specially crafted long\nfile name, an attacker could execute arbitrary code with that user's\nprivileges. (CVE-2005-4667)\n\nAs well, this update adds support for files larger than 2GB.\n\nAll users of unzip should upgrade to these updated packages, which\ncontain backported patches that resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-05-01"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2005-2475",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-2475",
+          "impact": "low",
+          "public": "20050802"
+        },
+        {
+          "text": "CVE-2005-4667",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-4667",
+          "impact": "low",
+          "public": "20051219"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2005-2475 security flaw",
+          "href": "https://bugzilla.redhat.com/1617723",
+          "id": "1617723"
+        },
+        {
+          "text": "CVE-2005-4667 security flaw",
+          "href": "https://bugzilla.redhat.com/1617861",
+          "id": "1617861"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070203001",
+            "comment": "unzip is earlier than 0:5.51-9.EL4.5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070203002",
+            "comment": "unzip is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,373 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070939",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2007:0939: kernel security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0939",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0939",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-6921",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-6921",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-2878",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2878",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3105",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3105",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3739",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3739",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3740",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3740",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3843",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3843",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3848",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3848",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4308",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4308",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4571",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4571",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Linux kernel is the core of the operating system.\n\nThese updated kernel packages contain fixes for the following security\nissues:\n\n* A flaw was found in the handling of process death signals. This allowed a\nlocal user to send arbitrary signals to the suid-process executed by that\nuser. A successful exploitation of this flaw depends on the structure of\nthe suid-program and its signal handling. (CVE-2007-3848, Important)\n\n* A flaw was found in the CIFS file system. This could cause the umask\nvalues of a process to not be honored on CIFS file systems where UNIX\nextensions are supported. (CVE-2007-3740, Important)\n\n* A flaw was found in the VFAT compat ioctl handling on 64-bit systems. \nThis allowed a local user to corrupt a kernel_dirent struct and cause a\ndenial of service. (CVE-2007-2878, Important) \n\n* A flaw was found in the Advanced Linux Sound Architecture (ALSA). A local\nuser who had the ability to read the /proc/driver/snd-page-alloc file could\nsee portions of kernel memory. (CVE-2007-4571, Moderate) \n\n* A flaw was found in the aacraid SCSI driver. This allowed a local user to\nmake ioctl calls to the driver that should be restricted to privileged\nusers. (CVE-2007-4308, Moderate) \n\n* A flaw was found in the stack expansion when using the hugetlb kernel on\nPowerPC systems. This allowed a local user to cause a denial of service.\n(CVE-2007-3739, Moderate) \n\n* A flaw was found in the handling of zombie processes. A local user could\ncreate processes that would not be properly reaped which could lead to a\ndenial of service. (CVE-2006-6921, Moderate)\n\n* A flaw was found in the CIFS file system handling. The mount option\n\"sec=\" did not enable integrity checking or produce an error message if\nused. (CVE-2007-3843, Low)\n\n* A flaw was found in the random number generator implementation that\nallowed a local user to cause a denial of service or possibly gain\nprivileges. This flaw could be exploited if the root user raised the\ndefault wakeup threshold over the size of the output pool.\n(CVE-2007-3105, Low)\n\nAdditionally, the following bugs were fixed:\n\n* A flaw was found in the kernel netpoll code, creating a potential\ndeadlock condition.  If the xmit_lock for a given network interface is\nheld, and a subsequent netpoll event is generated from within the lock\nowning context (a console message for example), deadlock on that cpu will\nresult, because the netpoll code will attempt to re-acquire the xmit_lock.\n The fix is to, in the netpoll code, only attempt to take the lock, and\nfail if it is already acquired (rather than block on it), and queue the\nmessage to be sent for later delivery.  Any user of netpoll code in the\nkernel (netdump or netconsole services), is exposed to this problem, and\nshould resolve the issue by upgrading to this kernel release immediately.\n\n* A flaw was found where, under 64-bit mode (x86_64), AMD processors were\nnot able to address greater than a 40-bit physical address space; and Intel\nprocessors were only able to address up to a 36-bit physical address space. \nThe fix is to increase the physical addressing for an AMD processor to 48\nbits, and an Intel processor to 38 bits.  Please see the Red Hat\nKnowledgebase for more detailed information.\n\n* A flaw was found in the xenU kernel that may prevent a paravirtualized\nguest with more than one CPU from starting when running under an Enterprise\nLinux 5.1 hypervisor.  The fix is to allow your Enterprise Linux 4 Xen SMP\nguests to boot under a 5.1 hypervisor. Please see the Red Hat Knowledgebase\nfor more detailed information.\n \nRed Hat Enterprise Linux 4 users are advised to upgrade to these updated\npackages, which contain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-01"
+      },
+      "updated": {
+        "date": "2007-11-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-6921",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-6921",
+          "impact": "moderate",
+          "public": "20061219"
+        },
+        {
+          "text": "CVE-2007-2878",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-2878",
+          "impact": "important",
+          "public": "20070508"
+        },
+        {
+          "text": "CVE-2007-3105",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3105",
+          "impact": "low",
+          "public": "20070621"
+        },
+        {
+          "text": "CVE-2007-3739",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3739",
+          "impact": "moderate",
+          "public": "20070831"
+        },
+        {
+          "text": "CVE-2007-3740",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3740",
+          "impact": "important",
+          "public": "20070608"
+        },
+        {
+          "text": "CVE-2007-3843",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3843",
+          "impact": "low",
+          "public": "20070608"
+        },
+        {
+          "text": "CVE-2007-3848",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3848",
+          "impact": "important",
+          "public": "20070814"
+        },
+        {
+          "text": "CVE-2007-4308",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4308",
+          "impact": "moderate",
+          "public": "20070723"
+        },
+        {
+          "text": "CVE-2007-4571",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4571",
+          "impact": "moderate",
+          "public": "20070925"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-2878 VFAT compat ioctls DoS on 64-bit",
+          "href": "https://bugzilla.redhat.com/247726",
+          "id": "247726"
+        },
+        {
+          "text": "CVE-2007-3105 Bound check ordering issue in random driver",
+          "href": "https://bugzilla.redhat.com/248325",
+          "id": "248325"
+        },
+        {
+          "text": "CVE-2007-3848 Privilege escalation via PR_SET_PDEATHSIG",
+          "href": "https://bugzilla.redhat.com/250972",
+          "id": "250972"
+        },
+        {
+          "text": "CVE-2007-4308 kernel: Missing ioctl() permission checks in aacraid driver",
+          "href": "https://bugzilla.redhat.com/252309",
+          "id": "252309"
+        },
+        {
+          "text": "CVE-2007-3740 CIFS should honor umask",
+          "href": "https://bugzilla.redhat.com/275881",
+          "id": "275881"
+        },
+        {
+          "text": "CVE-2007-3843 CIFS signing sec= mount options don't work correctly",
+          "href": "https://bugzilla.redhat.com/275901",
+          "id": "275901"
+        },
+        {
+          "text": "CVE-2007-4571 ALSA memory disclosure flaw",
+          "href": "https://bugzilla.redhat.com/288961",
+          "id": "288961"
+        },
+        {
+          "text": "CVE-2007-3739 LTC36188-Don't allow the stack to grow into hugetlb reserved regions",
+          "href": "https://bugzilla.redhat.com/294941",
+          "id": "294941"
+        },
+        {
+          "text": "CVE-2006-6921 kernel: denial of service with wedged processes",
+          "href": "https://bugzilla.redhat.com/302921",
+          "id": "302921"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20070939023",
+                "comment": "kernel earlier than 0:2.6.9-55.0.12.EL is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20070939024",
+                "comment": "kernel earlier than 0:2.6.9-55.0.12.EL is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939001",
+                    "comment": "kernel is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939003",
+                    "comment": "kernel-devel is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939005",
+                    "comment": "kernel-doc is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939007",
+                    "comment": "kernel-hugemem is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
+                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939009",
+                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
+                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939011",
+                    "comment": "kernel-largesmp is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
+                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939013",
+                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
+                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939015",
+                    "comment": "kernel-smp is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
+                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939017",
+                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
+                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939019",
+                    "comment": "kernel-xenU is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
+                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070939021",
+                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-55.0.12.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
+                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

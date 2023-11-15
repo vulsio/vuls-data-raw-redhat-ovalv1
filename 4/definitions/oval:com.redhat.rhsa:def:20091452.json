@@ -1,0 +1,180 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091452",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2009:1452: neon security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1452",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1452",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-2473",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2473",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2474",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2474",
+        "source": "CVE"
+      }
+    ],
+    "description": "neon is an HTTP and WebDAV client library, with a C interface. It provides\na high-level interface to HTTP and WebDAV methods along with a low-level\ninterface for HTTP request handling. neon supports persistent connections,\nproxy servers, basic, digest and Kerberos authentication, and has complete\nSSL support.\n\nIt was discovered that neon is affected by the previously published \"null\nprefix attack\", caused by incorrect handling of NULL characters in X.509\ncertificates. If an attacker is able to get a carefully-crafted certificate\nsigned by a trusted Certificate Authority, the attacker could use the\ncertificate during a man-in-the-middle attack and potentially confuse an\napplication using the neon library into accepting it by mistake.\n(CVE-2009-2474)\n\nA denial of service flaw was found in the neon Extensible Markup Language\n(XML) parser. A remote attacker (malicious DAV server) could provide a\nspecially-crafted XML document that would cause excessive memory and CPU\nconsumption if an application using the neon XML parser was tricked into\nprocessing it. (CVE-2009-2473)\n\nAll neon users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. Applications using the neon\nHTTP and WebDAV client library, such as cadaver, must be restarted for this\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-09-21"
+      },
+      "updated": {
+        "date": "2009-09-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-2473",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2473",
+          "impact": "moderate",
+          "public": "20090818",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-2474",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2474",
+          "impact": "moderate",
+          "public": "20090818",
+          "cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-2473 neon: billion laughs DoS attack",
+          "href": "https://bugzilla.redhat.com/518215",
+          "id": "518215"
+        },
+        {
+          "text": "CVE-2009-2474 neon: Improper verification of x509v3 certificate with NULL (zero) byte in certain fields",
+          "href": "https://bugzilla.redhat.com/518223",
+          "id": "518223"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091452001",
+                    "comment": "neon is earlier than 0:0.24.7-4.el4_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091452002",
+                    "comment": "neon is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091452003",
+                    "comment": "neon-devel is earlier than 0:0.24.7-4.el4_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091452004",
+                    "comment": "neon-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091452006",
+                    "comment": "neon is earlier than 0:0.25.5-10.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091452002",
+                    "comment": "neon is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091452007",
+                    "comment": "neon-devel is earlier than 0:0.25.5-10.el5_4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091452004",
+                    "comment": "neon-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

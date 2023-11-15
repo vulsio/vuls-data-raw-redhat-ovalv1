@@ -1,0 +1,111 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080224",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2008:0224: thunderbird security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0224",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0224",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1380",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1380",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Thunderbird is a standalone mail and newsgroup client.\n\nA flaw was found in the processing of malformed JavaScript content. An HTML\nmail message containing such malicious content could cause Thunderbird to\ncrash or, potentially, execute arbitrary code as the user running\nThunderbird. (CVE-2008-1380)\n\nNote: JavaScript support is disabled by default in Thunderbird; the above\nissue is not exploitable unless JavaScript is enabled.\n\nAll Thunderbird users should upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-04-30"
+      },
+      "updated": {
+        "date": "2008-04-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1380",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1380",
+          "impact": "critical",
+          "public": "20080416"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1380 Firefox JavaScript garbage collection crash",
+          "href": "https://bugzilla.redhat.com/440518",
+          "id": "440518"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_productivity:5",
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080224001",
+            "comment": "thunderbird is earlier than 0:1.5.0.12-11.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070108002",
+            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080224004",
+            "comment": "thunderbird is earlier than 0:1.5.0.12-12.el5_1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070108002",
+            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

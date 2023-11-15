@@ -1,0 +1,166 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20151627",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2015:1627: glibc security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2015:1627",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2015:1627",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2013-7424",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-7424",
+        "source": "CVE"
+      }
+    ],
+    "description": "The glibc packages provide the standard C libraries (libc), POSIX thread\nlibraries (libpthread), standard math libraries (libm), and the Name Server\nCaching Daemon (nscd) used by multiple programs on the system.\nWithout these libraries, the Linux system cannot function correctly.\n\nAn invalid free flaw was found in glibc's getaddrinfo() function when used\nwith the AI_IDN flag. A remote attacker able to make an application call\nthis function could use this flaw to execute arbitrary code with the\npermissions of the user running the application. Note that this flaw only\naffected applications using glibc compiled with libidn support.\n(CVE-2013-7424)\n\nAll glibc users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2015 Red Hat, Inc.",
+      "issued": {
+        "date": "2015-08-17"
+      },
+      "updated": {
+        "date": "2015-08-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-7424",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-7424",
+          "impact": "moderate",
+          "public": "20150127",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2013-7424 glibc: Invalid-free when using getaddrinfo()",
+          "href": "https://bugzilla.redhat.com/1186614",
+          "id": "1186614"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151627001",
+                    "comment": "glibc is earlier than 0:2.5-123.el5_11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20130022002",
+                    "comment": "glibc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151627003",
+                    "comment": "glibc-common is earlier than 0:2.5-123.el5_11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20130022004",
+                    "comment": "glibc-common is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151627005",
+                    "comment": "glibc-devel is earlier than 0:2.5-123.el5_11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20130022006",
+                    "comment": "glibc-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151627007",
+                    "comment": "glibc-headers is earlier than 0:2.5-123.el5_11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20130022008",
+                    "comment": "glibc-headers is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151627009",
+                    "comment": "glibc-utils is earlier than 0:2.5-123.el5_11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20130022010",
+                    "comment": "glibc-utils is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151627011",
+                    "comment": "nscd is earlier than 0:2.5-123.el5_11.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20130022012",
+                    "comment": "nscd is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

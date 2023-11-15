@@ -1,0 +1,147 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090003",
+  "version": "650",
+  "metadata": {
+    "title": "RHSA-2009:0003: xen security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0003",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0003",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-4405",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4405",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-4993",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4993",
+        "source": "CVE"
+      }
+    ],
+    "description": "The xen packages contain the Xen tools and management daemons needed to\nmanage virtual machines running on Red Hat Enterprise Linux.\n\nXen was found to allow unprivileged DomU domains to overwrite xenstore\nvalues which should only be changeable by the privileged Dom0 domain. An\nattacker controlling a DomU domain could, potentially, use this flaw to\nkill arbitrary processes in Dom0 or trick a Dom0 user into accessing the\ntext console of a different domain running on the same host. This update\nmakes certain parts of the xenstore tree read-only to the unprivileged DomU\ndomains. (CVE-2008-4405)\n\nIt was discovered that the qemu-dm.debug script created a temporary file in\n/tmp in an insecure way. A local attacker in Dom0 could, potentially, use\nthis flaw to overwrite arbitrary files via a symlink attack. Note: This\nscript is not needed in production deployments and therefore was removed\nand is not shipped with updated xen packages. (CVE-2008-4993)\n\nThis update also fixes the following bug:\n\n* xen calculates its running time by adding the hypervisor's up-time to the\nhypervisor's boot-time record. In live migrations of para-virtualized\nguests, however, the guest would over-write the new hypervisor's boot-time\nrecord with the boot-time of the previous hypervisor. This caused\ntime-dependent processes on the guests to fail (for example, crond would\nfail to start cron jobs). With this update, the new hypervisor's boot-time\nrecord is no longer over-written during live migrations.\n\nAll xen users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues. The Xen host must be\nrestarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-01-07"
+      },
+      "updated": {
+        "date": "2009-01-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-4405",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4405",
+          "impact": "moderate",
+          "public": "20080930",
+          "cvss_2": "5.0/AV:L/AC:M/Au:S/C:N/I:P/A:C"
+        },
+        {
+          "text": "CVE-2008-4993",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4993",
+          "impact": "low",
+          "public": "20080824",
+          "cwe": "CWE-377"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-4405 xen: Multiple unsafe uses of guest-writable data from xenstore",
+          "href": "https://bugzilla.redhat.com/464817",
+          "id": "464817"
+        },
+        {
+          "text": "CVE-2008-4993 xen: insecure temporary file use in qemu-dm.debug",
+          "href": "https://bugzilla.redhat.com/470795",
+          "id": "470795"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::client",
+          "cpe:/a:redhat:rhel_virtualization:5::server",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090003001",
+                    "comment": "xen is earlier than 0:3.0.3-64.el5_2.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+                    "comment": "xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090003003",
+                    "comment": "xen-devel is earlier than 0:3.0.3-64.el5_2.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+                    "comment": "xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090003005",
+                    "comment": "xen-libs is earlier than 0:3.0.3-64.el5_2.9"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+                    "comment": "xen-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

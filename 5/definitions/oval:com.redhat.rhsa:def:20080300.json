@@ -1,0 +1,209 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080300",
+  "version": "649",
+  "metadata": {
+    "title": "RHSA-2008:0300: bind security, bug fix, and enhancement update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0300",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0300",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-6283",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6283",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0122",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0122",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain\nName System (DNS) protocols. BIND includes a DNS server (named); a resolver\nlibrary (routines for applications to use when interfacing with DNS); and\ntools for verifying that the DNS server is operating correctly.\n\nIt was discovered that the bind packages created the \"rndc.key\" file with\ninsecure file permissions. This allowed any local user to read the content\nof this file. A local user could use this flaw to control some aspects of\nthe named daemon by using the rndc utility, for example, stopping the named\ndaemon. This problem did not affect systems with the bind-chroot package\ninstalled. (CVE-2007-6283)\n\nA buffer overflow flaw was discovered in the \"inet_network()\" function, as\nimplemented by libbind. An attacker could use this flaw to crash an\napplication calling this function, with an argument provided from an\nuntrusted source. (CVE-2008-0122)\n\nAs well, these updated packages fix the following bugs:\n\n* when using an LDAP backend, missing function declarations caused\nsegmentation faults, due to stripped pointers on machines where pointers\nare longer than integers.\n\n* starting named may have resulted in named crashing, due to a race\ncondition during D-BUS connection initialization. This has been resolved in\nthese updated packages.\n\n* the named init script returned incorrect error codes, causing the\n\"status\" command to return an incorrect status. In these updated packages,\nthe named init script is Linux Standard Base (LSB) compliant.\n\n* in these updated packages, the \"rndc [command] [zone]\" command, where\n[command] is an rndc command, and [zone] is the specified zone, will find\nthe [zone] if the zone is unique to all views.\n\n* the default named log rotation script did not work correctly when using\nthe bind-chroot package. In these updated packages, installing\nbind-chroot creates the symbolic link \"/var/log/named.log\", which points\nto \"/var/named/chroot/var/log/named.log\", which resolves this issue.\n\n* a previous bind update incorrectly changed the permissions on the\n\"/etc/openldap/schema/dnszone.schema\" file to mode 640, instead of mode\n644, which resulted in OpenLDAP not being able to start. In these updated\npackages, the permissions are correctly set to mode 644.\n\n* the \"checkconfig\" parameter was missing in the named usage report. For\nexample, running the \"service named\" command did not return \"checkconfig\"\nin the list of available options.\n\n* due to a bug in the named init script not handling the rndc return value\ncorrectly, the \"service named stop\" and \"service named restart\" commands\nfailed on certain systems.\n\n* the bind-chroot spec file printed errors when running the \"%pre\" and\n\"%post\" sections. Errors such as the following occurred:\n\nLocating //etc/named.conf failed:\n[FAILED]\n\nThis has been resolved in these updated packages.\n\n* installing the bind-chroot package creates a \"/dev/random\" file in the\nchroot environment; however, the \"/dev/random\" file had an incorrect\nSELinux label. Starting named resulted in an 'avc: denied { getattr } for\npid=[pid] comm=\"named\" path=\"/dev/random\"' error being logged. The\n\"/dev/random\" file has the correct SELinux label in these updated packages.\n\n* in certain situations, running the \"bind +trace\" command resulted in\nrandom segmentation faults.\n\nAs well, these updated packages add the following enhancements:\n\n* support has been added for GSS-TSIG (RFC 3645).\n\n* the \"named.root\" file has been updated to reflect the new address for\nL.ROOT-SERVERS.NET.\n\n* updates BIND to the latest 9.3 maintenance release.\n\nAll users of bind are advised to upgrade to these updated packages, which\nresolve these issues and add these enhancements.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-05-20"
+      },
+      "updated": {
+        "date": "2008-05-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-6283",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6283",
+          "impact": "moderate",
+          "public": "20071213"
+        },
+        {
+          "text": "CVE-2008-0122",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0122",
+          "impact": "low",
+          "public": "20080114",
+          "cwe": "CWE-193"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-6283 bind: /etc/rndc.key has 644 permissions by default",
+          "href": "https://bugzilla.redhat.com/419421",
+          "id": "419421"
+        },
+        {
+          "text": "CVE-2008-0122 libbind off-by-one buffer overflow",
+          "href": "https://bugzilla.redhat.com/429149",
+          "id": "429149"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080300001",
+                    "comment": "bind is earlier than 30:9.3.4-6.P1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057002",
+                    "comment": "bind is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080300003",
+                    "comment": "bind-chroot is earlier than 30:9.3.4-6.P1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057004",
+                    "comment": "bind-chroot is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080300005",
+                    "comment": "bind-devel is earlier than 30:9.3.4-6.P1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057006",
+                    "comment": "bind-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080300007",
+                    "comment": "bind-libbind-devel is earlier than 30:9.3.4-6.P1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057008",
+                    "comment": "bind-libbind-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080300009",
+                    "comment": "bind-libs is earlier than 30:9.3.4-6.P1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057010",
+                    "comment": "bind-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080300011",
+                    "comment": "bind-sdb is earlier than 30:9.3.4-6.P1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057012",
+                    "comment": "bind-sdb is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080300013",
+                    "comment": "bind-utils is earlier than 30:9.3.4-6.P1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057014",
+                    "comment": "bind-utils is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080300015",
+                    "comment": "caching-nameserver is earlier than 30:9.3.4-6.P1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070057016",
+                    "comment": "caching-nameserver is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

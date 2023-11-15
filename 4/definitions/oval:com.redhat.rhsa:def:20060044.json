@@ -1,0 +1,154 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060044",
+  "version": "647",
+  "metadata": {
+    "title": "RHSA-2006:0044: openssh security update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0044",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0044",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-0225",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0225",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenSSH is OpenBSD's SSH (Secure SHell) protocol implementation. This\npackage includes the core files necessary for both the OpenSSH client and\nserver.\n\nAn arbitrary command execution flaw was discovered in the way scp copies\nfiles locally. It is possible for a local attacker to create a file with a\ncarefully crafted name that could execute arbitrary commands as the user\nrunning scp to copy files locally. The Common Vulnerabilities and Exposures\nproject (cve.mitre.org) assigned the name CVE-2006-0225 to this issue. \n\nThe following issue has also been fixed in this update:\n\n* If the sshd service was stopped using the sshd init script while the\n  main sshd daemon was not running, the init script would kill other sshd\n  processes, such as the running sessions.  For example, this could happen\n  when the 'service sshd stop' command was issued twice.\n\nAdditionally, this update implements auditing of user logins through the\nsystem audit service.\n\nAll users of openssh should upgrade to these updated packages, which\nresolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-03-07"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-0225",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0225",
+          "impact": "low",
+          "public": "20050928"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-0225 local to local copy uses shell expansion twice",
+          "href": "https://bugzilla.redhat.com/168167",
+          "id": "168167"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044001",
+                    "comment": "openssh is earlier than 0:3.9p1-8.RHEL4.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044002",
+                    "comment": "openssh is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044003",
+                    "comment": "openssh-askpass is earlier than 0:3.9p1-8.RHEL4.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044004",
+                    "comment": "openssh-askpass is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044005",
+                    "comment": "openssh-askpass-gnome is earlier than 0:3.9p1-8.RHEL4.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044006",
+                    "comment": "openssh-askpass-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044007",
+                    "comment": "openssh-clients is earlier than 0:3.9p1-8.RHEL4.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044008",
+                    "comment": "openssh-clients is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044009",
+                    "comment": "openssh-server is earlier than 0:3.9p1-8.RHEL4.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044010",
+                    "comment": "openssh-server is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

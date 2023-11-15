@@ -1,0 +1,161 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080522",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:0522: perl security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0522",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0522",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1927",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1927",
+        "source": "CVE"
+      }
+    ],
+    "description": "Perl is a high-level programming language commonly used for system\nadministration utilities and Web programming.\n\nA flaw was found in Perl's regular expression engine. A specially crafted\nregular expression with Unicode characters could trigger a buffer overflow,\ncausing Perl to crash, or possibly execute arbitrary code with the\nprivileges of the user running Perl. (CVE-2008-1927)\n\nUsers of perl are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-06-11"
+      },
+      "updated": {
+        "date": "2008-06-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1927",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1927",
+          "impact": "important",
+          "public": "20071204"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1927 perl: heap corruption by regular expressions with utf8 characters",
+          "href": "https://bugzilla.redhat.com/443928",
+          "id": "443928"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080522001",
+                    "comment": "perl is earlier than 3:5.8.5-36.el4_6.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060605002",
+                    "comment": "perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080522003",
+                    "comment": "perl-suidperl is earlier than 3:5.8.5-36.el4_6.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060605004",
+                    "comment": "perl-suidperl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080522006",
+                    "comment": "perl is earlier than 4:5.8.8-10.el5_2.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060605002",
+                    "comment": "perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080522007",
+                    "comment": "perl-suidperl is earlier than 4:5.8.8-10.el5_2.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060605004",
+                    "comment": "perl-suidperl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091203",
+  "version": "645",
+  "metadata": {
+    "title": "RHSA-2009:1203: subversion security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1203",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1203",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-2411",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2411",
+        "source": "CVE"
+      }
+    ],
+    "description": "Subversion (SVN) is a concurrent version control system which enables one\nor more users to collaborate in developing and maintaining a hierarchy of\nfiles and directories while keeping a history of all changes.\n\nMatt Lewis, of Google, reported multiple heap overflow flaws in Subversion\n(server and client) when parsing binary deltas. A malicious user with\ncommit access to a server could use these flaws to cause a heap overflow on\nthat server. A malicious server could use these flaws to cause a heap\noverflow on a client when it attempts to checkout or update. These heap\noverflows can result in a crash or, possibly, arbitrary code execution.\n(CVE-2009-2411)\n\nAll Subversion users should upgrade to these updated packages, which\ncontain a backported patch to correct these issues. After installing the\nupdated packages, the Subversion server must be restarted for the update\nto take effect: restart httpd if you are using mod_dav_svn, or restart\nsvnserve if it is used.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-08-10"
+      },
+      "updated": {
+        "date": "2009-08-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-2411",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2411",
+          "impact": "important",
+          "public": "20090803",
+          "cvss_2": "6.5/AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-2411 subversion: multiple heap overflow issues",
+          "href": "https://bugzilla.redhat.com/514744",
+          "id": "514744"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203001",
+                    "comment": "mod_dav_svn is earlier than 0:1.1.4-3.el4_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039002",
+                    "comment": "mod_dav_svn is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203003",
+                    "comment": "subversion is earlier than 0:1.1.4-3.el4_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039004",
+                    "comment": "subversion is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203005",
+                    "comment": "subversion-devel is earlier than 0:1.1.4-3.el4_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039006",
+                    "comment": "subversion-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203007",
+                    "comment": "subversion-perl is earlier than 0:1.1.4-3.el4_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039010",
+                    "comment": "subversion-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203010",
+                    "comment": "mod_dav_svn is earlier than 0:1.4.2-4.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039002",
+                    "comment": "mod_dav_svn is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203011",
+                    "comment": "subversion is earlier than 0:1.4.2-4.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039004",
+                    "comment": "subversion is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203012",
+                    "comment": "subversion-devel is earlier than 0:1.4.2-4.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039006",
+                    "comment": "subversion-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203013",
+                    "comment": "subversion-javahl is earlier than 0:1.4.2-4.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039008",
+                    "comment": "subversion-javahl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203015",
+                    "comment": "subversion-perl is earlier than 0:1.4.2-4.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039010",
+                    "comment": "subversion-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091203016",
+                    "comment": "subversion-ruby is earlier than 0:1.4.2-4.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhea:tst:20110039012",
+                    "comment": "subversion-ruby is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20071165",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2007:1165: libexif security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:1165",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1165",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-6351",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6351",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-6352",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6352",
+        "source": "CVE"
+      }
+    ],
+    "description": "The libexif packages contain the Exif library. Exif is an image file format\nspecification that enables metadata tags to be added to existing JPEG, TIFF\nand RIFF files. The Exif library makes it possible to parse an Exif file\nand read this metadata.\n\nAn infinite recursion flaw was found in the way libexif parses Exif image\ntags. If a victim opens a carefully crafted Exif image file, it could cause\nthe application linked against libexif to crash. (CVE-2007-6351)\n\nAn integer overflow flaw was found in the way libexif parses Exif image\ntags. If a victim opens a carefully crafted Exif image file, it could cause\nthe application linked against libexif to execute arbitrary code, or crash.\n(CVE-2007-6352)\n\nUsers of libexif are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-12-19"
+      },
+      "updated": {
+        "date": "2007-12-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-6351",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6351",
+          "impact": "moderate",
+          "public": "20071214"
+        },
+        {
+          "text": "CVE-2007-6352",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6352",
+          "impact": "moderate",
+          "public": "20071214",
+          "cwe": "CWE-190"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-6351 libexif infinite recursion flaw (DoS)",
+          "href": "https://bugzilla.redhat.com/425551",
+          "id": "425551"
+        },
+        {
+          "text": "CVE-2007-6352 libexif integer overflow",
+          "href": "https://bugzilla.redhat.com/425561",
+          "id": "425561"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071165001",
+                    "comment": "libexif is earlier than 0:0.6.13-4.0.2.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501002",
+                    "comment": "libexif is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071165003",
+                    "comment": "libexif-devel is earlier than 0:0.6.13-4.0.2.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070501004",
+                    "comment": "libexif-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

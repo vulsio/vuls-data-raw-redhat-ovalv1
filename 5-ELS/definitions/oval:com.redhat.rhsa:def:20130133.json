@@ -1,0 +1,167 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20130133",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2013:0133: hplip3 security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:0133",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0133",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-2722",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2722",
+        "source": "CVE"
+      }
+    ],
+    "description": "Hewlett-Packard Linux Imaging and Printing (HPLIP) provides drivers for\nHewlett-Packard (HP) printers and multifunction peripherals.\n\nIt was found that the HP CUPS (Common UNIX Printing System) fax filter in\nHPLIP created a temporary file in an insecure way. A local attacker could\nuse this flaw to perform a symbolic link attack, overwriting arbitrary\nfiles accessible to a process using the fax filter (such as the\nhp3-sendfax tool). (CVE-2011-2722)\n\nThis update also fixes the following bug:\n\n* Previous modifications of the hplip3 package to allow it to be installed\nalongside the original hplip package introduced several problems to fax\nsupport; for example, the hp-sendfax utility could become unresponsive.\nThese problems have been fixed with this update. (BZ#501834)\n\nAll users of hplip3 are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-01-08"
+      },
+      "updated": {
+        "date": "2013-01-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-2722",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2722",
+          "impact": "low",
+          "public": "20110713",
+          "cwe": "CWE-377",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-2722 hplip: insecure temporary file handling",
+          "href": "https://bugzilla.redhat.com/725830",
+          "id": "725830"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130133001",
+                    "comment": "hpijs3 is earlier than 1:3.9.8-15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110154021",
+                    "comment": "hpijs3 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130133003",
+                    "comment": "hplip3 is earlier than 0:3.9.8-15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110154023",
+                    "comment": "hplip3 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130133005",
+                    "comment": "hplip3-common is earlier than 0:3.9.8-15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110154025",
+                    "comment": "hplip3-common is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130133007",
+                    "comment": "hplip3-gui is earlier than 0:3.9.8-15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110154027",
+                    "comment": "hplip3-gui is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130133009",
+                    "comment": "hplip3-libs is earlier than 0:3.9.8-15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110154029",
+                    "comment": "hplip3-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130133011",
+                    "comment": "libsane-hpaio3 is earlier than 0:3.9.8-15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110154031",
+                    "comment": "libsane-hpaio3 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

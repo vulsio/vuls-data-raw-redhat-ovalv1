@@ -1,0 +1,188 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080649",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0649: libxslt security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0649",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0649",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-2935",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2935",
+        "source": "CVE"
+      }
+    ],
+    "description": "libxslt is a library for transforming XML files into other XML files using\nthe standard XSLT stylesheet transformation mechanism.\n\nA heap buffer overflow flaw was discovered in the RC4 libxslt library\nextension. An attacker could create a malicious XSL file that would cause a\ncrash, or, possibly, execute arbitrary code with the privileges of the\napplication using the libxslt library to perform XSL transformations on\nuntrusted XSL style sheets. (CVE-2008-2935)\n\nRed Hat would like to thank Chris Evans for reporting this vulnerability.\n\nAll libxslt users are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-07-31"
+      },
+      "updated": {
+        "date": "2008-07-31"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-2935",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2935",
+          "impact": "important",
+          "public": "20080731:1400"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2935 libxslt: buffer overflow in libexslt RC4 encryption/decryption functions",
+          "href": "https://bugzilla.redhat.com/455848",
+          "id": "455848"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080649001",
+                    "comment": "libxslt is earlier than 0:1.1.11-1.el4_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080287002",
+                    "comment": "libxslt is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080649003",
+                    "comment": "libxslt-devel is earlier than 0:1.1.11-1.el4_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080287004",
+                    "comment": "libxslt-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080649005",
+                    "comment": "libxslt-python is earlier than 0:1.1.11-1.el4_7.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080287006",
+                    "comment": "libxslt-python is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080649008",
+                    "comment": "libxslt is earlier than 0:1.1.17-2.el5_2.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080287002",
+                    "comment": "libxslt is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080649009",
+                    "comment": "libxslt-devel is earlier than 0:1.1.17-2.el5_2.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080287004",
+                    "comment": "libxslt-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080649010",
+                    "comment": "libxslt-python is earlier than 0:1.1.17-2.el5_2.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080287006",
+                    "comment": "libxslt-python is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

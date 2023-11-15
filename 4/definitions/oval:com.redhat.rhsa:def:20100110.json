@@ -1,0 +1,194 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100110",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2010:0110: mysql security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0110",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0110",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-4098",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4098",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-4456",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4456",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2446",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2446",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-4030",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4030",
+        "source": "CVE"
+      }
+    ],
+    "description": "MySQL is a multi-user, multi-threaded SQL database server. It consists of\nthe MySQL server daemon (mysqld) and many client programs and libraries.\n\nMultiple flaws were discovered in the way MySQL handled symbolic links to\ntables created using the DATA DIRECTORY and INDEX DIRECTORY directives in\nCREATE TABLE statements. An attacker with CREATE and DROP table privileges\nand shell access to the database server could use these flaws to escalate\ntheir database privileges, or gain access to tables created by other\ndatabase users. (CVE-2008-4098, CVE-2009-4030)\n\nNote: Due to the security risks and previous security issues related to the\nuse of the DATA DIRECTORY and INDEX DIRECTORY directives, users not\ndepending on this feature should consider disabling it by adding\n\"symbolic-links=0\" to the \"[mysqld]\" section of the \"my.cnf\" configuration\nfile. In this update, an example of such a configuration was added to the\ndefault \"my.cnf\" file.\n\nAn insufficient HTML entities quoting flaw was found in the mysql command\nline client's HTML output mode. If an attacker was able to inject arbitrary\nHTML tags into data stored in a MySQL database, which was later retrieved\nusing the mysql command line client and its HTML output mode, they could\nperform a cross-site scripting (XSS) attack against victims viewing the\nHTML output in a web browser. (CVE-2008-4456)\n\nMultiple format string flaws were found in the way the MySQL server logged\nuser commands when creating and deleting databases. A remote, authenticated\nattacker with permissions to CREATE and DROP databases could use these\nflaws to formulate a specially-crafted SQL command that would cause a\ntemporary denial of service (open connections to mysqld are terminated).\n(CVE-2009-2446)\n\nNote: To exploit the CVE-2009-2446 flaws, the general query log (the mysqld\n\"--log\" command line option or the \"log\" option in \"my.cnf\") must be\nenabled. This logging is not enabled by default.\n\nAll MySQL users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues. After installing this\nupdate, the MySQL server daemon (mysqld) will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-02-16"
+      },
+      "updated": {
+        "date": "2010-02-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-4098",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4098",
+          "impact": "moderate",
+          "public": "20080703",
+          "cvss_2": "3.2/AV:L/AC:L/Au:S/C:P/I:P/A:N"
+        },
+        {
+          "text": "CVE-2008-4456",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4456",
+          "impact": "low",
+          "public": "20080930",
+          "cwe": "CWE-79",
+          "cvss_2": "1.7/AV:L/AC:L/Au:S/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-2446",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2446",
+          "impact": "low",
+          "public": "20090709",
+          "cvss_2": "3.5/AV:N/AC:M/Au:S/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-4030",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4030",
+          "impact": "low",
+          "public": "20091104",
+          "cvss_2": "2.4/AV:L/AC:H/Au:S/C:N/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-4098 mysql: incomplete upstream fix for CVE-2008-2079",
+          "href": "https://bugzilla.redhat.com/454077",
+          "id": "454077"
+        },
+        {
+          "text": "CVE-2008-4456 mysql: mysql command line client XSS flaw",
+          "href": "https://bugzilla.redhat.com/466518",
+          "id": "466518"
+        },
+        {
+          "text": "CVE-2009-2446 MySQL: Format string vulnerability by manipulation with database instances (crash)",
+          "href": "https://bugzilla.redhat.com/511020",
+          "id": "511020"
+        },
+        {
+          "text": "CVE-2009-4030 mysql: Incomplete fix for CVE-2008-2079 / CVE-2008-4098",
+          "href": "https://bugzilla.redhat.com/543653",
+          "id": "543653"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100110001",
+                    "comment": "mysql is earlier than 0:4.1.22-2.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544002",
+                    "comment": "mysql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100110003",
+                    "comment": "mysql-bench is earlier than 0:4.1.22-2.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544004",
+                    "comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100110005",
+                    "comment": "mysql-devel is earlier than 0:4.1.22-2.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544006",
+                    "comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100110007",
+                    "comment": "mysql-server is earlier than 0:4.1.22-2.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544008",
+                    "comment": "mysql-server is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

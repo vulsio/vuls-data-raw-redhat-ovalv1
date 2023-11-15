@@ -1,0 +1,242 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080855",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2008:0855: openssh security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0855",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0855",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-4752",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4752",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3844",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3844",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenSSH is OpenBSD's SSH (Secure SHell) protocol implementation. \n\nLast week Red Hat detected an intrusion on certain of its computer systems\nand took immediate action. While the investigation into the intrusion is\non-going, our initial focus  was to review and test the distribution\nchannel we use with our customers, Red Hat Network (RHN) and its associated\nsecurity measures. Based on these efforts, we remain highly confident that\nour systems and processes prevented the intrusion from compromising RHN or\nthe content distributed via RHN and accordingly believe that customers who\nkeep their systems updated using Red Hat Network are not at risk.  We are\nissuing this alert primarily for those who may obtain Red Hat binary\npackages via channels other than those of official Red Hat subscribers.\n\nIn connection with the incident, the intruder was able to sign a small\nnumber of OpenSSH packages relating only to Red Hat Enterprise Linux 4\n(i386 and x86_64 architectures only) and Red Hat Enterprise Linux 5 (x86_64\narchitecture only).  As a precautionary measure, we are releasing an\nupdated version of these packages, and have published a list of the\ntampered packages and how to detect them at\nhttp://www.redhat.com/security/data/openssh-blacklist.html\n\nTo reiterate, our processes and efforts to date indicate that packages\nobtained by Red Hat Enterprise Linux subscribers via Red Hat Network are\nnot at risk.\n\nThese packages also fix a low severity flaw in the way ssh handles X11\ncookies when creating X11 forwarding connections.  When ssh was unable to\ncreate untrusted cookie, ssh used a trusted cookie instead, possibly\nallowing the administrative user of a untrusted remote server, or untrusted\napplication run on the remote server, to gain unintended access to a users\nlocal X server. (CVE-2007-4752)",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-08-22"
+      },
+      "updated": {
+        "date": "2008-08-22"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-4752",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4752",
+          "impact": "low",
+          "public": "20070904"
+        },
+        {
+          "text": "CVE-2008-3844",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3844",
+          "impact": "critical",
+          "public": "20080822"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-4752 openssh falls back to the trusted x11 cookie if generation of an untrusted cookie fails",
+          "href": "https://bugzilla.redhat.com/280361",
+          "id": "280361"
+        },
+        {
+          "text": "CVE-2008-3844 security flaw",
+          "href": "https://bugzilla.redhat.com/1618333",
+          "id": "1618333"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855001",
+                    "comment": "openssh is earlier than 0:3.9p1-11.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044002",
+                    "comment": "openssh is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855003",
+                    "comment": "openssh-askpass is earlier than 0:3.9p1-11.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044004",
+                    "comment": "openssh-askpass is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855005",
+                    "comment": "openssh-askpass-gnome is earlier than 0:3.9p1-11.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044006",
+                    "comment": "openssh-askpass-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855007",
+                    "comment": "openssh-clients is earlier than 0:3.9p1-11.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044008",
+                    "comment": "openssh-clients is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855009",
+                    "comment": "openssh-server is earlier than 0:3.9p1-11.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044010",
+                    "comment": "openssh-server is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855012",
+                    "comment": "openssh is earlier than 0:4.3p2-26.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044002",
+                    "comment": "openssh is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855013",
+                    "comment": "openssh-askpass is earlier than 0:4.3p2-26.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044004",
+                    "comment": "openssh-askpass is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855014",
+                    "comment": "openssh-clients is earlier than 0:4.3p2-26.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044008",
+                    "comment": "openssh-clients is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080855015",
+                    "comment": "openssh-server is earlier than 0:4.3p2-26.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060044010",
+                    "comment": "openssh-server is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

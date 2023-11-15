@@ -1,0 +1,144 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070386",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2007:0386: mutt security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0386",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0386",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-5297",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-5297",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-1558",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1558",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-2683",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2683",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mutt is a text-mode mail user agent.\n\nA flaw was found in the way Mutt used temporary files on NFS file systems.\nDue to an implementation issue in the NFS protocol, Mutt was not able to\nexclusively open a new file.  A local attacker could conduct a\ntime-dependent attack and possibly gain access to e-mail attachments opened\nby a victim. (CVE-2006-5297)\n\nA flaw was found in the way Mutt processed certain APOP authentication\nrequests. By sending certain responses when mutt attempted to authenticate\nagainst an APOP server, a remote attacker could potentially acquire certain\nportions of a user's authentication credentials. (CVE-2007-1558)\n\nA flaw was found in the way Mutt handled certain characters in gecos fields\nwhich could lead to a buffer overflow.  The gecos field is an entry in the\npassword database typically used to record general information about the\nuser.  A local attacker could give themselves a carefully crafted \"Real\nName\" which could execute arbitrary code if a victim uses Mutt and expands\nthe attackers alias.  (CVE-2007-2683)\n\nAll users of mutt should upgrade to this updated package, which\ncontains a backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-06-04"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-5297",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-5297",
+          "impact": "low",
+          "public": "20061004"
+        },
+        {
+          "text": "CVE-2007-1558",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1558",
+          "impact": "moderate",
+          "public": "20070402",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2007-2683",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-2683",
+          "impact": "low",
+          "public": "20070511"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-5297 Multiple mutt tempfile race conditions",
+          "href": "https://bugzilla.redhat.com/211085",
+          "id": "211085"
+        },
+        {
+          "text": "CVE-2007-2683 Buffer overflow in mutt's gecos structure handling",
+          "href": "https://bugzilla.redhat.com/239890",
+          "id": "239890"
+        },
+        {
+          "text": "CVE-2007-1558 fetchmail/mutt/evolution/...: APOP password disclosure vulnerability",
+          "href": "https://bugzilla.redhat.com/241191",
+          "id": "241191"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070386001",
+            "comment": "mutt is earlier than 5:1.4.1-12.0.3.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070386002",
+            "comment": "mutt is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070386004",
+            "comment": "mutt is earlier than 5:1.4.2.2-3.0.2.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070386002",
+            "comment": "mutt is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

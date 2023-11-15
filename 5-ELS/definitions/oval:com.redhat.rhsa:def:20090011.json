@@ -1,0 +1,144 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090011",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2009:0011: lcms security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0011",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0011",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-5316",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5316",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-5317",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5317",
+        "source": "CVE"
+      }
+    ],
+    "description": "Little Color Management System (LittleCMS, or simply \"lcms\") is a\nsmall-footprint, speed-optimized open source color management engine.\n\nMultiple insufficient input validation flaws were discovered in LittleCMS.\nAn attacker could use these flaws to create a specially-crafted image file\nwhich could cause an application using LittleCMS to crash, or, possibly,\nexecute arbitrary code when opened. (CVE-2008-5316, CVE-2008-5317)\n\nUsers of lcms should upgrade to these updated packages, which contain\nbackported patches to correct these issues. All running applications using\nlcms library must be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-01-07"
+      },
+      "updated": {
+        "date": "2009-01-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-5316",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-5316",
+          "impact": "moderate",
+          "public": "20071122",
+          "cwe": "CWE-20"
+        },
+        {
+          "text": "CVE-2008-5317",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-5317",
+          "impact": "moderate",
+          "public": "20071122"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-5316 lcms: insufficient input validation in ReadEmbeddedTextTag",
+          "href": "https://bugzilla.redhat.com/473462",
+          "id": "473462"
+        },
+        {
+          "text": "CVE-2008-5317 lcms: unsigned -> signed integer cast issue in cmsAllocGamma",
+          "href": "https://bugzilla.redhat.com/473463",
+          "id": "473463"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011001",
+                    "comment": "lcms is earlier than 0:1.15-1.2.2.el5_2.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011002",
+                    "comment": "lcms is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011003",
+                    "comment": "lcms-devel is earlier than 0:1.15-1.2.2.el5_2.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011004",
+                    "comment": "lcms-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011005",
+                    "comment": "python-lcms is earlier than 0:1.15-1.2.2.el5_2.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090011006",
+                    "comment": "python-lcms is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

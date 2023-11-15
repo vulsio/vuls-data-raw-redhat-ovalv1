@@ -1,0 +1,185 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100543",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2010:0543: openldap security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0543",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0543",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-3767",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3767",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0211",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0211",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenLDAP is an open source suite of LDAP (Lightweight Directory Access\nProtocol) applications and development tools.\n\nAn uninitialized pointer use flaw was discovered in the way the slapd\ndaemon handled modify relative distinguished name (modrdn) requests. An\nauthenticated user with privileges to perform modrdn operations could use\nthis flaw to crash the slapd daemon via specially-crafted modrdn requests.\n(CVE-2010-0211)\n\nRed Hat would like to thank CERT-FI for responsibly reporting the\nCVE-2010-0211 flaw, who credit Ilkka Mattila and Tuomas Salomäki for the\ndiscovery of the issue.\n\nA flaw was found in the way OpenLDAP handled NUL characters in the\nCommonName field of X.509 certificates. An attacker able to get a\ncarefully-crafted certificate signed by a trusted Certificate Authority\ncould trick applications using OpenLDAP libraries into accepting it by\nmistake, allowing the attacker to perform a man-in-the-middle attack.\n(CVE-2009-3767)\n\nUsers of OpenLDAP should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. After installing this update,\nthe OpenLDAP daemons will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-07-20"
+      },
+      "updated": {
+        "date": "2010-07-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-3767",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3767",
+          "impact": "moderate",
+          "public": "20090810",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2010-0211",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0211",
+          "impact": "moderate",
+          "public": "20100719",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-3767 OpenLDAP: Doesn't properly handle NULL character in subject Common Name",
+          "href": "https://bugzilla.redhat.com/530715",
+          "id": "530715"
+        },
+        {
+          "text": "CVE-2010-0211 openldap: modrdn processing uninitialized pointer free",
+          "href": "https://bugzilla.redhat.com/605448",
+          "id": "605448"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100543001",
+                    "comment": "compat-openldap is earlier than 0:2.1.30-12.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070310002",
+                    "comment": "compat-openldap is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100543003",
+                    "comment": "openldap is earlier than 0:2.2.13-12.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070310004",
+                    "comment": "openldap is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100543005",
+                    "comment": "openldap-clients is earlier than 0:2.2.13-12.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070310006",
+                    "comment": "openldap-clients is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100543007",
+                    "comment": "openldap-devel is earlier than 0:2.2.13-12.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070310008",
+                    "comment": "openldap-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100543009",
+                    "comment": "openldap-servers is earlier than 0:2.2.13-12.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070310010",
+                    "comment": "openldap-servers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100543011",
+                    "comment": "openldap-servers-sql is earlier than 0:2.2.13-12.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070310012",
+                    "comment": "openldap-servers-sql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

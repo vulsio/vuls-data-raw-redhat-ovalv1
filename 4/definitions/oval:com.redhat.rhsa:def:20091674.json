@@ -1,0 +1,249 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091674",
+  "version": "647",
+  "metadata": {
+    "title": "RHSA-2009:1674: firefox security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1674",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1674",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-3979",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3979",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-3981",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3981",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-3983",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3983",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-3984",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3984",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-3985",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3985",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-3986",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3986",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Firefox is an open source Web browser. XULRunner provides the XUL\nRuntime environment for Mozilla Firefox.\n\nSeveral flaws were found in the processing of malformed web content. A web\npage containing malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nFirefox. (CVE-2009-3979, CVE-2009-3981, CVE-2009-3986)\n\nA flaw was found in the Firefox NT Lan Manager (NTLM) authentication\nprotocol implementation. If an attacker could trick a local user that has\nNTLM credentials into visiting a specially-crafted web page, they could\nsend arbitrary requests, authenticated with the user's NTLM credentials, to\nother applications on the user's system. (CVE-2009-3983)\n\nA flaw was found in the way Firefox displayed the SSL location bar\nindicator. An attacker could create an unencrypted web page that appears to\nbe encrypted, possibly tricking the user into believing they are visiting a\nsecure page. (CVE-2009-3984)\n\nA flaw was found in the way Firefox displayed blank pages after a user\nnavigates to an invalid address. If a user visits an attacker-controlled\nweb page that results in a blank page, the attacker could inject content\ninto that blank page, possibly tricking the user into believing they are\nviewing a legitimate page. (CVE-2009-3985)\n\nFor technical details regarding these flaws, refer to the Mozilla security\nadvisories for Firefox 3.0.16. You can find a link to the Mozilla\nadvisories in the References section of this errata.\n\nAll Firefox users should upgrade to these updated packages, which contain\nFirefox version 3.0.16, which corrects these issues. After installing the\nupdate, Firefox must be restarted for the changes to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-12-16"
+      },
+      "updated": {
+        "date": "2009-12-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-3979",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3979",
+          "impact": "critical",
+          "public": "20091215",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2009-3981",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3981",
+          "impact": "critical",
+          "public": "20091215",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2009-3983",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3983",
+          "impact": "moderate",
+          "public": "20091215",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-3984",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3984",
+          "impact": "moderate",
+          "public": "20091215",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-3985",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3985",
+          "impact": "moderate",
+          "public": "20091215",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-3986",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3986",
+          "impact": "moderate",
+          "public": "20091215",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-3979 Mozilla crash with evidence of memory corruption",
+          "href": "https://bugzilla.redhat.com/546694",
+          "id": "546694"
+        },
+        {
+          "text": "CVE-2009-3981 Mozilla crashes with evidence of memory corruption",
+          "href": "https://bugzilla.redhat.com/546713",
+          "id": "546713"
+        },
+        {
+          "text": "CVE-2009-3983 Mozilla NTLM reflection vulnerability",
+          "href": "https://bugzilla.redhat.com/546720",
+          "id": "546720"
+        },
+        {
+          "text": "CVE-2009-3984 Mozilla SSL spoofing with document.location and empty SSL response page",
+          "href": "https://bugzilla.redhat.com/546722",
+          "id": "546722"
+        },
+        {
+          "text": "CVE-2009-3986 Mozilla Chrome privilege escalation via window.opener",
+          "href": "https://bugzilla.redhat.com/546724",
+          "id": "546724"
+        },
+        {
+          "text": "CVE-2009-3985 Mozilla URL spoofing via invalid document.location",
+          "href": "https://bugzilla.redhat.com/546726",
+          "id": "546726"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20091674001",
+            "comment": "firefox is earlier than 0:3.0.16-4.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+            "comment": "firefox is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091674004",
+                    "comment": "xulrunner is earlier than 0:1.9.0.16-2.el5_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080879019",
+                    "comment": "xulrunner is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091674006",
+                    "comment": "xulrunner-devel is earlier than 0:1.9.0.16-2.el5_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080879021",
+                    "comment": "xulrunner-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091674008",
+                    "comment": "xulrunner-devel-unstable is earlier than 0:1.9.0.16-2.el5_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080879023",
+                    "comment": "xulrunner-devel-unstable is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091674010",
+                    "comment": "firefox is earlier than 0:3.0.16-1.el5_4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+                    "comment": "firefox is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

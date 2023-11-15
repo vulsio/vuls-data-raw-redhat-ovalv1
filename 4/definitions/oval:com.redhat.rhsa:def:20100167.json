@@ -1,0 +1,134 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100167",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2010:0167: gnutls security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0167",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0167",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-3555",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3555",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0731",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0731",
+        "source": "CVE"
+      }
+    ],
+    "description": "The GnuTLS library provides support for cryptographic algorithms and for\nprotocols such as Transport Layer Security (TLS).\n\nA flaw was found in the way the TLS/SSL (Transport Layer Security/Secure\nSockets Layer) protocols handled session renegotiation. A man-in-the-middle\nattacker could use this flaw to prefix arbitrary plain text to a client's\nsession (for example, an HTTPS connection to a website). This could force\nthe server to process an attacker's request as if authenticated using the\nvictim's credentials. This update addresses this flaw by implementing the\nTLS Renegotiation Indication Extension, as defined in RFC 5746.\n(CVE-2009-3555)\n\nRefer to the following Knowledgebase article for additional details about\nthe CVE-2009-3555 flaw: http://kbase.redhat.com/faq/docs/DOC-20491\n\nA flaw was found in the way GnuTLS extracted serial numbers from X.509\ncertificates. On 64-bit big endian platforms, this flaw could cause the\ncertificate revocation list (CRL) check to be bypassed; cause various\nGnuTLS utilities to crash; or, possibly, execute arbitrary code.\n(CVE-2010-0731)\n\nUsers of GnuTLS are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. For the update to take\neffect, all applications linked to the GnuTLS library must be restarted, or\nthe system rebooted.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-25"
+      },
+      "updated": {
+        "date": "2010-03-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-3555",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3555",
+          "impact": "moderate",
+          "public": "20091105",
+          "cwe": "CWE-300",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2010-0731",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0731",
+          "impact": "moderate",
+          "public": "20100325",
+          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-3555 TLS: MITM attacks via session renegotiation",
+          "href": "https://bugzilla.redhat.com/533125",
+          "id": "533125"
+        },
+        {
+          "text": "CVE-2010-0731 gnutls: gnutls_x509_crt_get_serial incorrect serial decoding from ASN1 (BE64) [GNUTLS-SA-2010-1]",
+          "href": "https://bugzilla.redhat.com/573028",
+          "id": "573028"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100167001",
+                    "comment": "gnutls is earlier than 0:1.0.20-4.el4_8.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060207002",
+                    "comment": "gnutls is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100167003",
+                    "comment": "gnutls-devel is earlier than 0:1.0.20-4.el4_8.7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060207004",
+                    "comment": "gnutls-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

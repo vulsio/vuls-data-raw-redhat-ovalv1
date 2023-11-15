@@ -1,0 +1,127 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080159",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0159: dbus security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0159",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0159",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-0595",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0595",
+        "source": "CVE"
+      }
+    ],
+    "description": "D-Bus is a system for sending messages between applications. It is used\nboth for the system-wide message bus service, and as a\nper-user-login-session messaging facility.\n\nHavoc Pennington discovered a flaw in the way the dbus-daemon applies its\nsecurity policy. A user with the ability to connect to the dbus-daemon may\nbe able to execute certain method calls they should normally not have\npermission to access.  (CVE-2008-0595)\n\nRed Hat does not ship any applications in Red Hat Enterprise Linux 5 that\nwould allow a user to leverage this flaw to elevate their privileges.\n\nThis flaw does not affect the version of D-Bus shipped in Red Hat\nEnterprise Linux 4.\n\nAll users are advised to upgrade to these updated dbus packages, which\ncontain a backported patch and are not vulnerable to this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-02-27"
+      },
+      "updated": {
+        "date": "2008-02-27"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-0595",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0595",
+          "impact": "moderate",
+          "public": "20080227"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-0595 dbus security policy circumvention",
+          "href": "https://bugzilla.redhat.com/432419",
+          "id": "432419"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080159001",
+                    "comment": "dbus is earlier than 0:1.0.0-6.3.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080159002",
+                    "comment": "dbus is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080159003",
+                    "comment": "dbus-devel is earlier than 0:1.0.0-6.3.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080159004",
+                    "comment": "dbus-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080159005",
+                    "comment": "dbus-x11 is earlier than 0:1.0.0-6.3.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080159006",
+                    "comment": "dbus-x11 is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060200",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2006:0200: firefox security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0200",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0200",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2005-4134",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-4134",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-0292",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0292",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-0296",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0296",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Firefox is an open source Web browser. \n\nIgor Bukanov discovered a bug in the way Firefox's Javascript interpreter\nderefernces objects.  If a user visits a malicious web page, Firefox could\ncrash or execute arbitrary code as the user running Firefox. The Common\nVulnerabilities and Exposures project assigned the name CVE-2006-0292 to\nthis issue.\n\nmoz_bug_r_a4 discovered a bug in Firefox's XULDocument.persist() function.\nA malicious web page could inject arbitrary RDF data into a user's\nlocalstore.rdf file, which can cause Firefox to execute arbitrary\njavascript when a user runs Firefox.  (CVE-2006-0296)\n\nA denial of service bug was found in the way Firefox saves history\ninformation. If a user visits a web page with a very long title, it is\npossible Firefox will crash or take a very long time the next time it is\nrun. (CVE-2005-4134)\n\nThis update also fixes a bug when using XSLT to transform documents.\nPassing DOM Nodes as parameters to functions expecting an xsl:param could\ncause Firefox to throw an exception. \n\nUsers of Firefox are advised to upgrade to this updated package, which\ncontains backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-02-02"
+      },
+      "updated": {
+        "date": "2006-02-02"
+      },
+      "cve": [
+        {
+          "text": "CVE-2005-4134",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-4134",
+          "impact": "moderate",
+          "public": "20051203"
+        },
+        {
+          "text": "CVE-2006-0292",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0292",
+          "impact": "critical",
+          "public": "20060202"
+        },
+        {
+          "text": "CVE-2006-0296",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0296",
+          "impact": "important",
+          "public": "20060202"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2005-4134 security flaw",
+          "href": "https://bugzilla.redhat.com/1617852",
+          "id": "1617852"
+        },
+        {
+          "text": "CVE-2006-0292 security flaw",
+          "href": "https://bugzilla.redhat.com/1617879",
+          "id": "1617879"
+        },
+        {
+          "text": "CVE-2006-0296 security flaw",
+          "href": "https://bugzilla.redhat.com/1617880",
+          "id": "1617880"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060200001",
+            "comment": "firefox is earlier than 0:1.0.7-1.4.3"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+            "comment": "firefox is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

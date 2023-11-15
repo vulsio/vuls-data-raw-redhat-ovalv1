@@ -1,0 +1,139 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080290",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2008:0290: samba security and bug fix update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0290",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0290",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1105",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1105",
+        "source": "CVE"
+      }
+    ],
+    "description": "Samba is a suite of programs used by machines to share files, printers, and\nother information.\n\nA heap-based buffer overflow flaw was found in the way Samba clients handle\nover-sized packets. If a client connected to a malicious Samba server, it\nwas possible to execute arbitrary code as the Samba client user. It was\nalso possible for a remote user to send a specially crafted print request\nto a Samba server that could result in the server executing the vulnerable\nclient code, resulting in arbitrary code execution with the permissions of\nthe Samba server. (CVE-2008-1105)\n\nRed Hat would like to thank Alin Rad Pop of Secunia Research for\nresponsibly disclosing this issue.\n\nThis update also addresses two issues which prevented Samba from joining\ncertain Windows domains with tightened security policies, and prevented\ncertain signed SMB content from working as expected:\n\n* when some Windows® 2000-based domain controllers were set to use\nmandatory signing, Samba clients would drop the connection because of an\nerror when generating signatures. This presented as a \"Server packet had\ninvalid SMB signature\" error to the Samba client. This update corrects the\nsignature generation error.\n\n* Samba servers using the \"net ads join\" command to connect to a Windows\nServer® 2003-based domain would fail with \"failed to get schannel session\nkey from server\" and \"NT_STATUS_ACCESS_DENIED\" errors. This update\ncorrectly binds to the NETLOGON share, allowing Samba servers to connect to\nthe domain properly.\n\nUsers of Samba are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-05-28"
+      },
+      "updated": {
+        "date": "2008-05-28"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1105",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1105",
+          "impact": "critical",
+          "public": "20080528"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1105 Samba client buffer overflow",
+          "href": "https://bugzilla.redhat.com/446724",
+          "id": "446724"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080290001",
+                    "comment": "samba is earlier than 0:3.0.28-1.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061002",
+                    "comment": "samba is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080290003",
+                    "comment": "samba-client is earlier than 0:3.0.28-1.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061004",
+                    "comment": "samba-client is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080290005",
+                    "comment": "samba-common is earlier than 0:3.0.28-1.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061006",
+                    "comment": "samba-common is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080290007",
+                    "comment": "samba-swat is earlier than 0:3.0.28-1.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070061008",
+                    "comment": "samba-swat is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

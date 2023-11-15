@@ -1,0 +1,476 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110833",
+  "version": "659",
+  "metadata": {
+    "title": "RHSA-2011:0833: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0833",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0833",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-0726",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-0726",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1078",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1078",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1079",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1079",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1080",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1080",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1093",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1093",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1163",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1163",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1166",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1166",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1170",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1170",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1171",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1171",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1172",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1172",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1494",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1494",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1495",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1495",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1577",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1577",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1763",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1763",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* A flaw in the dccp_rcv_state_process() function could allow a remote\nattacker to cause a denial of service, even when the socket was already\nclosed. (CVE-2011-1093, Important)\n\n* Multiple buffer overflow flaws were found in the Linux kernel's\nManagement Module Support for Message Passing Technology (MPT) based\ncontrollers. A local, unprivileged user could use these flaws to cause a\ndenial of service, an information leak, or escalate their privileges.\n(CVE-2011-1494, CVE-2011-1495, Important)\n\n* A missing validation of a null-terminated string data structure element\nin the bnep_sock_ioctl() function could allow a local user to cause an\ninformation leak or a denial of service. (CVE-2011-1079, Moderate)\n\n* Missing error checking in the way page tables were handled in the Xen\nhypervisor implementation could allow a privileged guest user to cause the\nhost, and the guests, to lock up. (CVE-2011-1166, Moderate)\n\n* A flaw was found in the way the Xen hypervisor implementation checked for\nthe upper boundary when getting a new event channel port. A privileged\nguest user could use this flaw to cause a denial of service or escalate\ntheir privileges. (CVE-2011-1763, Moderate)\n\n* The start_code and end_code values in \"/proc/[pid]/stat\" were not\nprotected. In certain scenarios, this flaw could be used to defeat Address\nSpace Layout Randomization (ASLR). (CVE-2011-0726, Low)\n\n* A missing initialization flaw in the sco_sock_getsockopt() function could\nallow a local, unprivileged user to cause an information leak.\n(CVE-2011-1078, Low)\n\n* A missing validation of a null-terminated string data structure element\nin the do_replace() function could allow a local user who has the\nCAP_NET_ADMIN capability to cause an information leak. (CVE-2011-1080, Low)\n\n* A buffer overflow flaw in the DEC Alpha OSF partition implementation in\nthe Linux kernel could allow a local attacker to cause an information leak\nby mounting a disk that contains specially-crafted partition tables.\n(CVE-2011-1163, Low)\n\n* Missing validations of null-terminated string data structure elements in\nthe do_replace(), compat_do_replace(), do_ipt_get_ctl(), do_ip6t_get_ctl(),\nand do_arpt_get_ctl() functions could allow a local user who has the\nCAP_NET_ADMIN capability to cause an information leak. (CVE-2011-1170,\nCVE-2011-1171, CVE-2011-1172, Low)\n\n* A heap overflow flaw in the Linux kernel's EFI GUID Partition Table (GPT)\nimplementation could allow a local attacker to cause a denial of service\nby mounting a disk that contains specially-crafted partition tables.\n(CVE-2011-1577, Low)\n\nRed Hat would like to thank Dan Rosenberg for reporting CVE-2011-1494 and\nCVE-2011-1495; Vasiliy Kulikov for reporting CVE-2011-1079, CVE-2011-1078,\nCVE-2011-1080, CVE-2011-1170, CVE-2011-1171, and CVE-2011-1172; Kees Cook\nfor reporting CVE-2011-0726; and Timo Warns for reporting CVE-2011-1163\nand CVE-2011-1577.\n\nThis update also fixes several bugs. Documentation for these bug fixes will\nbe available shortly from the Technical Notes document linked to in the\nReferences section.\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues, and fix the bugs noted in the Technical\nNotes. The system must be rebooted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-05-31"
+      },
+      "updated": {
+        "date": "2011-05-31"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-0726",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-0726",
+          "impact": "low",
+          "public": "20110311",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-1078",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1078",
+          "impact": "low",
+          "public": "20110214",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-1079",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1079",
+          "impact": "moderate",
+          "public": "20110214",
+          "cvss_2": "5.0/AV:L/AC:M/Au:S/C:P/I:N/A:C"
+        },
+        {
+          "text": "CVE-2011-1080",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1080",
+          "impact": "low",
+          "public": "20110214",
+          "cvss_2": "1.7/AV:L/AC:L/Au:S/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-1093",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1093",
+          "impact": "important",
+          "public": "20110302",
+          "cwe": "CWE-672->CWE-476",
+          "cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2011-1163",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1163",
+          "impact": "low",
+          "public": "20110315",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-1166",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1166",
+          "impact": "moderate",
+          "public": "20110314",
+          "cvss_2": "5.5/AV:A/AC:L/Au:S/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2011-1170",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1170",
+          "impact": "low",
+          "public": "20110310",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-1171",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1171",
+          "impact": "low",
+          "public": "20110310",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-1172",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1172",
+          "impact": "low",
+          "public": "20110310",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2011-1494",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1494",
+          "impact": "important",
+          "public": "20110405",
+          "cwe": "CWE-119",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2011-1495",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1495",
+          "impact": "important",
+          "public": "20110405",
+          "cwe": "CWE-119",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2011-1577",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1577",
+          "impact": "low",
+          "public": "20110413",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2011-1763",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1763",
+          "impact": "moderate",
+          "public": "20110531",
+          "cvss_2": "6.5/AV:A/AC:H/Au:S/C:C/I:C/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1078 kernel: bt sco_conninfo infoleak",
+          "href": "https://bugzilla.redhat.com/681259",
+          "id": "681259"
+        },
+        {
+          "text": "CVE-2011-1079 kernel: bnep device field missing NULL terminator",
+          "href": "https://bugzilla.redhat.com/681260",
+          "id": "681260"
+        },
+        {
+          "text": "CVE-2011-1080 kernel: ebtables stack infoleak",
+          "href": "https://bugzilla.redhat.com/681262",
+          "id": "681262"
+        },
+        {
+          "text": "CVE-2011-1093 kernel: dccp: fix oops on Reset after close",
+          "href": "https://bugzilla.redhat.com/682954",
+          "id": "682954"
+        },
+        {
+          "text": "CVE-2011-0726 kernel: proc: protect mm start_code/end_code in /proc/pid/stat",
+          "href": "https://bugzilla.redhat.com/684569",
+          "id": "684569"
+        },
+        {
+          "text": "CVE-2011-1163 kernel: fs/partitions: Corrupted OSF partition table infoleak",
+          "href": "https://bugzilla.redhat.com/688021",
+          "id": "688021"
+        },
+        {
+          "text": "CVE-2011-1166 kernel: xen: x86_64: fix error checking in arch_set_info_guest()",
+          "href": "https://bugzilla.redhat.com/688579",
+          "id": "688579"
+        },
+        {
+          "text": "CVE-2011-1170 kernel: ipv4: netfilter: arp_tables: fix infoleak to userspace",
+          "href": "https://bugzilla.redhat.com/689321",
+          "id": "689321"
+        },
+        {
+          "text": "CVE-2011-1171 kernel: ipv4: netfilter: ip_tables: fix infoleak to userspace",
+          "href": "https://bugzilla.redhat.com/689327",
+          "id": "689327"
+        },
+        {
+          "text": "CVE-2011-1172 kernel: ipv6: netfilter: ip6_tables: fix infoleak to userspace",
+          "href": "https://bugzilla.redhat.com/689345",
+          "id": "689345"
+        },
+        {
+          "text": "CVE-2011-1494 CVE-2011-1495 kernel: drivers/scsi/mpt2sas: prevent heap overflows",
+          "href": "https://bugzilla.redhat.com/694021",
+          "id": "694021"
+        },
+        {
+          "text": "CVE-2011-1577 kernel: corrupted GUID partition tables can cause kernel oops",
+          "href": "https://bugzilla.redhat.com/695976",
+          "id": "695976"
+        },
+        {
+          "text": "CVE-2011-1763 kernel: xen: improper upper boundary check in get_free_port() function",
+          "href": "https://bugzilla.redhat.com/701240",
+          "id": "701240"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20110833025",
+                "comment": "kernel earlier than 0:2.6.18-238.12.1.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20110833026",
+                "comment": "kernel earlier than 0:2.6.18-238.12.1.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833001",
+                    "comment": "kernel is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110833023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-238.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070777",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2007:0777: gdm security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0777",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0777",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3381",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3381",
+        "source": "CVE"
+      }
+    ],
+    "description": "Gdm (the GNOME Display Manager) is a highly configurable reimplementation\nof xdm, the X Display Manager. Gdm allows you to log into your system with\nthe X Window System running and supports running several different X\nsessions on your local machine at the same time.\n\nA flaw was found in the way Gdm listens on its unix domain socket.  A local\nuser could crash a running X session by writing malicious data to Gdm's\nunix domain socket. (CVE-2007-3381)\n\nAll users of gdm should upgrade to this updated package, which contains a\nbackported patch that resolves this issue.\n\nRed Hat would like to thank JLANTHEA for reporting this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-08-07"
+      },
+      "updated": {
+        "date": "2007-08-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3381",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3381",
+          "impact": "moderate",
+          "public": "20070730"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3381 Gdm denial of service",
+          "href": "https://bugzilla.redhat.com/247655",
+          "id": "247655"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070777001",
+            "comment": "gdm is earlier than 1:2.16.0-31.0.1.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070777002",
+            "comment": "gdm is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

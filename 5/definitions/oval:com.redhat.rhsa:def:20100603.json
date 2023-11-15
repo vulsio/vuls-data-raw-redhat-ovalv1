@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100603",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2010:0603: gnupg2 security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0603",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0603",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-2547",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2547",
+        "source": "CVE"
+      }
+    ],
+    "description": "The GNU Privacy Guard (GnuPG or GPG) is a tool for encrypting data and\ncreating digital signatures, compliant with the proposed OpenPGP Internet\nstandard and the S/MIME standard.\n\nA use-after-free flaw was found in the way gpgsm, a Cryptographic Message\nSyntax (CMS) encryption and signing tool, handled X.509 certificates with\na large number of Subject Alternate Names. A specially-crafted X.509\ncertificate could, when imported, cause gpgsm to crash or, possibly,\nexecute arbitrary code. (CVE-2010-2547)\n\nAll gnupg2 users should upgrade to this updated package, which contains a\nbackported patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-08-04"
+      },
+      "updated": {
+        "date": "2010-08-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-2547",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2547",
+          "impact": "moderate",
+          "public": "20100723",
+          "cwe": "CWE-416",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-2547 GnuPG 2: use-after-free when importing certificate with many alternate names",
+          "href": "https://bugzilla.redhat.com/618156",
+          "id": "618156"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100603001",
+            "comment": "gnupg2 is earlier than 0:2.0.10-3.el5_5.1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100603002",
+            "comment": "gnupg2 is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

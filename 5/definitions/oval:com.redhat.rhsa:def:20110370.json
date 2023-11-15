@@ -1,0 +1,265 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110370",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2011:0370: wireshark security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0370",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0370",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-3445",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3445",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-0024",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-0024",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-0538",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-0538",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1139",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1139",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1140",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1140",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1141",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1141",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1143",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1143",
+        "source": "CVE"
+      }
+    ],
+    "description": "Wireshark is a program for monitoring network traffic. Wireshark was\npreviously known as Ethereal.\n\nA heap-based buffer overflow flaw was found in Wireshark. If Wireshark\nopened a specially-crafted capture file, it could crash or, possibly,\nexecute arbitrary code as the user running Wireshark. (CVE-2011-0024)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malicious dump file. (CVE-2010-3445, CVE-2011-0538, CVE-2011-1139,\nCVE-2011-1140, CVE-2011-1141, CVE-2011-1143)\n\nUsers of Wireshark should upgrade to these updated packages, which contain\nbackported patches to correct these issues. All running instances of\nWireshark must be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-03-21"
+      },
+      "updated": {
+        "date": "2011-03-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-3445",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-3445",
+          "impact": "low",
+          "public": "20100913",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-0024",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-0024",
+          "impact": "moderate",
+          "public": "20110321",
+          "cwe": "CWE-122",
+          "cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2011-0538",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-0538",
+          "impact": "low",
+          "public": "20110203",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-1139",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1139",
+          "impact": "low",
+          "public": "20110301",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-1140",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1140",
+          "impact": "low",
+          "public": "20110301",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-1141",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1141",
+          "impact": "low",
+          "public": "20110301",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-1143",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1143",
+          "impact": "low",
+          "public": "20110301",
+          "cwe": "CWE-476",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-3445 wireshark: stack overflow in BER dissector",
+          "href": "https://bugzilla.redhat.com/639486",
+          "id": "639486"
+        },
+        {
+          "text": "CVE-2011-0024 wireshark: heap-based buffer overflow in wireshark < 1.2 when reading malformed capture files",
+          "href": "https://bugzilla.redhat.com/671331",
+          "id": "671331"
+        },
+        {
+          "text": "CVE-2011-0538 Wireshark: memory corruption when reading a malformed pcap file (upstream bug #5652)",
+          "href": "https://bugzilla.redhat.com/676232",
+          "id": "676232"
+        },
+        {
+          "text": "CVE-2011-1139 Wireshark: Denial Of Service (application crash) via a pcap-ng file that contains a large packet-length field",
+          "href": "https://bugzilla.redhat.com/681748",
+          "id": "681748"
+        },
+        {
+          "text": "CVE-2011-1140 Wireshark: Multiple stack consumption vulnerabilities caused DoS via crafted SMB or CLDAP packet",
+          "href": "https://bugzilla.redhat.com/681754",
+          "id": "681754"
+        },
+        {
+          "text": "CVE-2011-1141 Wireshark: Malformed LDAP filter string causes Denial of Service via excessive memory consumption",
+          "href": "https://bugzilla.redhat.com/681756",
+          "id": "681756"
+        },
+        {
+          "text": "CVE-2011-1143 Wireshark: Null pointer dereference causing application crash when reading malformed pcap file",
+          "href": "https://bugzilla.redhat.com/681760",
+          "id": "681760"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110370001",
+                    "comment": "wireshark is earlier than 0:1.0.15-2.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110370003",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.15-2.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110370006",
+                    "comment": "wireshark is earlier than 0:1.0.15-1.el5_6.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110370007",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.15-1.el5_6.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

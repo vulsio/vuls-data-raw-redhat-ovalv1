@@ -1,0 +1,188 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100109",
+  "version": "645",
+  "metadata": {
+    "title": "RHSA-2010:0109: mysql security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0109",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0109",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-4019",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4019",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-4028",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4028",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-4030",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4030",
+        "source": "CVE"
+      }
+    ],
+    "description": "MySQL is a multi-user, multi-threaded SQL database server. It consists of\nthe MySQL server daemon (mysqld) and many client programs and libraries.\n\nIt was discovered that the MySQL client ignored certain SSL certificate\nverification errors when connecting to servers. A man-in-the-middle\nattacker could use this flaw to trick MySQL clients into connecting to a\nspoofed MySQL server. (CVE-2009-4028)\n\nNote: This fix may uncover previously hidden SSL configuration issues, such\nas incorrect CA certificates being used by clients or expired server\ncertificates. This update should be carefully tested in deployments where\nSSL connections are used.\n\nA flaw was found in the way MySQL handled SELECT statements with subqueries\nin the WHERE clause, that assigned results to a user variable. A remote,\nauthenticated attacker could use this flaw to crash the MySQL server daemon\n(mysqld). This issue only caused a temporary denial of service, as the\nMySQL daemon was automatically restarted after the crash. (CVE-2009-4019)\n\nWhen the \"datadir\" option was configured with a relative path, MySQL did\nnot properly check paths used as arguments for the DATA DIRECTORY and INDEX\nDIRECTORY directives. An authenticated attacker could use this flaw to\nbypass the restriction preventing the use of subdirectories of the MySQL\ndata directory being used as DATA DIRECTORY and INDEX DIRECTORY paths.\n(CVE-2009-4030)\n\nNote: Due to the security risks and previous security issues related to the\nuse of the DATA DIRECTORY and INDEX DIRECTORY directives, users not\ndepending on this feature should consider disabling it by adding\n\"symbolic-links=0\" to the \"[mysqld]\" section of the \"my.cnf\" configuration\nfile. In this update, an example of such a configuration was added to the\ndefault \"my.cnf\" file.\n\nAll MySQL users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues. After installing this\nupdate, the MySQL server daemon (mysqld) will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-02-16"
+      },
+      "updated": {
+        "date": "2010-02-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-4019",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4019",
+          "impact": "low",
+          "public": "20091104",
+          "cvss_2": "2.7/AV:A/AC:L/Au:S/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-4028",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4028",
+          "impact": "moderate",
+          "public": "20091104",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-4030",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4030",
+          "impact": "low",
+          "public": "20091104",
+          "cvss_2": "2.4/AV:L/AC:H/Au:S/C:N/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-4019 mysql: DoS (crash) when comparing GIS items from subquery and when handling subqueires in WHERE  and assigning a SELECT result to a @variable",
+          "href": "https://bugzilla.redhat.com/540906",
+          "id": "540906"
+        },
+        {
+          "text": "CVE-2009-4028 mysql: client SSL certificate verification flaw",
+          "href": "https://bugzilla.redhat.com/541233",
+          "id": "541233"
+        },
+        {
+          "text": "CVE-2009-4030 mysql: Incomplete fix for CVE-2008-2079 / CVE-2008-4098",
+          "href": "https://bugzilla.redhat.com/543653",
+          "id": "543653"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100109001",
+                    "comment": "mysql is earlier than 0:5.0.77-4.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070875011",
+                    "comment": "mysql is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100109003",
+                    "comment": "mysql-bench is earlier than 0:5.0.77-4.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070875013",
+                    "comment": "mysql-bench is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100109005",
+                    "comment": "mysql-devel is earlier than 0:5.0.77-4.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070875015",
+                    "comment": "mysql-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100109007",
+                    "comment": "mysql-server is earlier than 0:5.0.77-4.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070875017",
+                    "comment": "mysql-server is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100109009",
+                    "comment": "mysql-test is earlier than 0:5.0.77-4.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070875019",
+                    "comment": "mysql-test is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

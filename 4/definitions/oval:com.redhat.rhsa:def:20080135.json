@@ -1,0 +1,131 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080135",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2008:0135: tk security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0135",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0135",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5378",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5378",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0553",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0553",
+        "source": "CVE"
+      }
+    ],
+    "description": "Tk is a graphical toolkit for the Tcl scripting language.\n\nAn input validation flaw was discovered in Tk's GIF image handling. A\ncode-size value read from a GIF image was not properly validated before\nbeing used, leading to a buffer overflow. A specially crafted GIF file\ncould use this to cause a crash or, potentially, execute code with the\nprivileges of the application using the Tk graphical toolkit.\n(CVE-2008-0553)\n\nA buffer overflow flaw was discovered in Tk's animated GIF image handling.\nAn animated GIF containing an initial image smaller than subsequent images\ncould cause a crash or, potentially, execute code with the privileges of\nthe application using the Tk library. (CVE-2007-5378)\n\nAll users are advised to upgrade to these updated packages which contain a\nbackported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-02-21"
+      },
+      "updated": {
+        "date": "2008-02-22"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5378",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5378",
+          "impact": "low",
+          "public": "20060325"
+        },
+        {
+          "text": "CVE-2008-0553",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0553",
+          "impact": "moderate",
+          "public": "20080201"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5378 Tk GIF processing buffer overflow",
+          "href": "https://bugzilla.redhat.com/332021",
+          "id": "332021"
+        },
+        {
+          "text": "CVE-2008-0553 tk: GIF handling buffer overflow",
+          "href": "https://bugzilla.redhat.com/431518",
+          "id": "431518"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080135001",
+                    "comment": "tk is earlier than 0:8.4.7-3.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080135002",
+                    "comment": "tk is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080135003",
+                    "comment": "tk-devel is earlier than 0:8.4.7-3.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080135004",
+                    "comment": "tk-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

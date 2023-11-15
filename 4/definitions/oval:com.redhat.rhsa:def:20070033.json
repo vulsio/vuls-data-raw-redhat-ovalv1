@@ -1,0 +1,173 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070033",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2007:0033: openoffice.org security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0033",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0033",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-0238",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-0238",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-0239",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-0239",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-1466",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1466",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenOffice.org is an office productivity suite that includes desktop\napplications such as a word processor, spreadsheet, presentation manager,\nformula editor, and drawing program.\n\niDefense reported an integer overflow flaw in libwpd, a library used\ninternally to OpenOffice.org for handling Word Perfect documents.  An\nattacker could create a carefully crafted Word Perfect file that could\ncause OpenOffice.org to crash or possibly execute arbitrary code if the\nfile was opened by a victim. (CVE-2007-1466)\n\nJohn Heasman discovered a stack overflow in the StarCalc parser in\nOpenOffice.org.  An attacker could create a carefully crafted StarCalc file\nthat could cause OpenOffice.org to crash or possibly execute arbitrary code\nif the file was opened by a victim. (CVE-2007-0238)\n\nFlaws were discovered in the way OpenOffice.org handled hyperlinks.  An\nattacker could create an OpenOffice.org document which could run commands\nif a victim opened the file and clicked on a malicious hyperlink. \n(CVE-2007-0239)\n\nAll users of OpenOffice.org are advised to upgrade to these updated\npackages, which contain backported fixes for these issues.\n\nRed Hat would like to thank Fridrich Štrba for alerting us to the issue\nCVE-2007-1466 and providing a patch, and John Heasman for\nCVE-2007-0238.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-03-22"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-0238",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-0238",
+          "impact": "important",
+          "public": "20070320"
+        },
+        {
+          "text": "CVE-2007-0239",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-0239",
+          "impact": "moderate",
+          "public": "20070320"
+        },
+        {
+          "text": "CVE-2007-1466",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1466",
+          "impact": "important",
+          "public": "20070316"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-0238 security flaw",
+          "href": "https://bugzilla.redhat.com/1618265",
+          "id": "1618265"
+        },
+        {
+          "text": "CVE-2007-0239 security flaw",
+          "href": "https://bugzilla.redhat.com/1618266",
+          "id": "1618266"
+        },
+        {
+          "text": "CVE-2007-1466 security flaw",
+          "href": "https://bugzilla.redhat.com/1618301",
+          "id": "1618301"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070033001",
+                    "comment": "openoffice.org is earlier than 0:1.1.5-10.6.0.EL4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060573002",
+                    "comment": "openoffice.org is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070033003",
+                    "comment": "openoffice.org-i18n is earlier than 0:1.1.5-10.6.0.EL4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060573004",
+                    "comment": "openoffice.org-i18n is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070033005",
+                    "comment": "openoffice.org-kde is earlier than 0:1.1.5-10.6.0.EL4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060573006",
+                    "comment": "openoffice.org-kde is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070033007",
+                    "comment": "openoffice.org-libs is earlier than 0:1.1.5-10.6.0.EL4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060573008",
+                    "comment": "openoffice.org-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

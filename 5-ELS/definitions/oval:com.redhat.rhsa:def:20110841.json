@@ -1,0 +1,179 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110841",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2011:0841: systemtap security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0841",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0841",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1769",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1769",
+        "source": "CVE"
+      }
+    ],
+    "description": "SystemTap is an instrumentation system for systems running the Linux\nkernel, version 2.6. Developers can write scripts to collect data on the\noperation of the system.\n\nA divide-by-zero flaw was found in the way SystemTap handled malformed\ndebugging information in DWARF format. When SystemTap unprivileged mode was\nenabled, an unprivileged user in the stapusr group could use this flaw to\ncrash the system. Additionally, a privileged user (root, or a member of the\nstapdev group) could trigger this flaw when tricked into instrumenting a\nspecially-crafted ELF binary, even when unprivileged mode was not enabled.\n(CVE-2011-1769)\n\nSystemTap users should upgrade to these updated packages, which contain a\nbackported patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-05-31"
+      },
+      "updated": {
+        "date": "2011-05-31"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1769",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1769",
+          "impact": "moderate",
+          "public": "20110511",
+          "cvss_2": "4.6/AV:A/AC:H/Au:N/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1769 systemtap: does not guard against DWARF operations div-by-zero errors, which can cause a kernel panic",
+          "href": "https://bugzilla.redhat.com/702687",
+          "id": "702687"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110841001",
+                    "comment": "systemtap is earlier than 0:1.3-4.el5_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090373009",
+                    "comment": "systemtap is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110841003",
+                    "comment": "systemtap-client is earlier than 0:1.3-4.el5_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090373011",
+                    "comment": "systemtap-client is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110841005",
+                    "comment": "systemtap-initscript is earlier than 0:1.3-4.el5_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100124006",
+                    "comment": "systemtap-initscript is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110841007",
+                    "comment": "systemtap-runtime is earlier than 0:1.3-4.el5_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090373013",
+                    "comment": "systemtap-runtime is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110841009",
+                    "comment": "systemtap-sdt-devel is earlier than 0:1.3-4.el5_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100124010",
+                    "comment": "systemtap-sdt-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110841011",
+                    "comment": "systemtap-server is earlier than 0:1.3-4.el5_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090373015",
+                    "comment": "systemtap-server is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110841013",
+                    "comment": "systemtap-testsuite is earlier than 0:1.3-4.el5_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090373017",
+                    "comment": "systemtap-testsuite is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

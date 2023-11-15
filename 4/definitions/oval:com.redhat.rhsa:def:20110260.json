@@ -1,0 +1,179 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110260",
+  "version": "645",
+  "metadata": {
+    "title": "RHSA-2011:0260: python security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0260",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0260",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-4134",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4134",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1449",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1449",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-1450",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1450",
+        "source": "CVE"
+      }
+    ],
+    "description": "Python is an interpreted, interactive, object-oriented programming\nlanguage.\n\nMultiple flaws were found in the Python rgbimg module. If an application\nwritten in Python was using the rgbimg module and loaded a\nspecially-crafted SGI image file, it could cause the application to crash\nor, possibly, execute arbitrary code with the privileges of the user\nrunning the application. (CVE-2009-4134, CVE-2010-1449, CVE-2010-1450)\n\nThis update also fixes the following bugs:\n\n* Python 2.3.4's time.strptime() function did not correctly handle the \"%W\"\nweek number format string. This update backports the _strptime\nimplementation from Python 2.3.6, fixing this issue. (BZ#436001)\n\n* Python 2.3.4's socket.htons() function returned partially-uninitialized\ndata on IBM System z, generally leading to incorrect results. (BZ#513341)\n\n* Python 2.3.4's pwd.getpwuid() and grp.getgrgid() functions did not\nsupport the full range of user and group IDs on 64-bit architectures,\nleading to \"OverflowError\" exceptions for large input values. This update\nadds support for the full range of user and group IDs on 64-bit\narchitectures. (BZ#497540)\n\nUsers of Python should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-02-16"
+      },
+      "updated": {
+        "date": "2011-02-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-4134",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4134",
+          "impact": "low",
+          "public": "20100510",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-1449",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1449",
+          "impact": "low",
+          "public": "20100510",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-1450",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1450",
+          "impact": "low",
+          "public": "20100510",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-4134 CVE-2010-1449 CVE-2010-1450 python: rgbimg: multiple security issues",
+          "href": "https://bugzilla.redhat.com/541698",
+          "id": "541698"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110260001",
+                    "comment": "python is earlier than 0:2.3.4-14.9.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060197002",
+                    "comment": "python is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110260003",
+                    "comment": "python-devel is earlier than 0:2.3.4-14.9.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060197004",
+                    "comment": "python-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110260005",
+                    "comment": "python-docs is earlier than 0:2.3.4-14.9.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060197006",
+                    "comment": "python-docs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110260007",
+                    "comment": "python-tools is earlier than 0:2.3.4-14.9.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060197008",
+                    "comment": "python-tools is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110260009",
+                    "comment": "tkinter is earlier than 0:2.3.4-14.9.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060197010",
+                    "comment": "tkinter is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

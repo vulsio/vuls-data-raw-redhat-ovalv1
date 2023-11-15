@@ -1,0 +1,359 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070940",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2007:0940: kernel security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0940",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0940",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3105",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3105",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3380",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3380",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3513",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3513",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3731",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3731",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3848",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3848",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3850",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3850",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4133",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4133",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4308",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4308",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4574",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4574",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Linux kernel handles the basic functions of the operating system.\n\nThese new kernel packages contain fixes for the following security issues:\n\n* A flaw was found in the backported stack unwinder fixes in Red Hat\nEnterprise Linux 5.  On AMD64 and Intel 64 platforms, a local user could\ntrigger this flaw and cause a denial of service. (CVE-2007-4574, Important)\n\n* A flaw was found in the handling of process death signals. This allowed a\nlocal user to send arbitrary signals to the suid-process executed by that\nuser. A successful exploitation of this flaw depends on the structure of\nthe suid-program and its signal handling. (CVE-2007-3848, Important)\n\n* A flaw was found in the Distributed Lock Manager (DLM) in the cluster\nmanager. This allowed a remote user who is able to connect to the DLM port\nto cause a denial of service. (CVE-2007-3380, Important)\n\n* A flaw was found in the aacraid SCSI driver. This allowed a local user to\nmake ioctl calls to the driver which should otherwise be restricted to\nprivileged users. (CVE-2007-4308, Moderate)\n\n* A flaw was found in the prio_tree handling of the hugetlb support that\nallowed a local user to cause a denial of service. This only affected\nkernels with hugetlb support. (CVE-2007-4133, Moderate)\n\n* A flaw was found in the eHCA driver on PowerPC architectures that allowed\na local user to access 60k of physical address space. This address space\ncould contain sensitive information. (CVE-2007-3850, Moderate)\n\n* A flaw was found in ptrace support that allowed a local user to cause a\ndenial of service via a NULL pointer dereference. (CVE-2007-3731, Moderate)\n\n* A flaw was found in the usblcd driver that allowed a local user to cause\na denial\nof service by writing data to the device node. To exploit this issue, write\naccess to the device node was needed. (CVE-2007-3513, Moderate)\n\n* A flaw was found in the random number generator implementation that\nallowed a local user to cause a denial of service or possibly gain\nprivileges. If the root user raised the default wakeup threshold over the\nsize of the output pool, this flaw could be exploited. (CVE-2007-3105, Low)\n\nIn addition to the security issues described above, several bug fixes\npreventing possible system crashes and data corruption were also included.\n\nRed Hat Enterprise Linux 5 users are advised to upgrade to these packages,\nwhich contain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-10-22"
+      },
+      "updated": {
+        "date": "2007-10-22"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3105",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3105",
+          "impact": "low",
+          "public": "20070621"
+        },
+        {
+          "text": "CVE-2007-3380",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3380",
+          "impact": "important",
+          "public": "20070626"
+        },
+        {
+          "text": "CVE-2007-3513",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3513",
+          "impact": "moderate",
+          "public": "20070611"
+        },
+        {
+          "text": "CVE-2007-3731",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3731",
+          "impact": "moderate",
+          "public": "20070715",
+          "cwe": "CWE-476"
+        },
+        {
+          "text": "CVE-2007-3848",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3848",
+          "impact": "important",
+          "public": "20070814"
+        },
+        {
+          "text": "CVE-2007-3850",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3850",
+          "impact": "moderate",
+          "public": "20070403"
+        },
+        {
+          "text": "CVE-2007-4133",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4133",
+          "impact": "moderate",
+          "public": "20061028"
+        },
+        {
+          "text": "CVE-2007-4308",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4308",
+          "impact": "moderate",
+          "public": "20070723"
+        },
+        {
+          "text": "CVE-2007-4574",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4574",
+          "impact": "important",
+          "public": "20071022"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3513 Locally triggerable memory consumption in usblcd",
+          "href": "https://bugzilla.redhat.com/247728",
+          "id": "247728"
+        },
+        {
+          "text": "CVE-2007-3731 NULL pointer dereference triggered by ptrace",
+          "href": "https://bugzilla.redhat.com/248324",
+          "id": "248324"
+        },
+        {
+          "text": "CVE-2007-3105 Bound check ordering issue in random driver",
+          "href": "https://bugzilla.redhat.com/248325",
+          "id": "248325"
+        },
+        {
+          "text": "CVE-2007-3848 Privilege escalation via PR_SET_PDEATHSIG",
+          "href": "https://bugzilla.redhat.com/250972",
+          "id": "250972"
+        },
+        {
+          "text": "CVE-2007-4308 kernel: Missing ioctl() permission checks in aacraid driver",
+          "href": "https://bugzilla.redhat.com/252309",
+          "id": "252309"
+        },
+        {
+          "text": "CVE-2007-4133 prio_tree unit kernel panic",
+          "href": "https://bugzilla.redhat.com/253926",
+          "id": "253926"
+        },
+        {
+          "text": "CVE-2007-4574 EM64T local DoS",
+          "href": "https://bugzilla.redhat.com/298141",
+          "id": "298141"
+        },
+        {
+          "text": "CVE-2007-3850 kernel LTC31426-4k page mapping support for userspace in 64k kernels",
+          "href": "https://bugzilla.redhat.com/308811",
+          "id": "308811"
+        },
+        {
+          "text": "CVE-2007-3380 security flaw",
+          "href": "https://bugzilla.redhat.com/1618315",
+          "id": "1618315"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20070940021",
+                "comment": "kernel earlier than 0:2.6.18-8.1.15.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20070940022",
+                "comment": "kernel earlier than 0:2.6.18-8.1.15.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940001",
+                    "comment": "kernel is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940007",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940009",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940011",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940013",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940015",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940017",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070940019",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-8.1.15.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

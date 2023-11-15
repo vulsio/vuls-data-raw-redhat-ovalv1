@@ -1,0 +1,115 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20071078",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2007:1078: cairo security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:1078",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1078",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-5503",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5503",
+        "source": "CVE"
+      }
+    ],
+    "description": "Cairo is a vector graphics library designed to provide high-quality display\nand print output.\n\nAn integer overflow flaw was found in the way Cairo processes PNG images.\nIf an application linked against Cairo processes a malicious PNG image, it\nis possible to execute arbitrary code as the user running the application.\n(CVE-2007-5503)\n\nUsers of Cairo are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-29"
+      },
+      "updated": {
+        "date": "2007-11-29"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-5503",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5503",
+          "impact": "important",
+          "public": "20071129",
+          "cwe": "CWE-190"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-5503 cairo integer overflow",
+          "href": "https://bugzilla.redhat.com/387431",
+          "id": "387431"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071078001",
+                    "comment": "cairo is earlier than 0:1.2.4-3.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071078002",
+                    "comment": "cairo is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071078003",
+                    "comment": "cairo-devel is earlier than 0:1.2.4-3.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071078004",
+                    "comment": "cairo-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080006",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2008:0006: httpd security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0006",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0006",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-4465",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4465",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-5000",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5000",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-6388",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6388",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0005",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0005",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Apache HTTP Server is a popular Web server.\n\nA flaw was found in the mod_imap module. On sites where mod_imap was\nenabled and an imagemap file was publicly available, a cross-site scripting\nattack was possible. (CVE-2007-5000)\n\nA flaw was found in the mod_autoindex module. On sites where directory\nlistings are used, and the \"AddDefaultCharset\" directive has been removed\nfrom the configuration, a cross-site scripting attack was possible against\nWeb browsers which do not correctly derive the response character set\nfollowing the rules in RFC 2616. (CVE-2007-4465)\n\nA flaw was found in the mod_status module. On sites where mod_status was\nenabled and the status pages were publicly available, a cross-site\nscripting attack was possible. (CVE-2007-6388)\n\nA flaw was found in the mod_proxy_ftp module. On sites where mod_proxy_ftp\nwas enabled and a forward proxy was configured, a cross-site scripting\nattack was possible against Web browsers which do not correctly derive the\nresponse character set following the rules in RFC 2616. (CVE-2008-0005)\n\nUsers of Apache httpd should upgrade to these updated packages, which\ncontain backported patches to resolve these issues. Users should restart\nhttpd after installing this update.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-01-15"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-4465",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4465",
+          "impact": "low",
+          "public": "20070913",
+          "cwe": "CWE-79"
+        },
+        {
+          "text": "CVE-2007-5000",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-5000",
+          "impact": "low",
+          "public": "20071211",
+          "cwe": "CWE-79"
+        },
+        {
+          "text": "CVE-2007-6388",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6388",
+          "impact": "moderate",
+          "public": "20071229",
+          "cwe": "CWE-79"
+        },
+        {
+          "text": "CVE-2008-0005",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0005",
+          "impact": "low",
+          "public": "20080102",
+          "cwe": "CWE-79"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-4465 mod_autoindex XSS",
+          "href": "https://bugzilla.redhat.com/289511",
+          "id": "289511"
+        },
+        {
+          "text": "CVE-2007-5000 httpd: mod_imagemap XSS",
+          "href": "https://bugzilla.redhat.com/419931",
+          "id": "419931"
+        },
+        {
+          "text": "CVE-2007-6388 apache mod_status cross-site scripting",
+          "href": "https://bugzilla.redhat.com/427228",
+          "id": "427228"
+        },
+        {
+          "text": "CVE-2008-0005 mod_proxy_ftp XSS",
+          "href": "https://bugzilla.redhat.com/427739",
+          "id": "427739"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080006001",
+                    "comment": "httpd is earlier than 0:2.0.52-38.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159002",
+                    "comment": "httpd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080006003",
+                    "comment": "httpd-devel is earlier than 0:2.0.52-38.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080006005",
+                    "comment": "httpd-manual is earlier than 0:2.0.52-38.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080006007",
+                    "comment": "httpd-suexec is earlier than 0:2.0.52-38.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159008",
+                    "comment": "httpd-suexec is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080006009",
+                    "comment": "mod_ssl is earlier than 1:2.0.52-38.ent.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060159010",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120303",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2012:0303: xorg-x11-server security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0303",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0303",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-4028",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4028",
+        "source": "CVE"
+      }
+    ],
+    "description": "X.Org is an open source implementation of the X Window System. It provides\nthe basic low-level functionality that full-fledged graphical user\ninterfaces are designed upon.\n\nA flaw was found in the way the X.Org server handled lock files. A local\nuser with access to the system console could use this flaw to determine the\nexistence of a file in a directory not accessible to the user, via a\nsymbolic link attack. (CVE-2011-4028)\n\nRed Hat would like to thank the researcher with the nickname vladz for\nreporting this issue.\n\nThis update also fixes the following bugs:\n\n* In rare cases, if the front and back buffer of the miDbePositionWindow()\nfunction were not both allocated in video memory, or were both allocated in\nsystem memory, the X Window System sometimes terminated unexpectedly. A\npatch has been provided to address this issue and X no longer crashes in\nthe described scenario. (BZ#596899)\n\n* Previously, when the miSetShape() function called the miRegionDestroy()\nfunction with a NULL region, X terminated unexpectedly if the backing store\nwas enabled. Now, X no longer crashes in the described scenario.\n(BZ#676270)\n\n* On certain workstations running in 32-bit mode, the X11 mouse cursor\noccasionally became stuck near the left edge of the X11 screen. A patch has\nbeen provided to address this issue and the mouse cursor no longer becomes\nstuck in the described scenario. (BZ#529717)\n\n* On certain workstations with a dual-head graphics adapter using the r500\ndriver in Zaphod mode, the mouse pointer was confined to one monitor screen\nand could not move to the other screen. A patch has been provided to\naddress this issue and the mouse cursor works properly across both screens.\n(BZ#559964)\n\n* Due to a double free operation, Xvfb (X virtual framebuffer) terminated\nunexpectedly with a segmentation fault randomly when the last client\ndisconnected, that is when the server reset. This bug has been fixed in the\nmiDCCloseScreen() function and Xvfb no longer crashes. (BZ#674741)\n\n* Starting the Xephyr server on an AMD64 or Intel 64 architecture with an\nintegrated graphics adapter caused the server to terminate unexpectedly.\nThis bug has been fixed in the code and Xephyr no longer crashes in the\ndescribed scenario. (BZ#454409)\n\n* Previously, when a client made a request bigger than 1/4th of the limit\nadvertised in the BigRequestsEnable reply, the X server closed the\nconnection unexpectedly. With this update, the maxBigRequestSize variable\nhas been added to the code to check the size of client requests, thus\nfixing this bug. (BZ#555000)\n\n* When an X client running on a big-endian system called the\nXineramaQueryScreens() function, the X server terminated unexpectedly. This\nbug has been fixed in the xf86Xinerama module and the X server no longer\ncrashes in the described scenario. (BZ#588346)\n\n* When installing Red Hat Enterprise Linux 5 on an IBM eServer System p\nblade server, the installer did not set the correct mode on the built-in\nKVM (Keyboard-Video-Mouse). Consequently, the graphical installer took a\nvery long time to appear and then was displayed incorrectly. A patch has\nbeen provided to address this issue and the graphical installer now works\nas expected in the described scenario. Note that this fix requires the\nRed Hat Enterprise Linux 5.8 kernel update. (BZ#740497)\n\n* Lines longer than 46,340 pixels can be drawn with one of the coordinates\nbeing negative. However, for dashed lines, the miPolyBuildPoly() function\noverflowed the \"int\" type when setting up edges for a section of a dashed\nline. Consequently, dashed segments were not drawn at all. An upstream\npatch has been applied to address this issue and dashed lines are now drawn\ncorrectly. (BZ#649810)\n\nAll users of xorg-x11-server are advised to upgrade to these updated\npackages, which correct these issues. All running X.Org server instances\nmust be restarted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-02-21"
+      },
+      "updated": {
+        "date": "2012-02-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-4028",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-4028",
+          "impact": "low",
+          "public": "20111018",
+          "cvss_2": "1.2/AV:L/AC:H/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-4028 xorg-x11-server: File existence disclosure vulnerability",
+          "href": "https://bugzilla.redhat.com/745755",
+          "id": "745755"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120303001",
+                    "comment": "xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.90.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127002",
+                    "comment": "xorg-x11-server-Xdmx is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120303003",
+                    "comment": "xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.90.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127004",
+                    "comment": "xorg-x11-server-Xephyr is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120303005",
+                    "comment": "xorg-x11-server-Xnest is earlier than 0:1.1.1-48.90.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127006",
+                    "comment": "xorg-x11-server-Xnest is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120303007",
+                    "comment": "xorg-x11-server-Xorg is earlier than 0:1.1.1-48.90.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127008",
+                    "comment": "xorg-x11-server-Xorg is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120303009",
+                    "comment": "xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.90.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127010",
+                    "comment": "xorg-x11-server-Xvfb is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120303011",
+                    "comment": "xorg-x11-server-Xvnc-source is earlier than 0:1.1.1-48.90.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100382012",
+                    "comment": "xorg-x11-server-Xvnc-source is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120303013",
+                    "comment": "xorg-x11-server-sdk is earlier than 0:1.1.1-48.90.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070127012",
+                    "comment": "xorg-x11-server-sdk is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060544",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2006:0544: mysql security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0544",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0544",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-0903",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0903",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1516",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1516",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1517",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1517",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-2753",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-2753",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-3081",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3081",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4380",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4380",
+        "source": "CVE"
+      }
+    ],
+    "description": "MySQL is a multi-user, multi-threaded SQL database server. MySQL is a\nclient/server implementation consisting of a server daemon (mysqld) and\nmany different client programs and libraries.\n\nA flaw was found in the way the MySQL mysql_real_escape() function escaped\nstrings when operating in a multibyte character encoding.  An attacker\ncould provide an application a carefully crafted string containing\ninvalidly-encoded characters which may be improperly escaped, leading to\nthe injection of malicious SQL commands. (CVE-2006-2753)\n\nAn information disclosure flaw was found in the way the MySQL server\nprocessed malformed usernames. An attacker could view a small portion\nof server memory by supplying an anonymous login username which was not\nnull terminated. (CVE-2006-1516)\n\nAn information disclosure flaw was found in the way the MySQL server\nexecuted the COM_TABLE_DUMP command. An authenticated malicious user could\nsend a specially crafted packet to the MySQL server which returned\nrandom unallocated memory. (CVE-2006-1517)\n\nA log file obfuscation flaw was found in the way the mysql_real_query()\nfunction creates log file entries. An attacker with the the ability to call\nthe mysql_real_query() function against a mysql server can obfuscate the\nentry the server will write to the log file.  However, an attacker needed\nto have complete control over a server in order to attempt this attack.\n(CVE-2006-0903)\n\nThis update also fixes numerous non-security-related flaws, such as\nintermittent authentication failures.\n\nAll users of mysql are advised to upgrade to these updated packages\ncontaining MySQL version 4.1.20, which is not vulnerable to these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-06-09"
+      },
+      "updated": {
+        "date": "2006-06-09"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-0903",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0903",
+          "impact": "low",
+          "public": "20060220"
+        },
+        {
+          "text": "CVE-2006-1516",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1516",
+          "impact": "moderate",
+          "public": "20060502"
+        },
+        {
+          "text": "CVE-2006-1517",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1517",
+          "impact": "moderate",
+          "public": "20060502"
+        },
+        {
+          "text": "CVE-2006-2753",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-2753",
+          "impact": "important",
+          "public": "20060531"
+        },
+        {
+          "text": "CVE-2006-3081",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-3081",
+          "impact": "low",
+          "public": "20060614"
+        },
+        {
+          "text": "CVE-2006-4380",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4380",
+          "impact": "moderate",
+          "public": "20050528"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-0903 Mysql log file obfuscation",
+          "href": "https://bugzilla.redhat.com/194613",
+          "id": "194613"
+        },
+        {
+          "text": "CVE-2006-1516 security flaw",
+          "href": "https://bugzilla.redhat.com/1618038",
+          "id": "1618038"
+        },
+        {
+          "text": "CVE-2006-1517 security flaw",
+          "href": "https://bugzilla.redhat.com/1618039",
+          "id": "1618039"
+        },
+        {
+          "text": "CVE-2006-2753 security flaw",
+          "href": "https://bugzilla.redhat.com/1618111",
+          "id": "1618111"
+        },
+        {
+          "text": "CVE-2006-3081 security flaw",
+          "href": "https://bugzilla.redhat.com/1618132",
+          "id": "1618132"
+        },
+        {
+          "text": "CVE-2006-4380 security flaw",
+          "href": "https://bugzilla.redhat.com/1618185",
+          "id": "1618185"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544001",
+                    "comment": "mysql is earlier than 0:4.1.20-1.RHEL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544002",
+                    "comment": "mysql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544003",
+                    "comment": "mysql-bench is earlier than 0:4.1.20-1.RHEL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544004",
+                    "comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544005",
+                    "comment": "mysql-devel is earlier than 0:4.1.20-1.RHEL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544006",
+                    "comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544007",
+                    "comment": "mysql-server is earlier than 0:4.1.20-1.RHEL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060544008",
+                    "comment": "mysql-server is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

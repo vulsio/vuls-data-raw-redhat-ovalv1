@@ -1,0 +1,89 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100347",
+  "version": "643",
+  "metadata": {
+    "title": "RHSA-2010:0347: nss_db security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0347",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0347",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0826",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0826",
+        "source": "CVE"
+      }
+    ],
+    "description": "The nss_db packages provide a set of C library extensions which allow\nBerkeley Database (Berkeley DB) databases to be used as a primary source of\naliases, ethers, groups, hosts, networks, protocols, users, RPCs, services,\nand shadow passwords. These databases are used instead of or in addition to\nthe flat files used by these tools by default.\n\nIt was discovered that nss_db did not specify a path to the directory to be\nused as the database environment for the Berkeley Database library, causing\nit to use the current working directory as the default. This could possibly\nallow a local attacker to obtain sensitive information. (CVE-2010-0826)\n\nUsers of nss_db are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-04-13"
+      },
+      "updated": {
+        "date": "2010-04-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0826",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0826",
+          "impact": "moderate",
+          "public": "20100401",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0826 nss_db: Information leak due the DB_CONFIG file read from current working directory",
+          "href": "https://bugzilla.redhat.com/580187",
+          "id": "580187"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100347001",
+            "comment": "nss_db is earlier than 0:2.2-35.4.el5_5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100347002",
+            "comment": "nss_db is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,465 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20140341",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2014:0341: wireshark security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2014:0341",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2014:0341",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-5595",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5595",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-5598",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5598",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-5599",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5599",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-5600",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5600",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-6056",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-6056",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-6060",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-6060",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-6061",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-6061",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-6062",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-6062",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-3557",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-3557",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-3559",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-3559",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4081",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4081",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4083",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4083",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4927",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4927",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4931",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4931",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4932",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4932",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4933",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4933",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4934",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4934",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-4935",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4935",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-5721",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-5721",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-7112",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-7112",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2014-2281",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-2281",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2014-2299",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-2299",
+        "source": "CVE"
+      }
+    ],
+    "description": "Wireshark is a network protocol analyzer. It is used to capture and browse\nthe traffic running on a computer network.\n\nMultiple flaws were found in Wireshark. If Wireshark read a malformed\npacket off a network or opened a malicious dump file, it could crash or,\npossibly, execute arbitrary code as the user running Wireshark.\n(CVE-2013-3559, CVE-2013-4083, CVE-2014-2281, CVE-2014-2299)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malicious dump file. (CVE-2012-5595, CVE-2012-5598, CVE-2012-5599,\nCVE-2012-5600, CVE-2012-6056, CVE-2012-6060, CVE-2012-6061, CVE-2012-6062,\nCVE-2013-3557, CVE-2013-4081, CVE-2013-4927, CVE-2013-4931, CVE-2013-4932,\nCVE-2013-4933, CVE-2013-4934, CVE-2013-4935, CVE-2013-5721, CVE-2013-7112)\n\nAll Wireshark users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. All running instances\nof Wireshark must be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2014 Red Hat, Inc.",
+      "issued": {
+        "date": "2014-03-31"
+      },
+      "updated": {
+        "date": "2014-03-31"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-5595",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-5595",
+          "impact": "low",
+          "public": "20121128",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-5598",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-5598",
+          "impact": "low",
+          "public": "20121128",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-5599",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-5599",
+          "impact": "low",
+          "public": "20121128",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-5600",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-5600",
+          "impact": "low",
+          "public": "20121128",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-6056",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-6056",
+          "impact": "low",
+          "public": "20121128",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-6060",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-6060",
+          "impact": "low",
+          "public": "20121128",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-6061",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-6061",
+          "impact": "low",
+          "public": "20121128",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-6062",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-6062",
+          "impact": "low",
+          "public": "20121128",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-3557",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-3557",
+          "impact": "low",
+          "public": "20130517",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-3559",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-3559",
+          "impact": "moderate",
+          "public": "20130517",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2013-4081",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4081",
+          "impact": "low",
+          "public": "20130607",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-4083",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4083",
+          "impact": "moderate",
+          "public": "20130607",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2013-4927",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4927",
+          "impact": "low",
+          "public": "20130726",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-4931",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4931",
+          "impact": "low",
+          "public": "20130726",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-4932",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4932",
+          "impact": "low",
+          "public": "20130726",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-4933",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4933",
+          "impact": "low",
+          "public": "20130726",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-4934",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4934",
+          "impact": "low",
+          "public": "20130726",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-4935",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4935",
+          "impact": "low",
+          "public": "20130726",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-5721",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-5721",
+          "impact": "low",
+          "public": "20130910",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-7112",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-7112",
+          "impact": "low",
+          "public": "20131217",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2014-2281",
+          "href": "https://access.redhat.com/security/cve/CVE-2014-2281",
+          "impact": "moderate",
+          "public": "20140307",
+          "cwe": "CWE-119",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2014-2299",
+          "href": "https://access.redhat.com/security/cve/CVE-2014-2299",
+          "impact": "moderate",
+          "public": "20140307",
+          "cwe": "CWE-119",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-5600 CVE-2012-6062 wireshark: DoS (infinite loop) in the RTCP dissector (wnpa-sec-2012-38)",
+          "href": "https://bugzilla.redhat.com/881742",
+          "id": "881742"
+        },
+        {
+          "text": "CVE-2012-5599 CVE-2012-6061 wireshark: DoS (infinite loop) in the WTP dissector (wnpa-sec-2012-37)",
+          "href": "https://bugzilla.redhat.com/881748",
+          "id": "881748"
+        },
+        {
+          "text": "CVE-2012-5598 CVE-2012-6060 wireshark: DoS (infinite loop) in the iSCSI dissector (wnpa-sec-2012-36)",
+          "href": "https://bugzilla.redhat.com/881771",
+          "id": "881771"
+        },
+        {
+          "text": "CVE-2012-5595 CVE-2012-6056 wireshark: DoS (infinite loop) in the SCTP dissector (wnpa-sec-2012-33)",
+          "href": "https://bugzilla.redhat.com/881809",
+          "id": "881809"
+        },
+        {
+          "text": "CVE-2013-3559 wireshark: DoS (crash) in the DCP ETSI dissector (wnpa-sec-2013-27, upstream #8231, #8540, #8541)",
+          "href": "https://bugzilla.redhat.com/965190",
+          "id": "965190"
+        },
+        {
+          "text": "CVE-2013-3557 wireshark: DoS (crash) in the ASN.1 BER dissector (wnpa-sec-2013-25, upstream #8599)",
+          "href": "https://bugzilla.redhat.com/965193",
+          "id": "965193"
+        },
+        {
+          "text": "CVE-2013-4081 wireshark: DoS (infinite loop) in the HTTP dissector (wnpa-sec-2013-39)",
+          "href": "https://bugzilla.redhat.com/972686",
+          "id": "972686"
+        },
+        {
+          "text": "CVE-2013-4083 wireshark: Invalid free in the DCP ETSI dissector (wnpa-sec-2013-41)",
+          "href": "https://bugzilla.redhat.com/972688",
+          "id": "972688"
+        },
+        {
+          "text": "CVE-2013-4927 wireshark: Integer signedness error in the Bluetooth SDP dissector (wnpa-sec-2013-45)",
+          "href": "https://bugzilla.redhat.com/990166",
+          "id": "990166"
+        },
+        {
+          "text": "CVE-2013-4931 wireshark: DoS (infinite loop) in the GSM RR dissector (wnpa-sec-2013-49)",
+          "href": "https://bugzilla.redhat.com/990170",
+          "id": "990170"
+        },
+        {
+          "text": "CVE-2013-4932 wireshark: Multiple array index errors in the GSM A Common dissector (wnpa-sec-2013-50)",
+          "href": "https://bugzilla.redhat.com/990172",
+          "id": "990172"
+        },
+        {
+          "text": "CVE-2013-4933 wireshark: DoS (application crash) in the Netmon file parser (wnpa-sec-2013-51)",
+          "href": "https://bugzilla.redhat.com/990175",
+          "id": "990175"
+        },
+        {
+          "text": "CVE-2013-4934 wireshark: DoS (application crash) in the Netmon file parser (wnpa-sec-2013-51) (A different flaw than CVE-2013-4933)",
+          "href": "https://bugzilla.redhat.com/990178",
+          "id": "990178"
+        },
+        {
+          "text": "CVE-2013-4935 wireshark: DoS (application crash) in the ASN.1 PER dissector (wnpa-sec-2013-52)",
+          "href": "https://bugzilla.redhat.com/990179",
+          "id": "990179"
+        },
+        {
+          "text": "CVE-2013-5721 wireshark: MQ dissector crash (wnpa-sec-2013-58, upstream bug 9079)",
+          "href": "https://bugzilla.redhat.com/1007197",
+          "id": "1007197"
+        },
+        {
+          "text": "CVE-2013-7112 wireshark: SIP dissector could go into an infinite loop (wnpa-sec-2013-66)",
+          "href": "https://bugzilla.redhat.com/1044508",
+          "id": "1044508"
+        },
+        {
+          "text": "CVE-2014-2299 wireshark: buffer overflow in MPEG file parser (wnpa-sec-2014-04)",
+          "href": "https://bugzilla.redhat.com/1074109",
+          "id": "1074109"
+        },
+        {
+          "text": "CVE-2014-2281 wireshark: NFS dissector crash (wnpa-sec-2014-01)",
+          "href": "https://bugzilla.redhat.com/1074114",
+          "id": "1074114"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20140341001",
+                    "comment": "wireshark is earlier than 0:1.0.15-6.el5_10"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20140341003",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.15-6.el5_10"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

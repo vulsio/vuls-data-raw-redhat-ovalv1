@@ -1,0 +1,163 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20071095",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2007:1095: htdig security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:1095",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1095",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-6110",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6110",
+        "source": "CVE"
+      }
+    ],
+    "description": "The ht://Dig system is a complete World Wide Web indexing and searching\nsystem for a small domain or intranet.\n\nA cross-site scripting flaw was discovered in a htdig search page. An\nattacker could construct a carefully crafted URL, which once visited by an \nunsuspecting user, could cause a user's Web browser to execute malicious\nscript in the context of the visited htdig search Web page. (CVE-2007-6110)\n\nUsers of htdig are advised to upgrade to these updated packages, which\ncontain backported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2007 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-12-03"
+      },
+      "updated": {
+        "date": "2007-12-03"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-6110",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6110",
+          "impact": "moderate",
+          "public": "20070925",
+          "cwe": "CWE-79"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-6110 htdig htsearch XSS vulnerability",
+          "href": "https://bugzilla.redhat.com/399561",
+          "id": "399561"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071095001",
+                    "comment": "htdig is earlier than 3:3.2.0b6-4.el4_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071095002",
+                    "comment": "htdig is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071095003",
+                    "comment": "htdig-web is earlier than 3:3.2.0b6-4.el4_6"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071095004",
+                    "comment": "htdig-web is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071095006",
+                    "comment": "htdig is earlier than 3:3.2.0b6-9.0.1.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071095002",
+                    "comment": "htdig is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071095007",
+                    "comment": "htdig-web is earlier than 3:3.2.0b6-9.0.1.el5_1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20071095004",
+                    "comment": "htdig-web is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

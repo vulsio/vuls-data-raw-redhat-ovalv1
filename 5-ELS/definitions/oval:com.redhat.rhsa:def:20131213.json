@@ -1,0 +1,128 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20131213",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2013:1213: gdm security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:1213",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:1213",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2013-4169",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4169",
+        "source": "CVE"
+      }
+    ],
+    "description": "The GNOME Display Manager (GDM) provides the graphical login screen, shown\nshortly after boot up, log out, and when user-switching.\n\nA race condition was found in the way GDM handled the X server sockets\ndirectory located in the system temporary directory. An unprivileged user\ncould use this flaw to perform a symbolic link attack, giving them write\naccess to any file, allowing them to escalate their privileges to root.\n(CVE-2013-4169)\n\nNote that this erratum includes an updated initscripts package. To fix\nCVE-2013-4169, the vulnerable code was removed from GDM and the initscripts\npackage was modified to create the affected directory safely during the\nsystem boot process. Therefore, this update will appear on all systems,\nhowever systems without GDM installed are not affected by this flaw.\n\nRed Hat would like to thank the researcher with the nickname vladz for\nreporting this issue.\n\nAll users should upgrade to these updated packages, which correct this\nissue. The system must be rebooted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-09-05"
+      },
+      "updated": {
+        "date": "2013-09-05"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-4169",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-4169",
+          "impact": "important",
+          "public": "20130905",
+          "cwe": "(CWE-367|CWE-377)->CWE-552",
+          "cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2013-4169 gdm: TOCTTOU race condition on /tmp/.X11-unix",
+          "href": "https://bugzilla.redhat.com/988498",
+          "id": "988498"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131213001",
+                    "comment": "initscripts is earlier than 0:8.45.42-2.el5_9.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120312002",
+                    "comment": "initscripts is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131213003",
+                    "comment": "gdm is earlier than 1:2.16.0-59.el5_9.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070777002",
+                    "comment": "gdm is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131213005",
+                    "comment": "gdm-docs is earlier than 1:2.16.0-59.el5_9.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091364004",
+                    "comment": "gdm-docs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

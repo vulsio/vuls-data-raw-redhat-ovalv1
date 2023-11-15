@@ -1,0 +1,130 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070555",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2007:0555: pam security, bug fix, and enhancement update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0555",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0555",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-1716",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1716",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-3102",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3102",
+        "source": "CVE"
+      }
+    ],
+    "description": "Pluggable Authentication Modules (PAM) provide a system whereby\nadministrators can set up authentication policies without having to\nrecompile programs that handle authentication.\n\nA flaw was found in the way pam_console set console device permissions. It\nwas possible for various console devices to retain ownership of the console\nuser after logging out, possibly leaking information to another local user.\n(CVE-2007-1716)\n\nA flaw was found in the way the PAM library wrote account names to the\naudit subsystem. An attacker could inject strings containing parts of audit\nmessages which could possibly mislead or confuse audit log parsing tools.\n(CVE-2007-3102)\n\nAs well, these updated packages fix the following bugs:\n\n* truncated MD5-hashed passwords in \"/etc/shadow\" were treated as valid, \nresulting in insecure and invalid passwords.\n\n* the pam_namespace module did not convert context names to raw format and\ndid not unmount polyinstantiated directories in some cases. It also crashed\nwhen an unknown user name was used in \"/etc/security/namespace.conf\", the\npam_namespace configuration file.\n\n* the pam_selinux module was not relabeling the controlling tty correctly,\nand in some cases it did not send complete information about user role and\nlevel change to the audit subsystem.\n\nThese updated packages add the following enhancements:\n\n* pam_limits module now supports parsing additional config files placed\ninto the /etc/security/limits.d/ directory. These files are read after the\nmain configuration file.\n\n* the modules pam_limits, pam_access, and pam_time now send a message to\nthe audit subsystem when a user is denied access based on the number of\nlogin sessions, origin of user, and time of login.\n\n* pam_unix module security properties were improved. Functionality in the\nsetuid helper binary, unix_chkpwd, which was not required for user\nauthentication, was moved to a new non-setuid helper binary, unix_update.\n\nAll users of PAM should upgrade to these updated packages, which resolve\nthese issues and add these enhancements.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-07"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-1716",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1716",
+          "impact": "low",
+          "public": "20070303"
+        },
+        {
+          "text": "CVE-2007-3102",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3102",
+          "impact": "moderate",
+          "public": "20071107"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3102 audit logging of failed logins",
+          "href": "https://bugzilla.redhat.com/243204",
+          "id": "243204"
+        },
+        {
+          "text": "CVE-2007-1716 security flaw",
+          "href": "https://bugzilla.redhat.com/1618305",
+          "id": "1618305"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070555001",
+                    "comment": "pam is earlier than 0:0.99.6.2-3.26.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070555002",
+                    "comment": "pam is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070555003",
+                    "comment": "pam-devel is earlier than 0:0.99.6.2-3.26.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070555004",
+                    "comment": "pam-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

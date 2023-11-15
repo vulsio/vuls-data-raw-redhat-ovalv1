@@ -1,0 +1,167 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080223",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0223: seamonkey security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0223",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0223",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1380",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1380",
+        "source": "CVE"
+      }
+    ],
+    "description": "SeaMonkey is an open source Web browser, advanced email and newsgroup\nclient, IRC chat client, and HTML editor.\n\nA flaw was found in the processing of malformed JavaScript content. A web\npage containing such malicious content could cause SeaMonkey to crash or,\npotentially, execute arbitrary code as the user running SeaMonkey.\n(CVE-2008-1380)\n\nAll SeaMonkey users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-04-17"
+      },
+      "updated": {
+        "date": "2008-04-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1380",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1380",
+          "impact": "critical",
+          "public": "20080416"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1380 Firefox JavaScript garbage collection crash",
+          "href": "https://bugzilla.redhat.com/440518",
+          "id": "440518"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080223001",
+                    "comment": "seamonkey is earlier than 0:1.0.9-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609002",
+                    "comment": "seamonkey is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080223003",
+                    "comment": "seamonkey-chat is earlier than 0:1.0.9-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609004",
+                    "comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080223005",
+                    "comment": "seamonkey-devel is earlier than 0:1.0.9-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609006",
+                    "comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080223007",
+                    "comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609008",
+                    "comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080223009",
+                    "comment": "seamonkey-js-debugger is earlier than 0:1.0.9-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609010",
+                    "comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080223011",
+                    "comment": "seamonkey-mail is earlier than 0:1.0.9-16.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060609012",
+                    "comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

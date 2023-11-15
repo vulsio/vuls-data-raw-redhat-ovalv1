@@ -1,0 +1,214 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091100",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2009:1100: wireshark security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1100",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1100",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-1210",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1210",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-1268",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1268",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-1269",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1269",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-1829",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1829",
+        "source": "CVE"
+      }
+    ],
+    "description": "Wireshark is a program for monitoring network traffic. Wireshark was\npreviously known as Ethereal.\n\nA format string flaw was found in Wireshark. If Wireshark read a malformed\npacket off a network or opened a malicious dump file, it could crash or,\npossibly, execute arbitrary code as the user running Wireshark. (CVE-2009-1210)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malicious dump file. (CVE-2009-1268, CVE-2009-1269, CVE-2009-1829)\n\nUsers of wireshark should upgrade to these updated packages, which contain\nWireshark version 1.0.8, and resolve these issues. All running instances of\nWireshark must be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-06-15"
+      },
+      "updated": {
+        "date": "2009-06-15"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-1210",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1210",
+          "impact": "moderate",
+          "public": "20090330",
+          "cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2009-1268",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1268",
+          "impact": "low",
+          "public": "20090408",
+          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-1269",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1269",
+          "impact": "low",
+          "public": "20090408",
+          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-1829",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1829",
+          "impact": "low",
+          "public": "20090521",
+          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-1210 wireshark: format string in PROFINET dissector",
+          "href": "https://bugzilla.redhat.com/493973",
+          "id": "493973"
+        },
+        {
+          "text": "CVE-2009-1268 Wireshark CHAP dissector crash",
+          "href": "https://bugzilla.redhat.com/495119",
+          "id": "495119"
+        },
+        {
+          "text": "CVE-2009-1269 Wireshark Tektronix .rf5 file crash",
+          "href": "https://bugzilla.redhat.com/495121",
+          "id": "495121"
+        },
+        {
+          "text": "CVE-2009-1829 wireshark: PCNFSD dissector crash",
+          "href": "https://bugzilla.redhat.com/501929",
+          "id": "501929"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091100001",
+                    "comment": "wireshark is earlier than 0:1.0.8-1.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091100003",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.8-1.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091100006",
+                    "comment": "wireshark is earlier than 0:1.0.8-1.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091100007",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.8-1.el5_3.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

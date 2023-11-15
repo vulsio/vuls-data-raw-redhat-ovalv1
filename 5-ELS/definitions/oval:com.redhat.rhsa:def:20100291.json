@@ -1,0 +1,125 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100291",
+  "version": "656",
+  "metadata": {
+    "title": "RHSA-2010:0291: gfs-kmod security, bug fix and enhancement update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0291",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0291",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0727",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0727",
+        "source": "CVE"
+      }
+    ],
+    "description": "The gfs-kmod packages contain modules that provide the ability to mount and\nuse GFS file systems.\n\nA flaw was found in the gfs_lock() implementation. The GFS locking code\ncould skip the lock operation for files that have the S_ISGID bit\n(set-group-ID on execution) in their mode set. A local, unprivileged user\non a system that has a GFS file system mounted could use this flaw to cause\na kernel panic. (CVE-2010-0727)\n\nThese updated gfs-kmod packages are in sync with the latest kernel\n(2.6.18-194.el5). The modules in earlier gfs-kmod packages failed to load\nbecause they did not match the running kernel. It was possible to\nforce-load the modules. With this update, however, users no longer need to.\n\nThese updated gfs-kmod packages also fix the following bugs:\n\n* when SELinux was in permissive mode, a race condition during file\ncreation could have caused one or more cluster nodes to be fenced and lock\nthe remaining nodes out of the GFS file system. This race condition no\nlonger occurs with this update. (BZ#471258)\n\n* when ACLs (Access Control Lists) are enabled on a GFS file system, if a\ntransaction that has started to do a write request does not have enough\nspare blocks for the operation it causes a kernel panic. This update\nensures that there are enough blocks for the write request before starting\nthe operation. (BZ#513885)\n\n* requesting a \"flock\" on a file in GFS in either read-only or read-write\nmode would sometimes cause a \"Resource temporarily unavailable\" state error\n(error 11 for EWOULDBLOCK) to occur. In these cases, a flock could not be\nobtained on the file in question. This has been fixed with this update so\nthat flocks can successfully be obtained on GFS files without this error\noccurring. (BZ#515717)\n\n* the GFS withdraw function is a data integrity feature of GFS file systems\nin a cluster. If the GFS kernel module detects an inconsistency in a GFS\nfile system following an I/O operation, the file system becomes unavailable\nto the cluster. The GFS withdraw function is less severe than a kernel\npanic, which would cause another node to fence the node. With this update,\nyou can override the GFS withdraw function by mounting the file system with\nthe \"-o errors=panic\" option specified. When this option is specified, any\nerrors that would normally cause the system to withdraw cause the system to\npanic instead. This stops the node's cluster communications, which causes\nthe node to be fenced. (BZ#517145)\n\nFinally, these updated gfs-kmod packages provide the following enhancement:\n\n* the GFS kernel modules have been updated to use the new generic freeze\nand unfreeze ioctl interface that is also supported by the following file\nsystems: ext3, ext4, GFS2, JFS and ReiserFS. With this update, GFS supports\nfreeze/unfreeze through the VFS-level FIFREEZE/FITHAW ioctl interface.\n(BZ#487610)\n\nUsers are advised to upgrade to these latest gfs-kmod packages, updated for\nuse with the 2.6.18-194.el5 kernel, which contain backported patches to\ncorrect these issues, fix these bugs, and add this enhancement.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-29"
+      },
+      "updated": {
+        "date": "2010-03-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0727",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0727",
+          "impact": "moderate",
+          "public": "20100311",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0727 kernel: bug in GFS/GFS2 locking code leads to dos",
+          "href": "https://bugzilla.redhat.com/570863",
+          "id": "570863"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_cluster_storage:5"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100291001",
+                    "comment": "kmod-gfs is earlier than 0:0.1.34-12.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100291002",
+                    "comment": "kmod-gfs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100291003",
+                    "comment": "kmod-gfs-PAE is earlier than 0:0.1.34-12.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100291004",
+                    "comment": "kmod-gfs-PAE is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100291005",
+                    "comment": "kmod-gfs-xen is earlier than 0:0.1.34-12.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100291006",
+                    "comment": "kmod-gfs-xen is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

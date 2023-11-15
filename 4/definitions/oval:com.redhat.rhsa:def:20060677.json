@@ -1,0 +1,186 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060677",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2006:0677: thunderbird security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0677",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0677",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-4253",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4253",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4340",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4340",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4565",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4565",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4566",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4566",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4567",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4567",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4570",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4570",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4571",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4571",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Thunderbird is a standalone mail and newsgroup client.\n\nTwo flaws were found in the way Thunderbird processed certain regular\nexpressions.  A malicious HTML email could cause a crash or possibly\nexecute arbitrary code as the user running Thunderbird.  (CVE-2006-4565,\nCVE-2006-4566)\n\nA flaw was found in the Thunderbird auto-update verification system.  An\nattacker who has the ability to spoof a victim's DNS could get Firefox to\ndownload and install malicious code. In order to exploit this issue an\nattacker would also need to get a victim to previously accept an\nunverifiable certificate. (CVE-2006-4567)\n\nA flaw was found in the handling of Javascript timed events.  A malicious\nHTML email could crash the browser or possibly execute arbitrary code as\nthe user running Thunderbird. (CVE-2006-4253)\n\nDaniel Bleichenbacher recently described an implementation error in RSA\nsignature verification.  For RSA keys with exponent 3 it is possible for an\nattacker to forge a signature that which would be incorrectly verified by\nthe NSS library.  (CVE-2006-4340)\n\nA flaw was found in Thunderbird that triggered when a HTML message\ncontained a remote image pointing to a XBL script.  An attacker could have\ncreated a carefully crafted message which would execute Javascript if\ncertain actions were performed on the email by the recipient, even if\nJavascript was disabled.  (CVE-2006-4570)\n\nA number of flaws were found in Thunderbird.  A malicious HTML email could\ncause a crash or possibly execute arbitrary code as the user running\nThunderbird.  (CVE-2006-4571)\n\nUsers of Thunderbird are advised to upgrade to this update, which contains\nThunderbird version 1.5.0.7 that corrects these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-09-15"
+      },
+      "updated": {
+        "date": "2006-09-15"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-4253",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4253",
+          "impact": "important",
+          "public": "20060812"
+        },
+        {
+          "text": "CVE-2006-4340",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4340",
+          "impact": "important",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4565",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4565",
+          "impact": "critical",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4566",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4566",
+          "impact": "critical",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4567",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4567",
+          "impact": "moderate",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4570",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4570",
+          "impact": "important",
+          "public": "20060915:0001"
+        },
+        {
+          "text": "CVE-2006-4571",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4571",
+          "impact": "critical",
+          "public": "20060915:0001"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "seamonkey < 1.0.5 multiple vulnerabilities; to replace Mozilla",
+          "href": "https://bugzilla.redhat.com/209167",
+          "id": "209167"
+        },
+        {
+          "text": "CVE-2006-4253 security flaw",
+          "href": "https://bugzilla.redhat.com/1618177",
+          "id": "1618177"
+        },
+        {
+          "text": "CVE-2006-4340 security flaw",
+          "href": "https://bugzilla.redhat.com/1618183",
+          "id": "1618183"
+        },
+        {
+          "text": "CVE-2006-4565 security flaw",
+          "href": "https://bugzilla.redhat.com/1618191",
+          "id": "1618191"
+        },
+        {
+          "text": "CVE-2006-4566 security flaw",
+          "href": "https://bugzilla.redhat.com/1618192",
+          "id": "1618192"
+        },
+        {
+          "text": "CVE-2006-4567 security flaw",
+          "href": "https://bugzilla.redhat.com/1618193",
+          "id": "1618193"
+        },
+        {
+          "text": "CVE-2006-4570 security flaw",
+          "href": "https://bugzilla.redhat.com/1618196",
+          "id": "1618196"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060677001",
+            "comment": "thunderbird is earlier than 0:1.5.0.7-0.1.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060330002",
+            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

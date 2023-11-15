@@ -1,0 +1,180 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070795",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2007:0795: cyrus-sasl security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0795",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0795",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-1721",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1721",
+        "source": "CVE"
+      }
+    ],
+    "description": "The cyrus-sasl package contains the Cyrus implementation of SASL. SASL is\nthe Simple Authentication and Security Layer, a method for adding\nauthentication support to connection-based protocols.\n\nA bug was found in cyrus-sasl's DIGEST-MD5 authentication mechanism. As\npart of the DIGEST-MD5 authentication exchange, the client is expected to\nsend a specific set of information to the server. If one of these items\n(the \"realm\") was not sent or was malformed, it was possible for a remote\nunauthenticated attacker to cause a denial of service (segmentation fault)\non the server. (CVE-2006-1721)\n\nThis errata also fixes the following bugs:\n\n* the Kerberos 5 library included in Red Hat Enterprise Linux 4 was not\nthread safe. This update adds functionality which allows it to be used\nsafely in a threaded application.\n\n* several memory leak bugs were fixed in cyrus-sasl's DIGEST-MD5\nauthentication plug-in.\n\n* /dev/urandom is now used by default on systems which don't support\nhwrandom. Previously, dev/random was the default.\n\n* cyrus-sasl needs zlib-devel to build properly. This dependency\ninformation is now included in the package.\n\nUsers are advised to upgrade to this updated cyrus-sasl package, which\nresolves these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-09-04"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-1721",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1721",
+          "impact": "moderate",
+          "public": "20050515"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-1721 cyrus-sasl digest-md5 DoS",
+          "href": "https://bugzilla.redhat.com/189814",
+          "id": "189814"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795001",
+                    "comment": "cyrus-sasl is earlier than 0:2.1.19-14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795002",
+                    "comment": "cyrus-sasl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795003",
+                    "comment": "cyrus-sasl-devel is earlier than 0:2.1.19-14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795004",
+                    "comment": "cyrus-sasl-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795005",
+                    "comment": "cyrus-sasl-gssapi is earlier than 0:2.1.19-14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795006",
+                    "comment": "cyrus-sasl-gssapi is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795007",
+                    "comment": "cyrus-sasl-md5 is earlier than 0:2.1.19-14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795008",
+                    "comment": "cyrus-sasl-md5 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795009",
+                    "comment": "cyrus-sasl-ntlm is earlier than 0:2.1.19-14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795010",
+                    "comment": "cyrus-sasl-ntlm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795011",
+                    "comment": "cyrus-sasl-plain is earlier than 0:2.1.19-14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795012",
+                    "comment": "cyrus-sasl-plain is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795013",
+                    "comment": "cyrus-sasl-sql is earlier than 0:2.1.19-14"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070795014",
+                    "comment": "cyrus-sasl-sql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

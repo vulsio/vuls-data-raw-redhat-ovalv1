@@ -1,0 +1,128 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20130241",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2013:0241: xen security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:0241",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0241",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-4544",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4544",
+        "source": "CVE"
+      }
+    ],
+    "description": "The xen packages contain administration tools and the xend service for\nmanaging the kernel-xen kernel for virtualization on Red Hat Enterprise\nLinux.\n\nA flaw was found in the way libxc, the Xen control library, handled\nexcessively large kernel and ramdisk images when starting new guests. A\nprivileged guest user in a para-virtualized guest (a DomU) could create a\ncrafted kernel or ramdisk image that, when attempting to use it during\nguest start, could result in an out-of-memory condition in the privileged\ndomain (the Dom0). (CVE-2012-4544)\n\nRed Hat would like to thank the Xen project for reporting this issue.\n\nAll users of xen are advised to upgrade to these updated packages, which\ncorrect this issue. After installing the updated packages, the xend service\nmust be restarted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-02-07"
+      },
+      "updated": {
+        "date": "2013-02-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-4544",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-4544",
+          "impact": "moderate",
+          "public": "20121026",
+          "cvss_2": "2.7/AV:A/AC:L/Au:S/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-4544 xen: Xen domain builder Out-of-memory due to malicious kernel/ramdisk",
+          "href": "https://bugzilla.redhat.com/870412",
+          "id": "870412"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::server",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130241001",
+                    "comment": "xen is earlier than 0:3.0.3-142.el5_9.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+                    "comment": "xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130241003",
+                    "comment": "xen-devel is earlier than 0:3.0.3-142.el5_9.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+                    "comment": "xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130241005",
+                    "comment": "xen-libs is earlier than 0:3.0.3-142.el5_9.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+                    "comment": "xen-libs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

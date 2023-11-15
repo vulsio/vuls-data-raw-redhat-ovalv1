@@ -1,0 +1,163 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091561",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2009:1561: libvorbis security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1561",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1561",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-3379",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3379",
+        "source": "CVE"
+      }
+    ],
+    "description": "The libvorbis packages contain runtime libraries for use in programs that\nsupport Ogg Vorbis. Ogg Vorbis is a fully open, non-proprietary, patent-and\nroyalty-free, general-purpose compressed audio format.\n\nMultiple flaws were found in the libvorbis library. A specially-crafted Ogg\nVorbis media format file (Ogg) could cause an application using libvorbis\nto crash or, possibly, execute arbitrary code when opened. (CVE-2009-3379)\n\nUsers of libvorbis should upgrade to these updated packages, which contain\nbackported patches to correct these issues. The desktop must be restarted\n(log out, then log back in) for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-11-09"
+      },
+      "updated": {
+        "date": "2009-11-09"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-3379",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3379",
+          "impact": "important",
+          "public": "20091027",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-3379 libvorbis: security fixes mentioned in MFSA 2009-63",
+          "href": "https://bugzilla.redhat.com/531765",
+          "id": "531765"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091561001",
+                    "comment": "libvorbis is earlier than 1:1.1.0-3.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070845002",
+                    "comment": "libvorbis is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091561003",
+                    "comment": "libvorbis-devel is earlier than 1:1.1.0-3.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070845004",
+                    "comment": "libvorbis-devel is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091561006",
+                    "comment": "libvorbis is earlier than 1:1.1.2-3.el5_4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070845007",
+                    "comment": "libvorbis is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091561008",
+                    "comment": "libvorbis-devel is earlier than 1:1.1.2-3.el5_4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070845009",
+                    "comment": "libvorbis-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

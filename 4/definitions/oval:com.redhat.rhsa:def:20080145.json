@@ -1,0 +1,323 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080145",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2008:0145: ImageMagick security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0145",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0145",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-1797",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1797",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4985",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4985",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4986",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4986",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-4988",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4988",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1096",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1096",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1097",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1097",
+        "source": "CVE"
+      }
+    ],
+    "description": "ImageMagick is an image display and manipulation tool for the X Window\nSystem that can read and write multiple image formats.\n\nSeveral heap-based buffer overflow flaws were found in ImageMagick. If a\nvictim opened a specially crafted DCM or XWD file, an attacker could\npotentially execute arbitrary code on the victim's machine. (CVE-2007-1797)\n\nSeveral denial of service flaws were found in ImageMagick's parsing of XCF\nand DCM files. Attempting to process a specially-crafted input file in\nthese formats could cause ImageMagick to enter an infinite loop.\n(CVE-2007-4985)\n\nSeveral integer overflow flaws were found in ImageMagick. If a victim\nopened a specially-crafted DCM, DIB, XBM, XCF or XWD file, an attacker\ncould potentially execute arbitrary code with the privileges of the user\nrunning ImageMagick. (CVE-2007-4986)\n\nAn integer overflow flaw was found in ImageMagick's DIB parsing code. If a\nvictim opened a specially-crafted DIB file, an attacker could potentially\nexecute arbitrary code with the privileges of the user running ImageMagick.\n(CVE-2007-4988)\n\nA heap-based buffer overflow flaw was found in the way ImageMagick parsed\nXCF files. If a specially-crafted XCF image was opened, ImageMagick could\nbe made to overwrite heap memory beyond the bounds of its allocated memory.\nThis could, potentially, allow an attacker to execute arbitrary code on the\nmachine running ImageMagick. (CVE-2008-1096)\n\nA heap-based buffer overflow flaw was found in ImageMagick's processing of\ncertain malformed PCX images. If a victim opened a specially-crafted PCX\nfile, an attacker could possibly execute arbitrary code on the victim's\nmachine. (CVE-2008-1097)\n\nAll users of ImageMagick should upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-04-17"
+      },
+      "updated": {
+        "date": "2008-04-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-1797",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-1797",
+          "impact": "moderate",
+          "public": "20070331"
+        },
+        {
+          "text": "CVE-2007-4985",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4985",
+          "impact": "low",
+          "public": "20070919",
+          "cwe": "CWE-835"
+        },
+        {
+          "text": "CVE-2007-4986",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4986",
+          "impact": "moderate",
+          "public": "20070919",
+          "cwe": "CWE-190"
+        },
+        {
+          "text": "CVE-2007-4988",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4988",
+          "impact": "moderate",
+          "public": "20070919",
+          "cwe": "CWE-190"
+        },
+        {
+          "text": "CVE-2008-1096",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1096",
+          "impact": "moderate",
+          "public": "20070311"
+        },
+        {
+          "text": "CVE-2008-1097",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1097",
+          "impact": "moderate",
+          "public": "20070311"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-1797 Heap overflow in ImageMagick's DCM and XWD coders",
+          "href": "https://bugzilla.redhat.com/235071",
+          "id": "235071"
+        },
+        {
+          "text": "CVE-2008-1097 Memory corruption in ImageMagick's PCX coder",
+          "href": "https://bugzilla.redhat.com/285861",
+          "id": "285861"
+        },
+        {
+          "text": "CVE-2008-1096 Out of bound write in ImageMagick's XCF coder",
+          "href": "https://bugzilla.redhat.com/286411",
+          "id": "286411"
+        },
+        {
+          "text": "CVE-2007-4988 Integer overflow in ImageMagick's DIB coder",
+          "href": "https://bugzilla.redhat.com/310081",
+          "id": "310081"
+        },
+        {
+          "text": "CVE-2007-4985 Infinite loops in ImageMagick's XCF and DCM coders",
+          "href": "https://bugzilla.redhat.com/310091",
+          "id": "310091"
+        },
+        {
+          "text": "CVE-2007-4986 Multiple integer overflows in ImageMagick",
+          "href": "https://bugzilla.redhat.com/310121",
+          "id": "310121"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145001",
+                    "comment": "ImageMagick is earlier than 0:6.0.7.1-17.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178002",
+                    "comment": "ImageMagick is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145003",
+                    "comment": "ImageMagick-c++ is earlier than 0:6.0.7.1-17.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178004",
+                    "comment": "ImageMagick-c++ is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145005",
+                    "comment": "ImageMagick-c++-devel is earlier than 0:6.0.7.1-17.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178006",
+                    "comment": "ImageMagick-c++-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145007",
+                    "comment": "ImageMagick-devel is earlier than 0:6.0.7.1-17.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178008",
+                    "comment": "ImageMagick-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145009",
+                    "comment": "ImageMagick-perl is earlier than 0:6.0.7.1-17.el4_6.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178010",
+                    "comment": "ImageMagick-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145012",
+                    "comment": "ImageMagick is earlier than 0:6.2.8.0-4.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178002",
+                    "comment": "ImageMagick is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145013",
+                    "comment": "ImageMagick-c++ is earlier than 0:6.2.8.0-4.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178004",
+                    "comment": "ImageMagick-c++ is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145014",
+                    "comment": "ImageMagick-c++-devel is earlier than 0:6.2.8.0-4.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178006",
+                    "comment": "ImageMagick-c++-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145015",
+                    "comment": "ImageMagick-devel is earlier than 0:6.2.8.0-4.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178008",
+                    "comment": "ImageMagick-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080145016",
+                    "comment": "ImageMagick-perl is earlier than 0:6.2.8.0-4.el5_1.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178010",
+                    "comment": "ImageMagick-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

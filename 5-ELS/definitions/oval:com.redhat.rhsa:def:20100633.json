@@ -1,0 +1,144 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100633",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2010:0633: qspice security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0633",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0633",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-0428",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0428",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0429",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0429",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Simple Protocol for Independent Computing Environments (SPICE) is a\nremote display protocol used in Red Hat Enterprise Linux for viewing\nvirtualized guests running on the Kernel-based Virtual Machine (KVM)\nhypervisor, or on Red Hat Enterprise Virtualization Hypervisor.\n\nIt was found that the libspice component of QEMU-KVM on the host did not\nvalidate all pointers provided from a guest system's QXL graphics card\ndriver. A privileged guest user could use this flaw to cause the host to\ndereference an invalid pointer, causing the guest to crash (denial of\nservice) or, possibly, resulting in the privileged guest user escalating\ntheir privileges on the host. (CVE-2010-0428)\n\nIt was found that the libspice component of QEMU-KVM on the host could be\nforced to perform certain memory management operations on memory addresses\ncontrolled by a guest. A privileged guest user could use this flaw to crash\nthe guest (denial of service) or, possibly, escalate their privileges on\nthe host. (CVE-2010-0429)\n\nAll qspice users should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-08-19"
+      },
+      "updated": {
+        "date": "2010-08-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0428",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0428",
+          "impact": "important",
+          "public": "20100819",
+          "cvss_2": "6.6/AV:L/AC:M/Au:S/C:C/I:C/A:C"
+        },
+        {
+          "text": "CVE-2010-0429",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0429",
+          "impact": "important",
+          "public": "20100819",
+          "cvss_2": "6.6/AV:L/AC:M/Au:S/C:C/I:C/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-0428 libspice: Insufficient guest provided pointers validation",
+          "href": "https://bugzilla.redhat.com/568699",
+          "id": "568699"
+        },
+        {
+          "text": "CVE-2010-0429 libspice: Relying on guest provided data structures to indicate memory allocation",
+          "href": "https://bugzilla.redhat.com/568701",
+          "id": "568701"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::client",
+          "cpe:/a:redhat:rhel_virtualization:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100633001",
+                    "comment": "qspice is earlier than 0:0.3.0-54.el5_5.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100633002",
+                    "comment": "qspice is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100633003",
+                    "comment": "qspice-libs is earlier than 0:0.3.0-54.el5_5.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100633004",
+                    "comment": "qspice-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100633005",
+                    "comment": "qspice-libs-devel is earlier than 0:0.3.0-54.el5_5.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100633006",
+                    "comment": "qspice-libs-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

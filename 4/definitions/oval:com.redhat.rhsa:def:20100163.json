@@ -1,0 +1,164 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100163",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2010:0163: openssl security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0163",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0163",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-0590",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0590",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2409",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2409",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-3555",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3555",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nA flaw was found in the way the TLS/SSL (Transport Layer Security/Secure\nSockets Layer) protocols handled session renegotiation. A man-in-the-middle\nattacker could use this flaw to prefix arbitrary plain text to a client's\nsession (for example, an HTTPS connection to a website). This could force\nthe server to process an attacker's request as if authenticated using the\nvictim's credentials. This update addresses this flaw by implementing the\nTLS Renegotiation Indication Extension, as defined in RFC 5746.\n(CVE-2009-3555)\n\nRefer to the following Knowledgebase article for additional details about\nthe CVE-2009-3555 flaw: http://kbase.redhat.com/faq/docs/DOC-20491\n\nDan Kaminsky found that browsers could accept certificates with MD2 hash\nsignatures, even though MD2 is no longer considered a cryptographically\nstrong algorithm. This could make it easier for an attacker to create a\nmalicious certificate that would be treated as trusted by a browser.\nOpenSSL now disables the use of the MD2 algorithm inside signatures by\ndefault. (CVE-2009-2409)\n\nAn input validation flaw was found in the handling of the BMPString and\nUniversalString ASN1 string types in OpenSSL's ASN1_STRING_print_ex()\nfunction. An attacker could use this flaw to create a specially-crafted\nX.509 certificate that could cause applications using the affected function\nto crash when printing certificate contents. (CVE-2009-0590)\n\nNote: The affected function is rarely used. No application shipped with Red\nHat Enterprise Linux calls this function, for example.\n\nAll OpenSSL users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. For the update to take effect,\nall services linked to the OpenSSL library must be restarted, or the system\nrebooted.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-03-25"
+      },
+      "updated": {
+        "date": "2010-03-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-0590",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0590",
+          "impact": "low",
+          "public": "20090325",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-2409",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2409",
+          "impact": "moderate",
+          "public": "20090729",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2009-3555",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3555",
+          "impact": "moderate",
+          "public": "20091105",
+          "cwe": "CWE-300",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-0590 openssl: ASN1 printing crash",
+          "href": "https://bugzilla.redhat.com/492304",
+          "id": "492304"
+        },
+        {
+          "text": "CVE-2009-2409 deprecate MD2 in SSL cert validation (Kaminsky)",
+          "href": "https://bugzilla.redhat.com/510197",
+          "id": "510197"
+        },
+        {
+          "text": "CVE-2009-3555 TLS: MITM attacks via session renegotiation",
+          "href": "https://bugzilla.redhat.com/533125",
+          "id": "533125"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100163001",
+                    "comment": "openssl is earlier than 0:0.9.7a-43.17.el4_8.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661004",
+                    "comment": "openssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100163003",
+                    "comment": "openssl-devel is earlier than 0:0.9.7a-43.17.el4_8.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661006",
+                    "comment": "openssl-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100163005",
+                    "comment": "openssl-perl is earlier than 0:0.9.7a-43.17.el4_8.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060661008",
+                    "comment": "openssl-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

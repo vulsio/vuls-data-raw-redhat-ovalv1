@@ -1,0 +1,190 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100003",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2010:0003: gd security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0003",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0003",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-3546",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3546",
+        "source": "CVE"
+      }
+    ],
+    "description": "The gd packages provide a graphics library used for the dynamic creation of\nimages, such as PNG and JPEG.\n\nA missing input sanitization flaw, leading to a buffer overflow, was\ndiscovered in the gd library. A specially-crafted GD image file could cause\nan application using the gd library to crash or, possibly, execute\narbitrary code when opened. (CVE-2009-3546)\n\nUsers of gd should upgrade to these updated packages, which contain a\nbackported patch to resolve this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-01-04"
+      },
+      "updated": {
+        "date": "2010-01-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-3546",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3546",
+          "impact": "low",
+          "public": "20091012",
+          "cwe": "CWE-20",
+          "cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-3546 gd: insufficient input validation in _gdGetColors()",
+          "href": "https://bugzilla.redhat.com/529213",
+          "id": "529213"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100003001",
+                    "comment": "gd is earlier than 0:2.0.28-5.4E.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060194002",
+                    "comment": "gd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100003003",
+                    "comment": "gd-devel is earlier than 0:2.0.28-5.4E.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060194004",
+                    "comment": "gd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100003005",
+                    "comment": "gd-progs is earlier than 0:2.0.28-5.4E.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060194006",
+                    "comment": "gd-progs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100003008",
+                    "comment": "gd is earlier than 0:2.0.33-9.4.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060194002",
+                    "comment": "gd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100003009",
+                    "comment": "gd-devel is earlier than 0:2.0.33-9.4.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060194004",
+                    "comment": "gd-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100003010",
+                    "comment": "gd-progs is earlier than 0:2.0.33-9.4.el5_4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060194006",
+                    "comment": "gd-progs is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

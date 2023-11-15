@@ -1,0 +1,167 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20131319",
+  "version": "644",
+  "metadata": {
+    "title": "RHSA-2013:1319: sssd security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:1319",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:1319",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2013-0219",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-0219",
+        "source": "CVE"
+      }
+    ],
+    "description": "SSSD (System Security Services Daemon) provides a set of daemons to manage\naccess to remote directories and authentication mechanisms. It provides NSS\n(Name Service Switch) and PAM (Pluggable Authentication Modules) interfaces\ntoward the system and a pluggable back end system to connect to multiple\ndifferent account sources.\n\nA race condition was found in the way SSSD copied and removed user home\ndirectories. A local attacker who is able to write into the home directory\nof a different user who is being removed could use this flaw to perform\nsymbolic link attacks, possibly allowing them to modify and delete\narbitrary files with the privileges of the root user. (CVE-2013-0219)\n\nThe CVE-2013-0219 issue war discovered by Florian Weimer of the Red Hat\nProduct Security Team.\n\nThis update also fixes the following bugs:\n\n* After a paging control was used, memory in the sssd_be process was never\nfreed which led to the growth of the sssd_be process memory usage over\ntime. To fix this bug, the paging control was deallocated after use, and\nthus the memory usage of the sssd_be process no longer grows. (BZ#820908)\n\n* If the sssd_be process was terminated and recreated while there were\nauthentication requests pending, the sssd_pam process did not recover\ncorrectly and did not reconnect to the new sssd_be process. Consequently,\nthe sssd_pam process was seemingly blocked and did not accept any new\nauthentication requests. The sssd_pam process has been fixes so that it\nreconnects to the new instance of the sssd_be process after the original\none terminated unexpectedly. Even after a crash and reconnect, the sssd_pam\nprocess now accepts new authentication requests. (BZ#882414)\n\n* When the sssd_be process hung for a while, it was terminated and a new\ninstance was created. If the old instance did not respond to the TERM\nsignal and continued running, SSSD terminated unexpectedly. As a\nconsequence, the user could not log in. SSSD now keeps track of sssd_be\nsubprocesses more effectively, making the restarts of sssd_be more reliable\nin such scenarios. Users can now log in whenever the sssd_be is restarted\nand becomes unresponsive. (BZ#886165)\n\n* In case the processing of an LDAP request took longer than the client\ntimeout upon completing the request (60 seconds by default), the PAM client\ncould have accessed memory that was previously freed due to the client\ntimeout being reached. As a result, the sssd_pam process terminated\nunexpectedly with a segmentation fault. SSSD now ignores an LDAP request\nresult when it detects that the set timeout of this request has been\nreached. The sssd_pam process no longer crashes in the aforementioned\nscenario. (BZ#923813)\n\n* When there was a heavy load of users and groups to be saved in cache,\nSSSD experienced a timeout. Consequently, NSS did not start the backup\nprocess properly and it was impossible to log in. A patch has been provided\nto fix this bug. The SSSD daemon now remains responsive and the login\ncontinues as expected. (BZ#805729)\n\n* SSSD kept the file descriptors to the log files open.  Consequently, on\noccasions like moving the actual log file and restarting the back end, SSSD\nstill kept the file descriptors open. SSSD now closes the file descriptor\nafter the child process execution; after a successful back end start, the\nfile descriptor to log files is closed. (BZ#961680)\n\n* While performing access control in the Identity Management back end, SSSD\nerroneously downloaded the \"member\" attribute from the server and then\nattempted to use it in the cache verbatim. Consequently, the cache\nattempted to use the \"member\" attribute values as if they were pointing to\nthe local cache which was CPU intensive. The member attribute when\nprocessing host groups is no longer downloaded and processed. Moreover, the\nlogin process is reasonably fast even with large host groups. (BZ#979047)\n\nAll sssd users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-09-30"
+      },
+      "updated": {
+        "date": "2013-09-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-0219",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-0219",
+          "impact": "low",
+          "public": "20130123",
+          "cwe": "CWE-367",
+          "cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2013-0219 sssd: TOCTOU race conditions by copying and removing directory trees",
+          "href": "https://bugzilla.redhat.com/884254",
+          "id": "884254"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319001",
+                    "comment": "libipa_hbac is earlier than 0:1.5.1-70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319002",
+                    "comment": "libipa_hbac is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319003",
+                    "comment": "libipa_hbac-devel is earlier than 0:1.5.1-70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319004",
+                    "comment": "libipa_hbac-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319005",
+                    "comment": "libipa_hbac-python is earlier than 0:1.5.1-70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319006",
+                    "comment": "libipa_hbac-python is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319007",
+                    "comment": "sssd is earlier than 0:1.5.1-70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110975002",
+                    "comment": "sssd is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319009",
+                    "comment": "sssd-client is earlier than 0:1.5.1-70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110975004",
+                    "comment": "sssd-client is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20131319011",
+                    "comment": "sssd-tools is earlier than 0:1.5.1-70.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110975006",
+                    "comment": "sssd-tools is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

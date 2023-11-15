@@ -1,0 +1,371 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080890",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2008:0890: wireshark security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0890",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0890",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1070",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1070",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1071",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1071",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1072",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1072",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1561",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1561",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1562",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1562",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1563",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1563",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3137",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3137",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3138",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3138",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3141",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3141",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3145",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3145",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3146",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3146",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3932",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3932",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3933",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3933",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3934",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3934",
+        "source": "CVE"
+      }
+    ],
+    "description": "Wireshark is a program for monitoring network traffic. Wireshark was\npreviously known as Ethereal.\n\nMultiple buffer overflow flaws were found in Wireshark. If Wireshark read\na malformed packet off a network, it could crash or, possibly, execute\narbitrary code as the user running Wireshark. (CVE-2008-3146)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malformed dump file. (CVE-2008-1070, CVE-2008-1071, CVE-2008-1072,\nCVE-2008-1561, CVE-2008-1562, CVE-2008-1563, CVE-2008-3137, CVE-2008-3138,\nCVE-2008-3141, CVE-2008-3145, CVE-2008-3932, CVE-2008-3933, CVE-2008-3934)\n\nAdditionally, this update changes the default Pluggable Authentication\nModules (PAM) configuration to always prompt for the root password before\neach start of Wireshark. This avoids unintentionally running Wireshark with\nroot privileges.\n\nUsers of wireshark should upgrade to these updated packages, which contain\nWireshark version 1.0.3, and resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-10-01"
+      },
+      "updated": {
+        "date": "2008-10-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1070",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1070",
+          "impact": "low",
+          "public": "20070227"
+        },
+        {
+          "text": "CVE-2008-1071",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1071",
+          "impact": "low",
+          "public": "20070227"
+        },
+        {
+          "text": "CVE-2008-1072",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1072",
+          "impact": "low",
+          "public": "20070227"
+        },
+        {
+          "text": "CVE-2008-1561",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1561",
+          "impact": "low",
+          "public": "20080328"
+        },
+        {
+          "text": "CVE-2008-1562",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1562",
+          "impact": "low",
+          "public": "20080328"
+        },
+        {
+          "text": "CVE-2008-1563",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1563",
+          "impact": "low",
+          "public": "20080328"
+        },
+        {
+          "text": "CVE-2008-3137",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3137",
+          "impact": "low",
+          "public": "20080630"
+        },
+        {
+          "text": "CVE-2008-3138",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3138",
+          "impact": "low",
+          "public": "20080630"
+        },
+        {
+          "text": "CVE-2008-3141",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3141",
+          "impact": "low",
+          "public": "20080630"
+        },
+        {
+          "text": "CVE-2008-3145",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3145",
+          "impact": "low",
+          "public": "20080710"
+        },
+        {
+          "text": "CVE-2008-3146",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3146",
+          "impact": "moderate",
+          "public": "20080903"
+        },
+        {
+          "text": "CVE-2008-3932",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3932",
+          "impact": "low",
+          "public": "20080903",
+          "cwe": "CWE-835"
+        },
+        {
+          "text": "CVE-2008-3933",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3933",
+          "impact": "low",
+          "public": "20080903"
+        },
+        {
+          "text": "CVE-2008-3934",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3934",
+          "impact": "low",
+          "public": "20080903"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1070 wireshark: SCTP dissector crash",
+          "href": "https://bugzilla.redhat.com/435481",
+          "id": "435481"
+        },
+        {
+          "text": "CVE-2008-1071 wireshark: SNMP dissector crash",
+          "href": "https://bugzilla.redhat.com/435482",
+          "id": "435482"
+        },
+        {
+          "text": "CVE-2008-1072 wireshark: TFTP dissector crash",
+          "href": "https://bugzilla.redhat.com/435483",
+          "id": "435483"
+        },
+        {
+          "text": "CVE-2008-1563 wireshark: crash in SCCP dissector",
+          "href": "https://bugzilla.redhat.com/439943",
+          "id": "439943"
+        },
+        {
+          "text": "CVE-2008-1561 wireshark: crash in X.509sat and Roofnet dissectors",
+          "href": "https://bugzilla.redhat.com/440014",
+          "id": "440014"
+        },
+        {
+          "text": "CVE-2008-1562 wireshark: crash in LDAP dissector",
+          "href": "https://bugzilla.redhat.com/440015",
+          "id": "440015"
+        },
+        {
+          "text": "CVE-2008-3137 wireshark: crash in the GSM SMS dissector",
+          "href": "https://bugzilla.redhat.com/454970",
+          "id": "454970"
+        },
+        {
+          "text": "CVE-2008-3138 wireshark: unexpected exit in the PANA and KISMET dissectors",
+          "href": "https://bugzilla.redhat.com/454971",
+          "id": "454971"
+        },
+        {
+          "text": "CVE-2008-3141 wireshark: memory disclosure in the RMI dissector",
+          "href": "https://bugzilla.redhat.com/454975",
+          "id": "454975"
+        },
+        {
+          "text": "CVE-2008-3145 wireshark: crash in the packet reassembling",
+          "href": "https://bugzilla.redhat.com/454984",
+          "id": "454984"
+        },
+        {
+          "text": "CVE-2008-3146 wireshark: multiple buffer overflows in NCP dissector",
+          "href": "https://bugzilla.redhat.com/461242",
+          "id": "461242"
+        },
+        {
+          "text": "CVE-2008-3932 wireshark: infinite loop in the NCP dissector",
+          "href": "https://bugzilla.redhat.com/461243",
+          "id": "461243"
+        },
+        {
+          "text": "CVE-2008-3933 wireshark: crash triggered by zlib-compressed packet data",
+          "href": "https://bugzilla.redhat.com/461244",
+          "id": "461244"
+        },
+        {
+          "text": "CVE-2008-3934 wireshark: crash via crafted Tektronix .rf5 file",
+          "href": "https://bugzilla.redhat.com/461245",
+          "id": "461245"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080890001",
+                    "comment": "wireshark is earlier than 0:1.0.3-3.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080890003",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.3-3.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080890006",
+                    "comment": "wireshark is earlier than 0:1.0.3-4.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080890007",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.3-4.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

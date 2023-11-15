@@ -1,0 +1,297 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090459",
+  "version": "663",
+  "metadata": {
+    "title": "RHSA-2009:0459: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0459",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0459",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-4307",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4307",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-0028",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0028",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-0676",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0676",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-0834",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0834",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity fixes:\n\n* a logic error was found in the do_setlk() function of the Linux kernel\nNetwork File System (NFS) implementation. If a signal interrupted a lock\nrequest, the local POSIX lock was incorrectly created. This could cause a\ndenial of service on the NFS server if a file descriptor was closed before\nits corresponding lock request returned. (CVE-2008-4307, Important)\n\n* a deficiency was found in the Linux kernel system call auditing\nimplementation on 64-bit systems. This could allow a local, unprivileged\nuser to circumvent a system call audit configuration, if that configuration\nfiltered based on the \"syscall\" number or arguments.\n(CVE-2009-0834, Important)\n\n* Chris Evans reported a deficiency in the Linux kernel signals\nimplementation. The clone() system call permits the caller to indicate the\nsignal it wants to receive when its child exits. When clone() is called\nwith the CLONE_PARENT flag, it permits the caller to clone a new child that\nshares the same parent as itself, enabling the indicated signal to be sent\nto the caller's parent (instead of the caller), even if the caller's parent\nhas different real and effective user IDs. This could lead to a denial of\nservice of the parent. (CVE-2009-0028, Moderate)\n\n* the sock_getsockopt() function in the Linux kernel did not properly\ninitialize a data structure that can be directly returned to user-space\nwhen the getsockopt() function is called with SO_BSDCOMPAT optname set.\nThis flaw could possibly lead to memory disclosure.\n(CVE-2009-0676, Moderate)\n\nBug fixes:\n\n* a kernel crash may have occurred for Red Hat Enterprise Linux 4.7 guests\nif their guest configuration file specified \"vif = [ \"type=ioemu\" ]\". This\ncrash only occurred when starting guests via the \"xm create\" command.\n(BZ#477146)\n\n* a bug in IO-APIC NMI watchdog may have prevented Red Hat Enterprise Linux\n4.7 from being installed on HP ProLiant DL580 G5 systems. Hangs during\ninstallation and \"NMI received for unknown reason [xx]\" errors may have\noccurred. (BZ#479184)\n\n* a kernel deadlock on some systems when using netdump through a network\ninterface that uses the igb driver. (BZ#480579)\n\n* a possible kernel hang in sys_ptrace() on the Itanium® architecture,\npossibly triggered by tracing a threaded process with strace. (BZ#484904)\n\n* the RHSA-2008:0665 errata only fixed the known problem with the LSI Logic\nLSI53C1030 Ultra320 SCSI controller, for tape devices. Read commands sent\nto tape devices may have received incorrect data. This issue may have led\nto data corruption. This update includes a fix for all types of devices.\n(BZ#487399)\n\n* a missing memory barrier caused a race condition in the AIO subsystem\nbetween the read_events() and aio_complete() functions. This may have\ncaused a thread in read_events() to sleep indefinitely, possibly causing an\napplication hang. (BZ#489935)\n\n* due to a lack of synchronization in the NFS client code, modifications\nto some pages (for files on an NFS mounted file system) made through a\nregion of memory mapped by mmap() may be lost if the NFS client invalidates\nits page cache for particular files. (BZ#490119)\n\n* a NULL pointer dereference in the megaraid_mbox driver caused a system\ncrash on some systems. (BZ#493420)\n\n* the ext3_symlink() function in the ext3 file system code used an\nillegal __GFP_FS allocation inside some transactions. This may have\nresulted in a kernel panic and \"Assertion failure\" errors. (BZ#493422)\n\n* do_machine_check() cleared all Machine Check Exception (MCE) status\nregisters, preventing the BIOS from using them to determine the cause of\ncertain panics and errors. (BZ#494915)\n\n* a bug prevented NMI watchdog from initializing on HP ProLiant DL580 G5\nsystems. (BZ#497330)\n\nThis update contains backported patches to fix these issues. The system\nmust be rebooted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-04-30"
+      },
+      "updated": {
+        "date": "2009-04-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-4307",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4307",
+          "impact": "important",
+          "public": "20081030",
+          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2009-0028",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0028",
+          "impact": "moderate",
+          "public": "20090225",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-0676",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0676",
+          "impact": "moderate",
+          "public": "20090211",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "text": "CVE-2009-0834",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0834",
+          "impact": "important",
+          "public": "20090227",
+          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:P/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-4307 Kernel BUG() in locks_remove_flock",
+          "href": "https://bugzilla.redhat.com/456282",
+          "id": "456282"
+        },
+        {
+          "text": "CVE-2009-0028 Linux kernel minor signal handling vulnerability",
+          "href": "https://bugzilla.redhat.com/479932",
+          "id": "479932"
+        },
+        {
+          "text": "CVE-2009-0676 kernel: memory disclosure in SO_BSDCOMPAT gsopt",
+          "href": "https://bugzilla.redhat.com/486305",
+          "id": "486305"
+        },
+        {
+          "text": "CVE-2009-0834 kernel: x86-64: syscall-audit: 32/64 syscall hole",
+          "href": "https://bugzilla.redhat.com/487990",
+          "id": "487990"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20090459023",
+                "comment": "kernel earlier than 0:2.6.9-78.0.22.EL is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20090459024",
+                "comment": "kernel earlier than 0:2.6.9-78.0.22.EL is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459001",
+                    "comment": "kernel is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459003",
+                    "comment": "kernel-devel is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459005",
+                    "comment": "kernel-doc is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459007",
+                    "comment": "kernel-hugemem is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
+                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459009",
+                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
+                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459011",
+                    "comment": "kernel-largesmp is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
+                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459013",
+                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
+                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459015",
+                    "comment": "kernel-smp is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
+                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459017",
+                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
+                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459019",
+                    "comment": "kernel-xenU is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
+                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090459021",
+                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-78.0.22.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
+                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

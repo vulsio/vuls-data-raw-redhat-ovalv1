@@ -1,0 +1,322 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20130125",
+  "version": "645",
+  "metadata": {
+    "title": "RHSA-2013:0125: wireshark security, bug fix, and enhancement update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:0125",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0125",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1958",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1958",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1959",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1959",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-2175",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2175",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-2698",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2698",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-4102",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4102",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-0041",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0041",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-0042",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0042",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-0066",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0066",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-0067",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0067",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-4285",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4285",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-4289",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4289",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-4290",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4290",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-4291",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4291",
+        "source": "CVE"
+      }
+    ],
+    "description": "Wireshark, previously known as Ethereal, is a network protocol analyzer. It\nis used to capture and browse the traffic running on a computer network.\n\nA heap-based buffer overflow flaw was found in the way Wireshark handled\nEndace ERF (Extensible Record Format) capture files. If Wireshark opened a\nspecially-crafted ERF capture file, it could crash or, possibly, execute\narbitrary code as the user running Wireshark. (CVE-2011-4102)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malicious dump file. (CVE-2011-1958, CVE-2011-1959, CVE-2011-2175,\nCVE-2011-2698, CVE-2012-0041, CVE-2012-0042, CVE-2012-0066, CVE-2012-0067,\nCVE-2012-4285, CVE-2012-4289, CVE-2012-4290, CVE-2012-4291)\n\nThe CVE-2011-1958, CVE-2011-1959, CVE-2011-2175, and CVE-2011-4102 issues\nwere discovered by Huzaifa Sidhpurwala of the Red Hat Security Response\nTeam.\n\nThis update also fixes the following bugs:\n\n* When Wireshark starts with the X11 protocol being tunneled through an SSH\nconnection, it automatically prepares its capture filter to omit the SSH\npackets. If the SSH connection was to a link-local IPv6 address including\nan interface name (for example ssh -X [ipv6addr]%eth0), Wireshark parsed\nthis address erroneously, constructed an incorrect capture filter and\nrefused to capture packets. The \"Invalid capture filter\" message was\ndisplayed. With this update, parsing of link-local IPv6 addresses is fixed\nand Wireshark correctly prepares a capture filter to omit SSH packets over\na link-local IPv6 connection. (BZ#438473)\n\n* Previously, Wireshark's column editing dialog malformed column names when\nthey were selected. With this update, the dialog is fixed and no longer\nbreaks column names. (BZ#493693)\n\n* Previously, TShark, the console packet analyzer, did not properly analyze\nthe exit code of Dumpcap, Wireshark's packet capturing back end. As a\nresult, TShark returned exit code 0 when Dumpcap failed to parse its\ncommand-line arguments. In this update, TShark correctly propagates the\nDumpcap exit code and returns a non-zero exit code when Dumpcap fails.\n(BZ#580510)\n\n* Previously, the TShark \"-s\" (snapshot length) option worked only for a\nvalue greater than 68 bytes. If a lower value was specified, TShark\ncaptured just 68 bytes of incoming packets. With this update, the \"-s\"\noption is fixed and sizes lower than 68 bytes work as expected. (BZ#580513)\n\nThis update also adds the following enhancement:\n\n* In this update, support for the \"NetDump\" protocol was added. (BZ#484999)\n\nAll users of Wireshark are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues and add this\nenhancement. All running instances of Wireshark must be restarted for the\nupdate to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-01-08"
+      },
+      "updated": {
+        "date": "2013-01-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1958",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1958",
+          "impact": "low",
+          "public": "20110531",
+          "cwe": "CWE-476",
+          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-1959",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1959",
+          "impact": "low",
+          "public": "20110531",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-2175",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2175",
+          "impact": "low",
+          "public": "20110531",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-2698",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-2698",
+          "impact": "low",
+          "public": "20110620",
+          "cwe": "CWE-835",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2011-4102",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-4102",
+          "impact": "moderate",
+          "public": "20111021",
+          "cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2012-0041",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-0041",
+          "impact": "low",
+          "public": "20120110",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-0042",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-0042",
+          "impact": "low",
+          "public": "20120110",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-0066",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-0066",
+          "impact": "low",
+          "public": "20120110",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-0067",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-0067",
+          "impact": "low",
+          "public": "20120110",
+          "cwe": "CWE-190",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-4285",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-4285",
+          "impact": "low",
+          "public": "20120815",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-4289",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-4289",
+          "impact": "low",
+          "public": "20120815",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-4290",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-4290",
+          "impact": "low",
+          "public": "20120815",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2012-4291",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-4291",
+          "impact": "low",
+          "public": "20120815",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1959 wireshark: Stack-based buffer over-read from tvbuff buffer when reading snoop capture files",
+          "href": "https://bugzilla.redhat.com/710039",
+          "id": "710039"
+        },
+        {
+          "text": "CVE-2011-2175 wireshark: Heap-based buffer over-read in Visual Networks dissector",
+          "href": "https://bugzilla.redhat.com/710109",
+          "id": "710109"
+        },
+        {
+          "text": "CVE-2011-1958 wireshark (64bit): NULL pointer dereference by processing of a corrupted Diameter dictionary file",
+          "href": "https://bugzilla.redhat.com/710184",
+          "id": "710184"
+        },
+        {
+          "text": "CVE-2011-2698 wireshark: Infinite loop in the ANSI A Interface (IS-634/IOS) dissector",
+          "href": "https://bugzilla.redhat.com/723215",
+          "id": "723215"
+        },
+        {
+          "text": "CVE-2011-4102 wireshark: buffer overflow in the ERF file reader",
+          "href": "https://bugzilla.redhat.com/750648",
+          "id": "750648"
+        },
+        {
+          "text": "CVE-2012-0041 wireshark: multiple file parser vulnerabilities (wnpa-sec-2012-01)",
+          "href": "https://bugzilla.redhat.com/773726",
+          "id": "773726"
+        },
+        {
+          "text": "CVE-2012-0042 wireshark: NULL pointer vulnerabilities (wnpa-sec-2012-02)",
+          "href": "https://bugzilla.redhat.com/773728",
+          "id": "773728"
+        },
+        {
+          "text": "CVE-2012-0066 Wireshark: Dos via large buffer allocation request",
+          "href": "https://bugzilla.redhat.com/783360",
+          "id": "783360"
+        },
+        {
+          "text": "CVE-2012-0067 Wireshark: Dos due to integer overflow in IPTrace capture format parser",
+          "href": "https://bugzilla.redhat.com/783363",
+          "id": "783363"
+        },
+        {
+          "text": "CVE-2012-4285 wireshark: crash due to zero division in DCP ETSI dissector (wnpa-sec-2012-13)",
+          "href": "https://bugzilla.redhat.com/848541",
+          "id": "848541"
+        },
+        {
+          "text": "CVE-2012-4289 wireshark: DoS via excessive CPU consumption in AFP dissector (wnpa-sec-2012-17)",
+          "href": "https://bugzilla.redhat.com/848561",
+          "id": "848561"
+        },
+        {
+          "text": "CVE-2012-4291 wireshark: DoS via excessive system resource consumption in CIP dissector (wnpa-sec-2012-20)",
+          "href": "https://bugzilla.redhat.com/848572",
+          "id": "848572"
+        },
+        {
+          "text": "CVE-2012-4290 wireshark: DoS via excessive CPU consumption in CTDB dissector (wnpa-sec-2012-23)",
+          "href": "https://bugzilla.redhat.com/848578",
+          "id": "848578"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130125001",
+                    "comment": "wireshark is earlier than 0:1.0.15-5.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130125003",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.15-5.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

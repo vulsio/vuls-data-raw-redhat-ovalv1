@@ -1,0 +1,258 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20141143",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2014:1143: kernel security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2014:1143",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2014:1143",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2014-3917",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-3917",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\n* An out-of-bounds memory access flaw was found in the Linux kernel's\nsystem call auditing implementation. On a system with existing audit rules\ndefined, a local, unprivileged user could use this flaw to leak kernel\nmemory to user space or, potentially, crash the system. (CVE-2014-3917,\nModerate)\n\nThis update also fixes the following bugs:\n\n* A bug in the journaling code (jbd and jbd2) could, under very heavy\nworkload of fsync() operations, trigger a BUG_ON and result in a kernel\noops. Also, fdatasync() could fail to immediately write out changes in the\nfile size only. These problems have been resolved by backporting a series\nof patches that fixed these problems in the respective code on Red Hat\nEnterprise Linux 6. This update also improves performance of ext3 and ext4\nfile systems. (BZ#1116027)\n\n* Due to a bug in the ext4 code, the fdatasync() system call did not force\nthe inode size change to be written to the disk if it was the only metadata\nchange in the file. This could result in the wrong inode size and possible\ndata loss if the system terminated unexpectedly. The code handling inode\nupdates has been fixed and fdatasync() now writes data to the disk as\nexpected in this situation. (BZ#1117665)\n\n* A workaround to a DMA read problem in the tg3 driver was incorrectly\napplied to the whole Broadcom 5719 and 5720 chipset family. This workaround\nis valid only to the A0 revision of the 5719 chips and for other revisions\nand chips causes occasional Tx timeouts. This update correctly applies the\naforementioned workaround only to the A0 revision of the 5719 chips.\n(BZ#1121017)\n\n* Due to a bug in the page writeback code, the system could become\nunresponsive when being under memory pressure and heavy NFS load. This\nupdate fixes the code responsible for handling of dirty pages, and dirty\npage write outs no longer flood the work queue. (BZ#1125246)\n\nAll kernel users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The system must be\nrebooted for this update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2014 Red Hat, Inc.",
+      "issued": {
+        "date": "2014-09-03"
+      },
+      "updated": {
+        "date": "2014-09-03"
+      },
+      "cve": [
+        {
+          "text": "CVE-2014-3917",
+          "href": "https://access.redhat.com/security/cve/CVE-2014-3917",
+          "impact": "moderate",
+          "public": "20140528",
+          "cwe": "CWE-119",
+          "cvss_2": "4.7/AV:L/AC:H/Au:N/C:P/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2014-3917 kernel: DoS with syscall auditing",
+          "href": "https://bugzilla.redhat.com/1102571",
+          "id": "1102571"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20141143025",
+                "comment": "kernel earlier than 0:2.6.18-371.12.1.el5 is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20141143026",
+                "comment": "kernel earlier than 0:2.6.18-371.12.1.el5 is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143001",
+                    "comment": "kernel is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143003",
+                    "comment": "kernel-PAE is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
+                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143005",
+                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
+                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143007",
+                    "comment": "kernel-debug is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
+                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143009",
+                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
+                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143011",
+                    "comment": "kernel-devel is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143013",
+                    "comment": "kernel-doc is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143015",
+                    "comment": "kernel-headers is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
+                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143017",
+                    "comment": "kernel-kdump is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
+                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143019",
+                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
+                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143021",
+                    "comment": "kernel-xen is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
+                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141143023",
+                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-371.12.1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
+                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

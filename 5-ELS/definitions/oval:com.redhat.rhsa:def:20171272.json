@@ -1,0 +1,190 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20171272",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2017:1272: samba3x security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5 Extended Lifecycle Support"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2017:1272",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2017:1272",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2017-7494",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2017-7494",
+        "source": "CVE"
+      }
+    ],
+    "description": "Samba is an open-source implementation of the Server Message Block (SMB) or Common Internet File System (CIFS) protocol, which allows PC-compatible machines to share files, printers, and other information.\n\nSecurity Fix(es):\n\n* A remote code execution flaw was found in Samba. A malicious authenticated samba client, having write access to the samba share, could use this flaw to execute arbitrary code as root. (CVE-2017-7494)\n\nRed Hat would like to thank the Samba project for reporting this issue. Upstream acknowledges steelo as the original reporter.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2017 Red Hat, Inc.",
+      "issued": {
+        "date": "2017-05-24"
+      },
+      "updated": {
+        "date": "2017-05-24"
+      },
+      "cve": [
+        {
+          "text": "CVE-2017-7494",
+          "href": "https://access.redhat.com/security/cve/CVE-2017-7494",
+          "impact": "important",
+          "public": "20170524",
+          "cvss_3": "7.5/CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2017-7494 samba: Loading shared modules from any path in the system leading to RCE (SambaCry)",
+          "href": "https://bugzilla.redhat.com/1450347",
+          "id": "1450347"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:rhel_els:5"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20171272001",
+                    "comment": "samba3x is earlier than 0:3.6.23-14.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054002",
+                    "comment": "samba3x is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20171272003",
+                    "comment": "samba3x-client is earlier than 0:3.6.23-14.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054004",
+                    "comment": "samba3x-client is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20171272005",
+                    "comment": "samba3x-common is earlier than 0:3.6.23-14.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054006",
+                    "comment": "samba3x-common is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20171272007",
+                    "comment": "samba3x-doc is earlier than 0:3.6.23-14.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054008",
+                    "comment": "samba3x-doc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20171272009",
+                    "comment": "samba3x-domainjoin-gui is earlier than 0:3.6.23-14.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054010",
+                    "comment": "samba3x-domainjoin-gui is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20171272011",
+                    "comment": "samba3x-swat is earlier than 0:3.6.23-14.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054012",
+                    "comment": "samba3x-swat is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20171272013",
+                    "comment": "samba3x-winbind is earlier than 0:3.6.23-14.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054014",
+                    "comment": "samba3x-winbind is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20171272015",
+                    "comment": "samba3x-winbind-devel is earlier than 0:3.6.23-14.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20110054016",
+                    "comment": "samba3x-winbind-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

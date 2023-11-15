@@ -1,0 +1,219 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110838",
+  "version": "651",
+  "metadata": {
+    "title": "RHSA-2011:0838: gimp security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0838",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0838",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-1570",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1570",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4540",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4540",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4541",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4541",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4542",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4542",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-4543",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4543",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2011-1178",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1178",
+        "source": "CVE"
+      }
+    ],
+    "description": "The GIMP (GNU Image Manipulation Program) is an image composition and\nediting program.\n\nAn integer overflow flaw, leading to a heap-based buffer overflow, was\nfound in the GIMP's Microsoft Windows Bitmap (BMP) and Personal Computer\neXchange (PCX) image file plug-ins. An attacker could create a\nspecially-crafted BMP or PCX image file that, when opened, could cause the\nrelevant plug-in to crash or, potentially, execute arbitrary code with the\nprivileges of the user running the GIMP. (CVE-2009-1570, CVE-2011-1178)\n\nA heap-based buffer overflow flaw was found in the GIMP's Paint Shop Pro\n(PSP) image file plug-in. An attacker could create a specially-crafted PSP\nimage file that, when opened, could cause the PSP plug-in to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nthe GIMP. (CVE-2010-4543)\n\nA stack-based buffer overflow flaw was found in the GIMP's Lightning,\nSphere Designer, and Gfig image filters. An attacker could create a\nspecially-crafted Lightning, Sphere Designer, or Gfig filter configuration\nfile that, when opened, could cause the relevant plug-in to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nthe GIMP. (CVE-2010-4540, CVE-2010-4541, CVE-2010-4542)\n\nRed Hat would like to thank Stefan Cornelius of Secunia Research for\nresponsibly reporting the CVE-2009-1570 flaw.\n\nUsers of the GIMP are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The GIMP must be\nrestarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-05-31"
+      },
+      "updated": {
+        "date": "2011-05-31"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-1570",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-1570",
+          "impact": "moderate",
+          "public": "20091112",
+          "cwe": "CWE-190",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-4540",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4540",
+          "impact": "moderate",
+          "public": "20101231",
+          "cwe": "CWE-121",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-4541",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4541",
+          "impact": "moderate",
+          "public": "20101231",
+          "cwe": "CWE-121",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-4542",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4542",
+          "impact": "moderate",
+          "public": "20101231",
+          "cwe": "CWE-121",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-4543",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4543",
+          "impact": "moderate",
+          "public": "20101231",
+          "cwe": "CWE-122",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2011-1178",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1178",
+          "impact": "moderate",
+          "public": "20110523",
+          "cwe": "CWE-190",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-1570 Gimp: Integer overflow in the BMP image file plugin",
+          "href": "https://bugzilla.redhat.com/537356",
+          "id": "537356"
+        },
+        {
+          "text": "CVE-2010-4540 Gimp: Stack-based buffer overflow in Lighting plug-in",
+          "href": "https://bugzilla.redhat.com/666793",
+          "id": "666793"
+        },
+        {
+          "text": "CVE-2011-1178 Gimp: Integer overflow in the PCX image file plug-in",
+          "href": "https://bugzilla.redhat.com/689831",
+          "id": "689831"
+        },
+        {
+          "text": "CVE-2010-4541 Gimp: Stack-based buffer overflow in SphereDesigner plug-in",
+          "href": "https://bugzilla.redhat.com/703403",
+          "id": "703403"
+        },
+        {
+          "text": "CVE-2010-4542 Gimp: Stack-based buffer overflow in Gfig plug-in",
+          "href": "https://bugzilla.redhat.com/703405",
+          "id": "703405"
+        },
+        {
+          "text": "CVE-2010-4543 Gimp: Heap-based buffer overflow in Paint Shop Pro (PSP) plug-in",
+          "href": "https://bugzilla.redhat.com/703407",
+          "id": "703407"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110838001",
+                    "comment": "gimp is earlier than 2:2.2.13-2.0.7.el5_6.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070343007",
+                    "comment": "gimp is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110838003",
+                    "comment": "gimp-devel is earlier than 2:2.2.13-2.0.7.el5_6.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070343009",
+                    "comment": "gimp-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110838005",
+                    "comment": "gimp-libs is earlier than 2:2.2.13-2.0.7.el5_6.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070343011",
+                    "comment": "gimp-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

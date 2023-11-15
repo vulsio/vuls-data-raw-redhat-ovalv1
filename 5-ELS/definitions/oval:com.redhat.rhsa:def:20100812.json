@@ -1,0 +1,112 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100812",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2010:0812: thunderbird security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0812",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0812",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-3765",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3765",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Thunderbird is a standalone mail and newsgroup client.\n\nA race condition flaw was found in the way Thunderbird handled Document\nObject Model (DOM) element properties. An HTML mail message containing\nmalicious content could cause Thunderbird to crash or, potentially, execute\narbitrary code with the privileges of the user running Thunderbird.\n(CVE-2010-3765)\n\nNote: JavaScript support is disabled by default in Thunderbird. The\nCVE-2010-3765 issue is not exploitable unless JavaScript is enabled.\n\nAll Thunderbird users should upgrade to this updated package, which\nresolves this issue. All running instances of Thunderbird must be restarted\nfor the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-10-29"
+      },
+      "updated": {
+        "date": "2010-10-29"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-3765",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-3765",
+          "impact": "critical",
+          "public": "20101028",
+          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-3765 Firefox race condition flaw (MFSA 2010-73)",
+          "href": "https://bugzilla.redhat.com/646997",
+          "id": "646997"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_productivity:5",
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100812001",
+            "comment": "thunderbird is earlier than 0:1.5.0.12-33.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070401002",
+            "comment": "thunderbird is signed with Red Hat master key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100812004",
+            "comment": "thunderbird is earlier than 0:2.0.0.24-10.el5_5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070108002",
+            "comment": "thunderbird is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

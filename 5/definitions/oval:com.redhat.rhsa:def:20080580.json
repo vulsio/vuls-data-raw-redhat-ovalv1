@@ -1,0 +1,219 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080580",
+  "version": "653",
+  "metadata": {
+    "title": "RHSA-2008:0580: vim security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0580",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0580",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-2953",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2953",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2712",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2712",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3074",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3074",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3075",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3075",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-4101",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4101",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-6235",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-6235",
+        "source": "CVE"
+      }
+    ],
+    "description": "Vim (Visual editor IMproved) is an updated and improved version of the vi\neditor.\n\nSeveral input sanitization flaws were found in Vim's keyword and tag\nhandling. If Vim looked up a document's maliciously crafted tag or keyword,\nit was possible to execute arbitrary code as the user running Vim.\n(CVE-2008-4101)\n\nMultiple security flaws were found in netrw.vim, the Vim plug-in providing\nfile reading and writing over the network. If a user opened a specially\ncrafted file or directory with the netrw plug-in, it could result in\narbitrary code execution as the user running Vim. (CVE-2008-3076)\n\nA security flaw was found in zip.vim, the Vim plug-in that handles ZIP\narchive browsing. If a user opened a ZIP archive using the zip.vim plug-in,\nit could result in arbitrary code execution as the user running Vim.\n(CVE-2008-3075)\n\nA security flaw was found in tar.vim, the Vim plug-in which handles TAR\narchive browsing. If a user opened a TAR archive using the tar.vim plug-in,\nit could result in arbitrary code execution as the user runnin Vim.\n(CVE-2008-3074)\n\nSeveral input sanitization flaws were found in various Vim system\nfunctions. If a user opened a specially crafted file, it was possible to\nexecute arbitrary code as the user running Vim. (CVE-2008-2712)\n\nUlf Härnhammar, of Secunia Research, discovered a format string flaw in\nVim's help tag processor. If a user was tricked into executing the\n\"helptags\" command on malicious data, arbitrary code could be executed with\nthe permissions of the user running Vim. (CVE-2007-2953)\n\nAll Vim users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-11-25"
+      },
+      "updated": {
+        "date": "2008-11-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-2953",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-2953",
+          "impact": "low",
+          "public": "20070725"
+        },
+        {
+          "text": "CVE-2008-2712",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2712",
+          "impact": "moderate",
+          "public": "20080615"
+        },
+        {
+          "text": "CVE-2008-3074",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3074",
+          "impact": "moderate",
+          "public": "20080715"
+        },
+        {
+          "text": "CVE-2008-3075",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3075",
+          "impact": "moderate",
+          "public": "20080715"
+        },
+        {
+          "text": "CVE-2008-4101",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4101",
+          "impact": "moderate",
+          "public": "20080822"
+        },
+        {
+          "text": "CVE-2008-6235",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-6235",
+          "impact": "moderate",
+          "public": "20080715"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-2953 vim format string flaw",
+          "href": "https://bugzilla.redhat.com/248542",
+          "id": "248542"
+        },
+        {
+          "text": "CVE-2008-2712 vim: command execution via scripts not sanitizing inputs to execute and system",
+          "href": "https://bugzilla.redhat.com/451759",
+          "id": "451759"
+        },
+        {
+          "text": "CVE-2008-4101 vim: arbitrary code execution in commands: K, Control-], g]",
+          "href": "https://bugzilla.redhat.com/461927",
+          "id": "461927"
+        },
+        {
+          "text": "CVE-2008-3074 Vim tar.vim plugin: improper Implementation of shellescape() (arbitrary code execution)",
+          "href": "https://bugzilla.redhat.com/467428",
+          "id": "467428"
+        },
+        {
+          "text": "CVE-2008-3075 Vim zip.vim plugin: improper Implementation of shellescape() (arbitrary code execution)",
+          "href": "https://bugzilla.redhat.com/467432",
+          "id": "467432"
+        },
+        {
+          "text": "CVE-2008-6235 Vim netrw.vim plugin: lack of sanitization throughout netrw.vim can lead to arbitrary code execution",
+          "href": "https://bugzilla.redhat.com/467439",
+          "id": "467439"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080580001",
+                    "comment": "vim-X11 is earlier than 2:7.0.109-4.el5_2.4z"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070346002",
+                    "comment": "vim-X11 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080580003",
+                    "comment": "vim-common is earlier than 2:7.0.109-4.el5_2.4z"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070346004",
+                    "comment": "vim-common is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080580005",
+                    "comment": "vim-enhanced is earlier than 2:7.0.109-4.el5_2.4z"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070346006",
+                    "comment": "vim-enhanced is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080580007",
+                    "comment": "vim-minimal is earlier than 2:7.0.109-4.el5_2.4z"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070346008",
+                    "comment": "vim-minimal is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

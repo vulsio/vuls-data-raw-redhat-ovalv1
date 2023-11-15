@@ -1,0 +1,255 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080105",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:0105: thunderbird security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0105",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0105",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-0304",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0304",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0412",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0412",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0413",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0413",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0415",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0415",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0418",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0418",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0419",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0419",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0420",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0420",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0591",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0591",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0592",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0592",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-0593",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0593",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Thunderbird is a standalone mail and newsgroup client.\n\nA heap-based buffer overflow flaw was found in the way Thunderbird\nprocessed messages with external-body Multipurpose Internet Message\nExtensions (MIME) types. A HTML mail message containing malicious content\ncould cause Thunderbird to execute arbitrary code as the user running\nThunderbird. (CVE-2008-0304)\n\nSeveral flaws were found in the way Thunderbird processed certain malformed\nHTML mail content. A HTML mail message containing malicious content could\ncause Thunderbird to crash, or potentially execute arbitrary code as the\nuser running Thunderbird. (CVE-2008-0412, CVE-2008-0413, CVE-2008-0415,\nCVE-2008-0419)\n\nSeveral flaws were found in the way Thunderbird displayed malformed HTML\nmail content. A HTML mail message containing specially-crafted content\ncould trick a user into surrendering sensitive information. (CVE-2008-0420,\nCVE-2008-0591, CVE-2008-0593)\n\nA flaw was found in the way Thunderbird handles certain chrome URLs. If a\nuser has certain extensions installed, it could allow a malicious HTML mail\nmessage to steal sensitive session data. Note: this flaw does not affect a\ndefault installation of Thunderbird. (CVE-2008-0418)\n\nNote: JavaScript support is disabled by default in Thunderbird; the above\nissues are not exploitable unless JavaScript is enabled.\n\nA flaw was found in the way Thunderbird saves certain text files. If a\nremote site offers a file of type \"plain/text\", rather than \"text/plain\",\nThunderbird will not show future \"text/plain\" content to the user, forcing\nthem to save those files locally to view the content. (CVE-2008-0592)\n\nUsers of thunderbird are advised to upgrade to these updated packages,\nwhich contain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-02-08"
+      },
+      "updated": {
+        "date": "2008-02-27"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-0304",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0304",
+          "impact": "critical",
+          "public": "20080226"
+        },
+        {
+          "text": "CVE-2008-0412",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0412",
+          "impact": "critical",
+          "public": "20080207"
+        },
+        {
+          "text": "CVE-2008-0413",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0413",
+          "impact": "critical",
+          "public": "20080207"
+        },
+        {
+          "text": "CVE-2008-0415",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0415",
+          "impact": "critical",
+          "public": "20080207"
+        },
+        {
+          "text": "CVE-2008-0418",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0418",
+          "impact": "moderate",
+          "public": "20080207"
+        },
+        {
+          "text": "CVE-2008-0419",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0419",
+          "impact": "critical",
+          "public": "20080207"
+        },
+        {
+          "text": "CVE-2008-0420",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0420",
+          "impact": "moderate",
+          "public": "20080207"
+        },
+        {
+          "text": "CVE-2008-0591",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0591",
+          "impact": "moderate",
+          "public": "20080207"
+        },
+        {
+          "text": "CVE-2008-0592",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0592",
+          "impact": "low",
+          "public": "20080207"
+        },
+        {
+          "text": "CVE-2008-0593",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0593",
+          "impact": "low",
+          "public": "20080207"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-0412 Mozilla layout engine crashes",
+          "href": "https://bugzilla.redhat.com/431732",
+          "id": "431732"
+        },
+        {
+          "text": "CVE-2008-0413 Mozilla javascript engine crashes",
+          "href": "https://bugzilla.redhat.com/431733",
+          "id": "431733"
+        },
+        {
+          "text": "CVE-2008-0415 Mozilla arbitrary code execution",
+          "href": "https://bugzilla.redhat.com/431739",
+          "id": "431739"
+        },
+        {
+          "text": "CVE-2008-0418 Mozilla chrome: directory traversal",
+          "href": "https://bugzilla.redhat.com/431748",
+          "id": "431748"
+        },
+        {
+          "text": "CVE-2008-0419 Mozilla arbitrary code execution",
+          "href": "https://bugzilla.redhat.com/431749",
+          "id": "431749"
+        },
+        {
+          "text": "CVE-2008-0420 Mozilla information disclosure flaw",
+          "href": "https://bugzilla.redhat.com/431750",
+          "id": "431750"
+        },
+        {
+          "text": "CVE-2008-0591 Mozilla information disclosure flaw",
+          "href": "https://bugzilla.redhat.com/431751",
+          "id": "431751"
+        },
+        {
+          "text": "CVE-2008-0592 Mozilla text file mishandling",
+          "href": "https://bugzilla.redhat.com/431752",
+          "id": "431752"
+        },
+        {
+          "text": "CVE-2008-0593 Mozilla URL token stealing flaw",
+          "href": "https://bugzilla.redhat.com/431756",
+          "id": "431756"
+        },
+        {
+          "text": "CVE-2008-0304 thunderbird/seamonkey: MIME External-Body Heap Overflow Vulnerability",
+          "href": "https://bugzilla.redhat.com/435123",
+          "id": "435123"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_productivity:5",
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080105001",
+            "comment": "thunderbird is earlier than 0:1.5.0.12-8.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070108002",
+            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080105004",
+            "comment": "thunderbird is earlier than 0:1.5.0.12-8.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070108002",
+            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

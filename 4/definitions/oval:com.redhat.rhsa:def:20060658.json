@@ -1,0 +1,147 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060658",
+  "version": "647",
+  "metadata": {
+    "title": "RHSA-2006:0658: wireshark security update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0658",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0658",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-4330",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4330",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4331",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4331",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4333",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4333",
+        "source": "CVE"
+      }
+    ],
+    "description": "Wireshark is a program for monitoring network traffic.\n\nBugs were found in Wireshark's SCSI and SSCOP protocol dissectors. Ethereal\ncould crash or stop responding if it read a malformed packet off the\nnetwork. (CVE-2006-4330, CVE-2006-4333)\n\nAn off-by-one bug was found in the IPsec ESP decryption preference parser.\nEthereal could crash or stop responding if it read a malformed packet off\nthe network. (CVE-2006-4331)\n\nUsers of Wireshark or Ethereal should upgrade to these updated packages\ncontaining Wireshark version 0.99.3, which is not vulnerable to these\nissues.   These packages also fix a bug in the PAM configuration of the\nWireshark packages which prevented non-root users starting a capture.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-09-12"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-4330",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4330",
+          "impact": "low",
+          "public": "20060823"
+        },
+        {
+          "text": "CVE-2006-4331",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4331",
+          "impact": "low",
+          "public": "20060823"
+        },
+        {
+          "text": "CVE-2006-4333",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4333",
+          "impact": "low",
+          "public": "20060823"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-4330 security flaw",
+          "href": "https://bugzilla.redhat.com/1618178",
+          "id": "1618178"
+        },
+        {
+          "text": "CVE-2006-4331 security flaw",
+          "href": "https://bugzilla.redhat.com/1618179",
+          "id": "1618179"
+        },
+        {
+          "text": "CVE-2006-4333 security flaw",
+          "href": "https://bugzilla.redhat.com/1618180",
+          "id": "1618180"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060658001",
+                    "comment": "wireshark is earlier than 0:0.99.3-EL4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060602002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060658003",
+                    "comment": "wireshark-gnome is earlier than 0:0.99.3-EL4.2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060602004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

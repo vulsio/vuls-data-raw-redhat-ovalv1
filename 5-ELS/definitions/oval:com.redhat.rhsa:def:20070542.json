@@ -1,0 +1,88 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070542",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2007:0542: mcstrans security and bug fix update (Low)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0542",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0542",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-4570",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4570",
+        "source": "CVE"
+      }
+    ],
+    "description": "mcstrans is the translation daemon used on SELinux machines to translate\nprogram context into human readable form.\n\nAn algorithmic complexity weakness was found in the way the mcstrans daemon\nhandled ranges of compartments in sensitivity labels. A local user could\ntrigger this flaw causing mctransd to temporarily stop responding to other\nrequests; a partial denial of service.  (CVE-2007-4570)\n\nThis update also fixes a problem where the mcstrans daemon was preventing\nSSH connections into an SELinux box, that was running a Multi-Level\nSecurity (MLS) Policy with multiple categories.\n\nUsers of mcstrans are advised to upgrade to this updated package, which\nresolves this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Low",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-07"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-4570",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4570",
+          "impact": "low",
+          "public": "20071107"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-4570 mctransd DoS",
+          "href": "https://bugzilla.redhat.com/288201",
+          "id": "288201"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070542001",
+            "comment": "mcstrans is earlier than 0:0.2.6-1.el5"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070542002",
+            "comment": "mcstrans is signed with Red Hat redhatrelease key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20160302",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2016:0302: openssl security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2016:0302",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2016:0302",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2015-3197",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2015-3197",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2016-0797",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2016-0797",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2016-0800",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2016-0800",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nA padding oracle flaw was found in the Secure Sockets Layer version 2.0\n(SSLv2) protocol. An attacker can potentially use this flaw to decrypt\nRSA-encrypted cipher text from a connection using a newer SSL/TLS protocol\nversion, allowing them to decrypt such connections. This cross-protocol\nattack is publicly referred to as DROWN. (CVE-2016-0800)\n\nNote: This issue was addressed by disabling the SSLv2 protocol by default\nwhen using the 'SSLv23' connection methods, and removing support for weak\nSSLv2 cipher suites. It is possible to re-enable the SSLv2 protocol in the\n'SSLv23' connection methods by default by setting the OPENSSL_ENABLE_SSL2\nenvironment variable before starting an application that needs to have\nSSLv2 enabled. For more information, refer to the knowledge base article\nlinked to in the References section.\n\nA flaw was found in the way malicious SSLv2 clients could negotiate SSLv2\nciphers that have been disabled on the server. This could result in weak\nSSLv2 ciphers being used for SSLv2 connections, making them vulnerable to\nman-in-the-middle attacks. (CVE-2015-3197)\n\nAn integer overflow flaw, leading to a NULL pointer dereference or a\nheap-based memory corruption, was found in the way some BIGNUM functions of\nOpenSSL were implemented. Applications that use these functions with large\nuntrusted input could crash or, potentially, execute arbitrary code.\n(CVE-2016-0797)\n\nRed Hat would like to thank the OpenSSL project for reporting these issues.\nUpstream acknowledges Nimrod Aviram and Sebastian Schinzel as the original\nreporters of CVE-2016-0800 and CVE-2015-3197; and Guido Vranken as the\noriginal reporter of CVE-2016-0797.\n\nAll openssl users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. For the update to take\neffect, all services linked to the OpenSSL library must be restarted, or\nthe system rebooted.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2016 Red Hat, Inc.",
+      "issued": {
+        "date": "2016-03-01"
+      },
+      "updated": {
+        "date": "2016-03-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2015-3197",
+          "href": "https://access.redhat.com/security/cve/CVE-2015-3197",
+          "impact": "low",
+          "public": "20160128",
+          "cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+        },
+        {
+          "text": "CVE-2016-0797",
+          "href": "https://access.redhat.com/security/cve/CVE-2016-0797",
+          "impact": "low",
+          "public": "20160301",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2016-0800",
+          "href": "https://access.redhat.com/security/cve/CVE-2016-0800",
+          "impact": "important",
+          "public": "20160301",
+          "cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2015-3197 OpenSSL: SSLv2 doesn't block disabled ciphers",
+          "href": "https://bugzilla.redhat.com/1301846",
+          "id": "1301846"
+        },
+        {
+          "text": "CVE-2016-0800 SSL/TLS: Cross-protocol attack on TLS using SSLv2 (DROWN)",
+          "href": "https://bugzilla.redhat.com/1310593",
+          "id": "1310593"
+        },
+        {
+          "text": "CVE-2016-0797 OpenSSL: BN_hex2bn/BN_dec2bn NULL pointer deref/heap corruption",
+          "href": "https://bugzilla.redhat.com/1311880",
+          "id": "1311880"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20160302001",
+                    "comment": "openssl is earlier than 0:0.9.8e-39.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070964002",
+                    "comment": "openssl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20160302003",
+                    "comment": "openssl-devel is earlier than 0:0.9.8e-39.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070964004",
+                    "comment": "openssl-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20160302005",
+                    "comment": "openssl-perl is earlier than 0:0.9.8e-39.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070964006",
+                    "comment": "openssl-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

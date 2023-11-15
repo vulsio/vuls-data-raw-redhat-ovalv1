@@ -1,0 +1,130 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100895",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2010:0895: systemtap security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0895",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0895",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-4170",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4170",
+        "source": "CVE"
+      }
+    ],
+    "description": "SystemTap is an instrumentation system for systems running the Linux\nkernel, version 2.6. Developers can write scripts to collect data on the\noperation of the system. staprun, the SystemTap runtime tool, is used for\nmanaging SystemTap kernel modules (for example, loading them).\n\nIt was discovered that staprun did not properly sanitize the environment\nbefore executing the modprobe command to load an additional kernel module.\nA local, unprivileged user could use this flaw to escalate their\nprivileges. (CVE-2010-4170)\n\nNote: On Red Hat Enterprise Linux 4, an attacker must be a member of the\nstapusr group to exploit this issue. Also note that, after installing this\nupdate, users already in the stapdev group must be added to the stapusr\ngroup in order to be able to run the staprun tool.\n\nRed Hat would like to thank Tavis Ormandy for reporting this issue.\n\nSystemTap users should upgrade to these updated packages, which contain\na backported patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-11-17"
+      },
+      "updated": {
+        "date": "2010-11-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-4170",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-4170",
+          "impact": "moderate",
+          "public": "20101117",
+          "cwe": "CWE-284",
+          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-4170 Systemtap: Insecure loading of modules",
+          "href": "https://bugzilla.redhat.com/653604",
+          "id": "653604"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100895001",
+                    "comment": "systemtap is earlier than 0:0.6.2-2.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090373002",
+                    "comment": "systemtap is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100895003",
+                    "comment": "systemtap-runtime is earlier than 0:0.6.2-2.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090373004",
+                    "comment": "systemtap-runtime is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100895005",
+                    "comment": "systemtap-testsuite is earlier than 0:0.6.2-2.el4_8.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090373006",
+                    "comment": "systemtap-testsuite is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090955",
+  "version": "646",
+  "metadata": {
+    "title": "RHSA-2009:0955: nfs-utils security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0955",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0955",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-1376",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1376",
+        "source": "CVE"
+      }
+    ],
+    "description": "The nfs-utils package provides a daemon for the kernel NFS server and\nrelated tools, which provides a much higher level of performance than the\ntraditional Linux NFS server used by most users.\n\nA flaw was found in the nfs-utils package provided by RHBA-2008:0742. The\nnfs-utils package was missing TCP wrappers support, which could result in\nan administrator believing they had access restrictions enabled when they\ndid not. (CVE-2008-1376)\n\nThis update also includes the following bug fixes:\n\n* the \"nfsstat\" command now displays correct statistics. In previous\nversions, performing more than 2^31 RPC calls could cause the \"nfsstat\"\ncommand to incorrectly display the number of calls as \"negative\". This was\nbecause \"nfsstat\" printed statistics from /proc/net/rpc/* files as signed\nintegers; with this version of nfs-utils, \"nfsstat\" now reads and prints\nthese statistics as unsigned integers. (BZ#404831)\n\n* imapd upcalls now support zero-length reads and perform extra bounds\nchecking in gssd and svcgssd. This fixes a bug in previous versions that\ncould cause the rpc.imapd daemon to hang when communicating with the\nkernel, which would halt any ID translation services. (BZ#448710)\n\n* tcp_wrappers supported in nfs-utils now allows proper application of\nhosts access rules defined in /etc/hosts.allow and /etc/hosts.deny. (BZ#494585)\n\n* the nfs init script did not check whether SECURE_NFS was set to \"yes\"\nbefore starting, stopping, or querying rpc.svcgssd. On systems where\nSECURE_NFS was not set to \"yes\", the nfs init script could not start the\nrpc.svcgssd daemon at the \"service nfs start\" command because the rpcsvcssd\ninit script would check the status of SECURE_NFS before starting the\ndaemon. However, at the \"service nfs stop\" or \"service nfs restart\"\ncommands, nfs init script would attempt to stop rpc.svcgssd and then report\na failure because the daemon was not running in the first place. These\nerror messages may have misled end-users into believing that there was a\ngenuine problem with their NFS configuration. This version of nfs-utils\ncontains a fix backported from Red Hat Enterprise Linux 5. nfs-utils now\nchecks the status of SECURE_NFS before the nfs init script attempts to\nstart, query or stop rpc.svcgssd and therefore, the irrelevant error\nmessages seen previously will not appear. (BZ#470423)\n\n* the nfs init script is now fully compliant with Linux Standard Base Core\nspecifications. This update fixes a bug that prevented \"/etc/init.d/nfs\nstart\" from exiting properly if NFS was already running. (BZ#474570)\n\n* /var/lib/nfs/statd/sm is now created with the proper user and group\nwhenever rpc.statd is called. In previous versions, some thread stack\nconditions could incorrectly prevent rpc.statd from creating the\n/var/lib/nfs/statd/sm file, which could cause \"service nfslock start\" to\nfail. (BZ#479376)\n\nAll users of nfs-utils should upgrade to this updated package, which\nresolves these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-05-18"
+      },
+      "updated": {
+        "date": "2009-05-18"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-1376",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1376",
+          "impact": "moderate",
+          "public": "20080731"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-1376 nfs-utils: missing tcp_wrappers support",
+          "href": "https://bugzilla.redhat.com/440114",
+          "id": "440114"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20090955001",
+            "comment": "nfs-utils is earlier than 0:1.0.6-93.EL4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20090955002",
+            "comment": "nfs-utils is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

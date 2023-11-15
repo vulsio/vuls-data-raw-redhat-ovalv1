@@ -1,0 +1,140 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20091659",
+  "version": "675",
+  "metadata": {
+    "title": "RHSA-2009:1659: kvm security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:1659",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1659",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-4031",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4031",
+        "source": "CVE"
+      }
+    ],
+    "description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nOn x86 platforms, the do_insn_fetch() function did not limit the amount of\ninstruction bytes fetched per instruction. Users in guest operating systems\ncould leverage this flaw to cause large latencies on SMP hosts that could\nlead to a local denial of service on the host operating system. This\nupdate fixes this issue by imposing the architecturally-defined 15 byte\nlength limit for instructions. (CVE-2009-4031)\n\nThis update also fixes the following bugs:\n\n* performance problems occurred when using the qcow2 image format with the\nqemu-kvm -drive \"cache=none\" option (the default setting when not specified\notherwise). This could cause guest operating system installations to take\nhours. With this update, performance patches have been backported so that\nusing the qcow2 image format with the \"cache=none\" option no longer causes\nperformance issues. (BZ#520693)\n\n* when using the virtual vm8086 mode, bugs in the emulated hardware task\nswitching implementation may have, in some situations, caused older guest\noperating systems to malfunction. (BZ#532031)\n\n* Windows Server 2003 guests (32-bit) with more than 4GB of memory may have\ncrashed during reboot when using the default qemu-kvm CPU settings.\n(BZ#532043)\n\n* with Red Hat Enterprise Virtualization, guests continued to run after\nencountering disk read errors. This could have led to their file systems\nbecoming corrupted (but not the host's), notably in environments that use\nnetworked storage. With this update, the qemu-kvm -drive \"werror=stop\"\noption now applies not only to write errors but also to read errors: When\nusing this option, guests will pause on disk read and write errors.\n\nBy default, guests managed by Red Hat Enterprise Virtualization use the\n\"werror=stop\" option. This option is not used by default for guests managed\nby libvirt. (BZ#537334, BZ#540406)\n\n* the para-virtualized block driver (virtio-blk) silently ignored read\nerrors when accessing disk images. With this update, the driver correctly\nsignals the read error to the guest. (BZ#537334)\n\nAll KVM users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. Note: The procedure in the\nSolution section must be performed before this update will take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-12-09"
+      },
+      "updated": {
+        "date": "2009-12-09"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-4031",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4031",
+          "impact": "moderate",
+          "public": "20091124",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-4031 kernel: KVM: x86 emulator: limit instructions to 15 bytes",
+          "href": "https://bugzilla.redhat.com/541160",
+          "id": "541160"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::client",
+          "cpe:/a:redhat:rhel_virtualization:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091659001",
+                    "comment": "kmod-kvm is earlier than 0:83-105.el5_4.13"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465002",
+                    "comment": "kmod-kvm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091659003",
+                    "comment": "kvm is earlier than 0:83-105.el5_4.13"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465004",
+                    "comment": "kvm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091659005",
+                    "comment": "kvm-qemu-img is earlier than 0:83-105.el5_4.13"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465006",
+                    "comment": "kvm-qemu-img is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091659007",
+                    "comment": "kvm-tools is earlier than 0:83-105.el5_4.13"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465008",
+                    "comment": "kvm-tools is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

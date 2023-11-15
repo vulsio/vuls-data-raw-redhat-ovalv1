@@ -1,0 +1,141 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20070746",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2007:0746: httpd security, bug fix, and enhancement update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2007:0746",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0746",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-3847",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3847",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Apache HTTP Server is a popular and freely-available Web server.\n\nA flaw was found in the Apache HTTP Server mod_proxy module. On sites where\na reverse proxy is configured, a remote attacker could send a carefully\ncrafted request that would cause the Apache child process handling that\nrequest to crash. On sites where a forward proxy is configured, an attacker\ncould cause a similar crash if a user could be persuaded to visit a\nmalicious site using the proxy. This could lead to a denial of service if\nusing a threaded Multi-Processing Module. (CVE-2007-3847)\n\nAs well, these updated packages fix the following bugs:\n\n* Set-Cookie headers with a status code of 3xx are not forwarded to\nclients when the \"ProxyErrorOverride\" directive is enabled. These\nresponses are overridden at the proxy. Only the responses with status\ncodes of 4xx and 5xx are overridden in these updated packages.\n\n* the default \"/etc/logrotate.d/httpd\" script incorrectly invoked the kill\ncommand, instead of using the \"/sbin/service httpd restart\" command. If you\nconfigured the httpd PID to be in a location other than\n\"/var/run/httpd.pid\", the httpd logs failed to be rotated. This has been\nresolved in these updated packages.\n\n* the \"ProxyTimeout\" directive was not inherited across virtual host\ndefinitions.\n\n* the logresolve utility was unable to read lines longer the 1024 bytes.\n\nThis update adds the following enhancements:\n\n* a new configuration option has been added, \"ServerTokens Full-Release\",\nwhich adds the package release to the server version string, which is\nreturned in the \"Server\" response header.\n\n* a new module has been added, mod_version, which allows configuration\nfiles to be written containing sections, which are evaluated only if the\nversion of httpd used matches a specified condition.\n\nUsers of httpd are advised to upgrade to these updated packages, which\nresolve these issues and add these enhancements.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2007-11-07"
+      },
+      "updated": {
+        "date": "2008-03-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-3847",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-3847",
+          "impact": "moderate",
+          "public": "20070801",
+          "cwe": "CWE-125"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-3847 httpd: out of bounds read",
+          "href": "https://bugzilla.redhat.com/250731",
+          "id": "250731"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070746001",
+                    "comment": "httpd is earlier than 0:2.2.3-11.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556002",
+                    "comment": "httpd is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070746003",
+                    "comment": "httpd-devel is earlier than 0:2.2.3-11.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556004",
+                    "comment": "httpd-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070746005",
+                    "comment": "httpd-manual is earlier than 0:2.2.3-11.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556006",
+                    "comment": "httpd-manual is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070746007",
+                    "comment": "mod_ssl is earlier than 1:2.2.3-11.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070556008",
+                    "comment": "mod_ssl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

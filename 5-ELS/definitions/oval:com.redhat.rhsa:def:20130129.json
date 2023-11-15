@@ -1,0 +1,224 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20130129",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2013:0129: ruby security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:0129",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0129",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-4481",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4481",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-4522",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4522",
+        "source": "CVE"
+      }
+    ],
+    "description": "Ruby is an extensible, interpreted, object-oriented, scripting language. It\nhas features to process text files and to do system management tasks.\n\nIt was found that certain methods did not sanitize file names before\npassing them to lower layer routines in Ruby. If a Ruby application created\nfiles with names based on untrusted input, it could result in the creation\nof files with different names than expected. (CVE-2012-4522)\n\nIt was found that the RHSA-2011:0909 update did not correctly fix the\nCVE-2011-1005 issue, a flaw in the method for translating an exception\nmessage into a string in the Exception class. A remote attacker could use\nthis flaw to bypass safe level 4 restrictions, allowing untrusted (tainted)\ncode to modify arbitrary, trusted (untainted) strings, which safe level 4\nrestrictions would otherwise prevent. (CVE-2012-4481)\n\nThe CVE-2012-4481 issue was discovered by Vit Ondruch of Red Hat.\n\nThis update also fixes the following bug:\n\n* Prior to this update, the \"rb_syck_mktime\" option could, under certain\ncircumstances, terminate with a segmentation fault when installing\nlibraries with certain gems. This update modifies the underlying code so\nthat Ruby gems can be installed as expected. (BZ#834381)\n\nAll users of Ruby are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-01-08"
+      },
+      "updated": {
+        "date": "2013-01-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-4481",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-4481",
+          "impact": "low",
+          "public": "20121005",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "text": "CVE-2012-4522",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-4522",
+          "impact": "moderate",
+          "public": "20121012",
+          "cwe": "CWE-626",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-4481 ruby: Incomplete fix for CVE-2011-1005 for NameError#to_s method when used on objects",
+          "href": "https://bugzilla.redhat.com/863484",
+          "id": "863484"
+        },
+        {
+          "text": "CVE-2012-4522 ruby: unintentional file creation caused by inserting an illegal NUL character",
+          "href": "https://bugzilla.redhat.com/865940",
+          "id": "865940"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129001",
+                    "comment": "ruby is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965002",
+                    "comment": "ruby is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129003",
+                    "comment": "ruby-devel is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965004",
+                    "comment": "ruby-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129005",
+                    "comment": "ruby-docs is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965006",
+                    "comment": "ruby-docs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129007",
+                    "comment": "ruby-irb is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965008",
+                    "comment": "ruby-irb is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129009",
+                    "comment": "ruby-libs is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965010",
+                    "comment": "ruby-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129011",
+                    "comment": "ruby-mode is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965012",
+                    "comment": "ruby-mode is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129013",
+                    "comment": "ruby-rdoc is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965014",
+                    "comment": "ruby-rdoc is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129015",
+                    "comment": "ruby-ri is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965016",
+                    "comment": "ruby-ri is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130129017",
+                    "comment": "ruby-tcltk is earlier than 0:1.8.5-27.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070965018",
+                    "comment": "ruby-tcltk is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

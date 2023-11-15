@@ -1,0 +1,267 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100360",
+  "version": "639",
+  "metadata": {
+    "title": "RHSA-2010:0360: wireshark security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0360",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0360",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-2560",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2560",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2562",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2562",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-2563",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2563",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-3550",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3550",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-3829",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3829",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2009-4377",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4377",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-0304",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0304",
+        "source": "CVE"
+      }
+    ],
+    "description": "Wireshark is a program for monitoring network traffic. Wireshark was\npreviously known as Ethereal.\n\nAn invalid pointer dereference flaw was found in the Wireshark SMB and SMB2\ndissectors. If Wireshark read a malformed packet off a network or opened a\nmalicious dump file, it could crash or, possibly, execute arbitrary code as\nthe user running Wireshark. (CVE-2009-4377)\n\nSeveral buffer overflow flaws were found in the Wireshark LWRES dissector.\nIf Wireshark read a malformed packet off a network or opened a malicious\ndump file, it could crash or, possibly, execute arbitrary code as the user\nrunning Wireshark. (CVE-2010-0304)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malicious dump file. (CVE-2009-2560, CVE-2009-2562, CVE-2009-2563,\nCVE-2009-3550, CVE-2009-3829)\n\nUsers of Wireshark should upgrade to these updated packages, which contain\nWireshark version 1.0.11, and resolve these issues. All running instances\nof Wireshark must be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-04-20"
+      },
+      "updated": {
+        "date": "2010-04-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-2560",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2560",
+          "impact": "low",
+          "public": "20090720",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-2562",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2562",
+          "impact": "moderate",
+          "public": "20090720",
+          "cwe": "CWE-190",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-2563",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-2563",
+          "impact": "low",
+          "public": "20090720",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-3550",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3550",
+          "impact": "low",
+          "public": "20091027",
+          "cwe": "CWE-476",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-3829",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-3829",
+          "impact": "low",
+          "public": "20091005",
+          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2009-4377",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-4377",
+          "impact": "moderate",
+          "public": "20091217",
+          "cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-0304",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-0304",
+          "impact": "moderate",
+          "public": "20100127",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-2562 Wireshark: Integer overflow in the AFS dissector",
+          "href": "https://bugzilla.redhat.com/512987",
+          "id": "512987"
+        },
+        {
+          "text": "CVE-2009-2563 Wireshark: Null-ptr dereference in the InfiniBand dissector",
+          "href": "https://bugzilla.redhat.com/512992",
+          "id": "512992"
+        },
+        {
+          "text": "CVE-2009-2560 Wireshark: various flaws in a) RADIUS, b) Bluetooth L2CAP, c) MIOP dissectors (DoS)",
+          "href": "https://bugzilla.redhat.com/513008",
+          "id": "513008"
+        },
+        {
+          "text": "CVE-2009-3550 Wireshark: NULL pointer dereference in the DCERPC over SMB packet disassembly",
+          "href": "https://bugzilla.redhat.com/531260",
+          "id": "531260"
+        },
+        {
+          "text": "CVE-2009-3829 wireshark: unsigned integer wrap vulnerability in ERF reader (VU#676492)",
+          "href": "https://bugzilla.redhat.com/532479",
+          "id": "532479"
+        },
+        {
+          "text": "CVE-2009-4377 wireshark: invalid pointer dereference in SMB/SMB2 dissectors",
+          "href": "https://bugzilla.redhat.com/549578",
+          "id": "549578"
+        },
+        {
+          "text": "CVE-2010-0304 wireshark: crash in LWRES dissector",
+          "href": "https://bugzilla.redhat.com/559793",
+          "id": "559793"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100360001",
+                    "comment": "wireshark is earlier than 0:1.0.11-1.el4_8.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060602002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100360003",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.11-1.el4_8.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060602004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100360006",
+                    "comment": "wireshark is earlier than 0:1.0.11-1.el5_5.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060602002",
+                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100360007",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.11-1.el5_5.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060602004",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

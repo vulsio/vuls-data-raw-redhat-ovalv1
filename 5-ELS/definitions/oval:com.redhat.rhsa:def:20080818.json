@@ -1,0 +1,142 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080818",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:0818: hplip security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0818",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0818",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-2940",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2940",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2941",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2941",
+        "source": "CVE"
+      }
+    ],
+    "description": "The hplip (Hewlett-Packard Linux Imaging and Printing) packages provide\ndrivers for Hewlett-Packard printers and multifunction peripherals.\n\nA flaw was discovered in the hplip alert-mailing functionality. A local\nattacker could elevate their privileges by using specially-crafted packets\nto trigger alert mails, which are sent by the root account. (CVE-2008-2940)\n\nA flaw was discovered in the hpssd message parser. By sending\nspecially-crafted packets, a local attacker could cause a denial of\nservice, stopping the hpssd process. (CVE-2008-2941)\n\nUsers of hplip should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-08-12"
+      },
+      "updated": {
+        "date": "2008-08-12"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-2940",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2940",
+          "impact": "moderate",
+          "public": "20080812"
+        },
+        {
+          "text": "CVE-2008-2941",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2941",
+          "impact": "moderate",
+          "public": "20080812"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2940 hpssd of hplip allows unprivileged user to trigger alert mail",
+          "href": "https://bugzilla.redhat.com/455235",
+          "id": "455235"
+        },
+        {
+          "text": "CVE-2008-2941 hplip hpssd.py Denial-Of-Service parsing vulnerability",
+          "href": "https://bugzilla.redhat.com/457052",
+          "id": "457052"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080818001",
+                    "comment": "hpijs is earlier than 1:1.6.7-4.1.el5_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070960002",
+                    "comment": "hpijs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080818003",
+                    "comment": "hplip is earlier than 0:1.6.7-4.1.el5_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070960004",
+                    "comment": "hplip is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080818005",
+                    "comment": "libsane-hpaio is earlier than 0:1.6.7-4.1.el5_2.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070960006",
+                    "comment": "libsane-hpaio is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

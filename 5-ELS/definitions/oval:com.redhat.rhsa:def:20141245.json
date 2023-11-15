@@ -1,0 +1,209 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20141245",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2014:1245: krb5 security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2014:1245",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2014:1245",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2013-1418",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-1418",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2013-6800",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-6800",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2014-4341",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-4341",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2014-4344",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-4344",
+        "source": "CVE"
+      }
+    ],
+    "description": "Kerberos is an authentication system which allows clients and services to\nauthenticate to each other with the help of a trusted third party, a\nKerberos Key Distribution Center (KDC).\n\nIt was found that if a KDC served multiple realms, certain requests could\ncause the setup_server_realm() function to dereference a NULL pointer.\nA remote, unauthenticated attacker could use this flaw to crash the KDC\nusing a specially crafted request. (CVE-2013-1418, CVE-2013-6800)\n\nA NULL pointer dereference flaw was found in the MIT Kerberos SPNEGO\nacceptor for continuation tokens. A remote, unauthenticated attacker could\nuse this flaw to crash a GSSAPI-enabled server application. (CVE-2014-4344)\n\nA buffer over-read flaw was found in the way MIT Kerberos handled certain\nrequests. A man-in-the-middle attacker with a valid Kerberos ticket who is\nable to inject packets into a client or server application's GSSAPI session\ncould use this flaw to crash the application. (CVE-2014-4341)\n\nThis update also fixes the following bugs:\n\n* Prior to this update, the libkrb5 library occasionally attempted to free\nalready freed memory when encrypting credentials. As a consequence, the\ncalling process terminated unexpectedly with a segmentation fault.\nWith this update, libkrb5 frees memory correctly, which allows the\ncredentials to be encrypted appropriately and thus prevents the mentioned\ncrash. (BZ#1004632)\n\n* Previously, when the krb5 client library was waiting for a response from\na server, the timeout variable in certain cases became a negative number.\nConsequently, the client could enter a loop while checking for responses.\nWith this update, the client logic has been modified and the described\nerror no longer occurs. (BZ#1089732)\n\nAll krb5 users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing the\nupdated packages, the krb5kdc daemon will be restarted automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2014 Red Hat, Inc.",
+      "issued": {
+        "date": "2014-09-16"
+      },
+      "updated": {
+        "date": "2014-09-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-1418",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-1418",
+          "impact": "moderate",
+          "public": "20131104",
+          "cwe": "CWE-476",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2013-6800",
+          "href": "https://access.redhat.com/security/cve/CVE-2013-6800",
+          "impact": "moderate",
+          "public": "20131104",
+          "cwe": "CWE-476",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2014-4341",
+          "href": "https://access.redhat.com/security/cve/CVE-2014-4341",
+          "impact": "low",
+          "public": "20140626",
+          "cwe": "CWE-130->CWE-125",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2014-4344",
+          "href": "https://access.redhat.com/security/cve/CVE-2014-4344",
+          "impact": "moderate",
+          "public": "20140715",
+          "cwe": "CWE-476",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2013-1418 krb5: multi-realm KDC null dereference leads to crash",
+          "href": "https://bugzilla.redhat.com/1026942",
+          "id": "1026942"
+        },
+        {
+          "text": "CVE-2013-6800 krb5: KDC remote DoS (NULL pointer dereference and daemon crash)",
+          "href": "https://bugzilla.redhat.com/1031499",
+          "id": "1031499"
+        },
+        {
+          "text": "CVE-2014-4341 krb5: denial of service flaws when handling padding length longer than the plaintext",
+          "href": "https://bugzilla.redhat.com/1116180",
+          "id": "1116180"
+        },
+        {
+          "text": "CVE-2014-4344 krb5: NULL pointer dereference flaw in SPNEGO acceptor for continuation tokens",
+          "href": "https://bugzilla.redhat.com/1121877",
+          "id": "1121877"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141245001",
+                    "comment": "krb5-devel is earlier than 0:1.6.1-78.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095011",
+                    "comment": "krb5-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141245003",
+                    "comment": "krb5-libs is earlier than 0:1.6.1-78.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095013",
+                    "comment": "krb5-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141245005",
+                    "comment": "krb5-server is earlier than 0:1.6.1-78.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095015",
+                    "comment": "krb5-server is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141245007",
+                    "comment": "krb5-server-ldap is earlier than 0:1.6.1-78.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110199008",
+                    "comment": "krb5-server-ldap is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20141245009",
+                    "comment": "krb5-workstation is earlier than 0:1.6.1-78.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070095017",
+                    "comment": "krb5-workstation is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

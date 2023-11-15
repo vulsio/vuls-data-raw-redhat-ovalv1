@@ -1,0 +1,87 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20110427",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2011:0427: spice-xpi security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:0427",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0427",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-1179",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1179",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Simple Protocol for Independent Computing Environments (SPICE) is a\nremote display protocol used in Red Hat Enterprise Linux for viewing\nvirtualized guests running on the Kernel-based Virtual Machine (KVM)\nhypervisor, or on Red Hat Enterprise Virtualization Hypervisor.\n\nThe spice-xpi package provides a plug-in that allows the SPICE client to\nrun from within Mozilla Firefox.\n\nAn uninitialized pointer use flaw was found in the SPICE Firefox plug-in.\nIf a user were tricked into visiting a malicious web page with Firefox\nwhile the SPICE plug-in was enabled, it could cause Firefox to crash or,\npossibly, execute arbitrary code with the privileges of the user running\nFirefox. (CVE-2011-1179)\n\nUsers of spice-xpi should upgrade to this updated package, which contains a\nbackported patch to correct this issue. After installing the update,\nFirefox must be restarted for the changes to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-04-07"
+      },
+      "updated": {
+        "date": "2011-04-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1179",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-1179",
+          "impact": "moderate",
+          "public": "20110407",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-1179 spice-xpi: unitialized pointer writes possible when getting plugin properties",
+          "href": "https://bugzilla.redhat.com/689931",
+          "id": "689931"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_productivity:5"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20110427001",
+            "comment": "spice-xpi is earlier than 0:2.2-2.3.el5_6.1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20100651002",
+            "comment": "spice-xpi is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

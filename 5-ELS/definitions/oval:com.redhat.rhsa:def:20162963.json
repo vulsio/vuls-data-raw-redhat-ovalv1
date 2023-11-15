@@ -1,0 +1,132 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20162963",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2016:2963: xen security update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2016:2963",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2016:2963",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2016-9637",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2016-9637",
+        "source": "CVE"
+      }
+    ],
+    "description": "Xen is a virtual machine monitor\n\nSecurity Fix(es):\n\n* An out of bounds array access issue was found in the Xen virtual machine monitor, built with the QEMU ioport support. It could occur while doing ioport read/write operations, if guest was to supply a 32bit address parameter. A privileged guest user/process could use this flaw to potentially escalate their privileges on a host. (CVE-2016-9637)\n\nRed Hat would like to thank the Xen project for reporting this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2016 Red Hat, Inc.",
+      "issued": {
+        "date": "2016-12-20"
+      },
+      "updated": {
+        "date": "2016-12-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2016-9637",
+          "href": "https://access.redhat.com/security/cve/CVE-2016-9637",
+          "impact": "important",
+          "public": "20161206",
+          "cwe": "CWE-125",
+          "cvss_2": "6.5/AV:A/AC:H/Au:S/C:C/I:C/A:C",
+          "cvss_3": "7.6/CVSS:3.0/AV:A/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2016-9637 XSA199 Xen: qemu ioport out-of-bounds array access (XSA-199)",
+          "href": "https://bugzilla.redhat.com/1397043",
+          "id": "1397043"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::client",
+          "cpe:/a:redhat:rhel_virtualization:5::server",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20162963001",
+                    "comment": "xen is earlier than 0:3.0.3-148.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+                    "comment": "xen is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20162963003",
+                    "comment": "xen-devel is earlier than 0:3.0.3-148.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+                    "comment": "xen-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20162963005",
+                    "comment": "xen-libs is earlier than 0:3.0.3-148.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+                    "comment": "xen-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

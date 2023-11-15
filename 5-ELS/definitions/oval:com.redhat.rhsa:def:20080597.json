@@ -1,0 +1,224 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080597",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2008:0597: firefox security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0597",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0597",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-2785",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2785",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2933",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2933",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-3198",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3198",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Firefox is an open source Web browser.\n\nAn integer overflow flaw was found in the way Firefox displayed certain web\ncontent. A malicious web site could cause Firefox to crash, or execute\narbitrary code with the permissions of the user running Firefox.\n(CVE-2008-2785)\n\nA flaw was found in the way Firefox handled certain command line URLs. If\nanother application passed Firefox a malformed URL, it could result in\nFirefox executing local malicious content with chrome privileges.\n(CVE-2008-2933)\n\nAll firefox users should upgrade to these updated packages, which contain\nFirefox 3.0.1 that corrects these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-07-16"
+      },
+      "updated": {
+        "date": "2008-07-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-2785",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2785",
+          "impact": "critical",
+          "public": "20080716"
+        },
+        {
+          "text": "CVE-2008-2933",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2933",
+          "impact": "moderate",
+          "public": "20080715"
+        },
+        {
+          "text": "CVE-2008-3198",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3198",
+          "impact": "moderate",
+          "public": "20080715"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2785 mozilla: CSS reference counter overflow (ZDI-CAN-349)",
+          "href": "https://bugzilla.redhat.com/452204",
+          "id": "452204"
+        },
+        {
+          "text": "CVE-2008-2933 Firefox command line URL launches multi-tabs",
+          "href": "https://bugzilla.redhat.com/454697",
+          "id": "454697"
+        },
+        {
+          "text": "CVE-2008-3198 security flaw",
+          "href": "https://bugzilla.redhat.com/1618332",
+          "id": "1618332"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597001",
+                    "comment": "devhelp is earlier than 0:0.12-18.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070097002",
+                    "comment": "devhelp is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597003",
+                    "comment": "devhelp-devel is earlier than 0:0.12-18.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070097004",
+                    "comment": "devhelp-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597005",
+                    "comment": "xulrunner is earlier than 0:1.9.0.1-1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080569002",
+                    "comment": "xulrunner is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597007",
+                    "comment": "xulrunner-devel is earlier than 0:1.9.0.1-1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080569004",
+                    "comment": "xulrunner-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597009",
+                    "comment": "xulrunner-devel-unstable is earlier than 0:1.9.0.1-1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080569006",
+                    "comment": "xulrunner-devel-unstable is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597011",
+                    "comment": "yelp is earlier than 0:2.16.0-20.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070097006",
+                    "comment": "yelp is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597013",
+                    "comment": "firefox is earlier than 0:3.0.1-1.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070097008",
+                    "comment": "firefox is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597015",
+                    "comment": "nspluginwrapper is earlier than 0:0.9.91.5-22.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080597016",
+                    "comment": "nspluginwrapper is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

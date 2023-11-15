@@ -1,0 +1,160 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20151664",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2015:1664: nss security, bug fix, and enhancement update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2015:1664",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2015:1664",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2015-2721",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2015-2721",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2015-2730",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2015-2730",
+        "source": "CVE"
+      }
+    ],
+    "description": "Network Security Services (NSS) is a set of libraries designed to support\ncross-platform development of security-enabled client and server\napplications.\n\nIt was found that NSS permitted skipping of the ServerKeyExchange packet\nduring a handshake involving ECDHE (Elliptic Curve Diffie-Hellman key\nExchange). A remote attacker could use this flaw to bypass the\nforward-secrecy of a TLS/SSL connection. (CVE-2015-2721)\n\nA flaw was found in the way NSS verified certain ECDSA (Elliptic Curve\nDigital Signature Algorithm) signatures. Under certain conditions, an\nattacker could use this flaw to conduct signature forgery attacks.\n(CVE-2015-2730)\n\nRed Hat would like to thank the Mozilla project for reporting this issue.\nUpstream acknowledges Karthikeyan Bhargavan as the original reporter of\nCVE-2015-2721, and Watson Ladd as the original reporter of CVE-2015-2730.\n\nThe nss packages have been upgraded to upstream version 3.19.1, which\nprovides a number of bug fixes and enhancements over the previous version.\n\nAll nss users are advised to upgrade to these updated packages, which\ncorrect these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2015 Red Hat, Inc.",
+      "issued": {
+        "date": "2015-08-24"
+      },
+      "updated": {
+        "date": "2015-08-24"
+      },
+      "cve": [
+        {
+          "text": "CVE-2015-2721",
+          "href": "https://access.redhat.com/security/cve/CVE-2015-2721",
+          "impact": "moderate",
+          "public": "20150702",
+          "cwe": "CWE-358",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2015-2730",
+          "href": "https://access.redhat.com/security/cve/CVE-2015-2730",
+          "impact": "moderate",
+          "public": "20150702",
+          "cwe": "CWE-347",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2015-2730 NSS: ECDSA signature validation fails to handle some signatures correctly (MFSA 2015-64)",
+          "href": "https://bugzilla.redhat.com/1236954",
+          "id": "1236954"
+        },
+        {
+          "text": "CVE-2015-2721 NSS: incorrectly permited skipping of ServerKeyExchange (MFSA 2015-71)",
+          "href": "https://bugzilla.redhat.com/1236967",
+          "id": "1236967"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151664001",
+                    "comment": "nss is earlier than 0:3.19.1-1.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20150925006",
+                    "comment": "nss is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151664003",
+                    "comment": "nss-devel is earlier than 0:3.19.1-1.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20150925008",
+                    "comment": "nss-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151664005",
+                    "comment": "nss-pkcs11-devel is earlier than 0:3.19.1-1.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20150925010",
+                    "comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20151664007",
+                    "comment": "nss-tools is earlier than 0:3.19.1-1.el5_11"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20150925012",
+                    "comment": "nss-tools is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

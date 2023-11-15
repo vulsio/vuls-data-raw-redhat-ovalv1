@@ -1,0 +1,128 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060272",
+  "version": "641",
+  "metadata": {
+    "title": "RHSA-2006:0272: openmotif security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0272",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0272",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2005-3964",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3964",
+        "source": "CVE"
+      }
+    ],
+    "description": "OpenMotif provides libraries which implement the Motif industry standard\ngraphical user interface. \n\nA number of buffer overflow flaws were discovered in OpenMotif's libUil\nlibrary. It is possible for an attacker to execute arbitrary code as a\nvictim who has been tricked into executing a program linked against\nOpenMotif, which then loads a malicious User Interface Language (UIL) file.\n(CVE-2005-3964)\n\nUsers of OpenMotif are advised to upgrade to these erratum packages, which\ncontain a backported security patch to correct this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-04-04"
+      },
+      "updated": {
+        "date": "2006-04-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2005-3964",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3964",
+          "impact": "moderate",
+          "public": "20051202"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2005-3964 openmotif libUil buffer overflows",
+          "href": "https://bugzilla.redhat.com/430519",
+          "id": "430519"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060272001",
+                    "comment": "openmotif21 is earlier than 0:2.1.30-11.RHEL4.5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060272002",
+                    "comment": "openmotif21 is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060272003",
+                    "comment": "openmotif is earlier than 0:2.2.3-10.RHEL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060272004",
+                    "comment": "openmotif is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060272005",
+                    "comment": "openmotif-devel is earlier than 0:2.2.3-10.RHEL4.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060272006",
+                    "comment": "openmotif-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

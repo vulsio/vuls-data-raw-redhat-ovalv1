@@ -1,0 +1,161 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080839",
+  "version": "636",
+  "metadata": {
+    "title": "RHSA-2008:0839: postfix security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0839",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0839",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-2936",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2936",
+        "source": "CVE"
+      }
+    ],
+    "description": "Postfix is a Mail Transport Agent (MTA), supporting LDAP, SMTP AUTH (SASL),\nand TLS.\n\nA flaw was found in the way Postfix dereferences symbolic links. If a local\nuser has write access to a mail spool directory with no root mailbox, it\nmay be possible for them to append arbitrary data to files that root has\nwrite permission to. (CVE-2008-2936)\n\nRed Hat would like to thank Sebastian Krahmer for responsibly disclosing\nthis issue.\n\nAll users of postfix should upgrade to these updated packages, which\ncontain a backported patch that resolves this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-08-14"
+      },
+      "updated": {
+        "date": "2008-08-14"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-2936",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2936",
+          "impact": "moderate",
+          "public": "20080814"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2936 postfix privilege escalation flaw",
+          "href": "https://bugzilla.redhat.com/456314",
+          "id": "456314"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839001",
+                    "comment": "postfix is earlier than 2:2.2.10-1.2.1.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839002",
+                    "comment": "postfix is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839003",
+                    "comment": "postfix-pflogsumm is earlier than 2:2.2.10-1.2.1.el4_7"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839004",
+                    "comment": "postfix-pflogsumm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839006",
+                    "comment": "postfix is earlier than 2:2.3.3-2.1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839002",
+                    "comment": "postfix is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839007",
+                    "comment": "postfix-pflogsumm is earlier than 2:2.3.3-2.1.el5_2"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080839004",
+                    "comment": "postfix-pflogsumm is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

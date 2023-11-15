@@ -1,0 +1,245 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20100625",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2010:0625: wireshark security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2010:0625",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0625",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2010-1455",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1455",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2283",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2283",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2284",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2284",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2286",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2286",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2287",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2287",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2010-2995",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2995",
+        "source": "CVE"
+      }
+    ],
+    "description": "Wireshark is a program for monitoring network traffic. Wireshark was\npreviously known as Ethereal.\n\nMultiple buffer overflow flaws were found in the Wireshark SigComp\nUniversal Decompressor Virtual Machine (UDVM) dissector. If Wireshark read\na malformed packet off a network or opened a malicious dump file, it could\ncrash or, possibly, execute arbitrary code as the user running Wireshark.\n(CVE-2010-2287, CVE-2010-2995)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malicious dump file. (CVE-2010-1455, CVE-2010-2283, CVE-2010-2284,\nCVE-2010-2286)\n\nUsers of Wireshark should upgrade to these updated packages, which contain\nWireshark version 1.0.15, and resolve these issues. All running instances\nof Wireshark must be restarted for the update to take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2010 Red Hat, Inc.",
+      "issued": {
+        "date": "2010-08-11"
+      },
+      "updated": {
+        "date": "2010-08-11"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-1455",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-1455",
+          "impact": "low",
+          "public": "20100505",
+          "cvss_2": "1.8/AV:A/AC:H/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-2283",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2283",
+          "impact": "low",
+          "public": "20100609",
+          "cwe": "CWE-476",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-2284",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2284",
+          "impact": "low",
+          "public": "20100609",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-2286",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2286",
+          "impact": "low",
+          "public": "20100609",
+          "cwe": "CWE-835",
+          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2010-2287",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2287",
+          "impact": "moderate",
+          "public": "20100609",
+          "cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2010-2995",
+          "href": "https://access.redhat.com/security/cve/CVE-2010-2995",
+          "impact": "moderate",
+          "public": "20100609",
+          "cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2010-1455 wireshark: DOCSIS dissector crash",
+          "href": "https://bugzilla.redhat.com/590613",
+          "id": "590613"
+        },
+        {
+          "text": "CVE-2010-2283 wireshark: SMB dissector NULL pointer dereference",
+          "href": "https://bugzilla.redhat.com/604290",
+          "id": "604290"
+        },
+        {
+          "text": "CVE-2010-2284 wireshark: ASN.1 BER dissector stack overrun",
+          "href": "https://bugzilla.redhat.com/604292",
+          "id": "604292"
+        },
+        {
+          "text": "CVE-2010-2286 wireshark: SigComp UDVM dissector infinite loop",
+          "href": "https://bugzilla.redhat.com/604302",
+          "id": "604302"
+        },
+        {
+          "text": "CVE-2010-2995 wireshark: SigComp UDVM dissector buffer overruns",
+          "href": "https://bugzilla.redhat.com/604308",
+          "id": "604308"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100625001",
+                    "comment": "wireshark is earlier than 0:1.0.15-1.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+                    "comment": "wireshark is signed with Red Hat master key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100625003",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.15-1.el4_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+                    "comment": "wireshark-gnome is signed with Red Hat master key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100625006",
+                    "comment": "wireshark is earlier than 0:1.0.15-1.el5_5.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066007",
+                    "comment": "wireshark is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20100625008",
+                    "comment": "wireshark-gnome is earlier than 0:1.0.15-1.el5_5.1"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070066009",
+                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

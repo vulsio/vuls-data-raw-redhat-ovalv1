@@ -1,0 +1,170 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120676",
+  "version": "634",
+  "metadata": {
+    "title": "RHSA-2012:0676: kvm security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0676",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0676",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-1601",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-1601",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-2121",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-2121",
+        "source": "CVE"
+      }
+    ],
+    "description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA flaw was found in the way the KVM_CREATE_IRQCHIP ioctl was handled.\nCalling this ioctl when at least one virtual CPU (VCPU) already existed\ncould lead to a NULL pointer dereference later when the VCPU is scheduled\nto run. A malicious user in the kvm group on the host could use this flaw\nto crash the host. (CVE-2012-1601)\n\nA flaw was found in the way device memory was handled during guest device\nremoval. Upon successful device removal, memory used by the device was not\nproperly unmapped from the corresponding IOMMU or properly released from\nthe kernel, leading to a memory leak. A malicious user in the kvm group on\nthe host who has the ability to assign a device to a guest could use this\nflaw to crash the host. (CVE-2012-2121)\n\nThis update also fixes the following bug:\n\n* An off-by-one error in the QEMU guest's memory management could, in rare\ncases, cause QEMU-KVM to crash due to a segmentation fault in\ntb_invalidate_phys_page_range() if a device initiated DMA into a specific\nguest address. In a reported case, this issue presented on a system that\nhad a guest using the 8139cp network driver. (BZ#816207)\n\nAll users of kvm are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. Note that the procedure\nin the Solution section must be performed before this update will take\neffect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-05-21"
+      },
+      "updated": {
+        "date": "2012-05-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-1601",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-1601",
+          "impact": "moderate",
+          "public": "20120207",
+          "cvss_2": "4.0/AV:L/AC:H/Au:N/C:N/I:N/A:C"
+        },
+        {
+          "text": "CVE-2012-2121",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-2121",
+          "impact": "moderate",
+          "public": "20120329",
+          "cvss_2": "4.7/AV:L/AC:M/Au:N/C:N/I:N/A:C"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-1601 kernel: kvm: irqchip_in_kernel() and vcpu->arch.apic inconsistency",
+          "href": "https://bugzilla.redhat.com/808199",
+          "id": "808199"
+        },
+        {
+          "text": "CVE-2012-2121 kvm: device assignment page leak",
+          "href": "https://bugzilla.redhat.com/814149",
+          "id": "814149"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/a:redhat:rhel_virtualization:5",
+          "cpe:/a:redhat:rhel_virtualization:5::client",
+          "cpe:/a:redhat:rhel_virtualization:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120676001",
+                    "comment": "kmod-kvm is earlier than 0:83-249.el5_8.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465002",
+                    "comment": "kmod-kvm is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120676003",
+                    "comment": "kmod-kvm-debug is earlier than 0:83-249.el5_8.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20110028004",
+                    "comment": "kmod-kvm-debug is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120676005",
+                    "comment": "kvm is earlier than 0:83-249.el5_8.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465004",
+                    "comment": "kvm is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120676007",
+                    "comment": "kvm-qemu-img is earlier than 0:83-249.el5_8.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465006",
+                    "comment": "kvm-qemu-img is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120676009",
+                    "comment": "kvm-tools is earlier than 0:83-249.el5_8.4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20091465008",
+                    "comment": "kvm-tools is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20120677",
+  "version": "634",
+  "metadata": {
+    "title": "RHSA-2012:0677: postgresql security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2012:0677",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0677",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2012-0866",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0866",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2012-0868",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0868",
+        "source": "CVE"
+      }
+    ],
+    "description": "PostgreSQL is an advanced object-relational database management system\n(DBMS).\n\nThe pg_dump utility inserted object names literally into comments in the\nSQL script it produces. An unprivileged database user could create an\nobject whose name includes a newline followed by an SQL command. This SQL\ncommand might then be executed by a privileged user during later restore of\nthe backup dump, allowing privilege escalation. (CVE-2012-0868)\n\nCREATE TRIGGER did not do a permissions check on the trigger function to\nbe called. This could possibly allow an authenticated database user to\ncall a privileged trigger function on data of their choosing.\n(CVE-2012-0866)\n\nAll PostgreSQL users are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues. If the postgresql\nservice is running, it will be automatically restarted after installing\nthis update.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2012 Red Hat, Inc.",
+      "issued": {
+        "date": "2012-05-21"
+      },
+      "updated": {
+        "date": "2012-05-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-0866",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-0866",
+          "impact": "low",
+          "public": "20120227",
+          "cvss_2": "5.2/AV:A/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2012-0868",
+          "href": "https://access.redhat.com/security/cve/CVE-2012-0868",
+          "impact": "moderate",
+          "public": "20120227",
+          "cvss_2": "2.3/AV:A/AC:M/Au:S/C:N/I:P/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2012-0866 postgresql: Absent permission checks on trigger function to be called when creating a trigger",
+          "href": "https://bugzilla.redhat.com/797222",
+          "id": "797222"
+        },
+        {
+          "text": "CVE-2012-0868 postgresql: SQL injection due unsanitized newline characters in object names",
+          "href": "https://bugzilla.redhat.com/797917",
+          "id": "797917"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677001",
+                    "comment": "postgresql is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068002",
+                    "comment": "postgresql is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677003",
+                    "comment": "postgresql-contrib is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068004",
+                    "comment": "postgresql-contrib is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677005",
+                    "comment": "postgresql-devel is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068006",
+                    "comment": "postgresql-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677007",
+                    "comment": "postgresql-docs is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068008",
+                    "comment": "postgresql-docs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677009",
+                    "comment": "postgresql-libs is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068010",
+                    "comment": "postgresql-libs is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677011",
+                    "comment": "postgresql-pl is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068012",
+                    "comment": "postgresql-pl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677013",
+                    "comment": "postgresql-python is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068014",
+                    "comment": "postgresql-python is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677015",
+                    "comment": "postgresql-server is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068016",
+                    "comment": "postgresql-server is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677017",
+                    "comment": "postgresql-tcl is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068018",
+                    "comment": "postgresql-tcl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20120677019",
+                    "comment": "postgresql-test is earlier than 0:8.1.23-4.el5_8"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20070068020",
+                    "comment": "postgresql-test is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090046",
+  "version": "640",
+  "metadata": {
+    "title": "RHSA-2009:0046: ntp security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4",
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0046",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0046",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-0021",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0021",
+        "source": "CVE"
+      }
+    ],
+    "description": "The Network Time Protocol (NTP) is used to synchronize a computer's time\nwith a referenced time source.\n\nA flaw was discovered in the way the ntpd daemon checked the return value\nof the OpenSSL EVP_VerifyFinal function. On systems using NTPv4\nauthentication, this could lead to an incorrect verification of\ncryptographic signatures, allowing time-spoofing attacks. (CVE-2009-0021)\n\nNote: This issue only affects systems that have enabled NTP authentication.\nBy default, NTP authentication is not enabled.\n\nAll ntp users are advised to upgrade to the updated packages, which contain\na backported patch to resolve this issue. After installing the update, the\nntpd daemon will restart automatically.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-01-29"
+      },
+      "updated": {
+        "date": "2009-01-29"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-0021",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0021",
+          "impact": "moderate",
+          "public": "20090107",
+          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-0021 ntp incorrectly checks for malformed signatures",
+          "href": "https://bugzilla.redhat.com/476807",
+          "id": "476807"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws",
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20090046001",
+            "comment": "ntp is earlier than 0:4.2.0.a.20040617-8.el4_7.1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060393002",
+            "comment": "ntp is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20090046004",
+            "comment": "ntp is earlier than 0:4.2.2p1-9.el5_3.1"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060393002",
+            "comment": "ntp is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

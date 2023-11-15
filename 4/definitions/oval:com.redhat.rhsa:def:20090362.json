@@ -1,0 +1,116 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20090362",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2009:0362: NetworkManager security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2009:0362",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0362",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2009-0365",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0365",
+        "source": "CVE"
+      }
+    ],
+    "description": "NetworkManager is a network link manager that attempts to keep a wired or\nwireless network connection active at all times.\n\nAn information disclosure flaw was found in NetworkManager's D-Bus\ninterface. A local attacker could leverage this flaw to discover sensitive\ninformation, such as network connection passwords and pre-shared keys.\n(CVE-2009-0365)\n\nRed Hat would like to thank Ludwig Nussel for responsibly reporting this\nflaw.\n\nNetworkManager users should upgrade to these updated packages, which\ncontain a backported patch that corrects this issue.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2009 Red Hat, Inc.",
+      "issued": {
+        "date": "2009-03-25"
+      },
+      "updated": {
+        "date": "2009-03-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-0365",
+          "href": "https://access.redhat.com/security/cve/CVE-2009-0365",
+          "impact": "moderate",
+          "public": "20090303",
+          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2009-0365 NetworkManager: GetSecrets disclosure",
+          "href": "https://bugzilla.redhat.com/487722",
+          "id": "487722"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090362001",
+                    "comment": "NetworkManager is earlier than 0:0.3.1-5.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090362002",
+                    "comment": "NetworkManager is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090362003",
+                    "comment": "NetworkManager-gnome is earlier than 0:0.3.1-5.el4"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090362004",
+                    "comment": "NetworkManager-gnome is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

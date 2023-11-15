@@ -1,0 +1,351 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060276",
+  "version": "642",
+  "metadata": {
+    "title": "RHSA-2006:0276: php security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0276",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0276",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2003-1303",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2003-1303",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-2933",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2933",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2005-3883",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3883",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-0208",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0208",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-0996",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0996",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-1490",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1490",
+        "source": "CVE"
+      }
+    ],
+    "description": "PHP is an HTML-embedded scripting language commonly used with the Apache\nHTTP Web server. \n\nThe phpinfo() PHP function did not properly sanitize long strings.  An\nattacker could use this to perform cross-site scripting attacks against\nsites that have publicly-available PHP scripts that call phpinfo(). \n(CVE-2006-0996)\n\nThe html_entity_decode() PHP function was found to not be binary safe. An\nattacker could use this flaw to disclose a certain part of the memory.  In\norder for this issue to be exploitable the target site would need to have a\nPHP script which called the \"html_entity_decode()\" function with untrusted\ninput from the user and displayed the result.  (CVE-2006-1490)\n\nThe error handling output was found to not properly escape HTML output in\ncertain cases.  An attacker could use this flaw to perform cross-site\nscripting attacks against sites where both display_errors and html_errors\nare enabled.  (CVE-2006-0208)\n\nAn input validation error was found in the \"mb_send_mail()\" function.  An\nattacker could use this flaw to inject arbitrary headers in a mail sent via\na script calling the \"mb_send_mail()\" function where the \"To\" parameter can\nbe controlled by the attacker.  (CVE-2005-3883)\n\nA buffer overflow flaw was discovered in uw-imap, the University of\nWashington's IMAP Server.  php-imap is compiled against the static c-client\nlibraries from imap and therefore needed to be recompiled against the fixed\nversion.  This issue only affected Red Hat Enterprise Linux 3.\n(CVE-2005-2933).\n\nUsers of PHP should upgrade to these updated packages, which contain\nbackported patches that resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-04-25"
+      },
+      "updated": {
+        "date": "2006-04-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2003-1303",
+          "href": "https://access.redhat.com/security/cve/CVE-2003-1303",
+          "impact": "important",
+          "public": "20030612"
+        },
+        {
+          "text": "CVE-2005-2933",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-2933",
+          "impact": "moderate",
+          "public": "20051004"
+        },
+        {
+          "text": "CVE-2005-3883",
+          "href": "https://access.redhat.com/security/cve/CVE-2005-3883",
+          "impact": "moderate",
+          "public": "20051124"
+        },
+        {
+          "text": "CVE-2006-0208",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0208",
+          "impact": "low",
+          "public": "20060112"
+        },
+        {
+          "text": "CVE-2006-0996",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-0996",
+          "impact": "low",
+          "public": "20060330"
+        },
+        {
+          "text": "CVE-2006-1490",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-1490",
+          "impact": "moderate",
+          "public": "20060328"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2003-1303 security flaw",
+          "href": "https://bugzilla.redhat.com/1617127",
+          "id": "1617127"
+        },
+        {
+          "text": "CVE-2005-2933 security flaw",
+          "href": "https://bugzilla.redhat.com/1617767",
+          "id": "1617767"
+        },
+        {
+          "text": "CVE-2005-3883 security flaw",
+          "href": "https://bugzilla.redhat.com/1617845",
+          "id": "1617845"
+        },
+        {
+          "text": "CVE-2006-0208 security flaw",
+          "href": "https://bugzilla.redhat.com/1617878",
+          "id": "1617878"
+        },
+        {
+          "text": "CVE-2006-0996 security flaw",
+          "href": "https://bugzilla.redhat.com/1618022",
+          "id": "1618022"
+        },
+        {
+          "text": "CVE-2006-1490 security flaw",
+          "href": "https://bugzilla.redhat.com/1618036",
+          "id": "1618036"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276001",
+                    "comment": "php is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276002",
+                    "comment": "php is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276003",
+                    "comment": "php-devel is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276004",
+                    "comment": "php-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276005",
+                    "comment": "php-domxml is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276006",
+                    "comment": "php-domxml is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276007",
+                    "comment": "php-gd is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276008",
+                    "comment": "php-gd is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276009",
+                    "comment": "php-imap is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276010",
+                    "comment": "php-imap is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276011",
+                    "comment": "php-ldap is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276012",
+                    "comment": "php-ldap is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276013",
+                    "comment": "php-mbstring is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276014",
+                    "comment": "php-mbstring is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276015",
+                    "comment": "php-mysql is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276016",
+                    "comment": "php-mysql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276017",
+                    "comment": "php-ncurses is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276018",
+                    "comment": "php-ncurses is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276019",
+                    "comment": "php-odbc is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276020",
+                    "comment": "php-odbc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276021",
+                    "comment": "php-pear is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276022",
+                    "comment": "php-pear is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276023",
+                    "comment": "php-pgsql is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276024",
+                    "comment": "php-pgsql is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276025",
+                    "comment": "php-snmp is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276026",
+                    "comment": "php-snmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276027",
+                    "comment": "php-xmlrpc is earlier than 0:4.3.9-3.12"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060276028",
+                    "comment": "php-xmlrpc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

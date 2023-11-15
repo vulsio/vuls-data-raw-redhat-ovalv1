@@ -1,0 +1,186 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20060633",
+  "version": "638",
+  "metadata": {
+    "title": "RHSA-2006:0633: ImageMagick security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2006:0633",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0633",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2006-3743",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3743",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-3744",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3744",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2006-4144",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4144",
+        "source": "CVE"
+      }
+    ],
+    "description": "ImageMagick(TM) is an image display and manipulation tool for the X Window\nSystem that can read and write multiple image formats.\n\nTavis Ormandy discovered several integer and buffer overflow flaws in the\nway ImageMagick decodes XCF, SGI, and Sun bitmap graphic files. An attacker\ncould execute arbitrary code on a victim's machine if they were able to\ntrick the victim into opening a specially crafted image file.\n(CVE-2006-3743, CVE-2006-3744, CVE-2006-4144)\n\nUsers of ImageMagick should upgrade to these updated packages, which\ncontain backported patches and are not vulnerable to these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2006 Red Hat, Inc.",
+      "issued": {
+        "date": "2006-08-24"
+      },
+      "updated": {
+        "date": "2006-08-24"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-3743",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-3743",
+          "impact": "moderate",
+          "public": "20060822"
+        },
+        {
+          "text": "CVE-2006-3744",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-3744",
+          "impact": "moderate",
+          "public": "20060822"
+        },
+        {
+          "text": "CVE-2006-4144",
+          "href": "https://access.redhat.com/security/cve/CVE-2006-4144",
+          "impact": "moderate",
+          "public": "20060814"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2006-3743 security flaw",
+          "href": "https://bugzilla.redhat.com/1618158",
+          "id": "1618158"
+        },
+        {
+          "text": "CVE-2006-3744 security flaw",
+          "href": "https://bugzilla.redhat.com/1618159",
+          "id": "1618159"
+        },
+        {
+          "text": "CVE-2006-4144 security flaw",
+          "href": "https://bugzilla.redhat.com/1618176",
+          "id": "1618176"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060633001",
+                    "comment": "ImageMagick is earlier than 0:6.0.7.1-16"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178002",
+                    "comment": "ImageMagick is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060633003",
+                    "comment": "ImageMagick-c++ is earlier than 0:6.0.7.1-16"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178004",
+                    "comment": "ImageMagick-c++ is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060633005",
+                    "comment": "ImageMagick-c++-devel is earlier than 0:6.0.7.1-16"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178006",
+                    "comment": "ImageMagick-c++-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060633007",
+                    "comment": "ImageMagick-devel is earlier than 0:6.0.7.1-16"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178008",
+                    "comment": "ImageMagick-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060633009",
+                    "comment": "ImageMagick-perl is earlier than 0:6.0.7.1-16"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20060178010",
+                    "comment": "ImageMagick-perl is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20130122",
+  "version": "635",
+  "metadata": {
+    "title": "RHSA-2013:0122: tcl security and bug fix update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2013:0122",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0122",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2007-4772",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4772",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2007-6067",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6067",
+        "source": "CVE"
+      }
+    ],
+    "description": "Tcl (Tool Command Language) provides a powerful platform for creating\nintegration applications that tie together diverse applications, protocols,\ndevices, and frameworks. When paired with the Tk toolkit, Tcl provides a\nfast and powerful way to create cross-platform GUI applications.\n\nTwo denial of service flaws were found in the Tcl regular expression\nhandling engine. If Tcl or an application using Tcl processed a\nspecially-crafted regular expression, it would lead to excessive CPU and\nmemory consumption. (CVE-2007-4772, CVE-2007-6067)\n\nThis update also fixes the following bug:\n\n* Due to a suboptimal implementation of threading in the current version of\nthe Tcl language interpreter, an attempt to use threads in combination with\nfork in a Tcl script could cause the script to stop responding. At the\nmoment, it is not possible to rewrite the source code or drop support for\nthreading entirely. Consequent to this, this update provides a version of\nTcl without threading support in addition to the standard version with this\nsupport. Users who need to use fork in their Tcl scripts and do not require\nthreading can now switch to the version without threading support by using\nthe alternatives command. (BZ#478961)\n\nAll users of Tcl are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2013 Red Hat, Inc.",
+      "issued": {
+        "date": "2013-01-08"
+      },
+      "updated": {
+        "date": "2013-01-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2007-4772",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-4772",
+          "impact": "moderate",
+          "public": "20080107",
+          "cwe": "CWE-835",
+          "cvss_2": "1.5/AV:L/AC:M/Au:S/C:N/I:N/A:P"
+        },
+        {
+          "text": "CVE-2007-6067",
+          "href": "https://access.redhat.com/security/cve/CVE-2007-6067",
+          "impact": "low",
+          "public": "20080107",
+          "cvss_2": "1.5/AV:L/AC:M/Au:S/C:N/I:N/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2007-4772 postgresql DoS via infinite loop in regex NFA optimization code",
+          "href": "https://bugzilla.redhat.com/316511",
+          "id": "316511"
+        },
+        {
+          "text": "CVE-2007-6067 postgresql: tempory DoS caused by slow regex NFA cleanup",
+          "href": "https://bugzilla.redhat.com/400931",
+          "id": "400931"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130122001",
+                    "comment": "tcl is earlier than 0:8.4.13-6.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130122002",
+                    "comment": "tcl is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130122003",
+                    "comment": "tcl-devel is earlier than 0:8.4.13-6.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130122004",
+                    "comment": "tcl-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130122005",
+                    "comment": "tcl-html is earlier than 0:8.4.13-6.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20130122006",
+                    "comment": "tcl-html is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

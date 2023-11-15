@@ -1,0 +1,115 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20111326",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2011:1326: pango security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2011:1326",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1326",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2011-3193",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3193",
+        "source": "CVE"
+      }
+    ],
+    "description": "Pango is a library used for the layout and rendering of internationalized\ntext.\n\nA buffer overflow flaw was found in HarfBuzz, an OpenType text shaping\nengine used in Pango. If a user loaded a specially-crafted font file with\nan application that uses Pango, it could cause the application to crash or,\npossibly, execute arbitrary code with the privileges of the user running\nthe application. (CVE-2011-3193)\n\nUsers of pango are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing this\nupdate, you must restart your system or restart the X server for the update\nto take effect.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2011 Red Hat, Inc.",
+      "issued": {
+        "date": "2011-09-21"
+      },
+      "updated": {
+        "date": "2011-09-21"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-3193",
+          "href": "https://access.redhat.com/security/cve/CVE-2011-3193",
+          "impact": "moderate",
+          "public": "20110719",
+          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2011-3193 qt/harfbuzz buffer overflow",
+          "href": "https://bugzilla.redhat.com/733118",
+          "id": "733118"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111326001",
+                    "comment": "pango is earlier than 0:1.14.9-8.el5_7.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090476011",
+                    "comment": "pango is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20111326003",
+                    "comment": "pango-devel is earlier than 0:1.14.9-8.el5_7.3"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20090476013",
+                    "comment": "pango-devel is signed with Red Hat redhatrelease key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

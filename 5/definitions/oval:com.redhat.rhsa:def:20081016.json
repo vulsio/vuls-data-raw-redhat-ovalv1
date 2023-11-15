@@ -1,0 +1,106 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20081016",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:1016: enscript security update (Moderate)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:1016",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:1016",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-3863",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3863",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-4306",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4306",
+        "source": "CVE"
+      }
+    ],
+    "description": "GNU enscript converts ASCII files to PostScript(R) language files and\nspools the generated output to a specified printer or saves it to a file.\nEnscript can be extended to handle different output media and includes\noptions for customizing printouts.\n\nTwo buffer overflow flaws were found in GNU enscript. An attacker could\ncraft an ASCII file in such a way that it could execute arbitrary commands\nif the file was opened with enscript with the \"special escapes\" option (-e\nor --escapes) enabled. (CVE-2008-3863, CVE-2008-4306)\n\nAll users of enscript should upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Moderate",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-12-15"
+      },
+      "updated": {
+        "date": "2008-12-15"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-3863",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-3863",
+          "impact": "moderate",
+          "public": "20081022",
+          "cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "text": "CVE-2008-4306",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-4306",
+          "impact": "moderate",
+          "public": "20081029",
+          "cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-3863 enscript: \"setfilename\" special escape buffer overflow",
+          "href": "https://bugzilla.redhat.com/466771",
+          "id": "466771"
+        },
+        {
+          "text": "CVE-2008-4306 enscript: \"font\" special escape buffer overflows",
+          "href": "https://bugzilla.redhat.com/469311",
+          "id": "469311"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:5",
+          "cpe:/o:redhat:enterprise_linux:5::client",
+          "cpe:/o:redhat:enterprise_linux:5::server"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
+            "comment": "Red Hat Enterprise Linux 5 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20081016001",
+            "comment": "enscript is earlier than 0:1.6.4-4.1.1.el5_2"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20081016002",
+            "comment": "enscript is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

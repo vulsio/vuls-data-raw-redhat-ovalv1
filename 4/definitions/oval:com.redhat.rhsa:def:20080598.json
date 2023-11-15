@@ -1,0 +1,106 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080598",
+  "version": "637",
+  "metadata": {
+    "title": "RHSA-2008:0598: firefox security update (Critical)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0598",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0598",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-2785",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2785",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2933",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2933",
+        "source": "CVE"
+      }
+    ],
+    "description": "Mozilla Firefox is an open source Web browser.\n\nAn integer overflow flaw was found in the way Firefox displayed certain web\ncontent. A malicious web site could cause Firefox to crash, or execute\narbitrary code with the permissions of the user running Firefox.\n(CVE-2008-2785)\n\nA flaw was found in the way Firefox handled certain command line URLs. If\nanother application passed Firefox a malformed URL, it could result in\nFirefox executing local malicious content with chrome privileges.\n(CVE-2008-2933)\n\nAll firefox users should upgrade to this updated package, which contains\nbackported patches that correct these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Critical",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-07-16"
+      },
+      "updated": {
+        "date": "2008-07-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-2785",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2785",
+          "impact": "critical",
+          "public": "20080716"
+        },
+        {
+          "text": "CVE-2008-2933",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2933",
+          "impact": "moderate",
+          "public": "20080715"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-2785 mozilla: CSS reference counter overflow (ZDI-CAN-349)",
+          "href": "https://bugzilla.redhat.com/452204",
+          "id": "452204"
+        },
+        {
+          "text": "CVE-2008-2933 Firefox command line URL launches multi-tabs",
+          "href": "https://bugzilla.redhat.com/454697",
+          "id": "454697"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20080598001",
+            "comment": "firefox is earlier than 0:1.5.0.12-0.21.el4"
+          },
+          {
+            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+            "comment": "firefox is signed with Red Hat redhatrelease2 key"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}

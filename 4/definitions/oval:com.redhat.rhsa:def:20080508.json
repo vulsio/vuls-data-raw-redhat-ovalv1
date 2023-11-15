@@ -1,0 +1,293 @@
+{
+  "class": "patch",
+  "id": "oval:com.redhat.rhsa:def:20080508",
+  "version": "654",
+  "metadata": {
+    "title": "RHSA-2008:0508: kernel security and bug fix update (Important)",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Red Hat Enterprise Linux 4"
+      ]
+    },
+    "reference": [
+      {
+        "ref_id": "RHSA-2008:0508",
+        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0508",
+        "source": "RHSA"
+      },
+      {
+        "ref_id": "CVE-2008-0598",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0598",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-1367",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1367",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2365",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2365",
+        "source": "CVE"
+      },
+      {
+        "ref_id": "CVE-2008-2729",
+        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2729",
+        "source": "CVE"
+      }
+    ],
+    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThese updated packages fix the following security issues:\n\n* A security flaw was found in the Linux kernel memory copy routines, when\nrunning on certain AMD64 systems. If an unsuccessful attempt to copy kernel\nmemory from source to destination memory locations occurred, the copy\nroutines did not zero the content at the destination memory location. This\ncould allow a local unprivileged user to view potentially sensitive data.\n(CVE-2008-2729, Important)\n\n* Alexey Dobriyan discovered a race condition in the Linux kernel\nprocess-tracing system call, ptrace. A local unprivileged user could\nuse this flaw to cause a denial of service (kernel hang).\n(CVE-2008-2365, Important)\n\n* Tavis Ormandy discovered a deficiency in the Linux kernel 32-bit and\n64-bit emulation. This could allow a local unprivileged user to prepare and\nrun a specially crafted binary, which would use this deficiency to leak\nuninitialized and potentially sensitive data. (CVE-2008-0598, Important)\n\n* It was discovered that the Linux kernel handled string operations in the\nopposite way to the GNU Compiler Collection (GCC). This could allow a local\nunprivileged user to cause memory corruption. (CVE-2008-1367, Low)\n\nAs well, these updated packages fix the following bug:\n\n* On systems with a large number of CPUs (more than 16), multiple\napplications calling the \"times()\" system call may have caused a system\nhang.\n\nRed Hat Enterprise Linux 4 users are advised to upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
+    "advisory": {
+      "from": "secalert@redhat.com",
+      "severity": "Important",
+      "rights": "Copyright 2008 Red Hat, Inc.",
+      "issued": {
+        "date": "2008-06-25"
+      },
+      "updated": {
+        "date": "2008-06-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-0598",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-0598",
+          "impact": "important",
+          "public": "20080625"
+        },
+        {
+          "text": "CVE-2008-1367",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-1367",
+          "impact": "low",
+          "public": "20080305"
+        },
+        {
+          "text": "CVE-2008-2365",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2365",
+          "impact": "important",
+          "public": "20080402"
+        },
+        {
+          "text": "CVE-2008-2729",
+          "href": "https://access.redhat.com/security/cve/CVE-2008-2729",
+          "impact": "important",
+          "public": "20060826"
+        }
+      ],
+      "bugzilla": [
+        {
+          "text": "CVE-2008-0598 kernel: linux x86_64 ia32 emulation leaks uninitialized data",
+          "href": "https://bugzilla.redhat.com/433938",
+          "id": "433938"
+        },
+        {
+          "text": "CVE-2008-1367 Kernel doesn't clear DF for signal handlers",
+          "href": "https://bugzilla.redhat.com/437312",
+          "id": "437312"
+        },
+        {
+          "text": "CVE-2008-2365 kernel: ptrace: Crash on PTRACE_{ATTACH,DETACH} race",
+          "href": "https://bugzilla.redhat.com/449359",
+          "id": "449359"
+        },
+        {
+          "text": "CVE-2008-2729 kernel: [x86_64]  The string instruction version didn't zero the output on exception.",
+          "href": "https://bugzilla.redhat.com/451271",
+          "id": "451271"
+        }
+      ],
+      "affected_cpe_list": {
+        "cpe": [
+          "cpe:/o:redhat:enterprise_linux:4",
+          "cpe:/o:redhat:enterprise_linux:4::as",
+          "cpe:/o:redhat:enterprise_linux:4::desktop",
+          "cpe:/o:redhat:enterprise_linux:4::es",
+          "cpe:/o:redhat:enterprise_linux:4::ws"
+        ]
+      }
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterions": [
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080508023",
+                "comment": "kernel earlier than 0:2.6.9-67.0.20.EL is currently running"
+              },
+              {
+                "test_ref": "oval:com.redhat.rhsa:tst:20080508024",
+                "comment": "kernel earlier than 0:2.6.9-67.0.20.EL is set to boot up on next boot"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508001",
+                    "comment": "kernel is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
+                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508003",
+                    "comment": "kernel-devel is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
+                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508005",
+                    "comment": "kernel-doc is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
+                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508007",
+                    "comment": "kernel-hugemem is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
+                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508009",
+                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
+                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508011",
+                    "comment": "kernel-largesmp is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
+                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508013",
+                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
+                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508015",
+                    "comment": "kernel-smp is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
+                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508017",
+                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
+                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508019",
+                    "comment": "kernel-xenU is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
+                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.redhat.rhsa:tst:20080508021",
+                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-67.0.20.EL"
+                  },
+                  {
+                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
+                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
+            "comment": "Red Hat Enterprise Linux 4 is installed"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
+        "comment": "Red Hat Enterprise Linux must be installed"
+      }
+    ]
+  }
+}
