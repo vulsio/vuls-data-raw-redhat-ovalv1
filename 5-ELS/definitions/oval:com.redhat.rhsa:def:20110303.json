@@ -1,303 +1,303 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20110303",
-  "version": "646",
-  "metadata": {
-    "title": "RHSA-2011:0303: kernel security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:0303",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0303",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-4249",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4249",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-4251",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4251",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-4655",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4655",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-4805",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4805",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* A flaw was found in the Linux kernel's garbage collector for AF_UNIX\nsockets. A local, unprivileged user could use this flaw to trigger a\ndenial of service (out-of-memory condition). (CVE-2010-4249, Moderate)\n\n* A flaw was found in the Linux kernel's networking subsystem. If the\nnumber of packets received exceeded the receiver's buffer limit, they were\nqueued in a backlog, consuming memory, instead of being discarded. A remote\nattacker could abuse this flaw to cause a denial of service (out-of-memory\ncondition). (CVE-2010-4251, Moderate)\n\n* A missing initialization flaw was found in the ethtool_get_regs()\nfunction in the Linux kernel's ethtool IOCTL handler. A local user who has\nthe CAP_NET_ADMIN capability could use this flaw to cause an information\nleak. (CVE-2010-4655, Low)\n\nRed Hat would like to thank Vegard Nossum for reporting CVE-2010-4249, and\nKees Cook for reporting CVE-2010-4655.\n\nThis update also fixes several bugs. Documentation for these bug fixes will\nbe available shortly from the Technical Notes document linked to in the\nReferences section.\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues, and fix the bugs noted in the Technical\nNotes. The system must be rebooted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-03-01"
-      },
-      "updated": {
-        "date": "2011-03-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-4249",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-4249",
-          "impact": "moderate",
-          "public": "20101124",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2010-4251",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-4251",
-          "impact": "moderate",
-          "public": "20101125",
-          "cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2010-4655",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-4655",
-          "impact": "low",
-          "public": "20101011",
-          "cvss_2": "1.2/AV:L/AC:H/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2010-4805",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-4805",
-          "impact": "moderate",
-          "public": "20101125",
-          "cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-4249 kernel: unix socket local dos",
-          "href": "https://bugzilla.redhat.com/656756",
-          "id": "656756"
-        },
-        {
-          "text": "CVE-2010-4251 CVE-2010-4805 kernel: unlimited socket backlog DoS",
-          "href": "https://bugzilla.redhat.com/657303",
-          "id": "657303"
-        },
-        {
-          "text": "CVE-2010-4655 kernel: heap contents leak for CAP_NET_ADMIN via ethtool ioctl",
-          "href": "https://bugzilla.redhat.com/672428",
-          "id": "672428"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20110303025",
-                "comment": "kernel earlier than 0:2.6.18-238.5.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20110303026",
-                "comment": "kernel earlier than 0:2.6.18-238.5.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303001",
-                    "comment": "kernel is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110303023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-238.5.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20110303",
+	"version": "646",
+	"metadata": {
+		"title": "RHSA-2011:0303: kernel security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:0303",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:0303",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-4249",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-4249",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-4251",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-4251",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-4655",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-4655",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-4805",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-4805",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* A flaw was found in the Linux kernel's garbage collector for AF_UNIX\nsockets. A local, unprivileged user could use this flaw to trigger a\ndenial of service (out-of-memory condition). (CVE-2010-4249, Moderate)\n\n* A flaw was found in the Linux kernel's networking subsystem. If the\nnumber of packets received exceeded the receiver's buffer limit, they were\nqueued in a backlog, consuming memory, instead of being discarded. A remote\nattacker could abuse this flaw to cause a denial of service (out-of-memory\ncondition). (CVE-2010-4251, Moderate)\n\n* A missing initialization flaw was found in the ethtool_get_regs()\nfunction in the Linux kernel's ethtool IOCTL handler. A local user who has\nthe CAP_NET_ADMIN capability could use this flaw to cause an information\nleak. (CVE-2010-4655, Low)\n\nRed Hat would like to thank Vegard Nossum for reporting CVE-2010-4249, and\nKees Cook for reporting CVE-2010-4655.\n\nThis update also fixes several bugs. Documentation for these bug fixes will\nbe available shortly from the Technical Notes document linked to in the\nReferences section.\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues, and fix the bugs noted in the Technical\nNotes. The system must be rebooted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-03-01"
+			},
+			"updated": {
+				"date": "2011-03-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-4249",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-4249",
+					"impact": "moderate",
+					"public": "20101124",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2010-4251",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-4251",
+					"impact": "moderate",
+					"public": "20101125",
+					"cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2010-4655",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-4655",
+					"impact": "low",
+					"public": "20101011",
+					"cvss_2": "1.2/AV:L/AC:H/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2010-4805",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-4805",
+					"impact": "moderate",
+					"public": "20101125",
+					"cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-4249 kernel: unix socket local dos",
+					"href": "https://bugzilla.redhat.com/656756",
+					"id": "656756"
+				},
+				{
+					"text": "CVE-2010-4251 CVE-2010-4805 kernel: unlimited socket backlog DoS",
+					"href": "https://bugzilla.redhat.com/657303",
+					"id": "657303"
+				},
+				{
+					"text": "CVE-2010-4655 kernel: heap contents leak for CAP_NET_ADMIN via ethtool ioctl",
+					"href": "https://bugzilla.redhat.com/672428",
+					"id": "672428"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20110303025",
+								"comment": "kernel earlier than 0:2.6.18-238.5.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20110303026",
+								"comment": "kernel earlier than 0:2.6.18-238.5.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303001",
+										"comment": "kernel is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110303023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-238.5.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

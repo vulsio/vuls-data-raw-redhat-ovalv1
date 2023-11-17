@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20071129",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2007:1129: autofs5 security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:1129",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1129",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5964",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5964",
-        "source": "CVE"
-      }
-    ],
-    "description": "The autofs utility controls the operation of the automount daemon, which\nautomatically mounts and unmounts file systems after a period of\ninactivity.  The autofs version 5 package was made available as a\ntechnology preview in Red Hat Enterprise Linux version 4.6.\n\nThere was a security issue with the default installed configuration of\nautofs version 5 whereby the entry for the \"hosts\" map did not specify the\n\"nosuid\" mount option. A local user with control of a remote nfs server\ncould create a setuid root executable within an exported filesystem on the\nremote nfs server that, if mounted using the default hosts map, would allow\nthe user to gain root privileges. (CVE-2007-5964)\n\nDue to the fact that autofs version 5 always mounted hosts map entries suid\nby default, autofs has now been altered to always use the \"nosuid\" option\nwhen mounting from the default hosts map. The \"suid\" option must be\nexplicitly given in the master map entry to revert to the old behavior.\nThis change affects only the hosts map which corresponds to the /net entry\nin the default configuration.\n\nUsers are advised to upgrade to these updated autofs5 packages, which\nresolve this issue.\n\nRed Hat would like to thank Josh Lange for reporting this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-12-12"
-      },
-      "updated": {
-        "date": "2007-12-12"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5964",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5964",
-          "impact": "important",
-          "public": "20071212:1200"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5964 autofs defaults don't restrict suid in /net",
-          "href": "https://bugzilla.redhat.com/410031",
-          "id": "410031"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20071129001",
-            "comment": "autofs5 is earlier than 1:5.0.1-0.rc2.55.el4_6.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20071129002",
-            "comment": "autofs5 is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20071129",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2007:1129: autofs5 security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:1129",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:1129",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5964",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5964",
+				"source": "CVE"
+			}
+		],
+		"description": "The autofs utility controls the operation of the automount daemon, which\nautomatically mounts and unmounts file systems after a period of\ninactivity.  The autofs version 5 package was made available as a\ntechnology preview in Red Hat Enterprise Linux version 4.6.\n\nThere was a security issue with the default installed configuration of\nautofs version 5 whereby the entry for the \"hosts\" map did not specify the\n\"nosuid\" mount option. A local user with control of a remote nfs server\ncould create a setuid root executable within an exported filesystem on the\nremote nfs server that, if mounted using the default hosts map, would allow\nthe user to gain root privileges. (CVE-2007-5964)\n\nDue to the fact that autofs version 5 always mounted hosts map entries suid\nby default, autofs has now been altered to always use the \"nosuid\" option\nwhen mounting from the default hosts map. The \"suid\" option must be\nexplicitly given in the master map entry to revert to the old behavior.\nThis change affects only the hosts map which corresponds to the /net entry\nin the default configuration.\n\nUsers are advised to upgrade to these updated autofs5 packages, which\nresolve this issue.\n\nRed Hat would like to thank Josh Lange for reporting this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-12-12"
+			},
+			"updated": {
+				"date": "2007-12-12"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5964",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5964",
+					"impact": "important",
+					"public": "20071212:1200"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5964 autofs defaults don't restrict suid in /net",
+					"href": "https://bugzilla.redhat.com/410031",
+					"id": "410031"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20071129001",
+						"comment": "autofs5 is earlier than 1:5.0.1-0.rc2.55.el4_6.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20071129002",
+						"comment": "autofs5 is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

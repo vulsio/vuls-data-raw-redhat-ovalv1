@@ -1,175 +1,175 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070343",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0343: gimp security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0343",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0343",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-2356",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2356",
-        "source": "CVE"
-      }
-    ],
-    "description": "The GIMP (GNU Image Manipulation Program) is an image composition and\nediting program.\n\nMarsu discovered a stack overflow bug in The GIMP RAS file loader.  An\nattacker could create a carefully crafted file that could cause The GIMP to\ncrash or possibly execute arbitrary code if the file was opened by a\nvictim.  (CVE-2007-2356)\n\nFor users of Red Hat Enterprise Linux 5, the previous GIMP packages had a\nbug that concerned the execution order in which the symbolic links to\nexternally packaged GIMP plugins are installed and removed, causing the\nsymbolic links to vanish when the package is updated.\n\nUsers of The GIMP should update to these erratum packages which contain a\nbackported fix to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-05-21"
-      },
-      "updated": {
-        "date": "2007-05-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-2356",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-2356",
-          "impact": "moderate",
-          "public": "20070427"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-2356 Stack overflow in gimp's sunras plugin",
-          "href": "https://bugzilla.redhat.com/238420",
-          "id": "238420"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343001",
-                    "comment": "gimp is earlier than 1:2.0.5-6.2.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343002",
-                    "comment": "gimp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343003",
-                    "comment": "gimp-devel is earlier than 1:2.0.5-6.2.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343004",
-                    "comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343006",
-                    "comment": "gimp is earlier than 2:2.2.13-2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343002",
-                    "comment": "gimp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343007",
-                    "comment": "gimp-devel is earlier than 2:2.2.13-2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343004",
-                    "comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343008",
-                    "comment": "gimp-libs is earlier than 2:2.2.13-2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343009",
-                    "comment": "gimp-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070343",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0343: gimp security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0343",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0343",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-2356",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-2356",
+				"source": "CVE"
+			}
+		],
+		"description": "The GIMP (GNU Image Manipulation Program) is an image composition and\nediting program.\n\nMarsu discovered a stack overflow bug in The GIMP RAS file loader.  An\nattacker could create a carefully crafted file that could cause The GIMP to\ncrash or possibly execute arbitrary code if the file was opened by a\nvictim.  (CVE-2007-2356)\n\nFor users of Red Hat Enterprise Linux 5, the previous GIMP packages had a\nbug that concerned the execution order in which the symbolic links to\nexternally packaged GIMP plugins are installed and removed, causing the\nsymbolic links to vanish when the package is updated.\n\nUsers of The GIMP should update to these erratum packages which contain a\nbackported fix to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-05-21"
+			},
+			"updated": {
+				"date": "2007-05-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-2356",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-2356",
+					"impact": "moderate",
+					"public": "20070427"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-2356 Stack overflow in gimp's sunras plugin",
+					"href": "https://bugzilla.redhat.com/238420",
+					"id": "238420"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343001",
+										"comment": "gimp is earlier than 1:2.0.5-6.2.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343002",
+										"comment": "gimp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343003",
+										"comment": "gimp-devel is earlier than 1:2.0.5-6.2.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343004",
+										"comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343006",
+										"comment": "gimp is earlier than 2:2.2.13-2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343002",
+										"comment": "gimp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343007",
+										"comment": "gimp-devel is earlier than 2:2.2.13-2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343004",
+										"comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343008",
+										"comment": "gimp-libs is earlier than 2:2.2.13-2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343009",
+										"comment": "gimp-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

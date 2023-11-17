@@ -1,439 +1,439 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120033",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2012:0033: php security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0033",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0033",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-0708",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-0708",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-1148",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1148",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-1466",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1466",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-1469",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1469",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-2202",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2202",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-4566",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4566",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-4885",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4885",
-        "source": "CVE"
-      }
-    ],
-    "description": "PHP is an HTML-embedded scripting language commonly used with the Apache\nHTTP Server.\n\nIt was found that the hashing routine used by PHP arrays was susceptible\nto predictable hash collisions. If an HTTP POST request to a PHP\napplication contained many parameters whose names map to the same hash\nvalue, a large amount of CPU time would be consumed. This flaw has been\nmitigated by adding a new configuration directive, max_input_vars, that\nlimits the maximum number of parameters processed per request. By\ndefault, max_input_vars is set to 1000. (CVE-2011-4885)\n\nA use-after-free flaw was found in the PHP substr_replace() function. If a\nPHP script used the same variable as multiple function arguments, a remote\nattacker could possibly use this to crash the PHP interpreter or, possibly,\nexecute arbitrary code. (CVE-2011-1148)\n\nAn integer overflow flaw was found in the PHP exif extension. On 32-bit\nsystems, a specially-crafted image file could cause the PHP interpreter to\ncrash or disclose portions of its memory when a PHP script tries to extract\nExchangeable image file format (Exif) metadata from the image file.\n(CVE-2011-4566)\n\nAn insufficient input validation flaw, leading to a buffer over-read, was\nfound in the PHP exif extension. A specially-crafted image file could cause\nthe PHP interpreter to crash when a PHP script tries to extract\nExchangeable image file format (Exif) metadata from the image file.\n(CVE-2011-0708)\n\nAn integer overflow flaw was found in the PHP calendar extension. A remote\nattacker able to make a PHP script call SdnToJulian() with a large value\ncould cause the PHP interpreter to crash. (CVE-2011-1466)\n\nA bug in the PHP Streams component caused the PHP interpreter to crash if\nan FTP wrapper connection was made through an HTTP proxy. A remote attacker\ncould possibly trigger this issue if a PHP script accepted an untrusted URL\nto connect to. (CVE-2011-1469)\n\nAn off-by-one flaw was found in PHP. If an attacker uploaded a file with a\nspecially-crafted file name it could cause a PHP script to attempt to write\na file to the root (/) directory. By default, PHP runs as the \"apache\"\nuser, preventing it from writing to the root directory. (CVE-2011-2202)\n\nRed Hat would like to thank oCERT for reporting CVE-2011-4885. oCERT\nacknowledges Julian Wälde and Alexander Klink as the original reporters of\nCVE-2011-4885.\n\nAll php users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. After installing the updated\npackages, the httpd daemon must be restarted for the update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-01-18"
-      },
-      "updated": {
-        "date": "2012-01-18"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-0708",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-0708",
-          "impact": "low",
-          "public": "20110214",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2011-1148",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-1148",
-          "impact": "moderate",
-          "public": "20110313",
-          "cwe": "CWE-416",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2011-1466",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-1466",
-          "impact": "low",
-          "public": "20101219",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2011-1469",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-1469",
-          "impact": "low",
-          "public": "20110224",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2011-2202",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-2202",
-          "impact": "low",
-          "public": "20110612",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2011-4566",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-4566",
-          "impact": "moderate",
-          "public": "20111027",
-          "cwe": "CWE-190",
-          "cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:N/A:P"
-        },
-        {
-          "text": "CVE-2011-4885",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-4885",
-          "impact": "moderate",
-          "public": "20111228",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-0708 php: buffer over-read in Exif extension",
-          "href": "https://bugzilla.redhat.com/680972",
-          "id": "680972"
-        },
-        {
-          "text": "CVE-2011-1148 php: use-after-free vulnerability in substr_replace()",
-          "href": "https://bugzilla.redhat.com/688958",
-          "id": "688958"
-        },
-        {
-          "text": "CVE-2011-1466 php: Crash by converting serial day numbers (SDN) into Julian calendar",
-          "href": "https://bugzilla.redhat.com/689386",
-          "id": "689386"
-        },
-        {
-          "text": "CVE-2011-1469 php: DoS when using HTTP proxy with the FTP wrapper",
-          "href": "https://bugzilla.redhat.com/690905",
-          "id": "690905"
-        },
-        {
-          "text": "CVE-2011-2202 php: file path injection vulnerability in RFC1867 file upload filename",
-          "href": "https://bugzilla.redhat.com/713194",
-          "id": "713194"
-        },
-        {
-          "text": "CVE-2011-4885 php: hash table collisions CPU usage DoS (oCERT-2011-003)",
-          "href": "https://bugzilla.redhat.com/750547",
-          "id": "750547"
-        },
-        {
-          "text": "CVE-2011-4566 php: integer overflow in exif_process_IFD_TAG() may lead to DoS or arbitrary memory disclosure",
-          "href": "https://bugzilla.redhat.com/758413",
-          "id": "758413"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033001",
-                    "comment": "php is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082002",
-                    "comment": "php is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033003",
-                    "comment": "php-bcmath is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082004",
-                    "comment": "php-bcmath is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033005",
-                    "comment": "php-cli is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082006",
-                    "comment": "php-cli is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033007",
-                    "comment": "php-common is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082008",
-                    "comment": "php-common is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033009",
-                    "comment": "php-dba is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082010",
-                    "comment": "php-dba is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033011",
-                    "comment": "php-devel is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082012",
-                    "comment": "php-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033013",
-                    "comment": "php-gd is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082014",
-                    "comment": "php-gd is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033015",
-                    "comment": "php-imap is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082016",
-                    "comment": "php-imap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033017",
-                    "comment": "php-ldap is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082018",
-                    "comment": "php-ldap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033019",
-                    "comment": "php-mbstring is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082020",
-                    "comment": "php-mbstring is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033021",
-                    "comment": "php-mysql is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082022",
-                    "comment": "php-mysql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033023",
-                    "comment": "php-ncurses is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082024",
-                    "comment": "php-ncurses is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033025",
-                    "comment": "php-odbc is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082026",
-                    "comment": "php-odbc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033027",
-                    "comment": "php-pdo is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082028",
-                    "comment": "php-pdo is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033029",
-                    "comment": "php-pgsql is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082030",
-                    "comment": "php-pgsql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033031",
-                    "comment": "php-snmp is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082032",
-                    "comment": "php-snmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033033",
-                    "comment": "php-soap is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082034",
-                    "comment": "php-soap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033035",
-                    "comment": "php-xml is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082036",
-                    "comment": "php-xml is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120033037",
-                    "comment": "php-xmlrpc is earlier than 0:5.1.6-27.el5_7.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070082038",
-                    "comment": "php-xmlrpc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120033",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2012:0033: php security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0033",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0033",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-0708",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-0708",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-1148",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-1148",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-1466",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-1466",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-1469",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-1469",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-2202",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-2202",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-4566",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-4566",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-4885",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-4885",
+				"source": "CVE"
+			}
+		],
+		"description": "PHP is an HTML-embedded scripting language commonly used with the Apache\nHTTP Server.\n\nIt was found that the hashing routine used by PHP arrays was susceptible\nto predictable hash collisions. If an HTTP POST request to a PHP\napplication contained many parameters whose names map to the same hash\nvalue, a large amount of CPU time would be consumed. This flaw has been\nmitigated by adding a new configuration directive, max_input_vars, that\nlimits the maximum number of parameters processed per request. By\ndefault, max_input_vars is set to 1000. (CVE-2011-4885)\n\nA use-after-free flaw was found in the PHP substr_replace() function. If a\nPHP script used the same variable as multiple function arguments, a remote\nattacker could possibly use this to crash the PHP interpreter or, possibly,\nexecute arbitrary code. (CVE-2011-1148)\n\nAn integer overflow flaw was found in the PHP exif extension. On 32-bit\nsystems, a specially-crafted image file could cause the PHP interpreter to\ncrash or disclose portions of its memory when a PHP script tries to extract\nExchangeable image file format (Exif) metadata from the image file.\n(CVE-2011-4566)\n\nAn insufficient input validation flaw, leading to a buffer over-read, was\nfound in the PHP exif extension. A specially-crafted image file could cause\nthe PHP interpreter to crash when a PHP script tries to extract\nExchangeable image file format (Exif) metadata from the image file.\n(CVE-2011-0708)\n\nAn integer overflow flaw was found in the PHP calendar extension. A remote\nattacker able to make a PHP script call SdnToJulian() with a large value\ncould cause the PHP interpreter to crash. (CVE-2011-1466)\n\nA bug in the PHP Streams component caused the PHP interpreter to crash if\nan FTP wrapper connection was made through an HTTP proxy. A remote attacker\ncould possibly trigger this issue if a PHP script accepted an untrusted URL\nto connect to. (CVE-2011-1469)\n\nAn off-by-one flaw was found in PHP. If an attacker uploaded a file with a\nspecially-crafted file name it could cause a PHP script to attempt to write\na file to the root (/) directory. By default, PHP runs as the \"apache\"\nuser, preventing it from writing to the root directory. (CVE-2011-2202)\n\nRed Hat would like to thank oCERT for reporting CVE-2011-4885. oCERT\nacknowledges Julian Wälde and Alexander Klink as the original reporters of\nCVE-2011-4885.\n\nAll php users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. After installing the updated\npackages, the httpd daemon must be restarted for the update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-01-18"
+			},
+			"updated": {
+				"date": "2012-01-18"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-0708",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-0708",
+					"impact": "low",
+					"public": "20110214",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2011-1148",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-1148",
+					"impact": "moderate",
+					"public": "20110313",
+					"cwe": "CWE-416",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2011-1466",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-1466",
+					"impact": "low",
+					"public": "20101219",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2011-1469",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-1469",
+					"impact": "low",
+					"public": "20110224",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2011-2202",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-2202",
+					"impact": "low",
+					"public": "20110612",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2011-4566",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-4566",
+					"impact": "moderate",
+					"public": "20111027",
+					"cwe": "CWE-190",
+					"cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:N/A:P"
+				},
+				{
+					"text": "CVE-2011-4885",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-4885",
+					"impact": "moderate",
+					"public": "20111228",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-0708 php: buffer over-read in Exif extension",
+					"href": "https://bugzilla.redhat.com/680972",
+					"id": "680972"
+				},
+				{
+					"text": "CVE-2011-1148 php: use-after-free vulnerability in substr_replace()",
+					"href": "https://bugzilla.redhat.com/688958",
+					"id": "688958"
+				},
+				{
+					"text": "CVE-2011-1466 php: Crash by converting serial day numbers (SDN) into Julian calendar",
+					"href": "https://bugzilla.redhat.com/689386",
+					"id": "689386"
+				},
+				{
+					"text": "CVE-2011-1469 php: DoS when using HTTP proxy with the FTP wrapper",
+					"href": "https://bugzilla.redhat.com/690905",
+					"id": "690905"
+				},
+				{
+					"text": "CVE-2011-2202 php: file path injection vulnerability in RFC1867 file upload filename",
+					"href": "https://bugzilla.redhat.com/713194",
+					"id": "713194"
+				},
+				{
+					"text": "CVE-2011-4885 php: hash table collisions CPU usage DoS (oCERT-2011-003)",
+					"href": "https://bugzilla.redhat.com/750547",
+					"id": "750547"
+				},
+				{
+					"text": "CVE-2011-4566 php: integer overflow in exif_process_IFD_TAG() may lead to DoS or arbitrary memory disclosure",
+					"href": "https://bugzilla.redhat.com/758413",
+					"id": "758413"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033001",
+										"comment": "php is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082002",
+										"comment": "php is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033003",
+										"comment": "php-bcmath is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082004",
+										"comment": "php-bcmath is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033005",
+										"comment": "php-cli is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082006",
+										"comment": "php-cli is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033007",
+										"comment": "php-common is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082008",
+										"comment": "php-common is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033009",
+										"comment": "php-dba is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082010",
+										"comment": "php-dba is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033011",
+										"comment": "php-devel is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082012",
+										"comment": "php-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033013",
+										"comment": "php-gd is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082014",
+										"comment": "php-gd is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033015",
+										"comment": "php-imap is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082016",
+										"comment": "php-imap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033017",
+										"comment": "php-ldap is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082018",
+										"comment": "php-ldap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033019",
+										"comment": "php-mbstring is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082020",
+										"comment": "php-mbstring is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033021",
+										"comment": "php-mysql is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082022",
+										"comment": "php-mysql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033023",
+										"comment": "php-ncurses is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082024",
+										"comment": "php-ncurses is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033025",
+										"comment": "php-odbc is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082026",
+										"comment": "php-odbc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033027",
+										"comment": "php-pdo is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082028",
+										"comment": "php-pdo is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033029",
+										"comment": "php-pgsql is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082030",
+										"comment": "php-pgsql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033031",
+										"comment": "php-snmp is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082032",
+										"comment": "php-snmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033033",
+										"comment": "php-soap is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082034",
+										"comment": "php-soap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033035",
+										"comment": "php-xml is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082036",
+										"comment": "php-xml is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120033037",
+										"comment": "php-xmlrpc is earlier than 0:5.1.6-27.el5_7.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070082038",
+										"comment": "php-xmlrpc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

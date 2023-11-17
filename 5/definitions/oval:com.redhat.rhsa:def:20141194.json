@@ -1,257 +1,257 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20141194",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2014:1194: conga security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2014:1194",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2014:1194",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-5485",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5485",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-5486",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5486",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-5488",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5488",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-5497",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5497",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-5498",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5498",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-5499",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5499",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-5500",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5500",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2013-6496",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-6496",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2014-3521",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-3521",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Conga project is a management system for remote workstations.\nIt consists of luci, which is a secure web-based front end, and ricci,\nwhich is a secure daemon that dispatches incoming messages to underlying\nmanagement modules.\n\nIt was discovered that Plone, included as a part of luci, did not properly\nprotect the administrator interface (control panel). A remote attacker\ncould use this flaw to inject a specially crafted Python statement or\nscript into Plone's restricted Python sandbox that, when the administrator\ninterface was accessed, would be executed with the privileges of that\nadministrator user. (CVE-2012-5485)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nsanitize HTTP headers provided within certain URL requests. A remote\nattacker could use a specially crafted URL that, when processed, would\ncause the injected HTTP headers to be returned as a part of the Plone HTTP\nresponse, potentially allowing the attacker to perform other more advanced\nattacks. (CVE-2012-5486)\n\nMultiple information leak flaws were found in the way conga processed luci\nsite extension-related URL requests. A remote, unauthenticated attacker\ncould issue a specially crafted HTTP request that, when processed, would\nresult in unauthorized information disclosure. (CVE-2013-6496)\n\nIt was discovered that various components in the luci site\nextension-related URLs were not properly restricted to administrative\nusers. A remote, authenticated attacker could escalate their privileges to\nperform certain actions that should be restricted to administrative users,\nsuch as adding users and systems, and viewing log data. (CVE-2014-3521)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nprotect the privilege of running RestrictedPython scripts. A remote\nattacker could use a specially crafted URL that, when processed, would\nallow the attacker to submit and perform expensive computations or, in\nconjunction with other attacks, be able to access or alter privileged\ninformation. (CVE-2012-5488)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nenforce permissions checks on the membership database. A remote attacker\ncould use a specially crafted URL that, when processed, could allow the\nattacker to enumerate user account names. (CVE-2012-5497)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nhandle the processing of requests for certain collections. A remote\nattacker could use a specially crafted URL that, when processed, would lead\nto excessive I/O and/or cache resource consumption. (CVE-2012-5498)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nhandle the processing of very large values passed to an internal utility\nfunction. A remote attacker could use a specially crafted URL that, when\nprocessed, would lead to excessive memory consumption. (CVE-2012-5499)\n\nIt was discovered that Plone, included as a part of luci, allowed a remote\nanonymous user to change titles of content items due to improper\npermissions checks. (CVE-2012-5500)\n\nThe CVE-2014-3521 issue was discovered by Radek Steiger of Red Hat, and the\nCVE-2013-6496 issue was discovered by Jan Pokorny of Red Hat.\n\nIn addition, these updated conga packages include several bug fixes.\nSpace precludes documenting all of these changes in this advisory.\nUsers are directed to the Red Hat Enterprise Linux 5.11 Technical Notes,\nlinked to in the References section, for information on the most\nsignificant of these changes\n\nAll conga users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the luci and ricci services will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2014 Red Hat, Inc.",
-      "issued": {
-        "date": "2014-09-16"
-      },
-      "updated": {
-        "date": "2014-09-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-5485",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-5485",
-          "impact": "moderate",
-          "public": "20121106",
-          "cwe": "CWE-306",
-          "cvss_2": "6.0/AV:N/AC:M/Au:S/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2012-5486",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-5486",
-          "impact": "moderate",
-          "public": "20121106",
-          "cwe": "CWE-113",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2012-5488",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-5488",
-          "impact": "low",
-          "public": "20121106",
-          "cwe": "CWE-95",
-          "cvss_2": "4.6/AV:N/AC:H/Au:S/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2012-5497",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-5497",
-          "impact": "low",
-          "public": "20121106",
-          "cwe": "CWE-284->CWE-200",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2012-5498",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-5498",
-          "impact": "low",
-          "public": "20121106",
-          "cwe": "CWE-400",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2012-5499",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-5499",
-          "impact": "low",
-          "public": "20121106",
-          "cwe": "CWE-400",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2012-5500",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-5500",
-          "impact": "low",
-          "public": "20121106",
-          "cwe": "CWE-284",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2013-6496",
-          "href": "https://access.redhat.com/security/cve/CVE-2013-6496",
-          "impact": "moderate",
-          "public": "20140916",
-          "cwe": "CWE-306->CWE-862->CWE-200",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2014-3521",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-3521",
-          "impact": "moderate",
-          "public": "20140916",
-          "cwe": "CWE-862",
-          "cvss_2": "5.5/AV:N/AC:L/Au:S/C:P/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-5500 conga (Plone): Anonymous users can batch change titles of content items",
-          "href": "https://bugzilla.redhat.com/874649",
-          "id": "874649"
-        },
-        {
-          "text": "CVE-2012-5499 conga (Plone): Partial denial of service through internal function",
-          "href": "https://bugzilla.redhat.com/874657",
-          "id": "874657"
-        },
-        {
-          "text": "CVE-2012-5498 conga (Plone): Partial denial of service through Collections functionality",
-          "href": "https://bugzilla.redhat.com/874665",
-          "id": "874665"
-        },
-        {
-          "text": "CVE-2012-5497 conga (Plone): Anonymous users can list user account names",
-          "href": "https://bugzilla.redhat.com/874681",
-          "id": "874681"
-        },
-        {
-          "text": "CVE-2012-5485 conga (Plone): Restricted Python injection",
-          "href": "https://bugzilla.redhat.com/878934",
-          "id": "878934"
-        },
-        {
-          "text": "CVE-2012-5486 conga (Plone): Reflexive HTTP header injection",
-          "href": "https://bugzilla.redhat.com/878939",
-          "id": "878939"
-        },
-        {
-          "text": "CVE-2012-5488 conga (Plone): Restricted Python injection",
-          "href": "https://bugzilla.redhat.com/878945",
-          "id": "878945"
-        },
-        {
-          "text": "CVE-2013-6496 conga: Multiple information leak flaws in various luci site extensions",
-          "href": "https://bugzilla.redhat.com/971541",
-          "id": "971541"
-        },
-        {
-          "text": "CVE-2014-3521 luci: unauthorized administrative access granted to non-administrative users",
-          "href": "https://bugzilla.redhat.com/1112813",
-          "id": "1112813"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_cluster:5"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20141194001",
-                    "comment": "luci is earlier than 0:0.12.2-81.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070331002",
-                    "comment": "luci is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20141194003",
-                    "comment": "ricci is earlier than 0:0.12.2-81.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070331004",
-                    "comment": "ricci is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20141194",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2014:1194: conga security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2014:1194",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2014:1194",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-5485",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-5485",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-5486",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-5486",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-5488",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-5488",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-5497",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-5497",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-5498",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-5498",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-5499",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-5499",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-5500",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-5500",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2013-6496",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2013-6496",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2014-3521",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-3521",
+				"source": "CVE"
+			}
+		],
+		"description": "The Conga project is a management system for remote workstations.\nIt consists of luci, which is a secure web-based front end, and ricci,\nwhich is a secure daemon that dispatches incoming messages to underlying\nmanagement modules.\n\nIt was discovered that Plone, included as a part of luci, did not properly\nprotect the administrator interface (control panel). A remote attacker\ncould use this flaw to inject a specially crafted Python statement or\nscript into Plone's restricted Python sandbox that, when the administrator\ninterface was accessed, would be executed with the privileges of that\nadministrator user. (CVE-2012-5485)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nsanitize HTTP headers provided within certain URL requests. A remote\nattacker could use a specially crafted URL that, when processed, would\ncause the injected HTTP headers to be returned as a part of the Plone HTTP\nresponse, potentially allowing the attacker to perform other more advanced\nattacks. (CVE-2012-5486)\n\nMultiple information leak flaws were found in the way conga processed luci\nsite extension-related URL requests. A remote, unauthenticated attacker\ncould issue a specially crafted HTTP request that, when processed, would\nresult in unauthorized information disclosure. (CVE-2013-6496)\n\nIt was discovered that various components in the luci site\nextension-related URLs were not properly restricted to administrative\nusers. A remote, authenticated attacker could escalate their privileges to\nperform certain actions that should be restricted to administrative users,\nsuch as adding users and systems, and viewing log data. (CVE-2014-3521)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nprotect the privilege of running RestrictedPython scripts. A remote\nattacker could use a specially crafted URL that, when processed, would\nallow the attacker to submit and perform expensive computations or, in\nconjunction with other attacks, be able to access or alter privileged\ninformation. (CVE-2012-5488)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nenforce permissions checks on the membership database. A remote attacker\ncould use a specially crafted URL that, when processed, could allow the\nattacker to enumerate user account names. (CVE-2012-5497)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nhandle the processing of requests for certain collections. A remote\nattacker could use a specially crafted URL that, when processed, would lead\nto excessive I/O and/or cache resource consumption. (CVE-2012-5498)\n\nIt was discovered that Plone, included as a part of luci, did not properly\nhandle the processing of very large values passed to an internal utility\nfunction. A remote attacker could use a specially crafted URL that, when\nprocessed, would lead to excessive memory consumption. (CVE-2012-5499)\n\nIt was discovered that Plone, included as a part of luci, allowed a remote\nanonymous user to change titles of content items due to improper\npermissions checks. (CVE-2012-5500)\n\nThe CVE-2014-3521 issue was discovered by Radek Steiger of Red Hat, and the\nCVE-2013-6496 issue was discovered by Jan Pokorny of Red Hat.\n\nIn addition, these updated conga packages include several bug fixes.\nSpace precludes documenting all of these changes in this advisory.\nUsers are directed to the Red Hat Enterprise Linux 5.11 Technical Notes,\nlinked to in the References section, for information on the most\nsignificant of these changes\n\nAll conga users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the luci and ricci services will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2014 Red Hat, Inc.",
+			"issued": {
+				"date": "2014-09-16"
+			},
+			"updated": {
+				"date": "2014-09-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-5485",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-5485",
+					"impact": "moderate",
+					"public": "20121106",
+					"cwe": "CWE-306",
+					"cvss_2": "6.0/AV:N/AC:M/Au:S/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2012-5486",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-5486",
+					"impact": "moderate",
+					"public": "20121106",
+					"cwe": "CWE-113",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2012-5488",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-5488",
+					"impact": "low",
+					"public": "20121106",
+					"cwe": "CWE-95",
+					"cvss_2": "4.6/AV:N/AC:H/Au:S/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2012-5497",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-5497",
+					"impact": "low",
+					"public": "20121106",
+					"cwe": "CWE-284->CWE-200",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2012-5498",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-5498",
+					"impact": "low",
+					"public": "20121106",
+					"cwe": "CWE-400",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2012-5499",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-5499",
+					"impact": "low",
+					"public": "20121106",
+					"cwe": "CWE-400",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2012-5500",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-5500",
+					"impact": "low",
+					"public": "20121106",
+					"cwe": "CWE-284",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2013-6496",
+					"href": "https://access.redhat.com/security/cve/CVE-2013-6496",
+					"impact": "moderate",
+					"public": "20140916",
+					"cwe": "CWE-306->CWE-862->CWE-200",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2014-3521",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-3521",
+					"impact": "moderate",
+					"public": "20140916",
+					"cwe": "CWE-862",
+					"cvss_2": "5.5/AV:N/AC:L/Au:S/C:P/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-5500 conga (Plone): Anonymous users can batch change titles of content items",
+					"href": "https://bugzilla.redhat.com/874649",
+					"id": "874649"
+				},
+				{
+					"text": "CVE-2012-5499 conga (Plone): Partial denial of service through internal function",
+					"href": "https://bugzilla.redhat.com/874657",
+					"id": "874657"
+				},
+				{
+					"text": "CVE-2012-5498 conga (Plone): Partial denial of service through Collections functionality",
+					"href": "https://bugzilla.redhat.com/874665",
+					"id": "874665"
+				},
+				{
+					"text": "CVE-2012-5497 conga (Plone): Anonymous users can list user account names",
+					"href": "https://bugzilla.redhat.com/874681",
+					"id": "874681"
+				},
+				{
+					"text": "CVE-2012-5485 conga (Plone): Restricted Python injection",
+					"href": "https://bugzilla.redhat.com/878934",
+					"id": "878934"
+				},
+				{
+					"text": "CVE-2012-5486 conga (Plone): Reflexive HTTP header injection",
+					"href": "https://bugzilla.redhat.com/878939",
+					"id": "878939"
+				},
+				{
+					"text": "CVE-2012-5488 conga (Plone): Restricted Python injection",
+					"href": "https://bugzilla.redhat.com/878945",
+					"id": "878945"
+				},
+				{
+					"text": "CVE-2013-6496 conga: Multiple information leak flaws in various luci site extensions",
+					"href": "https://bugzilla.redhat.com/971541",
+					"id": "971541"
+				},
+				{
+					"text": "CVE-2014-3521 luci: unauthorized administrative access granted to non-administrative users",
+					"href": "https://bugzilla.redhat.com/1112813",
+					"id": "1112813"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_cluster:5"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20141194001",
+										"comment": "luci is earlier than 0:0.12.2-81.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070331002",
+										"comment": "luci is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20141194003",
+										"comment": "ricci is earlier than 0:0.12.2-81.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070331004",
+										"comment": "ricci is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

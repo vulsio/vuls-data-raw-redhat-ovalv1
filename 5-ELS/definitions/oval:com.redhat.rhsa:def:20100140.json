@@ -1,189 +1,189 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100140",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2010:0140: pango security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0140",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0140",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-0421",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0421",
-        "source": "CVE"
-      }
-    ],
-    "description": "Pango is a library used for the layout and rendering of internationalized\ntext.\n\nAn input sanitization flaw, leading to an array index error, was found in\nthe way the Pango font rendering library synthesized the Glyph Definition\n(GDEF) table from a font's character map and the Unicode property database.\nIf an attacker created a specially-crafted font file and tricked a local,\nunsuspecting user into loading the font file in an application that uses\nthe Pango font rendering library, it could cause that application to crash.\n(CVE-2010-0421)\n\nUsers of pango and evolution28-pango are advised to upgrade to these\nupdated packages, which contain a backported patch to resolve this issue.\nAfter installing this update, you must restart your system or restart your\nX session for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-03-15"
-      },
-      "updated": {
-        "date": "2010-03-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-0421",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0421",
-          "impact": "moderate",
-          "public": "20100315",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-0421 libpangoft2 segfaults on forged font files",
-          "href": "https://bugzilla.redhat.com/555831",
-          "id": "555831"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100140001",
-                    "comment": "evolution28-pango is earlier than 0:1.14.9-13.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476006",
-                    "comment": "evolution28-pango is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100140003",
-                    "comment": "evolution28-pango-devel is earlier than 0:1.14.9-13.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476008",
-                    "comment": "evolution28-pango-devel is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100140005",
-                    "comment": "pango is earlier than 0:1.6.0-16.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476002",
-                    "comment": "pango is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100140007",
-                    "comment": "pango-devel is earlier than 0:1.6.0-16.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476004",
-                    "comment": "pango-devel is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100140010",
-                    "comment": "pango is earlier than 0:1.14.9-8.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476011",
-                    "comment": "pango is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100140012",
-                    "comment": "pango-devel is earlier than 0:1.14.9-8.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476013",
-                    "comment": "pango-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100140",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2010:0140: pango security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0140",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0140",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-0421",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0421",
+				"source": "CVE"
+			}
+		],
+		"description": "Pango is a library used for the layout and rendering of internationalized\ntext.\n\nAn input sanitization flaw, leading to an array index error, was found in\nthe way the Pango font rendering library synthesized the Glyph Definition\n(GDEF) table from a font's character map and the Unicode property database.\nIf an attacker created a specially-crafted font file and tricked a local,\nunsuspecting user into loading the font file in an application that uses\nthe Pango font rendering library, it could cause that application to crash.\n(CVE-2010-0421)\n\nUsers of pango and evolution28-pango are advised to upgrade to these\nupdated packages, which contain a backported patch to resolve this issue.\nAfter installing this update, you must restart your system or restart your\nX session for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-03-15"
+			},
+			"updated": {
+				"date": "2010-03-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-0421",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0421",
+					"impact": "moderate",
+					"public": "20100315",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-0421 libpangoft2 segfaults on forged font files",
+					"href": "https://bugzilla.redhat.com/555831",
+					"id": "555831"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100140001",
+										"comment": "evolution28-pango is earlier than 0:1.14.9-13.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476006",
+										"comment": "evolution28-pango is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100140003",
+										"comment": "evolution28-pango-devel is earlier than 0:1.14.9-13.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476008",
+										"comment": "evolution28-pango-devel is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100140005",
+										"comment": "pango is earlier than 0:1.6.0-16.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476002",
+										"comment": "pango is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100140007",
+										"comment": "pango-devel is earlier than 0:1.6.0-16.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476004",
+										"comment": "pango-devel is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100140010",
+										"comment": "pango is earlier than 0:1.14.9-8.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476011",
+										"comment": "pango is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100140012",
+										"comment": "pango-devel is earlier than 0:1.14.9-8.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476013",
+										"comment": "pango-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

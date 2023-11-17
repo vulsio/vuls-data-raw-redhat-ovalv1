@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080780",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2008:0780: coreutils security update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0780",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0780",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1946",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1946",
-        "source": "CVE"
-      }
-    ],
-    "description": "The coreutils package contains the core GNU utilities. It is the\ncombination of the old GNU fileutils, sh-utils, and textutils packages.\n\nThe coreutils packages were found to not use the pam_succeed_if Pluggable\nAuthentication Module (PAM) correctly in the configuration file for the\n\"su\" command. Any local user could use this command to change to a locked\nor expired user account if the target account's password was known to the\nuser running \"su\". These updated packages, correctly, only allow the root\nuser to switch to locked or expired accounts using \"su\". (CVE-2008-1946)\n\nAll users of coreutils are advised to upgrade to this updated package,\nwhich resolve this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-07-24"
-      },
-      "updated": {
-        "date": "2008-07-24"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1946",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1946",
-          "impact": "low",
-          "public": "20080724"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1946 /etc/pam.d/su is wrong in RHEL-4.6",
-          "href": "https://bugzilla.redhat.com/446488",
-          "id": "446488"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080780001",
-            "comment": "coreutils is earlier than 0:5.2.1-31.8.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080780002",
-            "comment": "coreutils is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080780",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2008:0780: coreutils security update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0780",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0780",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1946",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1946",
+				"source": "CVE"
+			}
+		],
+		"description": "The coreutils package contains the core GNU utilities. It is the\ncombination of the old GNU fileutils, sh-utils, and textutils packages.\n\nThe coreutils packages were found to not use the pam_succeed_if Pluggable\nAuthentication Module (PAM) correctly in the configuration file for the\n\"su\" command. Any local user could use this command to change to a locked\nor expired user account if the target account's password was known to the\nuser running \"su\". These updated packages, correctly, only allow the root\nuser to switch to locked or expired accounts using \"su\". (CVE-2008-1946)\n\nAll users of coreutils are advised to upgrade to this updated package,\nwhich resolve this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-07-24"
+			},
+			"updated": {
+				"date": "2008-07-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1946",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1946",
+					"impact": "low",
+					"public": "20080724"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1946 /etc/pam.d/su is wrong in RHEL-4.6",
+					"href": "https://bugzilla.redhat.com/446488",
+					"id": "446488"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080780001",
+						"comment": "coreutils is earlier than 0:5.2.1-31.8.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080780002",
+						"comment": "coreutils is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

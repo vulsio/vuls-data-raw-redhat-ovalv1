@@ -1,361 +1,361 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120547",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2012:0547: php53 security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0547",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0547",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-1823",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-1823",
-        "source": "CVE"
-      }
-    ],
-    "description": "PHP is an HTML-embedded scripting language commonly used with the Apache\nHTTP Server.\n\nA flaw was found in the way the php-cgi executable processed command line\narguments when running in CGI mode. A remote attacker could send a \nspecially-crafted request to a PHP script that would result in the query\nstring being parsed by php-cgi as command line options and arguments. This \ncould lead to the disclosure of the script's source code or arbitrary code \nexecution with the privileges of the PHP interpreter. (CVE-2012-1823) \n\nRed Hat is aware that a public exploit for this issue is available that \nallows remote code execution in affected PHP CGI configurations. This flaw \ndoes not affect the default configuration using the PHP module for Apache \nhttpd to handle PHP scripts.\n\nAll php53 users should upgrade to these updated packages, which contain a\nbackported patch to resolve this issue. After installing the updated\npackages, the httpd daemon must be restarted for the update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-05-07"
-      },
-      "updated": {
-        "date": "2012-05-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-1823",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-1823",
-          "impact": "critical",
-          "public": "20120503",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-1823 php: command line arguments injection when run in CGI mode (VU#520827)",
-          "href": "https://bugzilla.redhat.com/818607",
-          "id": "818607"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547001",
-                    "comment": "php53 is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196002",
-                    "comment": "php53 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547003",
-                    "comment": "php53-bcmath is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196004",
-                    "comment": "php53-bcmath is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547005",
-                    "comment": "php53-cli is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196006",
-                    "comment": "php53-cli is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547007",
-                    "comment": "php53-common is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196008",
-                    "comment": "php53-common is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547009",
-                    "comment": "php53-dba is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196010",
-                    "comment": "php53-dba is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547011",
-                    "comment": "php53-devel is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196012",
-                    "comment": "php53-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547013",
-                    "comment": "php53-gd is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196014",
-                    "comment": "php53-gd is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547015",
-                    "comment": "php53-imap is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196016",
-                    "comment": "php53-imap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547017",
-                    "comment": "php53-intl is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196018",
-                    "comment": "php53-intl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547019",
-                    "comment": "php53-ldap is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196020",
-                    "comment": "php53-ldap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547021",
-                    "comment": "php53-mbstring is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196022",
-                    "comment": "php53-mbstring is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547023",
-                    "comment": "php53-mysql is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196024",
-                    "comment": "php53-mysql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547025",
-                    "comment": "php53-odbc is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196026",
-                    "comment": "php53-odbc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547027",
-                    "comment": "php53-pdo is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196028",
-                    "comment": "php53-pdo is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547029",
-                    "comment": "php53-pgsql is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196030",
-                    "comment": "php53-pgsql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547031",
-                    "comment": "php53-process is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196032",
-                    "comment": "php53-process is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547033",
-                    "comment": "php53-pspell is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196034",
-                    "comment": "php53-pspell is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547035",
-                    "comment": "php53-snmp is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196036",
-                    "comment": "php53-snmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547037",
-                    "comment": "php53-soap is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196038",
-                    "comment": "php53-soap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547039",
-                    "comment": "php53-xml is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196040",
-                    "comment": "php53-xml is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120547041",
-                    "comment": "php53-xmlrpc is earlier than 0:5.3.3-7.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110196042",
-                    "comment": "php53-xmlrpc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120547",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2012:0547: php53 security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0547",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0547",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-1823",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-1823",
+				"source": "CVE"
+			}
+		],
+		"description": "PHP is an HTML-embedded scripting language commonly used with the Apache\nHTTP Server.\n\nA flaw was found in the way the php-cgi executable processed command line\narguments when running in CGI mode. A remote attacker could send a \nspecially-crafted request to a PHP script that would result in the query\nstring being parsed by php-cgi as command line options and arguments. This \ncould lead to the disclosure of the script's source code or arbitrary code \nexecution with the privileges of the PHP interpreter. (CVE-2012-1823) \n\nRed Hat is aware that a public exploit for this issue is available that \nallows remote code execution in affected PHP CGI configurations. This flaw \ndoes not affect the default configuration using the PHP module for Apache \nhttpd to handle PHP scripts.\n\nAll php53 users should upgrade to these updated packages, which contain a\nbackported patch to resolve this issue. After installing the updated\npackages, the httpd daemon must be restarted for the update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-05-07"
+			},
+			"updated": {
+				"date": "2012-05-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-1823",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-1823",
+					"impact": "critical",
+					"public": "20120503",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-1823 php: command line arguments injection when run in CGI mode (VU#520827)",
+					"href": "https://bugzilla.redhat.com/818607",
+					"id": "818607"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547001",
+										"comment": "php53 is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196002",
+										"comment": "php53 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547003",
+										"comment": "php53-bcmath is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196004",
+										"comment": "php53-bcmath is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547005",
+										"comment": "php53-cli is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196006",
+										"comment": "php53-cli is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547007",
+										"comment": "php53-common is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196008",
+										"comment": "php53-common is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547009",
+										"comment": "php53-dba is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196010",
+										"comment": "php53-dba is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547011",
+										"comment": "php53-devel is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196012",
+										"comment": "php53-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547013",
+										"comment": "php53-gd is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196014",
+										"comment": "php53-gd is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547015",
+										"comment": "php53-imap is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196016",
+										"comment": "php53-imap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547017",
+										"comment": "php53-intl is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196018",
+										"comment": "php53-intl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547019",
+										"comment": "php53-ldap is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196020",
+										"comment": "php53-ldap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547021",
+										"comment": "php53-mbstring is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196022",
+										"comment": "php53-mbstring is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547023",
+										"comment": "php53-mysql is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196024",
+										"comment": "php53-mysql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547025",
+										"comment": "php53-odbc is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196026",
+										"comment": "php53-odbc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547027",
+										"comment": "php53-pdo is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196028",
+										"comment": "php53-pdo is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547029",
+										"comment": "php53-pgsql is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196030",
+										"comment": "php53-pgsql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547031",
+										"comment": "php53-process is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196032",
+										"comment": "php53-process is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547033",
+										"comment": "php53-pspell is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196034",
+										"comment": "php53-pspell is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547035",
+										"comment": "php53-snmp is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196036",
+										"comment": "php53-snmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547037",
+										"comment": "php53-soap is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196038",
+										"comment": "php53-soap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547039",
+										"comment": "php53-xml is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196040",
+										"comment": "php53-xml is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120547041",
+										"comment": "php53-xmlrpc is earlier than 0:5.3.3-7.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110196042",
+										"comment": "php53-xmlrpc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

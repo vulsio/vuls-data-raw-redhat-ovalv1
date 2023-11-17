@@ -1,145 +1,145 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080892",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2008:0892: xen security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0892",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0892",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1945",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1945",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-1952",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1952",
-        "source": "CVE"
-      }
-    ],
-    "description": "The xen packages contain tools for managing the virtual machine monitor in\nRed Hat Virtualization.\n\nIt was discovered that the hypervisor's para-virtualized framebuffer (PVFB)\nbackend failed to validate the frontend's framebuffer description properly.\nThis could allow a privileged user in the unprivileged domain (DomU) to\ncause a denial of service, or, possibly, elevate privileges to the\nprivileged domain (Dom0). (CVE-2008-1952)\n\nA flaw was found in the QEMU block format auto-detection, when running\nfully-virtualized guests and using Qemu images written on removable media\n(USB storage, 3.5\" disks). Privileged users of such fully-virtualized\nguests (DomU), with a raw-formatted disk image, were able to write a header\nto that disk image describing another format. This could allow such guests\nto read arbitrary files in their hypervisor's host (Dom0). (CVE-2008-1945)\n\nAdditionally, the following bug is addressed in this update:\n\n* The qcow-create command terminated when invoked due to glibc bounds\nchecking on the realpath() function.\n\nUsers of xen are advised to upgrade to these updated packages, which\nresolve these security issues and fix this bug.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-10-01"
-      },
-      "updated": {
-        "date": "2008-10-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1945",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1945",
-          "impact": "important",
-          "public": "20080807"
-        },
-        {
-          "text": "CVE-2008-1952",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1952",
-          "impact": "important",
-          "public": "20080515"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1945 qemu/kvm/xen: add image format options for USB storage and removable media",
-          "href": "https://bugzilla.redhat.com/445844",
-          "id": "445844"
-        },
-        {
-          "text": "CVE-2008-1952 qemu/xen/kvm: ioemu: Fix PVFB backend to limit frame buffer size",
-          "href": "https://bugzilla.redhat.com/447759",
-          "id": "447759"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080892001",
-                    "comment": "xen is earlier than 0:3.0.3-64.el5_2.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
-                    "comment": "xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080892003",
-                    "comment": "xen-devel is earlier than 0:3.0.3-64.el5_2.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
-                    "comment": "xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080892005",
-                    "comment": "xen-libs is earlier than 0:3.0.3-64.el5_2.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
-                    "comment": "xen-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080892",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2008:0892: xen security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0892",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0892",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1945",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1945",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-1952",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1952",
+				"source": "CVE"
+			}
+		],
+		"description": "The xen packages contain tools for managing the virtual machine monitor in\nRed Hat Virtualization.\n\nIt was discovered that the hypervisor's para-virtualized framebuffer (PVFB)\nbackend failed to validate the frontend's framebuffer description properly.\nThis could allow a privileged user in the unprivileged domain (DomU) to\ncause a denial of service, or, possibly, elevate privileges to the\nprivileged domain (Dom0). (CVE-2008-1952)\n\nA flaw was found in the QEMU block format auto-detection, when running\nfully-virtualized guests and using Qemu images written on removable media\n(USB storage, 3.5\" disks). Privileged users of such fully-virtualized\nguests (DomU), with a raw-formatted disk image, were able to write a header\nto that disk image describing another format. This could allow such guests\nto read arbitrary files in their hypervisor's host (Dom0). (CVE-2008-1945)\n\nAdditionally, the following bug is addressed in this update:\n\n* The qcow-create command terminated when invoked due to glibc bounds\nchecking on the realpath() function.\n\nUsers of xen are advised to upgrade to these updated packages, which\nresolve these security issues and fix this bug.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-10-01"
+			},
+			"updated": {
+				"date": "2008-10-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1945",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1945",
+					"impact": "important",
+					"public": "20080807"
+				},
+				{
+					"text": "CVE-2008-1952",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1952",
+					"impact": "important",
+					"public": "20080515"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1945 qemu/kvm/xen: add image format options for USB storage and removable media",
+					"href": "https://bugzilla.redhat.com/445844",
+					"id": "445844"
+				},
+				{
+					"text": "CVE-2008-1952 qemu/xen/kvm: ioemu: Fix PVFB backend to limit frame buffer size",
+					"href": "https://bugzilla.redhat.com/447759",
+					"id": "447759"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080892001",
+										"comment": "xen is earlier than 0:3.0.3-64.el5_2.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+										"comment": "xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080892003",
+										"comment": "xen-devel is earlier than 0:3.0.3-64.el5_2.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+										"comment": "xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080892005",
+										"comment": "xen-libs is earlier than 0:3.0.3-64.el5_2.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+										"comment": "xen-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

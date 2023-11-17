@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20141004",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2014:1004: yum-updatesd security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2014:1004",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2014:1004",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2014-0022",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-0022",
-        "source": "CVE"
-      }
-    ],
-    "description": "The yum-updatesd package provides a daemon which checks for available\nupdates and can notify you when they are available via email, syslog,\nor dbus.\n\nIt was discovered that yum-updatesd did not properly perform RPM package\nsignature checks. When yum-updatesd was configured to automatically install\nupdates, a remote attacker could use this flaw to install a malicious\nupdate on the target system using an unsigned RPM or an RPM signed with an\nuntrusted key. (CVE-2014-0022)\n\nAll yum-updatesd users are advised to upgrade to this updated package,\nwhich contains a backported patch to correct this issue. After installing\nthis update, the yum-updatesd service will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2014 Red Hat, Inc.",
-      "issued": {
-        "date": "2014-08-05"
-      },
-      "updated": {
-        "date": "2014-08-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2014-0022",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-0022",
-          "impact": "important",
-          "public": "20140113",
-          "cwe": "CWE-252->CWE-347",
-          "cvss_2": "7.6/AV:N/AC:H/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2014-0022 yum: yum-cron installs unsigned packages",
-          "href": "https://bugzilla.redhat.com/1057377",
-          "id": "1057377"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20141004001",
-            "comment": "yum-updatesd is earlier than 1:0.9-6.el5_10"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20141004002",
-            "comment": "yum-updatesd is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20141004",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2014:1004: yum-updatesd security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2014:1004",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2014:1004",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2014-0022",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-0022",
+				"source": "CVE"
+			}
+		],
+		"description": "The yum-updatesd package provides a daemon which checks for available\nupdates and can notify you when they are available via email, syslog,\nor dbus.\n\nIt was discovered that yum-updatesd did not properly perform RPM package\nsignature checks. When yum-updatesd was configured to automatically install\nupdates, a remote attacker could use this flaw to install a malicious\nupdate on the target system using an unsigned RPM or an RPM signed with an\nuntrusted key. (CVE-2014-0022)\n\nAll yum-updatesd users are advised to upgrade to this updated package,\nwhich contains a backported patch to correct this issue. After installing\nthis update, the yum-updatesd service will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2014 Red Hat, Inc.",
+			"issued": {
+				"date": "2014-08-05"
+			},
+			"updated": {
+				"date": "2014-08-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2014-0022",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-0022",
+					"impact": "important",
+					"public": "20140113",
+					"cwe": "CWE-252->CWE-347",
+					"cvss_2": "7.6/AV:N/AC:H/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2014-0022 yum: yum-cron installs unsigned packages",
+					"href": "https://bugzilla.redhat.com/1057377",
+					"id": "1057377"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20141004001",
+						"comment": "yum-updatesd is earlier than 1:0.9-6.el5_10"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20141004002",
+						"comment": "yum-updatesd is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

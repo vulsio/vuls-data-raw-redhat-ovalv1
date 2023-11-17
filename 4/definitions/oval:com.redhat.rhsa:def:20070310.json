@@ -1,167 +1,167 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070310",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0310: openldap security update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0310",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0310",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4600",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4600",
-        "source": "CVE"
-      }
-    ],
-    "description": "OpenLDAP is an open source suite of LDAP (Lightweight Directory Access\nProtocol) applications and development tools.\n\nA flaw was found in the way OpenLDAP handled selfwrite access. Users with\nselfwrite access were able to modify the distinguished name of any user.\n(CVE-2006-4600)\n\nAll users are advised to upgrade to these updated openldap packages, which\ncontain a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-05-01"
-      },
-      "updated": {
-        "date": "2007-05-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4600",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4600",
-          "impact": "low",
-          "public": "20060904"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4600 security flaw",
-          "href": "https://bugzilla.redhat.com/1618198",
-          "id": "1618198"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310001",
-                    "comment": "compat-openldap is earlier than 0:2.1.30-7.4E"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310002",
-                    "comment": "compat-openldap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310003",
-                    "comment": "openldap is earlier than 0:2.2.13-7.4E"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310004",
-                    "comment": "openldap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310005",
-                    "comment": "openldap-clients is earlier than 0:2.2.13-7.4E"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310006",
-                    "comment": "openldap-clients is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310007",
-                    "comment": "openldap-devel is earlier than 0:2.2.13-7.4E"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310008",
-                    "comment": "openldap-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310009",
-                    "comment": "openldap-servers is earlier than 0:2.2.13-7.4E"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310010",
-                    "comment": "openldap-servers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310011",
-                    "comment": "openldap-servers-sql is earlier than 0:2.2.13-7.4E"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070310012",
-                    "comment": "openldap-servers-sql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070310",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0310: openldap security update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0310",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0310",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4600",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4600",
+				"source": "CVE"
+			}
+		],
+		"description": "OpenLDAP is an open source suite of LDAP (Lightweight Directory Access\nProtocol) applications and development tools.\n\nA flaw was found in the way OpenLDAP handled selfwrite access. Users with\nselfwrite access were able to modify the distinguished name of any user.\n(CVE-2006-4600)\n\nAll users are advised to upgrade to these updated openldap packages, which\ncontain a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-05-01"
+			},
+			"updated": {
+				"date": "2007-05-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4600",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4600",
+					"impact": "low",
+					"public": "20060904"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4600 security flaw",
+					"href": "https://bugzilla.redhat.com/1618198",
+					"id": "1618198"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310001",
+										"comment": "compat-openldap is earlier than 0:2.1.30-7.4E"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310002",
+										"comment": "compat-openldap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310003",
+										"comment": "openldap is earlier than 0:2.2.13-7.4E"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310004",
+										"comment": "openldap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310005",
+										"comment": "openldap-clients is earlier than 0:2.2.13-7.4E"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310006",
+										"comment": "openldap-clients is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310007",
+										"comment": "openldap-devel is earlier than 0:2.2.13-7.4E"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310008",
+										"comment": "openldap-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310009",
+										"comment": "openldap-servers is earlier than 0:2.2.13-7.4E"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310010",
+										"comment": "openldap-servers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310011",
+										"comment": "openldap-servers-sql is earlier than 0:2.2.13-7.4E"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070310012",
+										"comment": "openldap-servers-sql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

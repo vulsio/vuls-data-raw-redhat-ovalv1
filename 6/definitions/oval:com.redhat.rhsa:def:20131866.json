@@ -1,77 +1,77 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20131866",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2013:1866: ca-certificates security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2013:1866",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2013:1866",
-        "source": "RHSA"
-      }
-    ],
-    "description": "This package contains the set of CA certificates chosen by the Mozilla\nFoundation for use with the Internet Public Key Infrastructure (PKI).\n\nIt was found that a subordinate Certificate Authority (CA) mis-issued an\nintermediate certificate, which could be used to conduct man-in-the-middle\nattacks. This update renders that particular intermediate certificate as\nuntrusted. (BZ#1038894)\n\nAll users should upgrade to this updated package. After installing the\nupdate, all applications using the ca-certificates package must be\nrestarted for the changes to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-12-20"
-      },
-      "updated": {
-        "date": "2013-12-20"
-      },
-      "bugzilla": [
-        {
-          "text": "nss: Mis-issued ANSSI/DCSSI certificate (MFSA 2013-117)",
-          "href": "https://bugzilla.redhat.com/1038894",
-          "id": "1038894"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:6",
-          "cpe:/o:redhat:enterprise_linux:6::client",
-          "cpe:/o:redhat:enterprise_linux:6::computenode",
-          "cpe:/o:redhat:enterprise_linux:6::server",
-          "cpe:/o:redhat:enterprise_linux:6::workstation"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20111656003",
-            "comment": "Red Hat Enterprise Linux 6 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20131866001",
-            "comment": "ca-certificates is earlier than 0:2013.1.95-65.1.el6_5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20111248002",
-            "comment": "ca-certificates is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20111656004",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20131866",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2013:1866: ca-certificates security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2013:1866",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2013:1866",
+				"source": "RHSA"
+			}
+		],
+		"description": "This package contains the set of CA certificates chosen by the Mozilla\nFoundation for use with the Internet Public Key Infrastructure (PKI).\n\nIt was found that a subordinate Certificate Authority (CA) mis-issued an\nintermediate certificate, which could be used to conduct man-in-the-middle\nattacks. This update renders that particular intermediate certificate as\nuntrusted. (BZ#1038894)\n\nAll users should upgrade to this updated package. After installing the\nupdate, all applications using the ca-certificates package must be\nrestarted for the changes to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-12-20"
+			},
+			"updated": {
+				"date": "2013-12-20"
+			},
+			"bugzilla": [
+				{
+					"text": "nss: Mis-issued ANSSI/DCSSI certificate (MFSA 2013-117)",
+					"href": "https://bugzilla.redhat.com/1038894",
+					"id": "1038894"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:6",
+					"cpe:/o:redhat:enterprise_linux:6::client",
+					"cpe:/o:redhat:enterprise_linux:6::computenode",
+					"cpe:/o:redhat:enterprise_linux:6::server",
+					"cpe:/o:redhat:enterprise_linux:6::workstation"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20111656003",
+						"comment": "Red Hat Enterprise Linux 6 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20131866001",
+						"comment": "ca-certificates is earlier than 0:2013.1.95-65.1.el6_5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20111248002",
+						"comment": "ca-certificates is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20111656004",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

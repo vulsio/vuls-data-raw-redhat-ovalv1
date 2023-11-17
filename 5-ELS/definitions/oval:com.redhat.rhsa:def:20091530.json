@@ -1,418 +1,418 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091530",
-  "version": "645",
-  "metadata": {
-    "title": "RHSA-2009:1530: firefox security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1530",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1530",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-0689",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0689",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1563",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1563",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3274",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3274",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3370",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3370",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3372",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3372",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3373",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3373",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3374",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3374",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3375",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3375",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3376",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3376",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3380",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3380",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3382",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3382",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3384",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3384",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mozilla Firefox is an open source Web browser. XULRunner provides the XUL\nRuntime environment for Mozilla Firefox. nspr provides the Netscape\nPortable Runtime (NSPR).\n\nA flaw was found in the way Firefox handles form history. A malicious web\npage could steal saved form data by synthesizing input events, causing the\nbrowser to auto-fill form fields (which could then be read by an attacker).\n(CVE-2009-3370)\n\nA flaw was found in the way Firefox creates temporary file names for\ndownloaded files. If a local attacker knows the name of a file Firefox is\ngoing to download, they can replace the contents of that file with\narbitrary contents. (CVE-2009-3274)\n\nA flaw was found in the Firefox Proxy Auto-Configuration (PAC) file\nprocessor. If Firefox loads a malicious PAC file, it could crash Firefox\nor, potentially, execute arbitrary code with the privileges of the user\nrunning Firefox. (CVE-2009-3372)\n\nA heap-based buffer overflow flaw was found in the Firefox GIF image\nprocessor. A malicious GIF image could crash Firefox or, potentially,\nexecute arbitrary code with the privileges of the user running Firefox.\n(CVE-2009-3373)\n\nA heap-based buffer overflow flaw was found in the Firefox string to\nfloating point conversion routines. A web page containing malicious\nJavaScript could crash Firefox or, potentially, execute arbitrary code with\nthe privileges of the user running Firefox. (CVE-2009-1563)\n\nA flaw was found in the way Firefox handles text selection. A malicious\nwebsite may be able to read highlighted text in a different domain (e.g.\nanother website the user is viewing), bypassing the same-origin policy.\n(CVE-2009-3375)\n\nA flaw was found in the way Firefox displays a right-to-left override\ncharacter when downloading a file. In these cases, the name displayed in\nthe title bar differs from the name displayed in the dialog body. An\nattacker could use this flaw to trick a user into downloading a file that\nhas a file name or extension that differs from what the user expected.\n(CVE-2009-3376)\n\nSeveral flaws were found in the processing of malformed web content. A web\npage containing malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nFirefox. (CVE-2009-3374, CVE-2009-3380, CVE-2009-3382)\n\nFor technical details regarding these flaws, refer to the Mozilla security\nadvisories for Firefox 3.0.15. You can find a link to the Mozilla\nadvisories in the References section of this errata.\n\nAll Firefox users should upgrade to these updated packages, which contain\nFirefox version 3.0.15, which corrects these issues. After installing the\nupdate, Firefox must be restarted for the changes to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-10-27"
-      },
-      "updated": {
-        "date": "2009-10-27"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-0689",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0689",
-          "impact": "critical",
-          "public": "20091120",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-1563",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1563",
-          "impact": "critical",
-          "public": "20091027",
-          "cwe": "CWE-122",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3274",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3274",
-          "impact": "moderate",
-          "public": "20090909",
-          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:P/I:P/A:N"
-        },
-        {
-          "text": "CVE-2009-3370",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3370",
-          "impact": "moderate",
-          "public": "20091027",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2009-3372",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3372",
-          "impact": "moderate",
-          "public": "20091027",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3373",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3373",
-          "impact": "critical",
-          "public": "20091027",
-          "cwe": "CWE-122",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3374",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3374",
-          "impact": "critical",
-          "public": "20091027",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3375",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3375",
-          "impact": "moderate",
-          "public": "20091027",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2009-3376",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3376",
-          "impact": "low",
-          "public": "20091027",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2009-3380",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3380",
-          "impact": "critical",
-          "public": "20091027",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3382",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3382",
-          "impact": "critical",
-          "public": "20091027",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3384",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3384",
-          "impact": "critical",
-          "public": "20091027",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-3274 Firefox: Predictable /tmp pathname use",
-          "href": "https://bugzilla.redhat.com/524815",
-          "id": "524815"
-        },
-        {
-          "text": "CVE-2009-3370 Firefox form history vulnerable to stealing",
-          "href": "https://bugzilla.redhat.com/530151",
-          "id": "530151"
-        },
-        {
-          "text": "CVE-2009-3372 Firefox crash in proxy auto-configuration regexp parsing",
-          "href": "https://bugzilla.redhat.com/530155",
-          "id": "530155"
-        },
-        {
-          "text": "CVE-2009-3373 Firefox heap buffer overflow in GIF color map parser",
-          "href": "https://bugzilla.redhat.com/530156",
-          "id": "530156"
-        },
-        {
-          "text": "CVE-2009-3374 Firefox chrome privilege escalation in XPCVariant::VariantDataToJS()",
-          "href": "https://bugzilla.redhat.com/530157",
-          "id": "530157"
-        },
-        {
-          "text": "CVE-2009-0689 (rejected CVE-2009-1563) Firefox heap buffer overflow in string to number conversion",
-          "href": "https://bugzilla.redhat.com/530162",
-          "id": "530162"
-        },
-        {
-          "text": "CVE-2009-3384 Firefox integer underflow in FTP directory list parser",
-          "href": "https://bugzilla.redhat.com/530164",
-          "id": "530164"
-        },
-        {
-          "text": "CVE-2009-3375 Firefox cross-origin data theft through document.getSelection()",
-          "href": "https://bugzilla.redhat.com/530167",
-          "id": "530167"
-        },
-        {
-          "text": "CVE-2009-3376 Firefox download filename spoofing with RTL override",
-          "href": "https://bugzilla.redhat.com/530168",
-          "id": "530168"
-        },
-        {
-          "text": "CVE-2009-3380 Firefox crashes with evidence of memory corruption",
-          "href": "https://bugzilla.redhat.com/530567",
-          "id": "530567"
-        },
-        {
-          "text": "CVE-2009-3382 Firefox crashes with evidence of memory corruption",
-          "href": "https://bugzilla.redhat.com/530569",
-          "id": "530569"
-        },
-        {
-          "text": "CVE-2009-0689 array index error in dtoa implementation of many products",
-          "href": "https://bugzilla.redhat.com/539784",
-          "id": "539784"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530001",
-                    "comment": "nspr is earlier than 0:4.7.6-1.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081036008",
-                    "comment": "nspr is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530003",
-                    "comment": "nspr-devel is earlier than 0:4.7.6-1.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081036010",
-                    "comment": "nspr-devel is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530005",
-                    "comment": "firefox is earlier than 0:3.0.15-3.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070400002",
-                    "comment": "firefox is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530008",
-                    "comment": "nspr is earlier than 0:4.7.6-1.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925002",
-                    "comment": "nspr is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530010",
-                    "comment": "nspr-devel is earlier than 0:4.7.6-1.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925004",
-                    "comment": "nspr-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530012",
-                    "comment": "xulrunner is earlier than 0:1.9.0.15-3.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080569002",
-                    "comment": "xulrunner is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530014",
-                    "comment": "xulrunner-devel is earlier than 0:1.9.0.15-3.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080569004",
-                    "comment": "xulrunner-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530016",
-                    "comment": "xulrunner-devel-unstable is earlier than 0:1.9.0.15-3.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080569006",
-                    "comment": "xulrunner-devel-unstable is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091530018",
-                    "comment": "firefox is earlier than 0:3.0.15-3.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070097008",
-                    "comment": "firefox is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091530",
+	"version": "645",
+	"metadata": {
+		"title": "RHSA-2009:1530: firefox security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1530",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1530",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-0689",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0689",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1563",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1563",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3274",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3274",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3370",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3370",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3372",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3372",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3373",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3373",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3374",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3374",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3375",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3375",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3376",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3376",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3380",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3380",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3382",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3382",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3384",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3384",
+				"source": "CVE"
+			}
+		],
+		"description": "Mozilla Firefox is an open source Web browser. XULRunner provides the XUL\nRuntime environment for Mozilla Firefox. nspr provides the Netscape\nPortable Runtime (NSPR).\n\nA flaw was found in the way Firefox handles form history. A malicious web\npage could steal saved form data by synthesizing input events, causing the\nbrowser to auto-fill form fields (which could then be read by an attacker).\n(CVE-2009-3370)\n\nA flaw was found in the way Firefox creates temporary file names for\ndownloaded files. If a local attacker knows the name of a file Firefox is\ngoing to download, they can replace the contents of that file with\narbitrary contents. (CVE-2009-3274)\n\nA flaw was found in the Firefox Proxy Auto-Configuration (PAC) file\nprocessor. If Firefox loads a malicious PAC file, it could crash Firefox\nor, potentially, execute arbitrary code with the privileges of the user\nrunning Firefox. (CVE-2009-3372)\n\nA heap-based buffer overflow flaw was found in the Firefox GIF image\nprocessor. A malicious GIF image could crash Firefox or, potentially,\nexecute arbitrary code with the privileges of the user running Firefox.\n(CVE-2009-3373)\n\nA heap-based buffer overflow flaw was found in the Firefox string to\nfloating point conversion routines. A web page containing malicious\nJavaScript could crash Firefox or, potentially, execute arbitrary code with\nthe privileges of the user running Firefox. (CVE-2009-1563)\n\nA flaw was found in the way Firefox handles text selection. A malicious\nwebsite may be able to read highlighted text in a different domain (e.g.\nanother website the user is viewing), bypassing the same-origin policy.\n(CVE-2009-3375)\n\nA flaw was found in the way Firefox displays a right-to-left override\ncharacter when downloading a file. In these cases, the name displayed in\nthe title bar differs from the name displayed in the dialog body. An\nattacker could use this flaw to trick a user into downloading a file that\nhas a file name or extension that differs from what the user expected.\n(CVE-2009-3376)\n\nSeveral flaws were found in the processing of malformed web content. A web\npage containing malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nFirefox. (CVE-2009-3374, CVE-2009-3380, CVE-2009-3382)\n\nFor technical details regarding these flaws, refer to the Mozilla security\nadvisories for Firefox 3.0.15. You can find a link to the Mozilla\nadvisories in the References section of this errata.\n\nAll Firefox users should upgrade to these updated packages, which contain\nFirefox version 3.0.15, which corrects these issues. After installing the\nupdate, Firefox must be restarted for the changes to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-10-27"
+			},
+			"updated": {
+				"date": "2009-10-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-0689",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0689",
+					"impact": "critical",
+					"public": "20091120",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-1563",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1563",
+					"impact": "critical",
+					"public": "20091027",
+					"cwe": "CWE-122",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3274",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3274",
+					"impact": "moderate",
+					"public": "20090909",
+					"cvss_2": "3.6/AV:L/AC:L/Au:N/C:P/I:P/A:N"
+				},
+				{
+					"text": "CVE-2009-3370",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3370",
+					"impact": "moderate",
+					"public": "20091027",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2009-3372",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3372",
+					"impact": "moderate",
+					"public": "20091027",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3373",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3373",
+					"impact": "critical",
+					"public": "20091027",
+					"cwe": "CWE-122",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3374",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3374",
+					"impact": "critical",
+					"public": "20091027",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3375",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3375",
+					"impact": "moderate",
+					"public": "20091027",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2009-3376",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3376",
+					"impact": "low",
+					"public": "20091027",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2009-3380",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3380",
+					"impact": "critical",
+					"public": "20091027",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3382",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3382",
+					"impact": "critical",
+					"public": "20091027",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3384",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3384",
+					"impact": "critical",
+					"public": "20091027",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-3274 Firefox: Predictable /tmp pathname use",
+					"href": "https://bugzilla.redhat.com/524815",
+					"id": "524815"
+				},
+				{
+					"text": "CVE-2009-3370 Firefox form history vulnerable to stealing",
+					"href": "https://bugzilla.redhat.com/530151",
+					"id": "530151"
+				},
+				{
+					"text": "CVE-2009-3372 Firefox crash in proxy auto-configuration regexp parsing",
+					"href": "https://bugzilla.redhat.com/530155",
+					"id": "530155"
+				},
+				{
+					"text": "CVE-2009-3373 Firefox heap buffer overflow in GIF color map parser",
+					"href": "https://bugzilla.redhat.com/530156",
+					"id": "530156"
+				},
+				{
+					"text": "CVE-2009-3374 Firefox chrome privilege escalation in XPCVariant::VariantDataToJS()",
+					"href": "https://bugzilla.redhat.com/530157",
+					"id": "530157"
+				},
+				{
+					"text": "CVE-2009-0689 (rejected CVE-2009-1563) Firefox heap buffer overflow in string to number conversion",
+					"href": "https://bugzilla.redhat.com/530162",
+					"id": "530162"
+				},
+				{
+					"text": "CVE-2009-3384 Firefox integer underflow in FTP directory list parser",
+					"href": "https://bugzilla.redhat.com/530164",
+					"id": "530164"
+				},
+				{
+					"text": "CVE-2009-3375 Firefox cross-origin data theft through document.getSelection()",
+					"href": "https://bugzilla.redhat.com/530167",
+					"id": "530167"
+				},
+				{
+					"text": "CVE-2009-3376 Firefox download filename spoofing with RTL override",
+					"href": "https://bugzilla.redhat.com/530168",
+					"id": "530168"
+				},
+				{
+					"text": "CVE-2009-3380 Firefox crashes with evidence of memory corruption",
+					"href": "https://bugzilla.redhat.com/530567",
+					"id": "530567"
+				},
+				{
+					"text": "CVE-2009-3382 Firefox crashes with evidence of memory corruption",
+					"href": "https://bugzilla.redhat.com/530569",
+					"id": "530569"
+				},
+				{
+					"text": "CVE-2009-0689 array index error in dtoa implementation of many products",
+					"href": "https://bugzilla.redhat.com/539784",
+					"id": "539784"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530001",
+										"comment": "nspr is earlier than 0:4.7.6-1.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081036008",
+										"comment": "nspr is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530003",
+										"comment": "nspr-devel is earlier than 0:4.7.6-1.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081036010",
+										"comment": "nspr-devel is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530005",
+										"comment": "firefox is earlier than 0:3.0.15-3.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070400002",
+										"comment": "firefox is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530008",
+										"comment": "nspr is earlier than 0:4.7.6-1.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925002",
+										"comment": "nspr is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530010",
+										"comment": "nspr-devel is earlier than 0:4.7.6-1.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925004",
+										"comment": "nspr-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530012",
+										"comment": "xulrunner is earlier than 0:1.9.0.15-3.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080569002",
+										"comment": "xulrunner is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530014",
+										"comment": "xulrunner-devel is earlier than 0:1.9.0.15-3.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080569004",
+										"comment": "xulrunner-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530016",
+										"comment": "xulrunner-devel-unstable is earlier than 0:1.9.0.15-3.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080569006",
+										"comment": "xulrunner-devel-unstable is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091530018",
+										"comment": "firefox is earlier than 0:3.0.15-3.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070097008",
+										"comment": "firefox is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060597",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2006:0597: libwmf security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0597",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0597",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-3376",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3376",
-        "source": "CVE"
-      }
-    ],
-    "description": "Libwmf is a library for reading and converting Windows MetaFile vector\ngraphics (WMF).  Libwmf is used by packages such as The GIMP and ImageMagick.\n\nAn integer overflow flaw was discovered in libwmf.  An attacker could\ncreate a carefully crafted WMF flaw that could execute arbitrary code if\nopened by a victim.  (CVE-2006-3376).\n\nUsers of libwmf should update to these packages which contain a backported\nsecurity patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-07-18"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-3376",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-3376",
-          "impact": "moderate",
-          "public": "20060630"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-3376 security flaw",
-          "href": "https://bugzilla.redhat.com/1618139",
-          "id": "1618139"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060597001",
-                    "comment": "libwmf is earlier than 0:0.2.8.3-5.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060597002",
-                    "comment": "libwmf is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060597003",
-                    "comment": "libwmf-devel is earlier than 0:0.2.8.3-5.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060597004",
-                    "comment": "libwmf-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060597",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2006:0597: libwmf security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0597",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0597",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-3376",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-3376",
+				"source": "CVE"
+			}
+		],
+		"description": "Libwmf is a library for reading and converting Windows MetaFile vector\ngraphics (WMF).  Libwmf is used by packages such as The GIMP and ImageMagick.\n\nAn integer overflow flaw was discovered in libwmf.  An attacker could\ncreate a carefully crafted WMF flaw that could execute arbitrary code if\nopened by a victim.  (CVE-2006-3376).\n\nUsers of libwmf should update to these packages which contain a backported\nsecurity patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-07-18"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-3376",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-3376",
+					"impact": "moderate",
+					"public": "20060630"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-3376 security flaw",
+					"href": "https://bugzilla.redhat.com/1618139",
+					"id": "1618139"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060597001",
+										"comment": "libwmf is earlier than 0:0.2.8.3-5.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060597002",
+										"comment": "libwmf is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060597003",
+										"comment": "libwmf-devel is earlier than 0:0.2.8.3-5.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060597004",
+										"comment": "libwmf-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

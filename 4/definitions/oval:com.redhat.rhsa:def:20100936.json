@@ -1,264 +1,264 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100936",
-  "version": "659",
-  "metadata": {
-    "title": "RHSA-2010:0936: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0936",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0936",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-3432",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3432",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3442",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3442",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity fixes:\n\n* A flaw in sctp_packet_config() in the Linux kernel's Stream Control\nTransmission Protocol (SCTP) implementation could allow a remote attacker\nto cause a denial of service. (CVE-2010-3432, Important)\n\n* A missing integer overflow check in snd_ctl_new() in the Linux kernel's\nsound subsystem could allow a local, unprivileged user on a 32-bit system\nto cause a denial of service or escalate their privileges. (CVE-2010-3442,\nImportant)\n\nRed Hat would like to thank Dan Rosenberg for reporting CVE-2010-3442.\n\nBug fixes:\n\n* Forward time drift was observed on virtual machines using PM\ntimer-based kernel tick accounting and running on KVM or the Microsoft\nHyper-V Server hypervisor. Virtual machines that were booted with the\ndivider=x kernel parameter set to a value greater than 1 and that showed\nthe following in the kernel boot messages were subject to this issue:\n\ntime.c: Using PM based timekeeping\n\nFine grained accounting for the PM timer is introduced which eliminates\nthis issue. However, this fix uncovered a bug in the Xen hypervisor,\npossibly causing backward time drift. If this erratum is installed in Xen\nHVM guests that meet the aforementioned conditions, it is recommended that\nthe host use kernel-xen-2.6.18-194.26.1.el5 or newer, which includes a fix\n(BZ#641915) for the backward time drift. (BZ#629237)\n\n* With multipath enabled, systems would occasionally halt when the\ndo_cciss_request function was used. This was caused by wrongly-generated\nrequests. Additional checks have been added to avoid the aforementioned\nissue. (BZ#640193)\n\n* A Sun X4200 system equipped with a QLogic HBA spontaneously rebooted and\nlogged a Hyper-Transport Sync Flood Error to the system event log. A\nMaximum Memory Read Byte Count restriction was added to fix this bug.\n(BZ#640919)\n\n* For an active/backup bonding network interface with VLANs on top of it,\nwhen a link failed over, it took a minute for the multicast domain to be\nrejoined. This was caused by the driver not sending any IGMP join packets.\nThe driver now sends IGMP join packets and the multicast domain is rejoined\nimmediately. (BZ#641002)\n\n* Replacing a disk and trying to rebuild it afterwards caused the system to\npanic. When a domain validation request for a hot plugged drive was sent,\nthe mptscsi driver did not validate its existence. This could result in the\ndriver accessing random memory and causing the crash. A check has been\nadded that describes the newly-added device and reloads the iocPg3 data\nfrom the firmware if needed. (BZ#641137)\n\n* An attempt to create a VLAN interface on a bond of two bnx2 adapters in\ntwo switch configurations resulted in a soft lockup after a few seconds.\nThis was caused by an incorrect use of a bonding pointer. With this update,\nsoft lockups no longer occur and creating a VLAN interface works as\nexpected. (BZ#641254)\n\n* Erroneous pointer checks could have caused a kernel panic. This was due\nto a critical value not being copied when a network buffer was duplicated\nand consumed by multiple portions of the kernel's network stack. Fixing the\ncopy operation resolved this bug. (BZ#642746)\n\n* A typo in a variable name caused it to be dereferenced in either mkdir()\nor create() which could cause a kernel panic. (BZ#643342)\n\n* SCSI high level drivers can submit SCSI commands which would never be\ncompleted when the device was offline. This was caused by a missing\ncallback for the request to complete the given command. SCSI requests are\nnow terminated by calling their callback when a device is offline.\n(BZ#644816)\n\n* A kernel panic could have occurred on systems due to a recursive lock in\nthe 3c59x driver. Recursion is now avoided and this kernel panic no longer\noccurs. (BZ#648407)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-12-01"
-      },
-      "updated": {
-        "date": "2010-12-06"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-3432",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3432",
-          "impact": "important",
-          "public": "20100915",
-          "cwe": "CWE-228->CWE-119",
-          "cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2010-3442",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3442",
-          "impact": "important",
-          "public": "20100928",
-          "cvss_2": "6.9/AV:L/AC:M/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-3432 kernel: sctp: do not reset the packet during sctp_packet_config",
-          "href": "https://bugzilla.redhat.com/637675",
-          "id": "637675"
-        },
-        {
-          "text": "CVE-2010-3442 kernel: prevent heap corruption in snd_ctl_new()",
-          "href": "https://bugzilla.redhat.com/638478",
-          "id": "638478"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100936023",
-                "comment": "kernel earlier than 0:2.6.9-89.33.1.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100936024",
-                "comment": "kernel earlier than 0:2.6.9-89.33.1.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936001",
-                    "comment": "kernel is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100936021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.33.1.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100936",
+	"version": "659",
+	"metadata": {
+		"title": "RHSA-2010:0936: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0936",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0936",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-3432",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3432",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3442",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3442",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity fixes:\n\n* A flaw in sctp_packet_config() in the Linux kernel's Stream Control\nTransmission Protocol (SCTP) implementation could allow a remote attacker\nto cause a denial of service. (CVE-2010-3432, Important)\n\n* A missing integer overflow check in snd_ctl_new() in the Linux kernel's\nsound subsystem could allow a local, unprivileged user on a 32-bit system\nto cause a denial of service or escalate their privileges. (CVE-2010-3442,\nImportant)\n\nRed Hat would like to thank Dan Rosenberg for reporting CVE-2010-3442.\n\nBug fixes:\n\n* Forward time drift was observed on virtual machines using PM\ntimer-based kernel tick accounting and running on KVM or the Microsoft\nHyper-V Server hypervisor. Virtual machines that were booted with the\ndivider=x kernel parameter set to a value greater than 1 and that showed\nthe following in the kernel boot messages were subject to this issue:\n\ntime.c: Using PM based timekeeping\n\nFine grained accounting for the PM timer is introduced which eliminates\nthis issue. However, this fix uncovered a bug in the Xen hypervisor,\npossibly causing backward time drift. If this erratum is installed in Xen\nHVM guests that meet the aforementioned conditions, it is recommended that\nthe host use kernel-xen-2.6.18-194.26.1.el5 or newer, which includes a fix\n(BZ#641915) for the backward time drift. (BZ#629237)\n\n* With multipath enabled, systems would occasionally halt when the\ndo_cciss_request function was used. This was caused by wrongly-generated\nrequests. Additional checks have been added to avoid the aforementioned\nissue. (BZ#640193)\n\n* A Sun X4200 system equipped with a QLogic HBA spontaneously rebooted and\nlogged a Hyper-Transport Sync Flood Error to the system event log. A\nMaximum Memory Read Byte Count restriction was added to fix this bug.\n(BZ#640919)\n\n* For an active/backup bonding network interface with VLANs on top of it,\nwhen a link failed over, it took a minute for the multicast domain to be\nrejoined. This was caused by the driver not sending any IGMP join packets.\nThe driver now sends IGMP join packets and the multicast domain is rejoined\nimmediately. (BZ#641002)\n\n* Replacing a disk and trying to rebuild it afterwards caused the system to\npanic. When a domain validation request for a hot plugged drive was sent,\nthe mptscsi driver did not validate its existence. This could result in the\ndriver accessing random memory and causing the crash. A check has been\nadded that describes the newly-added device and reloads the iocPg3 data\nfrom the firmware if needed. (BZ#641137)\n\n* An attempt to create a VLAN interface on a bond of two bnx2 adapters in\ntwo switch configurations resulted in a soft lockup after a few seconds.\nThis was caused by an incorrect use of a bonding pointer. With this update,\nsoft lockups no longer occur and creating a VLAN interface works as\nexpected. (BZ#641254)\n\n* Erroneous pointer checks could have caused a kernel panic. This was due\nto a critical value not being copied when a network buffer was duplicated\nand consumed by multiple portions of the kernel's network stack. Fixing the\ncopy operation resolved this bug. (BZ#642746)\n\n* A typo in a variable name caused it to be dereferenced in either mkdir()\nor create() which could cause a kernel panic. (BZ#643342)\n\n* SCSI high level drivers can submit SCSI commands which would never be\ncompleted when the device was offline. This was caused by a missing\ncallback for the request to complete the given command. SCSI requests are\nnow terminated by calling their callback when a device is offline.\n(BZ#644816)\n\n* A kernel panic could have occurred on systems due to a recursive lock in\nthe 3c59x driver. Recursion is now avoided and this kernel panic no longer\noccurs. (BZ#648407)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-12-01"
+			},
+			"updated": {
+				"date": "2010-12-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-3432",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3432",
+					"impact": "important",
+					"public": "20100915",
+					"cwe": "CWE-228->CWE-119",
+					"cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2010-3442",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3442",
+					"impact": "important",
+					"public": "20100928",
+					"cvss_2": "6.9/AV:L/AC:M/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-3432 kernel: sctp: do not reset the packet during sctp_packet_config",
+					"href": "https://bugzilla.redhat.com/637675",
+					"id": "637675"
+				},
+				{
+					"text": "CVE-2010-3442 kernel: prevent heap corruption in snd_ctl_new()",
+					"href": "https://bugzilla.redhat.com/638478",
+					"id": "638478"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100936023",
+								"comment": "kernel earlier than 0:2.6.9-89.33.1.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100936024",
+								"comment": "kernel earlier than 0:2.6.9-89.33.1.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936001",
+										"comment": "kernel is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100936021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.33.1.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

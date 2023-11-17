@@ -1,154 +1,154 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20151189",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2015:1189: kvm security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2015:1189",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2015:1189",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2015-3209",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2015-3209",
-        "source": "CVE"
-      }
-    ],
-    "description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems.\n\nA flaw was found in the way QEMU's AMD PCnet Ethernet emulation handled\nmulti-TMD packets with a length above 4096 bytes. A privileged guest user\nin a guest with an AMD PCNet ethernet card enabled could potentially use\nthis flaw to execute arbitrary code on the host with the privileges of the\nhosting QEMU process. (CVE-2015-3209)\n\nRed Hat would like to thank Matt Tait of Google's Project Zero security\nteam for reporting this issue.\n\nAll kvm users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. Note: The procedure in\nthe Solution section must be performed before this update will take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2015 Red Hat, Inc.",
-      "issued": {
-        "date": "2015-06-25"
-      },
-      "updated": {
-        "date": "2015-06-25"
-      },
-      "cve": [
-        {
-          "text": "CVE-2015-3209",
-          "href": "https://access.redhat.com/security/cve/CVE-2015-3209",
-          "impact": "important",
-          "public": "20150610",
-          "cwe": "CWE-119",
-          "cvss_2": "6.5/AV:A/AC:H/Au:S/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2015-3209 qemu: pcnet: multi-tmd buffer overflow in the tx path",
-          "href": "https://bugzilla.redhat.com/1225882",
-          "id": "1225882"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20151189001",
-                    "comment": "kmod-kvm is earlier than 0:83-273.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465002",
-                    "comment": "kmod-kvm is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20151189003",
-                    "comment": "kmod-kvm-debug is earlier than 0:83-273.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110028004",
-                    "comment": "kmod-kvm-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20151189005",
-                    "comment": "kvm is earlier than 0:83-273.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465004",
-                    "comment": "kvm is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20151189007",
-                    "comment": "kvm-qemu-img is earlier than 0:83-273.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465006",
-                    "comment": "kvm-qemu-img is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20151189009",
-                    "comment": "kvm-tools is earlier than 0:83-273.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465008",
-                    "comment": "kvm-tools is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20151189",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2015:1189: kvm security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2015:1189",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2015:1189",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2015-3209",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2015-3209",
+				"source": "CVE"
+			}
+		],
+		"description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems.\n\nA flaw was found in the way QEMU's AMD PCnet Ethernet emulation handled\nmulti-TMD packets with a length above 4096 bytes. A privileged guest user\nin a guest with an AMD PCNet ethernet card enabled could potentially use\nthis flaw to execute arbitrary code on the host with the privileges of the\nhosting QEMU process. (CVE-2015-3209)\n\nRed Hat would like to thank Matt Tait of Google's Project Zero security\nteam for reporting this issue.\n\nAll kvm users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. Note: The procedure in\nthe Solution section must be performed before this update will take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2015 Red Hat, Inc.",
+			"issued": {
+				"date": "2015-06-25"
+			},
+			"updated": {
+				"date": "2015-06-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2015-3209",
+					"href": "https://access.redhat.com/security/cve/CVE-2015-3209",
+					"impact": "important",
+					"public": "20150610",
+					"cwe": "CWE-119",
+					"cvss_2": "6.5/AV:A/AC:H/Au:S/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2015-3209 qemu: pcnet: multi-tmd buffer overflow in the tx path",
+					"href": "https://bugzilla.redhat.com/1225882",
+					"id": "1225882"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20151189001",
+										"comment": "kmod-kvm is earlier than 0:83-273.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465002",
+										"comment": "kmod-kvm is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20151189003",
+										"comment": "kmod-kvm-debug is earlier than 0:83-273.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110028004",
+										"comment": "kmod-kvm-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20151189005",
+										"comment": "kvm is earlier than 0:83-273.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465004",
+										"comment": "kvm is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20151189007",
+										"comment": "kvm-qemu-img is earlier than 0:83-273.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465006",
+										"comment": "kvm-qemu-img is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20151189009",
+										"comment": "kvm-tools is earlier than 0:83-273.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465008",
+										"comment": "kvm-tools is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

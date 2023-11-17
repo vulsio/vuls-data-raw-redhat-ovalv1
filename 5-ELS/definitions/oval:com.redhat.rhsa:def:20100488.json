@@ -1,410 +1,410 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100488",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2010:0488: samba and samba3x security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0488",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0488",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-2063",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2063",
-        "source": "CVE"
-      }
-    ],
-    "description": "Samba is a suite of programs used by machines to share files, printers, and\nother information.\n\nAn input sanitization flaw was found in the way Samba parsed client data. A\nmalicious client could send a specially-crafted SMB packet to the Samba\nserver, resulting in arbitrary code execution with the privileges of the\nSamba server (smbd). (CVE-2010-2063)\n\nRed Hat would like to thank the Samba team for responsibly reporting this\nissue. Upstream acknowledges Jun Mao as the original reporter.\n\nUsers of Samba are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing this\nupdate, the smb service will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-06-16"
-      },
-      "updated": {
-        "date": "2010-06-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-2063",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2063",
-          "impact": "critical",
-          "public": "20100616",
-          "cwe": "CWE-228->CWE-119",
-          "cvss_2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-2063 samba: memory corruption vulnerability",
-          "href": "https://bugzilla.redhat.com/601419",
-          "id": "601419"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488001",
-                    "comment": "samba is earlier than 0:3.0.33-0.19.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070354002",
-                    "comment": "samba is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488003",
-                    "comment": "samba-client is earlier than 0:3.0.33-0.19.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070354004",
-                    "comment": "samba-client is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488005",
-                    "comment": "samba-common is earlier than 0:3.0.33-0.19.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070354006",
-                    "comment": "samba-common is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488007",
-                    "comment": "samba-swat is earlier than 0:3.0.33-0.19.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070354008",
-                    "comment": "samba-swat is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488010",
-                    "comment": "libsmbclient is earlier than 0:3.0.33-3.29.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488011",
-                    "comment": "libsmbclient is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488012",
-                    "comment": "libsmbclient-devel is earlier than 0:3.0.33-3.29.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488013",
-                    "comment": "libsmbclient-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488014",
-                    "comment": "samba is earlier than 0:3.0.33-3.29.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070061002",
-                    "comment": "samba is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488016",
-                    "comment": "samba-client is earlier than 0:3.0.33-3.29.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070061004",
-                    "comment": "samba-client is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488018",
-                    "comment": "samba-common is earlier than 0:3.0.33-3.29.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070061006",
-                    "comment": "samba-common is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488020",
-                    "comment": "samba-swat is earlier than 0:3.0.33-3.29.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070061008",
-                    "comment": "samba-swat is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488022",
-                    "comment": "libtalloc is earlier than 0:1.2.0-52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488023",
-                    "comment": "libtalloc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488024",
-                    "comment": "libtalloc-devel is earlier than 0:1.2.0-52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488025",
-                    "comment": "libtalloc-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488026",
-                    "comment": "libtdb is earlier than 0:1.1.2-52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488027",
-                    "comment": "libtdb is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488028",
-                    "comment": "libtdb-devel is earlier than 0:1.1.2-52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488029",
-                    "comment": "libtdb-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488030",
-                    "comment": "samba3x is earlier than 0:3.3.8-0.52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054002",
-                    "comment": "samba3x is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488032",
-                    "comment": "samba3x-client is earlier than 0:3.3.8-0.52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054004",
-                    "comment": "samba3x-client is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488034",
-                    "comment": "samba3x-common is earlier than 0:3.3.8-0.52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054006",
-                    "comment": "samba3x-common is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488036",
-                    "comment": "samba3x-doc is earlier than 0:3.3.8-0.52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054008",
-                    "comment": "samba3x-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488038",
-                    "comment": "samba3x-domainjoin-gui is earlier than 0:3.3.8-0.52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054010",
-                    "comment": "samba3x-domainjoin-gui is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488040",
-                    "comment": "samba3x-swat is earlier than 0:3.3.8-0.52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054012",
-                    "comment": "samba3x-swat is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488042",
-                    "comment": "samba3x-winbind is earlier than 0:3.3.8-0.52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054014",
-                    "comment": "samba3x-winbind is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488044",
-                    "comment": "samba3x-winbind-devel is earlier than 0:3.3.8-0.52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054016",
-                    "comment": "samba3x-winbind-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488046",
-                    "comment": "tdb-tools is earlier than 0:1.1.2-52.el5_5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488047",
-                    "comment": "tdb-tools is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100488",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2010:0488: samba and samba3x security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0488",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0488",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-2063",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2063",
+				"source": "CVE"
+			}
+		],
+		"description": "Samba is a suite of programs used by machines to share files, printers, and\nother information.\n\nAn input sanitization flaw was found in the way Samba parsed client data. A\nmalicious client could send a specially-crafted SMB packet to the Samba\nserver, resulting in arbitrary code execution with the privileges of the\nSamba server (smbd). (CVE-2010-2063)\n\nRed Hat would like to thank the Samba team for responsibly reporting this\nissue. Upstream acknowledges Jun Mao as the original reporter.\n\nUsers of Samba are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing this\nupdate, the smb service will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-06-16"
+			},
+			"updated": {
+				"date": "2010-06-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-2063",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2063",
+					"impact": "critical",
+					"public": "20100616",
+					"cwe": "CWE-228->CWE-119",
+					"cvss_2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-2063 samba: memory corruption vulnerability",
+					"href": "https://bugzilla.redhat.com/601419",
+					"id": "601419"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488001",
+										"comment": "samba is earlier than 0:3.0.33-0.19.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070354002",
+										"comment": "samba is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488003",
+										"comment": "samba-client is earlier than 0:3.0.33-0.19.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070354004",
+										"comment": "samba-client is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488005",
+										"comment": "samba-common is earlier than 0:3.0.33-0.19.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070354006",
+										"comment": "samba-common is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488007",
+										"comment": "samba-swat is earlier than 0:3.0.33-0.19.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070354008",
+										"comment": "samba-swat is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488010",
+										"comment": "libsmbclient is earlier than 0:3.0.33-3.29.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488011",
+										"comment": "libsmbclient is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488012",
+										"comment": "libsmbclient-devel is earlier than 0:3.0.33-3.29.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488013",
+										"comment": "libsmbclient-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488014",
+										"comment": "samba is earlier than 0:3.0.33-3.29.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070061002",
+										"comment": "samba is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488016",
+										"comment": "samba-client is earlier than 0:3.0.33-3.29.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070061004",
+										"comment": "samba-client is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488018",
+										"comment": "samba-common is earlier than 0:3.0.33-3.29.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070061006",
+										"comment": "samba-common is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488020",
+										"comment": "samba-swat is earlier than 0:3.0.33-3.29.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070061008",
+										"comment": "samba-swat is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488022",
+										"comment": "libtalloc is earlier than 0:1.2.0-52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488023",
+										"comment": "libtalloc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488024",
+										"comment": "libtalloc-devel is earlier than 0:1.2.0-52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488025",
+										"comment": "libtalloc-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488026",
+										"comment": "libtdb is earlier than 0:1.1.2-52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488027",
+										"comment": "libtdb is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488028",
+										"comment": "libtdb-devel is earlier than 0:1.1.2-52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488029",
+										"comment": "libtdb-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488030",
+										"comment": "samba3x is earlier than 0:3.3.8-0.52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054002",
+										"comment": "samba3x is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488032",
+										"comment": "samba3x-client is earlier than 0:3.3.8-0.52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054004",
+										"comment": "samba3x-client is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488034",
+										"comment": "samba3x-common is earlier than 0:3.3.8-0.52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054006",
+										"comment": "samba3x-common is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488036",
+										"comment": "samba3x-doc is earlier than 0:3.3.8-0.52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054008",
+										"comment": "samba3x-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488038",
+										"comment": "samba3x-domainjoin-gui is earlier than 0:3.3.8-0.52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054010",
+										"comment": "samba3x-domainjoin-gui is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488040",
+										"comment": "samba3x-swat is earlier than 0:3.3.8-0.52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054012",
+										"comment": "samba3x-swat is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488042",
+										"comment": "samba3x-winbind is earlier than 0:3.3.8-0.52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054014",
+										"comment": "samba3x-winbind is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488044",
+										"comment": "samba3x-winbind-devel is earlier than 0:3.3.8-0.52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054016",
+										"comment": "samba3x-winbind-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488046",
+										"comment": "tdb-tools is earlier than 0:1.1.2-52.el5_5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488047",
+										"comment": "tdb-tools is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

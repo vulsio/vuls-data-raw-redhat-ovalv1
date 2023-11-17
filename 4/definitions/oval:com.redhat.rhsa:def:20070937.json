@@ -1,245 +1,245 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070937",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0937: kernel security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0937",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0937",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4573",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4573",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Linux kernel handles the basic functions of the operating system.\n\nA flaw was found in the IA32 system call emulation provided on AMD64 and\nIntel 64 platforms. An improperly validated 64-bit value could be stored in\nthe %RAX register, which could trigger an out-of-bounds system call table\naccess. An untrusted local user could exploit this flaw to run code in the\nkernel (ie a root privilege escalation). (CVE-2007-4573).\n\nRed Hat would like to thank Wojciech Purczynski for reporting this issue.\n\nRed Hat Enterprise Linux 4 users are advised to upgrade to these packages,\nwhich contain a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-09-27"
-      },
-      "updated": {
-        "date": "2007-09-27"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4573",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4573",
-          "impact": "important",
-          "public": "20070921"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4573 x86_64 syscall vulnerability",
-          "href": "https://bugzilla.redhat.com/294541",
-          "id": "294541"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20070937023",
-                "comment": "kernel earlier than 0:2.6.9-55.0.9.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20070937024",
-                "comment": "kernel earlier than 0:2.6.9-55.0.9.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937001",
-                    "comment": "kernel is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070937021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-55.0.9.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070937",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0937: kernel security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0937",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0937",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4573",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4573",
+				"source": "CVE"
+			}
+		],
+		"description": "The Linux kernel handles the basic functions of the operating system.\n\nA flaw was found in the IA32 system call emulation provided on AMD64 and\nIntel 64 platforms. An improperly validated 64-bit value could be stored in\nthe %RAX register, which could trigger an out-of-bounds system call table\naccess. An untrusted local user could exploit this flaw to run code in the\nkernel (ie a root privilege escalation). (CVE-2007-4573).\n\nRed Hat would like to thank Wojciech Purczynski for reporting this issue.\n\nRed Hat Enterprise Linux 4 users are advised to upgrade to these packages,\nwhich contain a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-09-27"
+			},
+			"updated": {
+				"date": "2007-09-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4573",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4573",
+					"impact": "important",
+					"public": "20070921"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4573 x86_64 syscall vulnerability",
+					"href": "https://bugzilla.redhat.com/294541",
+					"id": "294541"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20070937023",
+								"comment": "kernel earlier than 0:2.6.9-55.0.9.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20070937024",
+								"comment": "kernel earlier than 0:2.6.9-55.0.9.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937001",
+										"comment": "kernel is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070937021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-55.0.9.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

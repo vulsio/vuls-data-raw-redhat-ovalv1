@@ -1,131 +1,131 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120370",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2012:0370: xen security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0370",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0370",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-0029",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0029",
-        "source": "CVE"
-      }
-    ],
-    "description": "The xen packages contain administration tools and the xend service for\nmanaging the kernel-xen kernel for virtualization on Red Hat Enterprise\nLinux.\n\nA heap overflow flaw was found in the way QEMU emulated the e1000 network\ninterface card. A privileged guest user in a virtual machine whose network\ninterface is configured to use the e1000 emulated driver could use this\nflaw to crash QEMU or, possibly, escalate their privileges on the host.\n(CVE-2012-0029)\n\nRed Hat would like to thank Nicolae Mogoreanu for reporting this issue.\n\nThis update also fixes the following bugs:\n\n* Adding support for jumbo frames introduced incorrect network device\nexpansion when a bridge is created. The expansion worked correctly with the\ndefault configuration, but could have caused network setup failures when a\nuser-defined network script was used. This update changes the expansion so\nnetwork setup will not fail, even when a user-defined network script is\nused. (BZ#797191)\n\n* A bug was found in xenconsoled, the Xen hypervisor console daemon. If\ntimestamp logging for this daemon was enabled (using both the\nXENCONSOLED_TIMESTAMP_HYPERVISOR_LOG and XENCONSOLED_TIMESTAMP_GUEST_LOG\noptions in \"/etc/sysconfig/xend\"), xenconsoled could crash if the guest\nemitted a lot of information to its serial console in a short period of\ntime. Eventually, the guest would freeze after the console buffer was\nfilled due to the crashed xenconsoled. Timestamp logging is disabled by\ndefault. (BZ#797836)\n\nAll xen users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The system must be\nrebooted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-03-07"
-      },
-      "updated": {
-        "date": "2012-03-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-0029",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0029",
-          "impact": "important",
-          "public": "20120123",
-          "cwe": "CWE-228->CWE-119",
-          "cvss_2": "7.4/AV:A/AC:M/Au:S/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-0029 qemu: e1000: process_tx_desc legacy mode packets heap overflow",
-          "href": "https://bugzilla.redhat.com/772075",
-          "id": "772075"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120370001",
-                    "comment": "xen is earlier than 0:3.0.3-135.el5_8.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
-                    "comment": "xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120370003",
-                    "comment": "xen-devel is earlier than 0:3.0.3-135.el5_8.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
-                    "comment": "xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120370005",
-                    "comment": "xen-libs is earlier than 0:3.0.3-135.el5_8.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
-                    "comment": "xen-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120370",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2012:0370: xen security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0370",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0370",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-0029",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0029",
+				"source": "CVE"
+			}
+		],
+		"description": "The xen packages contain administration tools and the xend service for\nmanaging the kernel-xen kernel for virtualization on Red Hat Enterprise\nLinux.\n\nA heap overflow flaw was found in the way QEMU emulated the e1000 network\ninterface card. A privileged guest user in a virtual machine whose network\ninterface is configured to use the e1000 emulated driver could use this\nflaw to crash QEMU or, possibly, escalate their privileges on the host.\n(CVE-2012-0029)\n\nRed Hat would like to thank Nicolae Mogoreanu for reporting this issue.\n\nThis update also fixes the following bugs:\n\n* Adding support for jumbo frames introduced incorrect network device\nexpansion when a bridge is created. The expansion worked correctly with the\ndefault configuration, but could have caused network setup failures when a\nuser-defined network script was used. This update changes the expansion so\nnetwork setup will not fail, even when a user-defined network script is\nused. (BZ#797191)\n\n* A bug was found in xenconsoled, the Xen hypervisor console daemon. If\ntimestamp logging for this daemon was enabled (using both the\nXENCONSOLED_TIMESTAMP_HYPERVISOR_LOG and XENCONSOLED_TIMESTAMP_GUEST_LOG\noptions in \"/etc/sysconfig/xend\"), xenconsoled could crash if the guest\nemitted a lot of information to its serial console in a short period of\ntime. Eventually, the guest would freeze after the console buffer was\nfilled due to the crashed xenconsoled. Timestamp logging is disabled by\ndefault. (BZ#797836)\n\nAll xen users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The system must be\nrebooted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-03-07"
+			},
+			"updated": {
+				"date": "2012-03-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-0029",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0029",
+					"impact": "important",
+					"public": "20120123",
+					"cwe": "CWE-228->CWE-119",
+					"cvss_2": "7.4/AV:A/AC:M/Au:S/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-0029 qemu: e1000: process_tx_desc legacy mode packets heap overflow",
+					"href": "https://bugzilla.redhat.com/772075",
+					"id": "772075"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120370001",
+										"comment": "xen is earlier than 0:3.0.3-135.el5_8.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+										"comment": "xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120370003",
+										"comment": "xen-devel is earlier than 0:3.0.3-135.el5_8.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+										"comment": "xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120370005",
+										"comment": "xen-libs is earlier than 0:3.0.3-135.el5_8.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+										"comment": "xen-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

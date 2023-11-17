@@ -1,146 +1,146 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120305",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2012:0305: boost security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0305",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0305",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-0171",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0171",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-0172",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0172",
-        "source": "CVE"
-      }
-    ],
-    "description": "The boost packages provide free, peer-reviewed, portable C++ source\nlibraries with emphasis on libraries which work well with the C++ Standard\nLibrary.\n\nInvalid pointer dereference flaws were found in the way the Boost regular\nexpression library processed certain, invalid expressions. An attacker able\nto make an application using the Boost library process a specially-crafted\nregular expression could cause that application to crash or, potentially,\nexecute arbitrary code with the privileges of the user running the\napplication. (CVE-2008-0171)\n\nNULL pointer dereference flaws were found in the way the Boost regular\nexpression library processed certain, invalid expressions. An attacker able\nto make an application using the Boost library process a specially-crafted\nregular expression could cause that application to crash. (CVE-2008-0172)\n\nRed Hat would like to thank Will Drewry for reporting these issues.\n\nThis update also fixes the following bugs:\n\n* Prior to this update, the construction of a regular expression object\ncould fail when several regular expression objects were created\nsimultaneously, such as in a multi-threaded program. With this update, the\nobject variables have been moved from the shared memory to the stack. Now,\nthe constructing function is thread safe. (BZ#472384)\n\n* Prior to this update, header files in several Boost libraries contained\npreprocessor directives that the GNU Compiler Collection (GCC) 4.4 could\nnot handle. This update instead uses equivalent constructs that are\nstandard C. (BZ#567722)\n\nAll users of boost are advised to upgrade to these updated packages, which\nfix these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-02-21"
-      },
-      "updated": {
-        "date": "2012-02-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-0171",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0171",
-          "impact": "low",
-          "public": "20080111",
-          "cvss_2": "4.6/AV:L/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2008-0172",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0172",
-          "impact": "low",
-          "public": "20080111",
-          "cwe": "CWE-476",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-0171 boost regular expression memory corruption flaws",
-          "href": "https://bugzilla.redhat.com/428316",
-          "id": "428316"
-        },
-        {
-          "text": "CVE-2008-0172 boost regular expression NULL dereference flaw",
-          "href": "https://bugzilla.redhat.com/428320",
-          "id": "428320"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120305001",
-                    "comment": "boost is earlier than 0:1.33.1-15.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120305002",
-                    "comment": "boost is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120305003",
-                    "comment": "boost-devel is earlier than 0:1.33.1-15.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120305004",
-                    "comment": "boost-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120305005",
-                    "comment": "boost-doc is earlier than 0:1.33.1-15.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120305006",
-                    "comment": "boost-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120305",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2012:0305: boost security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0305",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0305",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-0171",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0171",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-0172",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0172",
+				"source": "CVE"
+			}
+		],
+		"description": "The boost packages provide free, peer-reviewed, portable C++ source\nlibraries with emphasis on libraries which work well with the C++ Standard\nLibrary.\n\nInvalid pointer dereference flaws were found in the way the Boost regular\nexpression library processed certain, invalid expressions. An attacker able\nto make an application using the Boost library process a specially-crafted\nregular expression could cause that application to crash or, potentially,\nexecute arbitrary code with the privileges of the user running the\napplication. (CVE-2008-0171)\n\nNULL pointer dereference flaws were found in the way the Boost regular\nexpression library processed certain, invalid expressions. An attacker able\nto make an application using the Boost library process a specially-crafted\nregular expression could cause that application to crash. (CVE-2008-0172)\n\nRed Hat would like to thank Will Drewry for reporting these issues.\n\nThis update also fixes the following bugs:\n\n* Prior to this update, the construction of a regular expression object\ncould fail when several regular expression objects were created\nsimultaneously, such as in a multi-threaded program. With this update, the\nobject variables have been moved from the shared memory to the stack. Now,\nthe constructing function is thread safe. (BZ#472384)\n\n* Prior to this update, header files in several Boost libraries contained\npreprocessor directives that the GNU Compiler Collection (GCC) 4.4 could\nnot handle. This update instead uses equivalent constructs that are\nstandard C. (BZ#567722)\n\nAll users of boost are advised to upgrade to these updated packages, which\nfix these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-02-21"
+			},
+			"updated": {
+				"date": "2012-02-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-0171",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0171",
+					"impact": "low",
+					"public": "20080111",
+					"cvss_2": "4.6/AV:L/AC:L/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2008-0172",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0172",
+					"impact": "low",
+					"public": "20080111",
+					"cwe": "CWE-476",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-0171 boost regular expression memory corruption flaws",
+					"href": "https://bugzilla.redhat.com/428316",
+					"id": "428316"
+				},
+				{
+					"text": "CVE-2008-0172 boost regular expression NULL dereference flaw",
+					"href": "https://bugzilla.redhat.com/428320",
+					"id": "428320"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120305001",
+										"comment": "boost is earlier than 0:1.33.1-15.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120305002",
+										"comment": "boost is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120305003",
+										"comment": "boost-devel is earlier than 0:1.33.1-15.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120305004",
+										"comment": "boost-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120305005",
+										"comment": "boost-doc is earlier than 0:1.33.1-15.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120305006",
+										"comment": "boost-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

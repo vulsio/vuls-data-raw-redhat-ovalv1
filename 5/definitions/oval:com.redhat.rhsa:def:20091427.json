@@ -1,147 +1,147 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091427",
-  "version": "649",
-  "metadata": {
-    "title": "RHSA-2009:1427: fetchmail security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1427",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1427",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4565",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4565",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2711",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2711",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-2666",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2666",
-        "source": "CVE"
-      }
-    ],
-    "description": "Fetchmail is a remote mail retrieval and forwarding utility intended for\nuse over on-demand TCP/IP links, such as SLIP and PPP connections.\n\nIt was discovered that fetchmail is affected by the previously published\n\"null prefix attack\", caused by incorrect handling of NULL characters in\nX.509 certificates. If an attacker is able to get a carefully-crafted\ncertificate signed by a trusted Certificate Authority, the attacker could\nuse the certificate during a man-in-the-middle attack and potentially\nconfuse fetchmail into accepting it by mistake. (CVE-2009-2666)\n\nA flaw was found in the way fetchmail handles rejections from a remote SMTP\nserver when sending warning mail to the postmaster. If fetchmail sent a\nwarning mail to the postmaster of an SMTP server and that SMTP server\nrejected it, fetchmail could crash. (CVE-2007-4565)\n\nA flaw was found in fetchmail. When fetchmail is run in double verbose\nmode (\"-v -v\"), it could crash upon receiving certain, malformed mail\nmessages with long headers. A remote attacker could use this flaw to cause\na denial of service if fetchmail was also running in daemon mode (\"-d\").\n(CVE-2008-2711)\n\nNote: when using SSL-enabled services, it is recommended that the fetchmail\n\"--sslcertck\" option be used to enforce strict SSL certificate checking.\n\nAll fetchmail users should upgrade to this updated package, which contains\nbackported patches to correct these issues. If fetchmail is running in\ndaemon mode, it must be restarted for this update to take effect (use the\n\"fetchmail --quit\" command to stop the fetchmail process).",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-09-08"
-      },
-      "updated": {
-        "date": "2009-09-08"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4565",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4565",
-          "impact": "low",
-          "public": "20070828",
-          "cwe": "CWE-476",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2008-2711",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2711",
-          "impact": "low",
-          "public": "20080613",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-2666",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2666",
-          "impact": "moderate",
-          "public": "20090805",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4565 Fetchmail NULL pointer dereference",
-          "href": "https://bugzilla.redhat.com/260601",
-          "id": "260601"
-        },
-        {
-          "text": "CVE-2008-2711 fetchmail: Crash in large log messages in verbose mode",
-          "href": "https://bugzilla.redhat.com/451758",
-          "id": "451758"
-        },
-        {
-          "text": "CVE-2009-2666 fetchmail: SSL null terminator bypass",
-          "href": "https://bugzilla.redhat.com/515804",
-          "id": "515804"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20091427001",
-            "comment": "fetchmail is earlier than 0:6.2.5-6.0.1.el4_8.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070385002",
-            "comment": "fetchmail is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20091427004",
-            "comment": "fetchmail is earlier than 0:6.3.6-1.1.el5_3.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070385002",
-            "comment": "fetchmail is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091427",
+	"version": "649",
+	"metadata": {
+		"title": "RHSA-2009:1427: fetchmail security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1427",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1427",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4565",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4565",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2711",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2711",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-2666",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2666",
+				"source": "CVE"
+			}
+		],
+		"description": "Fetchmail is a remote mail retrieval and forwarding utility intended for\nuse over on-demand TCP/IP links, such as SLIP and PPP connections.\n\nIt was discovered that fetchmail is affected by the previously published\n\"null prefix attack\", caused by incorrect handling of NULL characters in\nX.509 certificates. If an attacker is able to get a carefully-crafted\ncertificate signed by a trusted Certificate Authority, the attacker could\nuse the certificate during a man-in-the-middle attack and potentially\nconfuse fetchmail into accepting it by mistake. (CVE-2009-2666)\n\nA flaw was found in the way fetchmail handles rejections from a remote SMTP\nserver when sending warning mail to the postmaster. If fetchmail sent a\nwarning mail to the postmaster of an SMTP server and that SMTP server\nrejected it, fetchmail could crash. (CVE-2007-4565)\n\nA flaw was found in fetchmail. When fetchmail is run in double verbose\nmode (\"-v -v\"), it could crash upon receiving certain, malformed mail\nmessages with long headers. A remote attacker could use this flaw to cause\na denial of service if fetchmail was also running in daemon mode (\"-d\").\n(CVE-2008-2711)\n\nNote: when using SSL-enabled services, it is recommended that the fetchmail\n\"--sslcertck\" option be used to enforce strict SSL certificate checking.\n\nAll fetchmail users should upgrade to this updated package, which contains\nbackported patches to correct these issues. If fetchmail is running in\ndaemon mode, it must be restarted for this update to take effect (use the\n\"fetchmail --quit\" command to stop the fetchmail process).",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-09-08"
+			},
+			"updated": {
+				"date": "2009-09-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4565",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4565",
+					"impact": "low",
+					"public": "20070828",
+					"cwe": "CWE-476",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2008-2711",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2711",
+					"impact": "low",
+					"public": "20080613",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-2666",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2666",
+					"impact": "moderate",
+					"public": "20090805",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4565 Fetchmail NULL pointer dereference",
+					"href": "https://bugzilla.redhat.com/260601",
+					"id": "260601"
+				},
+				{
+					"text": "CVE-2008-2711 fetchmail: Crash in large log messages in verbose mode",
+					"href": "https://bugzilla.redhat.com/451758",
+					"id": "451758"
+				},
+				{
+					"text": "CVE-2009-2666 fetchmail: SSL null terminator bypass",
+					"href": "https://bugzilla.redhat.com/515804",
+					"id": "515804"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20091427001",
+						"comment": "fetchmail is earlier than 0:6.2.5-6.0.1.el4_8.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070385002",
+						"comment": "fetchmail is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20091427004",
+						"comment": "fetchmail is earlier than 0:6.3.6-1.1.el5_3.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070385002",
+						"comment": "fetchmail is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

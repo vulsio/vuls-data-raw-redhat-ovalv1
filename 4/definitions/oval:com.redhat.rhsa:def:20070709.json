@@ -1,179 +1,179 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070709",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0709: wireshark security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0709",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0709",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3389",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3389",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3390",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3390",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3391",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3391",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3392",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3392",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3393",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3393",
-        "source": "CVE"
-      }
-    ],
-    "description": "Wireshark is a program for monitoring network traffic.\n\nSeveral denial of service bugs were found in Wireshark's HTTP, iSeries, DCP\nETSI, SSL, MMS, DHCP and BOOTP protocol dissectors. It was possible for\nWireshark to crash or stop responding if it read a malformed packet off the\nnetwork. (CVE-2007-3389, CVE-2007-3390, CVE-2007-3391, CVE-2007-3392,\nCVE-2007-3393)\n\nWireshark would interpret certain completion codes incorrectly when\ndissecting IPMI traffic. Additionally, IPMI 2.0 packets would be reported\nas malformed IPMI traffic.\n\nUsers of Wireshark should upgrade to these updated packages containing\nWireshark version 0.99.6, which correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-15"
-      },
-      "updated": {
-        "date": "2007-11-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3389",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3389",
-          "impact": "low",
-          "public": "20070222"
-        },
-        {
-          "text": "CVE-2007-3390",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3390",
-          "impact": "low",
-          "public": "20070305"
-        },
-        {
-          "text": "CVE-2007-3391",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3391",
-          "impact": "low",
-          "public": "20070310"
-        },
-        {
-          "text": "CVE-2007-3392",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3392",
-          "impact": "low",
-          "public": "20070217"
-        },
-        {
-          "text": "CVE-2007-3393",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3393",
-          "impact": "low",
-          "public": "20070526"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3389 Wireshark crashes when inspecting HTTP traffic",
-          "href": "https://bugzilla.redhat.com/245796",
-          "id": "245796"
-        },
-        {
-          "text": "CVE-2007-3391 Wireshark loops infinitely when inspecting DCP ETSI traffic",
-          "href": "https://bugzilla.redhat.com/245797",
-          "id": "245797"
-        },
-        {
-          "text": "CVE-2007-3393 Wireshark corrupts the stack when inspecting BOOTP traffic",
-          "href": "https://bugzilla.redhat.com/246221",
-          "id": "246221"
-        },
-        {
-          "text": "CVE-2007-3390 Wireshark crashes when inspecting iSeries traffic",
-          "href": "https://bugzilla.redhat.com/246225",
-          "id": "246225"
-        },
-        {
-          "text": "CVE-2007-3392 Wireshark crashes when inspecting MMS traffic",
-          "href": "https://bugzilla.redhat.com/246229",
-          "id": "246229"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070709001",
-                    "comment": "wireshark is earlier than 0:0.99.6-EL4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060602002",
-                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070709003",
-                    "comment": "wireshark-gnome is earlier than 0:0.99.6-EL4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060602004",
-                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070709",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0709: wireshark security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0709",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0709",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3389",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3389",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3390",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3390",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3391",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3391",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3392",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3392",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3393",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3393",
+				"source": "CVE"
+			}
+		],
+		"description": "Wireshark is a program for monitoring network traffic.\n\nSeveral denial of service bugs were found in Wireshark's HTTP, iSeries, DCP\nETSI, SSL, MMS, DHCP and BOOTP protocol dissectors. It was possible for\nWireshark to crash or stop responding if it read a malformed packet off the\nnetwork. (CVE-2007-3389, CVE-2007-3390, CVE-2007-3391, CVE-2007-3392,\nCVE-2007-3393)\n\nWireshark would interpret certain completion codes incorrectly when\ndissecting IPMI traffic. Additionally, IPMI 2.0 packets would be reported\nas malformed IPMI traffic.\n\nUsers of Wireshark should upgrade to these updated packages containing\nWireshark version 0.99.6, which correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-15"
+			},
+			"updated": {
+				"date": "2007-11-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3389",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3389",
+					"impact": "low",
+					"public": "20070222"
+				},
+				{
+					"text": "CVE-2007-3390",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3390",
+					"impact": "low",
+					"public": "20070305"
+				},
+				{
+					"text": "CVE-2007-3391",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3391",
+					"impact": "low",
+					"public": "20070310"
+				},
+				{
+					"text": "CVE-2007-3392",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3392",
+					"impact": "low",
+					"public": "20070217"
+				},
+				{
+					"text": "CVE-2007-3393",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3393",
+					"impact": "low",
+					"public": "20070526"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3389 Wireshark crashes when inspecting HTTP traffic",
+					"href": "https://bugzilla.redhat.com/245796",
+					"id": "245796"
+				},
+				{
+					"text": "CVE-2007-3391 Wireshark loops infinitely when inspecting DCP ETSI traffic",
+					"href": "https://bugzilla.redhat.com/245797",
+					"id": "245797"
+				},
+				{
+					"text": "CVE-2007-3393 Wireshark corrupts the stack when inspecting BOOTP traffic",
+					"href": "https://bugzilla.redhat.com/246221",
+					"id": "246221"
+				},
+				{
+					"text": "CVE-2007-3390 Wireshark crashes when inspecting iSeries traffic",
+					"href": "https://bugzilla.redhat.com/246225",
+					"id": "246225"
+				},
+				{
+					"text": "CVE-2007-3392 Wireshark crashes when inspecting MMS traffic",
+					"href": "https://bugzilla.redhat.com/246229",
+					"id": "246229"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070709001",
+										"comment": "wireshark is earlier than 0:0.99.6-EL4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060602002",
+										"comment": "wireshark is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070709003",
+										"comment": "wireshark-gnome is earlier than 0:0.99.6-EL4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060602004",
+										"comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

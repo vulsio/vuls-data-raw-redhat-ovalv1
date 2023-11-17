@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060052",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2006:0052: squid security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0052",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0052",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-2917",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2917",
-        "source": "CVE"
-      }
-    ],
-    "description": "Squid is a high-performance proxy caching server for Web clients,\nsupporting FTP, gopher, and HTTP data objects.\n\nA denial of service flaw was found in the way squid processes certain NTLM\nauthentication requests. It is possible for a remote attacker to crash the\nSquid server by sending a specially crafted NTLM authentication request.\nThe Common Vulnerabilities and Exposures project (cve.mitre.org) assigned\nthe name CVE-2005-2917 to this issue.\n\nThe following issues have also been fixed in this update: \n\n* An error introduced in squid-2.5.STABLE6-3.4E.12 can crash Squid when a\n  user visits a site that has a bit longer DNS record.\n\n* An error introduced in the old package prevented Squid from returning\n  correct information about large file systems. The new package is compiled\n  with the IDENT lookup support so that users who want to use it do not\n  have to recompile it.\n\n* Some authentication helpers needed SETUID rights but did not have them.\n  If administrators wanted to use cache administrator, they had to change\n  the SETUID bit manually. The updated package sets this bit so the new\n  package can be updated without manual intervention from administrators.\n\n* Squid could not handle a reply from an HTTP server when the reply began\n  with the new-line character. \n\n* An issue was discovered when a reply from an HTTP server was not\n  HTTP 1.0 or 1.1 compliant.\n\n* The updated package keeps user-defined error pages when the package\n  is updated and it adds new ones.\n \nAll users of squid should upgrade to this updated package, which resolves\nthese issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-03-07"
-      },
-      "updated": {
-        "date": "2006-03-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-2917",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-2917",
-          "impact": "moderate",
-          "public": "20050915"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2005-2917 security flaw",
-          "href": "https://bugzilla.redhat.com/1617765",
-          "id": "1617765"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060052001",
-            "comment": "squid is earlier than 7:2.5.STABLE6-3.4E.12"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060052002",
-            "comment": "squid is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060052",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2006:0052: squid security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0052",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0052",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-2917",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-2917",
+				"source": "CVE"
+			}
+		],
+		"description": "Squid is a high-performance proxy caching server for Web clients,\nsupporting FTP, gopher, and HTTP data objects.\n\nA denial of service flaw was found in the way squid processes certain NTLM\nauthentication requests. It is possible for a remote attacker to crash the\nSquid server by sending a specially crafted NTLM authentication request.\nThe Common Vulnerabilities and Exposures project (cve.mitre.org) assigned\nthe name CVE-2005-2917 to this issue.\n\nThe following issues have also been fixed in this update: \n\n* An error introduced in squid-2.5.STABLE6-3.4E.12 can crash Squid when a\n  user visits a site that has a bit longer DNS record.\n\n* An error introduced in the old package prevented Squid from returning\n  correct information about large file systems. The new package is compiled\n  with the IDENT lookup support so that users who want to use it do not\n  have to recompile it.\n\n* Some authentication helpers needed SETUID rights but did not have them.\n  If administrators wanted to use cache administrator, they had to change\n  the SETUID bit manually. The updated package sets this bit so the new\n  package can be updated without manual intervention from administrators.\n\n* Squid could not handle a reply from an HTTP server when the reply began\n  with the new-line character. \n\n* An issue was discovered when a reply from an HTTP server was not\n  HTTP 1.0 or 1.1 compliant.\n\n* The updated package keeps user-defined error pages when the package\n  is updated and it adds new ones.\n \nAll users of squid should upgrade to this updated package, which resolves\nthese issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-03-07"
+			},
+			"updated": {
+				"date": "2006-03-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-2917",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-2917",
+					"impact": "moderate",
+					"public": "20050915"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2005-2917 security flaw",
+					"href": "https://bugzilla.redhat.com/1617765",
+					"id": "1617765"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060052001",
+						"comment": "squid is earlier than 7:2.5.STABLE6-3.4E.12"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060052002",
+						"comment": "squid is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

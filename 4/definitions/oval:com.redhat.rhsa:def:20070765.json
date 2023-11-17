@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070765",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0765: libgtop2 security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0765",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0765",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-0235",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-0235",
-        "source": "CVE"
-      }
-    ],
-    "description": "The libgtop2 package contains a library for obtaining information about a\nrunning system, such as cpu, memory and disk usage; active processes; and\nPIDs.\n\nA flaw was found in the way libgtop2 handled long filenames mapped\ninto the address space of a process. An attacker could execute arbitrary\ncode on behalf of the user running gnome-system-monitor by executing a\nprocess and mapping a file with a specially crafted name into the\nprocesses' address space. (CVE-2007-0235)\n\nThis update also fixes the following bug:\n\n* when a version of libgtop2 compiled to run on a 32-bit architecture was\nused to inspect a process running in 64-bit mode, it failed to report\ncertain information regarding address space mapping correctly.\n\nAll users of gnome-system-monitor are advised to upgrade to this updated\nlibgtop2 package, which contains backported patches that resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-08-07"
-      },
-      "updated": {
-        "date": "2007-08-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-0235",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-0235",
-          "impact": "moderate",
-          "public": "20070114"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-0235 Stack overflow libgtop when pathname of mmap()-ed file is too long",
-          "href": "https://bugzilla.redhat.com/222637",
-          "id": "222637"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070765001",
-                    "comment": "libgtop2 is earlier than 0:2.8.0-1.0.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070765002",
-                    "comment": "libgtop2 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070765003",
-                    "comment": "libgtop2-devel is earlier than 0:2.8.0-1.0.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070765004",
-                    "comment": "libgtop2-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070765",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0765: libgtop2 security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0765",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0765",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-0235",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-0235",
+				"source": "CVE"
+			}
+		],
+		"description": "The libgtop2 package contains a library for obtaining information about a\nrunning system, such as cpu, memory and disk usage; active processes; and\nPIDs.\n\nA flaw was found in the way libgtop2 handled long filenames mapped\ninto the address space of a process. An attacker could execute arbitrary\ncode on behalf of the user running gnome-system-monitor by executing a\nprocess and mapping a file with a specially crafted name into the\nprocesses' address space. (CVE-2007-0235)\n\nThis update also fixes the following bug:\n\n* when a version of libgtop2 compiled to run on a 32-bit architecture was\nused to inspect a process running in 64-bit mode, it failed to report\ncertain information regarding address space mapping correctly.\n\nAll users of gnome-system-monitor are advised to upgrade to this updated\nlibgtop2 package, which contains backported patches that resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-08-07"
+			},
+			"updated": {
+				"date": "2007-08-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-0235",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-0235",
+					"impact": "moderate",
+					"public": "20070114"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-0235 Stack overflow libgtop when pathname of mmap()-ed file is too long",
+					"href": "https://bugzilla.redhat.com/222637",
+					"id": "222637"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070765001",
+										"comment": "libgtop2 is earlier than 0:2.8.0-1.0.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070765002",
+										"comment": "libgtop2 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070765003",
+										"comment": "libgtop2-devel is earlier than 0:2.8.0-1.0.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070765004",
+										"comment": "libgtop2-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

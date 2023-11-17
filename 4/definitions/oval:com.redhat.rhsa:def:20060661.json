@@ -1,141 +1,141 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060661",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2006:0661: openssl security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0661",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0661",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4339",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4339",
-        "source": "CVE"
-      }
-    ],
-    "description": "The OpenSSL toolkit provides support for secure communications between\nmachines. OpenSSL includes a certificate management tool and shared\nlibraries which provide various cryptographic algorithms and protocols.\n\nDaniel Bleichenbacher recently described an attack on PKCS #1 v1.5\nsignatures.  Where an RSA key with exponent 3 is used it may be possible\nfor an attacker to forge a PKCS #1 v1.5 signature that would be incorrectly\nverified by implementations that do not check for excess data in the RSA\nexponentiation result of the signature.  \n\nThe Google Security Team discovered that OpenSSL is vulnerable to this\nattack.  This issue affects applications that use OpenSSL to verify X.509\ncertificates as well as other uses of PKCS #1 v1.5.  (CVE-2006-4339)\n\nThis errata also resolves a problem where a customized ca-bundle.crt file\nwas overwritten when the openssl package was upgraded.\n\nUsers are advised to upgrade to these updated packages, which contain a\nbackported patch to correct this issue.\n\nNote: After installing this update, users are advised to either restart all\nservices that use OpenSSL or restart their system.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-09-06"
-      },
-      "updated": {
-        "date": "2006-09-06"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4339",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4339",
-          "impact": "important",
-          "public": "20060905"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4339 openssl signature forgery",
-          "href": "https://bugzilla.redhat.com/430659",
-          "id": "430659"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060661001",
-                    "comment": "openssl096b is earlier than 0:0.9.6b-22.43"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060661002",
-                    "comment": "openssl096b is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060661003",
-                    "comment": "openssl is earlier than 0:0.9.7a-43.11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060661004",
-                    "comment": "openssl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060661005",
-                    "comment": "openssl-devel is earlier than 0:0.9.7a-43.11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060661006",
-                    "comment": "openssl-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060661007",
-                    "comment": "openssl-perl is earlier than 0:0.9.7a-43.11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060661008",
-                    "comment": "openssl-perl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060661",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2006:0661: openssl security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0661",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0661",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4339",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4339",
+				"source": "CVE"
+			}
+		],
+		"description": "The OpenSSL toolkit provides support for secure communications between\nmachines. OpenSSL includes a certificate management tool and shared\nlibraries which provide various cryptographic algorithms and protocols.\n\nDaniel Bleichenbacher recently described an attack on PKCS #1 v1.5\nsignatures.  Where an RSA key with exponent 3 is used it may be possible\nfor an attacker to forge a PKCS #1 v1.5 signature that would be incorrectly\nverified by implementations that do not check for excess data in the RSA\nexponentiation result of the signature.  \n\nThe Google Security Team discovered that OpenSSL is vulnerable to this\nattack.  This issue affects applications that use OpenSSL to verify X.509\ncertificates as well as other uses of PKCS #1 v1.5.  (CVE-2006-4339)\n\nThis errata also resolves a problem where a customized ca-bundle.crt file\nwas overwritten when the openssl package was upgraded.\n\nUsers are advised to upgrade to these updated packages, which contain a\nbackported patch to correct this issue.\n\nNote: After installing this update, users are advised to either restart all\nservices that use OpenSSL or restart their system.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-09-06"
+			},
+			"updated": {
+				"date": "2006-09-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4339",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4339",
+					"impact": "important",
+					"public": "20060905"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4339 openssl signature forgery",
+					"href": "https://bugzilla.redhat.com/430659",
+					"id": "430659"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060661001",
+										"comment": "openssl096b is earlier than 0:0.9.6b-22.43"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060661002",
+										"comment": "openssl096b is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060661003",
+										"comment": "openssl is earlier than 0:0.9.7a-43.11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060661004",
+										"comment": "openssl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060661005",
+										"comment": "openssl-devel is earlier than 0:0.9.7a-43.11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060661006",
+										"comment": "openssl-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060661007",
+										"comment": "openssl-perl is earlier than 0:0.9.7a-43.11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060661008",
+										"comment": "openssl-perl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

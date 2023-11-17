@@ -1,276 +1,276 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091222",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2009:1222: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1222",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1222",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-2692",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2692",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-2698",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2698",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThese updated packages fix the following security issues:\n\n* a flaw was found in the SOCKOPS_WRAP macro in the Linux kernel. This\nmacro did not initialize the sendpage operation in the proto_ops structure\ncorrectly. A local, unprivileged user could use this flaw to cause a local\ndenial of service or escalate their privileges. (CVE-2009-2692, Important)\n\n* a flaw was found in the udp_sendmsg() implementation in the Linux kernel\nwhen using the MSG_MORE flag on UDP sockets. A local, unprivileged user\ncould use this flaw to cause a local denial of service or escalate their\nprivileges. (CVE-2009-2698, Important)\n\nRed Hat would like to thank Tavis Ormandy and Julien Tinnes of the Google\nSecurity Team for responsibly reporting these flaws.\n\nThese updated packages also fix the following bug:\n\n* in the dlm code, a socket was allocated in tcp_connect_to_sock(), but was\nnot freed in the error exit path. This bug led to a memory leak and an\nunresponsive system. A reported case of this bug occurred after running\n\"cman_tool kill -n [nodename]\". (BZ#515432)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-08-24"
-      },
-      "updated": {
-        "date": "2009-08-24"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-2692",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2692",
-          "impact": "important",
-          "public": "20090813",
-          "cwe": "CWE-456->CWE-476",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2009-2698",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2698",
-          "impact": "important",
-          "public": "20090824",
-          "cwe": "CWE-476",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-2692 kernel: uninit op in SOCKOPS_WRAP() leads to privesc",
-          "href": "https://bugzilla.redhat.com/516949",
-          "id": "516949"
-        },
-        {
-          "text": "CVE-2009-2698 kernel: udp socket NULL ptr dereference",
-          "href": "https://bugzilla.redhat.com/518034",
-          "id": "518034"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20091222025",
-                "comment": "kernel earlier than 0:2.6.18-128.7.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20091222026",
-                "comment": "kernel earlier than 0:2.6.18-128.7.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222001",
-                    "comment": "kernel is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091222023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-128.7.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091222",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2009:1222: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1222",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1222",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-2692",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2692",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-2698",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2698",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThese updated packages fix the following security issues:\n\n* a flaw was found in the SOCKOPS_WRAP macro in the Linux kernel. This\nmacro did not initialize the sendpage operation in the proto_ops structure\ncorrectly. A local, unprivileged user could use this flaw to cause a local\ndenial of service or escalate their privileges. (CVE-2009-2692, Important)\n\n* a flaw was found in the udp_sendmsg() implementation in the Linux kernel\nwhen using the MSG_MORE flag on UDP sockets. A local, unprivileged user\ncould use this flaw to cause a local denial of service or escalate their\nprivileges. (CVE-2009-2698, Important)\n\nRed Hat would like to thank Tavis Ormandy and Julien Tinnes of the Google\nSecurity Team for responsibly reporting these flaws.\n\nThese updated packages also fix the following bug:\n\n* in the dlm code, a socket was allocated in tcp_connect_to_sock(), but was\nnot freed in the error exit path. This bug led to a memory leak and an\nunresponsive system. A reported case of this bug occurred after running\n\"cman_tool kill -n [nodename]\". (BZ#515432)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-08-24"
+			},
+			"updated": {
+				"date": "2009-08-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-2692",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2692",
+					"impact": "important",
+					"public": "20090813",
+					"cwe": "CWE-456->CWE-476",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2009-2698",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2698",
+					"impact": "important",
+					"public": "20090824",
+					"cwe": "CWE-476",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-2692 kernel: uninit op in SOCKOPS_WRAP() leads to privesc",
+					"href": "https://bugzilla.redhat.com/516949",
+					"id": "516949"
+				},
+				{
+					"text": "CVE-2009-2698 kernel: udp socket NULL ptr dereference",
+					"href": "https://bugzilla.redhat.com/518034",
+					"id": "518034"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20091222025",
+								"comment": "kernel earlier than 0:2.6.18-128.7.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20091222026",
+								"comment": "kernel earlier than 0:2.6.18-128.7.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222001",
+										"comment": "kernel is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091222023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-128.7.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

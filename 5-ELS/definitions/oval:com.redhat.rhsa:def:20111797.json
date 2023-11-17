@@ -1,191 +1,191 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20111797",
-  "version": "642",
-  "metadata": {
-    "title": "RHSA-2011:1797: perl security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:1797",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1797",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-2761",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2761",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-4410",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4410",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-3597",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3597",
-        "source": "CVE"
-      }
-    ],
-    "description": "Perl is a high-level programming language commonly used for system\nadministration utilities and web programming.\n\nIt was found that the \"new\" constructor of the Digest module used its\nargument as part of the string expression passed to the eval() function. An\nattacker could possibly use this flaw to execute arbitrary Perl code with\nthe privileges of a Perl program that uses untrusted input as an argument\nto the constructor. (CVE-2011-3597)\n\nIt was found that the Perl CGI module used a hard-coded value for the MIME\nboundary string in multipart/x-mixed-replace content. A remote attacker\ncould possibly use this flaw to conduct an HTTP response splitting attack\nvia a specially-crafted HTTP request. (CVE-2010-2761)\n\nA CRLF injection flaw was found in the way the Perl CGI module processed a\nsequence of non-whitespace preceded by newline characters in the header. A\nremote attacker could use this flaw to conduct an HTTP response splitting\nattack via a specially-crafted sequence of characters provided to the CGI\nmodule. (CVE-2010-4410)\n\nAll Perl users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. All running Perl programs must\nbe restarted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-12-08"
-      },
-      "updated": {
-        "date": "2011-12-08"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-2761",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2761",
-          "impact": "moderate",
-          "public": "20101110",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2010-4410",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-4410",
-          "impact": "moderate",
-          "public": "20101110",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2011-3597",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-3597",
-          "impact": "moderate",
-          "public": "20111002",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "perl-CGI, perl-CGI-Simple: CVE-2010-2761 - hardcoded MIME boundary value for multipart content, CVE-2010-4410 - CRLF injection allowing HTTP response splitting",
-          "href": "https://bugzilla.redhat.com/658976",
-          "id": "658976"
-        },
-        {
-          "text": "CVE-2011-3597 Perl Digest improper control of generation of code",
-          "href": "https://bugzilla.redhat.com/743010",
-          "id": "743010"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111797001",
-                    "comment": "perl is earlier than 3:5.8.5-57.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070966002",
-                    "comment": "perl is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111797003",
-                    "comment": "perl-suidperl is earlier than 3:5.8.5-57.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070966004",
-                    "comment": "perl-suidperl is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111797006",
-                    "comment": "perl is earlier than 4:5.8.8-32.el5_7.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070966007",
-                    "comment": "perl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111797008",
-                    "comment": "perl-suidperl is earlier than 4:5.8.8-32.el5_7.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070966009",
-                    "comment": "perl-suidperl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20111797",
+	"version": "642",
+	"metadata": {
+		"title": "RHSA-2011:1797: perl security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:1797",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:1797",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-2761",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2761",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-4410",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-4410",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-3597",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-3597",
+				"source": "CVE"
+			}
+		],
+		"description": "Perl is a high-level programming language commonly used for system\nadministration utilities and web programming.\n\nIt was found that the \"new\" constructor of the Digest module used its\nargument as part of the string expression passed to the eval() function. An\nattacker could possibly use this flaw to execute arbitrary Perl code with\nthe privileges of a Perl program that uses untrusted input as an argument\nto the constructor. (CVE-2011-3597)\n\nIt was found that the Perl CGI module used a hard-coded value for the MIME\nboundary string in multipart/x-mixed-replace content. A remote attacker\ncould possibly use this flaw to conduct an HTTP response splitting attack\nvia a specially-crafted HTTP request. (CVE-2010-2761)\n\nA CRLF injection flaw was found in the way the Perl CGI module processed a\nsequence of non-whitespace preceded by newline characters in the header. A\nremote attacker could use this flaw to conduct an HTTP response splitting\nattack via a specially-crafted sequence of characters provided to the CGI\nmodule. (CVE-2010-4410)\n\nAll Perl users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. All running Perl programs must\nbe restarted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-12-08"
+			},
+			"updated": {
+				"date": "2011-12-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-2761",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2761",
+					"impact": "moderate",
+					"public": "20101110",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2010-4410",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-4410",
+					"impact": "moderate",
+					"public": "20101110",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2011-3597",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-3597",
+					"impact": "moderate",
+					"public": "20111002",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "perl-CGI, perl-CGI-Simple: CVE-2010-2761 - hardcoded MIME boundary value for multipart content, CVE-2010-4410 - CRLF injection allowing HTTP response splitting",
+					"href": "https://bugzilla.redhat.com/658976",
+					"id": "658976"
+				},
+				{
+					"text": "CVE-2011-3597 Perl Digest improper control of generation of code",
+					"href": "https://bugzilla.redhat.com/743010",
+					"id": "743010"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111797001",
+										"comment": "perl is earlier than 3:5.8.5-57.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070966002",
+										"comment": "perl is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111797003",
+										"comment": "perl-suidperl is earlier than 3:5.8.5-57.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070966004",
+										"comment": "perl-suidperl is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111797006",
+										"comment": "perl is earlier than 4:5.8.8-32.el5_7.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070966007",
+										"comment": "perl is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111797008",
+										"comment": "perl-suidperl is earlier than 4:5.8.8-32.el5_7.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070966009",
+										"comment": "perl-suidperl is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

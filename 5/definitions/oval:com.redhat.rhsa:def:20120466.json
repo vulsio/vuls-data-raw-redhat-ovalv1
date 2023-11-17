@@ -1,194 +1,194 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120466",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2012:0466: samba3x security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0466",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0466",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-1182",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-1182",
-        "source": "CVE"
-      }
-    ],
-    "description": "Samba is an open-source implementation of the Server Message Block (SMB) or\nCommon Internet File System (CIFS) protocol, which allows PC-compatible\nmachines to share files, printers, and other information.\n\nA flaw in the Samba suite's Perl-based DCE/RPC IDL (PIDL) compiler, used\nto generate code to handle RPC calls, resulted in multiple buffer overflows\nin Samba. A remote, unauthenticated attacker could send a specially-crafted\nRPC request that would cause the Samba daemon (smbd) to crash or, possibly,\nexecute arbitrary code with the privileges of the root user.\n(CVE-2012-1182)\n\nUsers of Samba are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing this\nupdate, the smb service will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-04-10"
-      },
-      "updated": {
-        "date": "2012-04-10"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-1182",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-1182",
-          "impact": "critical",
-          "public": "20120410",
-          "cwe": "CWE-228->CWE-122",
-          "cvss_2": "8.3/AV:A/AC:L/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-1182 samba: Multiple heap-based buffer overflows in memory management based on NDR marshalling code output",
-          "href": "https://bugzilla.redhat.com/804093",
-          "id": "804093"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120466001",
-                    "comment": "samba3x is earlier than 0:3.5.10-0.108.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054002",
-                    "comment": "samba3x is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120466003",
-                    "comment": "samba3x-client is earlier than 0:3.5.10-0.108.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054004",
-                    "comment": "samba3x-client is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120466005",
-                    "comment": "samba3x-common is earlier than 0:3.5.10-0.108.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054006",
-                    "comment": "samba3x-common is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120466007",
-                    "comment": "samba3x-doc is earlier than 0:3.5.10-0.108.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054008",
-                    "comment": "samba3x-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120466009",
-                    "comment": "samba3x-domainjoin-gui is earlier than 0:3.5.10-0.108.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054010",
-                    "comment": "samba3x-domainjoin-gui is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120466011",
-                    "comment": "samba3x-swat is earlier than 0:3.5.10-0.108.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054012",
-                    "comment": "samba3x-swat is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120466013",
-                    "comment": "samba3x-winbind is earlier than 0:3.5.10-0.108.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054014",
-                    "comment": "samba3x-winbind is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120466015",
-                    "comment": "samba3x-winbind-devel is earlier than 0:3.5.10-0.108.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20110054016",
-                    "comment": "samba3x-winbind-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120466",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2012:0466: samba3x security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0466",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0466",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-1182",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-1182",
+				"source": "CVE"
+			}
+		],
+		"description": "Samba is an open-source implementation of the Server Message Block (SMB) or\nCommon Internet File System (CIFS) protocol, which allows PC-compatible\nmachines to share files, printers, and other information.\n\nA flaw in the Samba suite's Perl-based DCE/RPC IDL (PIDL) compiler, used\nto generate code to handle RPC calls, resulted in multiple buffer overflows\nin Samba. A remote, unauthenticated attacker could send a specially-crafted\nRPC request that would cause the Samba daemon (smbd) to crash or, possibly,\nexecute arbitrary code with the privileges of the root user.\n(CVE-2012-1182)\n\nUsers of Samba are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing this\nupdate, the smb service will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-04-10"
+			},
+			"updated": {
+				"date": "2012-04-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-1182",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-1182",
+					"impact": "critical",
+					"public": "20120410",
+					"cwe": "CWE-228->CWE-122",
+					"cvss_2": "8.3/AV:A/AC:L/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-1182 samba: Multiple heap-based buffer overflows in memory management based on NDR marshalling code output",
+					"href": "https://bugzilla.redhat.com/804093",
+					"id": "804093"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120466001",
+										"comment": "samba3x is earlier than 0:3.5.10-0.108.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054002",
+										"comment": "samba3x is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120466003",
+										"comment": "samba3x-client is earlier than 0:3.5.10-0.108.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054004",
+										"comment": "samba3x-client is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120466005",
+										"comment": "samba3x-common is earlier than 0:3.5.10-0.108.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054006",
+										"comment": "samba3x-common is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120466007",
+										"comment": "samba3x-doc is earlier than 0:3.5.10-0.108.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054008",
+										"comment": "samba3x-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120466009",
+										"comment": "samba3x-domainjoin-gui is earlier than 0:3.5.10-0.108.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054010",
+										"comment": "samba3x-domainjoin-gui is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120466011",
+										"comment": "samba3x-swat is earlier than 0:3.5.10-0.108.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054012",
+										"comment": "samba3x-swat is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120466013",
+										"comment": "samba3x-winbind is earlier than 0:3.5.10-0.108.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054014",
+										"comment": "samba3x-winbind is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120466015",
+										"comment": "samba3x-winbind-devel is earlier than 0:3.5.10-0.108.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20110054016",
+										"comment": "samba3x-winbind-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

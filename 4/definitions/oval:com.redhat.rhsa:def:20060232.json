@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060232",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2006:0232: tar security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0232",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0232",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-0300",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0300",
-        "source": "CVE"
-      }
-    ],
-    "description": "The GNU tar program saves many files together in one archive and can\nrestore individual files (or all of the files) from that archive.\n\nJim Meyering discovered a buffer overflow bug in the way GNU tar extracts\nmalformed archives. By tricking a user into extracting a malicious tar\narchive, it is possible to execute arbitrary code as the user running tar.\nThe Common Vulnerabilities and Exposures project (cve.mitre.org) assigned\nthe name CVE-2006-0300 to this issue.\n\nUsers of tar should upgrade to this updated package, which contains a\nbackported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-03-01"
-      },
-      "updated": {
-        "date": "2006-03-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-0300",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-0300",
-          "impact": "moderate",
-          "public": "20050617"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-0300 security flaw",
-          "href": "https://bugzilla.redhat.com/1617881",
-          "id": "1617881"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060232001",
-            "comment": "tar is earlier than 0:1.14-9.RHEL4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060232002",
-            "comment": "tar is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060232",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2006:0232: tar security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0232",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0232",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-0300",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-0300",
+				"source": "CVE"
+			}
+		],
+		"description": "The GNU tar program saves many files together in one archive and can\nrestore individual files (or all of the files) from that archive.\n\nJim Meyering discovered a buffer overflow bug in the way GNU tar extracts\nmalformed archives. By tricking a user into extracting a malicious tar\narchive, it is possible to execute arbitrary code as the user running tar.\nThe Common Vulnerabilities and Exposures project (cve.mitre.org) assigned\nthe name CVE-2006-0300 to this issue.\n\nUsers of tar should upgrade to this updated package, which contains a\nbackported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-03-01"
+			},
+			"updated": {
+				"date": "2006-03-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-0300",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-0300",
+					"impact": "moderate",
+					"public": "20050617"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-0300 security flaw",
+					"href": "https://bugzilla.redhat.com/1617881",
+					"id": "1617881"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060232001",
+						"comment": "tar is earlier than 0:1.14-9.RHEL4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060232002",
+						"comment": "tar is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,142 +1,142 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20110262",
-  "version": "647",
-  "metadata": {
-    "title": "RHSA-2011:0262: sendmail security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:0262",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0262",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-4565",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4565",
-        "source": "CVE"
-      }
-    ],
-    "description": "Sendmail is a Mail Transport Agent (MTA) used to send mail between\nmachines.\n\nA flaw was found in the way sendmail handled NUL characters in the\nCommonName field of X.509 certificates. An attacker able to get a\ncarefully-crafted certificate signed by a trusted Certificate Authority\ncould trick sendmail into accepting it by mistake, allowing the attacker to\nperform a man-in-the-middle attack or bypass intended client certificate\nauthentication. (CVE-2009-4565) \n\nThe CVE-2009-4565 issue only affected configurations using TLS with\ncertificate verification and CommonName checking enabled, which is not a\ntypical configuration.\n\nThis update also fixes the following bugs:\n\n* Previously, sendmail did not correctly handle mail messages that had a\nlong first header line. A line with more than 2048 characters was split,\ncausing the part of the line exceeding the limit, as well as all of the\nfollowing mail headers, to be incorrectly handled as the message body.\n(BZ#499450)\n\n* When an SMTP-sender is sending mail data to sendmail, it may spool that\ndata to a file in the mail queue. It was found that, if the SMTP-sender\nstopped sending data and a timeout occurred, the file may have been left\nstalled in the mail queue, instead of being deleted. This update may not\ncorrect this issue for every situation and configuration. Refer to the\nSolution section for further information. (BZ#434645)\n\n* Previously, the sendmail macro MAXHOSTNAMELEN used 64 characters as the\nlimit for the hostname length. However, in some cases, it was used against\nan FQDN length, which has a maximum length of 255 characters. With this\nupdate, the MAXHOSTNAMELEN limit has been changed to 255. (BZ#485380)\n\nAll sendmail users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. After installing this update,\nsendmail will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-02-16"
-      },
-      "updated": {
-        "date": "2011-02-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-4565",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4565",
-          "impact": "low",
-          "public": "20091230",
-          "cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-4565 sendmail: incorrect verification of SSL certificate with NUL in name",
-          "href": "https://bugzilla.redhat.com/552622",
-          "id": "552622"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110262001",
-                    "comment": "sendmail is earlier than 0:8.13.1-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264002",
-                    "comment": "sendmail is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110262003",
-                    "comment": "sendmail-cf is earlier than 0:8.13.1-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264004",
-                    "comment": "sendmail-cf is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110262005",
-                    "comment": "sendmail-devel is earlier than 0:8.13.1-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264006",
-                    "comment": "sendmail-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110262007",
-                    "comment": "sendmail-doc is earlier than 0:8.13.1-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264008",
-                    "comment": "sendmail-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20110262",
+	"version": "647",
+	"metadata": {
+		"title": "RHSA-2011:0262: sendmail security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:0262",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:0262",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-4565",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4565",
+				"source": "CVE"
+			}
+		],
+		"description": "Sendmail is a Mail Transport Agent (MTA) used to send mail between\nmachines.\n\nA flaw was found in the way sendmail handled NUL characters in the\nCommonName field of X.509 certificates. An attacker able to get a\ncarefully-crafted certificate signed by a trusted Certificate Authority\ncould trick sendmail into accepting it by mistake, allowing the attacker to\nperform a man-in-the-middle attack or bypass intended client certificate\nauthentication. (CVE-2009-4565) \n\nThe CVE-2009-4565 issue only affected configurations using TLS with\ncertificate verification and CommonName checking enabled, which is not a\ntypical configuration.\n\nThis update also fixes the following bugs:\n\n* Previously, sendmail did not correctly handle mail messages that had a\nlong first header line. A line with more than 2048 characters was split,\ncausing the part of the line exceeding the limit, as well as all of the\nfollowing mail headers, to be incorrectly handled as the message body.\n(BZ#499450)\n\n* When an SMTP-sender is sending mail data to sendmail, it may spool that\ndata to a file in the mail queue. It was found that, if the SMTP-sender\nstopped sending data and a timeout occurred, the file may have been left\nstalled in the mail queue, instead of being deleted. This update may not\ncorrect this issue for every situation and configuration. Refer to the\nSolution section for further information. (BZ#434645)\n\n* Previously, the sendmail macro MAXHOSTNAMELEN used 64 characters as the\nlimit for the hostname length. However, in some cases, it was used against\nan FQDN length, which has a maximum length of 255 characters. With this\nupdate, the MAXHOSTNAMELEN limit has been changed to 255. (BZ#485380)\n\nAll sendmail users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. After installing this update,\nsendmail will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-02-16"
+			},
+			"updated": {
+				"date": "2011-02-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-4565",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4565",
+					"impact": "low",
+					"public": "20091230",
+					"cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-4565 sendmail: incorrect verification of SSL certificate with NUL in name",
+					"href": "https://bugzilla.redhat.com/552622",
+					"id": "552622"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110262001",
+										"comment": "sendmail is earlier than 0:8.13.1-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264002",
+										"comment": "sendmail is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110262003",
+										"comment": "sendmail-cf is earlier than 0:8.13.1-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264004",
+										"comment": "sendmail-cf is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110262005",
+										"comment": "sendmail-devel is earlier than 0:8.13.1-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264006",
+										"comment": "sendmail-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110262007",
+										"comment": "sendmail-doc is earlier than 0:8.13.1-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264008",
+										"comment": "sendmail-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

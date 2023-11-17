@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100164",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2010:0164: openssl097a security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0164",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0164",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-3555",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3555",
-        "source": "CVE"
-      }
-    ],
-    "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nA flaw was found in the way the TLS/SSL (Transport Layer Security/Secure\nSockets Layer) protocols handled session renegotiation. A man-in-the-middle\nattacker could use this flaw to prefix arbitrary plain text to a client's\nsession (for example, an HTTPS connection to a website). This could force\nthe server to process an attacker's request as if authenticated using the\nvictim's credentials. This update addresses this flaw by implementing the\nTLS Renegotiation Indication Extension, as defined in RFC 5746.\n(CVE-2009-3555)\n\nRefer to the following Knowledgebase article for additional details about\nthis flaw: http://kbase.redhat.com/faq/docs/DOC-20491\n\nAll openssl097a users should upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. For the update to take\neffect, all services linked to the openssl097a library must be restarted,\nor the system rebooted.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-03-25"
-      },
-      "updated": {
-        "date": "2010-03-25"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-3555",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3555",
-          "impact": "moderate",
-          "public": "20091105",
-          "cwe": "CWE-300",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-3555 TLS: MITM attacks via session renegotiation",
-          "href": "https://bugzilla.redhat.com/533125",
-          "id": "533125"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20100164001",
-            "comment": "openssl097a is earlier than 0:0.9.7a-9.el5_4.2"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20090004011",
-            "comment": "openssl097a is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100164",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2010:0164: openssl097a security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0164",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0164",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-3555",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3555",
+				"source": "CVE"
+			}
+		],
+		"description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nA flaw was found in the way the TLS/SSL (Transport Layer Security/Secure\nSockets Layer) protocols handled session renegotiation. A man-in-the-middle\nattacker could use this flaw to prefix arbitrary plain text to a client's\nsession (for example, an HTTPS connection to a website). This could force\nthe server to process an attacker's request as if authenticated using the\nvictim's credentials. This update addresses this flaw by implementing the\nTLS Renegotiation Indication Extension, as defined in RFC 5746.\n(CVE-2009-3555)\n\nRefer to the following Knowledgebase article for additional details about\nthis flaw: http://kbase.redhat.com/faq/docs/DOC-20491\n\nAll openssl097a users should upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. For the update to take\neffect, all services linked to the openssl097a library must be restarted,\nor the system rebooted.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-03-25"
+			},
+			"updated": {
+				"date": "2010-03-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-3555",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3555",
+					"impact": "moderate",
+					"public": "20091105",
+					"cwe": "CWE-300",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-3555 TLS: MITM attacks via session renegotiation",
+					"href": "https://bugzilla.redhat.com/533125",
+					"id": "533125"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20100164001",
+						"comment": "openssl097a is earlier than 0:0.9.7a-9.el5_4.2"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20090004011",
+						"comment": "openssl097a is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070779",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2007:0779: mailman security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0779",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0779",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4624",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4624",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mailman is a program used to help manage email discussion lists.\n\nA flaw was found in Mailman. A remote attacker could spoof messages in\nthe error log, and possibly trick the administrator into visiting malicious\nURLs via a carriage return/line feed sequence in the URI. (CVE-2006-4624)\n\nAs well, these updated packages fix the following bugs:\n\n* canceling a subscription on the confirm subscription request page\ncaused mailman to crash.\n\n* editing the sender filter caused all spam filter rules to be deleted.\n\n* the migrate-fhs script was not included.\n\n* the mailman init script returned a zero (success) exit code even when\nan incorrect command was given. For example, the \"mailman foo\" command\nreturned a zero exit code. In these updated packages the mailmain init\nscript returns the correct exit codes.\n\nUsers of Mailman are advised to upgrade to these updated packages, which\nresolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-15"
-      },
-      "updated": {
-        "date": "2007-11-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4624",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4624",
-          "impact": "low",
-          "public": "20060623"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4624 mailman logfile CRLF injection",
-          "href": "https://bugzilla.redhat.com/205651",
-          "id": "205651"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070779001",
-            "comment": "mailman is earlier than 3:2.1.5.1-34.rhel4.6"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060204002",
-            "comment": "mailman is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070779",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2007:0779: mailman security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0779",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0779",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4624",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4624",
+				"source": "CVE"
+			}
+		],
+		"description": "Mailman is a program used to help manage email discussion lists.\n\nA flaw was found in Mailman. A remote attacker could spoof messages in\nthe error log, and possibly trick the administrator into visiting malicious\nURLs via a carriage return/line feed sequence in the URI. (CVE-2006-4624)\n\nAs well, these updated packages fix the following bugs:\n\n* canceling a subscription on the confirm subscription request page\ncaused mailman to crash.\n\n* editing the sender filter caused all spam filter rules to be deleted.\n\n* the migrate-fhs script was not included.\n\n* the mailman init script returned a zero (success) exit code even when\nan incorrect command was given. For example, the \"mailman foo\" command\nreturned a zero exit code. In these updated packages the mailmain init\nscript returns the correct exit codes.\n\nUsers of Mailman are advised to upgrade to these updated packages, which\nresolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-15"
+			},
+			"updated": {
+				"date": "2007-11-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4624",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4624",
+					"impact": "low",
+					"public": "20060623"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4624 mailman logfile CRLF injection",
+					"href": "https://bugzilla.redhat.com/205651",
+					"id": "205651"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070779001",
+						"comment": "mailman is earlier than 3:2.1.5.1-34.rhel4.6"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060204002",
+						"comment": "mailman is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

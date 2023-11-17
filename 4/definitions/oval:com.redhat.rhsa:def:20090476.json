@@ -1,190 +1,190 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090476",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2009:0476: pango security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0476",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0476",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-1194",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1194",
-        "source": "CVE"
-      }
-    ],
-    "description": "Pango is a library used for the layout and rendering of internationalized\ntext.\n\nWill Drewry discovered an integer overflow flaw in Pango's\npango_glyph_string_set_size() function. If an attacker is able to pass an\narbitrarily long string to Pango, it may be possible to execute arbitrary\ncode with the permissions of the application calling Pango. (CVE-2009-1194)\n\npango and evolution28-pango users are advised to upgrade to these updated\npackages, which contain a backported patch to resolve this issue. After\ninstalling this update, you must restart your system or restart the X\nserver for the update to take effect. Note: Restarting the X server closes\nall open applications and logs you out of your session.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-05-08"
-      },
-      "updated": {
-        "date": "2009-05-08"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-1194",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1194",
-          "impact": "important",
-          "public": "20090507",
-          "cwe": "CWE-190",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-1194 pango: pango_glyph_string_set_size integer overflow",
-          "href": "https://bugzilla.redhat.com/496887",
-          "id": "496887"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476001",
-                    "comment": "pango is earlier than 0:1.6.0-14.4_7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476002",
-                    "comment": "pango is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476003",
-                    "comment": "pango-devel is earlier than 0:1.6.0-14.4_7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476004",
-                    "comment": "pango-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476005",
-                    "comment": "evolution28-pango is earlier than 0:1.14.9-11.el4_7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476006",
-                    "comment": "evolution28-pango is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476007",
-                    "comment": "evolution28-pango-devel is earlier than 0:1.14.9-11.el4_7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476008",
-                    "comment": "evolution28-pango-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476010",
-                    "comment": "pango is earlier than 0:1.14.9-5.el5_3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476002",
-                    "comment": "pango is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476011",
-                    "comment": "pango-devel is earlier than 0:1.14.9-5.el5_3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090476004",
-                    "comment": "pango-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090476",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2009:0476: pango security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0476",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0476",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-1194",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1194",
+				"source": "CVE"
+			}
+		],
+		"description": "Pango is a library used for the layout and rendering of internationalized\ntext.\n\nWill Drewry discovered an integer overflow flaw in Pango's\npango_glyph_string_set_size() function. If an attacker is able to pass an\narbitrarily long string to Pango, it may be possible to execute arbitrary\ncode with the permissions of the application calling Pango. (CVE-2009-1194)\n\npango and evolution28-pango users are advised to upgrade to these updated\npackages, which contain a backported patch to resolve this issue. After\ninstalling this update, you must restart your system or restart the X\nserver for the update to take effect. Note: Restarting the X server closes\nall open applications and logs you out of your session.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-05-08"
+			},
+			"updated": {
+				"date": "2009-05-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-1194",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1194",
+					"impact": "important",
+					"public": "20090507",
+					"cwe": "CWE-190",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-1194 pango: pango_glyph_string_set_size integer overflow",
+					"href": "https://bugzilla.redhat.com/496887",
+					"id": "496887"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476001",
+										"comment": "pango is earlier than 0:1.6.0-14.4_7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476002",
+										"comment": "pango is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476003",
+										"comment": "pango-devel is earlier than 0:1.6.0-14.4_7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476004",
+										"comment": "pango-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476005",
+										"comment": "evolution28-pango is earlier than 0:1.14.9-11.el4_7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476006",
+										"comment": "evolution28-pango is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476007",
+										"comment": "evolution28-pango-devel is earlier than 0:1.14.9-11.el4_7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476008",
+										"comment": "evolution28-pango-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476010",
+										"comment": "pango is earlier than 0:1.14.9-5.el5_3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476002",
+										"comment": "pango is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476011",
+										"comment": "pango-devel is earlier than 0:1.14.9-5.el5_3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090476004",
+										"comment": "pango-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

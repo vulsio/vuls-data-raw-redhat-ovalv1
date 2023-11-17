@@ -1,214 +1,214 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080581",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2008:0581: bluez-libs and bluez-utils security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0581",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0581",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-2374",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2374",
-        "source": "CVE"
-      }
-    ],
-    "description": "The bluez-libs package contains libraries for use in Bluetooth\napplications. The bluez-utils package contains Bluetooth daemons and utilities.\n\nAn input validation flaw was found in the Bluetooth Session Description\nProtocol (SDP) packet parser used by the Bluez Bluetooth utilities. A\nBluetooth device with an already-established trust relationship, or a local\nuser registering a service record via a UNIX® socket or D-Bus interface,\ncould cause a crash, or possibly execute arbitrary code with privileges of\nthe hcid daemon. (CVE-2008-2374)\n\nUsers of bluez-libs and bluez-utils are advised to upgrade to these updated\npackages, which contains a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-07-14"
-      },
-      "updated": {
-        "date": "2008-07-14"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-2374",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2374",
-          "impact": "moderate",
-          "public": "20080616"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-2374 bluez-libs: SDP payload processing vulnerability",
-          "href": "https://bugzilla.redhat.com/452715",
-          "id": "452715"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581001",
-                    "comment": "bluez-libs is earlier than 0:2.10-3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581002",
-                    "comment": "bluez-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581003",
-                    "comment": "bluez-libs-devel is earlier than 0:2.10-3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581004",
-                    "comment": "bluez-libs-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581005",
-                    "comment": "bluez-utils is earlier than 0:2.10-2.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070065002",
-                    "comment": "bluez-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581007",
-                    "comment": "bluez-utils-cups is earlier than 0:2.10-2.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070065004",
-                    "comment": "bluez-utils-cups is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581010",
-                    "comment": "bluez-libs is earlier than 0:3.7-1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581002",
-                    "comment": "bluez-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581011",
-                    "comment": "bluez-libs-devel is earlier than 0:3.7-1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581004",
-                    "comment": "bluez-libs-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581012",
-                    "comment": "bluez-utils is earlier than 0:3.7-2.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070065002",
-                    "comment": "bluez-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080581013",
-                    "comment": "bluez-utils-cups is earlier than 0:3.7-2.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070065004",
-                    "comment": "bluez-utils-cups is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080581",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2008:0581: bluez-libs and bluez-utils security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0581",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0581",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-2374",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2374",
+				"source": "CVE"
+			}
+		],
+		"description": "The bluez-libs package contains libraries for use in Bluetooth\napplications. The bluez-utils package contains Bluetooth daemons and utilities.\n\nAn input validation flaw was found in the Bluetooth Session Description\nProtocol (SDP) packet parser used by the Bluez Bluetooth utilities. A\nBluetooth device with an already-established trust relationship, or a local\nuser registering a service record via a UNIX® socket or D-Bus interface,\ncould cause a crash, or possibly execute arbitrary code with privileges of\nthe hcid daemon. (CVE-2008-2374)\n\nUsers of bluez-libs and bluez-utils are advised to upgrade to these updated\npackages, which contains a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-07-14"
+			},
+			"updated": {
+				"date": "2008-07-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-2374",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2374",
+					"impact": "moderate",
+					"public": "20080616"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-2374 bluez-libs: SDP payload processing vulnerability",
+					"href": "https://bugzilla.redhat.com/452715",
+					"id": "452715"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581001",
+										"comment": "bluez-libs is earlier than 0:2.10-3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581002",
+										"comment": "bluez-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581003",
+										"comment": "bluez-libs-devel is earlier than 0:2.10-3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581004",
+										"comment": "bluez-libs-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581005",
+										"comment": "bluez-utils is earlier than 0:2.10-2.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070065002",
+										"comment": "bluez-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581007",
+										"comment": "bluez-utils-cups is earlier than 0:2.10-2.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070065004",
+										"comment": "bluez-utils-cups is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581010",
+										"comment": "bluez-libs is earlier than 0:3.7-1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581002",
+										"comment": "bluez-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581011",
+										"comment": "bluez-libs-devel is earlier than 0:3.7-1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581004",
+										"comment": "bluez-libs-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581012",
+										"comment": "bluez-utils is earlier than 0:3.7-2.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070065002",
+										"comment": "bluez-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080581013",
+										"comment": "bluez-utils-cups is earlier than 0:3.7-2.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070065004",
+										"comment": "bluez-utils-cups is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

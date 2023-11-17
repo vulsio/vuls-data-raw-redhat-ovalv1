@@ -1,127 +1,127 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20110975",
-  "version": "649",
-  "metadata": {
-    "title": "RHSA-2011:0975: sssd security, bug fix, and enhancement update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:0975",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0975",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-4341",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4341",
-        "source": "CVE"
-      }
-    ],
-    "description": "The System Security Services Daemon (SSSD) provides a set of daemons to\nmanage access to remote directories and authentication mechanisms. It\nprovides an NSS and PAM interface toward the system and a pluggable\nback-end system to connect to multiple different account sources. It is\nalso the basis to provide client auditing and policy services for projects\nsuch as FreeIPA.\n\nA flaw was found in the SSSD PAM responder that could allow a local\nattacker to force SSSD to enter an infinite loop via a carefully-crafted\npacket. With SSSD unresponsive, legitimate users could be denied the\nability to log in to the system. (CVE-2010-4341)\n\nRed Hat would like to thank Sebastian Krahmer for reporting this issue.\n\nThese updated sssd packages include a number of bug fixes and enhancements.\nSpace precludes documenting all of these changes in this advisory. Refer to\nthe Red Hat Enterprise Linux 5.7 Technical Notes for information about\nthese changes:\n\nhttps://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html/5.7_Technical_Notes/sssd.html#RHSA-2011-0975\n\nAll sssd users are advised to upgrade to these updated sssd packages, which\nupgrade SSSD to upstream version 1.5.1 to correct this issue, and fix the\nbugs and add the enhancements noted in the Technical Notes.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-07-21"
-      },
-      "updated": {
-        "date": "2011-07-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-4341",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-4341",
-          "impact": "low",
-          "public": "20110111",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-4341 sssd: DoS in sssd PAM responder can prevent logins",
-          "href": "https://bugzilla.redhat.com/661163",
-          "id": "661163"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110975001",
-                    "comment": "sssd is earlier than 0:1.5.1-37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110975002",
-                    "comment": "sssd is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110975003",
-                    "comment": "sssd-client is earlier than 0:1.5.1-37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110975004",
-                    "comment": "sssd-client is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110975005",
-                    "comment": "sssd-tools is earlier than 0:1.5.1-37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110975006",
-                    "comment": "sssd-tools is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20110975",
+	"version": "649",
+	"metadata": {
+		"title": "RHSA-2011:0975: sssd security, bug fix, and enhancement update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:0975",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:0975",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-4341",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-4341",
+				"source": "CVE"
+			}
+		],
+		"description": "The System Security Services Daemon (SSSD) provides a set of daemons to\nmanage access to remote directories and authentication mechanisms. It\nprovides an NSS and PAM interface toward the system and a pluggable\nback-end system to connect to multiple different account sources. It is\nalso the basis to provide client auditing and policy services for projects\nsuch as FreeIPA.\n\nA flaw was found in the SSSD PAM responder that could allow a local\nattacker to force SSSD to enter an infinite loop via a carefully-crafted\npacket. With SSSD unresponsive, legitimate users could be denied the\nability to log in to the system. (CVE-2010-4341)\n\nRed Hat would like to thank Sebastian Krahmer for reporting this issue.\n\nThese updated sssd packages include a number of bug fixes and enhancements.\nSpace precludes documenting all of these changes in this advisory. Refer to\nthe Red Hat Enterprise Linux 5.7 Technical Notes for information about\nthese changes:\n\nhttps://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html/5.7_Technical_Notes/sssd.html#RHSA-2011-0975\n\nAll sssd users are advised to upgrade to these updated sssd packages, which\nupgrade SSSD to upstream version 1.5.1 to correct this issue, and fix the\nbugs and add the enhancements noted in the Technical Notes.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-07-21"
+			},
+			"updated": {
+				"date": "2011-07-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-4341",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-4341",
+					"impact": "low",
+					"public": "20110111",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-4341 sssd: DoS in sssd PAM responder can prevent logins",
+					"href": "https://bugzilla.redhat.com/661163",
+					"id": "661163"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110975001",
+										"comment": "sssd is earlier than 0:1.5.1-37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110975002",
+										"comment": "sssd is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110975003",
+										"comment": "sssd-client is earlier than 0:1.5.1-37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110975004",
+										"comment": "sssd-client is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110975005",
+										"comment": "sssd-tools is earlier than 0:1.5.1-37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110975006",
+										"comment": "sssd-tools is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070065",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0065: bluez-utils security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0065",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0065",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-6899",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-6899",
-        "source": "CVE"
-      }
-    ],
-    "description": "The bluez-utils package contains Bluetooth daemons and utilities.\n\nA flaw was found in the Bluetooth HID daemon (hidd). A remote attacker\nwould have been able to inject keyboard and mouse events via a Bluetooth\nconnection without any authorization. (CVE-2006-6899)\n\nNote that Red Hat Enterprise Linux does not come with the Bluetooth HID\ndaemon enabled by default.\n\nUsers of bluez-utils are advised to upgrade to these updated packages, which\ncontains a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-05-14"
-      },
-      "updated": {
-        "date": "2007-05-14"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-6899",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-6899",
-          "impact": "moderate",
-          "public": "20061228"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-6899 security flaw",
-          "href": "https://bugzilla.redhat.com/1618254",
-          "id": "1618254"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070065001",
-                    "comment": "bluez-utils is earlier than 0:2.10-2.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070065002",
-                    "comment": "bluez-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070065003",
-                    "comment": "bluez-utils-cups is earlier than 0:2.10-2.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070065004",
-                    "comment": "bluez-utils-cups is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070065",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0065: bluez-utils security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0065",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0065",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-6899",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-6899",
+				"source": "CVE"
+			}
+		],
+		"description": "The bluez-utils package contains Bluetooth daemons and utilities.\n\nA flaw was found in the Bluetooth HID daemon (hidd). A remote attacker\nwould have been able to inject keyboard and mouse events via a Bluetooth\nconnection without any authorization. (CVE-2006-6899)\n\nNote that Red Hat Enterprise Linux does not come with the Bluetooth HID\ndaemon enabled by default.\n\nUsers of bluez-utils are advised to upgrade to these updated packages, which\ncontains a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-05-14"
+			},
+			"updated": {
+				"date": "2007-05-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-6899",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-6899",
+					"impact": "moderate",
+					"public": "20061228"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-6899 security flaw",
+					"href": "https://bugzilla.redhat.com/1618254",
+					"id": "1618254"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070065001",
+										"comment": "bluez-utils is earlier than 0:2.10-2.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070065002",
+										"comment": "bluez-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070065003",
+										"comment": "bluez-utils-cups is earlier than 0:2.10-2.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070065004",
+										"comment": "bluez-utils-cups is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

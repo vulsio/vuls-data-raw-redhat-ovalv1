@@ -1,158 +1,158 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100271",
-  "version": "644",
-  "metadata": {
-    "title": "RHSA-2010:0271: kvm security, bug fix and enhancement update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0271",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0271",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-0430",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0430",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-0741",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0741",
-        "source": "CVE"
-      }
-    ],
-    "description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA flaw was found in the way QEMU-KVM handled erroneous data provided by\nthe Linux virtio-net driver, used by guest operating systems. Due to a\ndeficiency in the TSO (TCP segment offloading) implementation, a guest's\nvirtio-net driver would transmit improper data to a certain QEMU-KVM\nprocess on the host, causing the guest to crash. A remote attacker could\nuse this flaw to send specially-crafted data to a target guest system,\ncausing that guest to crash. (CVE-2010-0741)\n\nAdditionally, these updated packages include numerous bug fixes and\nenhancements. Refer to the KVM chapter of the Red Hat Enterprise Linux 5.5\nTechnical Notes for details:\n\nhttp://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.5/html/Technical_Notes/kvm.html       \n\nAll KVM users should upgrade to these updated packages, which resolve this\nissue as well as fixing the bugs and adding the enhancements noted in the\nTechnical Notes. Note: The procedure in the Solution section must be\nperformed before this update will take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-03-29"
-      },
-      "updated": {
-        "date": "2010-03-30"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-0430",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0430",
-          "impact": "important",
-          "public": "20100330",
-          "cvss_2": "6.6/AV:L/AC:M/Au:S/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2010-0741",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0741",
-          "impact": "important",
-          "public": "20091022",
-          "cwe": "CWE-228->CWE-119",
-          "cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-0430 libspice: Insufficient guest provided memory mappings boundaries validations",
-          "href": "https://bugzilla.redhat.com/568702",
-          "id": "568702"
-        },
-        {
-          "text": "CVE-2010-0741 qemu: Improper handling of erroneous data provided by Linux virtio-net driver",
-          "href": "https://bugzilla.redhat.com/577218",
-          "id": "577218"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100271001",
-                    "comment": "kmod-kvm is earlier than 0:83-164.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465002",
-                    "comment": "kmod-kvm is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100271003",
-                    "comment": "kvm is earlier than 0:83-164.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465004",
-                    "comment": "kvm is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100271005",
-                    "comment": "kvm-qemu-img is earlier than 0:83-164.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465006",
-                    "comment": "kvm-qemu-img is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100271007",
-                    "comment": "kvm-tools is earlier than 0:83-164.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465008",
-                    "comment": "kvm-tools is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100271",
+	"version": "644",
+	"metadata": {
+		"title": "RHSA-2010:0271: kvm security, bug fix and enhancement update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0271",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0271",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-0430",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0430",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-0741",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0741",
+				"source": "CVE"
+			}
+		],
+		"description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA flaw was found in the way QEMU-KVM handled erroneous data provided by\nthe Linux virtio-net driver, used by guest operating systems. Due to a\ndeficiency in the TSO (TCP segment offloading) implementation, a guest's\nvirtio-net driver would transmit improper data to a certain QEMU-KVM\nprocess on the host, causing the guest to crash. A remote attacker could\nuse this flaw to send specially-crafted data to a target guest system,\ncausing that guest to crash. (CVE-2010-0741)\n\nAdditionally, these updated packages include numerous bug fixes and\nenhancements. Refer to the KVM chapter of the Red Hat Enterprise Linux 5.5\nTechnical Notes for details:\n\nhttp://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.5/html/Technical_Notes/kvm.html       \n\nAll KVM users should upgrade to these updated packages, which resolve this\nissue as well as fixing the bugs and adding the enhancements noted in the\nTechnical Notes. Note: The procedure in the Solution section must be\nperformed before this update will take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-03-29"
+			},
+			"updated": {
+				"date": "2010-03-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-0430",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0430",
+					"impact": "important",
+					"public": "20100330",
+					"cvss_2": "6.6/AV:L/AC:M/Au:S/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2010-0741",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0741",
+					"impact": "important",
+					"public": "20091022",
+					"cwe": "CWE-228->CWE-119",
+					"cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-0430 libspice: Insufficient guest provided memory mappings boundaries validations",
+					"href": "https://bugzilla.redhat.com/568702",
+					"id": "568702"
+				},
+				{
+					"text": "CVE-2010-0741 qemu: Improper handling of erroneous data provided by Linux virtio-net driver",
+					"href": "https://bugzilla.redhat.com/577218",
+					"id": "577218"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100271001",
+										"comment": "kmod-kvm is earlier than 0:83-164.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465002",
+										"comment": "kmod-kvm is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100271003",
+										"comment": "kvm is earlier than 0:83-164.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465004",
+										"comment": "kvm is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100271005",
+										"comment": "kvm-qemu-img is earlier than 0:83-164.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465006",
+										"comment": "kvm-qemu-img is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100271007",
+										"comment": "kvm-tools is earlier than 0:83-164.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465008",
+										"comment": "kvm-tools is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060016",
-  "version": "651",
-  "metadata": {
-    "title": "RHSA-2006:0016: initscripts security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0016",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0016",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-3629",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3629",
-        "source": "CVE"
-      }
-    ],
-    "description": "The initscripts package contains the basic system scripts used to boot\nyour Red Hat system, change runlevels, and shut the system down cleanly.\nInitscripts also contains the scripts that activate and deactivate most\nnetwork interfaces.\n\nA bug was found in the way initscripts handled various environment\nvariables when the /sbin/service command is run. It is possible for a local\nuser with permissions to execute /sbin/service via sudo to execute\narbitrary commands as the 'root' user. The Common Vulnerabilities and\nExposures project (cve.mitre.org) assigned the name CVE-2005-3629 to\nthis issue.\n\nThe following issues have also been fixed in this update:\n\n* extraneous characters were logged on bootup\n\n* fsck was attempted on file systems marked with _netdev in rc.sysinit\n  before they were available\n\n* the dynamically-linked /sbin/multipath was called instead of the correct\n  /sbin/multiplath.static\n\nAdditionally, this update includes support for partitioned multipath\ndevices and a technology preview of static IP over InifiniBand.\n\nAll users of initscripts should upgrade to this updated package, which\nresolves these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-03-07"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-3629",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-3629",
-          "impact": "moderate",
-          "public": "20050307"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2005-3629 security flaw",
-          "href": "https://bugzilla.redhat.com/1617831",
-          "id": "1617831"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060016001",
-            "comment": "initscripts is earlier than 0:7.93.24.EL-1.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060016002",
-            "comment": "initscripts is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060016",
+	"version": "651",
+	"metadata": {
+		"title": "RHSA-2006:0016: initscripts security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0016",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0016",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-3629",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-3629",
+				"source": "CVE"
+			}
+		],
+		"description": "The initscripts package contains the basic system scripts used to boot\nyour Red Hat system, change runlevels, and shut the system down cleanly.\nInitscripts also contains the scripts that activate and deactivate most\nnetwork interfaces.\n\nA bug was found in the way initscripts handled various environment\nvariables when the /sbin/service command is run. It is possible for a local\nuser with permissions to execute /sbin/service via sudo to execute\narbitrary commands as the 'root' user. The Common Vulnerabilities and\nExposures project (cve.mitre.org) assigned the name CVE-2005-3629 to\nthis issue.\n\nThe following issues have also been fixed in this update:\n\n* extraneous characters were logged on bootup\n\n* fsck was attempted on file systems marked with _netdev in rc.sysinit\n  before they were available\n\n* the dynamically-linked /sbin/multipath was called instead of the correct\n  /sbin/multiplath.static\n\nAdditionally, this update includes support for partitioned multipath\ndevices and a technology preview of static IP over InifiniBand.\n\nAll users of initscripts should upgrade to this updated package, which\nresolves these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-03-07"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-3629",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-3629",
+					"impact": "moderate",
+					"public": "20050307"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2005-3629 security flaw",
+					"href": "https://bugzilla.redhat.com/1617831",
+					"id": "1617831"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060016001",
+						"comment": "initscripts is earlier than 0:7.93.24.EL-1.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060016002",
+						"comment": "initscripts is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

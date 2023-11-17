@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060543",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2006:0543: spamassassin security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0543",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0543",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-2447",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-2447",
-        "source": "CVE"
-      }
-    ],
-    "description": "SpamAssassin provides a way to reduce unsolicited commercial email (SPAM)\nfrom incoming email.\n\nA flaw was found with the way the Spamassassin spamd daemon processes the\nvirtual pop username passed to it. If a site is running spamd with both the\n--vpopmail and --paranoid flags, it is possible for a remote user with the\nability to connect to the spamd daemon to execute arbitrary commands as\nthe user running the spamd daemon. (CVE-2006-2447)\n\nNote: None of the IMAP or POP servers shipped with Red Hat Enterprise Linux\n4 support vpopmail delivery.  Running spamd with the --vpopmail and\n--paranoid flags is uncommon and not the default startup option as shipped\nwith Red Hat Enterprise Linux 4.\n\nSpamassassin, as shipped in Red Hat Enterprise Linux 4, performs RBL\nlookups against visi.com to help determine if an email is spam. However,\nthis DNS RBL has recently disappeared, resulting in mail filtering delays\nand timeouts.\n\nUsers of SpamAssassin should upgrade to these updated packages containing\nversion 3.0.6 and backported patches, which are not vulnerable to these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-06-06"
-      },
-      "updated": {
-        "date": "2006-06-06"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-2447",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-2447",
-          "impact": "moderate",
-          "public": "20060606"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-2447 security flaw",
-          "href": "https://bugzilla.redhat.com/1618105",
-          "id": "1618105"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060543001",
-            "comment": "spamassassin is earlier than 0:3.0.6-1.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060129002",
-            "comment": "spamassassin is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060543",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2006:0543: spamassassin security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0543",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0543",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-2447",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-2447",
+				"source": "CVE"
+			}
+		],
+		"description": "SpamAssassin provides a way to reduce unsolicited commercial email (SPAM)\nfrom incoming email.\n\nA flaw was found with the way the Spamassassin spamd daemon processes the\nvirtual pop username passed to it. If a site is running spamd with both the\n--vpopmail and --paranoid flags, it is possible for a remote user with the\nability to connect to the spamd daemon to execute arbitrary commands as\nthe user running the spamd daemon. (CVE-2006-2447)\n\nNote: None of the IMAP or POP servers shipped with Red Hat Enterprise Linux\n4 support vpopmail delivery.  Running spamd with the --vpopmail and\n--paranoid flags is uncommon and not the default startup option as shipped\nwith Red Hat Enterprise Linux 4.\n\nSpamassassin, as shipped in Red Hat Enterprise Linux 4, performs RBL\nlookups against visi.com to help determine if an email is spam. However,\nthis DNS RBL has recently disappeared, resulting in mail filtering delays\nand timeouts.\n\nUsers of SpamAssassin should upgrade to these updated packages containing\nversion 3.0.6 and backported patches, which are not vulnerable to these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-06-06"
+			},
+			"updated": {
+				"date": "2006-06-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-2447",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-2447",
+					"impact": "moderate",
+					"public": "20060606"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-2447 security flaw",
+					"href": "https://bugzilla.redhat.com/1618105",
+					"id": "1618105"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060543001",
+						"comment": "spamassassin is earlier than 0:3.0.6-1.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060129002",
+						"comment": "spamassassin is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

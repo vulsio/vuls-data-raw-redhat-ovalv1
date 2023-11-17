@@ -1,176 +1,176 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080002",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2008:0002: tog-pegasus security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0002",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0002",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-0003",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0003",
-        "source": "CVE"
-      }
-    ],
-    "description": "The tog-pegasus packages provide OpenPegasus Web-Based Enterprise\nManagement (WBEM) services. WBEM is a platform and resource independent\nDMTF standard that defines a common information model, and communication\nprotocol for monitoring and controlling resources.\n\nDuring a security audit, a stack buffer overflow flaw was found in the PAM\nauthentication code in the OpenPegasus CIM management server. An\nunauthenticated remote user could trigger this flaw and potentially execute\narbitrary code with root privileges. (CVE-2008-0003)\n\nNote that the tog-pegasus packages are not installed by default on Red Hat\nEnterprise Linux. The Red Hat Security Response Team believes that it would\nbe hard to remotely exploit this issue to execute arbitrary code, due to\nthe default SELinux targeted policy on Red Hat Enterprise Linux 4 and 5,\nand the SELinux memory protection tests enabled by default on Red Hat\nEnterprise Linux 5.\n\nUsers of tog-pegasus should upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing the\nupdated packages the tog-pegasus service should be restarted.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-01-07"
-      },
-      "updated": {
-        "date": "2008-01-28"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-0003",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0003",
-          "impact": "critical",
-          "public": "20080107",
-          "cwe": "CWE-121"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-0003 tog-pegasus pam authentication buffer overflow",
-          "href": "https://bugzilla.redhat.com/426578",
-          "id": "426578"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002001",
-                    "comment": "tog-pegasus is earlier than 2:2.5.1-5.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002002",
-                    "comment": "tog-pegasus is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002003",
-                    "comment": "tog-pegasus-devel is earlier than 2:2.5.1-5.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002004",
-                    "comment": "tog-pegasus-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002005",
-                    "comment": "tog-pegasus-test is earlier than 2:2.5.1-5.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002006",
-                    "comment": "tog-pegasus-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002008",
-                    "comment": "tog-pegasus is earlier than 2:2.6.1-2.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002002",
-                    "comment": "tog-pegasus is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002009",
-                    "comment": "tog-pegasus-devel is earlier than 2:2.6.1-2.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080002004",
-                    "comment": "tog-pegasus-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080002",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2008:0002: tog-pegasus security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0002",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0002",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-0003",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0003",
+				"source": "CVE"
+			}
+		],
+		"description": "The tog-pegasus packages provide OpenPegasus Web-Based Enterprise\nManagement (WBEM) services. WBEM is a platform and resource independent\nDMTF standard that defines a common information model, and communication\nprotocol for monitoring and controlling resources.\n\nDuring a security audit, a stack buffer overflow flaw was found in the PAM\nauthentication code in the OpenPegasus CIM management server. An\nunauthenticated remote user could trigger this flaw and potentially execute\narbitrary code with root privileges. (CVE-2008-0003)\n\nNote that the tog-pegasus packages are not installed by default on Red Hat\nEnterprise Linux. The Red Hat Security Response Team believes that it would\nbe hard to remotely exploit this issue to execute arbitrary code, due to\nthe default SELinux targeted policy on Red Hat Enterprise Linux 4 and 5,\nand the SELinux memory protection tests enabled by default on Red Hat\nEnterprise Linux 5.\n\nUsers of tog-pegasus should upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing the\nupdated packages the tog-pegasus service should be restarted.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-01-07"
+			},
+			"updated": {
+				"date": "2008-01-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-0003",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0003",
+					"impact": "critical",
+					"public": "20080107",
+					"cwe": "CWE-121"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-0003 tog-pegasus pam authentication buffer overflow",
+					"href": "https://bugzilla.redhat.com/426578",
+					"id": "426578"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002001",
+										"comment": "tog-pegasus is earlier than 2:2.5.1-5.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002002",
+										"comment": "tog-pegasus is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002003",
+										"comment": "tog-pegasus-devel is earlier than 2:2.5.1-5.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002004",
+										"comment": "tog-pegasus-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002005",
+										"comment": "tog-pegasus-test is earlier than 2:2.5.1-5.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002006",
+										"comment": "tog-pegasus-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002008",
+										"comment": "tog-pegasus is earlier than 2:2.6.1-2.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002002",
+										"comment": "tog-pegasus is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002009",
+										"comment": "tog-pegasus-devel is earlier than 2:2.6.1-2.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080002004",
+										"comment": "tog-pegasus-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

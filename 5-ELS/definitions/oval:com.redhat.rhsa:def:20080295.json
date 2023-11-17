@@ -1,89 +1,89 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080295",
-  "version": "647",
-  "metadata": {
-    "title": "RHSA-2008:0295: vsftpd security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0295",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0295",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5962",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5962",
-        "source": "CVE"
-      }
-    ],
-    "description": "The vsftpd package includes a Very Secure File Transfer Protocol (FTP)\ndaemon.\n\nA memory leak was discovered in the vsftpd daemon. An attacker who is able\nto connect to an FTP service, either as an authenticated or anonymous user,\ncould cause vsftpd to allocate all available memory if the \"deny_file\"\noption was enabled in vsftpd.conf. (CVE-2007-5962)\n\nAs well, this updated package fixes following bugs:\n\n* a race condition could occur even when the \"lock_upload_files\" option is\nset. When uploading two files simultaneously, the result was a combination\nof the two files. This resulted in uploaded files becoming corrupted. In\nthese updated packages, uploading two files simultaneously will result in a\nfile that is identical to the last uploaded file.\n\n* when the \"userlist_enable\" option is used, failed log in attempts as a\nresult of the user not being in the list of allowed users, or being in the\nlist of denied users, will not be logged. In these updated packages, a new\n\"userlist_log=YES\" option can be configured in vsftpd.conf, which will log\nfailed log in attempts in these situations.\n\n* vsftpd did not support usernames that started with an underscore or a\nperiod character. Usernames starting with an underscore or a period are\nsupported in these updated packages.\n\n* using wildcards in conjunction with the \"ls\" command did not return all\nthe file names it should. For example, if you FTPed into a directory\ncontaining three files -- A1, A21 and A11 -- and ran the \"ls *1\" command,\nonly the file names A1 and A21 were returned. These updated packages use\ngreedier code that continues to speculatively scan for items even after\nmatches have been found.\n\n* when the \"user_config_dir\" option is enabled in vsftpd.conf, and the\nuser-specific configuration file did not exist, the following error\noccurred after a user entered their password during the log in process:\n\n500 OOPS: reading non-root config file\n\nThis has been resolved in this updated package.\n\nAll vsftpd users are advised to upgrade to this updated package, which\nresolves these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-05-21"
-      },
-      "updated": {
-        "date": "2008-05-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5962",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5962",
-          "impact": "low",
-          "public": "20080521",
-          "cwe": "CWE-401"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5962 vsftpd: memory leak when deny_file option is set",
-          "href": "https://bugzilla.redhat.com/397011",
-          "id": "397011"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080295001",
-            "comment": "vsftpd is earlier than 0:2.0.5-12.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080295002",
-            "comment": "vsftpd is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080295",
+	"version": "647",
+	"metadata": {
+		"title": "RHSA-2008:0295: vsftpd security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0295",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0295",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5962",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5962",
+				"source": "CVE"
+			}
+		],
+		"description": "The vsftpd package includes a Very Secure File Transfer Protocol (FTP)\ndaemon.\n\nA memory leak was discovered in the vsftpd daemon. An attacker who is able\nto connect to an FTP service, either as an authenticated or anonymous user,\ncould cause vsftpd to allocate all available memory if the \"deny_file\"\noption was enabled in vsftpd.conf. (CVE-2007-5962)\n\nAs well, this updated package fixes following bugs:\n\n* a race condition could occur even when the \"lock_upload_files\" option is\nset. When uploading two files simultaneously, the result was a combination\nof the two files. This resulted in uploaded files becoming corrupted. In\nthese updated packages, uploading two files simultaneously will result in a\nfile that is identical to the last uploaded file.\n\n* when the \"userlist_enable\" option is used, failed log in attempts as a\nresult of the user not being in the list of allowed users, or being in the\nlist of denied users, will not be logged. In these updated packages, a new\n\"userlist_log=YES\" option can be configured in vsftpd.conf, which will log\nfailed log in attempts in these situations.\n\n* vsftpd did not support usernames that started with an underscore or a\nperiod character. Usernames starting with an underscore or a period are\nsupported in these updated packages.\n\n* using wildcards in conjunction with the \"ls\" command did not return all\nthe file names it should. For example, if you FTPed into a directory\ncontaining three files -- A1, A21 and A11 -- and ran the \"ls *1\" command,\nonly the file names A1 and A21 were returned. These updated packages use\ngreedier code that continues to speculatively scan for items even after\nmatches have been found.\n\n* when the \"user_config_dir\" option is enabled in vsftpd.conf, and the\nuser-specific configuration file did not exist, the following error\noccurred after a user entered their password during the log in process:\n\n500 OOPS: reading non-root config file\n\nThis has been resolved in this updated package.\n\nAll vsftpd users are advised to upgrade to this updated package, which\nresolves these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-05-21"
+			},
+			"updated": {
+				"date": "2008-05-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5962",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5962",
+					"impact": "low",
+					"public": "20080521",
+					"cwe": "CWE-401"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5962 vsftpd: memory leak when deny_file option is set",
+					"href": "https://bugzilla.redhat.com/397011",
+					"id": "397011"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080295001",
+						"comment": "vsftpd is earlier than 0:2.0.5-12.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080295002",
+						"comment": "vsftpd is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

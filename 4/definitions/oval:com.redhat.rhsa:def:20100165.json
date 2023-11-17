@@ -1,255 +1,255 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100165",
-  "version": "649",
-  "metadata": {
-    "title": "RHSA-2010:0165: nss security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0165",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0165",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-3555",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3555",
-        "source": "CVE"
-      }
-    ],
-    "description": "Network Security Services (NSS) is a set of libraries designed to support\nthe cross-platform development of security-enabled client and server\napplications. Applications built with NSS can support SSLv2, SSLv3, TLS,\nand other security standards.\n\nNetscape Portable Runtime (NSPR) provides platform independence for non-GUI\noperating system facilities. These facilities include threads, thread\nsynchronization, normal file and network I/O, interval timing, calendar\ntime, basic memory management (malloc and free), and shared library\nlinking.\n\nA flaw was found in the way the TLS/SSL (Transport Layer Security/Secure\nSockets Layer) protocols handled session renegotiation. A man-in-the-middle\nattacker could use this flaw to prefix arbitrary plain text to a client's\nsession (for example, an HTTPS connection to a website). This could force\nthe server to process an attacker's request as if authenticated using the\nvictim's credentials. This update addresses this flaw by implementing the\nTLS Renegotiation Indication Extension, as defined in RFC 5746.\n(CVE-2009-3555)\n\nRefer to the following Knowledgebase article for additional details about\nthis flaw: http://kbase.redhat.com/faq/docs/DOC-20491\n\nUsers of Red Hat Certificate System 7.3 and 8.0 should review the following\nKnowledgebase article before installing this update:\nhttp://kbase.redhat.com/faq/docs/DOC-28439\n\nAll users of NSS are advised to upgrade to these updated packages, which\nupdate NSS to version 3.12.6. This erratum also updates the NSPR packages\nto the version required by NSS 3.12.6. All running applications using the\nNSS library must be restarted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-03-25"
-      },
-      "updated": {
-        "date": "2010-03-25"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-3555",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3555",
-          "impact": "moderate",
-          "public": "20091105",
-          "cwe": "CWE-300",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-3555 TLS: MITM attacks via session renegotiation",
-          "href": "https://bugzilla.redhat.com/533125",
-          "id": "533125"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165001",
-                    "comment": "nspr is earlier than 0:4.8.4-1.1.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081036008",
-                    "comment": "nspr is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165003",
-                    "comment": "nspr-devel is earlier than 0:4.8.4-1.1.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081036010",
-                    "comment": "nspr-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165005",
-                    "comment": "nss is earlier than 0:3.12.6-1.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879011",
-                    "comment": "nss is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165007",
-                    "comment": "nss-devel is earlier than 0:3.12.6-1.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879013",
-                    "comment": "nss-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165009",
-                    "comment": "nss-tools is earlier than 0:3.12.6-1.el4_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879017",
-                    "comment": "nss-tools is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165012",
-                    "comment": "nspr is earlier than 0:4.8.4-1.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081036008",
-                    "comment": "nspr is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165013",
-                    "comment": "nspr-devel is earlier than 0:4.8.4-1.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081036010",
-                    "comment": "nspr-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165014",
-                    "comment": "nss is earlier than 0:3.12.6-1.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879011",
-                    "comment": "nss is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165015",
-                    "comment": "nss-devel is earlier than 0:3.12.6-1.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879013",
-                    "comment": "nss-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165016",
-                    "comment": "nss-pkcs11-devel is earlier than 0:3.12.6-1.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879015",
-                    "comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100165018",
-                    "comment": "nss-tools is earlier than 0:3.12.6-1.el5_4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879017",
-                    "comment": "nss-tools is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100165",
+	"version": "649",
+	"metadata": {
+		"title": "RHSA-2010:0165: nss security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0165",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0165",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-3555",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3555",
+				"source": "CVE"
+			}
+		],
+		"description": "Network Security Services (NSS) is a set of libraries designed to support\nthe cross-platform development of security-enabled client and server\napplications. Applications built with NSS can support SSLv2, SSLv3, TLS,\nand other security standards.\n\nNetscape Portable Runtime (NSPR) provides platform independence for non-GUI\noperating system facilities. These facilities include threads, thread\nsynchronization, normal file and network I/O, interval timing, calendar\ntime, basic memory management (malloc and free), and shared library\nlinking.\n\nA flaw was found in the way the TLS/SSL (Transport Layer Security/Secure\nSockets Layer) protocols handled session renegotiation. A man-in-the-middle\nattacker could use this flaw to prefix arbitrary plain text to a client's\nsession (for example, an HTTPS connection to a website). This could force\nthe server to process an attacker's request as if authenticated using the\nvictim's credentials. This update addresses this flaw by implementing the\nTLS Renegotiation Indication Extension, as defined in RFC 5746.\n(CVE-2009-3555)\n\nRefer to the following Knowledgebase article for additional details about\nthis flaw: http://kbase.redhat.com/faq/docs/DOC-20491\n\nUsers of Red Hat Certificate System 7.3 and 8.0 should review the following\nKnowledgebase article before installing this update:\nhttp://kbase.redhat.com/faq/docs/DOC-28439\n\nAll users of NSS are advised to upgrade to these updated packages, which\nupdate NSS to version 3.12.6. This erratum also updates the NSPR packages\nto the version required by NSS 3.12.6. All running applications using the\nNSS library must be restarted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-03-25"
+			},
+			"updated": {
+				"date": "2010-03-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-3555",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3555",
+					"impact": "moderate",
+					"public": "20091105",
+					"cwe": "CWE-300",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-3555 TLS: MITM attacks via session renegotiation",
+					"href": "https://bugzilla.redhat.com/533125",
+					"id": "533125"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165001",
+										"comment": "nspr is earlier than 0:4.8.4-1.1.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081036008",
+										"comment": "nspr is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165003",
+										"comment": "nspr-devel is earlier than 0:4.8.4-1.1.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081036010",
+										"comment": "nspr-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165005",
+										"comment": "nss is earlier than 0:3.12.6-1.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879011",
+										"comment": "nss is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165007",
+										"comment": "nss-devel is earlier than 0:3.12.6-1.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879013",
+										"comment": "nss-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165009",
+										"comment": "nss-tools is earlier than 0:3.12.6-1.el4_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879017",
+										"comment": "nss-tools is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165012",
+										"comment": "nspr is earlier than 0:4.8.4-1.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081036008",
+										"comment": "nspr is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165013",
+										"comment": "nspr-devel is earlier than 0:4.8.4-1.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081036010",
+										"comment": "nspr-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165014",
+										"comment": "nss is earlier than 0:3.12.6-1.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879011",
+										"comment": "nss is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165015",
+										"comment": "nss-devel is earlier than 0:3.12.6-1.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879013",
+										"comment": "nss-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165016",
+										"comment": "nss-pkcs11-devel is earlier than 0:3.12.6-1.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879015",
+										"comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100165018",
+										"comment": "nss-tools is earlier than 0:3.12.6-1.el5_4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879017",
+										"comment": "nss-tools is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

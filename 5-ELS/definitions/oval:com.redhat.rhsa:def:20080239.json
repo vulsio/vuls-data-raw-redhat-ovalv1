@@ -1,127 +1,127 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080239",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2008:0239: poppler security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0239",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0239",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1693",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1693",
-        "source": "CVE"
-      }
-    ],
-    "description": "Poppler is a PDF rendering library, used by applications such as Evince.\n\nKees Cook discovered a flaw in the way poppler displayed malformed fonts\nembedded in PDF files. An attacker could create a malicious PDF file that\nwould cause applications that use poppler -- such as Evince -- to crash,\nor, potentially, execute arbitrary code when opened. (CVE-2008-1693)\n\nUsers are advised to upgrade to these updated packages, which contain\nbackported patches to resolve this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-04-17"
-      },
-      "updated": {
-        "date": "2008-04-17"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1693",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1693",
-          "impact": "important",
-          "public": "20080417"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1693 xpdf: embedded font vulnerability",
-          "href": "https://bugzilla.redhat.com/441722",
-          "id": "441722"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080239001",
-                    "comment": "poppler is earlier than 0:0.5.4-4.4.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732002",
-                    "comment": "poppler is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080239003",
-                    "comment": "poppler-devel is earlier than 0:0.5.4-4.4.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732004",
-                    "comment": "poppler-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080239005",
-                    "comment": "poppler-utils is earlier than 0:0.5.4-4.4.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732006",
-                    "comment": "poppler-utils is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080239",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2008:0239: poppler security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0239",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0239",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1693",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1693",
+				"source": "CVE"
+			}
+		],
+		"description": "Poppler is a PDF rendering library, used by applications such as Evince.\n\nKees Cook discovered a flaw in the way poppler displayed malformed fonts\nembedded in PDF files. An attacker could create a malicious PDF file that\nwould cause applications that use poppler -- such as Evince -- to crash,\nor, potentially, execute arbitrary code when opened. (CVE-2008-1693)\n\nUsers are advised to upgrade to these updated packages, which contain\nbackported patches to resolve this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-04-17"
+			},
+			"updated": {
+				"date": "2008-04-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1693",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1693",
+					"impact": "important",
+					"public": "20080417"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1693 xpdf: embedded font vulnerability",
+					"href": "https://bugzilla.redhat.com/441722",
+					"id": "441722"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080239001",
+										"comment": "poppler is earlier than 0:0.5.4-4.4.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732002",
+										"comment": "poppler is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080239003",
+										"comment": "poppler-devel is earlier than 0:0.5.4-4.4.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732004",
+										"comment": "poppler-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080239005",
+										"comment": "poppler-utils is earlier than 0:0.5.4-4.4.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732006",
+										"comment": "poppler-utils is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,343 +1,343 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20121540",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2012:1540: kernel security, bug fix, and enhancement update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:1540",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:1540",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-2372",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-2372",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-3552",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-3552",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-4508",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4508",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-4535",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4535",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-4537",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-4537",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-5513",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-5513",
-        "source": "CVE"
-      }
-    ],
-    "description": "These packages contain the Linux kernel.\n\nSecurity fixes:\n\n* A race condition in the way asynchronous I/O and fallocate() interacted\nwhen using ext4 could allow a local, unprivileged user to obtain random\ndata from a deleted file. (CVE-2012-4508, Important)\n\n* A flaw in the way the Xen hypervisor implementation range checked guest\nprovided addresses in the XENMEM_exchange hypercall could allow a\nmalicious, para-virtualized guest administrator to crash the hypervisor or,\npotentially, escalate their privileges, allowing them to execute arbitrary\ncode at the hypervisor level. (CVE-2012-5513, Important)\n\n* A flaw in the Reliable Datagram Sockets (RDS) protocol implementation\ncould allow a local, unprivileged user to cause a denial of service.\n(CVE-2012-2372, Moderate)\n\n* A race condition in the way access to inet->opt ip_options was\nsynchronized in the Linux kernel's TCP/IP protocol suite implementation.\nDepending on the network facing applications running on the system, a\nremote attacker could possibly trigger this flaw to cause a denial of\nservice. A local, unprivileged user could use this flaw to cause a denial\nof service regardless of the applications the system runs. (CVE-2012-3552,\nModerate)\n\n* The Xen hypervisor implementation did not properly restrict the period\nvalues used to initialize per VCPU periodic timers. A privileged guest user\ncould cause an infinite loop on the physical CPU. If the watchdog were\nenabled, it would detect said loop and panic the host system.\n(CVE-2012-4535, Moderate)\n\n* A flaw in the way the Xen hypervisor implementation handled\nset_p2m_entry() error conditions could allow a privileged,\nfully-virtualized guest user to crash the hypervisor. (CVE-2012-4537,\nModerate)\n\nRed Hat would like to thank Theodore Ts'o for reporting CVE-2012-4508; the\nXen project for reporting CVE-2012-5513, CVE-2012-4535, and CVE-2012-4537;\nand Hafid Lin for reporting CVE-2012-3552. Upstream acknowledges Dmitry\nMonakhov as the original reporter of CVE-2012-4508. CVE-2012-2372 was\ndiscovered by Li Honggang of Red Hat.\n\nBug fixes:\n\n* Previously, the interrupt handlers of the qla2xxx driver could clear\npending interrupts right after the IRQ lines were attached during system\nstart-up. Consequently, the kernel could miss the interrupt that reported\ncompletion of the link initialization, and the qla2xxx driver then failed\nto detect all attached LUNs. With this update, the qla2xxx driver has been\nmodified to no longer clear interrupt bits after attaching the IRQ lines.\nThe driver now correctly detects all attached LUNs as expected. (BZ#870118)\n\n* The Ethernet channel bonding driver reported the MII (Media Independent\nInterface) status of the bond interface in 802.3ad mode as being up even\nthough the MII status of all of the slave devices was down. This could pose\na problem if the MII status of the bond interface was used to determine if\nfailover should occur. With this update, the agg_device_up() function has\nbeen added to the bonding driver, which allows the driver to report the\nlink status of the bond interface correctly, that is, down when all of its\nslaves are down, in the 802.3ad mode. (BZ#877943)\n\nEnhancements:\n\n* This update backports several changes from the latest upstream version of\nthe bnx2x driver. The most important change, the remote-fault link\ndetection feature, allows the driver to periodically scan the physical link\nlayer for remote faults. If the physical link appears to be up and a fault\nis detected, the driver indicates that the link is down. When the fault is\ncleared, the driver indicates that the link is up again. (BZ#870120)\n\n* The INET socket interface has been modified to send a warning message\nwhen the ip_options structure is allocated directly by a third-party module\nusing the kmalloc() function. (BZ#874973)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues and add these enhancements. The system must\nbe rebooted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-12-04"
-      },
-      "updated": {
-        "date": "2012-12-04"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-2372",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-2372",
-          "impact": "moderate",
-          "public": "20120605",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2012-3552",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-3552",
-          "impact": "moderate",
-          "public": "20110421",
-          "cvss_2": "5.4/AV:N/AC:H/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2012-4508",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-4508",
-          "impact": "important",
-          "public": "20121023",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:C/I:N/A:N"
-        },
-        {
-          "text": "CVE-2012-4535",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-4535",
-          "impact": "moderate",
-          "public": "20121113",
-          "cvss_2": "5.5/AV:A/AC:L/Au:S/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2012-4537",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-4537",
-          "impact": "moderate",
-          "public": "20121113",
-          "cvss_2": "5.5/AV:A/AC:L/Au:S/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2012-5513",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-5513",
-          "impact": "important",
-          "public": "20121203",
-          "cwe": "CWE-119",
-          "cvss_2": "7.4/AV:A/AC:M/Au:S/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-2372 kernel: rds-ping cause kernel panic",
-          "href": "https://bugzilla.redhat.com/822754",
-          "id": "822754"
-        },
-        {
-          "text": "CVE-2012-3552 kernel: net: slab corruption due to improper synchronization around inet->opt",
-          "href": "https://bugzilla.redhat.com/853465",
-          "id": "853465"
-        },
-        {
-          "text": "CVE-2012-4508 kernel: ext4: AIO vs fallocate stale data exposure",
-          "href": "https://bugzilla.redhat.com/869904",
-          "id": "869904"
-        },
-        {
-          "text": "CVE-2012-4535 kernel: xen: VCPU timer overflow leads to PCPU deadlock and host death-by-watchdog",
-          "href": "https://bugzilla.redhat.com/870086",
-          "id": "870086"
-        },
-        {
-          "text": "CVE-2012-4537 kernel: xen: Memory mapping failure can crash Xen",
-          "href": "https://bugzilla.redhat.com/870101",
-          "id": "870101"
-        },
-        {
-          "text": "CVE-2012-5513 kernel: xen: XENMEM_exchange may overwrite hypervisor memory",
-          "href": "https://bugzilla.redhat.com/877391",
-          "id": "877391"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20121540025",
-                "comment": "kernel earlier than 0:2.6.18-308.24.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20121540026",
-                "comment": "kernel earlier than 0:2.6.18-308.24.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540001",
-                    "comment": "kernel is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121540023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-308.24.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20121540",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2012:1540: kernel security, bug fix, and enhancement update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:1540",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:1540",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-2372",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-2372",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-3552",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-3552",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-4508",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-4508",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-4535",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-4535",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-4537",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-4537",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-5513",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-5513",
+				"source": "CVE"
+			}
+		],
+		"description": "These packages contain the Linux kernel.\n\nSecurity fixes:\n\n* A race condition in the way asynchronous I/O and fallocate() interacted\nwhen using ext4 could allow a local, unprivileged user to obtain random\ndata from a deleted file. (CVE-2012-4508, Important)\n\n* A flaw in the way the Xen hypervisor implementation range checked guest\nprovided addresses in the XENMEM_exchange hypercall could allow a\nmalicious, para-virtualized guest administrator to crash the hypervisor or,\npotentially, escalate their privileges, allowing them to execute arbitrary\ncode at the hypervisor level. (CVE-2012-5513, Important)\n\n* A flaw in the Reliable Datagram Sockets (RDS) protocol implementation\ncould allow a local, unprivileged user to cause a denial of service.\n(CVE-2012-2372, Moderate)\n\n* A race condition in the way access to inet->opt ip_options was\nsynchronized in the Linux kernel's TCP/IP protocol suite implementation.\nDepending on the network facing applications running on the system, a\nremote attacker could possibly trigger this flaw to cause a denial of\nservice. A local, unprivileged user could use this flaw to cause a denial\nof service regardless of the applications the system runs. (CVE-2012-3552,\nModerate)\n\n* The Xen hypervisor implementation did not properly restrict the period\nvalues used to initialize per VCPU periodic timers. A privileged guest user\ncould cause an infinite loop on the physical CPU. If the watchdog were\nenabled, it would detect said loop and panic the host system.\n(CVE-2012-4535, Moderate)\n\n* A flaw in the way the Xen hypervisor implementation handled\nset_p2m_entry() error conditions could allow a privileged,\nfully-virtualized guest user to crash the hypervisor. (CVE-2012-4537,\nModerate)\n\nRed Hat would like to thank Theodore Ts'o for reporting CVE-2012-4508; the\nXen project for reporting CVE-2012-5513, CVE-2012-4535, and CVE-2012-4537;\nand Hafid Lin for reporting CVE-2012-3552. Upstream acknowledges Dmitry\nMonakhov as the original reporter of CVE-2012-4508. CVE-2012-2372 was\ndiscovered by Li Honggang of Red Hat.\n\nBug fixes:\n\n* Previously, the interrupt handlers of the qla2xxx driver could clear\npending interrupts right after the IRQ lines were attached during system\nstart-up. Consequently, the kernel could miss the interrupt that reported\ncompletion of the link initialization, and the qla2xxx driver then failed\nto detect all attached LUNs. With this update, the qla2xxx driver has been\nmodified to no longer clear interrupt bits after attaching the IRQ lines.\nThe driver now correctly detects all attached LUNs as expected. (BZ#870118)\n\n* The Ethernet channel bonding driver reported the MII (Media Independent\nInterface) status of the bond interface in 802.3ad mode as being up even\nthough the MII status of all of the slave devices was down. This could pose\na problem if the MII status of the bond interface was used to determine if\nfailover should occur. With this update, the agg_device_up() function has\nbeen added to the bonding driver, which allows the driver to report the\nlink status of the bond interface correctly, that is, down when all of its\nslaves are down, in the 802.3ad mode. (BZ#877943)\n\nEnhancements:\n\n* This update backports several changes from the latest upstream version of\nthe bnx2x driver. The most important change, the remote-fault link\ndetection feature, allows the driver to periodically scan the physical link\nlayer for remote faults. If the physical link appears to be up and a fault\nis detected, the driver indicates that the link is down. When the fault is\ncleared, the driver indicates that the link is up again. (BZ#870120)\n\n* The INET socket interface has been modified to send a warning message\nwhen the ip_options structure is allocated directly by a third-party module\nusing the kmalloc() function. (BZ#874973)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues and add these enhancements. The system must\nbe rebooted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-12-04"
+			},
+			"updated": {
+				"date": "2012-12-04"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-2372",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-2372",
+					"impact": "moderate",
+					"public": "20120605",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2012-3552",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-3552",
+					"impact": "moderate",
+					"public": "20110421",
+					"cvss_2": "5.4/AV:N/AC:H/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2012-4508",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-4508",
+					"impact": "important",
+					"public": "20121023",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:C/I:N/A:N"
+				},
+				{
+					"text": "CVE-2012-4535",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-4535",
+					"impact": "moderate",
+					"public": "20121113",
+					"cvss_2": "5.5/AV:A/AC:L/Au:S/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2012-4537",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-4537",
+					"impact": "moderate",
+					"public": "20121113",
+					"cvss_2": "5.5/AV:A/AC:L/Au:S/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2012-5513",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-5513",
+					"impact": "important",
+					"public": "20121203",
+					"cwe": "CWE-119",
+					"cvss_2": "7.4/AV:A/AC:M/Au:S/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-2372 kernel: rds-ping cause kernel panic",
+					"href": "https://bugzilla.redhat.com/822754",
+					"id": "822754"
+				},
+				{
+					"text": "CVE-2012-3552 kernel: net: slab corruption due to improper synchronization around inet->opt",
+					"href": "https://bugzilla.redhat.com/853465",
+					"id": "853465"
+				},
+				{
+					"text": "CVE-2012-4508 kernel: ext4: AIO vs fallocate stale data exposure",
+					"href": "https://bugzilla.redhat.com/869904",
+					"id": "869904"
+				},
+				{
+					"text": "CVE-2012-4535 kernel: xen: VCPU timer overflow leads to PCPU deadlock and host death-by-watchdog",
+					"href": "https://bugzilla.redhat.com/870086",
+					"id": "870086"
+				},
+				{
+					"text": "CVE-2012-4537 kernel: xen: Memory mapping failure can crash Xen",
+					"href": "https://bugzilla.redhat.com/870101",
+					"id": "870101"
+				},
+				{
+					"text": "CVE-2012-5513 kernel: xen: XENMEM_exchange may overwrite hypervisor memory",
+					"href": "https://bugzilla.redhat.com/877391",
+					"id": "877391"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20121540025",
+								"comment": "kernel earlier than 0:2.6.18-308.24.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20121540026",
+								"comment": "kernel earlier than 0:2.6.18-308.24.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540001",
+										"comment": "kernel is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121540023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-308.24.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

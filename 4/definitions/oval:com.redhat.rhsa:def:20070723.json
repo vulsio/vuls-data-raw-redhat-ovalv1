@@ -1,190 +1,190 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070723",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2007:0723: thunderbird security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0723",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0723",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3089",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3089",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3734",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3734",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3735",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3735",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3736",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3736",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3737",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3737",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3738",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3738",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mozilla Thunderbird is a standalone mail and newsgroup client.\n\nSeveral flaws were found in the way Thunderbird processed certain malformed\nJavaScript code. A malicious HTML email message containing JavaScript code\ncould cause Thunderbird to crash or potentially execute arbitrary code as\nthe user running Thunderbird.  JavaScript support is disabled by default in\nThunderbird; these issues are not exploitable unless the user has enabled\nJavaScript. (CVE-2007-3089, CVE-2007-3734, CVE-2007-3735, CVE-2007-3736,\nCVE-2007-3737, CVE-2007-3738)\n\nUsers of Thunderbird are advised to upgrade to these erratum packages,\nwhich contain backported patches that correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-07-19"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3089",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3089",
-          "impact": "moderate",
-          "public": "20070604"
-        },
-        {
-          "text": "CVE-2007-3734",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3734",
-          "impact": "critical",
-          "public": "20070718:0900"
-        },
-        {
-          "text": "CVE-2007-3735",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3735",
-          "impact": "critical",
-          "public": "20070718:0900"
-        },
-        {
-          "text": "CVE-2007-3736",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3736",
-          "impact": "moderate",
-          "public": "20070718:0900"
-        },
-        {
-          "text": "CVE-2007-3737",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3737",
-          "impact": "critical",
-          "public": "20070718:0900"
-        },
-        {
-          "text": "CVE-2007-3738",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3738",
-          "impact": "critical",
-          "public": "20070718:0900"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3089 security flaw",
-          "href": "https://bugzilla.redhat.com/1618309",
-          "id": "1618309"
-        },
-        {
-          "text": "CVE-2007-3734 security flaw",
-          "href": "https://bugzilla.redhat.com/1618318",
-          "id": "1618318"
-        },
-        {
-          "text": "CVE-2007-3735 security flaw",
-          "href": "https://bugzilla.redhat.com/1618319",
-          "id": "1618319"
-        },
-        {
-          "text": "CVE-2007-3736 security flaw",
-          "href": "https://bugzilla.redhat.com/1618320",
-          "id": "1618320"
-        },
-        {
-          "text": "CVE-2007-3737 security flaw",
-          "href": "https://bugzilla.redhat.com/1618321",
-          "id": "1618321"
-        },
-        {
-          "text": "CVE-2007-3738 security flaw",
-          "href": "https://bugzilla.redhat.com/1618322",
-          "id": "1618322"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070723001",
-            "comment": "thunderbird is earlier than 0:1.5.0.12-0.3.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060330002",
-            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070723004",
-            "comment": "thunderbird is earlier than 0:1.5.0.12-3.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060330002",
-            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070723",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2007:0723: thunderbird security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0723",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0723",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3089",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3089",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3734",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3734",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3735",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3735",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3736",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3736",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3737",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3737",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3738",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3738",
+				"source": "CVE"
+			}
+		],
+		"description": "Mozilla Thunderbird is a standalone mail and newsgroup client.\n\nSeveral flaws were found in the way Thunderbird processed certain malformed\nJavaScript code. A malicious HTML email message containing JavaScript code\ncould cause Thunderbird to crash or potentially execute arbitrary code as\nthe user running Thunderbird.  JavaScript support is disabled by default in\nThunderbird; these issues are not exploitable unless the user has enabled\nJavaScript. (CVE-2007-3089, CVE-2007-3734, CVE-2007-3735, CVE-2007-3736,\nCVE-2007-3737, CVE-2007-3738)\n\nUsers of Thunderbird are advised to upgrade to these erratum packages,\nwhich contain backported patches that correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-07-19"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3089",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3089",
+					"impact": "moderate",
+					"public": "20070604"
+				},
+				{
+					"text": "CVE-2007-3734",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3734",
+					"impact": "critical",
+					"public": "20070718:0900"
+				},
+				{
+					"text": "CVE-2007-3735",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3735",
+					"impact": "critical",
+					"public": "20070718:0900"
+				},
+				{
+					"text": "CVE-2007-3736",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3736",
+					"impact": "moderate",
+					"public": "20070718:0900"
+				},
+				{
+					"text": "CVE-2007-3737",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3737",
+					"impact": "critical",
+					"public": "20070718:0900"
+				},
+				{
+					"text": "CVE-2007-3738",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3738",
+					"impact": "critical",
+					"public": "20070718:0900"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3089 security flaw",
+					"href": "https://bugzilla.redhat.com/1618309",
+					"id": "1618309"
+				},
+				{
+					"text": "CVE-2007-3734 security flaw",
+					"href": "https://bugzilla.redhat.com/1618318",
+					"id": "1618318"
+				},
+				{
+					"text": "CVE-2007-3735 security flaw",
+					"href": "https://bugzilla.redhat.com/1618319",
+					"id": "1618319"
+				},
+				{
+					"text": "CVE-2007-3736 security flaw",
+					"href": "https://bugzilla.redhat.com/1618320",
+					"id": "1618320"
+				},
+				{
+					"text": "CVE-2007-3737 security flaw",
+					"href": "https://bugzilla.redhat.com/1618321",
+					"id": "1618321"
+				},
+				{
+					"text": "CVE-2007-3738 security flaw",
+					"href": "https://bugzilla.redhat.com/1618322",
+					"id": "1618322"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070723001",
+						"comment": "thunderbird is earlier than 0:1.5.0.12-0.3.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060330002",
+						"comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070723004",
+						"comment": "thunderbird is earlier than 0:1.5.0.12-3.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060330002",
+						"comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

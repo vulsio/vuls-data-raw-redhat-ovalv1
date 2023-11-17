@@ -1,145 +1,145 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100749",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2010:0749: poppler security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0749",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0749",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-3702",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3702",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3704",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3704",
-        "source": "CVE"
-      }
-    ],
-    "description": "Poppler is a Portable Document Format (PDF) rendering library, used by\napplications such as Evince.\n\nAn uninitialized pointer use flaw was discovered in poppler. An attacker\ncould create a malicious PDF file that, when opened, would cause\napplications that use poppler (such as Evince) to crash or, potentially,\nexecute arbitrary code. (CVE-2010-3702)\n\nAn array index error was found in the way poppler parsed PostScript Type 1\nfonts embedded in PDF documents. An attacker could create a malicious PDF\nfile that, when opened, would cause applications that use poppler (such as\nEvince) to crash or, potentially, execute arbitrary code. (CVE-2010-3704)\n\nUsers are advised to upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-10-07"
-      },
-      "updated": {
-        "date": "2010-10-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-3702",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3702",
-          "impact": "important",
-          "public": "20100924",
-          "cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-3704",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3704",
-          "impact": "important",
-          "public": "20100924",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-3702 xpdf: uninitialized Gfx::parser pointer dereference",
-          "href": "https://bugzilla.redhat.com/595245",
-          "id": "595245"
-        },
-        {
-          "text": "CVE-2010-3704 xpdf: array indexing error in FoFiType1::parse()",
-          "href": "https://bugzilla.redhat.com/638960",
-          "id": "638960"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100749001",
-                    "comment": "poppler is earlier than 0:0.5.4-4.4.el5_5.14"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732002",
-                    "comment": "poppler is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100749003",
-                    "comment": "poppler-devel is earlier than 0:0.5.4-4.4.el5_5.14"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732004",
-                    "comment": "poppler-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100749005",
-                    "comment": "poppler-utils is earlier than 0:0.5.4-4.4.el5_5.14"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732006",
-                    "comment": "poppler-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100749",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2010:0749: poppler security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0749",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0749",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-3702",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3702",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3704",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3704",
+				"source": "CVE"
+			}
+		],
+		"description": "Poppler is a Portable Document Format (PDF) rendering library, used by\napplications such as Evince.\n\nAn uninitialized pointer use flaw was discovered in poppler. An attacker\ncould create a malicious PDF file that, when opened, would cause\napplications that use poppler (such as Evince) to crash or, potentially,\nexecute arbitrary code. (CVE-2010-3702)\n\nAn array index error was found in the way poppler parsed PostScript Type 1\nfonts embedded in PDF documents. An attacker could create a malicious PDF\nfile that, when opened, would cause applications that use poppler (such as\nEvince) to crash or, potentially, execute arbitrary code. (CVE-2010-3704)\n\nUsers are advised to upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-10-07"
+			},
+			"updated": {
+				"date": "2010-10-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-3702",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3702",
+					"impact": "important",
+					"public": "20100924",
+					"cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-3704",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3704",
+					"impact": "important",
+					"public": "20100924",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-3702 xpdf: uninitialized Gfx::parser pointer dereference",
+					"href": "https://bugzilla.redhat.com/595245",
+					"id": "595245"
+				},
+				{
+					"text": "CVE-2010-3704 xpdf: array indexing error in FoFiType1::parse()",
+					"href": "https://bugzilla.redhat.com/638960",
+					"id": "638960"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100749001",
+										"comment": "poppler is earlier than 0:0.5.4-4.4.el5_5.14"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732002",
+										"comment": "poppler is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100749003",
+										"comment": "poppler-devel is earlier than 0:0.5.4-4.4.el5_5.14"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732004",
+										"comment": "poppler-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100749005",
+										"comment": "poppler-utils is earlier than 0:0.5.4-4.4.el5_5.14"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732006",
+										"comment": "poppler-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

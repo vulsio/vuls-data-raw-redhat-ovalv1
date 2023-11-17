@@ -1,377 +1,377 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20081023",
-  "version": "639",
-  "metadata": {
-    "title": "RHSA-2008:1023: pidgin security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:1023",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:1023",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-2955",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2955",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2957",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2957",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-3532",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3532",
-        "source": "CVE"
-      }
-    ],
-    "description": "Pidgin is a multi-protocol Internet Messaging client.\n\nA denial-of-service flaw was found in Pidgin's MSN protocol handler. If a\nremote user was able to send, and the Pidgin user accepted, a\ncarefully-crafted file request, it could result in Pidgin crashing.\n(CVE-2008-2955)\n\nA denial-of-service flaw was found in Pidgin's Universal Plug and Play\n(UPnP) request handling. A malicious UPnP server could send a request to\nPidgin, causing it to download an excessive amount of data, consuming all\navailable memory or disk space. (CVE-2008-2957)\n\nA flaw was found in the way Pidgin handled SSL certificates. The NSS SSL\nimplementation in Pidgin did not properly verify the authenticity of SSL\ncertificates. This could have resulted in users unknowingly connecting to a\nmalicious SSL service. (CVE-2008-3532)\n\nIn addition, this update upgrades pidgin from version 2.3.1 to version\n2.5.2, with many additional stability and functionality fixes from the\nPidgin Project.\n\nNote: the Secure Internet Live Conferencing (SILC) chat network protocol\nhas recently changed, affecting all versions of pidgin shipped with Red Hat\nEnterprise Linux.\n\nPidgin cannot currently connect to the latest version of the SILC server\n(1.1.14): it fails to properly exchange keys during initial login. This\nupdate does not correct this. Red Hat Bugzilla #474212 (linked to in the\nReferences section) has more information.\n\nNote: after the errata packages are installed, Pidgin must be restarted for\nthe update to take effect.\n\nAll Pidgin users should upgrade to these updated packages, which contains\nPidgin version 2.5.2 and resolves these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-12-15"
-      },
-      "updated": {
-        "date": "2008-12-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-2955",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2955",
-          "impact": "moderate",
-          "public": "20080628"
-        },
-        {
-          "text": "CVE-2008-2957",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2957",
-          "impact": "low",
-          "public": "20070511",
-          "cvss_2": "1.8/AV:A/AC:H/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2008-3532",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-3532",
-          "impact": "moderate",
-          "public": "20080728"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-2955 pidgin: remote DoS via MSN message with crafted file name",
-          "href": "https://bugzilla.redhat.com/453736",
-          "id": "453736"
-        },
-        {
-          "text": "CVE-2008-2957 pidgin: unrestricted download of arbitrary files triggered via UPnP",
-          "href": "https://bugzilla.redhat.com/453740",
-          "id": "453740"
-        },
-        {
-          "text": "CVE-2008-3532 pidgin: NSS plugin doesn't verify SSL certificates",
-          "href": "https://bugzilla.redhat.com/457907",
-          "id": "457907"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_productivity:5",
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023001",
-                    "comment": "finch is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584005",
-                    "comment": "finch is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023003",
-                    "comment": "finch-devel is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584007",
-                    "comment": "finch-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023005",
-                    "comment": "libpurple is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584009",
-                    "comment": "libpurple is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023007",
-                    "comment": "libpurple-devel is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584011",
-                    "comment": "libpurple-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023009",
-                    "comment": "libpurple-perl is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584013",
-                    "comment": "libpurple-perl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023011",
-                    "comment": "libpurple-tcl is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584015",
-                    "comment": "libpurple-tcl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023013",
-                    "comment": "pidgin is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584002",
-                    "comment": "pidgin is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023015",
-                    "comment": "pidgin-devel is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584018",
-                    "comment": "pidgin-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023017",
-                    "comment": "pidgin-perl is earlier than 0:2.5.2-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584020",
-                    "comment": "pidgin-perl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023020",
-                    "comment": "finch is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584005",
-                    "comment": "finch is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023021",
-                    "comment": "finch-devel is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584007",
-                    "comment": "finch-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023022",
-                    "comment": "libpurple is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584009",
-                    "comment": "libpurple is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023023",
-                    "comment": "libpurple-devel is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584011",
-                    "comment": "libpurple-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023024",
-                    "comment": "libpurple-perl is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584013",
-                    "comment": "libpurple-perl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023025",
-                    "comment": "libpurple-tcl is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584015",
-                    "comment": "libpurple-tcl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023026",
-                    "comment": "pidgin is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584002",
-                    "comment": "pidgin is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023027",
-                    "comment": "pidgin-devel is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584018",
-                    "comment": "pidgin-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20081023028",
-                    "comment": "pidgin-perl is earlier than 0:2.5.2-6.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080584020",
-                    "comment": "pidgin-perl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20081023",
+	"version": "639",
+	"metadata": {
+		"title": "RHSA-2008:1023: pidgin security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:1023",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:1023",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-2955",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2955",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2957",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2957",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-3532",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-3532",
+				"source": "CVE"
+			}
+		],
+		"description": "Pidgin is a multi-protocol Internet Messaging client.\n\nA denial-of-service flaw was found in Pidgin's MSN protocol handler. If a\nremote user was able to send, and the Pidgin user accepted, a\ncarefully-crafted file request, it could result in Pidgin crashing.\n(CVE-2008-2955)\n\nA denial-of-service flaw was found in Pidgin's Universal Plug and Play\n(UPnP) request handling. A malicious UPnP server could send a request to\nPidgin, causing it to download an excessive amount of data, consuming all\navailable memory or disk space. (CVE-2008-2957)\n\nA flaw was found in the way Pidgin handled SSL certificates. The NSS SSL\nimplementation in Pidgin did not properly verify the authenticity of SSL\ncertificates. This could have resulted in users unknowingly connecting to a\nmalicious SSL service. (CVE-2008-3532)\n\nIn addition, this update upgrades pidgin from version 2.3.1 to version\n2.5.2, with many additional stability and functionality fixes from the\nPidgin Project.\n\nNote: the Secure Internet Live Conferencing (SILC) chat network protocol\nhas recently changed, affecting all versions of pidgin shipped with Red Hat\nEnterprise Linux.\n\nPidgin cannot currently connect to the latest version of the SILC server\n(1.1.14): it fails to properly exchange keys during initial login. This\nupdate does not correct this. Red Hat Bugzilla #474212 (linked to in the\nReferences section) has more information.\n\nNote: after the errata packages are installed, Pidgin must be restarted for\nthe update to take effect.\n\nAll Pidgin users should upgrade to these updated packages, which contains\nPidgin version 2.5.2 and resolves these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-12-15"
+			},
+			"updated": {
+				"date": "2008-12-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-2955",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2955",
+					"impact": "moderate",
+					"public": "20080628"
+				},
+				{
+					"text": "CVE-2008-2957",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2957",
+					"impact": "low",
+					"public": "20070511",
+					"cvss_2": "1.8/AV:A/AC:H/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2008-3532",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-3532",
+					"impact": "moderate",
+					"public": "20080728"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-2955 pidgin: remote DoS via MSN message with crafted file name",
+					"href": "https://bugzilla.redhat.com/453736",
+					"id": "453736"
+				},
+				{
+					"text": "CVE-2008-2957 pidgin: unrestricted download of arbitrary files triggered via UPnP",
+					"href": "https://bugzilla.redhat.com/453740",
+					"id": "453740"
+				},
+				{
+					"text": "CVE-2008-3532 pidgin: NSS plugin doesn't verify SSL certificates",
+					"href": "https://bugzilla.redhat.com/457907",
+					"id": "457907"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_productivity:5",
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023001",
+										"comment": "finch is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584005",
+										"comment": "finch is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023003",
+										"comment": "finch-devel is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584007",
+										"comment": "finch-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023005",
+										"comment": "libpurple is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584009",
+										"comment": "libpurple is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023007",
+										"comment": "libpurple-devel is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584011",
+										"comment": "libpurple-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023009",
+										"comment": "libpurple-perl is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584013",
+										"comment": "libpurple-perl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023011",
+										"comment": "libpurple-tcl is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584015",
+										"comment": "libpurple-tcl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023013",
+										"comment": "pidgin is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584002",
+										"comment": "pidgin is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023015",
+										"comment": "pidgin-devel is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584018",
+										"comment": "pidgin-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023017",
+										"comment": "pidgin-perl is earlier than 0:2.5.2-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584020",
+										"comment": "pidgin-perl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023020",
+										"comment": "finch is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584005",
+										"comment": "finch is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023021",
+										"comment": "finch-devel is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584007",
+										"comment": "finch-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023022",
+										"comment": "libpurple is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584009",
+										"comment": "libpurple is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023023",
+										"comment": "libpurple-devel is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584011",
+										"comment": "libpurple-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023024",
+										"comment": "libpurple-perl is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584013",
+										"comment": "libpurple-perl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023025",
+										"comment": "libpurple-tcl is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584015",
+										"comment": "libpurple-tcl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023026",
+										"comment": "pidgin is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584002",
+										"comment": "pidgin is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023027",
+										"comment": "pidgin-devel is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584018",
+										"comment": "pidgin-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20081023028",
+										"comment": "pidgin-perl is earlier than 0:2.5.2-6.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080584020",
+										"comment": "pidgin-perl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

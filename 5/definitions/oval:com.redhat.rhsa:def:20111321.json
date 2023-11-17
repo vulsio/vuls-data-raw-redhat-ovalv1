@@ -1,256 +1,256 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20111321",
-  "version": "661",
-  "metadata": {
-    "title": "RHSA-2011:1321: kernel security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:1321",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1321",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-2723",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2723",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel.\n\nSecurity fix:\n\n* A flaw in skb_gro_header_slow() in the Linux kernel could lead to GRO\n(Generic Receive Offload) fields being left in an inconsistent state. An\nattacker on the local network could use this flaw to trigger a denial of\nservice. (CVE-2011-2723, Moderate)\n\nRed Hat would like to thank Brent Meshier for reporting this issue.\n\nBug fixes:\n\n* When reading a file from a subdirectory in /proc/bus/pci/ while\nhot-unplugging the device related to that file, the system will crash. Now,\nthe kernel correctly handles the simultaneous removal of a device and\naccess to the representation of that device in the proc file system.\n(BZ#713454)\n\n* RHSA-2011:0017 introduced a regression: Non-disk SCSI devices (except for\ntape drives) such as enclosure or CD-ROM devices were hidden when attached\nto a SAS based RAID controller that uses the megaraid_sas driver. With this\nupdate, such devices are accessible, as expected. (BZ#726487)\n\n* The fix for CVE-2010-3432 provided in RHSA-2011:0004 introduced a\nregression: Information in sctp_packet_config(), which was called before\nappending data chunks to a packet, was not reset, causing considerably poor\nSCTP (Stream Control Transmission Protocol) performance. With this update,\nthe packet information is reset after transmission. (BZ#727591)\n\n* Certain systems do not correctly set the ACPI FADT APIC mode bit. They\nset the bit to \"cluster\" mode instead of \"physical\" mode which caused these\nsystems to boot without the TSC (Time Stamp Counter). With this update, the\nACPI FADT check has been removed due to its unreliability. (BZ#728162)\n\n* Performance when invalidating and rereading cached data as a glock moves\naround the cluster with GFS2 is improved. (BZ#729082)\n\n* Performance issues occurred when multiple nodes attempted to call mmap()\non the same inode at the same time on a GFS2 file system, as it was using\nan exclusive glock. With this update, a shared lock is used when \"noatime\"\nis set on the mount, allowing mmap() operations to occur in parallel,\nfixing this bug. Note that this issue only refers to mmap() system calls,\nand not to subsequent page faults. (BZ#729090)\n\n* Some of the functions in the GFS2 file system were not reserving enough\nspace for the resource group header in a transaction and for resource\ngroups bit blocks that get added when a memory allocation is performed.\nThat resulted in failed write and allocation operations. With this update,\nGFS2 makes sure to reserve space in the described scenario, using the new\ngfs2_rg_blocks() inline function. (BZ#729092)\n\n* When GFS2 grew the file system, it never reread the rindex file during\nthe grow. This is necessary for large grows when the file system is almost\nfull, and GFS2 needs to use some of the space allocated earlier in the grow\nto complete it. Now, if GFS2 fails to reserve the necessary space and the\nrindex data is not up-to-date, it rereads it. (BZ#729094)\n\n* Previously, when the Xen hypervisor split a 2 MB page into 4 KB pages, it\nlinked the new page from PDE (Page Directory Entry) before it filled\nentries of the page with appropriate data. Consequently, when doing a live\nmigration with EPT (Extended Page Tables) enabled on a non-idle guest\nrunning with more than two virtual CPUs, the guest often terminated\nunexpectedly. With this update, the Xen hypervisor prepares the page table\nentry first, and then links it in. (BZ#730684)\n\n* Changes made to TSC as a clock source for IRQs caused virtual machines\nrunning under the VMware ESX or ESXi hypervisors to become unresponsive\nduring the initial kernel boot process. With this update, the\nenable_tsc_timer flag enables the do_timer_tsc_timekeeping() function to be\ncalled in the do_timer_interrupt_hook() function, preventing a deadlock in\nthe timer interrupt handler. (BZ#730688)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-09-20"
-      },
-      "updated": {
-        "date": "2011-09-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-2723",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-2723",
-          "impact": "moderate",
-          "public": "20110727",
-          "cvss_2": "5.7/AV:A/AC:M/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-2723 kernel: gro: only reset frag0 when skb can be pulled",
-          "href": "https://bugzilla.redhat.com/726552",
-          "id": "726552"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20111321025",
-                "comment": "kernel earlier than 0:2.6.18-238.27.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20111321026",
-                "comment": "kernel earlier than 0:2.6.18-238.27.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321001",
-                    "comment": "kernel is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111321023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-238.27.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20111321",
+	"version": "661",
+	"metadata": {
+		"title": "RHSA-2011:1321: kernel security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:1321",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:1321",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-2723",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-2723",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel.\n\nSecurity fix:\n\n* A flaw in skb_gro_header_slow() in the Linux kernel could lead to GRO\n(Generic Receive Offload) fields being left in an inconsistent state. An\nattacker on the local network could use this flaw to trigger a denial of\nservice. (CVE-2011-2723, Moderate)\n\nRed Hat would like to thank Brent Meshier for reporting this issue.\n\nBug fixes:\n\n* When reading a file from a subdirectory in /proc/bus/pci/ while\nhot-unplugging the device related to that file, the system will crash. Now,\nthe kernel correctly handles the simultaneous removal of a device and\naccess to the representation of that device in the proc file system.\n(BZ#713454)\n\n* RHSA-2011:0017 introduced a regression: Non-disk SCSI devices (except for\ntape drives) such as enclosure or CD-ROM devices were hidden when attached\nto a SAS based RAID controller that uses the megaraid_sas driver. With this\nupdate, such devices are accessible, as expected. (BZ#726487)\n\n* The fix for CVE-2010-3432 provided in RHSA-2011:0004 introduced a\nregression: Information in sctp_packet_config(), which was called before\nappending data chunks to a packet, was not reset, causing considerably poor\nSCTP (Stream Control Transmission Protocol) performance. With this update,\nthe packet information is reset after transmission. (BZ#727591)\n\n* Certain systems do not correctly set the ACPI FADT APIC mode bit. They\nset the bit to \"cluster\" mode instead of \"physical\" mode which caused these\nsystems to boot without the TSC (Time Stamp Counter). With this update, the\nACPI FADT check has been removed due to its unreliability. (BZ#728162)\n\n* Performance when invalidating and rereading cached data as a glock moves\naround the cluster with GFS2 is improved. (BZ#729082)\n\n* Performance issues occurred when multiple nodes attempted to call mmap()\non the same inode at the same time on a GFS2 file system, as it was using\nan exclusive glock. With this update, a shared lock is used when \"noatime\"\nis set on the mount, allowing mmap() operations to occur in parallel,\nfixing this bug. Note that this issue only refers to mmap() system calls,\nand not to subsequent page faults. (BZ#729090)\n\n* Some of the functions in the GFS2 file system were not reserving enough\nspace for the resource group header in a transaction and for resource\ngroups bit blocks that get added when a memory allocation is performed.\nThat resulted in failed write and allocation operations. With this update,\nGFS2 makes sure to reserve space in the described scenario, using the new\ngfs2_rg_blocks() inline function. (BZ#729092)\n\n* When GFS2 grew the file system, it never reread the rindex file during\nthe grow. This is necessary for large grows when the file system is almost\nfull, and GFS2 needs to use some of the space allocated earlier in the grow\nto complete it. Now, if GFS2 fails to reserve the necessary space and the\nrindex data is not up-to-date, it rereads it. (BZ#729094)\n\n* Previously, when the Xen hypervisor split a 2 MB page into 4 KB pages, it\nlinked the new page from PDE (Page Directory Entry) before it filled\nentries of the page with appropriate data. Consequently, when doing a live\nmigration with EPT (Extended Page Tables) enabled on a non-idle guest\nrunning with more than two virtual CPUs, the guest often terminated\nunexpectedly. With this update, the Xen hypervisor prepares the page table\nentry first, and then links it in. (BZ#730684)\n\n* Changes made to TSC as a clock source for IRQs caused virtual machines\nrunning under the VMware ESX or ESXi hypervisors to become unresponsive\nduring the initial kernel boot process. With this update, the\nenable_tsc_timer flag enables the do_timer_tsc_timekeeping() function to be\ncalled in the do_timer_interrupt_hook() function, preventing a deadlock in\nthe timer interrupt handler. (BZ#730688)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-09-20"
+			},
+			"updated": {
+				"date": "2011-09-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-2723",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-2723",
+					"impact": "moderate",
+					"public": "20110727",
+					"cvss_2": "5.7/AV:A/AC:M/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-2723 kernel: gro: only reset frag0 when skb can be pulled",
+					"href": "https://bugzilla.redhat.com/726552",
+					"id": "726552"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20111321025",
+								"comment": "kernel earlier than 0:2.6.18-238.27.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20111321026",
+								"comment": "kernel earlier than 0:2.6.18-238.27.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321001",
+										"comment": "kernel is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111321023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-238.27.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

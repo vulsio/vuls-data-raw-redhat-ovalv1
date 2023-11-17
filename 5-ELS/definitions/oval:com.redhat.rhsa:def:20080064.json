@@ -1,114 +1,114 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080064",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2008:0064: libXfont security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0064",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0064",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-0006",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0006",
-        "source": "CVE"
-      }
-    ],
-    "description": "The libXfont package contains the X.Org X11 libXfont runtime library.\n\nA heap based buffer overflow flaw was found in the way the X.Org server\nhandled malformed font files. A malicious local user could exploit this\nissue to potentially execute arbitrary code with the privileges of the\nX.Org server. (CVE-2008-0006)\n\nUsers of X.Org libXfont should upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-01-17"
-      },
-      "updated": {
-        "date": "2008-01-28"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-0006",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0006",
-          "impact": "important",
-          "public": "20080117"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-0006 Xorg / XFree86 PCF font parser buffer overflow",
-          "href": "https://bugzilla.redhat.com/428044",
-          "id": "428044"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080064001",
-                    "comment": "libXfont is earlier than 0:1.2.2-1.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070132002",
-                    "comment": "libXfont is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080064003",
-                    "comment": "libXfont-devel is earlier than 0:1.2.2-1.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070132004",
-                    "comment": "libXfont-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080064",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2008:0064: libXfont security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0064",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0064",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-0006",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0006",
+				"source": "CVE"
+			}
+		],
+		"description": "The libXfont package contains the X.Org X11 libXfont runtime library.\n\nA heap based buffer overflow flaw was found in the way the X.Org server\nhandled malformed font files. A malicious local user could exploit this\nissue to potentially execute arbitrary code with the privileges of the\nX.Org server. (CVE-2008-0006)\n\nUsers of X.Org libXfont should upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-01-17"
+			},
+			"updated": {
+				"date": "2008-01-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-0006",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0006",
+					"impact": "important",
+					"public": "20080117"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-0006 Xorg / XFree86 PCF font parser buffer overflow",
+					"href": "https://bugzilla.redhat.com/428044",
+					"id": "428044"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080064001",
+										"comment": "libXfont is earlier than 0:1.2.2-1.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070132002",
+										"comment": "libXfont is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080064003",
+										"comment": "libXfont-devel is earlier than 0:1.2.2-1.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070132004",
+										"comment": "libXfont-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

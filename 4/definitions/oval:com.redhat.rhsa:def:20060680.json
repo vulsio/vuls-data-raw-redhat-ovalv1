@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060680",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2006:0680: gnutls security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0680",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0680",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4790",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4790",
-        "source": "CVE"
-      }
-    ],
-    "description": "The GnuTLS Library provides support for cryptographic algorithms and\nprotocols such as TLS. GnuTLS includes libtasn1, a library developed for\nASN.1 structures management that includes DER encoding and decoding.\n\nDaniel Bleichenbacher recently described an attack on PKCS #1 v1.5\nsignatures. Where an RSA key with exponent 3 is used it may be possible for\nan attacker to forge a PKCS #1 v1.5 signature that would be incorrectly\nverified by implementations that do not check for excess data in the RSA\nexponentiation result of the signature.\n\nThe core GnuTLS team discovered that GnuTLS is vulnerable to a variant of\nthe Bleichenbacker attack. This issue affects applications that use GnuTLS\nto verify X.509 certificates as well as other uses of PKCS #1 v1.5.\n(CVE-2006-4790)\n\nIn Red Hat Enterprise Linux 4, the GnuTLS library is only used by the\nEvolution client when connecting to an Exchange server or when publishing\ncalendar information to a WebDAV server.\n\nUsers are advised to upgrade to these updated packages, which contain a\nbackported patch from the GnuTLS maintainers to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-09-14"
-      },
-      "updated": {
-        "date": "2006-09-14"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4790",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4790",
-          "impact": "important",
-          "public": "20060908"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4790 security flaw",
-          "href": "https://bugzilla.redhat.com/1618201",
-          "id": "1618201"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060680001",
-                    "comment": "gnutls is earlier than 0:1.0.20-3.2.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060207002",
-                    "comment": "gnutls is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060680003",
-                    "comment": "gnutls-devel is earlier than 0:1.0.20-3.2.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060207004",
-                    "comment": "gnutls-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060680",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2006:0680: gnutls security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0680",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0680",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4790",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4790",
+				"source": "CVE"
+			}
+		],
+		"description": "The GnuTLS Library provides support for cryptographic algorithms and\nprotocols such as TLS. GnuTLS includes libtasn1, a library developed for\nASN.1 structures management that includes DER encoding and decoding.\n\nDaniel Bleichenbacher recently described an attack on PKCS #1 v1.5\nsignatures. Where an RSA key with exponent 3 is used it may be possible for\nan attacker to forge a PKCS #1 v1.5 signature that would be incorrectly\nverified by implementations that do not check for excess data in the RSA\nexponentiation result of the signature.\n\nThe core GnuTLS team discovered that GnuTLS is vulnerable to a variant of\nthe Bleichenbacker attack. This issue affects applications that use GnuTLS\nto verify X.509 certificates as well as other uses of PKCS #1 v1.5.\n(CVE-2006-4790)\n\nIn Red Hat Enterprise Linux 4, the GnuTLS library is only used by the\nEvolution client when connecting to an Exchange server or when publishing\ncalendar information to a WebDAV server.\n\nUsers are advised to upgrade to these updated packages, which contain a\nbackported patch from the GnuTLS maintainers to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-09-14"
+			},
+			"updated": {
+				"date": "2006-09-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4790",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4790",
+					"impact": "important",
+					"public": "20060908"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4790 security flaw",
+					"href": "https://bugzilla.redhat.com/1618201",
+					"id": "1618201"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060680001",
+										"comment": "gnutls is earlier than 0:1.0.20-3.2.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060207002",
+										"comment": "gnutls is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060680003",
+										"comment": "gnutls-devel is earlier than 0:1.0.20-3.2.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060207004",
+										"comment": "gnutls-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

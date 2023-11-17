@@ -1,130 +1,130 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20121130",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2012:1130: xen security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:1130",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:1130",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-2625",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-2625",
-        "source": "CVE"
-      }
-    ],
-    "description": "The xen packages contain administration tools and the xend service for\nmanaging the kernel-xen kernel for virtualization on Red Hat Enterprise\nLinux.\n\nA flaw was found in the way the pyGrub boot loader handled compressed\nkernel images. A privileged guest user in a para-virtualized guest (a DomU)\ncould use this flaw to create a crafted kernel image that, when attempting\nto boot it, could result in an out-of-memory condition in the privileged\ndomain (the Dom0). (CVE-2012-2625)\n\nRed Hat would like to thank Xinli Niu for reporting this issue.\n\nAll users of xen are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. After installing the\nupdated packages, the xend service must be restarted for this update to\ntake effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-07-31"
-      },
-      "updated": {
-        "date": "2012-07-31"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-2625",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-2625",
-          "impact": "moderate",
-          "public": "20120504",
-          "cvss_2": "2.7/AV:A/AC:L/Au:S/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-2625 xen: pv bootloader doesn't check the size of the bzip2 or lzma compressed kernel",
-          "href": "https://bugzilla.redhat.com/821676",
-          "id": "821676"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121130001",
-                    "comment": "xen is earlier than 0:3.0.3-135.el5_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
-                    "comment": "xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121130003",
-                    "comment": "xen-devel is earlier than 0:3.0.3-135.el5_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
-                    "comment": "xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121130005",
-                    "comment": "xen-libs is earlier than 0:3.0.3-135.el5_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
-                    "comment": "xen-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20121130",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2012:1130: xen security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:1130",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:1130",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-2625",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-2625",
+				"source": "CVE"
+			}
+		],
+		"description": "The xen packages contain administration tools and the xend service for\nmanaging the kernel-xen kernel for virtualization on Red Hat Enterprise\nLinux.\n\nA flaw was found in the way the pyGrub boot loader handled compressed\nkernel images. A privileged guest user in a para-virtualized guest (a DomU)\ncould use this flaw to create a crafted kernel image that, when attempting\nto boot it, could result in an out-of-memory condition in the privileged\ndomain (the Dom0). (CVE-2012-2625)\n\nRed Hat would like to thank Xinli Niu for reporting this issue.\n\nAll users of xen are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. After installing the\nupdated packages, the xend service must be restarted for this update to\ntake effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-07-31"
+			},
+			"updated": {
+				"date": "2012-07-31"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-2625",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-2625",
+					"impact": "moderate",
+					"public": "20120504",
+					"cvss_2": "2.7/AV:A/AC:L/Au:S/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-2625 xen: pv bootloader doesn't check the size of the bzip2 or lzma compressed kernel",
+					"href": "https://bugzilla.redhat.com/821676",
+					"id": "821676"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121130001",
+										"comment": "xen is earlier than 0:3.0.3-135.el5_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+										"comment": "xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121130003",
+										"comment": "xen-devel is earlier than 0:3.0.3-135.el5_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+										"comment": "xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121130005",
+										"comment": "xen-libs is earlier than 0:3.0.3-135.el5_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+										"comment": "xen-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

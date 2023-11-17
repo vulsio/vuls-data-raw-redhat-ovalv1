@@ -1,292 +1,292 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20183822",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2018:3822: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5 Extended Lifecycle Support"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2018:3822",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2018:3822",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2017-11176",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2017-11176",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2017-15265",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2017-15265",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2017-8824",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2017-8824",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux operating system.\n\nSecurity Fix(es):\n\n* kernel: Use-after-free vulnerability in DCCP socket (CVE-2017-8824)\n\n* kernel: Use-after-free in sys_mq_notify() (CVE-2017-11176)\n\n* kernel: Use-after-free in snd_seq_ioctl_create_port() (CVE-2017-15265)\n\nFor more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.\n\nRed Hat would like to thank Mohamed Ghannam for reporting CVE-2017-8824.\n\nBug Fix(es):\n\n* Previously, on certain Intel 64 systems, the microcode contained a new model-specific register (MSR) that was not present in the older microcode running on CPUs that had not been updated yet. As a consequence, the system crashed due to a general protection fault on a CPU running the older microcode. This update fixes the bug by having the kernel use MSR access routines that handle the general protection fault. As a result, the system no longer crashes in the described scenario. (BZ#1651481)",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2018 Red Hat, Inc.",
-      "issued": {
-        "date": "2018-12-13"
-      },
-      "updated": {
-        "date": "2018-12-13"
-      },
-      "cve": [
-        {
-          "text": "CVE-2017-11176",
-          "href": "https://access.redhat.com/security/cve/CVE-2017-11176",
-          "impact": "moderate",
-          "public": "20170709",
-          "cwe": "CWE-416",
-          "cvss_3": "7.8/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "text": "CVE-2017-15265",
-          "href": "https://access.redhat.com/security/cve/CVE-2017-15265",
-          "impact": "moderate",
-          "public": "20171011",
-          "cwe": "CWE-416",
-          "cvss_3": "5.5/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "text": "CVE-2017-8824",
-          "href": "https://access.redhat.com/security/cve/CVE-2017-8824",
-          "impact": "important",
-          "public": "20171205:0543",
-          "cwe": "CWE-416",
-          "cvss_3": "7.8/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2017-11176 kernel: Use-after-free in sys_mq_notify()",
-          "href": "https://bugzilla.redhat.com/1470659",
-          "id": "1470659"
-        },
-        {
-          "text": "CVE-2017-15265 kernel: Use-after-free in snd_seq_ioctl_create_port()",
-          "href": "https://bugzilla.redhat.com/1501878",
-          "id": "1501878"
-        },
-        {
-          "text": "CVE-2017-8824 kernel: Use-after-free vulnerability in DCCP socket",
-          "href": "https://bugzilla.redhat.com/1519591",
-          "id": "1519591"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:rhel_els:5"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20183822025",
-                "comment": "kernel earlier than 0:2.6.18-436.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20183822026",
-                "comment": "kernel earlier than 0:2.6.18-436.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822001",
-                    "comment": "kernel is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20183822023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-436.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20183822",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2018:3822: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5 Extended Lifecycle Support"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2018:3822",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2018:3822",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2017-11176",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2017-11176",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2017-15265",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2017-15265",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2017-8824",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2017-8824",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux operating system.\n\nSecurity Fix(es):\n\n* kernel: Use-after-free vulnerability in DCCP socket (CVE-2017-8824)\n\n* kernel: Use-after-free in sys_mq_notify() (CVE-2017-11176)\n\n* kernel: Use-after-free in snd_seq_ioctl_create_port() (CVE-2017-15265)\n\nFor more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.\n\nRed Hat would like to thank Mohamed Ghannam for reporting CVE-2017-8824.\n\nBug Fix(es):\n\n* Previously, on certain Intel 64 systems, the microcode contained a new model-specific register (MSR) that was not present in the older microcode running on CPUs that had not been updated yet. As a consequence, the system crashed due to a general protection fault on a CPU running the older microcode. This update fixes the bug by having the kernel use MSR access routines that handle the general protection fault. As a result, the system no longer crashes in the described scenario. (BZ#1651481)",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2018 Red Hat, Inc.",
+			"issued": {
+				"date": "2018-12-13"
+			},
+			"updated": {
+				"date": "2018-12-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2017-11176",
+					"href": "https://access.redhat.com/security/cve/CVE-2017-11176",
+					"impact": "moderate",
+					"public": "20170709",
+					"cwe": "CWE-416",
+					"cvss_3": "7.8/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+				},
+				{
+					"text": "CVE-2017-15265",
+					"href": "https://access.redhat.com/security/cve/CVE-2017-15265",
+					"impact": "moderate",
+					"public": "20171011",
+					"cwe": "CWE-416",
+					"cvss_3": "5.5/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+				},
+				{
+					"text": "CVE-2017-8824",
+					"href": "https://access.redhat.com/security/cve/CVE-2017-8824",
+					"impact": "important",
+					"public": "20171205:0543",
+					"cwe": "CWE-416",
+					"cvss_3": "7.8/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2017-11176 kernel: Use-after-free in sys_mq_notify()",
+					"href": "https://bugzilla.redhat.com/1470659",
+					"id": "1470659"
+				},
+				{
+					"text": "CVE-2017-15265 kernel: Use-after-free in snd_seq_ioctl_create_port()",
+					"href": "https://bugzilla.redhat.com/1501878",
+					"id": "1501878"
+				},
+				{
+					"text": "CVE-2017-8824 kernel: Use-after-free vulnerability in DCCP socket",
+					"href": "https://bugzilla.redhat.com/1519591",
+					"id": "1519591"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:rhel_els:5"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20183822025",
+								"comment": "kernel earlier than 0:2.6.18-436.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20183822026",
+								"comment": "kernel earlier than 0:2.6.18-436.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822001",
+										"comment": "kernel is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20183822023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-436.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

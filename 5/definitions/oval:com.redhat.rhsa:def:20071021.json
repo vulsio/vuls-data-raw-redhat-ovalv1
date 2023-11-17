@@ -1,172 +1,172 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20071021",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:1021: cups security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:1021",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1021",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4352",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4352",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5392",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5392",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5393",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5393",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX(R) operating systems.\n\nAlin Rad Pop discovered several flaws in the handling of PDF files. An\nattacker could create a malicious PDF file that would cause CUPS to crash\nor potentially execute arbitrary code when printed. \n(CVE-2007-4352, CVE-2007-5392, CVE-2007-5393)\n\nAll CUPS users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-07"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4352",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4352",
-          "impact": "important",
-          "public": "20071107"
-        },
-        {
-          "text": "CVE-2007-5392",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5392",
-          "impact": "important",
-          "public": "20071107"
-        },
-        {
-          "text": "CVE-2007-5393",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5393",
-          "impact": "important",
-          "public": "20071107"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4352 xpdf memory corruption in DCTStream::readProgressiveDataUnit()",
-          "href": "https://bugzilla.redhat.com/345101",
-          "id": "345101"
-        },
-        {
-          "text": "CVE-2007-5392 xpdf buffer overflow in DCTStream::reset()",
-          "href": "https://bugzilla.redhat.com/345111",
-          "id": "345111"
-        },
-        {
-          "text": "CVE-2007-5393 xpdf buffer overflow in CCITTFaxStream::lookChar()",
-          "href": "https://bugzilla.redhat.com/345121",
-          "id": "345121"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071021001",
-                    "comment": "cups is earlier than 1:1.2.4-11.14.el5_1.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123002",
-                    "comment": "cups is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071021003",
-                    "comment": "cups-devel is earlier than 1:1.2.4-11.14.el5_1.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123004",
-                    "comment": "cups-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071021005",
-                    "comment": "cups-libs is earlier than 1:1.2.4-11.14.el5_1.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123006",
-                    "comment": "cups-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071021007",
-                    "comment": "cups-lpd is earlier than 1:1.2.4-11.14.el5_1.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123012",
-                    "comment": "cups-lpd is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20071021",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:1021: cups security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:1021",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:1021",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4352",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4352",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5392",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5392",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5393",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5393",
+				"source": "CVE"
+			}
+		],
+		"description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX(R) operating systems.\n\nAlin Rad Pop discovered several flaws in the handling of PDF files. An\nattacker could create a malicious PDF file that would cause CUPS to crash\nor potentially execute arbitrary code when printed. \n(CVE-2007-4352, CVE-2007-5392, CVE-2007-5393)\n\nAll CUPS users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-07"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4352",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4352",
+					"impact": "important",
+					"public": "20071107"
+				},
+				{
+					"text": "CVE-2007-5392",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5392",
+					"impact": "important",
+					"public": "20071107"
+				},
+				{
+					"text": "CVE-2007-5393",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5393",
+					"impact": "important",
+					"public": "20071107"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4352 xpdf memory corruption in DCTStream::readProgressiveDataUnit()",
+					"href": "https://bugzilla.redhat.com/345101",
+					"id": "345101"
+				},
+				{
+					"text": "CVE-2007-5392 xpdf buffer overflow in DCTStream::reset()",
+					"href": "https://bugzilla.redhat.com/345111",
+					"id": "345111"
+				},
+				{
+					"text": "CVE-2007-5393 xpdf buffer overflow in CCITTFaxStream::lookChar()",
+					"href": "https://bugzilla.redhat.com/345121",
+					"id": "345121"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071021001",
+										"comment": "cups is earlier than 1:1.2.4-11.14.el5_1.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123002",
+										"comment": "cups is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071021003",
+										"comment": "cups-devel is earlier than 1:1.2.4-11.14.el5_1.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123004",
+										"comment": "cups-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071021005",
+										"comment": "cups-libs is earlier than 1:1.2.4-11.14.el5_1.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123006",
+										"comment": "cups-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071021007",
+										"comment": "cups-lpd is earlier than 1:1.2.4-11.14.el5_1.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123012",
+										"comment": "cups-lpd is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

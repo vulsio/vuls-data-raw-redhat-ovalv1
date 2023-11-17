@@ -1,130 +1,130 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20111401",
-  "version": "648",
-  "metadata": {
-    "title": "RHSA-2011:1401: xen security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:1401",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1401",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-3346",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3346",
-        "source": "CVE"
-      }
-    ],
-    "description": "The xen packages contain administration tools and the xend service for\nmanaging the kernel-xen kernel for virtualization on Red Hat Enterprise\nLinux.\n\nA buffer overflow flaw was found in the Xen hypervisor SCSI subsystem\nemulation. An unprivileged, local guest user could provide a large number\nof bytes that are used to zero out a fixed-sized buffer via a SAI READ\nCAPACITY SCSI command, overwriting memory and causing the guest to crash.\n(CVE-2011-3346)\n\nThis update also fixes the following bugs:\n\n* Prior to this update, the vif-bridge script used a maximum transmission\nunit (MTU) of 1500 for a new Virtual Interface (VIF). As a result, the MTU\nof the VIF could differ from that of the target bridge. This update fixes\nthe VIF hot-plug script so that the default MTU for new VIFs will match\nthat of the target Xen hypervisor bridge. In combination with a new enough\nkernel (RHSA-2011:1386), this enables the use of jumbo frames in Xen\nhypervisor guests. (BZ#738608)\n\n* Prior to this update, the network-bridge script set the MTU of the bridge\nto 1500. As a result, the MTU of the Xen hypervisor bridge could differ\nfrom that of the physical interface. This update fixes the network script\nso the MTU of the bridge can be set higher than 1500, thus also providing\nsupport for jumbo frames. Now, the MTU of the Xen hypervisor bridge will\nmatch that of the physical interface. (BZ#738610)\n\n* Red Hat Enterprise Linux 5.6 introduced an optimized migration handling\nthat speeds up the migration of guests with large memory. However, the new\nmigration procedure can theoretically cause data corruption. While no cases\nwere observed in practice, with this update, the xend daemon properly waits\nfor correct device release before the guest is started on a destination\nmachine, thus fixing this bug. (BZ#743850)\n\nNote: Before a guest is using a new enough kernel (RHSA-2011:1386), the MTU\nof the VIF will drop back to 1500 (if it was set higher) after migration.\n\nAll xen users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing the\nupdated packages, the xend service must be restarted for this update to\ntake effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-10-24"
-      },
-      "updated": {
-        "date": "2011-10-24"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-3346",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-3346",
-          "impact": "moderate",
-          "public": "20110907",
-          "cvss_2": "4.0/AV:L/AC:H/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-3346 qemu: local DoS with SCSI CD-ROM",
-          "href": "https://bugzilla.redhat.com/736038",
-          "id": "736038"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111401001",
-                    "comment": "xen is earlier than 0:3.0.3-132.el5_7.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
-                    "comment": "xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111401003",
-                    "comment": "xen-devel is earlier than 0:3.0.3-132.el5_7.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
-                    "comment": "xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111401005",
-                    "comment": "xen-libs is earlier than 0:3.0.3-132.el5_7.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
-                    "comment": "xen-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20111401",
+	"version": "648",
+	"metadata": {
+		"title": "RHSA-2011:1401: xen security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:1401",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:1401",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-3346",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-3346",
+				"source": "CVE"
+			}
+		],
+		"description": "The xen packages contain administration tools and the xend service for\nmanaging the kernel-xen kernel for virtualization on Red Hat Enterprise\nLinux.\n\nA buffer overflow flaw was found in the Xen hypervisor SCSI subsystem\nemulation. An unprivileged, local guest user could provide a large number\nof bytes that are used to zero out a fixed-sized buffer via a SAI READ\nCAPACITY SCSI command, overwriting memory and causing the guest to crash.\n(CVE-2011-3346)\n\nThis update also fixes the following bugs:\n\n* Prior to this update, the vif-bridge script used a maximum transmission\nunit (MTU) of 1500 for a new Virtual Interface (VIF). As a result, the MTU\nof the VIF could differ from that of the target bridge. This update fixes\nthe VIF hot-plug script so that the default MTU for new VIFs will match\nthat of the target Xen hypervisor bridge. In combination with a new enough\nkernel (RHSA-2011:1386), this enables the use of jumbo frames in Xen\nhypervisor guests. (BZ#738608)\n\n* Prior to this update, the network-bridge script set the MTU of the bridge\nto 1500. As a result, the MTU of the Xen hypervisor bridge could differ\nfrom that of the physical interface. This update fixes the network script\nso the MTU of the bridge can be set higher than 1500, thus also providing\nsupport for jumbo frames. Now, the MTU of the Xen hypervisor bridge will\nmatch that of the physical interface. (BZ#738610)\n\n* Red Hat Enterprise Linux 5.6 introduced an optimized migration handling\nthat speeds up the migration of guests with large memory. However, the new\nmigration procedure can theoretically cause data corruption. While no cases\nwere observed in practice, with this update, the xend daemon properly waits\nfor correct device release before the guest is started on a destination\nmachine, thus fixing this bug. (BZ#743850)\n\nNote: Before a guest is using a new enough kernel (RHSA-2011:1386), the MTU\nof the VIF will drop back to 1500 (if it was set higher) after migration.\n\nAll xen users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing the\nupdated packages, the xend service must be restarted for this update to\ntake effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-10-24"
+			},
+			"updated": {
+				"date": "2011-10-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-3346",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-3346",
+					"impact": "moderate",
+					"public": "20110907",
+					"cvss_2": "4.0/AV:L/AC:H/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-3346 qemu: local DoS with SCSI CD-ROM",
+					"href": "https://bugzilla.redhat.com/736038",
+					"id": "736038"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111401001",
+										"comment": "xen is earlier than 0:3.0.3-132.el5_7.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+										"comment": "xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111401003",
+										"comment": "xen-devel is earlier than 0:3.0.3-132.el5_7.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+										"comment": "xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111401005",
+										"comment": "xen-libs is earlier than 0:3.0.3-132.el5_7.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+										"comment": "xen-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

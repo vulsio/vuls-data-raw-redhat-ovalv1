@@ -1,192 +1,192 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100720",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2010:0720: mikmod security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0720",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0720",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-6720",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6720",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3995",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3995",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3996",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3996",
-        "source": "CVE"
-      }
-    ],
-    "description": "MikMod is a MOD music file player for Linux, UNIX, and similar operating\nsystems. It supports various file formats including MOD, STM, S3M, MTM, XM,\nULT, and IT.\n\nMultiple input validation flaws, resulting in buffer overflows, were\ndiscovered in MikMod. Specially-crafted music files in various formats\ncould, when played, cause an application using the MikMod library to crash\nor, potentially, execute arbitrary code. (CVE-2009-3995, CVE-2009-3996,\nCVE-2007-6720)\n\nAll MikMod users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. All running applications using\nthe MikMod library must be restarted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-09-28"
-      },
-      "updated": {
-        "date": "2010-09-28"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-6720",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6720",
-          "impact": "low",
-          "public": "20080119",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-3995",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3995",
-          "impact": "moderate",
-          "public": "20100205",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3996",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3996",
-          "impact": "moderate",
-          "public": "20100205",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-6720 mikmod: crash or abort when loading/playing multiple files with different number of channels",
-          "href": "https://bugzilla.redhat.com/479829",
-          "id": "479829"
-        },
-        {
-          "text": "CVE-2009-3995 CVE-2009-3996 libmikmod: arbitrary code execution via crafted Impulse Tracker or Ultratracker files",
-          "href": "https://bugzilla.redhat.com/614643",
-          "id": "614643"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100720001",
-                    "comment": "mikmod is earlier than 0:3.1.6-33.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100720002",
-                    "comment": "mikmod is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100720003",
-                    "comment": "mikmod-devel is earlier than 0:3.1.6-33.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100720004",
-                    "comment": "mikmod-devel is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100720006",
-                    "comment": "mikmod is earlier than 0:3.1.6-39.el5_5.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100720007",
-                    "comment": "mikmod is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100720008",
-                    "comment": "mikmod-devel is earlier than 0:3.1.6-39.el5_5.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100720009",
-                    "comment": "mikmod-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100720",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2010:0720: mikmod security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0720",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0720",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-6720",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6720",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3995",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3995",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3996",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3996",
+				"source": "CVE"
+			}
+		],
+		"description": "MikMod is a MOD music file player for Linux, UNIX, and similar operating\nsystems. It supports various file formats including MOD, STM, S3M, MTM, XM,\nULT, and IT.\n\nMultiple input validation flaws, resulting in buffer overflows, were\ndiscovered in MikMod. Specially-crafted music files in various formats\ncould, when played, cause an application using the MikMod library to crash\nor, potentially, execute arbitrary code. (CVE-2009-3995, CVE-2009-3996,\nCVE-2007-6720)\n\nAll MikMod users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. All running applications using\nthe MikMod library must be restarted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-09-28"
+			},
+			"updated": {
+				"date": "2010-09-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-6720",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6720",
+					"impact": "low",
+					"public": "20080119",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-3995",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3995",
+					"impact": "moderate",
+					"public": "20100205",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3996",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3996",
+					"impact": "moderate",
+					"public": "20100205",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-6720 mikmod: crash or abort when loading/playing multiple files with different number of channels",
+					"href": "https://bugzilla.redhat.com/479829",
+					"id": "479829"
+				},
+				{
+					"text": "CVE-2009-3995 CVE-2009-3996 libmikmod: arbitrary code execution via crafted Impulse Tracker or Ultratracker files",
+					"href": "https://bugzilla.redhat.com/614643",
+					"id": "614643"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100720001",
+										"comment": "mikmod is earlier than 0:3.1.6-33.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100720002",
+										"comment": "mikmod is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100720003",
+										"comment": "mikmod-devel is earlier than 0:3.1.6-33.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100720004",
+										"comment": "mikmod-devel is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100720006",
+										"comment": "mikmod is earlier than 0:3.1.6-39.el5_5.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100720007",
+										"comment": "mikmod is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100720008",
+										"comment": "mikmod-devel is earlier than 0:3.1.6-39.el5_5.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100720009",
+										"comment": "mikmod-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,293 +1,293 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20131292",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2013:1292: kernel security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2013:1292",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2013:1292",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-3511",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-3511",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2013-2141",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-2141",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2013-4162",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4162",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* A use-after-free flaw was found in the madvise() system call\nimplementation in the Linux kernel. A local, unprivileged user could use\nthis flaw to cause a denial of service or, potentially, escalate their\nprivileges. (CVE-2012-3511, Moderate)\n\n* A flaw was found in the way the Linux kernel's TCP/IP protocol suite\nimplementation handled IPv6 sockets that used the UDP_CORK option. A local,\nunprivileged user could use this flaw to cause a denial of service.\n(CVE-2013-4162, Moderate)\n\n* An information leak flaw in the Linux kernel could allow a local,\nunprivileged user to leak kernel memory to user-space. (CVE-2013-2141, Low)\n\nRed Hat would like to thank Hannes Frederic Sowa for reporting\nCVE-2013-4162.\n\nThis update also fixes the following bugs:\n\n* A bug in the be2net driver prevented communication between NICs using\nbe2net. This update applies a patch addressing this problem along with\nseveral other upstream patches that fix various other problems. Traffic\nbetween NICs using the be2net driver now proceeds as expected. (BZ#983864)\n\n* A recent patch fixing a problem that prevented communication between\nNICs using the be2net driver caused the firmware of NICs to become\nunresponsive, and thus triggered a kernel panic. The problem was caused by\nunnecessary usage of a hardware workaround that allows skipping VLAN tag\ninsertion. A patch has been applied and the workaround is now used only\nwhen the multi-channel configuration is enabled on the NIC. Note that the\nbug only affected the NICs with firmware version 4.2.xxxx. (BZ#999819)\n\n* A bug in the autofs4 mount expiration code could cause the autofs4\nmodule to falsely report a busy tree of NFS mounts as \"not in use\".\nConsequently, automount attempted to unmount the tree and failed with\na \"failed to umount offset\" error, leaving the mount tree to appear as\nempty directories. A patch has been applied to remove an incorrectly used\nautofs dentry mount check and the aforementioned problem no longer occurs.\n(BZ#1001488)\n\n* A race condition in the be_open function in the be2net driver could\ntrigger the BUG_ON() macro, which resulted in a kernel panic. A patch\naddressing this problem has been applied and the race condition is now\navoided by enabling polling before enabling interrupts globally. The\nkernel no longer panics in this situation. (BZ#1005239)\n\nAll kernel users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The system must be\nrebooted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-09-26"
-      },
-      "updated": {
-        "date": "2013-09-26"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-3511",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-3511",
-          "impact": "moderate",
-          "public": "20120706",
-          "cwe": "CWE-416",
-          "cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2013-2141",
-          "href": "https://access.redhat.com/security/cve/CVE-2013-2141",
-          "impact": "low",
-          "public": "20130417",
-          "cwe": "CWE-200",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2013-4162",
-          "href": "https://access.redhat.com/security/cve/CVE-2013-4162",
-          "impact": "moderate",
-          "public": "20130701",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-3511 kernel: mm: use-after-free in madvise_remove()",
-          "href": "https://bugzilla.redhat.com/849734",
-          "id": "849734"
-        },
-        {
-          "text": "CVE-2013-2141 Kernel: signal: information leak in tkill/tgkill",
-          "href": "https://bugzilla.redhat.com/970873",
-          "id": "970873"
-        },
-        {
-          "text": "CVE-2013-4162 Kernel: net: panic while pushing pending data out of a IPv6 socket with UDP_CORK enabled",
-          "href": "https://bugzilla.redhat.com/987627",
-          "id": "987627"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20131292025",
-                "comment": "kernel earlier than 0:2.6.18-348.18.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20131292026",
-                "comment": "kernel earlier than 0:2.6.18-348.18.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292001",
-                    "comment": "kernel is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20131292023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-348.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20131292",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2013:1292: kernel security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2013:1292",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2013:1292",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-3511",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-3511",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2013-2141",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2013-2141",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2013-4162",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2013-4162",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* A use-after-free flaw was found in the madvise() system call\nimplementation in the Linux kernel. A local, unprivileged user could use\nthis flaw to cause a denial of service or, potentially, escalate their\nprivileges. (CVE-2012-3511, Moderate)\n\n* A flaw was found in the way the Linux kernel's TCP/IP protocol suite\nimplementation handled IPv6 sockets that used the UDP_CORK option. A local,\nunprivileged user could use this flaw to cause a denial of service.\n(CVE-2013-4162, Moderate)\n\n* An information leak flaw in the Linux kernel could allow a local,\nunprivileged user to leak kernel memory to user-space. (CVE-2013-2141, Low)\n\nRed Hat would like to thank Hannes Frederic Sowa for reporting\nCVE-2013-4162.\n\nThis update also fixes the following bugs:\n\n* A bug in the be2net driver prevented communication between NICs using\nbe2net. This update applies a patch addressing this problem along with\nseveral other upstream patches that fix various other problems. Traffic\nbetween NICs using the be2net driver now proceeds as expected. (BZ#983864)\n\n* A recent patch fixing a problem that prevented communication between\nNICs using the be2net driver caused the firmware of NICs to become\nunresponsive, and thus triggered a kernel panic. The problem was caused by\nunnecessary usage of a hardware workaround that allows skipping VLAN tag\ninsertion. A patch has been applied and the workaround is now used only\nwhen the multi-channel configuration is enabled on the NIC. Note that the\nbug only affected the NICs with firmware version 4.2.xxxx. (BZ#999819)\n\n* A bug in the autofs4 mount expiration code could cause the autofs4\nmodule to falsely report a busy tree of NFS mounts as \"not in use\".\nConsequently, automount attempted to unmount the tree and failed with\na \"failed to umount offset\" error, leaving the mount tree to appear as\nempty directories. A patch has been applied to remove an incorrectly used\nautofs dentry mount check and the aforementioned problem no longer occurs.\n(BZ#1001488)\n\n* A race condition in the be_open function in the be2net driver could\ntrigger the BUG_ON() macro, which resulted in a kernel panic. A patch\naddressing this problem has been applied and the race condition is now\navoided by enabling polling before enabling interrupts globally. The\nkernel no longer panics in this situation. (BZ#1005239)\n\nAll kernel users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. The system must be\nrebooted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-09-26"
+			},
+			"updated": {
+				"date": "2013-09-26"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-3511",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-3511",
+					"impact": "moderate",
+					"public": "20120706",
+					"cwe": "CWE-416",
+					"cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2013-2141",
+					"href": "https://access.redhat.com/security/cve/CVE-2013-2141",
+					"impact": "low",
+					"public": "20130417",
+					"cwe": "CWE-200",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2013-4162",
+					"href": "https://access.redhat.com/security/cve/CVE-2013-4162",
+					"impact": "moderate",
+					"public": "20130701",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-3511 kernel: mm: use-after-free in madvise_remove()",
+					"href": "https://bugzilla.redhat.com/849734",
+					"id": "849734"
+				},
+				{
+					"text": "CVE-2013-2141 Kernel: signal: information leak in tkill/tgkill",
+					"href": "https://bugzilla.redhat.com/970873",
+					"id": "970873"
+				},
+				{
+					"text": "CVE-2013-4162 Kernel: net: panic while pushing pending data out of a IPv6 socket with UDP_CORK enabled",
+					"href": "https://bugzilla.redhat.com/987627",
+					"id": "987627"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20131292025",
+								"comment": "kernel earlier than 0:2.6.18-348.18.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20131292026",
+								"comment": "kernel earlier than 0:2.6.18-348.18.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292001",
+										"comment": "kernel is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20131292023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-348.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

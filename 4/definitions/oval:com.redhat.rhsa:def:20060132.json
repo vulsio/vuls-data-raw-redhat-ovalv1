@@ -1,219 +1,219 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060132",
-  "version": "664",
-  "metadata": {
-    "title": "RHSA-2006:0132: Updated kernel packages available for Red Hat Enterprise Linux 4 Update 3 (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0132",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0132",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-0095",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0095",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Linux kernel handles the basic functions of the operating system.\n\nThis is the third regular kernel update to Red Hat Enterprise Linux 4.\n\nNew features introduced in this update include:\n\n- Open InfiniBand (OpenIB) support\n\n- Serial Attached SCSI support\n\n- NFS access control lists, asynchronous I/O\n\n- IA64 multi-core support and sgi updates \n\n- Large SMP CPU limits increased using the largesmp kernel: Up to 512 CPUs\n  in ia64, 128 in ppc64, and 64 in AMD64 and Intel EM64T\n\n- Improved read-ahead performance\n\n- Common Internet File System (CIFS) update\n\n- Error Detection and Correction (EDAC) modules\n\n- Unisys support\n\nThere were several bug fixes in various parts of the kernel. The ongoing\neffort to resolve these problems has resulted in a marked improvement\nin the reliability and scalability of Red Hat Enterprise Linux 4. \n\nThe following security bug was fixed in this update:\n\n- dm-crypt did not clear a structure before freeing it, which could allow\nlocal users to discover information about cryptographic keys (CVE-2006-0095)\n\nThe following device drivers have been upgraded to new versions:\n\ncciss: 2.6.8 to 2.6.8-rh1\nipmi_devintf: 33.4 to 33.11\nipmi_msghandler: 33.4 to 33.11\nipmi_poweroff: 33.4 to 33.11\nipmi_si: 33.4 to 33.11\nipmi_watchdog: 33.4 to 33.11\nmptbase: 3.02.18 to 3.02.60.01rh\ne1000: 6.0.54-k2-NAPI to 6.1.16-k2-NAPI\nixgb: 1.0.95-k2-NAPI to 1.0.100-k2-NAPI\ntg3: 3.27-rh to 3.43-rh\naacraid: 1.1.2-lk2 to 1.1-5[2412]\nahci: 1.01 to 1.2\nata_piix: 1.03 to 1.05\niscsi_sfnet: 4:0.1.11-1 to 4:0.1.11-2\nlibata: 1.11 to 1.20\nqla2100: 8.01.00b5-rh2 to 8.01.02-d3\nqla2200: 8.01.00b5-rh2 to 8.01.02-d3\nqla2300: 8.01.00b5-rh2 to 8.01.02-d3\nqla2322: 8.01.00b5-rh2 to 8.01.02-d3\nqla2xxx: 8.01.00b5-rh2 to 8.01.02-d3\nqla6312: 8.01.00b5-rh2 to 8.01.02-d3\nsata_nv: 0.6 to 0.8\nsata_promise: 1.01 to 1.03\nsata_svw: 1.06 to 1.07\nsata_sx4: 0.7 to 0.8\nsata_vsc: 1.0 to 1.1\ncifs: 1.20 to 1.34\n\nAdded drivers:\n\nbnx2: 1.4.25\ndell_rbu: 0.7\nhangcheck-timer: 0.9.0\nib_mthca: 0.06\nmegaraid_sas: 00.00.02.00\nqla2400: 8.01.02-d3\ntyphoon: 1.5.7\n\nAll Red Hat Enterprise Linux 4 users are advised to upgrade their\nkernels to the packages associated with their machine architectures\nand configurations as listed in this erratum.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-03-07"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-0095",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-0095",
-          "impact": "moderate",
-          "public": "20060104"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-0095 security flaw",
-          "href": "https://bugzilla.redhat.com/1617874",
-          "id": "1617874"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20060132019",
-                "comment": "kernel earlier than 0:2.6.9-34.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20060132020",
-                "comment": "kernel earlier than 0:2.6.9-34.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132001",
-                    "comment": "kernel is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060132017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-34.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060132",
+	"version": "664",
+	"metadata": {
+		"title": "RHSA-2006:0132: Updated kernel packages available for Red Hat Enterprise Linux 4 Update 3 (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0132",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0132",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-0095",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-0095",
+				"source": "CVE"
+			}
+		],
+		"description": "The Linux kernel handles the basic functions of the operating system.\n\nThis is the third regular kernel update to Red Hat Enterprise Linux 4.\n\nNew features introduced in this update include:\n\n- Open InfiniBand (OpenIB) support\n\n- Serial Attached SCSI support\n\n- NFS access control lists, asynchronous I/O\n\n- IA64 multi-core support and sgi updates \n\n- Large SMP CPU limits increased using the largesmp kernel: Up to 512 CPUs\n  in ia64, 128 in ppc64, and 64 in AMD64 and Intel EM64T\n\n- Improved read-ahead performance\n\n- Common Internet File System (CIFS) update\n\n- Error Detection and Correction (EDAC) modules\n\n- Unisys support\n\nThere were several bug fixes in various parts of the kernel. The ongoing\neffort to resolve these problems has resulted in a marked improvement\nin the reliability and scalability of Red Hat Enterprise Linux 4. \n\nThe following security bug was fixed in this update:\n\n- dm-crypt did not clear a structure before freeing it, which could allow\nlocal users to discover information about cryptographic keys (CVE-2006-0095)\n\nThe following device drivers have been upgraded to new versions:\n\ncciss: 2.6.8 to 2.6.8-rh1\nipmi_devintf: 33.4 to 33.11\nipmi_msghandler: 33.4 to 33.11\nipmi_poweroff: 33.4 to 33.11\nipmi_si: 33.4 to 33.11\nipmi_watchdog: 33.4 to 33.11\nmptbase: 3.02.18 to 3.02.60.01rh\ne1000: 6.0.54-k2-NAPI to 6.1.16-k2-NAPI\nixgb: 1.0.95-k2-NAPI to 1.0.100-k2-NAPI\ntg3: 3.27-rh to 3.43-rh\naacraid: 1.1.2-lk2 to 1.1-5[2412]\nahci: 1.01 to 1.2\nata_piix: 1.03 to 1.05\niscsi_sfnet: 4:0.1.11-1 to 4:0.1.11-2\nlibata: 1.11 to 1.20\nqla2100: 8.01.00b5-rh2 to 8.01.02-d3\nqla2200: 8.01.00b5-rh2 to 8.01.02-d3\nqla2300: 8.01.00b5-rh2 to 8.01.02-d3\nqla2322: 8.01.00b5-rh2 to 8.01.02-d3\nqla2xxx: 8.01.00b5-rh2 to 8.01.02-d3\nqla6312: 8.01.00b5-rh2 to 8.01.02-d3\nsata_nv: 0.6 to 0.8\nsata_promise: 1.01 to 1.03\nsata_svw: 1.06 to 1.07\nsata_sx4: 0.7 to 0.8\nsata_vsc: 1.0 to 1.1\ncifs: 1.20 to 1.34\n\nAdded drivers:\n\nbnx2: 1.4.25\ndell_rbu: 0.7\nhangcheck-timer: 0.9.0\nib_mthca: 0.06\nmegaraid_sas: 00.00.02.00\nqla2400: 8.01.02-d3\ntyphoon: 1.5.7\n\nAll Red Hat Enterprise Linux 4 users are advised to upgrade their\nkernels to the packages associated with their machine architectures\nand configurations as listed in this erratum.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-03-07"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-0095",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-0095",
+					"impact": "moderate",
+					"public": "20060104"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-0095 security flaw",
+					"href": "https://bugzilla.redhat.com/1617874",
+					"id": "1617874"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20060132019",
+								"comment": "kernel earlier than 0:2.6.9-34.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20060132020",
+								"comment": "kernel earlier than 0:2.6.9-34.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132001",
+										"comment": "kernel is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060132017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-34.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

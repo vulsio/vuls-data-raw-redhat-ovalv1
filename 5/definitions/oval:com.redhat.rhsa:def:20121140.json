@@ -1,154 +1,154 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20121140",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2012:1140: dhcp security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:1140",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:1140",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-3571",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-3571",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Dynamic Host Configuration Protocol (DHCP) is a protocol that allows\nindividual devices on an IP network to get their own network configuration\ninformation, including an IP address, a subnet mask, and a broadcast\naddress.\n\nA denial of service flaw was found in the way the dhcpd daemon handled\nzero-length client identifiers. A remote attacker could use this flaw to\nsend a specially-crafted request to dhcpd, possibly causing it to enter an\ninfinite loop and consume an excessive amount of CPU time. (CVE-2012-3571)\n\nUpstream acknowledges Markus Hietava of the Codenomicon CROSS project as\nthe original reporter of this issue.\n\nUsers of DHCP should upgrade to these updated packages, which contain a\nbackported patch to correct this issue. After installing this update, all\nDHCP servers will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-08-03"
-      },
-      "updated": {
-        "date": "2012-08-03"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-3571",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-3571",
-          "impact": "moderate",
-          "public": "20120724",
-          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-3571 dhcp: DoS due to error in handling malformed client identifiers",
-          "href": "https://bugzilla.redhat.com/842420",
-          "id": "842420"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121140001",
-                    "comment": "dhclient is earlier than 12:3.0.5-31.el5_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110428002",
-                    "comment": "dhclient is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121140003",
-                    "comment": "dhcp is earlier than 12:3.0.5-31.el5_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110428004",
-                    "comment": "dhcp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121140005",
-                    "comment": "dhcp-devel is earlier than 12:3.0.5-31.el5_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110428006",
-                    "comment": "dhcp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121140007",
-                    "comment": "libdhcp4client is earlier than 12:3.0.5-31.el5_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110428016",
-                    "comment": "libdhcp4client is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121140009",
-                    "comment": "libdhcp4client-devel is earlier than 12:3.0.5-31.el5_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110428018",
-                    "comment": "libdhcp4client-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20121140",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2012:1140: dhcp security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:1140",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:1140",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-3571",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-3571",
+				"source": "CVE"
+			}
+		],
+		"description": "The Dynamic Host Configuration Protocol (DHCP) is a protocol that allows\nindividual devices on an IP network to get their own network configuration\ninformation, including an IP address, a subnet mask, and a broadcast\naddress.\n\nA denial of service flaw was found in the way the dhcpd daemon handled\nzero-length client identifiers. A remote attacker could use this flaw to\nsend a specially-crafted request to dhcpd, possibly causing it to enter an\ninfinite loop and consume an excessive amount of CPU time. (CVE-2012-3571)\n\nUpstream acknowledges Markus Hietava of the Codenomicon CROSS project as\nthe original reporter of this issue.\n\nUsers of DHCP should upgrade to these updated packages, which contain a\nbackported patch to correct this issue. After installing this update, all\nDHCP servers will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-08-03"
+			},
+			"updated": {
+				"date": "2012-08-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-3571",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-3571",
+					"impact": "moderate",
+					"public": "20120724",
+					"cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-3571 dhcp: DoS due to error in handling malformed client identifiers",
+					"href": "https://bugzilla.redhat.com/842420",
+					"id": "842420"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121140001",
+										"comment": "dhclient is earlier than 12:3.0.5-31.el5_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110428002",
+										"comment": "dhclient is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121140003",
+										"comment": "dhcp is earlier than 12:3.0.5-31.el5_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110428004",
+										"comment": "dhcp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121140005",
+										"comment": "dhcp-devel is earlier than 12:3.0.5-31.el5_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110428006",
+										"comment": "dhcp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121140007",
+										"comment": "libdhcp4client is earlier than 12:3.0.5-31.el5_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110428016",
+										"comment": "libdhcp4client is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121140009",
+										"comment": "libdhcp4client-devel is earlier than 12:3.0.5-31.el5_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110428018",
+										"comment": "libdhcp4client-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

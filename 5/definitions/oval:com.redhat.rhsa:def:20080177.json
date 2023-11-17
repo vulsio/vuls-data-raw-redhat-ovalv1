@@ -1,189 +1,189 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080177",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2008:0177: evolution security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0177",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0177",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-0072",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0072",
-        "source": "CVE"
-      }
-    ],
-    "description": "Evolution is the GNOME collection of personal information management (PIM)\ntools.\n\nA format string flaw was found in the way Evolution displayed encrypted\nmail content. If a user opened a carefully crafted mail message, arbitrary\ncode could be executed as the user running Evolution. (CVE-2008-0072)\n\nAll users of Evolution should upgrade to these updated packages, which\ncontain a backported patch which resolves this issue.\n\nRed Hat would like to thank Ulf Härnhammar of Secunia Research for finding\nand reporting this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-03-05"
-      },
-      "updated": {
-        "date": "2008-03-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-0072",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0072",
-          "impact": "critical",
-          "public": "20080305",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-0072 Evolution format string flaw",
-          "href": "https://bugzilla.redhat.com/435759",
-          "id": "435759"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_productivity:5",
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080177001",
-                    "comment": "evolution is earlier than 0:2.0.2-35.0.4.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070158002",
-                    "comment": "evolution is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080177003",
-                    "comment": "evolution-devel is earlier than 0:2.0.2-35.0.4.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070158004",
-                    "comment": "evolution-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080177005",
-                    "comment": "evolution28 is earlier than 0:2.8.0-53.el4_6.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080177006",
-                    "comment": "evolution28 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080177007",
-                    "comment": "evolution28-devel is earlier than 0:2.8.0-53.el4_6.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080177008",
-                    "comment": "evolution28-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080177010",
-                    "comment": "evolution is earlier than 0:2.8.0-40.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070158002",
-                    "comment": "evolution is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080177011",
-                    "comment": "evolution-devel is earlier than 0:2.8.0-40.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070158004",
-                    "comment": "evolution-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080177",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2008:0177: evolution security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0177",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0177",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-0072",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0072",
+				"source": "CVE"
+			}
+		],
+		"description": "Evolution is the GNOME collection of personal information management (PIM)\ntools.\n\nA format string flaw was found in the way Evolution displayed encrypted\nmail content. If a user opened a carefully crafted mail message, arbitrary\ncode could be executed as the user running Evolution. (CVE-2008-0072)\n\nAll users of Evolution should upgrade to these updated packages, which\ncontain a backported patch which resolves this issue.\n\nRed Hat would like to thank Ulf Härnhammar of Secunia Research for finding\nand reporting this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-03-05"
+			},
+			"updated": {
+				"date": "2008-03-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-0072",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0072",
+					"impact": "critical",
+					"public": "20080305",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-0072 Evolution format string flaw",
+					"href": "https://bugzilla.redhat.com/435759",
+					"id": "435759"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_productivity:5",
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080177001",
+										"comment": "evolution is earlier than 0:2.0.2-35.0.4.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070158002",
+										"comment": "evolution is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080177003",
+										"comment": "evolution-devel is earlier than 0:2.0.2-35.0.4.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070158004",
+										"comment": "evolution-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080177005",
+										"comment": "evolution28 is earlier than 0:2.8.0-53.el4_6.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080177006",
+										"comment": "evolution28 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080177007",
+										"comment": "evolution28-devel is earlier than 0:2.8.0-53.el4_6.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080177008",
+										"comment": "evolution28-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080177010",
+										"comment": "evolution is earlier than 0:2.8.0-40.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070158002",
+										"comment": "evolution is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080177011",
+										"comment": "evolution-devel is earlier than 0:2.8.0-40.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070158004",
+										"comment": "evolution-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

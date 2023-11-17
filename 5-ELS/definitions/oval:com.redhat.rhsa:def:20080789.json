@@ -1,88 +1,88 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080789",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2008:0789: dnsmasq security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0789",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0789",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1447",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1447",
-        "source": "CVE"
-      }
-    ],
-    "description": "Dnsmasq is lightweight DNS forwarder and DHCP server. It is designed to\nprovide DNS and, optionally, DHCP, to a small network.\n\nThe dnsmasq DNS resolver used a fixed source UDP port. This could have made\nDNS spoofing attacks easier. dnsmasq has been updated to use random UDP\nsource ports, helping to make DNS spoofing attacks harder. (CVE-2008-1447)\n\nAll dnsmasq users are advised to upgrade to this updated package, that\nupgrades dnsmasq to version 2.45, which resolves this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-08-11"
-      },
-      "updated": {
-        "date": "2008-08-11"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1447",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1447",
-          "impact": "important",
-          "public": "20080708:1800"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1447 bind: implement source UDP port randomization (CERT VU#800113)",
-          "href": "https://bugzilla.redhat.com/449345",
-          "id": "449345"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080789001",
-            "comment": "dnsmasq is earlier than 0:2.45-1.el5_2.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080789002",
-            "comment": "dnsmasq is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080789",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2008:0789: dnsmasq security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0789",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0789",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1447",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1447",
+				"source": "CVE"
+			}
+		],
+		"description": "Dnsmasq is lightweight DNS forwarder and DHCP server. It is designed to\nprovide DNS and, optionally, DHCP, to a small network.\n\nThe dnsmasq DNS resolver used a fixed source UDP port. This could have made\nDNS spoofing attacks easier. dnsmasq has been updated to use random UDP\nsource ports, helping to make DNS spoofing attacks harder. (CVE-2008-1447)\n\nAll dnsmasq users are advised to upgrade to this updated package, that\nupgrades dnsmasq to version 2.45, which resolves this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-08-11"
+			},
+			"updated": {
+				"date": "2008-08-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1447",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1447",
+					"impact": "important",
+					"public": "20080708:1800"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1447 bind: implement source UDP port randomization (CERT VU#800113)",
+					"href": "https://bugzilla.redhat.com/449345",
+					"id": "449345"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080789001",
+						"comment": "dnsmasq is earlier than 0:2.45-1.el5_2.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080789002",
+						"comment": "dnsmasq is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,189 +1,189 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070992",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0992: libpng security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0992",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0992",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5269",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5269",
-        "source": "CVE"
-      }
-    ],
-    "description": "The libpng package contains a library of functions for creating and\nmanipulating PNG (Portable Network Graphics) image format files.\n\nSeveral flaws were discovered in the way libpng handled various PNG image\nchunks.  An attacker could create a carefully crafted PNG image file in\nsuch a way that it could cause an application linked with libpng to crash\nwhen the file was manipulated. (CVE-2007-5269)\n\nUsers should update to these updated packages which contain a backported\npatch to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-10-23"
-      },
-      "updated": {
-        "date": "2007-10-23"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5269",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5269",
-          "impact": "moderate",
-          "public": "20070911",
-          "cwe": "CWE-125"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5269 libpng DoS via multiple out-of-bounds reads",
-          "href": "https://bugzilla.redhat.com/324771",
-          "id": "324771"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070992001",
-                    "comment": "libpng is earlier than 2:1.2.7-3.el4_5.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060205002",
-                    "comment": "libpng is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070992003",
-                    "comment": "libpng-devel is earlier than 2:1.2.7-3.el4_5.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060205004",
-                    "comment": "libpng-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070992005",
-                    "comment": "libpng10 is earlier than 0:1.0.16-3.el4_5.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070356006",
-                    "comment": "libpng10 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070992007",
-                    "comment": "libpng10-devel is earlier than 0:1.0.16-3.el4_5.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070356008",
-                    "comment": "libpng10-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070992010",
-                    "comment": "libpng is earlier than 2:1.2.10-7.1.el5_0.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060205002",
-                    "comment": "libpng is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070992011",
-                    "comment": "libpng-devel is earlier than 2:1.2.10-7.1.el5_0.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060205004",
-                    "comment": "libpng-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070992",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0992: libpng security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0992",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0992",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5269",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5269",
+				"source": "CVE"
+			}
+		],
+		"description": "The libpng package contains a library of functions for creating and\nmanipulating PNG (Portable Network Graphics) image format files.\n\nSeveral flaws were discovered in the way libpng handled various PNG image\nchunks.  An attacker could create a carefully crafted PNG image file in\nsuch a way that it could cause an application linked with libpng to crash\nwhen the file was manipulated. (CVE-2007-5269)\n\nUsers should update to these updated packages which contain a backported\npatch to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-10-23"
+			},
+			"updated": {
+				"date": "2007-10-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5269",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5269",
+					"impact": "moderate",
+					"public": "20070911",
+					"cwe": "CWE-125"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5269 libpng DoS via multiple out-of-bounds reads",
+					"href": "https://bugzilla.redhat.com/324771",
+					"id": "324771"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070992001",
+										"comment": "libpng is earlier than 2:1.2.7-3.el4_5.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060205002",
+										"comment": "libpng is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070992003",
+										"comment": "libpng-devel is earlier than 2:1.2.7-3.el4_5.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060205004",
+										"comment": "libpng-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070992005",
+										"comment": "libpng10 is earlier than 0:1.0.16-3.el4_5.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070356006",
+										"comment": "libpng10 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070992007",
+										"comment": "libpng10-devel is earlier than 0:1.0.16-3.el4_5.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070356008",
+										"comment": "libpng10-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070992010",
+										"comment": "libpng is earlier than 2:1.2.10-7.1.el5_0.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060205002",
+										"comment": "libpng is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070992011",
+										"comment": "libpng-devel is earlier than 2:1.2.10-7.1.el5_0.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060205004",
+										"comment": "libpng-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

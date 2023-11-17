@@ -1,176 +1,176 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080003",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2008:0003: e2fsprogs security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0003",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0003",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5497",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5497",
-        "source": "CVE"
-      }
-    ],
-    "description": "The e2fsprogs packages contain a number of utilities for creating,\nchecking, modifying, and correcting any inconsistencies in second and third\nextended (ext2/ext3) file systems.\n\nMultiple integer overflow flaws were found in the way e2fsprogs processes\nfile system content. If a victim opens a carefully crafted file system with\na program using e2fsprogs, it may be possible to execute arbitrary code\nwith the permissions of the victim. It may be possible to leverage this\nflaw in a virtualized environment to gain access to other virtualized\nhosts. (CVE-2007-5497)\n\nRed Hat would like to thank Rafal Wojtczuk of McAfee Avert Research for\nresponsibly disclosing these issues.\n\nUsers of e2fsprogs are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-01-07"
-      },
-      "updated": {
-        "date": "2008-01-28"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5497",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5497",
-          "impact": "moderate",
-          "public": "20071205",
-          "cwe": "CWE-190"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5497 e2fsprogs multiple integer overflows",
-          "href": "https://bugzilla.redhat.com/403441",
-          "id": "403441"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003001",
-                    "comment": "e2fsprogs is earlier than 0:1.35-12.11.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003002",
-                    "comment": "e2fsprogs is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003003",
-                    "comment": "e2fsprogs-devel is earlier than 0:1.35-12.11.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003004",
-                    "comment": "e2fsprogs-devel is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003006",
-                    "comment": "e2fsprogs is earlier than 0:1.39-10.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003007",
-                    "comment": "e2fsprogs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003008",
-                    "comment": "e2fsprogs-devel is earlier than 0:1.39-10.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003009",
-                    "comment": "e2fsprogs-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003010",
-                    "comment": "e2fsprogs-libs is earlier than 0:1.39-10.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080003011",
-                    "comment": "e2fsprogs-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080003",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2008:0003: e2fsprogs security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0003",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0003",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5497",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5497",
+				"source": "CVE"
+			}
+		],
+		"description": "The e2fsprogs packages contain a number of utilities for creating,\nchecking, modifying, and correcting any inconsistencies in second and third\nextended (ext2/ext3) file systems.\n\nMultiple integer overflow flaws were found in the way e2fsprogs processes\nfile system content. If a victim opens a carefully crafted file system with\na program using e2fsprogs, it may be possible to execute arbitrary code\nwith the permissions of the victim. It may be possible to leverage this\nflaw in a virtualized environment to gain access to other virtualized\nhosts. (CVE-2007-5497)\n\nRed Hat would like to thank Rafal Wojtczuk of McAfee Avert Research for\nresponsibly disclosing these issues.\n\nUsers of e2fsprogs are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-01-07"
+			},
+			"updated": {
+				"date": "2008-01-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5497",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5497",
+					"impact": "moderate",
+					"public": "20071205",
+					"cwe": "CWE-190"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5497 e2fsprogs multiple integer overflows",
+					"href": "https://bugzilla.redhat.com/403441",
+					"id": "403441"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003001",
+										"comment": "e2fsprogs is earlier than 0:1.35-12.11.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003002",
+										"comment": "e2fsprogs is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003003",
+										"comment": "e2fsprogs-devel is earlier than 0:1.35-12.11.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003004",
+										"comment": "e2fsprogs-devel is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003006",
+										"comment": "e2fsprogs is earlier than 0:1.39-10.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003007",
+										"comment": "e2fsprogs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003008",
+										"comment": "e2fsprogs-devel is earlier than 0:1.39-10.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003009",
+										"comment": "e2fsprogs-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003010",
+										"comment": "e2fsprogs-libs is earlier than 0:1.39-10.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080003011",
+										"comment": "e2fsprogs-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

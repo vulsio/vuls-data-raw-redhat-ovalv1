@@ -1,138 +1,138 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060177",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2006:0177: gpdf security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0177",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0177",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-3624",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3624",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2005-3625",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3625",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2005-3626",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3626",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2005-3627",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3627",
-        "source": "CVE"
-      }
-    ],
-    "description": "gpdf is a GNOME based viewer for Portable Document Format (PDF) files.\n\nChris Evans discovered several flaws in the way gpdf processes PDF files.\nAn attacker could construct a carefully crafted PDF file that could cause\ngpdf to crash or possibly execute arbitrary code when opened. The Common\nVulnerabilities and Exposures project assigned the names CVE-2005-3624,\nCVE-2005-3625, CVE-2005-3626, and CVE-2005-3627 to these issues.\n\nUsers of gpdf should upgrade to this updated package, which contains a\nbackported patch to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-01-11"
-      },
-      "updated": {
-        "date": "2006-01-11"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-3624",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-3624",
-          "impact": "important",
-          "public": "20060103"
-        },
-        {
-          "text": "CVE-2005-3625",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-3625",
-          "impact": "important",
-          "public": "20060103"
-        },
-        {
-          "text": "CVE-2005-3626",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-3626",
-          "impact": "important",
-          "public": "20060103"
-        },
-        {
-          "text": "CVE-2005-3627",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-3627",
-          "impact": "important",
-          "public": "20060103"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2005-3624 security flaw",
-          "href": "https://bugzilla.redhat.com/1617826",
-          "id": "1617826"
-        },
-        {
-          "text": "CVE-2005-3625 security flaw",
-          "href": "https://bugzilla.redhat.com/1617827",
-          "id": "1617827"
-        },
-        {
-          "text": "CVE-2005-3626 security flaw",
-          "href": "https://bugzilla.redhat.com/1617828",
-          "id": "1617828"
-        },
-        {
-          "text": "CVE-2005-3627 security flaw",
-          "href": "https://bugzilla.redhat.com/1617829",
-          "id": "1617829"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060177001",
-            "comment": "gpdf is earlier than 0:2.8.2-7.4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060177002",
-            "comment": "gpdf is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060177",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2006:0177: gpdf security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0177",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0177",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-3624",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-3624",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2005-3625",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-3625",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2005-3626",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-3626",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2005-3627",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-3627",
+				"source": "CVE"
+			}
+		],
+		"description": "gpdf is a GNOME based viewer for Portable Document Format (PDF) files.\n\nChris Evans discovered several flaws in the way gpdf processes PDF files.\nAn attacker could construct a carefully crafted PDF file that could cause\ngpdf to crash or possibly execute arbitrary code when opened. The Common\nVulnerabilities and Exposures project assigned the names CVE-2005-3624,\nCVE-2005-3625, CVE-2005-3626, and CVE-2005-3627 to these issues.\n\nUsers of gpdf should upgrade to this updated package, which contains a\nbackported patch to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-01-11"
+			},
+			"updated": {
+				"date": "2006-01-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-3624",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-3624",
+					"impact": "important",
+					"public": "20060103"
+				},
+				{
+					"text": "CVE-2005-3625",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-3625",
+					"impact": "important",
+					"public": "20060103"
+				},
+				{
+					"text": "CVE-2005-3626",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-3626",
+					"impact": "important",
+					"public": "20060103"
+				},
+				{
+					"text": "CVE-2005-3627",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-3627",
+					"impact": "important",
+					"public": "20060103"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2005-3624 security flaw",
+					"href": "https://bugzilla.redhat.com/1617826",
+					"id": "1617826"
+				},
+				{
+					"text": "CVE-2005-3625 security flaw",
+					"href": "https://bugzilla.redhat.com/1617827",
+					"id": "1617827"
+				},
+				{
+					"text": "CVE-2005-3626 security flaw",
+					"href": "https://bugzilla.redhat.com/1617828",
+					"id": "1617828"
+				},
+				{
+					"text": "CVE-2005-3627 security flaw",
+					"href": "https://bugzilla.redhat.com/1617829",
+					"id": "1617829"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060177001",
+						"comment": "gpdf is earlier than 0:2.8.2-7.4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060177002",
+						"comment": "gpdf is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

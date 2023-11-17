@@ -1,161 +1,161 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070323",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0323: xen security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0323",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0323",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-1320",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1320",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-1321",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1321",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-4993",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4993",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Xen package contains the tools for managing the virtual machine monitor\nin Red Hat Enterprise Linux virtualization.\n\nThe following security flaws are fixed in the updated Xen package:\n\nJoris van Rantwijk found a flaw in the Pygrub utility which is used as a\nboot loader for guest domains.  A malicious local administrator of a guest\ndomain could create a carefully crafted grub.conf file which would trigger\nthe execution of arbitrary code outside of that domain. (CVE-2007-4993)\n\nTavis Ormandy discovered a heap overflow flaw during video-to-video copy\noperations in the Cirrus VGA extension code used in Xen.  A malicious local\nadministrator of a guest domain could potentially trigger this flaw and\nexecute arbitrary code outside of the domain. (CVE-2007-1320)\n\nTavis Ormandy discovered insufficient input validation leading to a heap\noverflow in the Xen NE2000 network driver.   If the driver is in use, a\nmalicious local administrator of a guest domain could potentially trigger\nthis flaw and execute arbitrary code outside of the domain.  Xen does not\nuse this driver by default. (CVE-2007-1321)\n\nUsers of Xen should update to these erratum packages containing backported\npatches which correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-10-02"
-      },
-      "updated": {
-        "date": "2007-10-02"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-1320",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-1320",
-          "impact": "important",
-          "public": "20070420"
-        },
-        {
-          "text": "CVE-2007-1321",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-1321",
-          "impact": "low",
-          "public": "20070420"
-        },
-        {
-          "text": "CVE-2007-4993",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4993",
-          "impact": "important",
-          "public": "20070922"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-1320 xen/qemu Cirrus LGD-54XX \"bitblt\" Heap Overflow",
-          "href": "https://bugzilla.redhat.com/237342",
-          "id": "237342"
-        },
-        {
-          "text": "CVE-2007-1321 xen QEMU NE2000 emulation issues",
-          "href": "https://bugzilla.redhat.com/237343",
-          "id": "237343"
-        },
-        {
-          "text": "CVE-2007-4993 xen guest root can escape to domain 0 through pygrub",
-          "href": "https://bugzilla.redhat.com/302801",
-          "id": "302801"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070323001",
-                    "comment": "xen is earlier than 0:3.0.3-25.0.4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114002",
-                    "comment": "xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070323003",
-                    "comment": "xen-devel is earlier than 0:3.0.3-25.0.4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114004",
-                    "comment": "xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070323005",
-                    "comment": "xen-libs is earlier than 0:3.0.3-25.0.4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070114006",
-                    "comment": "xen-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070323",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0323: xen security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0323",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0323",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-1320",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-1320",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-1321",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-1321",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-4993",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4993",
+				"source": "CVE"
+			}
+		],
+		"description": "The Xen package contains the tools for managing the virtual machine monitor\nin Red Hat Enterprise Linux virtualization.\n\nThe following security flaws are fixed in the updated Xen package:\n\nJoris van Rantwijk found a flaw in the Pygrub utility which is used as a\nboot loader for guest domains.  A malicious local administrator of a guest\ndomain could create a carefully crafted grub.conf file which would trigger\nthe execution of arbitrary code outside of that domain. (CVE-2007-4993)\n\nTavis Ormandy discovered a heap overflow flaw during video-to-video copy\noperations in the Cirrus VGA extension code used in Xen.  A malicious local\nadministrator of a guest domain could potentially trigger this flaw and\nexecute arbitrary code outside of the domain. (CVE-2007-1320)\n\nTavis Ormandy discovered insufficient input validation leading to a heap\noverflow in the Xen NE2000 network driver.   If the driver is in use, a\nmalicious local administrator of a guest domain could potentially trigger\nthis flaw and execute arbitrary code outside of the domain.  Xen does not\nuse this driver by default. (CVE-2007-1321)\n\nUsers of Xen should update to these erratum packages containing backported\npatches which correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-10-02"
+			},
+			"updated": {
+				"date": "2007-10-02"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-1320",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-1320",
+					"impact": "important",
+					"public": "20070420"
+				},
+				{
+					"text": "CVE-2007-1321",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-1321",
+					"impact": "low",
+					"public": "20070420"
+				},
+				{
+					"text": "CVE-2007-4993",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4993",
+					"impact": "important",
+					"public": "20070922"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-1320 xen/qemu Cirrus LGD-54XX \"bitblt\" Heap Overflow",
+					"href": "https://bugzilla.redhat.com/237342",
+					"id": "237342"
+				},
+				{
+					"text": "CVE-2007-1321 xen QEMU NE2000 emulation issues",
+					"href": "https://bugzilla.redhat.com/237343",
+					"id": "237343"
+				},
+				{
+					"text": "CVE-2007-4993 xen guest root can escape to domain 0 through pygrub",
+					"href": "https://bugzilla.redhat.com/302801",
+					"id": "302801"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070323001",
+										"comment": "xen is earlier than 0:3.0.3-25.0.4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114002",
+										"comment": "xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070323003",
+										"comment": "xen-devel is earlier than 0:3.0.3-25.0.4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114004",
+										"comment": "xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070323005",
+										"comment": "xen-libs is earlier than 0:3.0.3-25.0.4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070114006",
+										"comment": "xen-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

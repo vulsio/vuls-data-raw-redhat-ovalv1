@@ -1,201 +1,201 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091186",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2009:1186: nspr and nss security, bug fix, and enhancement update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1186",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1186",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-2404",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2404",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-2408",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2408",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-2409",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2409",
-        "source": "CVE"
-      }
-    ],
-    "description": "Netscape Portable Runtime (NSPR) provides platform independence for non-GUI\noperating system facilities. These facilities include threads, thread\nsynchronization, normal file and network I/O, interval timing, calendar\ntime, basic memory management (malloc and free), and shared library linking.\n\nNetwork Security Services (NSS) is a set of libraries designed to support\nthe cross-platform development of security-enabled client and server\napplications. Applications built with NSS can support SSLv2, SSLv3, TLS,\nand other security standards.\n\nThese updated packages upgrade NSS from the previous version, 3.12.2, to a\nprerelease of version 3.12.4. The version of NSPR has also been upgraded\nfrom 4.7.3 to 4.7.4. \n\nMoxie Marlinspike reported a heap overflow flaw in a regular expression\nparser in the NSS library used by browsers such as Mozilla Firefox to match\ncommon names in certificates. A malicious website could present a\ncarefully-crafted certificate in such a way as to trigger the heap\noverflow, leading to a crash or, possibly, arbitrary code execution with\nthe permissions of the user running the browser. (CVE-2009-2404)\n\nNote: in order to exploit this issue without further user interaction in\nFirefox, the carefully-crafted certificate would need to be signed by a\nCertificate Authority trusted by Firefox, otherwise Firefox presents the\nvictim with a warning that the certificate is untrusted. Only if the user\nthen accepts the certificate will the overflow take place.\n\nDan Kaminsky discovered flaws in the way browsers such as Firefox handle\nNULL characters in a certificate. If an attacker is able to get a\ncarefully-crafted certificate signed by a Certificate Authority trusted by\nFirefox, the attacker could use the certificate during a man-in-the-middle\nattack and potentially confuse Firefox into accepting it by mistake.\n(CVE-2009-2408)\n\nDan Kaminsky found that browsers still accept certificates with MD2 hash\nsignatures, even though MD2 is no longer considered a cryptographically\nstrong algorithm. This could make it easier for an attacker to create a\nmalicious certificate that would be treated as trusted by a browser. NSS\nnow disables the use of MD2 and MD4 algorithms inside signatures by\ndefault. (CVE-2009-2409)\n\nAll users of nspr and nss are advised to upgrade to these updated packages,\nwhich resolve these issues and add an enhancement.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-07-30"
-      },
-      "updated": {
-        "date": "2009-07-30"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-2404",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2404",
-          "impact": "critical",
-          "public": "20090729",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-2408",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2408",
-          "impact": "important",
-          "public": "20090729",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2009-2409",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2409",
-          "impact": "moderate",
-          "public": "20090729",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-2409 deprecate MD2 in SSL cert validation (Kaminsky)",
-          "href": "https://bugzilla.redhat.com/510197",
-          "id": "510197"
-        },
-        {
-          "text": "CVE-2009-2408 firefox/nss: doesn't handle NULL in Common Name properly",
-          "href": "https://bugzilla.redhat.com/510251",
-          "id": "510251"
-        },
-        {
-          "text": "CVE-2009-2404 nss regexp heap overflow",
-          "href": "https://bugzilla.redhat.com/512912",
-          "id": "512912"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091186001",
-                    "comment": "nspr is earlier than 0:4.7.4-1.el5_3.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925002",
-                    "comment": "nspr is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091186003",
-                    "comment": "nspr-devel is earlier than 0:4.7.4-1.el5_3.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925004",
-                    "comment": "nspr-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091186005",
-                    "comment": "nss is earlier than 0:3.12.3.99.3-1.el5_3.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925006",
-                    "comment": "nss is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091186007",
-                    "comment": "nss-devel is earlier than 0:3.12.3.99.3-1.el5_3.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925008",
-                    "comment": "nss-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091186009",
-                    "comment": "nss-pkcs11-devel is earlier than 0:3.12.3.99.3-1.el5_3.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925010",
-                    "comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091186011",
-                    "comment": "nss-tools is earlier than 0:3.12.3.99.3-1.el5_3.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925012",
-                    "comment": "nss-tools is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091186",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2009:1186: nspr and nss security, bug fix, and enhancement update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1186",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1186",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-2404",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2404",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-2408",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2408",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-2409",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2409",
+				"source": "CVE"
+			}
+		],
+		"description": "Netscape Portable Runtime (NSPR) provides platform independence for non-GUI\noperating system facilities. These facilities include threads, thread\nsynchronization, normal file and network I/O, interval timing, calendar\ntime, basic memory management (malloc and free), and shared library linking.\n\nNetwork Security Services (NSS) is a set of libraries designed to support\nthe cross-platform development of security-enabled client and server\napplications. Applications built with NSS can support SSLv2, SSLv3, TLS,\nand other security standards.\n\nThese updated packages upgrade NSS from the previous version, 3.12.2, to a\nprerelease of version 3.12.4. The version of NSPR has also been upgraded\nfrom 4.7.3 to 4.7.4. \n\nMoxie Marlinspike reported a heap overflow flaw in a regular expression\nparser in the NSS library used by browsers such as Mozilla Firefox to match\ncommon names in certificates. A malicious website could present a\ncarefully-crafted certificate in such a way as to trigger the heap\noverflow, leading to a crash or, possibly, arbitrary code execution with\nthe permissions of the user running the browser. (CVE-2009-2404)\n\nNote: in order to exploit this issue without further user interaction in\nFirefox, the carefully-crafted certificate would need to be signed by a\nCertificate Authority trusted by Firefox, otherwise Firefox presents the\nvictim with a warning that the certificate is untrusted. Only if the user\nthen accepts the certificate will the overflow take place.\n\nDan Kaminsky discovered flaws in the way browsers such as Firefox handle\nNULL characters in a certificate. If an attacker is able to get a\ncarefully-crafted certificate signed by a Certificate Authority trusted by\nFirefox, the attacker could use the certificate during a man-in-the-middle\nattack and potentially confuse Firefox into accepting it by mistake.\n(CVE-2009-2408)\n\nDan Kaminsky found that browsers still accept certificates with MD2 hash\nsignatures, even though MD2 is no longer considered a cryptographically\nstrong algorithm. This could make it easier for an attacker to create a\nmalicious certificate that would be treated as trusted by a browser. NSS\nnow disables the use of MD2 and MD4 algorithms inside signatures by\ndefault. (CVE-2009-2409)\n\nAll users of nspr and nss are advised to upgrade to these updated packages,\nwhich resolve these issues and add an enhancement.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-07-30"
+			},
+			"updated": {
+				"date": "2009-07-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-2404",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2404",
+					"impact": "critical",
+					"public": "20090729",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-2408",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2408",
+					"impact": "important",
+					"public": "20090729",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2009-2409",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2409",
+					"impact": "moderate",
+					"public": "20090729",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-2409 deprecate MD2 in SSL cert validation (Kaminsky)",
+					"href": "https://bugzilla.redhat.com/510197",
+					"id": "510197"
+				},
+				{
+					"text": "CVE-2009-2408 firefox/nss: doesn't handle NULL in Common Name properly",
+					"href": "https://bugzilla.redhat.com/510251",
+					"id": "510251"
+				},
+				{
+					"text": "CVE-2009-2404 nss regexp heap overflow",
+					"href": "https://bugzilla.redhat.com/512912",
+					"id": "512912"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091186001",
+										"comment": "nspr is earlier than 0:4.7.4-1.el5_3.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925002",
+										"comment": "nspr is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091186003",
+										"comment": "nspr-devel is earlier than 0:4.7.4-1.el5_3.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925004",
+										"comment": "nspr-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091186005",
+										"comment": "nss is earlier than 0:3.12.3.99.3-1.el5_3.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925006",
+										"comment": "nss is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091186007",
+										"comment": "nss-devel is earlier than 0:3.12.3.99.3-1.el5_3.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925008",
+										"comment": "nss-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091186009",
+										"comment": "nss-pkcs11-devel is earlier than 0:3.12.3.99.3-1.el5_3.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925010",
+										"comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091186011",
+										"comment": "nss-tools is earlier than 0:3.12.3.99.3-1.el5_3.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925012",
+										"comment": "nss-tools is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

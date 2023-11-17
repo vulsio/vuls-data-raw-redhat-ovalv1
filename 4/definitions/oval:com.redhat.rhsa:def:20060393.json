@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060393",
-  "version": "639",
-  "metadata": {
-    "title": "RHSA-2006:0393: ntp security update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0393",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0393",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-2496",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2496",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Network Time Protocol (NTP) is used to synchronize a computer's time\nwith a reference time source.\n\nThe NTP daemon (ntpd), when run with the -u option and using a string to\nspecify the group, uses the group ID of the user instead of the group,\nwhich causes ntpd to run with different privileges than intended.\n(CVE-2005-2496)\n\nThe following issues have also been addressed in this update: \n- The init script had several problems\n- The script executed on upgrade could fail\n- The man page for ntpd indicated the wrong option for specifying a chroot\ndirectory\n- The ntp daemon could crash with the message \"Exiting: No more memory!\"\n- There is a new option for syncing the hardware clock after a successful\nrun of ntpdate\n\nUsers of ntp should upgrade to these updated packages, which resolve these\nissues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-08-10"
-      },
-      "updated": {
-        "date": "2006-08-10"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-2496",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-2496",
-          "impact": "low",
-          "public": "20050825"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2005-2496 security flaw",
-          "href": "https://bugzilla.redhat.com/1617728",
-          "id": "1617728"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060393001",
-            "comment": "ntp is earlier than 0:4.2.0.a.20040617-4.EL4.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060393002",
-            "comment": "ntp is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060393",
+	"version": "639",
+	"metadata": {
+		"title": "RHSA-2006:0393: ntp security update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0393",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0393",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-2496",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-2496",
+				"source": "CVE"
+			}
+		],
+		"description": "The Network Time Protocol (NTP) is used to synchronize a computer's time\nwith a reference time source.\n\nThe NTP daemon (ntpd), when run with the -u option and using a string to\nspecify the group, uses the group ID of the user instead of the group,\nwhich causes ntpd to run with different privileges than intended.\n(CVE-2005-2496)\n\nThe following issues have also been addressed in this update: \n- The init script had several problems\n- The script executed on upgrade could fail\n- The man page for ntpd indicated the wrong option for specifying a chroot\ndirectory\n- The ntp daemon could crash with the message \"Exiting: No more memory!\"\n- There is a new option for syncing the hardware clock after a successful\nrun of ntpdate\n\nUsers of ntp should upgrade to these updated packages, which resolve these\nissues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-08-10"
+			},
+			"updated": {
+				"date": "2006-08-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-2496",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-2496",
+					"impact": "low",
+					"public": "20050825"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2005-2496 security flaw",
+					"href": "https://bugzilla.redhat.com/1617728",
+					"id": "1617728"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060393001",
+						"comment": "ntp is earlier than 0:4.2.0.a.20040617-4.EL4.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060393002",
+						"comment": "ntp is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

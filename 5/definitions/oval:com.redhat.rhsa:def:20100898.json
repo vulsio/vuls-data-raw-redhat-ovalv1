@@ -1,140 +1,140 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100898",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2010:0898: kvm security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0898",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0898",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-3698",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3698",
-        "source": "CVE"
-      }
-    ],
-    "description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA flaw was found in the way QEMU-KVM handled the reloading of fs and gs\nsegment registers when they had invalid selectors. A privileged host user\nwith access to \"/dev/kvm\" could use this flaw to crash the host (denial of\nservice). (CVE-2010-3698)\n\nAll KVM users should upgrade to these updated packages, which contain a\nbackported patch to correct this issue. Note: The procedure in the Solution\nsection must be performed before this update will take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-12-06"
-      },
-      "updated": {
-        "date": "2010-12-06"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-3698",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3698",
-          "impact": "moderate",
-          "public": "20101019",
-          "cvss_2": "4.6/AV:L/AC:L/Au:S/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-3698 kvm: invalid selector in fs/gs causes kernel panic",
-          "href": "https://bugzilla.redhat.com/639879",
-          "id": "639879"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100898001",
-                    "comment": "kmod-kvm is earlier than 0:83-164.el5_5.25"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465002",
-                    "comment": "kmod-kvm is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100898003",
-                    "comment": "kvm is earlier than 0:83-164.el5_5.25"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465004",
-                    "comment": "kvm is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100898005",
-                    "comment": "kvm-qemu-img is earlier than 0:83-164.el5_5.25"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465006",
-                    "comment": "kvm-qemu-img is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100898007",
-                    "comment": "kvm-tools is earlier than 0:83-164.el5_5.25"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465008",
-                    "comment": "kvm-tools is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100898",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2010:0898: kvm security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0898",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0898",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-3698",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3698",
+				"source": "CVE"
+			}
+		],
+		"description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA flaw was found in the way QEMU-KVM handled the reloading of fs and gs\nsegment registers when they had invalid selectors. A privileged host user\nwith access to \"/dev/kvm\" could use this flaw to crash the host (denial of\nservice). (CVE-2010-3698)\n\nAll KVM users should upgrade to these updated packages, which contain a\nbackported patch to correct this issue. Note: The procedure in the Solution\nsection must be performed before this update will take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-12-06"
+			},
+			"updated": {
+				"date": "2010-12-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-3698",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3698",
+					"impact": "moderate",
+					"public": "20101019",
+					"cvss_2": "4.6/AV:L/AC:L/Au:S/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-3698 kvm: invalid selector in fs/gs causes kernel panic",
+					"href": "https://bugzilla.redhat.com/639879",
+					"id": "639879"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100898001",
+										"comment": "kmod-kvm is earlier than 0:83-164.el5_5.25"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465002",
+										"comment": "kmod-kvm is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100898003",
+										"comment": "kvm is earlier than 0:83-164.el5_5.25"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465004",
+										"comment": "kvm is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100898005",
+										"comment": "kvm-qemu-img is earlier than 0:83-164.el5_5.25"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465006",
+										"comment": "kvm-qemu-img is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100898007",
+										"comment": "kvm-tools is earlier than 0:83-164.el5_5.25"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465008",
+										"comment": "kvm-tools is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

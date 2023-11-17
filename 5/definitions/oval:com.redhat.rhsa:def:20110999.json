@@ -1,89 +1,89 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20110999",
-  "version": "645",
-  "metadata": {
-    "title": "RHSA-2011:0999: rsync security, bug fix, and enhancement update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:0999",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0999",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-6200",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6200",
-        "source": "CVE"
-      }
-    ],
-    "description": "rsync is a program for synchronizing files over a network.\n\nA flaw was found in the way the rsync daemon handled the \"filter\",\n\"exclude\", and \"exclude from\" options, used for hiding files and preventing\naccess to them from rsync clients. A remote attacker could use this flaw to\nbypass those restrictions by using certain command line options and\nsymbolic links, allowing the attacker to overwrite those files if they knew\ntheir file names and had write access to them. (CVE-2007-6200)\n\nNote: This issue only affected users running rsync as a writable daemon:\n\"read only\" set to \"false\" in the rsync configuration file (for example,\n\"/etc/rsyncd.conf\"). By default, this option is set to \"true\".\n\nThis update also fixes the following bugs:\n\n* The rsync package has been upgraded to upstream version 3.0.6, which\nprovides a number of bug fixes and enhancements over the previous version.\n(BZ#339971)\n\n* When running an rsync daemon that was receiving files, a deferred info,\nerror or log message could have been sent directly to the sender instead of\nbeing handled by the \"rwrite()\" function in the generator. Also, under\ncertain circumstances, a deferred info or error message from the receiver\ncould have bypassed the log file and could have been sent only to the\nclient process. As a result, an \"unexpected tag 3\" fatal error could have\nbeen displayed. These problems have been fixed in this update so that an\nrsync daemon receiving files now works as expected. (BZ#471182)\n\n* Prior to this update, the rsync daemon called a number of timezone-using\nfunctions after doing a chroot. As a result, certain C libraries were\nunable to generate proper timestamps from inside a chrooted daemon. This\nbug has been fixed in this update so that the rsync daemon now calls the\nrespective timezone-using functions prior to doing a chroot, and proper\ntimestamps are now generated as expected. (BZ#575022)\n\n* When running rsync under a non-root user with the \"-A\" (\"--acls\") option\nand without using the \"--numeric-ids\" option, if there was an Access\nControl List (ACL) that included a group entry for a group that the\nrespective user was not a member of on the receiving side, the\n\"acl_set_file()\" function returned an invalid argument value (\"EINVAL\").\nThis was caused by rsync mistakenly mapping the group name to the Group ID\n\"GID_NONE\" (\"-1\"), which failed. The bug has been fixed in this update so\nthat no invalid argument is returned and rsync works as expected.\n(BZ#616093)\n\n* When creating a sparse file that was zero blocks long, the \"rsync\n--sparse\" command did not properly truncate the sparse file at the end of\nthe copy transaction. As a result, the file size was bigger than expected.\nThis bug has been fixed in this update by properly truncating the file so\nthat rsync now copies such files as expected. (BZ#530866)\n\n* Under certain circumstances, when using rsync in daemon mode, rsync\ngenerator instances could have entered an infinitive loop, trying to write\nan error message for the receiver to an invalid socket. This problem has\nbeen fixed in this update by adding a new sibling message: when the\nreceiver is reporting a socket-read error, the generator will notice this\nfact and avoid writing an error message down the socket, allowing it to\nclose down gracefully when the pipe from the receiver closes. (BZ#690148)\n\n* Prior to this update, there were missing deallocations found in the\n\"start_client()\" function. This bug has been fixed in this update and no\nlonger occurs. (BZ#700450)\n\nAll users of rsync are advised to upgrade to this updated package, which\nresolves these issues and adds enhancements.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-07-21"
-      },
-      "updated": {
-        "date": "2011-07-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-6200",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6200",
-          "impact": "moderate",
-          "public": "20071128",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-6200 rsync excluded content access restrictions bypass via symlinks",
-          "href": "https://bugzilla.redhat.com/407171",
-          "id": "407171"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20110999001",
-            "comment": "rsync is earlier than 0:3.0.6-4.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20110999002",
-            "comment": "rsync is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20110999",
+	"version": "645",
+	"metadata": {
+		"title": "RHSA-2011:0999: rsync security, bug fix, and enhancement update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:0999",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:0999",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-6200",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6200",
+				"source": "CVE"
+			}
+		],
+		"description": "rsync is a program for synchronizing files over a network.\n\nA flaw was found in the way the rsync daemon handled the \"filter\",\n\"exclude\", and \"exclude from\" options, used for hiding files and preventing\naccess to them from rsync clients. A remote attacker could use this flaw to\nbypass those restrictions by using certain command line options and\nsymbolic links, allowing the attacker to overwrite those files if they knew\ntheir file names and had write access to them. (CVE-2007-6200)\n\nNote: This issue only affected users running rsync as a writable daemon:\n\"read only\" set to \"false\" in the rsync configuration file (for example,\n\"/etc/rsyncd.conf\"). By default, this option is set to \"true\".\n\nThis update also fixes the following bugs:\n\n* The rsync package has been upgraded to upstream version 3.0.6, which\nprovides a number of bug fixes and enhancements over the previous version.\n(BZ#339971)\n\n* When running an rsync daemon that was receiving files, a deferred info,\nerror or log message could have been sent directly to the sender instead of\nbeing handled by the \"rwrite()\" function in the generator. Also, under\ncertain circumstances, a deferred info or error message from the receiver\ncould have bypassed the log file and could have been sent only to the\nclient process. As a result, an \"unexpected tag 3\" fatal error could have\nbeen displayed. These problems have been fixed in this update so that an\nrsync daemon receiving files now works as expected. (BZ#471182)\n\n* Prior to this update, the rsync daemon called a number of timezone-using\nfunctions after doing a chroot. As a result, certain C libraries were\nunable to generate proper timestamps from inside a chrooted daemon. This\nbug has been fixed in this update so that the rsync daemon now calls the\nrespective timezone-using functions prior to doing a chroot, and proper\ntimestamps are now generated as expected. (BZ#575022)\n\n* When running rsync under a non-root user with the \"-A\" (\"--acls\") option\nand without using the \"--numeric-ids\" option, if there was an Access\nControl List (ACL) that included a group entry for a group that the\nrespective user was not a member of on the receiving side, the\n\"acl_set_file()\" function returned an invalid argument value (\"EINVAL\").\nThis was caused by rsync mistakenly mapping the group name to the Group ID\n\"GID_NONE\" (\"-1\"), which failed. The bug has been fixed in this update so\nthat no invalid argument is returned and rsync works as expected.\n(BZ#616093)\n\n* When creating a sparse file that was zero blocks long, the \"rsync\n--sparse\" command did not properly truncate the sparse file at the end of\nthe copy transaction. As a result, the file size was bigger than expected.\nThis bug has been fixed in this update by properly truncating the file so\nthat rsync now copies such files as expected. (BZ#530866)\n\n* Under certain circumstances, when using rsync in daemon mode, rsync\ngenerator instances could have entered an infinitive loop, trying to write\nan error message for the receiver to an invalid socket. This problem has\nbeen fixed in this update by adding a new sibling message: when the\nreceiver is reporting a socket-read error, the generator will notice this\nfact and avoid writing an error message down the socket, allowing it to\nclose down gracefully when the pipe from the receiver closes. (BZ#690148)\n\n* Prior to this update, there were missing deallocations found in the\n\"start_client()\" function. This bug has been fixed in this update and no\nlonger occurs. (BZ#700450)\n\nAll users of rsync are advised to upgrade to this updated package, which\nresolves these issues and adds enhancements.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-07-21"
+			},
+			"updated": {
+				"date": "2011-07-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-6200",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6200",
+					"impact": "moderate",
+					"public": "20071128",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-6200 rsync excluded content access restrictions bypass via symlinks",
+					"href": "https://bugzilla.redhat.com/407171",
+					"id": "407171"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20110999001",
+						"comment": "rsync is earlier than 0:3.0.6-4.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20110999002",
+						"comment": "rsync is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

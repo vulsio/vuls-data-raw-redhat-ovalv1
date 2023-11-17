@@ -1,154 +1,154 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070662",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0662: httpd security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0662",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0662",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3304",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3304",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Apache HTTP Server is a popular Web server. \n\nThe Apache HTTP Server did not verify that a process was an Apache child\nprocess before sending it signals. A local attacker with the ability to run\nscripts on the Apache HTTP Server could manipulate the scoreboard and cause\narbitrary processes to be terminated which could lead to a denial of\nservice.  (CVE-2007-3304).\n\nUsers of httpd should upgrade to these updated packages, which contain\nbackported patches to correct this issue. Users should restart Apache\nafter installing this update.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-07-13"
-      },
-      "updated": {
-        "date": "2007-07-13"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3304",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3304",
-          "impact": "moderate",
-          "public": "20070619"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3304 httpd scoreboard lack of PID protection",
-          "href": "https://bugzilla.redhat.com/245111",
-          "id": "245111"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070662001",
-                    "comment": "httpd is earlier than 0:2.0.52-32.3.ent"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060159002",
-                    "comment": "httpd is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070662003",
-                    "comment": "httpd-devel is earlier than 0:2.0.52-32.3.ent"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060159004",
-                    "comment": "httpd-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070662005",
-                    "comment": "httpd-manual is earlier than 0:2.0.52-32.3.ent"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060159006",
-                    "comment": "httpd-manual is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070662007",
-                    "comment": "httpd-suexec is earlier than 0:2.0.52-32.3.ent"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060159008",
-                    "comment": "httpd-suexec is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070662009",
-                    "comment": "mod_ssl is earlier than 1:2.0.52-32.3.ent"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060159010",
-                    "comment": "mod_ssl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070662",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0662: httpd security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0662",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0662",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3304",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3304",
+				"source": "CVE"
+			}
+		],
+		"description": "The Apache HTTP Server is a popular Web server. \n\nThe Apache HTTP Server did not verify that a process was an Apache child\nprocess before sending it signals. A local attacker with the ability to run\nscripts on the Apache HTTP Server could manipulate the scoreboard and cause\narbitrary processes to be terminated which could lead to a denial of\nservice.  (CVE-2007-3304).\n\nUsers of httpd should upgrade to these updated packages, which contain\nbackported patches to correct this issue. Users should restart Apache\nafter installing this update.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-07-13"
+			},
+			"updated": {
+				"date": "2007-07-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3304",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3304",
+					"impact": "moderate",
+					"public": "20070619"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3304 httpd scoreboard lack of PID protection",
+					"href": "https://bugzilla.redhat.com/245111",
+					"id": "245111"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070662001",
+										"comment": "httpd is earlier than 0:2.0.52-32.3.ent"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060159002",
+										"comment": "httpd is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070662003",
+										"comment": "httpd-devel is earlier than 0:2.0.52-32.3.ent"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060159004",
+										"comment": "httpd-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070662005",
+										"comment": "httpd-manual is earlier than 0:2.0.52-32.3.ent"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060159006",
+										"comment": "httpd-manual is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070662007",
+										"comment": "httpd-suexec is earlier than 0:2.0.52-32.3.ent"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060159008",
+										"comment": "httpd-suexec is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070662009",
+										"comment": "mod_ssl is earlier than 1:2.0.52-32.3.ent"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060159010",
+										"comment": "mod_ssl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

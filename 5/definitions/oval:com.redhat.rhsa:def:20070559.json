@@ -1,114 +1,114 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070559",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0559: cman security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0559",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0559",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3374",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3374",
-        "source": "CVE"
-      }
-    ],
-    "description": "cman is the Red Hat Cluster Manager.\n\nA flaw was found in the cman daemon.  A local attacker could connect to the\ncman daemon and trigger a static buffer overflow leading to a denial of\nservice or, potentially, an escalation of privileges.  (CVE-2007-3374)\n\nUsers of Cluster Manager should upgrade to these updated packages, which\ncontain a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-06-28"
-      },
-      "updated": {
-        "date": "2007-12-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3374",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3374",
-          "impact": "important",
-          "public": "20070619"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3374 possible buffer overflow could cause local DoS by crashing cman",
-          "href": "https://bugzilla.redhat.com/244891",
-          "id": "244891"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070559001",
-                    "comment": "cman is earlier than 0:2.0.64-1.0.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20100266002",
-                    "comment": "cman is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070559003",
-                    "comment": "cman-devel is earlier than 0:2.0.64-1.0.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20100266004",
-                    "comment": "cman-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070559",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0559: cman security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0559",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0559",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3374",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3374",
+				"source": "CVE"
+			}
+		],
+		"description": "cman is the Red Hat Cluster Manager.\n\nA flaw was found in the cman daemon.  A local attacker could connect to the\ncman daemon and trigger a static buffer overflow leading to a denial of\nservice or, potentially, an escalation of privileges.  (CVE-2007-3374)\n\nUsers of Cluster Manager should upgrade to these updated packages, which\ncontain a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-06-28"
+			},
+			"updated": {
+				"date": "2007-12-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3374",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3374",
+					"impact": "important",
+					"public": "20070619"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3374 possible buffer overflow could cause local DoS by crashing cman",
+					"href": "https://bugzilla.redhat.com/244891",
+					"id": "244891"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070559001",
+										"comment": "cman is earlier than 0:2.0.64-1.0.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20100266002",
+										"comment": "cman is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070559003",
+										"comment": "cman-devel is earlier than 0:2.0.64-1.0.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20100266004",
+										"comment": "cman-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

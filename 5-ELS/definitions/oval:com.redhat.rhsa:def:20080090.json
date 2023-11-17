@@ -1,156 +1,156 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080090",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2008:0090: icu security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0090",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0090",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4770",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4770",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-4771",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4771",
-        "source": "CVE"
-      }
-    ],
-    "description": "The International Components for Unicode (ICU) library provides robust and\nfull-featured Unicode services.\n\nWill Drewry reported multiple flaws in the way libicu processed certain\nmalformed regular expressions. If an application linked against ICU, such\nas OpenOffice.org, processed a carefully crafted regular expression, it may\nbe possible to execute arbitrary code as the user running the application.\n(CVE-2007-4770, CVE-2007-4771)\n\nAll users of icu should upgrade to these updated packages, which contain\nbackported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-01-25"
-      },
-      "updated": {
-        "date": "2008-01-28"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4770",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4770",
-          "impact": "important",
-          "public": "20080122"
-        },
-        {
-          "text": "CVE-2007-4771",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4771",
-          "impact": "important",
-          "public": "20080122"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4770 libicu poor back reference validation",
-          "href": "https://bugzilla.redhat.com/429023",
-          "id": "429023"
-        },
-        {
-          "text": "CVE-2007-4771 libicu incomplete interval handling",
-          "href": "https://bugzilla.redhat.com/429025",
-          "id": "429025"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080090001",
-                    "comment": "icu is earlier than 0:3.6-5.11.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080090002",
-                    "comment": "icu is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080090003",
-                    "comment": "libicu is earlier than 0:3.6-5.11.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080090004",
-                    "comment": "libicu is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080090005",
-                    "comment": "libicu-devel is earlier than 0:3.6-5.11.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080090006",
-                    "comment": "libicu-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080090007",
-                    "comment": "libicu-doc is earlier than 0:3.6-5.11.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080090008",
-                    "comment": "libicu-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080090",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2008:0090: icu security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0090",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0090",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4770",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4770",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-4771",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4771",
+				"source": "CVE"
+			}
+		],
+		"description": "The International Components for Unicode (ICU) library provides robust and\nfull-featured Unicode services.\n\nWill Drewry reported multiple flaws in the way libicu processed certain\nmalformed regular expressions. If an application linked against ICU, such\nas OpenOffice.org, processed a carefully crafted regular expression, it may\nbe possible to execute arbitrary code as the user running the application.\n(CVE-2007-4770, CVE-2007-4771)\n\nAll users of icu should upgrade to these updated packages, which contain\nbackported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-01-25"
+			},
+			"updated": {
+				"date": "2008-01-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4770",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4770",
+					"impact": "important",
+					"public": "20080122"
+				},
+				{
+					"text": "CVE-2007-4771",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4771",
+					"impact": "important",
+					"public": "20080122"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4770 libicu poor back reference validation",
+					"href": "https://bugzilla.redhat.com/429023",
+					"id": "429023"
+				},
+				{
+					"text": "CVE-2007-4771 libicu incomplete interval handling",
+					"href": "https://bugzilla.redhat.com/429025",
+					"id": "429025"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080090001",
+										"comment": "icu is earlier than 0:3.6-5.11.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080090002",
+										"comment": "icu is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080090003",
+										"comment": "libicu is earlier than 0:3.6-5.11.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080090004",
+										"comment": "libicu is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080090005",
+										"comment": "libicu-devel is earlier than 0:3.6-5.11.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080090006",
+										"comment": "libicu-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080090007",
+										"comment": "libicu-doc is earlier than 0:3.6-5.11.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080090008",
+										"comment": "libicu-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,466 +1,466 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080038",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2008:0038: postgresql security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0038",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0038",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3278",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3278",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-4769",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4769",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-4772",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4772",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-6067",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6067",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-6600",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6600",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-6601",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6601",
-        "source": "CVE"
-      }
-    ],
-    "description": "PostgreSQL is an advanced Object-Relational database management system\n(DBMS). The postgresql packages include the client programs and libraries\nneeded to access a PostgreSQL DBMS server.\n\nWill Drewry discovered multiple flaws in PostgreSQL's regular expression\nengine. An authenticated attacker could use these flaws to cause a denial\nof service by causing the PostgreSQL server to crash, enter an infinite\nloop, or use extensive CPU and memory resources while processing queries\ncontaining specially crafted regular expressions. Applications that accept\nregular expressions from untrusted sources may expose this problem to\nunauthorized attackers. (CVE-2007-4769, CVE-2007-4772, CVE-2007-6067)\n\nA privilege escalation flaw was discovered in PostgreSQL. An authenticated\nattacker could create an index function that would be executed with\nadministrator privileges during database maintenance tasks, such as\ndatabase vacuuming. (CVE-2007-6600)\n\nA privilege escalation flaw was discovered in PostgreSQL's Database Link\nlibrary (dblink). An authenticated attacker could use dblink to possibly\nescalate privileges on systems with \"trust\" or \"ident\" authentication\nconfigured. Please note that dblink functionality is not enabled by\ndefault, and can only by enabled by a database administrator on systems\nwith the postgresql-contrib package installed. (CVE-2007-3278,\nCVE-2007-6601)\n\nAll postgresql users should upgrade to these updated packages, which\ninclude PostgreSQL 7.4.19 and 8.1.11, and resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-01-11"
-      },
-      "updated": {
-        "date": "2008-01-28"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3278",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3278",
-          "public": "20070616"
-        },
-        {
-          "text": "CVE-2007-4769",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4769",
-          "impact": "moderate",
-          "public": "20080107",
-          "cwe": "CWE-190"
-        },
-        {
-          "text": "CVE-2007-4772",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4772",
-          "impact": "moderate",
-          "public": "20080107",
-          "cwe": "CWE-835",
-          "cvss_2": "1.5/AV:L/AC:M/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2007-6067",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6067",
-          "impact": "low",
-          "public": "20080107",
-          "cvss_2": "1.5/AV:L/AC:M/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2007-6600",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6600",
-          "impact": "moderate",
-          "public": "20080107"
-        },
-        {
-          "text": "CVE-2007-6601",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6601",
-          "impact": "moderate",
-          "public": "20080107"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3278 dblink allows proxying of database connections via 127.0.0.1",
-          "href": "https://bugzilla.redhat.com/309141",
-          "id": "309141"
-        },
-        {
-          "text": "CVE-2007-4769 postgresql integer overflow in regex code",
-          "href": "https://bugzilla.redhat.com/315231",
-          "id": "315231"
-        },
-        {
-          "text": "CVE-2007-4772 postgresql DoS via infinite loop in regex NFA optimization code",
-          "href": "https://bugzilla.redhat.com/316511",
-          "id": "316511"
-        },
-        {
-          "text": "CVE-2007-6067 postgresql: tempory DoS caused by slow regex NFA cleanup",
-          "href": "https://bugzilla.redhat.com/400931",
-          "id": "400931"
-        },
-        {
-          "text": "CVE-2007-6600 PostgreSQL privilege escalation",
-          "href": "https://bugzilla.redhat.com/427127",
-          "id": "427127"
-        },
-        {
-          "text": "CVE-2007-6601 PostgreSQL privilege escalation via dblink",
-          "href": "https://bugzilla.redhat.com/427128",
-          "id": "427128"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038001",
-                    "comment": "postgresql is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336002",
-                    "comment": "postgresql is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038003",
-                    "comment": "postgresql-contrib is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336004",
-                    "comment": "postgresql-contrib is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038005",
-                    "comment": "postgresql-devel is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336006",
-                    "comment": "postgresql-devel is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038007",
-                    "comment": "postgresql-docs is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336008",
-                    "comment": "postgresql-docs is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038009",
-                    "comment": "postgresql-jdbc is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336010",
-                    "comment": "postgresql-jdbc is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038011",
-                    "comment": "postgresql-libs is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336012",
-                    "comment": "postgresql-libs is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038013",
-                    "comment": "postgresql-pl is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336014",
-                    "comment": "postgresql-pl is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038015",
-                    "comment": "postgresql-python is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336016",
-                    "comment": "postgresql-python is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038017",
-                    "comment": "postgresql-server is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336018",
-                    "comment": "postgresql-server is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038019",
-                    "comment": "postgresql-tcl is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336020",
-                    "comment": "postgresql-tcl is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038021",
-                    "comment": "postgresql-test is earlier than 0:7.4.19-1.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070336022",
-                    "comment": "postgresql-test is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038024",
-                    "comment": "postgresql is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068002",
-                    "comment": "postgresql is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038026",
-                    "comment": "postgresql-contrib is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068004",
-                    "comment": "postgresql-contrib is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038028",
-                    "comment": "postgresql-devel is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068006",
-                    "comment": "postgresql-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038030",
-                    "comment": "postgresql-docs is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068008",
-                    "comment": "postgresql-docs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038032",
-                    "comment": "postgresql-libs is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068010",
-                    "comment": "postgresql-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038034",
-                    "comment": "postgresql-pl is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068012",
-                    "comment": "postgresql-pl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038036",
-                    "comment": "postgresql-python is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068014",
-                    "comment": "postgresql-python is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038038",
-                    "comment": "postgresql-server is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068016",
-                    "comment": "postgresql-server is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038040",
-                    "comment": "postgresql-tcl is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068018",
-                    "comment": "postgresql-tcl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080038042",
-                    "comment": "postgresql-test is earlier than 0:8.1.11-1.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070068020",
-                    "comment": "postgresql-test is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080038",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2008:0038: postgresql security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0038",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0038",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3278",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3278",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-4769",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4769",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-4772",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4772",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-6067",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6067",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-6600",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6600",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-6601",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6601",
+				"source": "CVE"
+			}
+		],
+		"description": "PostgreSQL is an advanced Object-Relational database management system\n(DBMS). The postgresql packages include the client programs and libraries\nneeded to access a PostgreSQL DBMS server.\n\nWill Drewry discovered multiple flaws in PostgreSQL's regular expression\nengine. An authenticated attacker could use these flaws to cause a denial\nof service by causing the PostgreSQL server to crash, enter an infinite\nloop, or use extensive CPU and memory resources while processing queries\ncontaining specially crafted regular expressions. Applications that accept\nregular expressions from untrusted sources may expose this problem to\nunauthorized attackers. (CVE-2007-4769, CVE-2007-4772, CVE-2007-6067)\n\nA privilege escalation flaw was discovered in PostgreSQL. An authenticated\nattacker could create an index function that would be executed with\nadministrator privileges during database maintenance tasks, such as\ndatabase vacuuming. (CVE-2007-6600)\n\nA privilege escalation flaw was discovered in PostgreSQL's Database Link\nlibrary (dblink). An authenticated attacker could use dblink to possibly\nescalate privileges on systems with \"trust\" or \"ident\" authentication\nconfigured. Please note that dblink functionality is not enabled by\ndefault, and can only by enabled by a database administrator on systems\nwith the postgresql-contrib package installed. (CVE-2007-3278,\nCVE-2007-6601)\n\nAll postgresql users should upgrade to these updated packages, which\ninclude PostgreSQL 7.4.19 and 8.1.11, and resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-01-11"
+			},
+			"updated": {
+				"date": "2008-01-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3278",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3278",
+					"public": "20070616"
+				},
+				{
+					"text": "CVE-2007-4769",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4769",
+					"impact": "moderate",
+					"public": "20080107",
+					"cwe": "CWE-190"
+				},
+				{
+					"text": "CVE-2007-4772",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4772",
+					"impact": "moderate",
+					"public": "20080107",
+					"cwe": "CWE-835",
+					"cvss_2": "1.5/AV:L/AC:M/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2007-6067",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6067",
+					"impact": "low",
+					"public": "20080107",
+					"cvss_2": "1.5/AV:L/AC:M/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2007-6600",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6600",
+					"impact": "moderate",
+					"public": "20080107"
+				},
+				{
+					"text": "CVE-2007-6601",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6601",
+					"impact": "moderate",
+					"public": "20080107"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3278 dblink allows proxying of database connections via 127.0.0.1",
+					"href": "https://bugzilla.redhat.com/309141",
+					"id": "309141"
+				},
+				{
+					"text": "CVE-2007-4769 postgresql integer overflow in regex code",
+					"href": "https://bugzilla.redhat.com/315231",
+					"id": "315231"
+				},
+				{
+					"text": "CVE-2007-4772 postgresql DoS via infinite loop in regex NFA optimization code",
+					"href": "https://bugzilla.redhat.com/316511",
+					"id": "316511"
+				},
+				{
+					"text": "CVE-2007-6067 postgresql: tempory DoS caused by slow regex NFA cleanup",
+					"href": "https://bugzilla.redhat.com/400931",
+					"id": "400931"
+				},
+				{
+					"text": "CVE-2007-6600 PostgreSQL privilege escalation",
+					"href": "https://bugzilla.redhat.com/427127",
+					"id": "427127"
+				},
+				{
+					"text": "CVE-2007-6601 PostgreSQL privilege escalation via dblink",
+					"href": "https://bugzilla.redhat.com/427128",
+					"id": "427128"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038001",
+										"comment": "postgresql is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336002",
+										"comment": "postgresql is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038003",
+										"comment": "postgresql-contrib is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336004",
+										"comment": "postgresql-contrib is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038005",
+										"comment": "postgresql-devel is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336006",
+										"comment": "postgresql-devel is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038007",
+										"comment": "postgresql-docs is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336008",
+										"comment": "postgresql-docs is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038009",
+										"comment": "postgresql-jdbc is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336010",
+										"comment": "postgresql-jdbc is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038011",
+										"comment": "postgresql-libs is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336012",
+										"comment": "postgresql-libs is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038013",
+										"comment": "postgresql-pl is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336014",
+										"comment": "postgresql-pl is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038015",
+										"comment": "postgresql-python is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336016",
+										"comment": "postgresql-python is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038017",
+										"comment": "postgresql-server is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336018",
+										"comment": "postgresql-server is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038019",
+										"comment": "postgresql-tcl is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336020",
+										"comment": "postgresql-tcl is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038021",
+										"comment": "postgresql-test is earlier than 0:7.4.19-1.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070336022",
+										"comment": "postgresql-test is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038024",
+										"comment": "postgresql is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068002",
+										"comment": "postgresql is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038026",
+										"comment": "postgresql-contrib is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068004",
+										"comment": "postgresql-contrib is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038028",
+										"comment": "postgresql-devel is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068006",
+										"comment": "postgresql-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038030",
+										"comment": "postgresql-docs is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068008",
+										"comment": "postgresql-docs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038032",
+										"comment": "postgresql-libs is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068010",
+										"comment": "postgresql-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038034",
+										"comment": "postgresql-pl is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068012",
+										"comment": "postgresql-pl is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038036",
+										"comment": "postgresql-python is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068014",
+										"comment": "postgresql-python is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038038",
+										"comment": "postgresql-server is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068016",
+										"comment": "postgresql-server is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038040",
+										"comment": "postgresql-tcl is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068018",
+										"comment": "postgresql-tcl is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080038042",
+										"comment": "postgresql-test is earlier than 0:8.1.11-1.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070068020",
+										"comment": "postgresql-test is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

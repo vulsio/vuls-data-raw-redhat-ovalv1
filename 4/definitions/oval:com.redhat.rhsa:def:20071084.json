@@ -1,201 +1,201 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20071084",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2007:1084: seamonkey security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:1084",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1084",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5947",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5947",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5959",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5959",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5960",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5960",
-        "source": "CVE"
-      }
-    ],
-    "description": "SeaMonkey is an open source Web browser, advanced email and newsgroup\nclient, IRC chat client, and HTML editor.\n\nA cross-site scripting flaw was found in the way SeaMonkey handled the\njar: URI scheme. It was possible for a malicious website to leverage this\nflaw and conduct a cross-site scripting attack against a user running\nSeaMonkey. (CVE-2007-5947)\n\nSeveral flaws were found in the way SeaMonkey processed certain malformed\nweb content. A webpage containing malicious content could cause SeaMonkey\nto crash, or potentially execute arbitrary code as the user running\nSeaMonkey. (CVE-2007-5959)\n\nA race condition existed when Seamonkey set the \"window.location\" property\nfor a webpage. This flaw could allow a webpage to set an arbitrary Referer\nheader, which may lead to a Cross-site Request Forgery (CSRF) attack\nagainst websites that rely only on the Referer header for protection.\n(CVE-2007-5960)\n\nUsers of SeaMonkey are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-26"
-      },
-      "updated": {
-        "date": "2008-01-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5947",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5947",
-          "impact": "moderate",
-          "public": "20070208",
-          "cwe": "CWE-79"
-        },
-        {
-          "text": "CVE-2007-5959",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5959",
-          "impact": "critical",
-          "public": "20071126"
-        },
-        {
-          "text": "CVE-2007-5960",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5960",
-          "impact": "moderate",
-          "public": "20071126",
-          "cwe": "CWE-352"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5947 Mozilla jar: protocol XSS",
-          "href": "https://bugzilla.redhat.com/394211",
-          "id": "394211"
-        },
-        {
-          "text": "CVE-2007-5959 Multiple flaws in Firefox",
-          "href": "https://bugzilla.redhat.com/394241",
-          "id": "394241"
-        },
-        {
-          "text": "CVE-2007-5960 Mozilla Cross-site Request Forgery flaw",
-          "href": "https://bugzilla.redhat.com/394261",
-          "id": "394261"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071084001",
-                    "comment": "seamonkey is earlier than 0:1.0.9-7.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609002",
-                    "comment": "seamonkey is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071084003",
-                    "comment": "seamonkey-chat is earlier than 0:1.0.9-7.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609004",
-                    "comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071084005",
-                    "comment": "seamonkey-devel is earlier than 0:1.0.9-7.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609006",
-                    "comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071084007",
-                    "comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-7.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609008",
-                    "comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071084009",
-                    "comment": "seamonkey-js-debugger is earlier than 0:1.0.9-7.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609010",
-                    "comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071084011",
-                    "comment": "seamonkey-mail is earlier than 0:1.0.9-7.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609012",
-                    "comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20071084",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2007:1084: seamonkey security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:1084",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:1084",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5947",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5947",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5959",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5959",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5960",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5960",
+				"source": "CVE"
+			}
+		],
+		"description": "SeaMonkey is an open source Web browser, advanced email and newsgroup\nclient, IRC chat client, and HTML editor.\n\nA cross-site scripting flaw was found in the way SeaMonkey handled the\njar: URI scheme. It was possible for a malicious website to leverage this\nflaw and conduct a cross-site scripting attack against a user running\nSeaMonkey. (CVE-2007-5947)\n\nSeveral flaws were found in the way SeaMonkey processed certain malformed\nweb content. A webpage containing malicious content could cause SeaMonkey\nto crash, or potentially execute arbitrary code as the user running\nSeaMonkey. (CVE-2007-5959)\n\nA race condition existed when Seamonkey set the \"window.location\" property\nfor a webpage. This flaw could allow a webpage to set an arbitrary Referer\nheader, which may lead to a Cross-site Request Forgery (CSRF) attack\nagainst websites that rely only on the Referer header for protection.\n(CVE-2007-5960)\n\nUsers of SeaMonkey are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-26"
+			},
+			"updated": {
+				"date": "2008-01-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5947",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5947",
+					"impact": "moderate",
+					"public": "20070208",
+					"cwe": "CWE-79"
+				},
+				{
+					"text": "CVE-2007-5959",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5959",
+					"impact": "critical",
+					"public": "20071126"
+				},
+				{
+					"text": "CVE-2007-5960",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5960",
+					"impact": "moderate",
+					"public": "20071126",
+					"cwe": "CWE-352"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5947 Mozilla jar: protocol XSS",
+					"href": "https://bugzilla.redhat.com/394211",
+					"id": "394211"
+				},
+				{
+					"text": "CVE-2007-5959 Multiple flaws in Firefox",
+					"href": "https://bugzilla.redhat.com/394241",
+					"id": "394241"
+				},
+				{
+					"text": "CVE-2007-5960 Mozilla Cross-site Request Forgery flaw",
+					"href": "https://bugzilla.redhat.com/394261",
+					"id": "394261"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071084001",
+										"comment": "seamonkey is earlier than 0:1.0.9-7.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609002",
+										"comment": "seamonkey is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071084003",
+										"comment": "seamonkey-chat is earlier than 0:1.0.9-7.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609004",
+										"comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071084005",
+										"comment": "seamonkey-devel is earlier than 0:1.0.9-7.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609006",
+										"comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071084007",
+										"comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-7.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609008",
+										"comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071084009",
+										"comment": "seamonkey-js-debugger is earlier than 0:1.0.9-7.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609010",
+										"comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071084011",
+										"comment": "seamonkey-mail is earlier than 0:1.0.9-7.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609012",
+										"comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

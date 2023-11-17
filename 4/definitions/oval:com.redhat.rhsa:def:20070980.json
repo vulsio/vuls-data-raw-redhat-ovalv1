@@ -1,295 +1,295 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070980",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0980: seamonkey security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0980",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0980",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-1095",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1095",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-2292",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2292",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3511",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3511",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3844",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3844",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5334",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5334",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5337",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5337",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5338",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5338",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5339",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5339",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5340",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5340",
-        "source": "CVE"
-      }
-    ],
-    "description": "SeaMonkey is an open source Web browser, advanced email and newsgroup\nclient, IRC chat client, and HTML editor.\n\nSeveral flaws were found in the way in which SeaMonkey processed certain\nmalformed web content. A web page containing malicious content could cause\nSeaMonkey to crash or potentially execute arbitrary code as the user\nrunning SeaMonkey. (CVE-2007-5338, CVE-2007-5339, CVE-2007-5340)\n\nSeveral flaws were found in the way in which SeaMonkey displayed malformed\nweb content. A web page containing specially-crafted content could\npotentially trick a user into surrendering sensitive information. \n(CVE-2007-1095, CVE-2007-3844, CVE-2007-3511, CVE-2007-5334)\n\nA flaw was found in the SeaMonkey sftp protocol handler. A malicious web\npage could access data from a remote sftp site, possibly stealing sensitive\nuser data. (CVE-2007-5337)\n\nA request-splitting flaw was found in the way in which SeaMonkey generates\na digest authentication request. If a user opened a specially-crafted URL,\nit was possible to perform cross-site scripting attacks, web cache\npoisoning, or other, similar exploits. (CVE-2007-2292)\n\nUsers of SeaMonkey are advised to upgrade to these erratum packages, which\ncontain backported patches that correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-10-19"
-      },
-      "updated": {
-        "date": "2007-10-19"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-1095",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-1095",
-          "impact": "moderate",
-          "public": "20070223"
-        },
-        {
-          "text": "CVE-2007-2292",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-2292",
-          "impact": "moderate",
-          "public": "20070425"
-        },
-        {
-          "text": "CVE-2007-3511",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3511",
-          "impact": "moderate",
-          "public": "20070630"
-        },
-        {
-          "text": "CVE-2007-3844",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3844",
-          "impact": "moderate",
-          "public": "20070731"
-        },
-        {
-          "text": "CVE-2007-5334",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5334",
-          "impact": "moderate",
-          "public": "20071018"
-        },
-        {
-          "text": "CVE-2007-5337",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5337",
-          "impact": "moderate",
-          "public": "20071018"
-        },
-        {
-          "text": "CVE-2007-5338",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5338",
-          "impact": "critical",
-          "public": "20071018"
-        },
-        {
-          "text": "CVE-2007-5339",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5339",
-          "impact": "critical",
-          "public": "20071018"
-        },
-        {
-          "text": "CVE-2007-5340",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5340",
-          "impact": "critical",
-          "public": "20071018"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3844 Privilege escalation through chrome-loaded about:blank windows",
-          "href": "https://bugzilla.redhat.com/250648",
-          "id": "250648"
-        },
-        {
-          "text": "CVE-2007-1095 security flaw",
-          "href": "https://bugzilla.redhat.com/1618294",
-          "id": "1618294"
-        },
-        {
-          "text": "CVE-2007-2292 security flaw",
-          "href": "https://bugzilla.redhat.com/1618308",
-          "id": "1618308"
-        },
-        {
-          "text": "CVE-2007-3511 security flaw",
-          "href": "https://bugzilla.redhat.com/1618316",
-          "id": "1618316"
-        },
-        {
-          "text": "CVE-2007-5334 security flaw",
-          "href": "https://bugzilla.redhat.com/1618324",
-          "id": "1618324"
-        },
-        {
-          "text": "CVE-2007-5337 security flaw",
-          "href": "https://bugzilla.redhat.com/1618325",
-          "id": "1618325"
-        },
-        {
-          "text": "CVE-2007-5338 security flaw",
-          "href": "https://bugzilla.redhat.com/1618326",
-          "id": "1618326"
-        },
-        {
-          "text": "CVE-2007-5339 security flaw",
-          "href": "https://bugzilla.redhat.com/1618328",
-          "id": "1618328"
-        },
-        {
-          "text": "CVE-2007-5340 security flaw",
-          "href": "https://bugzilla.redhat.com/1618329",
-          "id": "1618329"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070980001",
-                    "comment": "seamonkey is earlier than 0:1.0.9-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609002",
-                    "comment": "seamonkey is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070980003",
-                    "comment": "seamonkey-chat is earlier than 0:1.0.9-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609004",
-                    "comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070980005",
-                    "comment": "seamonkey-devel is earlier than 0:1.0.9-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609006",
-                    "comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070980007",
-                    "comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609008",
-                    "comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070980009",
-                    "comment": "seamonkey-js-debugger is earlier than 0:1.0.9-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609010",
-                    "comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070980011",
-                    "comment": "seamonkey-mail is earlier than 0:1.0.9-6.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609012",
-                    "comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070980",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0980: seamonkey security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0980",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0980",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-1095",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-1095",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-2292",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-2292",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3511",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3511",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3844",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3844",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5334",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5334",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5337",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5337",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5338",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5338",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5339",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5339",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5340",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5340",
+				"source": "CVE"
+			}
+		],
+		"description": "SeaMonkey is an open source Web browser, advanced email and newsgroup\nclient, IRC chat client, and HTML editor.\n\nSeveral flaws were found in the way in which SeaMonkey processed certain\nmalformed web content. A web page containing malicious content could cause\nSeaMonkey to crash or potentially execute arbitrary code as the user\nrunning SeaMonkey. (CVE-2007-5338, CVE-2007-5339, CVE-2007-5340)\n\nSeveral flaws were found in the way in which SeaMonkey displayed malformed\nweb content. A web page containing specially-crafted content could\npotentially trick a user into surrendering sensitive information. \n(CVE-2007-1095, CVE-2007-3844, CVE-2007-3511, CVE-2007-5334)\n\nA flaw was found in the SeaMonkey sftp protocol handler. A malicious web\npage could access data from a remote sftp site, possibly stealing sensitive\nuser data. (CVE-2007-5337)\n\nA request-splitting flaw was found in the way in which SeaMonkey generates\na digest authentication request. If a user opened a specially-crafted URL,\nit was possible to perform cross-site scripting attacks, web cache\npoisoning, or other, similar exploits. (CVE-2007-2292)\n\nUsers of SeaMonkey are advised to upgrade to these erratum packages, which\ncontain backported patches that correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-10-19"
+			},
+			"updated": {
+				"date": "2007-10-19"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-1095",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-1095",
+					"impact": "moderate",
+					"public": "20070223"
+				},
+				{
+					"text": "CVE-2007-2292",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-2292",
+					"impact": "moderate",
+					"public": "20070425"
+				},
+				{
+					"text": "CVE-2007-3511",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3511",
+					"impact": "moderate",
+					"public": "20070630"
+				},
+				{
+					"text": "CVE-2007-3844",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3844",
+					"impact": "moderate",
+					"public": "20070731"
+				},
+				{
+					"text": "CVE-2007-5334",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5334",
+					"impact": "moderate",
+					"public": "20071018"
+				},
+				{
+					"text": "CVE-2007-5337",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5337",
+					"impact": "moderate",
+					"public": "20071018"
+				},
+				{
+					"text": "CVE-2007-5338",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5338",
+					"impact": "critical",
+					"public": "20071018"
+				},
+				{
+					"text": "CVE-2007-5339",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5339",
+					"impact": "critical",
+					"public": "20071018"
+				},
+				{
+					"text": "CVE-2007-5340",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5340",
+					"impact": "critical",
+					"public": "20071018"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3844 Privilege escalation through chrome-loaded about:blank windows",
+					"href": "https://bugzilla.redhat.com/250648",
+					"id": "250648"
+				},
+				{
+					"text": "CVE-2007-1095 security flaw",
+					"href": "https://bugzilla.redhat.com/1618294",
+					"id": "1618294"
+				},
+				{
+					"text": "CVE-2007-2292 security flaw",
+					"href": "https://bugzilla.redhat.com/1618308",
+					"id": "1618308"
+				},
+				{
+					"text": "CVE-2007-3511 security flaw",
+					"href": "https://bugzilla.redhat.com/1618316",
+					"id": "1618316"
+				},
+				{
+					"text": "CVE-2007-5334 security flaw",
+					"href": "https://bugzilla.redhat.com/1618324",
+					"id": "1618324"
+				},
+				{
+					"text": "CVE-2007-5337 security flaw",
+					"href": "https://bugzilla.redhat.com/1618325",
+					"id": "1618325"
+				},
+				{
+					"text": "CVE-2007-5338 security flaw",
+					"href": "https://bugzilla.redhat.com/1618326",
+					"id": "1618326"
+				},
+				{
+					"text": "CVE-2007-5339 security flaw",
+					"href": "https://bugzilla.redhat.com/1618328",
+					"id": "1618328"
+				},
+				{
+					"text": "CVE-2007-5340 security flaw",
+					"href": "https://bugzilla.redhat.com/1618329",
+					"id": "1618329"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070980001",
+										"comment": "seamonkey is earlier than 0:1.0.9-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609002",
+										"comment": "seamonkey is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070980003",
+										"comment": "seamonkey-chat is earlier than 0:1.0.9-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609004",
+										"comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070980005",
+										"comment": "seamonkey-devel is earlier than 0:1.0.9-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609006",
+										"comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070980007",
+										"comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609008",
+										"comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070980009",
+										"comment": "seamonkey-js-debugger is earlier than 0:1.0.9-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609010",
+										"comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070980011",
+										"comment": "seamonkey-mail is earlier than 0:1.0.9-6.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609012",
+										"comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

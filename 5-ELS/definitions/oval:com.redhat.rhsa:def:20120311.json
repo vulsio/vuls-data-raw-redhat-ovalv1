@@ -1,127 +1,127 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120311",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2012:0311: ibutils security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0311",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0311",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-3277",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3277",
-        "source": "CVE"
-      }
-    ],
-    "description": "The ibutils packages provide InfiniBand network and path diagnostics.\n\nIt was found that the ibmssh executable had an insecure relative RPATH\n(runtime library search path) set in the ELF (Executable and Linking\nFormat) header. A local user able to convince another user to run ibmssh in\nan attacker-controlled directory could run arbitrary code with the\nprivileges of the victim. (CVE-2008-3277)\n\nThis update also fixes the following bug:\n\n* Under certain circumstances, the \"ibdiagnet -r\" command could suffer from\nmemory corruption and terminate with a \"double free or corruption\" message\nand a backtrace. With this update, the correct memory management function\nis used to prevent the corruption. (BZ#711779)\n\nAll users of ibutils are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-02-21"
-      },
-      "updated": {
-        "date": "2012-02-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-3277",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-3277",
-          "impact": "low",
-          "public": "20080612",
-          "cvss_2": "3.5/AV:L/AC:H/Au:S/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-3277 ibutils: insecure relative RPATH",
-          "href": "https://bugzilla.redhat.com/457935",
-          "id": "457935"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120311001",
-                    "comment": "ibutils is earlier than 0:1.2-11.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120311002",
-                    "comment": "ibutils is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120311003",
-                    "comment": "ibutils-devel is earlier than 0:1.2-11.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120311004",
-                    "comment": "ibutils-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120311005",
-                    "comment": "ibutils-libs is earlier than 0:1.2-11.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120311006",
-                    "comment": "ibutils-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120311",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2012:0311: ibutils security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0311",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0311",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-3277",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-3277",
+				"source": "CVE"
+			}
+		],
+		"description": "The ibutils packages provide InfiniBand network and path diagnostics.\n\nIt was found that the ibmssh executable had an insecure relative RPATH\n(runtime library search path) set in the ELF (Executable and Linking\nFormat) header. A local user able to convince another user to run ibmssh in\nan attacker-controlled directory could run arbitrary code with the\nprivileges of the victim. (CVE-2008-3277)\n\nThis update also fixes the following bug:\n\n* Under certain circumstances, the \"ibdiagnet -r\" command could suffer from\nmemory corruption and terminate with a \"double free or corruption\" message\nand a backtrace. With this update, the correct memory management function\nis used to prevent the corruption. (BZ#711779)\n\nAll users of ibutils are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-02-21"
+			},
+			"updated": {
+				"date": "2012-02-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-3277",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-3277",
+					"impact": "low",
+					"public": "20080612",
+					"cvss_2": "3.5/AV:L/AC:H/Au:S/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-3277 ibutils: insecure relative RPATH",
+					"href": "https://bugzilla.redhat.com/457935",
+					"id": "457935"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120311001",
+										"comment": "ibutils is earlier than 0:1.2-11.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120311002",
+										"comment": "ibutils is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120311003",
+										"comment": "ibutils-devel is earlier than 0:1.2-11.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120311004",
+										"comment": "ibutils-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120311005",
+										"comment": "ibutils-libs is earlier than 0:1.2-11.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120311006",
+										"comment": "ibutils-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

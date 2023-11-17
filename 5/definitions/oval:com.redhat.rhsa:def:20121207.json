@@ -1,167 +1,167 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20121207",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2012:1207: glibc security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:1207",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:1207",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-3480",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-3480",
-        "source": "CVE"
-      }
-    ],
-    "description": "The glibc packages provide the standard C and standard math libraries used\nby multiple programs on the system. Without these libraries, the Linux\nsystem cannot function properly.\n\nMultiple integer overflow flaws, leading to stack-based buffer overflows,\nwere found in glibc's functions for converting a string to a numeric\nrepresentation (strtod(), strtof(), and strtold()). If an application used\nsuch a function on attacker controlled input, it could cause the\napplication to crash or, potentially, execute arbitrary code.\n(CVE-2012-3480)\n\nThis update also fixes the following bug:\n\n* Previously, logic errors in various mathematical functions, including\nexp, exp2, expf, exp2f, pow, sin, tan, and rint, caused inconsistent\nresults when the functions were used with the non-default rounding mode.\nThis could also cause applications to crash in some cases. With this\nupdate, the functions now give correct results across the four different\nrounding modes. (BZ#839411)\n\nAll users of glibc are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-08-27"
-      },
-      "updated": {
-        "date": "2012-08-27"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-3480",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-3480",
-          "impact": "moderate",
-          "public": "20120812",
-          "cwe": "CWE-190->CWE-121",
-          "cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-3480 glibc: Integer overflows, leading to stack-based buffer overflows in strto* related routines",
-          "href": "https://bugzilla.redhat.com/847715",
-          "id": "847715"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121207001",
-                    "comment": "glibc is earlier than 0:2.5-81.el5_8.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022002",
-                    "comment": "glibc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121207003",
-                    "comment": "glibc-common is earlier than 0:2.5-81.el5_8.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022004",
-                    "comment": "glibc-common is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121207005",
-                    "comment": "glibc-devel is earlier than 0:2.5-81.el5_8.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022006",
-                    "comment": "glibc-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121207007",
-                    "comment": "glibc-headers is earlier than 0:2.5-81.el5_8.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022008",
-                    "comment": "glibc-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121207009",
-                    "comment": "glibc-utils is earlier than 0:2.5-81.el5_8.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022010",
-                    "comment": "glibc-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121207011",
-                    "comment": "nscd is earlier than 0:2.5-81.el5_8.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022012",
-                    "comment": "nscd is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20121207",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2012:1207: glibc security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:1207",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:1207",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-3480",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-3480",
+				"source": "CVE"
+			}
+		],
+		"description": "The glibc packages provide the standard C and standard math libraries used\nby multiple programs on the system. Without these libraries, the Linux\nsystem cannot function properly.\n\nMultiple integer overflow flaws, leading to stack-based buffer overflows,\nwere found in glibc's functions for converting a string to a numeric\nrepresentation (strtod(), strtof(), and strtold()). If an application used\nsuch a function on attacker controlled input, it could cause the\napplication to crash or, potentially, execute arbitrary code.\n(CVE-2012-3480)\n\nThis update also fixes the following bug:\n\n* Previously, logic errors in various mathematical functions, including\nexp, exp2, expf, exp2f, pow, sin, tan, and rint, caused inconsistent\nresults when the functions were used with the non-default rounding mode.\nThis could also cause applications to crash in some cases. With this\nupdate, the functions now give correct results across the four different\nrounding modes. (BZ#839411)\n\nAll users of glibc are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-08-27"
+			},
+			"updated": {
+				"date": "2012-08-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-3480",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-3480",
+					"impact": "moderate",
+					"public": "20120812",
+					"cwe": "CWE-190->CWE-121",
+					"cvss_2": "4.4/AV:L/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-3480 glibc: Integer overflows, leading to stack-based buffer overflows in strto* related routines",
+					"href": "https://bugzilla.redhat.com/847715",
+					"id": "847715"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121207001",
+										"comment": "glibc is earlier than 0:2.5-81.el5_8.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022002",
+										"comment": "glibc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121207003",
+										"comment": "glibc-common is earlier than 0:2.5-81.el5_8.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022004",
+										"comment": "glibc-common is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121207005",
+										"comment": "glibc-devel is earlier than 0:2.5-81.el5_8.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022006",
+										"comment": "glibc-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121207007",
+										"comment": "glibc-headers is earlier than 0:2.5-81.el5_8.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022008",
+										"comment": "glibc-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121207009",
+										"comment": "glibc-utils is earlier than 0:2.5-81.el5_8.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022010",
+										"comment": "glibc-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121207011",
+										"comment": "nscd is earlier than 0:2.5-81.el5_8.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022012",
+										"comment": "nscd is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

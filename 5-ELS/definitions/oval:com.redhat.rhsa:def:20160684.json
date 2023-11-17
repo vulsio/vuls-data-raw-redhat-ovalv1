@@ -1,184 +1,184 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20160684",
-  "version": "642",
-  "metadata": {
-    "title": "RHSA-2016:0684: nss and nspr security, bug fix, and enhancement update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2016:0684",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2016:0684",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2016-1978",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2016-1978",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2016-1979",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2016-1979",
-        "source": "CVE"
-      }
-    ],
-    "description": "Network Security Services (NSS) is a set of libraries designed to support the cross-platform development of security-enabled client and server applications. Netscape Portable Runtime (NSPR) provides platform independence for non-GUI operating system facilities.\n\nThe following packages have been upgraded to a newer upstream version: nss 3.21.0, nspr 4.11.0. (BZ#1297944, BZ#1297943)\n\nSecurity Fix(es):\n\n* A use-after-free flaw was found in the way NSS handled DHE (Diffie-Hellman key exchange) and ECDHE (Elliptic Curve Diffie-Hellman key exchange) handshake messages. A remote attacker could send a specially crafted handshake message that, when parsed by an application linked against NSS, would cause that application to crash or, under certain special conditions, execute arbitrary code using the permissions of the user running the application. (CVE-2016-1978)\n\n* A use-after-free flaw was found in the way NSS processed certain DER (Distinguished Encoding Rules) encoded cryptographic keys. An attacker could use this flaw to create a specially crafted DER encoded certificate which, when parsed by an application compiled against the NSS library, could cause that application to crash, or execute arbitrary code using the permissions of the user running the application. (CVE-2016-1979)\n\nRed Hat would like to thank the Mozilla project for reporting these issues. Upstream acknowledges Eric Rescorla as the original reporter of CVE-2016-1978; and Tim Taubert as the original reporter of CVE-2016-1979.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2016 Red Hat, Inc.",
-      "issued": {
-        "date": "2016-04-25"
-      },
-      "updated": {
-        "date": "2016-04-25"
-      },
-      "cve": [
-        {
-          "text": "CVE-2016-1978",
-          "href": "https://access.redhat.com/security/cve/CVE-2016-1978",
-          "impact": "moderate",
-          "public": "20160308",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2016-1979",
-          "href": "https://access.redhat.com/security/cve/CVE-2016-1979",
-          "impact": "moderate",
-          "public": "20160308",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2016-1979 nss: Use-after-free during processing of DER encoded keys in NSS (MFSA 2016-36)",
-          "href": "https://bugzilla.redhat.com/1315202",
-          "id": "1315202"
-        },
-        {
-          "text": "CVE-2016-1978 nss: Use-after-free in NSS during SSL connections in low memory (MFSA 2016-15)",
-          "href": "https://bugzilla.redhat.com/1315565",
-          "id": "1315565"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20160684001",
-                    "comment": "nspr is earlier than 0:4.11.0-1.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925002",
-                    "comment": "nspr is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20160684003",
-                    "comment": "nspr-devel is earlier than 0:4.11.0-1.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925004",
-                    "comment": "nspr-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20160684005",
-                    "comment": "nss is earlier than 0:3.21.0-6.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925006",
-                    "comment": "nss is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20160684007",
-                    "comment": "nss-devel is earlier than 0:3.21.0-6.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925008",
-                    "comment": "nss-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20160684009",
-                    "comment": "nss-pkcs11-devel is earlier than 0:3.21.0-6.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925010",
-                    "comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20160684011",
-                    "comment": "nss-tools is earlier than 0:3.21.0-6.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925012",
-                    "comment": "nss-tools is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20160684",
+	"version": "642",
+	"metadata": {
+		"title": "RHSA-2016:0684: nss and nspr security, bug fix, and enhancement update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2016:0684",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2016:0684",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2016-1978",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2016-1978",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2016-1979",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2016-1979",
+				"source": "CVE"
+			}
+		],
+		"description": "Network Security Services (NSS) is a set of libraries designed to support the cross-platform development of security-enabled client and server applications. Netscape Portable Runtime (NSPR) provides platform independence for non-GUI operating system facilities.\n\nThe following packages have been upgraded to a newer upstream version: nss 3.21.0, nspr 4.11.0. (BZ#1297944, BZ#1297943)\n\nSecurity Fix(es):\n\n* A use-after-free flaw was found in the way NSS handled DHE (Diffie-Hellman key exchange) and ECDHE (Elliptic Curve Diffie-Hellman key exchange) handshake messages. A remote attacker could send a specially crafted handshake message that, when parsed by an application linked against NSS, would cause that application to crash or, under certain special conditions, execute arbitrary code using the permissions of the user running the application. (CVE-2016-1978)\n\n* A use-after-free flaw was found in the way NSS processed certain DER (Distinguished Encoding Rules) encoded cryptographic keys. An attacker could use this flaw to create a specially crafted DER encoded certificate which, when parsed by an application compiled against the NSS library, could cause that application to crash, or execute arbitrary code using the permissions of the user running the application. (CVE-2016-1979)\n\nRed Hat would like to thank the Mozilla project for reporting these issues. Upstream acknowledges Eric Rescorla as the original reporter of CVE-2016-1978; and Tim Taubert as the original reporter of CVE-2016-1979.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2016 Red Hat, Inc.",
+			"issued": {
+				"date": "2016-04-25"
+			},
+			"updated": {
+				"date": "2016-04-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-1978",
+					"href": "https://access.redhat.com/security/cve/CVE-2016-1978",
+					"impact": "moderate",
+					"public": "20160308",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2016-1979",
+					"href": "https://access.redhat.com/security/cve/CVE-2016-1979",
+					"impact": "moderate",
+					"public": "20160308",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2016-1979 nss: Use-after-free during processing of DER encoded keys in NSS (MFSA 2016-36)",
+					"href": "https://bugzilla.redhat.com/1315202",
+					"id": "1315202"
+				},
+				{
+					"text": "CVE-2016-1978 nss: Use-after-free in NSS during SSL connections in low memory (MFSA 2016-15)",
+					"href": "https://bugzilla.redhat.com/1315565",
+					"id": "1315565"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20160684001",
+										"comment": "nspr is earlier than 0:4.11.0-1.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925002",
+										"comment": "nspr is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20160684003",
+										"comment": "nspr-devel is earlier than 0:4.11.0-1.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925004",
+										"comment": "nspr-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20160684005",
+										"comment": "nss is earlier than 0:3.21.0-6.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925006",
+										"comment": "nss is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20160684007",
+										"comment": "nss-devel is earlier than 0:3.21.0-6.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925008",
+										"comment": "nss-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20160684009",
+										"comment": "nss-pkcs11-devel is earlier than 0:3.21.0-6.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925010",
+										"comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20160684011",
+										"comment": "nss-tools is earlier than 0:3.21.0-6.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925012",
+										"comment": "nss-tools is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

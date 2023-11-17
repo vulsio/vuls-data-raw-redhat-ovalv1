@@ -1,167 +1,167 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhba:def:20130022",
-  "version": "635",
-  "metadata": {
-    "title": "RHBA-2013:0022: glibc bug fix and enhancement update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHBA-2013:0022",
-        "ref_url": "https://access.redhat.com/errata/RHBA-2013:0022",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-6686",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-6686",
-        "source": "CVE"
-      }
-    ],
-    "description": "The glibc packages provide the standard C and standard math libraries used by multiple programs on the system. Without these libraries, the Linux system cannot function correctly.\n\nThese updated glibc packages include numerous bug fixes and enhancements. Space precludes documenting all of these changes in this advisory. Users are directed to the Red Hat Enterprise Linux 5.9 Technical Notes for information on the most significant of these changes:\n\nhttps://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/html/5.9_Technical_Notes/glibc.html#RHBA-2013-0022\n\nAll users of glibc are advised to upgrade to these updated packages, which provide numerous bug fixes and enhancements.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-01-07"
-      },
-      "updated": {
-        "date": "2013-01-08"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-6686",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-6686",
-          "impact": "moderate",
-          "public": "20110413",
-          "cwe": "CWE-121",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-6686 CVE-2013-4357 glibc: stack overflow in getaddrinfo()'s use of alloca()",
-          "href": "https://bugzilla.redhat.com/1009643",
-          "id": "1009643"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022001",
-                    "comment": "glibc is earlier than 0:2.5-107"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022002",
-                    "comment": "glibc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022003",
-                    "comment": "glibc-common is earlier than 0:2.5-107"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022004",
-                    "comment": "glibc-common is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022005",
-                    "comment": "glibc-devel is earlier than 0:2.5-107"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022006",
-                    "comment": "glibc-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022007",
-                    "comment": "glibc-headers is earlier than 0:2.5-107"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022008",
-                    "comment": "glibc-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022009",
-                    "comment": "glibc-utils is earlier than 0:2.5-107"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022010",
-                    "comment": "glibc-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022011",
-                    "comment": "nscd is earlier than 0:2.5-107"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20130022012",
-                    "comment": "nscd is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhba:def:20130022",
+	"version": "635",
+	"metadata": {
+		"title": "RHBA-2013:0022: glibc bug fix and enhancement update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHBA-2013:0022",
+				"ref_url": "https://access.redhat.com/errata/RHBA-2013:0022",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-6686",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-6686",
+				"source": "CVE"
+			}
+		],
+		"description": "The glibc packages provide the standard C and standard math libraries used by multiple programs on the system. Without these libraries, the Linux system cannot function correctly.\n\nThese updated glibc packages include numerous bug fixes and enhancements. Space precludes documenting all of these changes in this advisory. Users are directed to the Red Hat Enterprise Linux 5.9 Technical Notes for information on the most significant of these changes:\n\nhttps://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/html/5.9_Technical_Notes/glibc.html#RHBA-2013-0022\n\nAll users of glibc are advised to upgrade to these updated packages, which provide numerous bug fixes and enhancements.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-01-07"
+			},
+			"updated": {
+				"date": "2013-01-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-6686",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-6686",
+					"impact": "moderate",
+					"public": "20110413",
+					"cwe": "CWE-121",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-6686 CVE-2013-4357 glibc: stack overflow in getaddrinfo()'s use of alloca()",
+					"href": "https://bugzilla.redhat.com/1009643",
+					"id": "1009643"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022001",
+										"comment": "glibc is earlier than 0:2.5-107"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022002",
+										"comment": "glibc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022003",
+										"comment": "glibc-common is earlier than 0:2.5-107"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022004",
+										"comment": "glibc-common is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022005",
+										"comment": "glibc-devel is earlier than 0:2.5-107"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022006",
+										"comment": "glibc-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022007",
+										"comment": "glibc-headers is earlier than 0:2.5-107"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022008",
+										"comment": "glibc-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022009",
+										"comment": "glibc-utils is earlier than 0:2.5-107"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022010",
+										"comment": "glibc-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022011",
+										"comment": "nscd is earlier than 0:2.5-107"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20130022012",
+										"comment": "nscd is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,247 +1,247 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080042",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2008:0042: tomcat security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0042",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0042",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5342",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5342",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5461",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5461",
-        "source": "CVE"
-      }
-    ],
-    "description": "Tomcat is a servlet container for Java Servlet and JavaServer Pages\ntechnologies.\n\nA directory traversal vulnerability existed in the Apache Tomcat webdav\nservlet. In some configurations it allowed remote authenticated users to\nread files accessible to the local tomcat process. (CVE-2007-5461)\n\nThe default security policy in the JULI logging component did not restrict\naccess permissions to files. This could be misused by untrusted web\napplications to access and write arbitrary files in the context of the\ntomcat process. (CVE-2007-5342)\n\nUsers of Tomcat should update to these errata packages, which contain\nbackported patches and are not vulnerable to these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-03-11"
-      },
-      "updated": {
-        "date": "2008-03-11"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5342",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5342",
-          "impact": "low",
-          "public": "20071223"
-        },
-        {
-          "text": "CVE-2007-5461",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5461",
-          "impact": "important",
-          "public": "20071014"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5461 Absolute path traversal Apache Tomcat WEBDAV",
-          "href": "https://bugzilla.redhat.com/333791",
-          "id": "333791"
-        },
-        {
-          "text": "CVE-2007-5342 Apache Tomcat's default security policy is too open",
-          "href": "https://bugzilla.redhat.com/427216",
-          "id": "427216"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042001",
-                    "comment": "tomcat5 is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327002",
-                    "comment": "tomcat5 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042003",
-                    "comment": "tomcat5-admin-webapps is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327004",
-                    "comment": "tomcat5-admin-webapps is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042005",
-                    "comment": "tomcat5-common-lib is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327006",
-                    "comment": "tomcat5-common-lib is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042007",
-                    "comment": "tomcat5-jasper is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327008",
-                    "comment": "tomcat5-jasper is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042009",
-                    "comment": "tomcat5-jasper-javadoc is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327010",
-                    "comment": "tomcat5-jasper-javadoc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042011",
-                    "comment": "tomcat5-jsp-2.0-api is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327012",
-                    "comment": "tomcat5-jsp-2.0-api is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042013",
-                    "comment": "tomcat5-jsp-2.0-api-javadoc is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327014",
-                    "comment": "tomcat5-jsp-2.0-api-javadoc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042015",
-                    "comment": "tomcat5-server-lib is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327016",
-                    "comment": "tomcat5-server-lib is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042017",
-                    "comment": "tomcat5-servlet-2.4-api is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327018",
-                    "comment": "tomcat5-servlet-2.4-api is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042019",
-                    "comment": "tomcat5-servlet-2.4-api-javadoc is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327020",
-                    "comment": "tomcat5-servlet-2.4-api-javadoc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080042021",
-                    "comment": "tomcat5-webapps is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070327022",
-                    "comment": "tomcat5-webapps is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080042",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2008:0042: tomcat security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0042",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0042",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5342",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5342",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5461",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5461",
+				"source": "CVE"
+			}
+		],
+		"description": "Tomcat is a servlet container for Java Servlet and JavaServer Pages\ntechnologies.\n\nA directory traversal vulnerability existed in the Apache Tomcat webdav\nservlet. In some configurations it allowed remote authenticated users to\nread files accessible to the local tomcat process. (CVE-2007-5461)\n\nThe default security policy in the JULI logging component did not restrict\naccess permissions to files. This could be misused by untrusted web\napplications to access and write arbitrary files in the context of the\ntomcat process. (CVE-2007-5342)\n\nUsers of Tomcat should update to these errata packages, which contain\nbackported patches and are not vulnerable to these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-03-11"
+			},
+			"updated": {
+				"date": "2008-03-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5342",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5342",
+					"impact": "low",
+					"public": "20071223"
+				},
+				{
+					"text": "CVE-2007-5461",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5461",
+					"impact": "important",
+					"public": "20071014"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5461 Absolute path traversal Apache Tomcat WEBDAV",
+					"href": "https://bugzilla.redhat.com/333791",
+					"id": "333791"
+				},
+				{
+					"text": "CVE-2007-5342 Apache Tomcat's default security policy is too open",
+					"href": "https://bugzilla.redhat.com/427216",
+					"id": "427216"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042001",
+										"comment": "tomcat5 is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327002",
+										"comment": "tomcat5 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042003",
+										"comment": "tomcat5-admin-webapps is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327004",
+										"comment": "tomcat5-admin-webapps is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042005",
+										"comment": "tomcat5-common-lib is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327006",
+										"comment": "tomcat5-common-lib is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042007",
+										"comment": "tomcat5-jasper is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327008",
+										"comment": "tomcat5-jasper is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042009",
+										"comment": "tomcat5-jasper-javadoc is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327010",
+										"comment": "tomcat5-jasper-javadoc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042011",
+										"comment": "tomcat5-jsp-2.0-api is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327012",
+										"comment": "tomcat5-jsp-2.0-api is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042013",
+										"comment": "tomcat5-jsp-2.0-api-javadoc is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327014",
+										"comment": "tomcat5-jsp-2.0-api-javadoc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042015",
+										"comment": "tomcat5-server-lib is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327016",
+										"comment": "tomcat5-server-lib is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042017",
+										"comment": "tomcat5-servlet-2.4-api is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327018",
+										"comment": "tomcat5-servlet-2.4-api is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042019",
+										"comment": "tomcat5-servlet-2.4-api-javadoc is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327020",
+										"comment": "tomcat5-servlet-2.4-api-javadoc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080042021",
+										"comment": "tomcat5-webapps is earlier than 0:5.5.23-0jpp.3.0.3.el5_1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070327022",
+										"comment": "tomcat5-webapps is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,190 +1,190 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090344",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2009:0344: libsoup security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0344",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0344",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-0585",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0585",
-        "source": "CVE"
-      }
-    ],
-    "description": "libsoup is an HTTP client/library implementation for GNOME written in C. It\nwas originally part of a SOAP (Simple Object Access Protocol)\nimplementation called Soup, but the SOAP and non-SOAP parts have now been\nsplit into separate packages.\n\nAn integer overflow flaw which caused a heap-based buffer overflow was\ndiscovered in libsoup's Base64 encoding routine. An attacker could use this\nflaw to crash, or, possibly, execute arbitrary code. This arbitrary code\nwould execute with the privileges of the application using libsoup's Base64\nroutine to encode large, untrusted inputs. (CVE-2009-0585)\n\nAll users of libsoup and evolution28-libsoup should upgrade to these\nupdated packages, which contain a backported patch to resolve this issue.\nAll running applications using the affected library function (such as\nEvolution configured to connect to the GroupWise back-end) must be\nrestarted for the update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-03-16"
-      },
-      "updated": {
-        "date": "2009-03-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-0585",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0585",
-          "impact": "moderate",
-          "public": "20090312",
-          "cwe": "CWE-190",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-0585 libsoup: integer overflow in soup_base64_encode()",
-          "href": "https://bugzilla.redhat.com/488026",
-          "id": "488026"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344001",
-                    "comment": "libsoup is earlier than 0:2.2.1-4.el4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344002",
-                    "comment": "libsoup is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344003",
-                    "comment": "libsoup-devel is earlier than 0:2.2.1-4.el4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344004",
-                    "comment": "libsoup-devel is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344005",
-                    "comment": "evolution28-libsoup is earlier than 0:2.2.98-5.el4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344006",
-                    "comment": "evolution28-libsoup is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344007",
-                    "comment": "evolution28-libsoup-devel is earlier than 0:2.2.98-5.el4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344008",
-                    "comment": "evolution28-libsoup-devel is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344010",
-                    "comment": "libsoup is earlier than 0:2.2.98-2.el5_3.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344011",
-                    "comment": "libsoup is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344012",
-                    "comment": "libsoup-devel is earlier than 0:2.2.98-2.el5_3.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090344013",
-                    "comment": "libsoup-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090344",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2009:0344: libsoup security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0344",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0344",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-0585",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0585",
+				"source": "CVE"
+			}
+		],
+		"description": "libsoup is an HTTP client/library implementation for GNOME written in C. It\nwas originally part of a SOAP (Simple Object Access Protocol)\nimplementation called Soup, but the SOAP and non-SOAP parts have now been\nsplit into separate packages.\n\nAn integer overflow flaw which caused a heap-based buffer overflow was\ndiscovered in libsoup's Base64 encoding routine. An attacker could use this\nflaw to crash, or, possibly, execute arbitrary code. This arbitrary code\nwould execute with the privileges of the application using libsoup's Base64\nroutine to encode large, untrusted inputs. (CVE-2009-0585)\n\nAll users of libsoup and evolution28-libsoup should upgrade to these\nupdated packages, which contain a backported patch to resolve this issue.\nAll running applications using the affected library function (such as\nEvolution configured to connect to the GroupWise back-end) must be\nrestarted for the update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-03-16"
+			},
+			"updated": {
+				"date": "2009-03-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-0585",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0585",
+					"impact": "moderate",
+					"public": "20090312",
+					"cwe": "CWE-190",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-0585 libsoup: integer overflow in soup_base64_encode()",
+					"href": "https://bugzilla.redhat.com/488026",
+					"id": "488026"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344001",
+										"comment": "libsoup is earlier than 0:2.2.1-4.el4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344002",
+										"comment": "libsoup is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344003",
+										"comment": "libsoup-devel is earlier than 0:2.2.1-4.el4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344004",
+										"comment": "libsoup-devel is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344005",
+										"comment": "evolution28-libsoup is earlier than 0:2.2.98-5.el4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344006",
+										"comment": "evolution28-libsoup is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344007",
+										"comment": "evolution28-libsoup-devel is earlier than 0:2.2.98-5.el4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344008",
+										"comment": "evolution28-libsoup-devel is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344010",
+										"comment": "libsoup is earlier than 0:2.2.98-2.el5_3.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344011",
+										"comment": "libsoup is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344012",
+										"comment": "libsoup-devel is earlier than 0:2.2.98-2.el5_3.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090344013",
+										"comment": "libsoup-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

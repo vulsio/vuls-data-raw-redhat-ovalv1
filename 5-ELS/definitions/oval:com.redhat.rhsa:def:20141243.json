@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20141243",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2014:1243: automake security update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2014:1243",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2014:1243",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-3386",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-3386",
-        "source": "CVE"
-      }
-    ],
-    "description": "Automake is a tool for automatically generating Makefile.in files compliant\nwith the GNU Coding Standards.\n\nIt was found that the distcheck rule in Automake-generated Makefiles made a\ndirectory world-writable when preparing source archives. If a malicious,\nlocal user could access this directory, they could execute arbitrary code\nwith the privileges of the user running \"make distcheck\". (CVE-2012-3386)\n\nRed Hat would like to thank Jim Meyering for reporting this issue. Upstream\nacknowledges Stefano Lattarini as the original reporter.\n\nAll automake users are advised to upgrade to this updated package, which\ncontains a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2014 Red Hat, Inc.",
-      "issued": {
-        "date": "2014-09-16"
-      },
-      "updated": {
-        "date": "2014-09-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-3386",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-3386",
-          "impact": "low",
-          "public": "20120709",
-          "cwe": "CWE-732",
-          "cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-3386 automake: locally exploitable \"make distcheck\" bug",
-          "href": "https://bugzilla.redhat.com/838286",
-          "id": "838286"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20141243001",
-            "comment": "automake is earlier than 0:1.9.6-3.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20100321010",
-            "comment": "automake is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20141243",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2014:1243: automake security update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2014:1243",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2014:1243",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-3386",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-3386",
+				"source": "CVE"
+			}
+		],
+		"description": "Automake is a tool for automatically generating Makefile.in files compliant\nwith the GNU Coding Standards.\n\nIt was found that the distcheck rule in Automake-generated Makefiles made a\ndirectory world-writable when preparing source archives. If a malicious,\nlocal user could access this directory, they could execute arbitrary code\nwith the privileges of the user running \"make distcheck\". (CVE-2012-3386)\n\nRed Hat would like to thank Jim Meyering for reporting this issue. Upstream\nacknowledges Stefano Lattarini as the original reporter.\n\nAll automake users are advised to upgrade to this updated package, which\ncontains a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2014 Red Hat, Inc.",
+			"issued": {
+				"date": "2014-09-16"
+			},
+			"updated": {
+				"date": "2014-09-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-3386",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-3386",
+					"impact": "low",
+					"public": "20120709",
+					"cwe": "CWE-732",
+					"cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-3386 automake: locally exploitable \"make distcheck\" bug",
+					"href": "https://bugzilla.redhat.com/838286",
+					"id": "838286"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20141243001",
+						"comment": "automake is earlier than 0:1.9.6-3.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20100321010",
+						"comment": "automake is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

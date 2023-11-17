@@ -1,111 +1,111 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070969",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2007:0969: util-linux security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0969",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0969",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5191",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5191",
-        "source": "CVE"
-      }
-    ],
-    "description": "The util-linux package contains a large variety of low-level system\nutilities that are necessary for a Linux system to function. \n\nA flaw was discovered in the way that the mount and umount utilities\nused the setuid and setgid functions, which could lead to privileges being\ndropped improperly.  A local user could use this flaw to run mount helper\napplications such as, mount.nfs, with additional privileges (CVE-2007-5191).\n\nUsers are advised to update to these erratum packages which contain a\nbackported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-15"
-      },
-      "updated": {
-        "date": "2007-11-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5191",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5191",
-          "impact": "moderate",
-          "public": "20070920"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5191 util-linux (u)mount doesn't drop privileges properly when calling helpers",
-          "href": "https://bugzilla.redhat.com/320041",
-          "id": "320041"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070969001",
-            "comment": "util-linux is earlier than 0:2.12a-17.el4_6.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070969002",
-            "comment": "util-linux is signed with Red Hat master key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070969004",
-            "comment": "util-linux is earlier than 0:2.13-0.45.el5_1.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20090070002",
-            "comment": "util-linux is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070969",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2007:0969: util-linux security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0969",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0969",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5191",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5191",
+				"source": "CVE"
+			}
+		],
+		"description": "The util-linux package contains a large variety of low-level system\nutilities that are necessary for a Linux system to function. \n\nA flaw was discovered in the way that the mount and umount utilities\nused the setuid and setgid functions, which could lead to privileges being\ndropped improperly.  A local user could use this flaw to run mount helper\napplications such as, mount.nfs, with additional privileges (CVE-2007-5191).\n\nUsers are advised to update to these erratum packages which contain a\nbackported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-15"
+			},
+			"updated": {
+				"date": "2007-11-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5191",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5191",
+					"impact": "moderate",
+					"public": "20070920"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5191 util-linux (u)mount doesn't drop privileges properly when calling helpers",
+					"href": "https://bugzilla.redhat.com/320041",
+					"id": "320041"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070969001",
+						"comment": "util-linux is earlier than 0:2.12a-17.el4_6.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070969002",
+						"comment": "util-linux is signed with Red Hat master key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070969004",
+						"comment": "util-linux is earlier than 0:2.13-0.45.el5_1.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20090070002",
+						"comment": "util-linux is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

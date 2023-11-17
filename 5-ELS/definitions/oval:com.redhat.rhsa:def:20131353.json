@@ -1,123 +1,123 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20131353",
-  "version": "644",
-  "metadata": {
-    "title": "RHSA-2013:1353: sudo security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2013:1353",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2013:1353",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2013-1775",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-1775",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2013-1776",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-1776",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2013-2776",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-2776",
-        "source": "CVE"
-      }
-    ],
-    "description": "The sudo (superuser do) utility allows system administrators to give\ncertain users the ability to run commands as root.\n\nA flaw was found in the way sudo handled time stamp files. An attacker able\nto run code as a local user and with the ability to control the system\nclock could possibly gain additional privileges by running commands that\nthe victim user was allowed to run via sudo, without knowing the victim's\npassword. (CVE-2013-1775)\n\nIt was found that sudo did not properly validate the controlling terminal\ndevice when the tty_tickets option was enabled in the /etc/sudoers file. An\nattacker able to run code as a local user could possibly gain additional\nprivileges by running commands that the victim user was allowed to run via\nsudo, without knowing the victim's password. (CVE-2013-1776, CVE-2013-2776)\n\nThis update also fixes the following bugs:\n\n* Due to a bug in the cycle detection algorithm of the visudo utility,\nvisudo incorrectly evaluated certain alias definitions in the /etc/sudoers\nfile as cycles. Consequently, a warning message about undefined aliases\nappeared. This bug has been fixed, /etc/sudoers is now parsed correctly by\nvisudo and the warning message no longer appears. (BZ#849679)\n\n* Previously, the 'sudo -l' command did not parse the /etc/sudoers file\ncorrectly if it contained an Active Directory (AD) group. The file was\nparsed only up to the first AD group information and then the parsing\nfailed with the following message:\n\n    sudo: unable to cache group ADDOM\\admingroup, already exists\n\nWith this update, the underlying code has been modified and 'sudo -l' now\nparses /etc/sudoers containing AD groups correctly. (BZ#855836)\n\n* Previously, the sudo utility did not escape the backslash characters\ncontained in user names properly. Consequently, if a system used sudo\nintegrated with LDAP or Active Directory (AD) as the primary authentication\nmechanism, users were not able to authenticate on that system. With this\nupdate, sudo has been modified to process LDAP and AD names correctly and\nthe authentication process now works as expected. (BZ#869287)\n\n* Prior to this update, the 'visudo -s (strict)' command incorrectly parsed\ncertain alias definitions. Consequently, an error message was issued. The\nbug has been fixed, and parsing errors no longer occur when using 'visudo\n-s'. (BZ#905624)\n\nAll sudo users are advised to upgrade to this updated package, which\ncontains backported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-09-30"
-      },
-      "updated": {
-        "date": "2013-09-30"
-      },
-      "cve": [
-        {
-          "text": "CVE-2013-1775",
-          "href": "https://access.redhat.com/security/cve/CVE-2013-1775",
-          "impact": "low",
-          "public": "20130227",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2013-1776",
-          "href": "https://access.redhat.com/security/cve/CVE-2013-1776",
-          "impact": "low",
-          "public": "20130227",
-          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:P/I:P/A:N"
-        },
-        {
-          "text": "CVE-2013-2776",
-          "href": "https://access.redhat.com/security/cve/CVE-2013-2776",
-          "impact": "low",
-          "public": "20130227",
-          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:P/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2013-1775 sudo: authentication bypass via reset system clock",
-          "href": "https://bugzilla.redhat.com/916363",
-          "id": "916363"
-        },
-        {
-          "text": "CVE-2013-1776 sudo: bypass of tty_tickets constraints",
-          "href": "https://bugzilla.redhat.com/916365",
-          "id": "916365"
-        },
-        {
-          "text": "CVE-2013-2776 sudo: bypass of tty_tickets constraints",
-          "href": "https://bugzilla.redhat.com/949751",
-          "id": "949751"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20131353001",
-            "comment": "sudo is earlier than 0:1.7.2p1-28.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20090267002",
-            "comment": "sudo is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20131353",
+	"version": "644",
+	"metadata": {
+		"title": "RHSA-2013:1353: sudo security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2013:1353",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2013:1353",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2013-1775",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2013-1775",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2013-1776",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2013-1776",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2013-2776",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2013-2776",
+				"source": "CVE"
+			}
+		],
+		"description": "The sudo (superuser do) utility allows system administrators to give\ncertain users the ability to run commands as root.\n\nA flaw was found in the way sudo handled time stamp files. An attacker able\nto run code as a local user and with the ability to control the system\nclock could possibly gain additional privileges by running commands that\nthe victim user was allowed to run via sudo, without knowing the victim's\npassword. (CVE-2013-1775)\n\nIt was found that sudo did not properly validate the controlling terminal\ndevice when the tty_tickets option was enabled in the /etc/sudoers file. An\nattacker able to run code as a local user could possibly gain additional\nprivileges by running commands that the victim user was allowed to run via\nsudo, without knowing the victim's password. (CVE-2013-1776, CVE-2013-2776)\n\nThis update also fixes the following bugs:\n\n* Due to a bug in the cycle detection algorithm of the visudo utility,\nvisudo incorrectly evaluated certain alias definitions in the /etc/sudoers\nfile as cycles. Consequently, a warning message about undefined aliases\nappeared. This bug has been fixed, /etc/sudoers is now parsed correctly by\nvisudo and the warning message no longer appears. (BZ#849679)\n\n* Previously, the 'sudo -l' command did not parse the /etc/sudoers file\ncorrectly if it contained an Active Directory (AD) group. The file was\nparsed only up to the first AD group information and then the parsing\nfailed with the following message:\n\n    sudo: unable to cache group ADDOM\\admingroup, already exists\n\nWith this update, the underlying code has been modified and 'sudo -l' now\nparses /etc/sudoers containing AD groups correctly. (BZ#855836)\n\n* Previously, the sudo utility did not escape the backslash characters\ncontained in user names properly. Consequently, if a system used sudo\nintegrated with LDAP or Active Directory (AD) as the primary authentication\nmechanism, users were not able to authenticate on that system. With this\nupdate, sudo has been modified to process LDAP and AD names correctly and\nthe authentication process now works as expected. (BZ#869287)\n\n* Prior to this update, the 'visudo -s (strict)' command incorrectly parsed\ncertain alias definitions. Consequently, an error message was issued. The\nbug has been fixed, and parsing errors no longer occur when using 'visudo\n-s'. (BZ#905624)\n\nAll sudo users are advised to upgrade to this updated package, which\ncontains backported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-09-30"
+			},
+			"updated": {
+				"date": "2013-09-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2013-1775",
+					"href": "https://access.redhat.com/security/cve/CVE-2013-1775",
+					"impact": "low",
+					"public": "20130227",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2013-1776",
+					"href": "https://access.redhat.com/security/cve/CVE-2013-1776",
+					"impact": "low",
+					"public": "20130227",
+					"cvss_2": "3.6/AV:L/AC:L/Au:N/C:P/I:P/A:N"
+				},
+				{
+					"text": "CVE-2013-2776",
+					"href": "https://access.redhat.com/security/cve/CVE-2013-2776",
+					"impact": "low",
+					"public": "20130227",
+					"cvss_2": "3.6/AV:L/AC:L/Au:N/C:P/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2013-1775 sudo: authentication bypass via reset system clock",
+					"href": "https://bugzilla.redhat.com/916363",
+					"id": "916363"
+				},
+				{
+					"text": "CVE-2013-1776 sudo: bypass of tty_tickets constraints",
+					"href": "https://bugzilla.redhat.com/916365",
+					"id": "916365"
+				},
+				{
+					"text": "CVE-2013-2776 sudo: bypass of tty_tickets constraints",
+					"href": "https://bugzilla.redhat.com/949751",
+					"id": "949751"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20131353001",
+						"comment": "sudo is earlier than 0:1.7.2p1-28.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20090267002",
+						"comment": "sudo is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

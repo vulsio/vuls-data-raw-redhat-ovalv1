@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070286",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2007:0286: gdm security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0286",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0286",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-1057",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1057",
-        "source": "CVE"
-      }
-    ],
-    "description": "Gdm (the GNOME Display Manager) is a highly configurable reimplementation\nof xdm, the X Display Manager. Gdm allows you to log into your system with\nthe X Window System running and supports running several different X\nsessions on your local machine at the same time.\n\nMarcus Meissner discovered a race condition issue in the way Gdm modifies\nthe permissions on the .ICEauthority file. A local attacker could exploit\nthis flaw to gain privileges. Due to the nature of the flaw, however, a\nsuccessful exploitation was unlikely. (CVE-2006-1057)\n\nThis erratum also includes a bug fix to correct the pam configuration for\nthe audit system.\n\nAll users of gdm should upgrade to this updated package, which contains\nbackported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-05-01"
-      },
-      "updated": {
-        "date": "2007-05-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-1057",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-1057",
-          "impact": "low",
-          "public": "20060419"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-1057 security flaw",
-          "href": "https://bugzilla.redhat.com/1618026",
-          "id": "1618026"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070286001",
-            "comment": "gdm is earlier than 1:2.6.0.5-7.rhel4.15"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070286002",
-            "comment": "gdm is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070286",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2007:0286: gdm security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0286",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0286",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-1057",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-1057",
+				"source": "CVE"
+			}
+		],
+		"description": "Gdm (the GNOME Display Manager) is a highly configurable reimplementation\nof xdm, the X Display Manager. Gdm allows you to log into your system with\nthe X Window System running and supports running several different X\nsessions on your local machine at the same time.\n\nMarcus Meissner discovered a race condition issue in the way Gdm modifies\nthe permissions on the .ICEauthority file. A local attacker could exploit\nthis flaw to gain privileges. Due to the nature of the flaw, however, a\nsuccessful exploitation was unlikely. (CVE-2006-1057)\n\nThis erratum also includes a bug fix to correct the pam configuration for\nthe audit system.\n\nAll users of gdm should upgrade to this updated package, which contains\nbackported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-05-01"
+			},
+			"updated": {
+				"date": "2007-05-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-1057",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-1057",
+					"impact": "low",
+					"public": "20060419"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-1057 security flaw",
+					"href": "https://bugzilla.redhat.com/1618026",
+					"id": "1618026"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070286001",
+						"comment": "gdm is earlier than 1:2.6.0.5-7.rhel4.15"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070286002",
+						"comment": "gdm is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

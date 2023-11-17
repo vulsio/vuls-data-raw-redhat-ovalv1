@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070957",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0957: opal security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0957",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0957",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4924",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4924",
-        "source": "CVE"
-      }
-    ],
-    "description": "Open Phone Abstraction Library (opal) is implementation of various\ntelephony and video communication protocols for use over packet based \nnetworks.\n\nIn Red Hat Enterprise Linux 5, the Ekiga application uses opal.\n\nA flaw was discovered in the way opal handled certain Session Initiation \nProtocol (SIP) packets.  An attacker could use this flaw to crash an \napplication, such as Ekiga, which is linked with opal. (CVE-2007-4924)\n\nUsers should upgrade to these updated opal packages which contain a \nbackported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-10-08"
-      },
-      "updated": {
-        "date": "2007-10-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4924",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4924",
-          "impact": "moderate",
-          "public": "20070917",
-          "cwe": "CWE-20"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4924 ekiga remote crash caused by insufficient input validation",
-          "href": "https://bugzilla.redhat.com/296371",
-          "id": "296371"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_productivity:5",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070957001",
-                    "comment": "opal is earlier than 0:2.2.2-1.1.0.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070957002",
-                    "comment": "opal is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070957003",
-                    "comment": "opal-devel is earlier than 0:2.2.2-1.1.0.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070957004",
-                    "comment": "opal-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070957",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0957: opal security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0957",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0957",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4924",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4924",
+				"source": "CVE"
+			}
+		],
+		"description": "Open Phone Abstraction Library (opal) is implementation of various\ntelephony and video communication protocols for use over packet based \nnetworks.\n\nIn Red Hat Enterprise Linux 5, the Ekiga application uses opal.\n\nA flaw was discovered in the way opal handled certain Session Initiation \nProtocol (SIP) packets.  An attacker could use this flaw to crash an \napplication, such as Ekiga, which is linked with opal. (CVE-2007-4924)\n\nUsers should upgrade to these updated opal packages which contain a \nbackported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-10-08"
+			},
+			"updated": {
+				"date": "2007-10-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4924",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4924",
+					"impact": "moderate",
+					"public": "20070917",
+					"cwe": "CWE-20"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4924 ekiga remote crash caused by insufficient input validation",
+					"href": "https://bugzilla.redhat.com/296371",
+					"id": "296371"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_productivity:5",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070957001",
+										"comment": "opal is earlier than 0:2.2.2-1.1.0.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070957002",
+										"comment": "opal is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070957003",
+										"comment": "opal-devel is earlier than 0:2.2.2-1.1.0.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070957004",
+										"comment": "opal-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

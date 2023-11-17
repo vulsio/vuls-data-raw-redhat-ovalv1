@@ -1,165 +1,165 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091504",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2009:1504: poppler security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1504",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1504",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-3603",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3603",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3608",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3608",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3609",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3609",
-        "source": "CVE"
-      }
-    ],
-    "description": "Poppler is a Portable Document Format (PDF) rendering library, used by\napplications such as Evince.\n\nMultiple integer overflow flaws were found in poppler. An attacker could\ncreate a malicious PDF file that would cause applications that use poppler\n(such as Evince) to crash or, potentially, execute arbitrary code when\nopened. (CVE-2009-3603, CVE-2009-3608, CVE-2009-3609)\n\nRed Hat would like to thank Chris Rohlf for reporting the CVE-2009-3608\nissue.\n\nThis update also corrects a regression introduced in the previous poppler\nsecurity update, RHSA-2009:0480, that prevented poppler from rendering\ncertain PDF documents correctly. (BZ#528147)\n\nUsers are advised to upgrade to these updated packages, which contain\nbackported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-10-15"
-      },
-      "updated": {
-        "date": "2009-10-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-3603",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3603",
-          "impact": "important",
-          "public": "20091014",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3608",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3608",
-          "impact": "important",
-          "public": "20091014",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3609",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3609",
-          "impact": "low",
-          "public": "20091014",
-          "cwe": "CWE-190",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-3608 xpdf/poppler: integer overflow in ObjectStream::ObjectStream (oCERT-2009-016)",
-          "href": "https://bugzilla.redhat.com/526637",
-          "id": "526637"
-        },
-        {
-          "text": "CVE-2009-3609 xpdf/poppler: ImageStream::ImageStream integer overflow",
-          "href": "https://bugzilla.redhat.com/526893",
-          "id": "526893"
-        },
-        {
-          "text": "CVE-2009-3603 xpdf/poppler: SplashBitmap::SplashBitmap integer overflow",
-          "href": "https://bugzilla.redhat.com/526915",
-          "id": "526915"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091504001",
-                    "comment": "poppler is earlier than 0:0.5.4-4.4.el5_4.11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732002",
-                    "comment": "poppler is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091504003",
-                    "comment": "poppler-devel is earlier than 0:0.5.4-4.4.el5_4.11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732004",
-                    "comment": "poppler-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091504005",
-                    "comment": "poppler-utils is earlier than 0:0.5.4-4.4.el5_4.11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070732006",
-                    "comment": "poppler-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091504",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2009:1504: poppler security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1504",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1504",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-3603",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3603",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3608",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3608",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3609",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3609",
+				"source": "CVE"
+			}
+		],
+		"description": "Poppler is a Portable Document Format (PDF) rendering library, used by\napplications such as Evince.\n\nMultiple integer overflow flaws were found in poppler. An attacker could\ncreate a malicious PDF file that would cause applications that use poppler\n(such as Evince) to crash or, potentially, execute arbitrary code when\nopened. (CVE-2009-3603, CVE-2009-3608, CVE-2009-3609)\n\nRed Hat would like to thank Chris Rohlf for reporting the CVE-2009-3608\nissue.\n\nThis update also corrects a regression introduced in the previous poppler\nsecurity update, RHSA-2009:0480, that prevented poppler from rendering\ncertain PDF documents correctly. (BZ#528147)\n\nUsers are advised to upgrade to these updated packages, which contain\nbackported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-10-15"
+			},
+			"updated": {
+				"date": "2009-10-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-3603",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3603",
+					"impact": "important",
+					"public": "20091014",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3608",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3608",
+					"impact": "important",
+					"public": "20091014",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3609",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3609",
+					"impact": "low",
+					"public": "20091014",
+					"cwe": "CWE-190",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-3608 xpdf/poppler: integer overflow in ObjectStream::ObjectStream (oCERT-2009-016)",
+					"href": "https://bugzilla.redhat.com/526637",
+					"id": "526637"
+				},
+				{
+					"text": "CVE-2009-3609 xpdf/poppler: ImageStream::ImageStream integer overflow",
+					"href": "https://bugzilla.redhat.com/526893",
+					"id": "526893"
+				},
+				{
+					"text": "CVE-2009-3603 xpdf/poppler: SplashBitmap::SplashBitmap integer overflow",
+					"href": "https://bugzilla.redhat.com/526915",
+					"id": "526915"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091504001",
+										"comment": "poppler is earlier than 0:0.5.4-4.4.el5_4.11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732002",
+										"comment": "poppler is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091504003",
+										"comment": "poppler-devel is earlier than 0:0.5.4-4.4.el5_4.11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732004",
+										"comment": "poppler-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091504005",
+										"comment": "poppler-utils is earlier than 0:0.5.4-4.4.el5_4.11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070732006",
+										"comment": "poppler-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

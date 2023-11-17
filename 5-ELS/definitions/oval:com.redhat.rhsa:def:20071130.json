@@ -1,111 +1,111 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20071130",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2007:1130: squid security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:1130",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1130",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-6239",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6239",
-        "source": "CVE"
-      }
-    ],
-    "description": "Squid is a high-performance proxy caching server for Web clients,\nsupporting FTP, gopher, and HTTP data objects.\n\nA flaw was found in the way squid stored HTTP headers for cached objects\nin system memory. An attacker could cause squid to use additional memory,\nand trigger high CPU usage when processing requests for certain cached\nobjects, possibly leading to a denial of service. (CVE-2007-6239)\n\nUsers of squid are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-12-18"
-      },
-      "updated": {
-        "date": "2007-12-18"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-6239",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6239",
-          "impact": "moderate",
-          "public": "20071204"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-6239 squid: DoS in cache updates",
-          "href": "https://bugzilla.redhat.com/410181",
-          "id": "410181"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20071130001",
-            "comment": "squid is earlier than 7:2.5.STABLE14-1.4E.el4_6.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20071130002",
-            "comment": "squid is signed with Red Hat master key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20071130004",
-            "comment": "squid is earlier than 7:2.6.STABLE6-5.el5_1.2"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070131002",
-            "comment": "squid is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20071130",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2007:1130: squid security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:1130",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:1130",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-6239",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6239",
+				"source": "CVE"
+			}
+		],
+		"description": "Squid is a high-performance proxy caching server for Web clients,\nsupporting FTP, gopher, and HTTP data objects.\n\nA flaw was found in the way squid stored HTTP headers for cached objects\nin system memory. An attacker could cause squid to use additional memory,\nand trigger high CPU usage when processing requests for certain cached\nobjects, possibly leading to a denial of service. (CVE-2007-6239)\n\nUsers of squid are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-12-18"
+			},
+			"updated": {
+				"date": "2007-12-18"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-6239",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6239",
+					"impact": "moderate",
+					"public": "20071204"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-6239 squid: DoS in cache updates",
+					"href": "https://bugzilla.redhat.com/410181",
+					"id": "410181"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20071130001",
+						"comment": "squid is earlier than 7:2.5.STABLE14-1.4E.el4_6.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20071130002",
+						"comment": "squid is signed with Red Hat master key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20071130004",
+						"comment": "squid is earlier than 7:2.6.STABLE6-5.el5_1.2"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070131002",
+						"comment": "squid is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

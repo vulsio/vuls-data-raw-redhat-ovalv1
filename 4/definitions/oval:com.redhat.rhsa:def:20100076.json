@@ -1,312 +1,312 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100076",
-  "version": "654",
-  "metadata": {
-    "title": "RHSA-2010:0076: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0076",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0076",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-3080",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3080",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3889",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3889",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3939",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3939",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4005",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4005",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4020",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4020",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* an array index error was found in the gdth driver in the Linux kernel. A\nlocal user could send a specially-crafted IOCTL request that would cause a\ndenial of service or, possibly, privilege escalation. (CVE-2009-3080,\nImportant)\n\n* a flaw was found in the collect_rx_frame() function in the HiSax ISDN\ndriver (hfc_usb) in the Linux kernel. An attacker could use this flaw to\nsend a specially-crafted HDLC packet that could trigger a buffer out of\nbounds, possibly resulting in a denial of service. (CVE-2009-4005,\nImportant)\n\n* permission issues were found in the megaraid_sas driver (for SAS based\nRAID controllers) in the Linux kernel. The \"dbg_lvl\" and \"poll_mode_io\"\nfiles on the sysfs file system (\"/sys/\") had world-writable permissions.\nThis could allow local, unprivileged users to change the behavior of the\ndriver. (CVE-2009-3889, CVE-2009-3939, Moderate)\n\n* a buffer overflow flaw was found in the hfs_bnode_read() function in the\nHFS file system implementation in the Linux kernel. This could lead to a\ndenial of service if a user browsed a specially-crafted HFS file system,\nfor example, by running \"ls\". (CVE-2009-4020, Low)\n\nThis update also fixes the following bugs:\n\n* if a process was using ptrace() to trace a multi-threaded process, and\nthat multi-threaded process dumped its core, the process performing the\ntrace could hang in wait4(). This issue could be triggered by running\n\"strace -f\" on a multi-threaded process that was dumping its core,\nresulting in the strace command hanging. (BZ#555869)\n\n* a bug in the ptrace() implementation could have, in some cases, caused\nptrace_detach() to create a zombie process if the process being traced\nwas terminated with a SIGKILL signal. (BZ#555869)\n\n* the RHSA-2010:0020 update resolved an issue (CVE-2009-4537) in the\nRealtek r8169 Ethernet driver. This update implements a better solution for\nthat issue. Note: This is not a security regression. The original fix was\ncomplete. This update is adding the official upstream fix. (BZ#556406)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-02-02"
-      },
-      "updated": {
-        "date": "2010-02-02"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-3080",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3080",
-          "impact": "important",
-          "public": "20091120",
-          "cwe": "CWE-839->CWE-119",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2009-3889",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3889",
-          "impact": "moderate",
-          "public": "20090928",
-          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3939",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3939",
-          "impact": "moderate",
-          "public": "20090928",
-          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-4005",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4005",
-          "impact": "important",
-          "public": "20091104",
-          "cwe": "CWE-839->CWE-119",
-          "cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2009-4020",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4020",
-          "impact": "low",
-          "public": "20091204",
-          "cwe": "CWE-119",
-          "cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-3889 CVE-2009-3939 kernel: megaraid_sas permissions in sysfs",
-          "href": "https://bugzilla.redhat.com/526068",
-          "id": "526068"
-        },
-        {
-          "text": "CVE-2009-3080 kernel: gdth: Prevent negative offsets in ioctl",
-          "href": "https://bugzilla.redhat.com/539414",
-          "id": "539414"
-        },
-        {
-          "text": "CVE-2009-4005 kernel: isdn: hfc_usb: fix read buffer overflow",
-          "href": "https://bugzilla.redhat.com/539435",
-          "id": "539435"
-        },
-        {
-          "text": "CVE-2009-4020 kernel: hfs buffer overflow",
-          "href": "https://bugzilla.redhat.com/540736",
-          "id": "540736"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100076023",
-                "comment": "kernel earlier than 0:2.6.9-89.0.20.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100076024",
-                "comment": "kernel earlier than 0:2.6.9-89.0.20.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076001",
-                    "comment": "kernel is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100076021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.0.20.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100076",
+	"version": "654",
+	"metadata": {
+		"title": "RHSA-2010:0076: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0076",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0076",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-3080",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3080",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3889",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3889",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3939",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3939",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4005",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4005",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4020",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4020",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* an array index error was found in the gdth driver in the Linux kernel. A\nlocal user could send a specially-crafted IOCTL request that would cause a\ndenial of service or, possibly, privilege escalation. (CVE-2009-3080,\nImportant)\n\n* a flaw was found in the collect_rx_frame() function in the HiSax ISDN\ndriver (hfc_usb) in the Linux kernel. An attacker could use this flaw to\nsend a specially-crafted HDLC packet that could trigger a buffer out of\nbounds, possibly resulting in a denial of service. (CVE-2009-4005,\nImportant)\n\n* permission issues were found in the megaraid_sas driver (for SAS based\nRAID controllers) in the Linux kernel. The \"dbg_lvl\" and \"poll_mode_io\"\nfiles on the sysfs file system (\"/sys/\") had world-writable permissions.\nThis could allow local, unprivileged users to change the behavior of the\ndriver. (CVE-2009-3889, CVE-2009-3939, Moderate)\n\n* a buffer overflow flaw was found in the hfs_bnode_read() function in the\nHFS file system implementation in the Linux kernel. This could lead to a\ndenial of service if a user browsed a specially-crafted HFS file system,\nfor example, by running \"ls\". (CVE-2009-4020, Low)\n\nThis update also fixes the following bugs:\n\n* if a process was using ptrace() to trace a multi-threaded process, and\nthat multi-threaded process dumped its core, the process performing the\ntrace could hang in wait4(). This issue could be triggered by running\n\"strace -f\" on a multi-threaded process that was dumping its core,\nresulting in the strace command hanging. (BZ#555869)\n\n* a bug in the ptrace() implementation could have, in some cases, caused\nptrace_detach() to create a zombie process if the process being traced\nwas terminated with a SIGKILL signal. (BZ#555869)\n\n* the RHSA-2010:0020 update resolved an issue (CVE-2009-4537) in the\nRealtek r8169 Ethernet driver. This update implements a better solution for\nthat issue. Note: This is not a security regression. The original fix was\ncomplete. This update is adding the official upstream fix. (BZ#556406)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-02-02"
+			},
+			"updated": {
+				"date": "2010-02-02"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-3080",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3080",
+					"impact": "important",
+					"public": "20091120",
+					"cwe": "CWE-839->CWE-119",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2009-3889",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3889",
+					"impact": "moderate",
+					"public": "20090928",
+					"cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3939",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3939",
+					"impact": "moderate",
+					"public": "20090928",
+					"cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-4005",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4005",
+					"impact": "important",
+					"public": "20091104",
+					"cwe": "CWE-839->CWE-119",
+					"cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2009-4020",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4020",
+					"impact": "low",
+					"public": "20091204",
+					"cwe": "CWE-119",
+					"cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-3889 CVE-2009-3939 kernel: megaraid_sas permissions in sysfs",
+					"href": "https://bugzilla.redhat.com/526068",
+					"id": "526068"
+				},
+				{
+					"text": "CVE-2009-3080 kernel: gdth: Prevent negative offsets in ioctl",
+					"href": "https://bugzilla.redhat.com/539414",
+					"id": "539414"
+				},
+				{
+					"text": "CVE-2009-4005 kernel: isdn: hfc_usb: fix read buffer overflow",
+					"href": "https://bugzilla.redhat.com/539435",
+					"id": "539435"
+				},
+				{
+					"text": "CVE-2009-4020 kernel: hfs buffer overflow",
+					"href": "https://bugzilla.redhat.com/540736",
+					"id": "540736"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100076023",
+								"comment": "kernel earlier than 0:2.6.9-89.0.20.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100076024",
+								"comment": "kernel earlier than 0:2.6.9-89.0.20.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076001",
+										"comment": "kernel is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100076021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.0.20.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

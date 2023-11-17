@@ -1,154 +1,154 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070257",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2007:0257: openssh security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0257",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0257",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-2666",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2666",
-        "source": "CVE"
-      }
-    ],
-    "description": "OpenSSH is OpenBSD's SSH (Secure SHell) protocol implementation. This\npackage includes the core files necessary for both the OpenSSH client and\nserver.\n\nOpenSSH stores hostnames, IP addresses, and keys in plaintext in the\nknown_hosts file.  A local attacker that has already compromised a user's\nSSH account could use this information to generate a list of additional\ntargets that are likely to have the same password or key.  (CVE-2005-2666)\n\nThe following bugs have also been fixed in this update:\n\n* The ssh client could abort the running connection when the server\napplication generated a large output at once.\n\n* When 'X11UseLocalhost' option was set to 'no' on systems with IPv6\nnetworking enabled, the X11 forwarding socket listened only for IPv6\nconnections.\n\n* When the privilege separation was enabled in /etc/ssh/sshd_config, some\nlog messages in the system log were duplicated and also had timestamps from\nan incorrect timezone.\n\nAll users of openssh should upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-05-01"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-2666",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-2666",
-          "impact": "low",
-          "public": "20050707"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2005-2666 openssh vulnerable to known_hosts address harvesting",
-          "href": "https://bugzilla.redhat.com/162681",
-          "id": "162681"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070257001",
-                    "comment": "openssh is earlier than 0:3.9p1-8.RHEL4.20"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060044002",
-                    "comment": "openssh is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070257003",
-                    "comment": "openssh-askpass is earlier than 0:3.9p1-8.RHEL4.20"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060044004",
-                    "comment": "openssh-askpass is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070257005",
-                    "comment": "openssh-askpass-gnome is earlier than 0:3.9p1-8.RHEL4.20"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060044006",
-                    "comment": "openssh-askpass-gnome is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070257007",
-                    "comment": "openssh-clients is earlier than 0:3.9p1-8.RHEL4.20"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060044008",
-                    "comment": "openssh-clients is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070257009",
-                    "comment": "openssh-server is earlier than 0:3.9p1-8.RHEL4.20"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060044010",
-                    "comment": "openssh-server is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070257",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2007:0257: openssh security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0257",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0257",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-2666",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-2666",
+				"source": "CVE"
+			}
+		],
+		"description": "OpenSSH is OpenBSD's SSH (Secure SHell) protocol implementation. This\npackage includes the core files necessary for both the OpenSSH client and\nserver.\n\nOpenSSH stores hostnames, IP addresses, and keys in plaintext in the\nknown_hosts file.  A local attacker that has already compromised a user's\nSSH account could use this information to generate a list of additional\ntargets that are likely to have the same password or key.  (CVE-2005-2666)\n\nThe following bugs have also been fixed in this update:\n\n* The ssh client could abort the running connection when the server\napplication generated a large output at once.\n\n* When 'X11UseLocalhost' option was set to 'no' on systems with IPv6\nnetworking enabled, the X11 forwarding socket listened only for IPv6\nconnections.\n\n* When the privilege separation was enabled in /etc/ssh/sshd_config, some\nlog messages in the system log were duplicated and also had timestamps from\nan incorrect timezone.\n\nAll users of openssh should upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-05-01"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-2666",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-2666",
+					"impact": "low",
+					"public": "20050707"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2005-2666 openssh vulnerable to known_hosts address harvesting",
+					"href": "https://bugzilla.redhat.com/162681",
+					"id": "162681"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070257001",
+										"comment": "openssh is earlier than 0:3.9p1-8.RHEL4.20"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060044002",
+										"comment": "openssh is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070257003",
+										"comment": "openssh-askpass is earlier than 0:3.9p1-8.RHEL4.20"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060044004",
+										"comment": "openssh-askpass is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070257005",
+										"comment": "openssh-askpass-gnome is earlier than 0:3.9p1-8.RHEL4.20"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060044006",
+										"comment": "openssh-askpass-gnome is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070257007",
+										"comment": "openssh-clients is earlier than 0:3.9p1-8.RHEL4.20"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060044008",
+										"comment": "openssh-clients is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070257009",
+										"comment": "openssh-server is earlier than 0:3.9p1-8.RHEL4.20"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060044010",
+										"comment": "openssh-server is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070229",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2007:0229: gdb security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0229",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0229",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4146",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4146",
-        "source": "CVE"
-      }
-    ],
-    "description": "GDB, the GNU debugger, allows debugging of programs written in C, C++, and\nother languages by executing them in a controlled fashion and then printing\ntheir data.\n\nVarious buffer overflows and underflows were found in the DWARF expression\ncomputation stack in GDB. If a user loaded an executable containing\nmalicious debugging information into GDB, an attacker might be able to\nexecute arbitrary code with the privileges of the user. (CVE-2006-4146)\n\nThis updated package also addresses the following issues:\n\n* Fixed bogus 0x0 unwind of the thread's topmost function clone(3).\n\n* Fixed deadlock accessing invalid address; for corrupted backtraces.\n\n* Fixed a race which occasionally left the detached processes stopped.\n\n* Fixed 'gcore' command for 32bit debugged processes on 64bit hosts.\n\n* Added support for TLS 'errno' for threaded programs missing its '-debuginfo' package..\n\n* Suggest TLS 'errno' resolving by hand if no threading was found..\n\n* Added a fix to prevent stepping into asynchronously invoked signal handlers.\n\n* Added a fix to avoid false warning on shared objects bfd close on Itanium.\n\n* Fixed segmentation fault on the source display by ^X 1.\n\n* Fixed object names keyboard completion.\n\n* Added a fix to avoid crash of 'info threads' if stale threads exist.\n\n* Fixed a bug where shared libraries occasionally failed to load .\n\n* Fixed handling of exec() called by a threaded debugged program.\n\n* Fixed rebuilding requirements of the gdb package itself on multilib systems.\n\n* Fixed source directory pathname detection for the edit command.\n\nAll users of gdb should upgrade to this updated package, which contains\nbackported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-05-01"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4146",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4146",
-          "impact": "low",
-          "public": "20060831"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4146 GDB buffer overflow",
-          "href": "https://bugzilla.redhat.com/203875",
-          "id": "203875"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070229001",
-            "comment": "gdb is earlier than 0:6.3.0.0-1.143.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070229002",
-            "comment": "gdb is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070229",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2007:0229: gdb security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0229",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0229",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4146",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4146",
+				"source": "CVE"
+			}
+		],
+		"description": "GDB, the GNU debugger, allows debugging of programs written in C, C++, and\nother languages by executing them in a controlled fashion and then printing\ntheir data.\n\nVarious buffer overflows and underflows were found in the DWARF expression\ncomputation stack in GDB. If a user loaded an executable containing\nmalicious debugging information into GDB, an attacker might be able to\nexecute arbitrary code with the privileges of the user. (CVE-2006-4146)\n\nThis updated package also addresses the following issues:\n\n* Fixed bogus 0x0 unwind of the thread's topmost function clone(3).\n\n* Fixed deadlock accessing invalid address; for corrupted backtraces.\n\n* Fixed a race which occasionally left the detached processes stopped.\n\n* Fixed 'gcore' command for 32bit debugged processes on 64bit hosts.\n\n* Added support for TLS 'errno' for threaded programs missing its '-debuginfo' package..\n\n* Suggest TLS 'errno' resolving by hand if no threading was found..\n\n* Added a fix to prevent stepping into asynchronously invoked signal handlers.\n\n* Added a fix to avoid false warning on shared objects bfd close on Itanium.\n\n* Fixed segmentation fault on the source display by ^X 1.\n\n* Fixed object names keyboard completion.\n\n* Added a fix to avoid crash of 'info threads' if stale threads exist.\n\n* Fixed a bug where shared libraries occasionally failed to load .\n\n* Fixed handling of exec() called by a threaded debugged program.\n\n* Fixed rebuilding requirements of the gdb package itself on multilib systems.\n\n* Fixed source directory pathname detection for the edit command.\n\nAll users of gdb should upgrade to this updated package, which contains\nbackported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-05-01"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4146",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4146",
+					"impact": "low",
+					"public": "20060831"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4146 GDB buffer overflow",
+					"href": "https://bugzilla.redhat.com/203875",
+					"id": "203875"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070229001",
+						"comment": "gdb is earlier than 0:6.3.0.0-1.143.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070229002",
+						"comment": "gdb is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

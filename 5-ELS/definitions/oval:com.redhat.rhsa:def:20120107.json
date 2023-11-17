@@ -1,326 +1,326 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120107",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2012:0107: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0107",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0107",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-3638",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3638",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-4086",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4086",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-4127",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4127",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-0028",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0028",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-0207",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0207",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* Using the SG_IO ioctl to issue SCSI requests to partitions or LVM volumes\nresulted in the requests being passed to the underlying block device. If a\nprivileged user only had access to a single partition or LVM volume, they\ncould use this flaw to bypass those restrictions and gain read and write\naccess (and be able to issue other SCSI commands) to the entire block\ndevice. Refer to Red Hat Knowledgebase article DOC-67874, linked to in the\nReferences, for further details about this issue. (CVE-2011-4127,\nImportant)\n\n* A flaw was found in the way the Linux kernel handled robust list pointers\nof user-space held futexes across exec() calls. A local, unprivileged user\ncould use this flaw to cause a denial of service or, eventually, escalate\ntheir privileges. (CVE-2012-0028, Important)\n\n* A flaw was found in the Linux kernel in the way splitting two extents in\next4_ext_convert_to_initialized() worked. A local, unprivileged user with\nthe ability to mount and unmount ext4 file systems could use this flaw to\ncause a denial of service. (CVE-2011-3638, Moderate)\n\n* A flaw was found in the way the Linux kernel's journal_unmap_buffer()\nfunction handled buffer head states. On systems that have an ext4 file\nsystem with a journal mounted, a local, unprivileged user could use this\nflaw to cause a denial of service. (CVE-2011-4086, Moderate)\n\n* A divide-by-zero flaw was found in the Linux kernel's igmp_heard_query()\nfunction. An attacker able to send certain IGMP (Internet Group Management\nProtocol) packets to a target system could use this flaw to cause a denial\nof service. (CVE-2012-0207, Moderate)\n\nRed Hat would like to thank Zheng Liu for reporting CVE-2011-3638, and\nSimon McVittie for reporting CVE-2012-0207.\n\nThis update also fixes the following bugs:\n\n* When a host was in recovery mode and a SCSI scan operation was initiated,\nthe scan operation failed and provided no error output. This bug has been\nfixed and the SCSI layer now waits for recovery of the host to complete\nscan operations for devices. (BZ#772162)\n\n* SG_IO ioctls were not implemented correctly in the Red Hat Enterprise\nLinux 5 virtio-blk driver. Sending an SG_IO ioctl request to a virtio-blk\ndisk caused the sending thread to enter an uninterruptible sleep state (\"D\"\nstate). With this update, SG_IO ioctls are rejected by the virtio-blk\ndriver: the ioctl system call will simply return an ENOTTY (\"Inappropriate\nioctl for device\") error and the thread will continue normally. (BZ#773322)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-02-09"
-      },
-      "updated": {
-        "date": "2012-02-09"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-3638",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-3638",
-          "impact": "moderate",
-          "public": "20110928",
-          "cvss_2": "4.0/AV:L/AC:H/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2011-4086",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-4086",
-          "impact": "moderate",
-          "public": "20120125",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2011-4127",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-4127",
-          "impact": "important",
-          "public": "20111222",
-          "cwe": "CWE-284",
-          "cvss_2": "7.4/AV:A/AC:M/Au:S/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2012-0028",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0028",
-          "impact": "important",
-          "public": "20081115",
-          "cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2012-0207",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0207",
-          "impact": "moderate",
-          "public": "20120110",
-          "cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-3638 kernel: ext4: ext4_ext_insert_extent() kernel oops",
-          "href": "https://bugzilla.redhat.com/747942",
-          "id": "747942"
-        },
-        {
-          "text": "CVE-2011-4086 kernel: jbd2: unmapped buffer with _Unwritten or _Delay flags set can lead to DoS",
-          "href": "https://bugzilla.redhat.com/749143",
-          "id": "749143"
-        },
-        {
-          "text": "CVE-2011-4127 kernel: possible privilege escalation via SG_IO ioctl",
-          "href": "https://bugzilla.redhat.com/752375",
-          "id": "752375"
-        },
-        {
-          "text": "CVE-2012-0028 kernel: futex: clear robust_list on execve",
-          "href": "https://bugzilla.redhat.com/771764",
-          "id": "771764"
-        },
-        {
-          "text": "CVE-2012-0207 kernel: igmp: Avoid zero delay when receiving odd mixture of IGMP queries",
-          "href": "https://bugzilla.redhat.com/772867",
-          "id": "772867"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20120107025",
-                "comment": "kernel earlier than 0:2.6.18-274.18.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20120107026",
-                "comment": "kernel earlier than 0:2.6.18-274.18.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107001",
-                    "comment": "kernel is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120107023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-274.18.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120107",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2012:0107: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0107",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0107",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-3638",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-3638",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-4086",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-4086",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-4127",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-4127",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-0028",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0028",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-0207",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0207",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* Using the SG_IO ioctl to issue SCSI requests to partitions or LVM volumes\nresulted in the requests being passed to the underlying block device. If a\nprivileged user only had access to a single partition or LVM volume, they\ncould use this flaw to bypass those restrictions and gain read and write\naccess (and be able to issue other SCSI commands) to the entire block\ndevice. Refer to Red Hat Knowledgebase article DOC-67874, linked to in the\nReferences, for further details about this issue. (CVE-2011-4127,\nImportant)\n\n* A flaw was found in the way the Linux kernel handled robust list pointers\nof user-space held futexes across exec() calls. A local, unprivileged user\ncould use this flaw to cause a denial of service or, eventually, escalate\ntheir privileges. (CVE-2012-0028, Important)\n\n* A flaw was found in the Linux kernel in the way splitting two extents in\next4_ext_convert_to_initialized() worked. A local, unprivileged user with\nthe ability to mount and unmount ext4 file systems could use this flaw to\ncause a denial of service. (CVE-2011-3638, Moderate)\n\n* A flaw was found in the way the Linux kernel's journal_unmap_buffer()\nfunction handled buffer head states. On systems that have an ext4 file\nsystem with a journal mounted, a local, unprivileged user could use this\nflaw to cause a denial of service. (CVE-2011-4086, Moderate)\n\n* A divide-by-zero flaw was found in the Linux kernel's igmp_heard_query()\nfunction. An attacker able to send certain IGMP (Internet Group Management\nProtocol) packets to a target system could use this flaw to cause a denial\nof service. (CVE-2012-0207, Moderate)\n\nRed Hat would like to thank Zheng Liu for reporting CVE-2011-3638, and\nSimon McVittie for reporting CVE-2012-0207.\n\nThis update also fixes the following bugs:\n\n* When a host was in recovery mode and a SCSI scan operation was initiated,\nthe scan operation failed and provided no error output. This bug has been\nfixed and the SCSI layer now waits for recovery of the host to complete\nscan operations for devices. (BZ#772162)\n\n* SG_IO ioctls were not implemented correctly in the Red Hat Enterprise\nLinux 5 virtio-blk driver. Sending an SG_IO ioctl request to a virtio-blk\ndisk caused the sending thread to enter an uninterruptible sleep state (\"D\"\nstate). With this update, SG_IO ioctls are rejected by the virtio-blk\ndriver: the ioctl system call will simply return an ENOTTY (\"Inappropriate\nioctl for device\") error and the thread will continue normally. (BZ#773322)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-02-09"
+			},
+			"updated": {
+				"date": "2012-02-09"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-3638",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-3638",
+					"impact": "moderate",
+					"public": "20110928",
+					"cvss_2": "4.0/AV:L/AC:H/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2011-4086",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-4086",
+					"impact": "moderate",
+					"public": "20120125",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2011-4127",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-4127",
+					"impact": "important",
+					"public": "20111222",
+					"cwe": "CWE-284",
+					"cvss_2": "7.4/AV:A/AC:M/Au:S/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2012-0028",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0028",
+					"impact": "important",
+					"public": "20081115",
+					"cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2012-0207",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0207",
+					"impact": "moderate",
+					"public": "20120110",
+					"cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-3638 kernel: ext4: ext4_ext_insert_extent() kernel oops",
+					"href": "https://bugzilla.redhat.com/747942",
+					"id": "747942"
+				},
+				{
+					"text": "CVE-2011-4086 kernel: jbd2: unmapped buffer with _Unwritten or _Delay flags set can lead to DoS",
+					"href": "https://bugzilla.redhat.com/749143",
+					"id": "749143"
+				},
+				{
+					"text": "CVE-2011-4127 kernel: possible privilege escalation via SG_IO ioctl",
+					"href": "https://bugzilla.redhat.com/752375",
+					"id": "752375"
+				},
+				{
+					"text": "CVE-2012-0028 kernel: futex: clear robust_list on execve",
+					"href": "https://bugzilla.redhat.com/771764",
+					"id": "771764"
+				},
+				{
+					"text": "CVE-2012-0207 kernel: igmp: Avoid zero delay when receiving odd mixture of IGMP queries",
+					"href": "https://bugzilla.redhat.com/772867",
+					"id": "772867"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20120107025",
+								"comment": "kernel earlier than 0:2.6.18-274.18.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20120107026",
+								"comment": "kernel earlier than 0:2.6.18-274.18.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107001",
+										"comment": "kernel is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120107023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-274.18.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

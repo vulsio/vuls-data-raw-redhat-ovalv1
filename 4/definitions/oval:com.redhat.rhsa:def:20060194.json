@@ -1,128 +1,128 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060194",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2006:0194: gd security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0194",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0194",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2004-0941",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2004-0941",
-        "source": "CVE"
-      }
-    ],
-    "description": "The gd package contains a graphics library used for the dynamic creation of\nimages such as PNG and JPEG.\n\nSeveral buffer overflow flaws were found in the way gd allocates memory. \nAn attacker could create a carefully crafted image that could execute\narbitrary code if opened by a victim using a program linked against the gd\nlibrary.  The Common Vulnerabilities and Exposures project (cve.mitre.org)\nassigned the name CVE-2004-0941 to these issues.\n\nUsers of gd should upgrade to these updated packages, which contain a\nbackported patch and is not vulnerable to these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-02-01"
-      },
-      "updated": {
-        "date": "2006-02-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2004-0941",
-          "href": "https://access.redhat.com/security/cve/CVE-2004-0941",
-          "impact": "low",
-          "public": "20041110"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2004-0941 gd: additional overflows",
-          "href": "https://bugzilla.redhat.com/175413",
-          "id": "175413"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060194001",
-                    "comment": "gd is earlier than 0:2.0.28-4.4E.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060194002",
-                    "comment": "gd is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060194003",
-                    "comment": "gd-devel is earlier than 0:2.0.28-4.4E.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060194004",
-                    "comment": "gd-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060194005",
-                    "comment": "gd-progs is earlier than 0:2.0.28-4.4E.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060194006",
-                    "comment": "gd-progs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060194",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2006:0194: gd security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0194",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0194",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2004-0941",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2004-0941",
+				"source": "CVE"
+			}
+		],
+		"description": "The gd package contains a graphics library used for the dynamic creation of\nimages such as PNG and JPEG.\n\nSeveral buffer overflow flaws were found in the way gd allocates memory. \nAn attacker could create a carefully crafted image that could execute\narbitrary code if opened by a victim using a program linked against the gd\nlibrary.  The Common Vulnerabilities and Exposures project (cve.mitre.org)\nassigned the name CVE-2004-0941 to these issues.\n\nUsers of gd should upgrade to these updated packages, which contain a\nbackported patch and is not vulnerable to these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-02-01"
+			},
+			"updated": {
+				"date": "2006-02-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2004-0941",
+					"href": "https://access.redhat.com/security/cve/CVE-2004-0941",
+					"impact": "low",
+					"public": "20041110"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2004-0941 gd: additional overflows",
+					"href": "https://bugzilla.redhat.com/175413",
+					"id": "175413"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060194001",
+										"comment": "gd is earlier than 0:2.0.28-4.4E.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060194002",
+										"comment": "gd is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060194003",
+										"comment": "gd-devel is earlier than 0:2.0.28-4.4E.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060194004",
+										"comment": "gd-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060194005",
+										"comment": "gd-progs is earlier than 0:2.0.28-4.4E.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060194006",
+										"comment": "gd-progs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

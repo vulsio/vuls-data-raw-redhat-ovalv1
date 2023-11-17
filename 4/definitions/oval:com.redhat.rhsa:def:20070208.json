@@ -1,128 +1,128 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070208",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2007:0208: w3c-libwww security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0208",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0208",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-3183",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-3183",
-        "source": "CVE"
-      }
-    ],
-    "description": "w3c-libwww is a general-purpose web library.\n\nSeveral buffer overflow flaws in w3c-libwww were found. If a client\napplication that uses w3c-libwww connected to a malicious HTTP server, it\ncould trigger an out of bounds memory access, causing the client\napplication to crash (CVE-2005-3183).\n\nThis updated version of w3c-libwww also fixes an issue when computing MD5\nsums on a 64 bit machine.\n\nUsers of w3c-libwww should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-05-01"
-      },
-      "updated": {
-        "date": "2007-05-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-3183",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-3183",
-          "impact": "low",
-          "public": "20051007"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2005-3183 Multiple bugs in libwww - one exploitable - in Library/src/HTBound.c",
-          "href": "https://bugzilla.redhat.com/170518",
-          "id": "170518"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070208001",
-                    "comment": "w3c-libwww is earlier than 0:5.4.0-10.1.RHEL4.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070208002",
-                    "comment": "w3c-libwww is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070208003",
-                    "comment": "w3c-libwww-apps is earlier than 0:5.4.0-10.1.RHEL4.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070208004",
-                    "comment": "w3c-libwww-apps is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070208005",
-                    "comment": "w3c-libwww-devel is earlier than 0:5.4.0-10.1.RHEL4.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070208006",
-                    "comment": "w3c-libwww-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070208",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2007:0208: w3c-libwww security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0208",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0208",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-3183",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-3183",
+				"source": "CVE"
+			}
+		],
+		"description": "w3c-libwww is a general-purpose web library.\n\nSeveral buffer overflow flaws in w3c-libwww were found. If a client\napplication that uses w3c-libwww connected to a malicious HTTP server, it\ncould trigger an out of bounds memory access, causing the client\napplication to crash (CVE-2005-3183).\n\nThis updated version of w3c-libwww also fixes an issue when computing MD5\nsums on a 64 bit machine.\n\nUsers of w3c-libwww should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-05-01"
+			},
+			"updated": {
+				"date": "2007-05-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-3183",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-3183",
+					"impact": "low",
+					"public": "20051007"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2005-3183 Multiple bugs in libwww - one exploitable - in Library/src/HTBound.c",
+					"href": "https://bugzilla.redhat.com/170518",
+					"id": "170518"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070208001",
+										"comment": "w3c-libwww is earlier than 0:5.4.0-10.1.RHEL4.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070208002",
+										"comment": "w3c-libwww is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070208003",
+										"comment": "w3c-libwww-apps is earlier than 0:5.4.0-10.1.RHEL4.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070208004",
+										"comment": "w3c-libwww-apps is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070208005",
+										"comment": "w3c-libwww-devel is earlier than 0:5.4.0-10.1.RHEL4.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070208006",
+										"comment": "w3c-libwww-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

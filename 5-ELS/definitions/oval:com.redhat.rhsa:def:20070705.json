@@ -1,342 +1,342 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070705",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0705: kernel security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0705",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0705",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-1217",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1217",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-2875",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2875",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-2876",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2876",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-2878",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2878",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3739",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3739",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3740",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3740",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3843",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3843",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3851",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3851",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Linux kernel handles the basic functions of the operating system.\n\nThese new kernel packages contain fixes for the following security issues:\n\n* a flaw in the DRM driver for Intel graphics cards that allowed a local\nuser to access any part of the main memory. To access the DRM functionality\na user must have access to the X server which is granted through the\ngraphical login. This also only affected systems with an Intel 965 or later\ngraphic chipset. (CVE-2007-3851, Important)\n\n* a flaw in the VFAT compat ioctl handling on 64-bit systems that allowed a\nlocal user to corrupt a kernel_dirent struct and cause a denial of service\n(system crash). (CVE-2007-2878, Important)\n\n* a flaw in the connection tracking support for SCTP that allowed a remote\nuser to cause a denial of service by dereferencing a NULL pointer.\n(CVE-2007-2876, Important)\n\n* flaw in the CIFS filesystem which could cause the umask values of a\nprocess to not be honored. This affected CIFS filesystems where the Unix\nextensions are supported. (CVE-2007-3740, Important)\n\n* a flaw in the stack expansion when using the hugetlb kernel on PowerPC\nsystems that allowed a local user to cause a denial of service.\n(CVE-2007-3739, Moderate)\n\n* a flaw in the ISDN CAPI subsystem that allowed a remote user to cause a\ndenial of service or potential remote access. Exploitation would require\nthe attacker to be able to send arbitrary frames over the ISDN network to\nthe victim's machine. (CVE-2007-1217, Moderate)\n\n* a flaw in the cpuset support that allowed a local user to obtain\nsensitive information from kernel memory. To exploit this the cpuset\nfilesystem would have to already be mounted. (CVE-2007-2875, Moderate)\n\n* a flaw in the CIFS handling of the mount option \"sec=\" that didn't enable\nintegrity checking and didn't produce any error message. (CVE-2007-3843,\nLow)\n\nRed Hat Enterprise Linux 5 users are advised to upgrade to these packages,\nwhich contain backported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-09-13"
-      },
-      "updated": {
-        "date": "2007-09-13"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-1217",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-1217",
-          "impact": "moderate",
-          "public": "20070314"
-        },
-        {
-          "text": "CVE-2007-2875",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-2875",
-          "impact": "moderate",
-          "public": "20070607"
-        },
-        {
-          "text": "CVE-2007-2876",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-2876",
-          "impact": "important",
-          "public": "20070607"
-        },
-        {
-          "text": "CVE-2007-2878",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-2878",
-          "impact": "important",
-          "public": "20070508"
-        },
-        {
-          "text": "CVE-2007-3739",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3739",
-          "impact": "moderate",
-          "public": "20070831"
-        },
-        {
-          "text": "CVE-2007-3740",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3740",
-          "impact": "important",
-          "public": "20070608"
-        },
-        {
-          "text": "CVE-2007-3843",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3843",
-          "impact": "low",
-          "public": "20070608"
-        },
-        {
-          "text": "CVE-2007-3851",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3851",
-          "impact": "important",
-          "public": "20070807"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-2875 cpuset information leak",
-          "href": "https://bugzilla.redhat.com/245773",
-          "id": "245773"
-        },
-        {
-          "text": "CVE-2007-2876 {ip, nf}_conntrack_sctp: remotely triggerable NULL ptr dereference",
-          "href": "https://bugzilla.redhat.com/245774",
-          "id": "245774"
-        },
-        {
-          "text": "CVE-2007-2878 VFAT compat ioctls DoS on 64-bit",
-          "href": "https://bugzilla.redhat.com/247726",
-          "id": "247726"
-        },
-        {
-          "text": "CVE-2007-3851 i965 DRM allows insecure packets",
-          "href": "https://bugzilla.redhat.com/251185",
-          "id": "251185"
-        },
-        {
-          "text": "CVE-2007-3740 CIFS should honor umask",
-          "href": "https://bugzilla.redhat.com/275881",
-          "id": "275881"
-        },
-        {
-          "text": "CVE-2007-3843 CIFS signing sec= mount options don't work correctly",
-          "href": "https://bugzilla.redhat.com/275901",
-          "id": "275901"
-        },
-        {
-          "text": "CVE-2007-3739 LTC36188-Don't allow the stack to grow into hugetlb reserved regions",
-          "href": "https://bugzilla.redhat.com/294941",
-          "id": "294941"
-        },
-        {
-          "text": "CVE-2007-1217 Kernel: CAPI overflow",
-          "href": "https://bugzilla.redhat.com/402741",
-          "id": "402741"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20070705021",
-                "comment": "kernel earlier than 0:2.6.18-8.1.10.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20070705022",
-                "comment": "kernel earlier than 0:2.6.18-8.1.10.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705001",
-                    "comment": "kernel is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705007",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705009",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705011",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705013",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705015",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705017",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070705019",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-8.1.10.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070705",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0705: kernel security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0705",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0705",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-1217",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-1217",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-2875",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-2875",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-2876",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-2876",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-2878",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-2878",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3739",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3739",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3740",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3740",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3843",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3843",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3851",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3851",
+				"source": "CVE"
+			}
+		],
+		"description": "The Linux kernel handles the basic functions of the operating system.\n\nThese new kernel packages contain fixes for the following security issues:\n\n* a flaw in the DRM driver for Intel graphics cards that allowed a local\nuser to access any part of the main memory. To access the DRM functionality\na user must have access to the X server which is granted through the\ngraphical login. This also only affected systems with an Intel 965 or later\ngraphic chipset. (CVE-2007-3851, Important)\n\n* a flaw in the VFAT compat ioctl handling on 64-bit systems that allowed a\nlocal user to corrupt a kernel_dirent struct and cause a denial of service\n(system crash). (CVE-2007-2878, Important)\n\n* a flaw in the connection tracking support for SCTP that allowed a remote\nuser to cause a denial of service by dereferencing a NULL pointer.\n(CVE-2007-2876, Important)\n\n* flaw in the CIFS filesystem which could cause the umask values of a\nprocess to not be honored. This affected CIFS filesystems where the Unix\nextensions are supported. (CVE-2007-3740, Important)\n\n* a flaw in the stack expansion when using the hugetlb kernel on PowerPC\nsystems that allowed a local user to cause a denial of service.\n(CVE-2007-3739, Moderate)\n\n* a flaw in the ISDN CAPI subsystem that allowed a remote user to cause a\ndenial of service or potential remote access. Exploitation would require\nthe attacker to be able to send arbitrary frames over the ISDN network to\nthe victim's machine. (CVE-2007-1217, Moderate)\n\n* a flaw in the cpuset support that allowed a local user to obtain\nsensitive information from kernel memory. To exploit this the cpuset\nfilesystem would have to already be mounted. (CVE-2007-2875, Moderate)\n\n* a flaw in the CIFS handling of the mount option \"sec=\" that didn't enable\nintegrity checking and didn't produce any error message. (CVE-2007-3843,\nLow)\n\nRed Hat Enterprise Linux 5 users are advised to upgrade to these packages,\nwhich contain backported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-09-13"
+			},
+			"updated": {
+				"date": "2007-09-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-1217",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-1217",
+					"impact": "moderate",
+					"public": "20070314"
+				},
+				{
+					"text": "CVE-2007-2875",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-2875",
+					"impact": "moderate",
+					"public": "20070607"
+				},
+				{
+					"text": "CVE-2007-2876",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-2876",
+					"impact": "important",
+					"public": "20070607"
+				},
+				{
+					"text": "CVE-2007-2878",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-2878",
+					"impact": "important",
+					"public": "20070508"
+				},
+				{
+					"text": "CVE-2007-3739",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3739",
+					"impact": "moderate",
+					"public": "20070831"
+				},
+				{
+					"text": "CVE-2007-3740",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3740",
+					"impact": "important",
+					"public": "20070608"
+				},
+				{
+					"text": "CVE-2007-3843",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3843",
+					"impact": "low",
+					"public": "20070608"
+				},
+				{
+					"text": "CVE-2007-3851",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3851",
+					"impact": "important",
+					"public": "20070807"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-2875 cpuset information leak",
+					"href": "https://bugzilla.redhat.com/245773",
+					"id": "245773"
+				},
+				{
+					"text": "CVE-2007-2876 {ip, nf}_conntrack_sctp: remotely triggerable NULL ptr dereference",
+					"href": "https://bugzilla.redhat.com/245774",
+					"id": "245774"
+				},
+				{
+					"text": "CVE-2007-2878 VFAT compat ioctls DoS on 64-bit",
+					"href": "https://bugzilla.redhat.com/247726",
+					"id": "247726"
+				},
+				{
+					"text": "CVE-2007-3851 i965 DRM allows insecure packets",
+					"href": "https://bugzilla.redhat.com/251185",
+					"id": "251185"
+				},
+				{
+					"text": "CVE-2007-3740 CIFS should honor umask",
+					"href": "https://bugzilla.redhat.com/275881",
+					"id": "275881"
+				},
+				{
+					"text": "CVE-2007-3843 CIFS signing sec= mount options don't work correctly",
+					"href": "https://bugzilla.redhat.com/275901",
+					"id": "275901"
+				},
+				{
+					"text": "CVE-2007-3739 LTC36188-Don't allow the stack to grow into hugetlb reserved regions",
+					"href": "https://bugzilla.redhat.com/294941",
+					"id": "294941"
+				},
+				{
+					"text": "CVE-2007-1217 Kernel: CAPI overflow",
+					"href": "https://bugzilla.redhat.com/402741",
+					"id": "402741"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20070705021",
+								"comment": "kernel earlier than 0:2.6.18-8.1.10.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20070705022",
+								"comment": "kernel earlier than 0:2.6.18-8.1.10.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705001",
+										"comment": "kernel is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705007",
+										"comment": "kernel-devel is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705009",
+										"comment": "kernel-doc is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705011",
+										"comment": "kernel-headers is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705013",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705015",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705017",
+										"comment": "kernel-xen is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070705019",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-8.1.10.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

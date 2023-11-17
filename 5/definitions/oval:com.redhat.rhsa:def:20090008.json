@@ -1,127 +1,127 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090008",
-  "version": "647",
-  "metadata": {
-    "title": "RHSA-2009:0008: dbus security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0008",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0008",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-3834",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3834",
-        "source": "CVE"
-      }
-    ],
-    "description": "D-Bus is a system for sending messages between applications. It is used for\nthe system-wide message bus service and as a per-user-login-session\nmessaging facility.\n\nA denial-of-service flaw was discovered in the system for sending messages\nbetween applications. A local user could send a message with a malformed\nsignature to the bus causing the bus (and, consequently, any process using\nlibdbus to receive messages) to abort. (CVE-2008-3834)\n\nAll users are advised to upgrade to these updated dbus packages, which\ncontain backported patch which resolve this issue. For the update to take\neffect, all running instances of dbus-daemon and all running applications\nusing libdbus library must be restarted, or the system rebooted.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-01-07"
-      },
-      "updated": {
-        "date": "2009-01-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-3834",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-3834",
-          "impact": "moderate",
-          "public": "20080927"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-3834 dbus denial of service",
-          "href": "https://bugzilla.redhat.com/464674",
-          "id": "464674"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090008001",
-                    "comment": "dbus is earlier than 0:1.0.0-7.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080159002",
-                    "comment": "dbus is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090008003",
-                    "comment": "dbus-devel is earlier than 0:1.0.0-7.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080159004",
-                    "comment": "dbus-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090008005",
-                    "comment": "dbus-x11 is earlier than 0:1.0.0-7.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080159006",
-                    "comment": "dbus-x11 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090008",
+	"version": "647",
+	"metadata": {
+		"title": "RHSA-2009:0008: dbus security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0008",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0008",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-3834",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-3834",
+				"source": "CVE"
+			}
+		],
+		"description": "D-Bus is a system for sending messages between applications. It is used for\nthe system-wide message bus service and as a per-user-login-session\nmessaging facility.\n\nA denial-of-service flaw was discovered in the system for sending messages\nbetween applications. A local user could send a message with a malformed\nsignature to the bus causing the bus (and, consequently, any process using\nlibdbus to receive messages) to abort. (CVE-2008-3834)\n\nAll users are advised to upgrade to these updated dbus packages, which\ncontain backported patch which resolve this issue. For the update to take\neffect, all running instances of dbus-daemon and all running applications\nusing libdbus library must be restarted, or the system rebooted.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-01-07"
+			},
+			"updated": {
+				"date": "2009-01-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-3834",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-3834",
+					"impact": "moderate",
+					"public": "20080927"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-3834 dbus denial of service",
+					"href": "https://bugzilla.redhat.com/464674",
+					"id": "464674"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090008001",
+										"comment": "dbus is earlier than 0:1.0.0-7.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080159002",
+										"comment": "dbus is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090008003",
+										"comment": "dbus-devel is earlier than 0:1.0.0-7.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080159004",
+										"comment": "dbus-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090008005",
+										"comment": "dbus-x11 is earlier than 0:1.0.0-7.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080159006",
+										"comment": "dbus-x11 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

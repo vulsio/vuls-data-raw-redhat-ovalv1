@@ -1,140 +1,140 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20071020",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:1020: cups security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:1020",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1020",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4351",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4351",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX(R) operating systems.\n\nA flaw was found in the way CUPS handles certain Internet Printing Protocol\n(IPP) tags. A remote attacker who is able to connect to the IPP TCP port\ncould send a malicious request causing the CUPS daemon to crash, or\npotentially execute arbitrary code. Please note that the default CUPS\nconfiguration does not allow remote hosts to connect to the IPP TCP port.\n(CVE-2007-4351)\n\nRed Hat would like to thank Alin Rad Pop for reporting this issue.\n\nAll CUPS users are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.\n\nIn addition, the following bugs were fixed:\n\n* the CUPS service has been changed to start after sshd, to avoid causing\ndelays when logging in when the system is booted.\n\n* the logrotate settings have been adjusted so they do not cause CUPS to\nreload its configuration. This is to avoid re-printing the current job,\nwhich could occur when it was a long-running job.\n\n* a bug has been fixed in the handling of the If-Modified-Since: HTTP\nheader.\n\n* in the LSPP configuration, labels for labeled jobs did not line-wrap.\nThis has been fixed.\n\n* an access check in the LSPP configuration has been made more secure.\n\n* the cups-lpd service no longer ignores the \"-odocument-format=...\"\noption.\n\n* a memory allocation bug has been fixed in cupsd.\n\n* support for UNIX domain sockets authentication without passwords has been\nadded.\n\n* in the LSPP configuration, a problem that could lead to cupsd crashing\nhas been fixed.\n\n* the error handling in the initscript has been improved.\n\n* The job-originating-host-name attribute was not correctly set for jobs\nsubmitted via the cups-lpd service. This has been fixed.\n\n* a problem with parsing IPv6 addresses in the configuration file has been\nfixed.\n\n* a problem that could lead to cupsd crashing when it failed to open a\n\"file:\" URI has been fixed.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-10-31"
-      },
-      "updated": {
-        "date": "2007-10-31"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4351",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4351",
-          "impact": "important",
-          "public": "20071031"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4351 cups boundary error",
-          "href": "https://bugzilla.redhat.com/345091",
-          "id": "345091"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071020001",
-                    "comment": "cups is earlier than 1:1.2.4-11.14.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123009",
-                    "comment": "cups is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071020003",
-                    "comment": "cups-devel is earlier than 1:1.2.4-11.14.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123011",
-                    "comment": "cups-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071020005",
-                    "comment": "cups-libs is earlier than 1:1.2.4-11.14.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123013",
-                    "comment": "cups-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071020007",
-                    "comment": "cups-lpd is earlier than 1:1.2.4-11.14.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123015",
-                    "comment": "cups-lpd is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20071020",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:1020: cups security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:1020",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:1020",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4351",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4351",
+				"source": "CVE"
+			}
+		],
+		"description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX(R) operating systems.\n\nA flaw was found in the way CUPS handles certain Internet Printing Protocol\n(IPP) tags. A remote attacker who is able to connect to the IPP TCP port\ncould send a malicious request causing the CUPS daemon to crash, or\npotentially execute arbitrary code. Please note that the default CUPS\nconfiguration does not allow remote hosts to connect to the IPP TCP port.\n(CVE-2007-4351)\n\nRed Hat would like to thank Alin Rad Pop for reporting this issue.\n\nAll CUPS users are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue.\n\nIn addition, the following bugs were fixed:\n\n* the CUPS service has been changed to start after sshd, to avoid causing\ndelays when logging in when the system is booted.\n\n* the logrotate settings have been adjusted so they do not cause CUPS to\nreload its configuration. This is to avoid re-printing the current job,\nwhich could occur when it was a long-running job.\n\n* a bug has been fixed in the handling of the If-Modified-Since: HTTP\nheader.\n\n* in the LSPP configuration, labels for labeled jobs did not line-wrap.\nThis has been fixed.\n\n* an access check in the LSPP configuration has been made more secure.\n\n* the cups-lpd service no longer ignores the \"-odocument-format=...\"\noption.\n\n* a memory allocation bug has been fixed in cupsd.\n\n* support for UNIX domain sockets authentication without passwords has been\nadded.\n\n* in the LSPP configuration, a problem that could lead to cupsd crashing\nhas been fixed.\n\n* the error handling in the initscript has been improved.\n\n* The job-originating-host-name attribute was not correctly set for jobs\nsubmitted via the cups-lpd service. This has been fixed.\n\n* a problem with parsing IPv6 addresses in the configuration file has been\nfixed.\n\n* a problem that could lead to cupsd crashing when it failed to open a\n\"file:\" URI has been fixed.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-10-31"
+			},
+			"updated": {
+				"date": "2007-10-31"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4351",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4351",
+					"impact": "important",
+					"public": "20071031"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4351 cups boundary error",
+					"href": "https://bugzilla.redhat.com/345091",
+					"id": "345091"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071020001",
+										"comment": "cups is earlier than 1:1.2.4-11.14.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123009",
+										"comment": "cups is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071020003",
+										"comment": "cups-devel is earlier than 1:1.2.4-11.14.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123011",
+										"comment": "cups-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071020005",
+										"comment": "cups-libs is earlier than 1:1.2.4-11.14.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123013",
+										"comment": "cups-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071020007",
+										"comment": "cups-lpd is earlier than 1:1.2.4-11.14.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123015",
+										"comment": "cups-lpd is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

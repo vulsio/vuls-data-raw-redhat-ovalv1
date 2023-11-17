@@ -1,153 +1,153 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20130608",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2013:0608: kvm security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2013:0608",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0608",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-6075",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-6075",
-        "source": "CVE"
-      }
-    ],
-    "description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA flaw was found in the way QEMU-KVM emulated the e1000 network interface\ncard when the host was configured to accept jumbo network frames, and a\nguest using the e1000 emulated driver was not. A remote attacker could use\nthis flaw to crash the guest or, potentially, execute arbitrary code with\nroot privileges in the guest. (CVE-2012-6075)\n\nAll users of kvm are advised to upgrade to these updated packages, which\ncontain backported patches to correct this issue. Note that the procedure\nin the Solution section must be performed before this update will take\neffect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-03-07"
-      },
-      "updated": {
-        "date": "2013-03-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-6075",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-6075",
-          "impact": "important",
-          "public": "20121216",
-          "cvss_2": "6.8/AV:A/AC:H/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-6075 qemu: e1000 driver buffer overflow when processing large packets when SBP and LPE flags are disabled",
-          "href": "https://bugzilla.redhat.com/889301",
-          "id": "889301"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130608001",
-                    "comment": "kmod-kvm is earlier than 0:83-262.el5_9.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465002",
-                    "comment": "kmod-kvm is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130608003",
-                    "comment": "kmod-kvm-debug is earlier than 0:83-262.el5_9.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110028004",
-                    "comment": "kmod-kvm-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130608005",
-                    "comment": "kvm is earlier than 0:83-262.el5_9.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465004",
-                    "comment": "kvm is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130608007",
-                    "comment": "kvm-qemu-img is earlier than 0:83-262.el5_9.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465006",
-                    "comment": "kvm-qemu-img is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130608009",
-                    "comment": "kvm-tools is earlier than 0:83-262.el5_9.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465008",
-                    "comment": "kvm-tools is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20130608",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2013:0608: kvm security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2013:0608",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2013:0608",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-6075",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-6075",
+				"source": "CVE"
+			}
+		],
+		"description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA flaw was found in the way QEMU-KVM emulated the e1000 network interface\ncard when the host was configured to accept jumbo network frames, and a\nguest using the e1000 emulated driver was not. A remote attacker could use\nthis flaw to crash the guest or, potentially, execute arbitrary code with\nroot privileges in the guest. (CVE-2012-6075)\n\nAll users of kvm are advised to upgrade to these updated packages, which\ncontain backported patches to correct this issue. Note that the procedure\nin the Solution section must be performed before this update will take\neffect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-03-07"
+			},
+			"updated": {
+				"date": "2013-03-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-6075",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-6075",
+					"impact": "important",
+					"public": "20121216",
+					"cvss_2": "6.8/AV:A/AC:H/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-6075 qemu: e1000 driver buffer overflow when processing large packets when SBP and LPE flags are disabled",
+					"href": "https://bugzilla.redhat.com/889301",
+					"id": "889301"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130608001",
+										"comment": "kmod-kvm is earlier than 0:83-262.el5_9.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465002",
+										"comment": "kmod-kvm is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130608003",
+										"comment": "kmod-kvm-debug is earlier than 0:83-262.el5_9.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110028004",
+										"comment": "kmod-kvm-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130608005",
+										"comment": "kvm is earlier than 0:83-262.el5_9.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465004",
+										"comment": "kvm is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130608007",
+										"comment": "kvm-qemu-img is earlier than 0:83-262.el5_9.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465006",
+										"comment": "kvm-qemu-img is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130608009",
+										"comment": "kvm-tools is earlier than 0:83-262.el5_9.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465008",
+										"comment": "kvm-tools is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

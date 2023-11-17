@@ -1,89 +1,89 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhba:def:20130009",
-  "version": "635",
-  "metadata": {
-    "title": "RHBA-2013:0009: mod_nss bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHBA-2013:0009",
-        "ref_url": "https://access.redhat.com/errata/RHBA-2013:0009",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-4973",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4973",
-        "source": "CVE"
-      }
-    ],
-    "description": "The mod_nss module provides strong cryptography for the Apache HTTP Server via the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols, using the Network Security Services (NSS) security library.\n\nThis update fixes the following bugs:\n\n* The previous release had an incorrect post-install script. Consequently, when upgrading \"mod_nss\" from version 1.0.3 to 1.0.8, the group and file permissions were incorrectly set. The HTTP server (httpd) did not start and the following error message was displayed:\n\n    [error] NSS_Initialize failed. Certificate database: /etc/httpd/alias.\n    [error] SSL Library Error: -8038 SEC_ERROR_NOT_INITIALIZED\n\nThis update improves the post-install script to set file permissions and ownership correctly. As a result, all child processes of the Apache HTTP Server can enable SSL and now httpd starts as expected in the scenario described. (BZ#669963)\n\n* With the release of \"mod_nss\" version 1.0.8 there was no lock mechanism to control sequential httpd process access to the \"nss_pcache\" process. This sometimes resulted in multiple requests being interpreted as a single request by \"nss_pcache\" and a single result returned. The calling process sometimes experienced a timeout error or a failure with the error message:\n\n    [error] Unable to read from pin store\n\nWith this update the code has been improved and multiple requests to the \"nss_pcache\" process are processed sequentially without the errors described. (BZ#677698)\n\n* Due to a regression, the \"mod_proxy\" module no longer worked when configured to support reverse proxy operation. The following error was logged:\n\n    [error] SSL Proxy: I don't have the name of the host we're supposed to connect to so I can't verify that we are connecting to who we think we should be. Giving up.\n\nA new patch has been applied and the \"mod_proxy\" module now works correctly to support SSL reverse proxy. (BZ#692868)\n\n* Previously, a static array containing the arguments for launching the \"nss_pcache\" command overflowed the array size by one. This could lead to a variety of problems including unexpected termination. This bug has been fixed, and \"mod_nss\" now uses a properly sized static array when launching \"nss_pcache\". (BZ#714255)\n\n* Due to an incorrect use of the memcpy() function in the \"mod_nss\" module, running the Apache HTTP Server with this module enabled could cause some requests to fail with the following message written to the error_log file:\n\n    request failed: error reading the headers\n\nThis update applies a patch to ensure that the memcpy() function is now used in accordance with the current specification, and using the \"mod_nss\" module no longer causes HTTP requests to fail. (BZ#749401)\n\n* Prior to this update, client certificates were only retrieved during the initial SSL handshake if the NSSVerifyClient option was set to \"require\" or \"optional\". Also, the FakeBasicAuth option only retrieved Common Name rather than the entire certificate subject. Consequently, it was possible to spoof an identity using that option. This bug has been fixed, the FakeBasicAuth option is now prefixed with \"/\" and is thus compatible with OpenSSL. Certificates are now retrieved on all subsequent requests beyond the first one. (BZ#749402).\n\n* When the NSS library was not initialized and \"mod_nss\" tried to clear its SSL cache on start-up, \"mod_nss\" terminated unexpectedly when the NSS library was built with debugging enabled. With this update, \"mod_nss\" does not try to clear the SSL cache in the described scenario, thus preventing this bug. (BZ#749405, BZ#784548)\n\n* The \"Requires: %{_libdir}/libnssckbi.so\" directive has been added to the spec file to make \"libnssckbi.so\" a runtime dependency. This is to prevent symbolic links failing. (BZ#749406)\n\nAll users of mod_nss are advised to upgrade to these updated packages, which fix these bugs.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-01-07"
-      },
-      "updated": {
-        "date": "2013-01-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-4973",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-4973",
-          "impact": "moderate",
-          "public": "20110504",
-          "cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-4973 mod_nss: FakeBasicAuth authentication bypass",
-          "href": "https://bugzilla.redhat.com/1017197",
-          "id": "1017197"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20130009001",
-            "comment": "mod_nss is earlier than 0:1.0.8-7.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20130009002",
-            "comment": "mod_nss is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhba:def:20130009",
+	"version": "635",
+	"metadata": {
+		"title": "RHBA-2013:0009: mod_nss bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHBA-2013:0009",
+				"ref_url": "https://access.redhat.com/errata/RHBA-2013:0009",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-4973",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-4973",
+				"source": "CVE"
+			}
+		],
+		"description": "The mod_nss module provides strong cryptography for the Apache HTTP Server via the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols, using the Network Security Services (NSS) security library.\n\nThis update fixes the following bugs:\n\n* The previous release had an incorrect post-install script. Consequently, when upgrading \"mod_nss\" from version 1.0.3 to 1.0.8, the group and file permissions were incorrectly set. The HTTP server (httpd) did not start and the following error message was displayed:\n\n    [error] NSS_Initialize failed. Certificate database: /etc/httpd/alias.\n    [error] SSL Library Error: -8038 SEC_ERROR_NOT_INITIALIZED\n\nThis update improves the post-install script to set file permissions and ownership correctly. As a result, all child processes of the Apache HTTP Server can enable SSL and now httpd starts as expected in the scenario described. (BZ#669963)\n\n* With the release of \"mod_nss\" version 1.0.8 there was no lock mechanism to control sequential httpd process access to the \"nss_pcache\" process. This sometimes resulted in multiple requests being interpreted as a single request by \"nss_pcache\" and a single result returned. The calling process sometimes experienced a timeout error or a failure with the error message:\n\n    [error] Unable to read from pin store\n\nWith this update the code has been improved and multiple requests to the \"nss_pcache\" process are processed sequentially without the errors described. (BZ#677698)\n\n* Due to a regression, the \"mod_proxy\" module no longer worked when configured to support reverse proxy operation. The following error was logged:\n\n    [error] SSL Proxy: I don't have the name of the host we're supposed to connect to so I can't verify that we are connecting to who we think we should be. Giving up.\n\nA new patch has been applied and the \"mod_proxy\" module now works correctly to support SSL reverse proxy. (BZ#692868)\n\n* Previously, a static array containing the arguments for launching the \"nss_pcache\" command overflowed the array size by one. This could lead to a variety of problems including unexpected termination. This bug has been fixed, and \"mod_nss\" now uses a properly sized static array when launching \"nss_pcache\". (BZ#714255)\n\n* Due to an incorrect use of the memcpy() function in the \"mod_nss\" module, running the Apache HTTP Server with this module enabled could cause some requests to fail with the following message written to the error_log file:\n\n    request failed: error reading the headers\n\nThis update applies a patch to ensure that the memcpy() function is now used in accordance with the current specification, and using the \"mod_nss\" module no longer causes HTTP requests to fail. (BZ#749401)\n\n* Prior to this update, client certificates were only retrieved during the initial SSL handshake if the NSSVerifyClient option was set to \"require\" or \"optional\". Also, the FakeBasicAuth option only retrieved Common Name rather than the entire certificate subject. Consequently, it was possible to spoof an identity using that option. This bug has been fixed, the FakeBasicAuth option is now prefixed with \"/\" and is thus compatible with OpenSSL. Certificates are now retrieved on all subsequent requests beyond the first one. (BZ#749402).\n\n* When the NSS library was not initialized and \"mod_nss\" tried to clear its SSL cache on start-up, \"mod_nss\" terminated unexpectedly when the NSS library was built with debugging enabled. With this update, \"mod_nss\" does not try to clear the SSL cache in the described scenario, thus preventing this bug. (BZ#749405, BZ#784548)\n\n* The \"Requires: %{_libdir}/libnssckbi.so\" directive has been added to the spec file to make \"libnssckbi.so\" a runtime dependency. This is to prevent symbolic links failing. (BZ#749406)\n\nAll users of mod_nss are advised to upgrade to these updated packages, which fix these bugs.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-01-07"
+			},
+			"updated": {
+				"date": "2013-01-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-4973",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-4973",
+					"impact": "moderate",
+					"public": "20110504",
+					"cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-4973 mod_nss: FakeBasicAuth authentication bypass",
+					"href": "https://bugzilla.redhat.com/1017197",
+					"id": "1017197"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20130009001",
+						"comment": "mod_nss is earlier than 0:1.0.8-7.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20130009002",
+						"comment": "mod_nss is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

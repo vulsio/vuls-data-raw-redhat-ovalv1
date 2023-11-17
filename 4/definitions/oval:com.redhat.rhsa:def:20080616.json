@@ -1,305 +1,305 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080616",
-  "version": "642",
-  "metadata": {
-    "title": "RHSA-2008:0616: thunderbird security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0616",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0616",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-2785",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2785",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2798",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2798",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2799",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2799",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2800",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2800",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2801",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2801",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2802",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2802",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2803",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2803",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2805",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2805",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2807",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2807",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2808",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2808",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2809",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2809",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2810",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2810",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2811",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2811",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mozilla Thunderbird is a standalone mail and newsgroup client.\n\nMultiple flaws were found in the processing of malformed JavaScript\ncontent. An HTML mail containing such malicious content could cause\nThunderbird to crash or, potentially, execute arbitrary code as the user\nrunning Thunderbird. (CVE-2008-2801, CVE-2008-2802, CVE-2008-2803)\n\nSeveral flaws were found in the processing of malformed HTML content. An\nHTML mail containing malicious content could cause Thunderbird to crash or,\npotentially, execute arbitrary code as the user running Thunderbird.\n(CVE-2008-2785, CVE-2008-2798, CVE-2008-2799, CVE-2008-2811)\n\nSeveral flaws were found in the way malformed HTML content was displayed.\nAn HTML mail containing specially-crafted content could, potentially, trick\na Thunderbird user into surrendering sensitive information. (CVE-2008-2800)\n\nTwo local file disclosure flaws were found in Thunderbird. An HTML mail\ncontaining malicious content could cause Thunderbird to reveal the contents\nof a local file to a remote attacker. (CVE-2008-2805, CVE-2008-2810)\n\nA flaw was found in the way a malformed .properties file was processed by\nThunderbird. A malicious extension could read uninitialized memory,\npossibly leaking sensitive data to the extension. (CVE-2008-2807)\n\nA flaw was found in the way Thunderbird escaped a listing of local file\nnames. If a user could be tricked into listing a local directory containing\nmalicious file names, arbitrary JavaScript could be run with the\npermissions of the user running Thunderbird. (CVE-2008-2808)\n\nA flaw was found in the way Thunderbird displayed information about\nself-signed certificates. It was possible for a self-signed certificate to\ncontain multiple alternate name entries, which were not all displayed to\nthe user, allowing them to mistakenly extend trust to an unknown site.\n(CVE-2008-2809)\n\nNote: JavaScript support is disabled by default in Thunderbird. The above\nissues are not exploitable unless JavaScript is enabled.\n\nAll Thunderbird users should upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-07-23"
-      },
-      "updated": {
-        "date": "2008-07-23"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-2785",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2785",
-          "impact": "critical",
-          "public": "20080716"
-        },
-        {
-          "text": "CVE-2008-2798",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2798",
-          "impact": "critical",
-          "public": "20080701"
-        },
-        {
-          "text": "CVE-2008-2799",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2799",
-          "impact": "critical",
-          "public": "20080701"
-        },
-        {
-          "text": "CVE-2008-2800",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2800",
-          "impact": "moderate",
-          "public": "20080702",
-          "cwe": "CWE-79"
-        },
-        {
-          "text": "CVE-2008-2801",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2801",
-          "impact": "critical",
-          "public": "20080702"
-        },
-        {
-          "text": "CVE-2008-2802",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2802",
-          "impact": "critical",
-          "public": "20080702"
-        },
-        {
-          "text": "CVE-2008-2803",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2803",
-          "impact": "critical",
-          "public": "20080702"
-        },
-        {
-          "text": "CVE-2008-2805",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2805",
-          "impact": "moderate",
-          "public": "20080702"
-        },
-        {
-          "text": "CVE-2008-2807",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2807",
-          "impact": "moderate",
-          "public": "20080702",
-          "cwe": "CWE-401"
-        },
-        {
-          "text": "CVE-2008-2808",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2808",
-          "impact": "moderate",
-          "public": "20080702"
-        },
-        {
-          "text": "CVE-2008-2809",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2809",
-          "impact": "moderate",
-          "public": "20080702"
-        },
-        {
-          "text": "CVE-2008-2810",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2810",
-          "impact": "moderate",
-          "public": "20080702"
-        },
-        {
-          "text": "CVE-2008-2811",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2811",
-          "impact": "critical",
-          "public": "20080702"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-2785 mozilla: CSS reference counter overflow (ZDI-CAN-349)",
-          "href": "https://bugzilla.redhat.com/452204",
-          "id": "452204"
-        },
-        {
-          "text": "CVE-2008-2798 Firefox malformed web content flaws",
-          "href": "https://bugzilla.redhat.com/452597",
-          "id": "452597"
-        },
-        {
-          "text": "CVE-2008-2799 Firefox javascript arbitrary code execution",
-          "href": "https://bugzilla.redhat.com/452598",
-          "id": "452598"
-        },
-        {
-          "text": "CVE-2008-2800 Firefox XSS attacks",
-          "href": "https://bugzilla.redhat.com/452599",
-          "id": "452599"
-        },
-        {
-          "text": "CVE-2008-2802 Firefox arbitrary JavaScript code execution",
-          "href": "https://bugzilla.redhat.com/452600",
-          "id": "452600"
-        },
-        {
-          "text": "CVE-2008-2803 Firefox javascript arbitrary code execution",
-          "href": "https://bugzilla.redhat.com/452602",
-          "id": "452602"
-        },
-        {
-          "text": "CVE-2008-2805 Firefox arbitrary file disclosure",
-          "href": "https://bugzilla.redhat.com/452604",
-          "id": "452604"
-        },
-        {
-          "text": "CVE-2008-2801 Firefox arbitrary signed JAR code execution",
-          "href": "https://bugzilla.redhat.com/452605",
-          "id": "452605"
-        },
-        {
-          "text": "CVE-2008-2807 Firefox .properties memory leak",
-          "href": "https://bugzilla.redhat.com/452709",
-          "id": "452709"
-        },
-        {
-          "text": "CVE-2008-2808 Firefox file location escaping flaw",
-          "href": "https://bugzilla.redhat.com/452710",
-          "id": "452710"
-        },
-        {
-          "text": "CVE-2008-2809 Firefox self signed certificate flaw",
-          "href": "https://bugzilla.redhat.com/452711",
-          "id": "452711"
-        },
-        {
-          "text": "CVE-2008-2810 Firefox arbitrary file disclosure",
-          "href": "https://bugzilla.redhat.com/452712",
-          "id": "452712"
-        },
-        {
-          "text": "CVE-2008-2811 Firefox block reflow flaw",
-          "href": "https://bugzilla.redhat.com/453007",
-          "id": "453007"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_productivity:5",
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080616001",
-            "comment": "thunderbird is earlier than 0:1.5.0.12-14.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060330002",
-            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080616004",
-            "comment": "thunderbird is earlier than 0:2.0.0.16-1.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060330002",
-            "comment": "thunderbird is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080616",
+	"version": "642",
+	"metadata": {
+		"title": "RHSA-2008:0616: thunderbird security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0616",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0616",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-2785",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2785",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2798",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2798",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2799",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2799",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2800",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2800",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2801",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2801",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2802",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2802",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2803",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2803",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2805",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2805",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2807",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2807",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2808",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2808",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2809",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2809",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2810",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2810",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2811",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2811",
+				"source": "CVE"
+			}
+		],
+		"description": "Mozilla Thunderbird is a standalone mail and newsgroup client.\n\nMultiple flaws were found in the processing of malformed JavaScript\ncontent. An HTML mail containing such malicious content could cause\nThunderbird to crash or, potentially, execute arbitrary code as the user\nrunning Thunderbird. (CVE-2008-2801, CVE-2008-2802, CVE-2008-2803)\n\nSeveral flaws were found in the processing of malformed HTML content. An\nHTML mail containing malicious content could cause Thunderbird to crash or,\npotentially, execute arbitrary code as the user running Thunderbird.\n(CVE-2008-2785, CVE-2008-2798, CVE-2008-2799, CVE-2008-2811)\n\nSeveral flaws were found in the way malformed HTML content was displayed.\nAn HTML mail containing specially-crafted content could, potentially, trick\na Thunderbird user into surrendering sensitive information. (CVE-2008-2800)\n\nTwo local file disclosure flaws were found in Thunderbird. An HTML mail\ncontaining malicious content could cause Thunderbird to reveal the contents\nof a local file to a remote attacker. (CVE-2008-2805, CVE-2008-2810)\n\nA flaw was found in the way a malformed .properties file was processed by\nThunderbird. A malicious extension could read uninitialized memory,\npossibly leaking sensitive data to the extension. (CVE-2008-2807)\n\nA flaw was found in the way Thunderbird escaped a listing of local file\nnames. If a user could be tricked into listing a local directory containing\nmalicious file names, arbitrary JavaScript could be run with the\npermissions of the user running Thunderbird. (CVE-2008-2808)\n\nA flaw was found in the way Thunderbird displayed information about\nself-signed certificates. It was possible for a self-signed certificate to\ncontain multiple alternate name entries, which were not all displayed to\nthe user, allowing them to mistakenly extend trust to an unknown site.\n(CVE-2008-2809)\n\nNote: JavaScript support is disabled by default in Thunderbird. The above\nissues are not exploitable unless JavaScript is enabled.\n\nAll Thunderbird users should upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-07-23"
+			},
+			"updated": {
+				"date": "2008-07-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-2785",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2785",
+					"impact": "critical",
+					"public": "20080716"
+				},
+				{
+					"text": "CVE-2008-2798",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2798",
+					"impact": "critical",
+					"public": "20080701"
+				},
+				{
+					"text": "CVE-2008-2799",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2799",
+					"impact": "critical",
+					"public": "20080701"
+				},
+				{
+					"text": "CVE-2008-2800",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2800",
+					"impact": "moderate",
+					"public": "20080702",
+					"cwe": "CWE-79"
+				},
+				{
+					"text": "CVE-2008-2801",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2801",
+					"impact": "critical",
+					"public": "20080702"
+				},
+				{
+					"text": "CVE-2008-2802",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2802",
+					"impact": "critical",
+					"public": "20080702"
+				},
+				{
+					"text": "CVE-2008-2803",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2803",
+					"impact": "critical",
+					"public": "20080702"
+				},
+				{
+					"text": "CVE-2008-2805",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2805",
+					"impact": "moderate",
+					"public": "20080702"
+				},
+				{
+					"text": "CVE-2008-2807",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2807",
+					"impact": "moderate",
+					"public": "20080702",
+					"cwe": "CWE-401"
+				},
+				{
+					"text": "CVE-2008-2808",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2808",
+					"impact": "moderate",
+					"public": "20080702"
+				},
+				{
+					"text": "CVE-2008-2809",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2809",
+					"impact": "moderate",
+					"public": "20080702"
+				},
+				{
+					"text": "CVE-2008-2810",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2810",
+					"impact": "moderate",
+					"public": "20080702"
+				},
+				{
+					"text": "CVE-2008-2811",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2811",
+					"impact": "critical",
+					"public": "20080702"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-2785 mozilla: CSS reference counter overflow (ZDI-CAN-349)",
+					"href": "https://bugzilla.redhat.com/452204",
+					"id": "452204"
+				},
+				{
+					"text": "CVE-2008-2798 Firefox malformed web content flaws",
+					"href": "https://bugzilla.redhat.com/452597",
+					"id": "452597"
+				},
+				{
+					"text": "CVE-2008-2799 Firefox javascript arbitrary code execution",
+					"href": "https://bugzilla.redhat.com/452598",
+					"id": "452598"
+				},
+				{
+					"text": "CVE-2008-2800 Firefox XSS attacks",
+					"href": "https://bugzilla.redhat.com/452599",
+					"id": "452599"
+				},
+				{
+					"text": "CVE-2008-2802 Firefox arbitrary JavaScript code execution",
+					"href": "https://bugzilla.redhat.com/452600",
+					"id": "452600"
+				},
+				{
+					"text": "CVE-2008-2803 Firefox javascript arbitrary code execution",
+					"href": "https://bugzilla.redhat.com/452602",
+					"id": "452602"
+				},
+				{
+					"text": "CVE-2008-2805 Firefox arbitrary file disclosure",
+					"href": "https://bugzilla.redhat.com/452604",
+					"id": "452604"
+				},
+				{
+					"text": "CVE-2008-2801 Firefox arbitrary signed JAR code execution",
+					"href": "https://bugzilla.redhat.com/452605",
+					"id": "452605"
+				},
+				{
+					"text": "CVE-2008-2807 Firefox .properties memory leak",
+					"href": "https://bugzilla.redhat.com/452709",
+					"id": "452709"
+				},
+				{
+					"text": "CVE-2008-2808 Firefox file location escaping flaw",
+					"href": "https://bugzilla.redhat.com/452710",
+					"id": "452710"
+				},
+				{
+					"text": "CVE-2008-2809 Firefox self signed certificate flaw",
+					"href": "https://bugzilla.redhat.com/452711",
+					"id": "452711"
+				},
+				{
+					"text": "CVE-2008-2810 Firefox arbitrary file disclosure",
+					"href": "https://bugzilla.redhat.com/452712",
+					"id": "452712"
+				},
+				{
+					"text": "CVE-2008-2811 Firefox block reflow flaw",
+					"href": "https://bugzilla.redhat.com/453007",
+					"id": "453007"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_productivity:5",
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080616001",
+						"comment": "thunderbird is earlier than 0:1.5.0.12-14.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060330002",
+						"comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080616004",
+						"comment": "thunderbird is earlier than 0:2.0.0.16-1.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060330002",
+						"comment": "thunderbird is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

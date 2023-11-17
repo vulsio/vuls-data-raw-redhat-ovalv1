@@ -1,283 +1,283 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100474",
-  "version": "655",
-  "metadata": {
-    "title": "RHSA-2010:0474: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0474",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0474",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-3726",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3726",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1173",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1173",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1437",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1437",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity fixes:\n\n* a NULL pointer dereference flaw was found in the Linux kernel NFSv4\nimplementation. Several of the NFSv4 file locking functions failed to check\nwhether a file had been opened on the server before performing locking\noperations on it. A local, unprivileged user on a system with an NFSv4\nshare mounted could possibly use this flaw to cause a kernel panic (denial\nof service) or escalate their privileges. (CVE-2009-3726, Important)\n\n* a flaw was found in the sctp_process_unk_param() function in the Linux\nkernel Stream Control Transmission Protocol (SCTP) implementation. A remote\nattacker could send a specially-crafted SCTP packet to an SCTP listening\nport on a target system, causing a kernel panic (denial of service).\n(CVE-2010-1173, Important)\n\n* a race condition between finding a keyring by name and destroying a freed\nkeyring was found in the Linux kernel key management facility. A local,\nunprivileged user could use this flaw to cause a kernel panic (denial of\nservice) or escalate their privileges. (CVE-2010-1437, Important)\n\nRed Hat would like to thank Simon Vallet for responsibly reporting\nCVE-2009-3726; and Jukka Taimisto and Olli Jarva of Codenomicon Ltd, Nokia\nSiemens Networks, and Wind River on behalf of their customer, for\nresponsibly reporting CVE-2010-1173.\n\nBug fixes:\n\n* RHBA-2007:0791 introduced a regression in the Journaling Block Device\n(JBD). Under certain circumstances, removing a large file (such as 300 MB\nor more) did not result in inactive memory being freed, leading to the\nsystem having a large amount of inactive memory. Now, the memory is\ncorrectly freed. (BZ#589155)\n\n* the timer_interrupt() routine did not scale lost real ticks to logical\nticks correctly, possibly causing time drift for 64-bit Red Hat Enterprise\nLinux 4 KVM (Kernel-based Virtual Machine) guests that were booted with the\n\"divider=x\" kernel parameter set to a value greater than 1. \"warning: many\nlost ticks\" messages may have been logged on the affected guest systems.\n(BZ#590551)\n\n* a bug could have prevented NFSv3 clients from having the most up-to-date\nfile attributes for files on a given NFSv3 file system. In cases where a\nfile type changed, such as if a file was removed and replaced with a\ndirectory of the same name, the NFSv3 client may not have noticed this\nchange until stat(2) was called (for example, by running \"ls -l\").\n(BZ#596372)\n\n* RHBA-2007:0791 introduced bugs in the Linux kernel PCI-X subsystem. These\ncould have caused a system deadlock on some systems where the BIOS set the\ndefault Maximum Memory Read Byte Count (MMRBC) to 4096, and that also use\nthe Intel PRO/1000 Linux driver, e1000. Errors such as \"e1000: eth[x]:\ne1000_clean_tx_irq: Detected Tx Unit Hang\" were logged. (BZ#596374)\n\n* an out of memory condition in a KVM guest, using the virtio-net network\ndriver and also under heavy network stress, could have resulted in\nthat guest being unable to receive network traffic. Users had to manually\nremove and re-add the virtio_net module and restart the network service\nbefore networking worked as expected. Such memory conditions no longer\nprevent KVM guests receiving network traffic. (BZ#597310)\n\n* when an SFQ qdisc that limited the queue size to two packets was added to\na network interface, sending traffic through that interface resulted in a\nkernel crash. Such a qdisc no longer results in a kernel crash. (BZ#597312)\n\n* when an NFS client opened a file with the O_TRUNC flag set, it received\na valid stateid, but did not use that stateid to perform the SETATTR call.\nSuch cases were rejected by Red Hat Enterprise Linux 4 NFS servers with an\n\"NFS4ERR_BAD_STATEID\" error, possibly preventing some NFS clients from\nwriting files to an NFS file system. (BZ#597314)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-06-15"
-      },
-      "updated": {
-        "date": "2010-06-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-3726",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3726",
-          "impact": "important",
-          "public": "20081022",
-          "cwe": "CWE-662->CWE-362->CWE-672->CWE-476",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2010-1173",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1173",
-          "impact": "important",
-          "public": "20100429",
-          "cwe": "CWE-228->CWE-119",
-          "cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2010-1437",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1437",
-          "impact": "important",
-          "public": "20100423",
-          "cwe": "CWE-672->CWE-119",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-3726 kernel: nfsv4: kernel panic in nfs4_proc_lock()",
-          "href": "https://bugzilla.redhat.com/529227",
-          "id": "529227"
-        },
-        {
-          "text": "CVE-2010-1173 kernel: sctp: crash due to malformed SCTPChunkInit packet",
-          "href": "https://bugzilla.redhat.com/584645",
-          "id": "584645"
-        },
-        {
-          "text": "CVE-2010-1437 kernel: keyrings: find_keyring_by_name() can gain the freed keyring",
-          "href": "https://bugzilla.redhat.com/585094",
-          "id": "585094"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100474023",
-                "comment": "kernel earlier than 0:2.6.9-89.0.26.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100474024",
-                "comment": "kernel earlier than 0:2.6.9-89.0.26.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474001",
-                    "comment": "kernel is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100474021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.0.26.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100474",
+	"version": "655",
+	"metadata": {
+		"title": "RHSA-2010:0474: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0474",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0474",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-3726",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3726",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1173",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1173",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1437",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1437",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity fixes:\n\n* a NULL pointer dereference flaw was found in the Linux kernel NFSv4\nimplementation. Several of the NFSv4 file locking functions failed to check\nwhether a file had been opened on the server before performing locking\noperations on it. A local, unprivileged user on a system with an NFSv4\nshare mounted could possibly use this flaw to cause a kernel panic (denial\nof service) or escalate their privileges. (CVE-2009-3726, Important)\n\n* a flaw was found in the sctp_process_unk_param() function in the Linux\nkernel Stream Control Transmission Protocol (SCTP) implementation. A remote\nattacker could send a specially-crafted SCTP packet to an SCTP listening\nport on a target system, causing a kernel panic (denial of service).\n(CVE-2010-1173, Important)\n\n* a race condition between finding a keyring by name and destroying a freed\nkeyring was found in the Linux kernel key management facility. A local,\nunprivileged user could use this flaw to cause a kernel panic (denial of\nservice) or escalate their privileges. (CVE-2010-1437, Important)\n\nRed Hat would like to thank Simon Vallet for responsibly reporting\nCVE-2009-3726; and Jukka Taimisto and Olli Jarva of Codenomicon Ltd, Nokia\nSiemens Networks, and Wind River on behalf of their customer, for\nresponsibly reporting CVE-2010-1173.\n\nBug fixes:\n\n* RHBA-2007:0791 introduced a regression in the Journaling Block Device\n(JBD). Under certain circumstances, removing a large file (such as 300 MB\nor more) did not result in inactive memory being freed, leading to the\nsystem having a large amount of inactive memory. Now, the memory is\ncorrectly freed. (BZ#589155)\n\n* the timer_interrupt() routine did not scale lost real ticks to logical\nticks correctly, possibly causing time drift for 64-bit Red Hat Enterprise\nLinux 4 KVM (Kernel-based Virtual Machine) guests that were booted with the\n\"divider=x\" kernel parameter set to a value greater than 1. \"warning: many\nlost ticks\" messages may have been logged on the affected guest systems.\n(BZ#590551)\n\n* a bug could have prevented NFSv3 clients from having the most up-to-date\nfile attributes for files on a given NFSv3 file system. In cases where a\nfile type changed, such as if a file was removed and replaced with a\ndirectory of the same name, the NFSv3 client may not have noticed this\nchange until stat(2) was called (for example, by running \"ls -l\").\n(BZ#596372)\n\n* RHBA-2007:0791 introduced bugs in the Linux kernel PCI-X subsystem. These\ncould have caused a system deadlock on some systems where the BIOS set the\ndefault Maximum Memory Read Byte Count (MMRBC) to 4096, and that also use\nthe Intel PRO/1000 Linux driver, e1000. Errors such as \"e1000: eth[x]:\ne1000_clean_tx_irq: Detected Tx Unit Hang\" were logged. (BZ#596374)\n\n* an out of memory condition in a KVM guest, using the virtio-net network\ndriver and also under heavy network stress, could have resulted in\nthat guest being unable to receive network traffic. Users had to manually\nremove and re-add the virtio_net module and restart the network service\nbefore networking worked as expected. Such memory conditions no longer\nprevent KVM guests receiving network traffic. (BZ#597310)\n\n* when an SFQ qdisc that limited the queue size to two packets was added to\na network interface, sending traffic through that interface resulted in a\nkernel crash. Such a qdisc no longer results in a kernel crash. (BZ#597312)\n\n* when an NFS client opened a file with the O_TRUNC flag set, it received\na valid stateid, but did not use that stateid to perform the SETATTR call.\nSuch cases were rejected by Red Hat Enterprise Linux 4 NFS servers with an\n\"NFS4ERR_BAD_STATEID\" error, possibly preventing some NFS clients from\nwriting files to an NFS file system. (BZ#597314)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-06-15"
+			},
+			"updated": {
+				"date": "2010-06-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-3726",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3726",
+					"impact": "important",
+					"public": "20081022",
+					"cwe": "CWE-662->CWE-362->CWE-672->CWE-476",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2010-1173",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1173",
+					"impact": "important",
+					"public": "20100429",
+					"cwe": "CWE-228->CWE-119",
+					"cvss_2": "7.1/AV:N/AC:M/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2010-1437",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1437",
+					"impact": "important",
+					"public": "20100423",
+					"cwe": "CWE-672->CWE-119",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-3726 kernel: nfsv4: kernel panic in nfs4_proc_lock()",
+					"href": "https://bugzilla.redhat.com/529227",
+					"id": "529227"
+				},
+				{
+					"text": "CVE-2010-1173 kernel: sctp: crash due to malformed SCTPChunkInit packet",
+					"href": "https://bugzilla.redhat.com/584645",
+					"id": "584645"
+				},
+				{
+					"text": "CVE-2010-1437 kernel: keyrings: find_keyring_by_name() can gain the freed keyring",
+					"href": "https://bugzilla.redhat.com/585094",
+					"id": "585094"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100474023",
+								"comment": "kernel earlier than 0:2.6.9-89.0.26.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100474024",
+								"comment": "kernel earlier than 0:2.6.9-89.0.26.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474001",
+										"comment": "kernel is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100474021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.0.26.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

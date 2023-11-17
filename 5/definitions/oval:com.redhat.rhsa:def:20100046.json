@@ -1,427 +1,427 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100046",
-  "version": "682",
-  "metadata": {
-    "title": "RHSA-2010:0046: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0046",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0046",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-6304",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-6304",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-2910",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2910",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3080",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3080",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3556",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3556",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3889",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3889",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3939",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3939",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4020",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4020",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4021",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4021",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4138",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4138",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4141",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4141",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4272",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4272",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity fixes:\n\n* an array index error was found in the gdth driver. A local user could\nsend a specially-crafted IOCTL request that would cause a denial of service\nor, possibly, privilege escalation. (CVE-2009-3080, Important)\n\n* a flaw was found in the FUSE implementation. When a system is low on\nmemory, fuse_put_request() could dereference an invalid pointer, possibly\nleading to a local denial of service or privilege escalation.\n(CVE-2009-4021, Important)\n\n* Tavis Ormandy discovered a deficiency in the fasync_helper()\nimplementation. This could allow a local, unprivileged user to leverage a\nuse-after-free of locked, asynchronous file descriptors to cause a denial\nof service or privilege escalation. (CVE-2009-4141, Important)\n\n* the Parallels Virtuozzo Containers team reported the RHSA-2009:1243\nupdate introduced two flaws in the routing implementation. If an attacker\nwas able to cause a large enough number of collisions in the routing hash\ntable (via specially-crafted packets) for the emergency route flush to\ntrigger, a deadlock could occur. Secondly, if the kernel routing cache was\ndisabled, an uninitialized pointer would be left behind after a route\nlookup, leading to a kernel panic. (CVE-2009-4272, Important)\n\n* the RHSA-2009:0225 update introduced a rewrite attack flaw in the\ndo_coredump() function. A local attacker able to guess the file name a\nprocess is going to dump its core to, prior to the process crashing, could\nuse this flaw to append data to the dumped core file. This issue only\naffects systems that have \"/proc/sys/fs/suid_dumpable\" set to 2 (the\ndefault value is 0). (CVE-2006-6304, Moderate)\n\nThe fix for CVE-2006-6304 changes the expected behavior: With suid_dumpable\nset to 2, the core file will not be recorded if the file already exists.\nFor example, core files will not be overwritten on subsequent crashes of\nprocesses whose core files map to the same name.\n\n* an information leak was found in the Linux kernel. On AMD64 systems,\n32-bit processes could access and read certain 64-bit registers by\ntemporarily switching themselves to 64-bit mode. (CVE-2009-2910, Moderate)\n\n* the RHBA-2008:0314 update introduced N_Port ID Virtualization (NPIV)\nsupport in the qla2xxx driver, resulting in two new sysfs pseudo files,\n\"/sys/class/scsi_host/[a qla2xxx host]/vport_create\" and \"vport_delete\".\nThese two files were world-writable by default, allowing a local user to\nchange SCSI host attributes. This flaw only affects systems using the\nqla2xxx driver and NPIV capable hardware. (CVE-2009-3556, Moderate)\n\n* permission issues were found in the megaraid_sas driver. The \"dbg_lvl\"\nand \"poll_mode_io\" files on the sysfs file system (\"/sys/\") had\nworld-writable permissions. This could allow local, unprivileged users to\nchange the behavior of the driver. (CVE-2009-3889, CVE-2009-3939, Moderate)\n\n* a NULL pointer dereference flaw was found in the firewire-ohci driver\nused for OHCI compliant IEEE 1394 controllers. A local, unprivileged user\nwith access to /dev/fw* files could issue certain IOCTL calls, causing a\ndenial of service or privilege escalation. The FireWire modules are\nblacklisted by default, and if enabled, only root has access to the files\nnoted above by default. (CVE-2009-4138, Moderate)\n\n* a buffer overflow flaw was found in the hfs_bnode_read() function in the\nHFS file system implementation. This could lead to a denial of service if a\nuser browsed a specially-crafted HFS file system, for example, by running\n\"ls\". (CVE-2009-4020, Low)\n\nBug fix documentation for this update will be available shortly from\nwww.redhat.com/docs/en-US/errata/RHSA-2010-0046/Kernel_Security_Update/\nindex.html\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-01-19"
-      },
-      "updated": {
-        "date": "2010-01-19"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-6304",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-6304",
-          "impact": "moderate",
-          "public": "20091112",
-          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2009-2910",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2910",
-          "impact": "moderate",
-          "public": "20091001",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2009-3080",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3080",
-          "impact": "important",
-          "public": "20091120",
-          "cwe": "CWE-839->CWE-119",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2009-3556",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3556",
-          "impact": "moderate",
-          "public": "20100119",
-          "cwe": "CWE-732",
-          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3889",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3889",
-          "impact": "moderate",
-          "public": "20090928",
-          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3939",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3939",
-          "impact": "moderate",
-          "public": "20090928",
-          "cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-4020",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4020",
-          "impact": "low",
-          "public": "20091204",
-          "cwe": "CWE-119",
-          "cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2009-4021",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4021",
-          "impact": "important",
-          "public": "20091022",
-          "cvss_2": "4.6/AV:L/AC:L/Au:S/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2009-4138",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4138",
-          "impact": "moderate",
-          "public": "20091211",
-          "cvss_2": "4.0/AV:L/AC:H/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2009-4141",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4141",
-          "impact": "important",
-          "public": "20091216",
-          "cwe": "CWE-672->CWE-119",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2009-4272",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4272",
-          "impact": "important",
-          "public": "20100119",
-          "cwe": "CWE-662->CWE-362->CWE-672->CWE-476",
-          "cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-3889 CVE-2009-3939 kernel: megaraid_sas permissions in sysfs",
-          "href": "https://bugzilla.redhat.com/526068",
-          "id": "526068"
-        },
-        {
-          "text": "CVE-2009-2910 kernel: x86_64 32 bit process register leak",
-          "href": "https://bugzilla.redhat.com/526788",
-          "id": "526788"
-        },
-        {
-          "text": "CVE-2009-3556 kernel: qla2xxx NPIV vport management pseudofiles are world writable",
-          "href": "https://bugzilla.redhat.com/537177",
-          "id": "537177"
-        },
-        {
-          "text": "CVE-2006-6304 kernel: use flag in do_coredump()",
-          "href": "https://bugzilla.redhat.com/537273",
-          "id": "537273"
-        },
-        {
-          "text": "CVE-2009-4021 kernel: fuse: prevent fuse_put_request on invalid pointer",
-          "href": "https://bugzilla.redhat.com/538734",
-          "id": "538734"
-        },
-        {
-          "text": "CVE-2009-3080 kernel: gdth: Prevent negative offsets in ioctl",
-          "href": "https://bugzilla.redhat.com/539414",
-          "id": "539414"
-        },
-        {
-          "text": "CVE-2009-4020 kernel: hfs buffer overflow",
-          "href": "https://bugzilla.redhat.com/540736",
-          "id": "540736"
-        },
-        {
-          "text": "CVE-2009-4272 kernel: emergency route cache flushing leads to node deadlock",
-          "href": "https://bugzilla.redhat.com/545411",
-          "id": "545411"
-        },
-        {
-          "text": "CVE-2009-4138 kernel: firewire: ohci: handle receive packets with a data length of zero",
-          "href": "https://bugzilla.redhat.com/547236",
-          "id": "547236"
-        },
-        {
-          "text": "CVE-2009-4141 kernel: create_elf_tables can leave urandom in a bad state",
-          "href": "https://bugzilla.redhat.com/547906",
-          "id": "547906"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100046025",
-                "comment": "kernel earlier than 0:2.6.18-164.11.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100046026",
-                "comment": "kernel earlier than 0:2.6.18-164.11.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046001",
-                    "comment": "kernel is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100046023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-164.11.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100046",
+	"version": "682",
+	"metadata": {
+		"title": "RHSA-2010:0046: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0046",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0046",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-6304",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-6304",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-2910",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2910",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3080",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3080",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3556",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3556",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3889",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3889",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3939",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3939",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4020",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4020",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4021",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4021",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4138",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4138",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4141",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4141",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4272",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4272",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity fixes:\n\n* an array index error was found in the gdth driver. A local user could\nsend a specially-crafted IOCTL request that would cause a denial of service\nor, possibly, privilege escalation. (CVE-2009-3080, Important)\n\n* a flaw was found in the FUSE implementation. When a system is low on\nmemory, fuse_put_request() could dereference an invalid pointer, possibly\nleading to a local denial of service or privilege escalation.\n(CVE-2009-4021, Important)\n\n* Tavis Ormandy discovered a deficiency in the fasync_helper()\nimplementation. This could allow a local, unprivileged user to leverage a\nuse-after-free of locked, asynchronous file descriptors to cause a denial\nof service or privilege escalation. (CVE-2009-4141, Important)\n\n* the Parallels Virtuozzo Containers team reported the RHSA-2009:1243\nupdate introduced two flaws in the routing implementation. If an attacker\nwas able to cause a large enough number of collisions in the routing hash\ntable (via specially-crafted packets) for the emergency route flush to\ntrigger, a deadlock could occur. Secondly, if the kernel routing cache was\ndisabled, an uninitialized pointer would be left behind after a route\nlookup, leading to a kernel panic. (CVE-2009-4272, Important)\n\n* the RHSA-2009:0225 update introduced a rewrite attack flaw in the\ndo_coredump() function. A local attacker able to guess the file name a\nprocess is going to dump its core to, prior to the process crashing, could\nuse this flaw to append data to the dumped core file. This issue only\naffects systems that have \"/proc/sys/fs/suid_dumpable\" set to 2 (the\ndefault value is 0). (CVE-2006-6304, Moderate)\n\nThe fix for CVE-2006-6304 changes the expected behavior: With suid_dumpable\nset to 2, the core file will not be recorded if the file already exists.\nFor example, core files will not be overwritten on subsequent crashes of\nprocesses whose core files map to the same name.\n\n* an information leak was found in the Linux kernel. On AMD64 systems,\n32-bit processes could access and read certain 64-bit registers by\ntemporarily switching themselves to 64-bit mode. (CVE-2009-2910, Moderate)\n\n* the RHBA-2008:0314 update introduced N_Port ID Virtualization (NPIV)\nsupport in the qla2xxx driver, resulting in two new sysfs pseudo files,\n\"/sys/class/scsi_host/[a qla2xxx host]/vport_create\" and \"vport_delete\".\nThese two files were world-writable by default, allowing a local user to\nchange SCSI host attributes. This flaw only affects systems using the\nqla2xxx driver and NPIV capable hardware. (CVE-2009-3556, Moderate)\n\n* permission issues were found in the megaraid_sas driver. The \"dbg_lvl\"\nand \"poll_mode_io\" files on the sysfs file system (\"/sys/\") had\nworld-writable permissions. This could allow local, unprivileged users to\nchange the behavior of the driver. (CVE-2009-3889, CVE-2009-3939, Moderate)\n\n* a NULL pointer dereference flaw was found in the firewire-ohci driver\nused for OHCI compliant IEEE 1394 controllers. A local, unprivileged user\nwith access to /dev/fw* files could issue certain IOCTL calls, causing a\ndenial of service or privilege escalation. The FireWire modules are\nblacklisted by default, and if enabled, only root has access to the files\nnoted above by default. (CVE-2009-4138, Moderate)\n\n* a buffer overflow flaw was found in the hfs_bnode_read() function in the\nHFS file system implementation. This could lead to a denial of service if a\nuser browsed a specially-crafted HFS file system, for example, by running\n\"ls\". (CVE-2009-4020, Low)\n\nBug fix documentation for this update will be available shortly from\nwww.redhat.com/docs/en-US/errata/RHSA-2010-0046/Kernel_Security_Update/\nindex.html\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-01-19"
+			},
+			"updated": {
+				"date": "2010-01-19"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-6304",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-6304",
+					"impact": "moderate",
+					"public": "20091112",
+					"cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2009-2910",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2910",
+					"impact": "moderate",
+					"public": "20091001",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2009-3080",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3080",
+					"impact": "important",
+					"public": "20091120",
+					"cwe": "CWE-839->CWE-119",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2009-3556",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3556",
+					"impact": "moderate",
+					"public": "20100119",
+					"cwe": "CWE-732",
+					"cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3889",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3889",
+					"impact": "moderate",
+					"public": "20090928",
+					"cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3939",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3939",
+					"impact": "moderate",
+					"public": "20090928",
+					"cvss_2": "3.6/AV:L/AC:L/Au:N/C:N/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-4020",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4020",
+					"impact": "low",
+					"public": "20091204",
+					"cwe": "CWE-119",
+					"cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2009-4021",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4021",
+					"impact": "important",
+					"public": "20091022",
+					"cvss_2": "4.6/AV:L/AC:L/Au:S/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2009-4138",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4138",
+					"impact": "moderate",
+					"public": "20091211",
+					"cvss_2": "4.0/AV:L/AC:H/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2009-4141",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4141",
+					"impact": "important",
+					"public": "20091216",
+					"cwe": "CWE-672->CWE-119",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2009-4272",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4272",
+					"impact": "important",
+					"public": "20100119",
+					"cwe": "CWE-662->CWE-362->CWE-672->CWE-476",
+					"cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-3889 CVE-2009-3939 kernel: megaraid_sas permissions in sysfs",
+					"href": "https://bugzilla.redhat.com/526068",
+					"id": "526068"
+				},
+				{
+					"text": "CVE-2009-2910 kernel: x86_64 32 bit process register leak",
+					"href": "https://bugzilla.redhat.com/526788",
+					"id": "526788"
+				},
+				{
+					"text": "CVE-2009-3556 kernel: qla2xxx NPIV vport management pseudofiles are world writable",
+					"href": "https://bugzilla.redhat.com/537177",
+					"id": "537177"
+				},
+				{
+					"text": "CVE-2006-6304 kernel: use flag in do_coredump()",
+					"href": "https://bugzilla.redhat.com/537273",
+					"id": "537273"
+				},
+				{
+					"text": "CVE-2009-4021 kernel: fuse: prevent fuse_put_request on invalid pointer",
+					"href": "https://bugzilla.redhat.com/538734",
+					"id": "538734"
+				},
+				{
+					"text": "CVE-2009-3080 kernel: gdth: Prevent negative offsets in ioctl",
+					"href": "https://bugzilla.redhat.com/539414",
+					"id": "539414"
+				},
+				{
+					"text": "CVE-2009-4020 kernel: hfs buffer overflow",
+					"href": "https://bugzilla.redhat.com/540736",
+					"id": "540736"
+				},
+				{
+					"text": "CVE-2009-4272 kernel: emergency route cache flushing leads to node deadlock",
+					"href": "https://bugzilla.redhat.com/545411",
+					"id": "545411"
+				},
+				{
+					"text": "CVE-2009-4138 kernel: firewire: ohci: handle receive packets with a data length of zero",
+					"href": "https://bugzilla.redhat.com/547236",
+					"id": "547236"
+				},
+				{
+					"text": "CVE-2009-4141 kernel: create_elf_tables can leave urandom in a bad state",
+					"href": "https://bugzilla.redhat.com/547906",
+					"id": "547906"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100046025",
+								"comment": "kernel earlier than 0:2.6.18-164.11.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100046026",
+								"comment": "kernel earlier than 0:2.6.18-164.11.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046001",
+										"comment": "kernel is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100046023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-164.11.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

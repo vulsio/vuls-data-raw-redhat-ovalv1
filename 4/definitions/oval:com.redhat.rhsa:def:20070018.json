@@ -1,106 +1,106 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070018",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2007:0018: fetchmail security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0018",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0018",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-4348",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-4348",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2006-5867",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-5867",
-        "source": "CVE"
-      }
-    ],
-    "description": "Fetchmail is a remote mail retrieval and forwarding utility.\n\nA denial of service flaw was found when Fetchmail was run in multidrop\nmode.  A malicious mail server could send a message without headers which\nwould cause Fetchmail to crash (CVE-2005-4348).  This issue did not affect\nthe version of Fetchmail shipped with Red Hat Enterprise Linux 2.1 or 3.\n\nA flaw was found in the way Fetchmail used TLS encryption to connect to\nremote hosts.  Fetchmail provided no way to enforce the use of TLS\nencryption and would not authenticate POP3 protocol connections properly\n(CVE-2006-5867).  This update corrects this issue by enforcing TLS\nencryption when the \"sslproto\" configuration directive is set to \"tls1\".  \n\nUsers of Fetchmail should update to these packages, which contain \nbackported patches to correct these issues.\n\nNote: This update may break configurations which assumed that Fetchmail\nwould use plain-text authentication if TLS encryption is not supported by\nthe POP3 server even if the \"sslproto\" directive is set to \"tls1\".  If you\nare using a custom configuration that depended on this behavior you will\nneed to modify your configuration appropriately after installing this update.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-01-31"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-4348",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-4348",
-          "impact": "low",
-          "public": "20051219"
-        },
-        {
-          "text": "CVE-2006-5867",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-5867",
-          "impact": "moderate",
-          "public": "20070104"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-5867 fetchmail not enforcing TLS for POP3 properly",
-          "href": "https://bugzilla.redhat.com/221984",
-          "id": "221984"
-        },
-        {
-          "text": "CVE-2005-4348 security flaw",
-          "href": "https://bugzilla.redhat.com/1617856",
-          "id": "1617856"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070018001",
-            "comment": "fetchmail is earlier than 0:6.2.5-6.el4.5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070018002",
-            "comment": "fetchmail is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070018",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2007:0018: fetchmail security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0018",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0018",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-4348",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-4348",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2006-5867",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-5867",
+				"source": "CVE"
+			}
+		],
+		"description": "Fetchmail is a remote mail retrieval and forwarding utility.\n\nA denial of service flaw was found when Fetchmail was run in multidrop\nmode.  A malicious mail server could send a message without headers which\nwould cause Fetchmail to crash (CVE-2005-4348).  This issue did not affect\nthe version of Fetchmail shipped with Red Hat Enterprise Linux 2.1 or 3.\n\nA flaw was found in the way Fetchmail used TLS encryption to connect to\nremote hosts.  Fetchmail provided no way to enforce the use of TLS\nencryption and would not authenticate POP3 protocol connections properly\n(CVE-2006-5867).  This update corrects this issue by enforcing TLS\nencryption when the \"sslproto\" configuration directive is set to \"tls1\".  \n\nUsers of Fetchmail should update to these packages, which contain \nbackported patches to correct these issues.\n\nNote: This update may break configurations which assumed that Fetchmail\nwould use plain-text authentication if TLS encryption is not supported by\nthe POP3 server even if the \"sslproto\" directive is set to \"tls1\".  If you\nare using a custom configuration that depended on this behavior you will\nneed to modify your configuration appropriately after installing this update.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-01-31"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-4348",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-4348",
+					"impact": "low",
+					"public": "20051219"
+				},
+				{
+					"text": "CVE-2006-5867",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-5867",
+					"impact": "moderate",
+					"public": "20070104"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-5867 fetchmail not enforcing TLS for POP3 properly",
+					"href": "https://bugzilla.redhat.com/221984",
+					"id": "221984"
+				},
+				{
+					"text": "CVE-2005-4348 security flaw",
+					"href": "https://bugzilla.redhat.com/1617856",
+					"id": "1617856"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070018001",
+						"comment": "fetchmail is earlier than 0:6.2.5-6.el4.5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070018002",
+						"comment": "fetchmail is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

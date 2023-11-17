@@ -1,141 +1,141 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070152",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0152: mysql security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0152",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0152",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4226",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4226",
-        "source": "CVE"
-      }
-    ],
-    "description": "MySQL is a multi-user, multi-threaded SQL database server. MySQL is a\nclient/server implementation consisting of a server daemon (mysqld) and\nmany different client programs and libraries.\n\nA flaw was found in the way MySQL handled case sensitive database names. A\nuser with the ability to create databases could gain unauthorized access to\nother databases hosted by the MySQL server. (CVE-2006-4226)\n\nThis flaw does not affect the version of MySQL distributed with Red Hat\nEnterprise Linux 2.1, 3, or 5.\n\nAll users of the MySQL server are advised to upgrade to these updated\npackages, which contain a backported patch which fixes this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-04-03"
-      },
-      "updated": {
-        "date": "2007-04-03"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4226",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4226",
-          "impact": "low",
-          "public": "20060222"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4226 mysql-server create database privilege escalation",
-          "href": "https://bugzilla.redhat.com/203428",
-          "id": "203428"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070152001",
-                    "comment": "mysql is earlier than 0:4.1.20-2.RHEL4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544002",
-                    "comment": "mysql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070152003",
-                    "comment": "mysql-bench is earlier than 0:4.1.20-2.RHEL4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544004",
-                    "comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070152005",
-                    "comment": "mysql-devel is earlier than 0:4.1.20-2.RHEL4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544006",
-                    "comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070152007",
-                    "comment": "mysql-server is earlier than 0:4.1.20-2.RHEL4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544008",
-                    "comment": "mysql-server is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070152",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0152: mysql security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0152",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0152",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4226",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4226",
+				"source": "CVE"
+			}
+		],
+		"description": "MySQL is a multi-user, multi-threaded SQL database server. MySQL is a\nclient/server implementation consisting of a server daemon (mysqld) and\nmany different client programs and libraries.\n\nA flaw was found in the way MySQL handled case sensitive database names. A\nuser with the ability to create databases could gain unauthorized access to\nother databases hosted by the MySQL server. (CVE-2006-4226)\n\nThis flaw does not affect the version of MySQL distributed with Red Hat\nEnterprise Linux 2.1, 3, or 5.\n\nAll users of the MySQL server are advised to upgrade to these updated\npackages, which contain a backported patch which fixes this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-04-03"
+			},
+			"updated": {
+				"date": "2007-04-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4226",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4226",
+					"impact": "low",
+					"public": "20060222"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4226 mysql-server create database privilege escalation",
+					"href": "https://bugzilla.redhat.com/203428",
+					"id": "203428"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070152001",
+										"comment": "mysql is earlier than 0:4.1.20-2.RHEL4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544002",
+										"comment": "mysql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070152003",
+										"comment": "mysql-bench is earlier than 0:4.1.20-2.RHEL4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544004",
+										"comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070152005",
+										"comment": "mysql-devel is earlier than 0:4.1.20-2.RHEL4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544006",
+										"comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070152007",
+										"comment": "mysql-server is earlier than 0:4.1.20-2.RHEL4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544008",
+										"comment": "mysql-server is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,176 +1,176 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080192",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2008:0192: cups security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0192",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0192",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-0047",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0047",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-0053",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0053",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-1373",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1373",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX(R) operating systems.\n\nA heap buffer overflow flaw was found in a CUPS administration interface\nCGI script. A local attacker able to connect to the IPP port (TCP port 631)\ncould send a malicious request causing the script to crash or, potentially,\nexecute arbitrary code as the \"lp\" user. Please note: the default CUPS\nconfiguration in Red Hat Enterprise Linux 5 does not allow remote\nconnections to the IPP TCP port. (CVE-2008-0047)\n\nRed Hat would like to thank \"regenrecht\" for reporting this issue.\n\nThis issue did not affect the versions of CUPS as shipped with Red Hat\nEnterprise Linux 3 or 4.\n\nTwo overflows were discovered in the HP-GL/2-to-PostScript filter. An\nattacker could create a malicious HP-GL/2 file that could possibly execute\narbitrary code as the \"lp\" user if the file is printed. (CVE-2008-0053)\n\nA buffer overflow flaw was discovered in the GIF decoding routines used by\nCUPS image converting filters \"imagetops\" and \"imagetoraster\". An attacker\ncould create a malicious GIF file that could possibly execute arbitrary\ncode as the \"lp\" user if the file was printed. (CVE-2008-1373)\n\nAll cups users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-04-01"
-      },
-      "updated": {
-        "date": "2008-04-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-0047",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0047",
-          "impact": "moderate",
-          "public": "20080318",
-          "cwe": "CWE-122",
-          "cvss_2": "4.6/AV:L/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2008-0053",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0053",
-          "impact": "moderate",
-          "public": "20080318",
-          "cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2008-1373",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1373",
-          "impact": "moderate",
-          "public": "20080401:1400",
-          "cvss_2": "4.3/AV:A/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-0047 cups: heap based buffer overflow in cgiCompileSearch()",
-          "href": "https://bugzilla.redhat.com/436153",
-          "id": "436153"
-        },
-        {
-          "text": "CVE-2008-0053 cups: buffer overflows in HP-GL/2 filter",
-          "href": "https://bugzilla.redhat.com/438117",
-          "id": "438117"
-        },
-        {
-          "text": "CVE-2008-1373 cups: overflow in gif image filter",
-          "href": "https://bugzilla.redhat.com/438303",
-          "id": "438303"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080192001",
-                    "comment": "cups is earlier than 1:1.2.4-11.14.el5_1.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123009",
-                    "comment": "cups is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080192003",
-                    "comment": "cups-devel is earlier than 1:1.2.4-11.14.el5_1.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123011",
-                    "comment": "cups-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080192005",
-                    "comment": "cups-libs is earlier than 1:1.2.4-11.14.el5_1.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123013",
-                    "comment": "cups-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080192007",
-                    "comment": "cups-lpd is earlier than 1:1.2.4-11.14.el5_1.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123015",
-                    "comment": "cups-lpd is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080192",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2008:0192: cups security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0192",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0192",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-0047",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0047",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-0053",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0053",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-1373",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1373",
+				"source": "CVE"
+			}
+		],
+		"description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX(R) operating systems.\n\nA heap buffer overflow flaw was found in a CUPS administration interface\nCGI script. A local attacker able to connect to the IPP port (TCP port 631)\ncould send a malicious request causing the script to crash or, potentially,\nexecute arbitrary code as the \"lp\" user. Please note: the default CUPS\nconfiguration in Red Hat Enterprise Linux 5 does not allow remote\nconnections to the IPP TCP port. (CVE-2008-0047)\n\nRed Hat would like to thank \"regenrecht\" for reporting this issue.\n\nThis issue did not affect the versions of CUPS as shipped with Red Hat\nEnterprise Linux 3 or 4.\n\nTwo overflows were discovered in the HP-GL/2-to-PostScript filter. An\nattacker could create a malicious HP-GL/2 file that could possibly execute\narbitrary code as the \"lp\" user if the file is printed. (CVE-2008-0053)\n\nA buffer overflow flaw was discovered in the GIF decoding routines used by\nCUPS image converting filters \"imagetops\" and \"imagetoraster\". An attacker\ncould create a malicious GIF file that could possibly execute arbitrary\ncode as the \"lp\" user if the file was printed. (CVE-2008-1373)\n\nAll cups users are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-04-01"
+			},
+			"updated": {
+				"date": "2008-04-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-0047",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0047",
+					"impact": "moderate",
+					"public": "20080318",
+					"cwe": "CWE-122",
+					"cvss_2": "4.6/AV:L/AC:L/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2008-0053",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0053",
+					"impact": "moderate",
+					"public": "20080318",
+					"cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2008-1373",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1373",
+					"impact": "moderate",
+					"public": "20080401:1400",
+					"cvss_2": "4.3/AV:A/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-0047 cups: heap based buffer overflow in cgiCompileSearch()",
+					"href": "https://bugzilla.redhat.com/436153",
+					"id": "436153"
+				},
+				{
+					"text": "CVE-2008-0053 cups: buffer overflows in HP-GL/2 filter",
+					"href": "https://bugzilla.redhat.com/438117",
+					"id": "438117"
+				},
+				{
+					"text": "CVE-2008-1373 cups: overflow in gif image filter",
+					"href": "https://bugzilla.redhat.com/438303",
+					"id": "438303"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080192001",
+										"comment": "cups is earlier than 1:1.2.4-11.14.el5_1.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123009",
+										"comment": "cups is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080192003",
+										"comment": "cups-devel is earlier than 1:1.2.4-11.14.el5_1.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123011",
+										"comment": "cups-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080192005",
+										"comment": "cups-libs is earlier than 1:1.2.4-11.14.el5_1.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123013",
+										"comment": "cups-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080192007",
+										"comment": "cups-lpd is earlier than 1:1.2.4-11.14.el5_1.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123015",
+										"comment": "cups-lpd is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

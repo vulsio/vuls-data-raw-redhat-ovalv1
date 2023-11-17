@@ -1,88 +1,88 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070539",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2007:0539: aide security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0539",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0539",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3849",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3849",
-        "source": "CVE"
-      }
-    ],
-    "description": "Advanced Intrusion Detection Environment (AIDE) is a file integrity checker\nand intrusion detection program.\n\nA flaw was discovered in the way file checksums were stored in the AIDE\ndatabase. A packaging flaw in the Red Hat AIDE rpm resulted in the file\ndatabase not containing any file checksum information. This could prevent\nAIDE from detecting certain file modifications. (CVE-2007-3849)\n\nThis update also fixes the following bugs:\n\n* certain configurations could result in a segmentation fault upon\ninitialization.\n\n* AIDE was unable to open its log file in the LSPP evaluated configuration.\n\n* if AIDE found SELinux context differences, the changed files report it\ngenerated only included the first 32 characters of the context.\n\nAll users of AIDE are advised to upgrade to this updated package containing\nAIDE version 0.13.1 which is not vulnerable to these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-09-04"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3849",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3849",
-          "impact": "moderate",
-          "public": "20070904"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3849 Rebase aide to 0.13.1",
-          "href": "https://bugzilla.redhat.com/236923",
-          "id": "236923"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070539001",
-            "comment": "aide is earlier than 0:0.13.1-2.0.4.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070539002",
-            "comment": "aide is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070539",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2007:0539: aide security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0539",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0539",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3849",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3849",
+				"source": "CVE"
+			}
+		],
+		"description": "Advanced Intrusion Detection Environment (AIDE) is a file integrity checker\nand intrusion detection program.\n\nA flaw was discovered in the way file checksums were stored in the AIDE\ndatabase. A packaging flaw in the Red Hat AIDE rpm resulted in the file\ndatabase not containing any file checksum information. This could prevent\nAIDE from detecting certain file modifications. (CVE-2007-3849)\n\nThis update also fixes the following bugs:\n\n* certain configurations could result in a segmentation fault upon\ninitialization.\n\n* AIDE was unable to open its log file in the LSPP evaluated configuration.\n\n* if AIDE found SELinux context differences, the changed files report it\ngenerated only included the first 32 characters of the context.\n\nAll users of AIDE are advised to upgrade to this updated package containing\nAIDE version 0.13.1 which is not vulnerable to these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-09-04"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3849",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3849",
+					"impact": "moderate",
+					"public": "20070904"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3849 Rebase aide to 0.13.1",
+					"href": "https://bugzilla.redhat.com/236923",
+					"id": "236923"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070539001",
+						"comment": "aide is earlier than 0:0.13.1-2.0.4.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070539002",
+						"comment": "aide is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

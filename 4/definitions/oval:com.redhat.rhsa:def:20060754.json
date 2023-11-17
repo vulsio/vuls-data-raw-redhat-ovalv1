@@ -1,106 +1,106 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060754",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2006:0754: gnupg security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0754",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0754",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-6169",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-6169",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2006-6235",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-6235",
-        "source": "CVE"
-      }
-    ],
-    "description": "GnuPG is a utility for encrypting data and creating digital signatures.\n\nTavis Ormandy discovered a stack overwrite flaw in the way GnuPG decrypts\nmessages. An attacker could create carefully crafted message that could cause\nGnuPG to execute arbitrary code if a victim attempts to decrypt the message.\n(CVE-2006-6235)\n\nA heap based buffer overflow flaw was found in the way GnuPG constructs\nmessages to be written to the terminal during an interactive session. An\nattacker could create a carefully crafted message which with user interaction\ncould cause GnuPG to execute arbitrary code with the permissions of the\nuser running GnuPG. (CVE-2006-6169)\n\nAll users of GnuPG are advised to upgrade to this updated package, which\ncontains a backported patch to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-12-06"
-      },
-      "updated": {
-        "date": "2006-12-12"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-6169",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-6169",
-          "impact": "low",
-          "public": "20061124"
-        },
-        {
-          "text": "CVE-2006-6235",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-6235",
-          "impact": "important",
-          "public": "20061206"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-6169: gnupg2 < 2.0.1 buffer overflow",
-          "href": "https://bugzilla.redhat.com/217950",
-          "id": "217950"
-        },
-        {
-          "text": "CVE-2006-6235 security flaw",
-          "href": "https://bugzilla.redhat.com/1618242",
-          "id": "1618242"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060754001",
-            "comment": "gnupg is earlier than 0:1.2.6-8"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060266002",
-            "comment": "gnupg is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060754",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2006:0754: gnupg security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0754",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0754",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-6169",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-6169",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2006-6235",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-6235",
+				"source": "CVE"
+			}
+		],
+		"description": "GnuPG is a utility for encrypting data and creating digital signatures.\n\nTavis Ormandy discovered a stack overwrite flaw in the way GnuPG decrypts\nmessages. An attacker could create carefully crafted message that could cause\nGnuPG to execute arbitrary code if a victim attempts to decrypt the message.\n(CVE-2006-6235)\n\nA heap based buffer overflow flaw was found in the way GnuPG constructs\nmessages to be written to the terminal during an interactive session. An\nattacker could create a carefully crafted message which with user interaction\ncould cause GnuPG to execute arbitrary code with the permissions of the\nuser running GnuPG. (CVE-2006-6169)\n\nAll users of GnuPG are advised to upgrade to this updated package, which\ncontains a backported patch to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-12-06"
+			},
+			"updated": {
+				"date": "2006-12-12"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-6169",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-6169",
+					"impact": "low",
+					"public": "20061124"
+				},
+				{
+					"text": "CVE-2006-6235",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-6235",
+					"impact": "important",
+					"public": "20061206"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-6169: gnupg2 < 2.0.1 buffer overflow",
+					"href": "https://bugzilla.redhat.com/217950",
+					"id": "217950"
+				},
+				{
+					"text": "CVE-2006-6235 security flaw",
+					"href": "https://bugzilla.redhat.com/1618242",
+					"id": "1618242"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060754001",
+						"comment": "gnupg is earlier than 0:1.2.6-8"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060266002",
+						"comment": "gnupg is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

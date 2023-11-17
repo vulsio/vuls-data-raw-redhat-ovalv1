@@ -1,130 +1,130 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070967",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0967: pcre security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0967",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0967",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-1659",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1659",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-1660",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1660",
-        "source": "CVE"
-      }
-    ],
-    "description": "PCRE is a Perl-compatible regular expression library.\n\nMultiple flaws were found in the way pcre handles certain malformed regular\nexpressions. If an application linked against pcre, such as Konqueror,\nparses a malicious regular expression, it may be possible to run arbitrary\ncode as the user running the application. (CVE-2007-1659, CVE-2007-1660)\n\nUsers of pcre are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.\n\nRed Hat would like to thank Tavis Ormandy and Will Drewry for properly\ndisclosing these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-05"
-      },
-      "updated": {
-        "date": "2007-11-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-1659",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-1659",
-          "impact": "critical",
-          "public": "20071105"
-        },
-        {
-          "text": "CVE-2007-1660",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-1660",
-          "impact": "important",
-          "public": "20071105"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-1659 pcre regular expression flaws",
-          "href": "https://bugzilla.redhat.com/315871",
-          "id": "315871"
-        },
-        {
-          "text": "CVE-2007-1660 pcre regular expression flaws",
-          "href": "https://bugzilla.redhat.com/315881",
-          "id": "315881"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070967001",
-                    "comment": "pcre is earlier than 0:6.6-2.el5_0.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070967002",
-                    "comment": "pcre is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070967003",
-                    "comment": "pcre-devel is earlier than 0:6.6-2.el5_0.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070967004",
-                    "comment": "pcre-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070967",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0967: pcre security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0967",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0967",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-1659",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-1659",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-1660",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-1660",
+				"source": "CVE"
+			}
+		],
+		"description": "PCRE is a Perl-compatible regular expression library.\n\nMultiple flaws were found in the way pcre handles certain malformed regular\nexpressions. If an application linked against pcre, such as Konqueror,\nparses a malicious regular expression, it may be possible to run arbitrary\ncode as the user running the application. (CVE-2007-1659, CVE-2007-1660)\n\nUsers of pcre are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.\n\nRed Hat would like to thank Tavis Ormandy and Will Drewry for properly\ndisclosing these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-05"
+			},
+			"updated": {
+				"date": "2007-11-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-1659",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-1659",
+					"impact": "critical",
+					"public": "20071105"
+				},
+				{
+					"text": "CVE-2007-1660",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-1660",
+					"impact": "important",
+					"public": "20071105"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-1659 pcre regular expression flaws",
+					"href": "https://bugzilla.redhat.com/315871",
+					"id": "315871"
+				},
+				{
+					"text": "CVE-2007-1660 pcre regular expression flaws",
+					"href": "https://bugzilla.redhat.com/315881",
+					"id": "315881"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070967001",
+										"comment": "pcre is earlier than 0:6.6-2.el5_0.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070967002",
+										"comment": "pcre is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070967003",
+										"comment": "pcre-devel is earlier than 0:6.6-2.el5_0.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070967004",
+										"comment": "pcre-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

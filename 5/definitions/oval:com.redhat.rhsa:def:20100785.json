@@ -1,207 +1,207 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100785",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2010:0785: quagga security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0785",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0785",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4826",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4826",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-2948",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2948",
-        "source": "CVE"
-      }
-    ],
-    "description": "Quagga is a TCP/IP based routing software suite. The Quagga bgpd daemon\nimplements the BGP (Border Gateway Protocol) routing protocol.\n\nA stack-based buffer overflow flaw was found in the way the Quagga bgpd\ndaemon processed certain BGP Route Refresh (RR) messages. A configured BGP\npeer could send a specially-crafted BGP message, causing bgpd on a target\nsystem to crash or, possibly, execute arbitrary code with the privileges of\nthe user running bgpd. (CVE-2010-2948)\n\nNote: On Red Hat Enterprise Linux 5 it is not possible to exploit\nCVE-2010-2948 to run arbitrary code as the overflow is blocked by\nFORTIFY_SOURCE.\n\nMultiple NULL pointer dereference flaws were found in the way the Quagga\nbgpd daemon processed certain specially-crafted BGP messages. A configured\nBGP peer could crash bgpd on a target system via specially-crafted BGP\nmessages. (CVE-2007-4826)\n\nUsers of quagga should upgrade to these updated packages, which contain\nbackported patches to correct these issues. After installing the updated\npackages, the bgpd daemon must be restarted for the update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-10-20"
-      },
-      "updated": {
-        "date": "2010-10-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4826",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4826",
-          "impact": "low",
-          "public": "20070907",
-          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-2948",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2948",
-          "impact": "moderate",
-          "public": "20100819",
-          "cwe": "CWE-121",
-          "cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4826 quagga bgpd DoS",
-          "href": "https://bugzilla.redhat.com/285691",
-          "id": "285691"
-        },
-        {
-          "text": "CVE-2010-2948 Quagga (bgpd): Stack buffer overflow by processing certain Route-Refresh messages",
-          "href": "https://bugzilla.redhat.com/626783",
-          "id": "626783"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100785001",
-                    "comment": "quagga is earlier than 0:0.98.3-4.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070389002",
-                    "comment": "quagga is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100785003",
-                    "comment": "quagga-contrib is earlier than 0:0.98.3-4.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070389004",
-                    "comment": "quagga-contrib is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100785005",
-                    "comment": "quagga-devel is earlier than 0:0.98.3-4.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070389006",
-                    "comment": "quagga-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100785008",
-                    "comment": "quagga is earlier than 0:0.98.6-5.el5_5.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070389002",
-                    "comment": "quagga is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100785009",
-                    "comment": "quagga-contrib is earlier than 0:0.98.6-5.el5_5.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070389004",
-                    "comment": "quagga-contrib is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100785010",
-                    "comment": "quagga-devel is earlier than 0:0.98.6-5.el5_5.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070389006",
-                    "comment": "quagga-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100785",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2010:0785: quagga security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0785",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0785",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4826",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4826",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-2948",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2948",
+				"source": "CVE"
+			}
+		],
+		"description": "Quagga is a TCP/IP based routing software suite. The Quagga bgpd daemon\nimplements the BGP (Border Gateway Protocol) routing protocol.\n\nA stack-based buffer overflow flaw was found in the way the Quagga bgpd\ndaemon processed certain BGP Route Refresh (RR) messages. A configured BGP\npeer could send a specially-crafted BGP message, causing bgpd on a target\nsystem to crash or, possibly, execute arbitrary code with the privileges of\nthe user running bgpd. (CVE-2010-2948)\n\nNote: On Red Hat Enterprise Linux 5 it is not possible to exploit\nCVE-2010-2948 to run arbitrary code as the overflow is blocked by\nFORTIFY_SOURCE.\n\nMultiple NULL pointer dereference flaws were found in the way the Quagga\nbgpd daemon processed certain specially-crafted BGP messages. A configured\nBGP peer could crash bgpd on a target system via specially-crafted BGP\nmessages. (CVE-2007-4826)\n\nUsers of quagga should upgrade to these updated packages, which contain\nbackported patches to correct these issues. After installing the updated\npackages, the bgpd daemon must be restarted for the update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-10-20"
+			},
+			"updated": {
+				"date": "2010-10-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4826",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4826",
+					"impact": "low",
+					"public": "20070907",
+					"cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-2948",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2948",
+					"impact": "moderate",
+					"public": "20100819",
+					"cwe": "CWE-121",
+					"cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4826 quagga bgpd DoS",
+					"href": "https://bugzilla.redhat.com/285691",
+					"id": "285691"
+				},
+				{
+					"text": "CVE-2010-2948 Quagga (bgpd): Stack buffer overflow by processing certain Route-Refresh messages",
+					"href": "https://bugzilla.redhat.com/626783",
+					"id": "626783"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100785001",
+										"comment": "quagga is earlier than 0:0.98.3-4.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070389002",
+										"comment": "quagga is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100785003",
+										"comment": "quagga-contrib is earlier than 0:0.98.3-4.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070389004",
+										"comment": "quagga-contrib is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100785005",
+										"comment": "quagga-devel is earlier than 0:0.98.3-4.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070389006",
+										"comment": "quagga-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100785008",
+										"comment": "quagga is earlier than 0:0.98.6-5.el5_5.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070389002",
+										"comment": "quagga is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100785009",
+										"comment": "quagga-contrib is earlier than 0:0.98.6-5.el5_5.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070389004",
+										"comment": "quagga-contrib is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100785010",
+										"comment": "quagga-devel is earlier than 0:0.98.6-5.el5_5.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070389006",
+										"comment": "quagga-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

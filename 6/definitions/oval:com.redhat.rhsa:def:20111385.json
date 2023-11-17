@@ -1,235 +1,235 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20111385",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2011:1385: kdelibs and kdelibs3 security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5",
-        "Red Hat Enterprise Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:1385",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1385",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-3365",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3365",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kdelibs and kdelibs3 packages provide libraries for the K Desktop\nEnvironment (KDE).\n\nAn input sanitization flaw was found in the KSSL (KDE SSL Wrapper) API. An\nattacker could supply a specially-crafted SSL certificate (for example, via\na web page) to an application using KSSL, such as the Konqueror web\nbrowser, causing misleading information to be presented to the user,\npossibly tricking them into accepting the certificate as valid.\n(CVE-2011-3365)\n\nUsers should upgrade to these updated packages, which contain a backported\npatch to correct this issue. The desktop must be restarted (log out, then\nlog back in) for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-10-19"
-      },
-      "updated": {
-        "date": "2011-10-19"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-3365",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-3365",
-          "impact": "moderate",
-          "public": "20111003",
-          "cwe": "CWE-20",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-3365 kdelibs: input validation failure in KSSL",
-          "href": "https://bugzilla.redhat.com/743054",
-          "id": "743054"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server",
-          "cpe:/o:redhat:enterprise_linux:6",
-          "cpe:/o:redhat:enterprise_linux:6::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385001",
-                    "comment": "kdelibs is earlier than 6:3.3.1-18.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110464002",
-                    "comment": "kdelibs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385003",
-                    "comment": "kdelibs-devel is earlier than 6:3.3.1-18.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110464008",
-                    "comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20100889009",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385006",
-                    "comment": "kdelibs3 is earlier than 0:3.5.10-24.el6_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385007",
-                    "comment": "kdelibs3 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385008",
-                    "comment": "kdelibs3-apidocs is earlier than 0:3.5.10-24.el6_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385009",
-                    "comment": "kdelibs3-apidocs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385010",
-                    "comment": "kdelibs3-devel is earlier than 0:3.5.10-24.el6_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385011",
-                    "comment": "kdelibs3-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20111656003",
-            "comment": "Red Hat Enterprise Linux 6 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385013",
-                    "comment": "kdelibs is earlier than 6:3.5.4-26.el5_7.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110464002",
-                    "comment": "kdelibs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385014",
-                    "comment": "kdelibs-apidocs is earlier than 6:3.5.4-26.el5_7.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110464004",
-                    "comment": "kdelibs-apidocs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111385016",
-                    "comment": "kdelibs-devel is earlier than 6:3.5.4-26.el5_7.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110464008",
-                    "comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20100889013",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20111656004",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20111385",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2011:1385: kdelibs and kdelibs3 security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5",
+				"Red Hat Enterprise Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:1385",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:1385",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-3365",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-3365",
+				"source": "CVE"
+			}
+		],
+		"description": "The kdelibs and kdelibs3 packages provide libraries for the K Desktop\nEnvironment (KDE).\n\nAn input sanitization flaw was found in the KSSL (KDE SSL Wrapper) API. An\nattacker could supply a specially-crafted SSL certificate (for example, via\na web page) to an application using KSSL, such as the Konqueror web\nbrowser, causing misleading information to be presented to the user,\npossibly tricking them into accepting the certificate as valid.\n(CVE-2011-3365)\n\nUsers should upgrade to these updated packages, which contain a backported\npatch to correct this issue. The desktop must be restarted (log out, then\nlog back in) for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-10-19"
+			},
+			"updated": {
+				"date": "2011-10-19"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-3365",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-3365",
+					"impact": "moderate",
+					"public": "20111003",
+					"cwe": "CWE-20",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-3365 kdelibs: input validation failure in KSSL",
+					"href": "https://bugzilla.redhat.com/743054",
+					"id": "743054"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server",
+					"cpe:/o:redhat:enterprise_linux:6",
+					"cpe:/o:redhat:enterprise_linux:6::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385001",
+										"comment": "kdelibs is earlier than 6:3.3.1-18.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110464002",
+										"comment": "kdelibs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385003",
+										"comment": "kdelibs-devel is earlier than 6:3.3.1-18.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110464008",
+										"comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20100889009",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385006",
+										"comment": "kdelibs3 is earlier than 0:3.5.10-24.el6_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385007",
+										"comment": "kdelibs3 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385008",
+										"comment": "kdelibs3-apidocs is earlier than 0:3.5.10-24.el6_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385009",
+										"comment": "kdelibs3-apidocs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385010",
+										"comment": "kdelibs3-devel is earlier than 0:3.5.10-24.el6_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385011",
+										"comment": "kdelibs3-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20111656003",
+						"comment": "Red Hat Enterprise Linux 6 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385013",
+										"comment": "kdelibs is earlier than 6:3.5.4-26.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110464002",
+										"comment": "kdelibs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385014",
+										"comment": "kdelibs-apidocs is earlier than 6:3.5.4-26.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110464004",
+										"comment": "kdelibs-apidocs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111385016",
+										"comment": "kdelibs-devel is earlier than 6:3.5.4-26.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110464008",
+										"comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20100889013",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20111656004",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

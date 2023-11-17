@@ -1,130 +1,130 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070951",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0951: nfs-utils-lib security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0951",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0951",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3999",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3999",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-4135",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4135",
-        "source": "CVE"
-      }
-    ],
-    "description": "The nfs-utils-lib package contains support libraries that are needed by the\ncommands and daemons of the nfs-utils package.\n\nThe updated nfs-utils package fixes the following vulnerabilities:\n\nTenable Network Security discovered a stack buffer overflow flaw in the RPC\nlibrary used by nfs-utils-lib. A remote unauthenticated attacker who can\naccess an application linked against nfs-utils-lib could trigger this flaw\nand cause the application to crash. On Red Hat Enterprise Linux 5 it is not\npossible to exploit this flaw to run arbitrary code as the overflow is\nblocked by FORTIFY_SOURCE. (CVE-2007-3999)\n\nTony Ernst from SGI has discovered a flaw in the way nfsidmap maps NFSv4\nunknown uids.  If an unknown user ID is encountered on an NFSv4 mounted\nfilesystem, the files will default to being owned by 'root' rather than\n'nobody'. (CVE-2007-4135)\n\nUsers of nfs-utils-lib are advised to upgrade to this updated package,\nwhich contains backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-10-02"
-      },
-      "updated": {
-        "date": "2007-10-02"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3999",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3999",
-          "impact": "important",
-          "public": "20070904:1900"
-        },
-        {
-          "text": "CVE-2007-4135",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4135",
-          "impact": "moderate",
-          "public": "20070831"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3999 krb5 RPC library buffer overflow",
-          "href": "https://bugzilla.redhat.com/250973",
-          "id": "250973"
-        },
-        {
-          "text": "CVE-2007-4135 nfs-utils-lib NFSv4 user id mapping flaw",
-          "href": "https://bugzilla.redhat.com/254040",
-          "id": "254040"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070951001",
-                    "comment": "nfs-utils-lib is earlier than 0:1.0.8-7.2.z2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070951002",
-                    "comment": "nfs-utils-lib is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070951003",
-                    "comment": "nfs-utils-lib-devel is earlier than 0:1.0.8-7.2.z2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070951004",
-                    "comment": "nfs-utils-lib-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070951",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0951: nfs-utils-lib security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0951",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0951",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3999",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3999",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-4135",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4135",
+				"source": "CVE"
+			}
+		],
+		"description": "The nfs-utils-lib package contains support libraries that are needed by the\ncommands and daemons of the nfs-utils package.\n\nThe updated nfs-utils package fixes the following vulnerabilities:\n\nTenable Network Security discovered a stack buffer overflow flaw in the RPC\nlibrary used by nfs-utils-lib. A remote unauthenticated attacker who can\naccess an application linked against nfs-utils-lib could trigger this flaw\nand cause the application to crash. On Red Hat Enterprise Linux 5 it is not\npossible to exploit this flaw to run arbitrary code as the overflow is\nblocked by FORTIFY_SOURCE. (CVE-2007-3999)\n\nTony Ernst from SGI has discovered a flaw in the way nfsidmap maps NFSv4\nunknown uids.  If an unknown user ID is encountered on an NFSv4 mounted\nfilesystem, the files will default to being owned by 'root' rather than\n'nobody'. (CVE-2007-4135)\n\nUsers of nfs-utils-lib are advised to upgrade to this updated package,\nwhich contains backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-10-02"
+			},
+			"updated": {
+				"date": "2007-10-02"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3999",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3999",
+					"impact": "important",
+					"public": "20070904:1900"
+				},
+				{
+					"text": "CVE-2007-4135",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4135",
+					"impact": "moderate",
+					"public": "20070831"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3999 krb5 RPC library buffer overflow",
+					"href": "https://bugzilla.redhat.com/250973",
+					"id": "250973"
+				},
+				{
+					"text": "CVE-2007-4135 nfs-utils-lib NFSv4 user id mapping flaw",
+					"href": "https://bugzilla.redhat.com/254040",
+					"id": "254040"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070951001",
+										"comment": "nfs-utils-lib is earlier than 0:1.0.8-7.2.z2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070951002",
+										"comment": "nfs-utils-lib is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070951003",
+										"comment": "nfs-utils-lib-devel is earlier than 0:1.0.8-7.2.z2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070951004",
+										"comment": "nfs-utils-lib-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,106 +1,106 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060600",
-  "version": "644",
-  "metadata": {
-    "title": "RHSA-2006:0600: mailman security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0600",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0600",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-2941",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-2941",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2006-3636",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3636",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mailman is a program used to help manage email discussion lists.\n\nA flaw was found in the way Mailman handled MIME multipart messages. An\nattacker could send a carefully crafted MIME multipart email message to a\nmailing list run by Mailman which caused that particular mailing list\nto stop working.  (CVE-2006-2941)\n\nSeveral cross-site scripting (XSS) issues were found in Mailman.  An\nattacker could exploit these issues to perform cross-site scripting attacks\nagainst the Mailman administrator.  (CVE-2006-3636)\n\nRed Hat would like to thank Barry Warsaw for disclosing these vulnerabilities.\n\nUsers of Mailman should upgrade to these updated packages, which contain\nbackported patches to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-09-06"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-2941",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-2941",
-          "impact": "moderate",
-          "public": "20060904"
-        },
-        {
-          "text": "CVE-2006-3636",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-3636",
-          "impact": "moderate",
-          "public": "20060904"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-2941 security flaw",
-          "href": "https://bugzilla.redhat.com/1618129",
-          "id": "1618129"
-        },
-        {
-          "text": "CVE-2006-3636 security flaw",
-          "href": "https://bugzilla.redhat.com/1618152",
-          "id": "1618152"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060600001",
-            "comment": "mailman is earlier than 3:2.1.5.1-34.rhel4.5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060204002",
-            "comment": "mailman is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060600",
+	"version": "644",
+	"metadata": {
+		"title": "RHSA-2006:0600: mailman security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0600",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0600",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-2941",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-2941",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2006-3636",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-3636",
+				"source": "CVE"
+			}
+		],
+		"description": "Mailman is a program used to help manage email discussion lists.\n\nA flaw was found in the way Mailman handled MIME multipart messages. An\nattacker could send a carefully crafted MIME multipart email message to a\nmailing list run by Mailman which caused that particular mailing list\nto stop working.  (CVE-2006-2941)\n\nSeveral cross-site scripting (XSS) issues were found in Mailman.  An\nattacker could exploit these issues to perform cross-site scripting attacks\nagainst the Mailman administrator.  (CVE-2006-3636)\n\nRed Hat would like to thank Barry Warsaw for disclosing these vulnerabilities.\n\nUsers of Mailman should upgrade to these updated packages, which contain\nbackported patches to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-09-06"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-2941",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-2941",
+					"impact": "moderate",
+					"public": "20060904"
+				},
+				{
+					"text": "CVE-2006-3636",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-3636",
+					"impact": "moderate",
+					"public": "20060904"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-2941 security flaw",
+					"href": "https://bugzilla.redhat.com/1618129",
+					"id": "1618129"
+				},
+				{
+					"text": "CVE-2006-3636 security flaw",
+					"href": "https://bugzilla.redhat.com/1618152",
+					"id": "1618152"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060600001",
+						"comment": "mailman is earlier than 3:2.1.5.1-34.rhel4.5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060204002",
+						"comment": "mailman is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,267 +1,267 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091428",
-  "version": "645",
-  "metadata": {
-    "title": "RHSA-2009:1428: xmlsec1 security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1428",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1428",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-0217",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0217",
-        "source": "CVE"
-      }
-    ],
-    "description": "The XML Security Library is a C library based on libxml2 and OpenSSL. It\nimplements the XML Signature Syntax and Processing and XML Encryption\nSyntax and Processing standards. HMAC is used for message authentication\nusing cryptographic hash functions. The HMAC algorithm allows the hash\noutput to be truncated (as documented in RFC 2104).\n\nA missing check for the recommended minimum length of the truncated form of\nHMAC-based XML signatures was found in xmlsec1. An attacker could use this\nflaw to create a specially-crafted XML file that forges an XML signature,\nallowing the attacker to bypass authentication that is based on the XML\nSignature specification. (CVE-2009-0217)\n\nUsers of xmlsec1 should upgrade to these updated packages, which contain\na backported patch to correct this issue. After installing the updated\npackages, applications that use the XML Security Library must be restarted\nfor the update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-09-08"
-      },
-      "updated": {
-        "date": "2009-09-08"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-0217",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0217",
-          "impact": "moderate",
-          "public": "20090714",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-0217 xmlsec1, mono, xml-security-c, xml-security-1.3.0-1jpp.ep1.*: XMLDsig HMAC-based signatures spoofing and authentication bypass",
-          "href": "https://bugzilla.redhat.com/511915",
-          "id": "511915"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428001",
-                    "comment": "xmlsec1 is earlier than 0:1.2.6-3.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428002",
-                    "comment": "xmlsec1 is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428003",
-                    "comment": "xmlsec1-devel is earlier than 0:1.2.6-3.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428004",
-                    "comment": "xmlsec1-devel is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428005",
-                    "comment": "xmlsec1-openssl is earlier than 0:1.2.6-3.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428006",
-                    "comment": "xmlsec1-openssl is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428007",
-                    "comment": "xmlsec1-openssl-devel is earlier than 0:1.2.6-3.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428008",
-                    "comment": "xmlsec1-openssl-devel is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428010",
-                    "comment": "xmlsec1 is earlier than 0:1.2.9-8.1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428011",
-                    "comment": "xmlsec1 is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428012",
-                    "comment": "xmlsec1-devel is earlier than 0:1.2.9-8.1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428013",
-                    "comment": "xmlsec1-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428014",
-                    "comment": "xmlsec1-gnutls is earlier than 0:1.2.9-8.1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428015",
-                    "comment": "xmlsec1-gnutls is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428016",
-                    "comment": "xmlsec1-gnutls-devel is earlier than 0:1.2.9-8.1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428017",
-                    "comment": "xmlsec1-gnutls-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428018",
-                    "comment": "xmlsec1-nss is earlier than 0:1.2.9-8.1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428019",
-                    "comment": "xmlsec1-nss is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428020",
-                    "comment": "xmlsec1-nss-devel is earlier than 0:1.2.9-8.1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428021",
-                    "comment": "xmlsec1-nss-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428022",
-                    "comment": "xmlsec1-openssl is earlier than 0:1.2.9-8.1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428023",
-                    "comment": "xmlsec1-openssl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428024",
-                    "comment": "xmlsec1-openssl-devel is earlier than 0:1.2.9-8.1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091428025",
-                    "comment": "xmlsec1-openssl-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091428",
+	"version": "645",
+	"metadata": {
+		"title": "RHSA-2009:1428: xmlsec1 security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1428",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1428",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-0217",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0217",
+				"source": "CVE"
+			}
+		],
+		"description": "The XML Security Library is a C library based on libxml2 and OpenSSL. It\nimplements the XML Signature Syntax and Processing and XML Encryption\nSyntax and Processing standards. HMAC is used for message authentication\nusing cryptographic hash functions. The HMAC algorithm allows the hash\noutput to be truncated (as documented in RFC 2104).\n\nA missing check for the recommended minimum length of the truncated form of\nHMAC-based XML signatures was found in xmlsec1. An attacker could use this\nflaw to create a specially-crafted XML file that forges an XML signature,\nallowing the attacker to bypass authentication that is based on the XML\nSignature specification. (CVE-2009-0217)\n\nUsers of xmlsec1 should upgrade to these updated packages, which contain\na backported patch to correct this issue. After installing the updated\npackages, applications that use the XML Security Library must be restarted\nfor the update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-09-08"
+			},
+			"updated": {
+				"date": "2009-09-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-0217",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0217",
+					"impact": "moderate",
+					"public": "20090714",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-0217 xmlsec1, mono, xml-security-c, xml-security-1.3.0-1jpp.ep1.*: XMLDsig HMAC-based signatures spoofing and authentication bypass",
+					"href": "https://bugzilla.redhat.com/511915",
+					"id": "511915"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428001",
+										"comment": "xmlsec1 is earlier than 0:1.2.6-3.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428002",
+										"comment": "xmlsec1 is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428003",
+										"comment": "xmlsec1-devel is earlier than 0:1.2.6-3.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428004",
+										"comment": "xmlsec1-devel is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428005",
+										"comment": "xmlsec1-openssl is earlier than 0:1.2.6-3.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428006",
+										"comment": "xmlsec1-openssl is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428007",
+										"comment": "xmlsec1-openssl-devel is earlier than 0:1.2.6-3.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428008",
+										"comment": "xmlsec1-openssl-devel is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428010",
+										"comment": "xmlsec1 is earlier than 0:1.2.9-8.1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428011",
+										"comment": "xmlsec1 is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428012",
+										"comment": "xmlsec1-devel is earlier than 0:1.2.9-8.1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428013",
+										"comment": "xmlsec1-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428014",
+										"comment": "xmlsec1-gnutls is earlier than 0:1.2.9-8.1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428015",
+										"comment": "xmlsec1-gnutls is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428016",
+										"comment": "xmlsec1-gnutls-devel is earlier than 0:1.2.9-8.1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428017",
+										"comment": "xmlsec1-gnutls-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428018",
+										"comment": "xmlsec1-nss is earlier than 0:1.2.9-8.1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428019",
+										"comment": "xmlsec1-nss is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428020",
+										"comment": "xmlsec1-nss-devel is earlier than 0:1.2.9-8.1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428021",
+										"comment": "xmlsec1-nss-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428022",
+										"comment": "xmlsec1-openssl is earlier than 0:1.2.9-8.1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428023",
+										"comment": "xmlsec1-openssl is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428024",
+										"comment": "xmlsec1-openssl-devel is earlier than 0:1.2.9-8.1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091428025",
+										"comment": "xmlsec1-openssl-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

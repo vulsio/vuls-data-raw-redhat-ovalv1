@@ -1,91 +1,91 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20110261",
-  "version": "645",
-  "metadata": {
-    "title": "RHSA-2011:0261: bash security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:0261",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0261",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-5374",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5374",
-        "source": "CVE"
-      }
-    ],
-    "description": "Bash (Bourne-again shell) is the default shell for Red Hat Enterprise\nLinux.\n\nIt was found that certain scripts bundled with the Bash documentation\ncreated temporary files in an insecure way. A malicious, local user could\nuse this flaw to conduct a symbolic link attack, allowing them to overwrite\nthe contents of arbitrary files accessible to the victim running the\nscripts. (CVE-2008-5374)\n\nThis update also fixes the following bugs:\n\n* If a child process's PID was the same as the PID of a previously ended\nchild process, Bash did not wait for that child process. In some cases this\ncaused \"Resource temporarily unavailable\" errors. With this update, Bash\nrecycles PIDs and waits for processes with recycled PIDs. (BZ#521134)\n\n* Bash's built-in \"read\" command had a memory leak when \"read\" failed due\nto no input (pipe for stdin). With this update, the memory is correctly\nfreed. (BZ#537029)\n\n* Bash did not correctly check for a valid multi-byte string when setting\nthe IFS value, causing Bash to crash. With this update, Bash checks the\nmulti-byte string and no longer crashes. (BZ#539536)\n\n* Bash incorrectly set locale settings when using the built-in \"export\"\ncommand and setting the locale on the same line (for example, with\n\"LC_ALL=C export LC_ALL\"). With this update, Bash correctly sets locale\nsettings. (BZ#539538)\n\nAll bash users should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-02-16"
-      },
-      "updated": {
-        "date": "2011-02-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-5374",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5374",
-          "impact": "low",
-          "public": "20080813",
-          "cvss_2": "1.2/AV:L/AC:H/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-5374 bash: Insecure temporary file use in aliasconv.sh, aliasconv.bash, cshtobash (symlink attack)",
-          "href": "https://bugzilla.redhat.com/475474",
-          "id": "475474"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20110261001",
-            "comment": "bash is earlier than 0:3.0-27.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20110261002",
-            "comment": "bash is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20110261",
+	"version": "645",
+	"metadata": {
+		"title": "RHSA-2011:0261: bash security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:0261",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:0261",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-5374",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5374",
+				"source": "CVE"
+			}
+		],
+		"description": "Bash (Bourne-again shell) is the default shell for Red Hat Enterprise\nLinux.\n\nIt was found that certain scripts bundled with the Bash documentation\ncreated temporary files in an insecure way. A malicious, local user could\nuse this flaw to conduct a symbolic link attack, allowing them to overwrite\nthe contents of arbitrary files accessible to the victim running the\nscripts. (CVE-2008-5374)\n\nThis update also fixes the following bugs:\n\n* If a child process's PID was the same as the PID of a previously ended\nchild process, Bash did not wait for that child process. In some cases this\ncaused \"Resource temporarily unavailable\" errors. With this update, Bash\nrecycles PIDs and waits for processes with recycled PIDs. (BZ#521134)\n\n* Bash's built-in \"read\" command had a memory leak when \"read\" failed due\nto no input (pipe for stdin). With this update, the memory is correctly\nfreed. (BZ#537029)\n\n* Bash did not correctly check for a valid multi-byte string when setting\nthe IFS value, causing Bash to crash. With this update, Bash checks the\nmulti-byte string and no longer crashes. (BZ#539536)\n\n* Bash incorrectly set locale settings when using the built-in \"export\"\ncommand and setting the locale on the same line (for example, with\n\"LC_ALL=C export LC_ALL\"). With this update, Bash correctly sets locale\nsettings. (BZ#539538)\n\nAll bash users should upgrade to these updated packages, which contain\nbackported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-02-16"
+			},
+			"updated": {
+				"date": "2011-02-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-5374",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5374",
+					"impact": "low",
+					"public": "20080813",
+					"cvss_2": "1.2/AV:L/AC:H/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-5374 bash: Insecure temporary file use in aliasconv.sh, aliasconv.bash, cshtobash (symlink attack)",
+					"href": "https://bugzilla.redhat.com/475474",
+					"id": "475474"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20110261001",
+						"comment": "bash is earlier than 0:3.0-27.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20110261002",
+						"comment": "bash is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

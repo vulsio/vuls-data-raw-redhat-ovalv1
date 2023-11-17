@@ -1,145 +1,145 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20071082",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2007:1082: firefox security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:1082",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1082",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5947",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5947",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5959",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5959",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5960",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5960",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mozilla Firefox is an open source Web browser.\n\nA cross-site scripting flaw was found in the way Firefox handled the\njar: URI scheme. It was possible for a malicious website to leverage this\nflaw and conduct a cross-site scripting attack against a user running\nFirefox. (CVE-2007-5947)\n\nSeveral flaws were found in the way Firefox processed certain malformed web\ncontent. A webpage containing malicious content could cause Firefox to\ncrash, or potentially execute arbitrary code as the user running Firefox.\n(CVE-2007-5959)\n\nA race condition existed when Firefox set the \"window.location\" property\nfor a webpage. This flaw could allow a webpage to set an arbitrary Referer\nheader, which may lead to a Cross-site Request Forgery (CSRF) attack\nagainst websites that rely only on the Referer header for protection.\n(CVE-2007-5960)\n\nUsers of Firefox are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-26"
-      },
-      "updated": {
-        "date": "2007-11-26"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5947",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5947",
-          "impact": "moderate",
-          "public": "20070208",
-          "cwe": "CWE-79"
-        },
-        {
-          "text": "CVE-2007-5959",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5959",
-          "impact": "critical",
-          "public": "20071126"
-        },
-        {
-          "text": "CVE-2007-5960",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5960",
-          "impact": "moderate",
-          "public": "20071126",
-          "cwe": "CWE-352"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5947 Mozilla jar: protocol XSS",
-          "href": "https://bugzilla.redhat.com/394211",
-          "id": "394211"
-        },
-        {
-          "text": "CVE-2007-5959 Multiple flaws in Firefox",
-          "href": "https://bugzilla.redhat.com/394241",
-          "id": "394241"
-        },
-        {
-          "text": "CVE-2007-5960 Mozilla Cross-site Request Forgery flaw",
-          "href": "https://bugzilla.redhat.com/394261",
-          "id": "394261"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20071082001",
-            "comment": "firefox is earlier than 0:1.5.0.12-0.8.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
-            "comment": "firefox is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20071082004",
-            "comment": "firefox is earlier than 0:1.5.0.12-7.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
-            "comment": "firefox is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20071082",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2007:1082: firefox security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:1082",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:1082",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5947",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5947",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5959",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5959",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5960",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5960",
+				"source": "CVE"
+			}
+		],
+		"description": "Mozilla Firefox is an open source Web browser.\n\nA cross-site scripting flaw was found in the way Firefox handled the\njar: URI scheme. It was possible for a malicious website to leverage this\nflaw and conduct a cross-site scripting attack against a user running\nFirefox. (CVE-2007-5947)\n\nSeveral flaws were found in the way Firefox processed certain malformed web\ncontent. A webpage containing malicious content could cause Firefox to\ncrash, or potentially execute arbitrary code as the user running Firefox.\n(CVE-2007-5959)\n\nA race condition existed when Firefox set the \"window.location\" property\nfor a webpage. This flaw could allow a webpage to set an arbitrary Referer\nheader, which may lead to a Cross-site Request Forgery (CSRF) attack\nagainst websites that rely only on the Referer header for protection.\n(CVE-2007-5960)\n\nUsers of Firefox are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-26"
+			},
+			"updated": {
+				"date": "2007-11-26"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5947",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5947",
+					"impact": "moderate",
+					"public": "20070208",
+					"cwe": "CWE-79"
+				},
+				{
+					"text": "CVE-2007-5959",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5959",
+					"impact": "critical",
+					"public": "20071126"
+				},
+				{
+					"text": "CVE-2007-5960",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5960",
+					"impact": "moderate",
+					"public": "20071126",
+					"cwe": "CWE-352"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5947 Mozilla jar: protocol XSS",
+					"href": "https://bugzilla.redhat.com/394211",
+					"id": "394211"
+				},
+				{
+					"text": "CVE-2007-5959 Multiple flaws in Firefox",
+					"href": "https://bugzilla.redhat.com/394241",
+					"id": "394241"
+				},
+				{
+					"text": "CVE-2007-5960 Mozilla Cross-site Request Forgery flaw",
+					"href": "https://bugzilla.redhat.com/394261",
+					"id": "394261"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20071082001",
+						"comment": "firefox is earlier than 0:1.5.0.12-0.8.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+						"comment": "firefox is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20071082004",
+						"comment": "firefox is earlier than 0:1.5.0.12-7.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+						"comment": "firefox is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

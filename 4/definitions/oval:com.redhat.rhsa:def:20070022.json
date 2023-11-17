@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070022",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0022: squirrelmail security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0022",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0022",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-6142",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-6142",
-        "source": "CVE"
-      }
-    ],
-    "description": "SquirrelMail is a standards-based webmail package written in PHP.\n\nSeveral cross-site scripting bugs were discovered in SquirrelMail.  An\nattacker could inject arbitrary Javascript or HTML content into\nSquirrelMail pages by tricking a user into visiting a carefully crafted\nURL.  (CVE-2006-6142) \n\nUsers of SquirrelMail should upgrade to this erratum package, which\ncontains a backported patch to correct these issues. \n\nNotes:\n- After installing this update, users are advised to restart their\nhttpd service to ensure that the updated version functions correctly.\n- config.php should NOT be modified, please modify config_local.php instead.\n- Known Bug: The configuration generator may potentially produce bad\noptions that interfere with the operation of this application.  Applying\nspecific config changes to config_local.php manually is recommended.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-01-31"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-6142",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-6142",
-          "impact": "moderate",
-          "public": "20061202"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-6142 Three XSS issues in SquirrelMail",
-          "href": "https://bugzilla.redhat.com/218297",
-          "id": "218297"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070022001",
-            "comment": "squirrelmail is earlier than 0:1.4.8-4.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060283002",
-            "comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070022",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0022: squirrelmail security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0022",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0022",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-6142",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-6142",
+				"source": "CVE"
+			}
+		],
+		"description": "SquirrelMail is a standards-based webmail package written in PHP.\n\nSeveral cross-site scripting bugs were discovered in SquirrelMail.  An\nattacker could inject arbitrary Javascript or HTML content into\nSquirrelMail pages by tricking a user into visiting a carefully crafted\nURL.  (CVE-2006-6142) \n\nUsers of SquirrelMail should upgrade to this erratum package, which\ncontains a backported patch to correct these issues. \n\nNotes:\n- After installing this update, users are advised to restart their\nhttpd service to ensure that the updated version functions correctly.\n- config.php should NOT be modified, please modify config_local.php instead.\n- Known Bug: The configuration generator may potentially produce bad\noptions that interfere with the operation of this application.  Applying\nspecific config changes to config_local.php manually is recommended.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-01-31"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-6142",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-6142",
+					"impact": "moderate",
+					"public": "20061202"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-6142 Three XSS issues in SquirrelMail",
+					"href": "https://bugzilla.redhat.com/218297",
+					"id": "218297"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070022001",
+						"comment": "squirrelmail is earlier than 0:1.4.8-4.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060283002",
+						"comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

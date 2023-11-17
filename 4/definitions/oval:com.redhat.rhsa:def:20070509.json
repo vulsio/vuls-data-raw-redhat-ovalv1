@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070509",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0509: evolution security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0509",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0509",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3257",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3257",
-        "source": "CVE"
-      }
-    ],
-    "description": "Evolution is the GNOME collection of personal information management (PIM)\ntools.\n\nA flaw was found in the way Evolution processes certain IMAP server\nmessages. If a user can be tricked into connecting to a malicious IMAP\nserver it may be possible to execute arbitrary code as the user running\nevolution. (CVE-2007-3257)\n\nAll users of Evolution should upgrade to these updated packages, which\ncontain a backported patch which resolves this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-06-25"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3257",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3257",
-          "impact": "important",
-          "public": "20070614"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3257 evolution malicious server arbitrary code execution",
-          "href": "https://bugzilla.redhat.com/244277",
-          "id": "244277"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070509001",
-                    "comment": "evolution is earlier than 0:2.0.2-35.0.4.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070353002",
-                    "comment": "evolution is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070509003",
-                    "comment": "evolution-devel is earlier than 0:2.0.2-35.0.4.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070353004",
-                    "comment": "evolution-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070509",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0509: evolution security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0509",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0509",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3257",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3257",
+				"source": "CVE"
+			}
+		],
+		"description": "Evolution is the GNOME collection of personal information management (PIM)\ntools.\n\nA flaw was found in the way Evolution processes certain IMAP server\nmessages. If a user can be tricked into connecting to a malicious IMAP\nserver it may be possible to execute arbitrary code as the user running\nevolution. (CVE-2007-3257)\n\nAll users of Evolution should upgrade to these updated packages, which\ncontain a backported patch which resolves this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-06-25"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3257",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3257",
+					"impact": "important",
+					"public": "20070614"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3257 evolution malicious server arbitrary code execution",
+					"href": "https://bugzilla.redhat.com/244277",
+					"id": "244277"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070509001",
+										"comment": "evolution is earlier than 0:2.0.2-35.0.4.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070353002",
+										"comment": "evolution is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070509003",
+										"comment": "evolution-devel is earlier than 0:2.0.2-35.0.4.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070353004",
+										"comment": "evolution-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

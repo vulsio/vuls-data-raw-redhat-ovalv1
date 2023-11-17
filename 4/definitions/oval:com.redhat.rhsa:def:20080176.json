@@ -1,157 +1,157 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080176",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2008:0176: openoffice.org security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0176",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0176",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5746",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5746",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-0320",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0320",
-        "source": "CVE"
-      }
-    ],
-    "description": "OpenOffice.org is an office productivity suite that includes desktop\napplications such as a word processor, spreadsheet, presentation manager,\nformula editor, and drawing program.\n\nA heap overflow flaw was found in the EMF parser. An attacker could create\na carefully crafted EMF file that could cause OpenOffice.org to crash or\npossibly execute arbitrary code if the malicious EMF image was added to a\ndocument or if a document containing the malicious EMF file was opened by a\nvictim. (CVE-2007-5746)\n\nA heap overflow flaw was found in the OLE Structured Storage file parser.\n(OLE Structured Storage is a format used by Microsoft Office documents.) An\nattacker could create a carefully crafted OLE file that could cause\nOpenOffice.org to crash or possibly execute arbitrary code if the file was\nopened by a victim. (CVE-2008-0320)\n\nAll users of OpenOffice.org are advised to upgrade to these updated\npackages, which contain backported fixes to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-04-17"
-      },
-      "updated": {
-        "date": "2008-04-17"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5746",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5746",
-          "impact": "important",
-          "public": "20080417"
-        },
-        {
-          "text": "CVE-2008-0320",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0320",
-          "impact": "important",
-          "public": "20080417"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5746 openoffice.org: EMF files parsing EMR_BITBLT record heap overflows",
-          "href": "https://bugzilla.redhat.com/435675",
-          "id": "435675"
-        },
-        {
-          "text": "CVE-2008-0320 openoffice.org: OLE files parsing heap overflows",
-          "href": "https://bugzilla.redhat.com/435676",
-          "id": "435676"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080176001",
-                    "comment": "openoffice.org is earlier than 0:1.1.5-10.6.0.3.EL4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060573002",
-                    "comment": "openoffice.org is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080176003",
-                    "comment": "openoffice.org-i18n is earlier than 0:1.1.5-10.6.0.3.EL4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060573004",
-                    "comment": "openoffice.org-i18n is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080176005",
-                    "comment": "openoffice.org-kde is earlier than 0:1.1.5-10.6.0.3.EL4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060573006",
-                    "comment": "openoffice.org-kde is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080176007",
-                    "comment": "openoffice.org-libs is earlier than 0:1.1.5-10.6.0.3.EL4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060573008",
-                    "comment": "openoffice.org-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080176",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2008:0176: openoffice.org security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0176",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0176",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5746",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5746",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-0320",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0320",
+				"source": "CVE"
+			}
+		],
+		"description": "OpenOffice.org is an office productivity suite that includes desktop\napplications such as a word processor, spreadsheet, presentation manager,\nformula editor, and drawing program.\n\nA heap overflow flaw was found in the EMF parser. An attacker could create\na carefully crafted EMF file that could cause OpenOffice.org to crash or\npossibly execute arbitrary code if the malicious EMF image was added to a\ndocument or if a document containing the malicious EMF file was opened by a\nvictim. (CVE-2007-5746)\n\nA heap overflow flaw was found in the OLE Structured Storage file parser.\n(OLE Structured Storage is a format used by Microsoft Office documents.) An\nattacker could create a carefully crafted OLE file that could cause\nOpenOffice.org to crash or possibly execute arbitrary code if the file was\nopened by a victim. (CVE-2008-0320)\n\nAll users of OpenOffice.org are advised to upgrade to these updated\npackages, which contain backported fixes to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-04-17"
+			},
+			"updated": {
+				"date": "2008-04-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5746",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5746",
+					"impact": "important",
+					"public": "20080417"
+				},
+				{
+					"text": "CVE-2008-0320",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0320",
+					"impact": "important",
+					"public": "20080417"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5746 openoffice.org: EMF files parsing EMR_BITBLT record heap overflows",
+					"href": "https://bugzilla.redhat.com/435675",
+					"id": "435675"
+				},
+				{
+					"text": "CVE-2008-0320 openoffice.org: OLE files parsing heap overflows",
+					"href": "https://bugzilla.redhat.com/435676",
+					"id": "435676"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080176001",
+										"comment": "openoffice.org is earlier than 0:1.1.5-10.6.0.3.EL4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060573002",
+										"comment": "openoffice.org is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080176003",
+										"comment": "openoffice.org-i18n is earlier than 0:1.1.5-10.6.0.3.EL4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060573004",
+										"comment": "openoffice.org-i18n is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080176005",
+										"comment": "openoffice.org-kde is earlier than 0:1.1.5-10.6.0.3.EL4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060573006",
+										"comment": "openoffice.org-kde is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080176007",
+										"comment": "openoffice.org-libs is earlier than 0:1.1.5-10.6.0.3.EL4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060573008",
+										"comment": "openoffice.org-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,176 +1,176 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091232",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2009:1232: gnutls security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1232",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1232",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-2730",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2730",
-        "source": "CVE"
-      }
-    ],
-    "description": "The GnuTLS library provides support for cryptographic algorithms and for\nprotocols such as Transport Layer Security (TLS).\n\nA flaw was discovered in the way GnuTLS handles NULL characters in certain\nfields of X.509 certificates. If an attacker is able to get a\ncarefully-crafted certificate signed by a Certificate Authority trusted by\nan application using GnuTLS, the attacker could use the certificate during\na man-in-the-middle attack and potentially confuse the application into\naccepting it by mistake. (CVE-2009-2730)\n\nUsers of GnuTLS are advised to upgrade to these updated packages, which\ncontain a backported patch that corrects this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-08-26"
-      },
-      "updated": {
-        "date": "2009-08-26"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-2730",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2730",
-          "impact": "moderate",
-          "public": "20090804",
-          "cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-2730 gnutls: incorrect verification of SSL certificate with NUL in name (GNUTLS-SA-2009-4)",
-          "href": "https://bugzilla.redhat.com/516231",
-          "id": "516231"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091232001",
-                    "comment": "gnutls is earlier than 0:1.0.20-4.el4_8.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20120319002",
-                    "comment": "gnutls is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091232003",
-                    "comment": "gnutls-devel is earlier than 0:1.0.20-4.el4_8.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20120319004",
-                    "comment": "gnutls-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091232006",
-                    "comment": "gnutls is earlier than 0:1.4.1-3.el5_3.5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20120319002",
-                    "comment": "gnutls is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091232007",
-                    "comment": "gnutls-devel is earlier than 0:1.4.1-3.el5_3.5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20120319004",
-                    "comment": "gnutls-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091232008",
-                    "comment": "gnutls-utils is earlier than 0:1.4.1-3.el5_3.5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20120319006",
-                    "comment": "gnutls-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091232",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2009:1232: gnutls security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1232",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1232",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-2730",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2730",
+				"source": "CVE"
+			}
+		],
+		"description": "The GnuTLS library provides support for cryptographic algorithms and for\nprotocols such as Transport Layer Security (TLS).\n\nA flaw was discovered in the way GnuTLS handles NULL characters in certain\nfields of X.509 certificates. If an attacker is able to get a\ncarefully-crafted certificate signed by a Certificate Authority trusted by\nan application using GnuTLS, the attacker could use the certificate during\na man-in-the-middle attack and potentially confuse the application into\naccepting it by mistake. (CVE-2009-2730)\n\nUsers of GnuTLS are advised to upgrade to these updated packages, which\ncontain a backported patch that corrects this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-08-26"
+			},
+			"updated": {
+				"date": "2009-08-26"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-2730",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2730",
+					"impact": "moderate",
+					"public": "20090804",
+					"cvss_2": "4.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-2730 gnutls: incorrect verification of SSL certificate with NUL in name (GNUTLS-SA-2009-4)",
+					"href": "https://bugzilla.redhat.com/516231",
+					"id": "516231"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091232001",
+										"comment": "gnutls is earlier than 0:1.0.20-4.el4_8.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20120319002",
+										"comment": "gnutls is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091232003",
+										"comment": "gnutls-devel is earlier than 0:1.0.20-4.el4_8.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20120319004",
+										"comment": "gnutls-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091232006",
+										"comment": "gnutls is earlier than 0:1.4.1-3.el5_3.5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20120319002",
+										"comment": "gnutls is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091232007",
+										"comment": "gnutls-devel is earlier than 0:1.4.1-3.el5_3.5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20120319004",
+										"comment": "gnutls-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091232008",
+										"comment": "gnutls-utils is earlier than 0:1.4.1-3.el5_3.5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20120319006",
+										"comment": "gnutls-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

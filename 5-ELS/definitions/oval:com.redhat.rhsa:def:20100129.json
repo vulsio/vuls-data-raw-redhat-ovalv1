@@ -1,141 +1,141 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100129",
-  "version": "639",
-  "metadata": {
-    "title": "RHSA-2010:0129: cups security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0129",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0129",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-0302",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0302",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX operating systems.\n\nIt was discovered that the Red Hat Security Advisory RHSA-2009:1595 did not\nfully correct the use-after-free flaw in the way CUPS handled references in\nits file descriptors-handling interface. A remote attacker could send\nspecially-crafted queries to the CUPS server, causing it to crash.\n(CVE-2010-0302)\n\nUsers of cups are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. After installing the\nupdate, the cupsd daemon will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-03-03"
-      },
-      "updated": {
-        "date": "2010-03-03"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-0302",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0302",
-          "impact": "moderate",
-          "public": "20100303",
-          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-0302 cups Incomplete fix for CVE-2009-3553",
-          "href": "https://bugzilla.redhat.com/557775",
-          "id": "557775"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100129001",
-                    "comment": "cups is earlier than 1:1.3.7-11.el5_4.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123009",
-                    "comment": "cups is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100129003",
-                    "comment": "cups-devel is earlier than 1:1.3.7-11.el5_4.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123011",
-                    "comment": "cups-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100129005",
-                    "comment": "cups-libs is earlier than 1:1.3.7-11.el5_4.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123013",
-                    "comment": "cups-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100129007",
-                    "comment": "cups-lpd is earlier than 1:1.3.7-11.el5_4.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123015",
-                    "comment": "cups-lpd is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100129",
+	"version": "639",
+	"metadata": {
+		"title": "RHSA-2010:0129: cups security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0129",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0129",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-0302",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0302",
+				"source": "CVE"
+			}
+		],
+		"description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX operating systems.\n\nIt was discovered that the Red Hat Security Advisory RHSA-2009:1595 did not\nfully correct the use-after-free flaw in the way CUPS handled references in\nits file descriptors-handling interface. A remote attacker could send\nspecially-crafted queries to the CUPS server, causing it to crash.\n(CVE-2010-0302)\n\nUsers of cups are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. After installing the\nupdate, the cupsd daemon will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-03-03"
+			},
+			"updated": {
+				"date": "2010-03-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-0302",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0302",
+					"impact": "moderate",
+					"public": "20100303",
+					"cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-0302 cups Incomplete fix for CVE-2009-3553",
+					"href": "https://bugzilla.redhat.com/557775",
+					"id": "557775"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100129001",
+										"comment": "cups is earlier than 1:1.3.7-11.el5_4.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123009",
+										"comment": "cups is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100129003",
+										"comment": "cups-devel is earlier than 1:1.3.7-11.el5_4.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123011",
+										"comment": "cups-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100129005",
+										"comment": "cups-libs is earlier than 1:1.3.7-11.el5_4.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123013",
+										"comment": "cups-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100129007",
+										"comment": "cups-lpd is earlier than 1:1.3.7-11.el5_4.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123015",
+										"comment": "cups-lpd is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

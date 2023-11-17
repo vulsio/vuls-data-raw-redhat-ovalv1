@@ -1,256 +1,256 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20130594",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2013:0594: kernel security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2013:0594",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0594",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-3400",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-3400",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* Buffer overflow flaws were found in the udf_load_logicalvol() function in\nthe Universal Disk Format (UDF) file system implementation in the Linux\nkernel. An attacker with physical access to a system could use these flaws\nto cause a denial of service or escalate their privileges. (CVE-2012-3400,\nLow)\n\nThis update also fixes the following bugs:\n\n* Previously, race conditions could sometimes occur in interrupt handling \non the Emulex BladeEngine 2 (BE2) controllers, causing the network adapter\nto become unresponsive. This update provides a series of patches for the \nbe2net driver, which prevents the race from occurring. The network cards \nusing BE2 chipsets no longer hang due to incorrectly handled interrupt \nevents. (BZ#884704)\n\n* A boot-time memory allocation pool (the DMI heap) is used to keep the\nlist of Desktop Management Interface (DMI) devices during the system boot.\nPreviously, the size of the DMI heap was only 2048 bytes on the AMD64 and\nIntel 64 architectures and the DMI heap space could become easily depleted\non some systems, such as the IBM System x3500 M2. A subsequent OOM failure\ncould, under certain circumstances, lead to a NULL pointer entry being\nstored in the DMI device list. Consequently, scanning of such a corrupted\nDMI device list resulted in a kernel panic. The boot-time memory allocation\npool for the AMD64 and Intel 64 architectures has been enlarged to 4096\nbytes and the routines responsible for populating the DMI device list have\nbeen modified to skip entries if their name string is NULL. The kernel no\nlonger panics in this scenario. (BZ#902683)\n\n* The size of the buffer used to print the kernel taint output on kernel\npanic was too small, which resulted in the kernel taint output not being\nprinted completely sometimes. With this update, the size of the buffer has\nbeen adjusted and the kernel taint output is now displayed properly.\n(BZ#905829)\n\n* The code to print the kernel taint output contained a typographical\nerror. Consequently, the kernel taint output, which is displayed on kernel\npanic, could not provide taint error messages for unsupported hardware.\nThis update fixes the typo and the kernel taint output is now displayed\ncorrectly. (BZ#885063)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-03-05"
-      },
-      "updated": {
-        "date": "2013-03-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-3400",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-3400",
-          "impact": "low",
-          "public": "20120627",
-          "cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-3400 kernel: udf: buffer overflow when parsing sparing table",
-          "href": "https://bugzilla.redhat.com/843139",
-          "id": "843139"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20130594025",
-                "comment": "kernel earlier than 0:2.6.18-348.2.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20130594026",
-                "comment": "kernel earlier than 0:2.6.18-348.2.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594001",
-                    "comment": "kernel is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130594023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-348.2.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20130594",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2013:0594: kernel security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2013:0594",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2013:0594",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-3400",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-3400",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* Buffer overflow flaws were found in the udf_load_logicalvol() function in\nthe Universal Disk Format (UDF) file system implementation in the Linux\nkernel. An attacker with physical access to a system could use these flaws\nto cause a denial of service or escalate their privileges. (CVE-2012-3400,\nLow)\n\nThis update also fixes the following bugs:\n\n* Previously, race conditions could sometimes occur in interrupt handling \non the Emulex BladeEngine 2 (BE2) controllers, causing the network adapter\nto become unresponsive. This update provides a series of patches for the \nbe2net driver, which prevents the race from occurring. The network cards \nusing BE2 chipsets no longer hang due to incorrectly handled interrupt \nevents. (BZ#884704)\n\n* A boot-time memory allocation pool (the DMI heap) is used to keep the\nlist of Desktop Management Interface (DMI) devices during the system boot.\nPreviously, the size of the DMI heap was only 2048 bytes on the AMD64 and\nIntel 64 architectures and the DMI heap space could become easily depleted\non some systems, such as the IBM System x3500 M2. A subsequent OOM failure\ncould, under certain circumstances, lead to a NULL pointer entry being\nstored in the DMI device list. Consequently, scanning of such a corrupted\nDMI device list resulted in a kernel panic. The boot-time memory allocation\npool for the AMD64 and Intel 64 architectures has been enlarged to 4096\nbytes and the routines responsible for populating the DMI device list have\nbeen modified to skip entries if their name string is NULL. The kernel no\nlonger panics in this scenario. (BZ#902683)\n\n* The size of the buffer used to print the kernel taint output on kernel\npanic was too small, which resulted in the kernel taint output not being\nprinted completely sometimes. With this update, the size of the buffer has\nbeen adjusted and the kernel taint output is now displayed properly.\n(BZ#905829)\n\n* The code to print the kernel taint output contained a typographical\nerror. Consequently, the kernel taint output, which is displayed on kernel\npanic, could not provide taint error messages for unsupported hardware.\nThis update fixes the typo and the kernel taint output is now displayed\ncorrectly. (BZ#885063)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-03-05"
+			},
+			"updated": {
+				"date": "2013-03-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-3400",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-3400",
+					"impact": "low",
+					"public": "20120627",
+					"cvss_2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-3400 kernel: udf: buffer overflow when parsing sparing table",
+					"href": "https://bugzilla.redhat.com/843139",
+					"id": "843139"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20130594025",
+								"comment": "kernel earlier than 0:2.6.18-348.2.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20130594026",
+								"comment": "kernel earlier than 0:2.6.18-348.2.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594001",
+										"comment": "kernel is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130594023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-348.2.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

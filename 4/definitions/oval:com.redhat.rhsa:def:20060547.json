@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060547",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2006:0547: squirrelmail security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0547",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0547",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-2842",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-2842",
-        "source": "CVE"
-      }
-    ],
-    "description": "SquirrelMail is a standards-based webmail package written in PHP4.\n\nA local file disclosure flaw was found in the way SquirrelMail loads\nplugins. In SquirrelMail 1.4.6 or earlier, if register_globals is on and\nmagic_quotes_gpc is off, it became possible for an unauthenticated remote\nuser to view the contents of arbitrary local files the web server has\nread-access to. This configuration is neither default nor safe, and\nconfiguring PHP with the register_globals set on is dangerous and not\nrecommended.  (CVE-2006-2842) \n\nUsers of SquirrelMail should upgrade to this erratum package, which\ncontains a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-07-03"
-      },
-      "updated": {
-        "date": "2006-07-03"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-2842",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-2842",
-          "impact": "moderate",
-          "public": "20060601"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-2842 security flaw",
-          "href": "https://bugzilla.redhat.com/1618123",
-          "id": "1618123"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060547001",
-            "comment": "squirrelmail is earlier than 0:1.4.6-7.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060283002",
-            "comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060547",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2006:0547: squirrelmail security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0547",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0547",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-2842",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-2842",
+				"source": "CVE"
+			}
+		],
+		"description": "SquirrelMail is a standards-based webmail package written in PHP4.\n\nA local file disclosure flaw was found in the way SquirrelMail loads\nplugins. In SquirrelMail 1.4.6 or earlier, if register_globals is on and\nmagic_quotes_gpc is off, it became possible for an unauthenticated remote\nuser to view the contents of arbitrary local files the web server has\nread-access to. This configuration is neither default nor safe, and\nconfiguring PHP with the register_globals set on is dangerous and not\nrecommended.  (CVE-2006-2842) \n\nUsers of SquirrelMail should upgrade to this erratum package, which\ncontains a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-07-03"
+			},
+			"updated": {
+				"date": "2006-07-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-2842",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-2842",
+					"impact": "moderate",
+					"public": "20060601"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-2842 security flaw",
+					"href": "https://bugzilla.redhat.com/1618123",
+					"id": "1618123"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060547001",
+						"comment": "squirrelmail is earlier than 0:1.4.6-7.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060283002",
+						"comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

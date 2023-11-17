@@ -1,370 +1,370 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090256",
-  "version": "639",
-  "metadata": {
-    "title": "RHSA-2009:0256: firefox security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0256",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0256",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-0352",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0352",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0353",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0353",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0354",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0354",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0355",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0355",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0356",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0356",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0357",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0357",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0358",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0358",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mozilla Firefox is an open source Web browser.\n\nSeveral flaws were found in the processing of malformed web content. A web\npage containing malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code as the user running Firefox.\n(CVE-2009-0352, CVE-2009-0353, CVE-2009-0356)\n\nSeveral flaws were found in the way malformed content was processed. A\nwebsite containing specially-crafted content could, potentially, trick a\nFirefox user into surrendering sensitive information. (CVE-2009-0354,\nCVE-2009-0355)\n\nA flaw was found in the way Firefox treated HTTPOnly cookies. An attacker\nable to execute arbitrary JavaScript on a target site using HTTPOnly\ncookies may be able to use this flaw to steal the cookie. (CVE-2009-0357)\n\nA flaw was found in the way Firefox treated certain HTTP page caching\ndirectives. A local attacker could steal the contents of sensitive pages\nwhich the page author did not intend to be cached. (CVE-2009-0358)\n\nFor technical details regarding these flaws, please see the Mozilla\nsecurity advisories for Firefox 3.0.6. You can find a link to the Mozilla\nadvisories in the References section.\n\nAll Firefox users should upgrade to these updated packages, which contain\nFirefox version 3.0.6, which corrects these issues. After installing the\nupdate, Firefox must be restarted for the changes to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-02-04"
-      },
-      "updated": {
-        "date": "2009-02-04"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-0352",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0352",
-          "impact": "critical",
-          "public": "20090203",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0353",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0353",
-          "impact": "critical",
-          "public": "20090203",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0354",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0354",
-          "impact": "moderate",
-          "public": "20090203",
-          "cwe": "CWE-79",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2009-0355",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0355",
-          "impact": "moderate",
-          "public": "20090203",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2009-0356",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0356",
-          "impact": "moderate",
-          "public": "20090203",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0357",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0357",
-          "impact": "low",
-          "public": "20090203",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2009-0358",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0358",
-          "impact": "low",
-          "public": "20090203",
-          "cvss_2": "1.2/AV:L/AC:H/Au:N/C:P/I:N/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-0352 Firefox layout crashes with evidence of memory corruption",
-          "href": "https://bugzilla.redhat.com/483139",
-          "id": "483139"
-        },
-        {
-          "text": "CVE-2009-0353 Firefox javascript crashes with evidence of memory corruption",
-          "href": "https://bugzilla.redhat.com/483141",
-          "id": "483141"
-        },
-        {
-          "text": "CVE-2009-0354 Firefox XSS using a chrome XBL method and window.eval",
-          "href": "https://bugzilla.redhat.com/483142",
-          "id": "483142"
-        },
-        {
-          "text": "CVE-2009-0355 Firefox local file stealing with SessionStore",
-          "href": "https://bugzilla.redhat.com/483143",
-          "id": "483143"
-        },
-        {
-          "text": "CVE-2009-0356 Firefox Chrome privilege escalation via local .desktop files",
-          "href": "https://bugzilla.redhat.com/483144",
-          "id": "483144"
-        },
-        {
-          "text": "CVE-2009-0357 Firefox XMLHttpRequest allows reading HTTPOnly cookies",
-          "href": "https://bugzilla.redhat.com/483145",
-          "id": "483145"
-        },
-        {
-          "text": "CVE-2009-0358 Firefox directives to not cache pages ignored",
-          "href": "https://bugzilla.redhat.com/483150",
-          "id": "483150"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256001",
-                    "comment": "firefox is earlier than 0:3.0.6-1.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
-                    "comment": "firefox is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256003",
-                    "comment": "nss is earlier than 0:3.12.2.0-3.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879011",
-                    "comment": "nss is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256005",
-                    "comment": "nss-devel is earlier than 0:3.12.2.0-3.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879013",
-                    "comment": "nss-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256007",
-                    "comment": "nss-tools is earlier than 0:3.12.2.0-3.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879017",
-                    "comment": "nss-tools is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256010",
-                    "comment": "xulrunner is earlier than 0:1.9.0.6-1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879019",
-                    "comment": "xulrunner is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256012",
-                    "comment": "xulrunner-devel is earlier than 0:1.9.0.6-1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879021",
-                    "comment": "xulrunner-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256014",
-                    "comment": "xulrunner-devel-unstable is earlier than 0:1.9.0.6-1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879023",
-                    "comment": "xulrunner-devel-unstable is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256016",
-                    "comment": "firefox is earlier than 0:3.0.6-1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
-                    "comment": "firefox is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256017",
-                    "comment": "nss is earlier than 0:3.12.2.0-4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879011",
-                    "comment": "nss is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256018",
-                    "comment": "nss-devel is earlier than 0:3.12.2.0-4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879013",
-                    "comment": "nss-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256019",
-                    "comment": "nss-pkcs11-devel is earlier than 0:3.12.2.0-4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879015",
-                    "comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090256021",
-                    "comment": "nss-tools is earlier than 0:3.12.2.0-4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080879017",
-                    "comment": "nss-tools is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090256",
+	"version": "639",
+	"metadata": {
+		"title": "RHSA-2009:0256: firefox security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0256",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0256",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-0352",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0352",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0353",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0353",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0354",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0354",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0355",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0355",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0356",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0356",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0357",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0357",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0358",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0358",
+				"source": "CVE"
+			}
+		],
+		"description": "Mozilla Firefox is an open source Web browser.\n\nSeveral flaws were found in the processing of malformed web content. A web\npage containing malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code as the user running Firefox.\n(CVE-2009-0352, CVE-2009-0353, CVE-2009-0356)\n\nSeveral flaws were found in the way malformed content was processed. A\nwebsite containing specially-crafted content could, potentially, trick a\nFirefox user into surrendering sensitive information. (CVE-2009-0354,\nCVE-2009-0355)\n\nA flaw was found in the way Firefox treated HTTPOnly cookies. An attacker\nable to execute arbitrary JavaScript on a target site using HTTPOnly\ncookies may be able to use this flaw to steal the cookie. (CVE-2009-0357)\n\nA flaw was found in the way Firefox treated certain HTTP page caching\ndirectives. A local attacker could steal the contents of sensitive pages\nwhich the page author did not intend to be cached. (CVE-2009-0358)\n\nFor technical details regarding these flaws, please see the Mozilla\nsecurity advisories for Firefox 3.0.6. You can find a link to the Mozilla\nadvisories in the References section.\n\nAll Firefox users should upgrade to these updated packages, which contain\nFirefox version 3.0.6, which corrects these issues. After installing the\nupdate, Firefox must be restarted for the changes to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-02-04"
+			},
+			"updated": {
+				"date": "2009-02-04"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-0352",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0352",
+					"impact": "critical",
+					"public": "20090203",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0353",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0353",
+					"impact": "critical",
+					"public": "20090203",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0354",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0354",
+					"impact": "moderate",
+					"public": "20090203",
+					"cwe": "CWE-79",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2009-0355",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0355",
+					"impact": "moderate",
+					"public": "20090203",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2009-0356",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0356",
+					"impact": "moderate",
+					"public": "20090203",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0357",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0357",
+					"impact": "low",
+					"public": "20090203",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2009-0358",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0358",
+					"impact": "low",
+					"public": "20090203",
+					"cvss_2": "1.2/AV:L/AC:H/Au:N/C:P/I:N/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-0352 Firefox layout crashes with evidence of memory corruption",
+					"href": "https://bugzilla.redhat.com/483139",
+					"id": "483139"
+				},
+				{
+					"text": "CVE-2009-0353 Firefox javascript crashes with evidence of memory corruption",
+					"href": "https://bugzilla.redhat.com/483141",
+					"id": "483141"
+				},
+				{
+					"text": "CVE-2009-0354 Firefox XSS using a chrome XBL method and window.eval",
+					"href": "https://bugzilla.redhat.com/483142",
+					"id": "483142"
+				},
+				{
+					"text": "CVE-2009-0355 Firefox local file stealing with SessionStore",
+					"href": "https://bugzilla.redhat.com/483143",
+					"id": "483143"
+				},
+				{
+					"text": "CVE-2009-0356 Firefox Chrome privilege escalation via local .desktop files",
+					"href": "https://bugzilla.redhat.com/483144",
+					"id": "483144"
+				},
+				{
+					"text": "CVE-2009-0357 Firefox XMLHttpRequest allows reading HTTPOnly cookies",
+					"href": "https://bugzilla.redhat.com/483145",
+					"id": "483145"
+				},
+				{
+					"text": "CVE-2009-0358 Firefox directives to not cache pages ignored",
+					"href": "https://bugzilla.redhat.com/483150",
+					"id": "483150"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256001",
+										"comment": "firefox is earlier than 0:3.0.6-1.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+										"comment": "firefox is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256003",
+										"comment": "nss is earlier than 0:3.12.2.0-3.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879011",
+										"comment": "nss is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256005",
+										"comment": "nss-devel is earlier than 0:3.12.2.0-3.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879013",
+										"comment": "nss-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256007",
+										"comment": "nss-tools is earlier than 0:3.12.2.0-3.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879017",
+										"comment": "nss-tools is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256010",
+										"comment": "xulrunner is earlier than 0:1.9.0.6-1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879019",
+										"comment": "xulrunner is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256012",
+										"comment": "xulrunner-devel is earlier than 0:1.9.0.6-1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879021",
+										"comment": "xulrunner-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256014",
+										"comment": "xulrunner-devel-unstable is earlier than 0:1.9.0.6-1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879023",
+										"comment": "xulrunner-devel-unstable is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256016",
+										"comment": "firefox is earlier than 0:3.0.6-1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+										"comment": "firefox is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256017",
+										"comment": "nss is earlier than 0:3.12.2.0-4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879011",
+										"comment": "nss is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256018",
+										"comment": "nss-devel is earlier than 0:3.12.2.0-4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879013",
+										"comment": "nss-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256019",
+										"comment": "nss-pkcs11-devel is earlier than 0:3.12.2.0-4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879015",
+										"comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090256021",
+										"comment": "nss-tools is earlier than 0:3.12.2.0-4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080879017",
+										"comment": "nss-tools is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,146 +1,146 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100054",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2010:0054: openssl security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0054",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0054",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-2409",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2409",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4355",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4355",
-        "source": "CVE"
-      }
-    ],
-    "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nIt was found that the OpenSSL library did not properly re-initialize its\ninternal state in the SSL_library_init() function after previous calls to\nthe CRYPTO_cleanup_all_ex_data() function, which would cause a memory leak\nfor each subsequent SSL connection. This flaw could cause server\napplications that call those functions during reload, such as a combination\nof the Apache HTTP Server, mod_ssl, PHP, and cURL, to consume all available\nmemory, resulting in a denial of service. (CVE-2009-4355)\n\nDan Kaminsky found that browsers could accept certificates with MD2 hash\nsignatures, even though MD2 is no longer considered a cryptographically\nstrong algorithm. This could make it easier for an attacker to create a\nmalicious certificate that would be treated as trusted by a browser.\nOpenSSL now disables the use of the MD2 algorithm inside signatures by\ndefault. (CVE-2009-2409)\n\nAll OpenSSL users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. For the update to take effect,\nall services linked to the OpenSSL library must be restarted, or the system\nrebooted.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-01-20"
-      },
-      "updated": {
-        "date": "2010-01-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-2409",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2409",
-          "impact": "moderate",
-          "public": "20090729",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2009-4355",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4355",
-          "impact": "moderate",
-          "public": "20100113",
-          "cwe": "CWE-401",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-2409 deprecate MD2 in SSL cert validation (Kaminsky)",
-          "href": "https://bugzilla.redhat.com/510197",
-          "id": "510197"
-        },
-        {
-          "text": "CVE-2009-4355 openssl significant memory leak in certain SSLv3 requests (DoS)",
-          "href": "https://bugzilla.redhat.com/546707",
-          "id": "546707"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100054001",
-                    "comment": "openssl is earlier than 0:0.9.8e-12.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964002",
-                    "comment": "openssl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100054003",
-                    "comment": "openssl-devel is earlier than 0:0.9.8e-12.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964004",
-                    "comment": "openssl-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100054005",
-                    "comment": "openssl-perl is earlier than 0:0.9.8e-12.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964006",
-                    "comment": "openssl-perl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100054",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2010:0054: openssl security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0054",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0054",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-2409",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2409",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4355",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4355",
+				"source": "CVE"
+			}
+		],
+		"description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nIt was found that the OpenSSL library did not properly re-initialize its\ninternal state in the SSL_library_init() function after previous calls to\nthe CRYPTO_cleanup_all_ex_data() function, which would cause a memory leak\nfor each subsequent SSL connection. This flaw could cause server\napplications that call those functions during reload, such as a combination\nof the Apache HTTP Server, mod_ssl, PHP, and cURL, to consume all available\nmemory, resulting in a denial of service. (CVE-2009-4355)\n\nDan Kaminsky found that browsers could accept certificates with MD2 hash\nsignatures, even though MD2 is no longer considered a cryptographically\nstrong algorithm. This could make it easier for an attacker to create a\nmalicious certificate that would be treated as trusted by a browser.\nOpenSSL now disables the use of the MD2 algorithm inside signatures by\ndefault. (CVE-2009-2409)\n\nAll OpenSSL users should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. For the update to take effect,\nall services linked to the OpenSSL library must be restarted, or the system\nrebooted.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-01-20"
+			},
+			"updated": {
+				"date": "2010-01-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-2409",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2409",
+					"impact": "moderate",
+					"public": "20090729",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2009-4355",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4355",
+					"impact": "moderate",
+					"public": "20100113",
+					"cwe": "CWE-401",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-2409 deprecate MD2 in SSL cert validation (Kaminsky)",
+					"href": "https://bugzilla.redhat.com/510197",
+					"id": "510197"
+				},
+				{
+					"text": "CVE-2009-4355 openssl significant memory leak in certain SSLv3 requests (DoS)",
+					"href": "https://bugzilla.redhat.com/546707",
+					"id": "546707"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100054001",
+										"comment": "openssl is earlier than 0:0.9.8e-12.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964002",
+										"comment": "openssl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100054003",
+										"comment": "openssl-devel is earlier than 0:0.9.8e-12.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964004",
+										"comment": "openssl-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100054005",
+										"comment": "openssl-perl is earlier than 0:0.9.8e-12.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964006",
+										"comment": "openssl-perl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060720",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2006:0720: kdelibs security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0720",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0720",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4811",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4811",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kdelibs package provides libraries for the K Desktop Environment (KDE).\n Qt is a GUI software toolkit for the X Window System.\n\nAn integer overflow flaw was found in the way Qt handled pixmap images. \nThe KDE khtml library uses Qt in such a way that untrusted parameters could\nbe passed to Qt, triggering the overflow.  An attacker could for example\ncreate a malicious web page that when viewed by a victim in the Konqueror\nbrowser would cause Konqueror to crash or possibly execute arbitrary code\nwith the privileges of the victim.  (CVE-2006-4811)\n\nUsers of KDE should upgrade to these updated packages, which contain a\nbackported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-10-18"
-      },
-      "updated": {
-        "date": "2006-10-18"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4811",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4811",
-          "impact": "critical",
-          "public": "20061013:2306"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4811 security flaw",
-          "href": "https://bugzilla.redhat.com/1618204",
-          "id": "1618204"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060720001",
-                    "comment": "kdelibs is earlier than 6:3.3.1-6.RHEL4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060184002",
-                    "comment": "kdelibs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060720003",
-                    "comment": "kdelibs-devel is earlier than 6:3.3.1-6.RHEL4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060184004",
-                    "comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060720",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2006:0720: kdelibs security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0720",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0720",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4811",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4811",
+				"source": "CVE"
+			}
+		],
+		"description": "The kdelibs package provides libraries for the K Desktop Environment (KDE).\n Qt is a GUI software toolkit for the X Window System.\n\nAn integer overflow flaw was found in the way Qt handled pixmap images. \nThe KDE khtml library uses Qt in such a way that untrusted parameters could\nbe passed to Qt, triggering the overflow.  An attacker could for example\ncreate a malicious web page that when viewed by a victim in the Konqueror\nbrowser would cause Konqueror to crash or possibly execute arbitrary code\nwith the privileges of the victim.  (CVE-2006-4811)\n\nUsers of KDE should upgrade to these updated packages, which contain a\nbackported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-10-18"
+			},
+			"updated": {
+				"date": "2006-10-18"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4811",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4811",
+					"impact": "critical",
+					"public": "20061013:2306"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4811 security flaw",
+					"href": "https://bugzilla.redhat.com/1618204",
+					"id": "1618204"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060720001",
+										"comment": "kdelibs is earlier than 6:3.3.1-6.RHEL4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060184002",
+										"comment": "kdelibs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060720003",
+										"comment": "kdelibs-devel is earlier than 6:3.3.1-6.RHEL4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060184004",
+										"comment": "kdelibs-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

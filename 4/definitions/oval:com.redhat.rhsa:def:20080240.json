@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080240",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2008:0240: xpdf security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0240",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0240",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1693",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1693",
-        "source": "CVE"
-      }
-    ],
-    "description": "Xpdf is an X Window System-based viewer for Portable Document Format (PDF)\nfiles.\n\nKees Cook discovered a flaw in the way xpdf displayed malformed fonts\nembedded in PDF files. An attacker could create a malicious PDF file that\nwould cause xpdf to crash, or, potentially, execute arbitrary code when\nopened. (CVE-2008-1693)\n\nUsers are advised to upgrade to these updated packages, which contain\nbackported patches to resolve this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-04-17"
-      },
-      "updated": {
-        "date": "2008-04-17"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1693",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1693",
-          "impact": "important",
-          "public": "20080417"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1693 xpdf: embedded font vulnerability",
-          "href": "https://bugzilla.redhat.com/441722",
-          "id": "441722"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080240001",
-            "comment": "xpdf is earlier than 1:3.00-16.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060201002",
-            "comment": "xpdf is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080240",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2008:0240: xpdf security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0240",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0240",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1693",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1693",
+				"source": "CVE"
+			}
+		],
+		"description": "Xpdf is an X Window System-based viewer for Portable Document Format (PDF)\nfiles.\n\nKees Cook discovered a flaw in the way xpdf displayed malformed fonts\nembedded in PDF files. An attacker could create a malicious PDF file that\nwould cause xpdf to crash, or, potentially, execute arbitrary code when\nopened. (CVE-2008-1693)\n\nUsers are advised to upgrade to these updated packages, which contain\nbackported patches to resolve this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-04-17"
+			},
+			"updated": {
+				"date": "2008-04-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1693",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1693",
+					"impact": "important",
+					"public": "20080417"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1693 xpdf: embedded font vulnerability",
+					"href": "https://bugzilla.redhat.com/441722",
+					"id": "441722"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080240001",
+						"comment": "xpdf is earlier than 1:3.00-16.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060201002",
+						"comment": "xpdf is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

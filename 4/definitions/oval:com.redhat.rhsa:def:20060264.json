@@ -1,141 +1,141 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060264",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2006:0264: sendmail security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0264",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0264",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-0058",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-0058",
-        "source": "CVE"
-      }
-    ],
-    "description": "Sendmail is a Mail Transport Agent (MTA) used to send mail between machines.\n\nA flaw in the handling of asynchronous signals was discovered in Sendmail.\nA remote attacker may be able to exploit a race condition to execute\narbitrary code as root.  The Common Vulnerabilities and Exposures project\nassigned the name CVE-2006-0058 to this issue.\n\nBy default on Red Hat Enterprise Linux 3 and 4, Sendmail is configured to\nonly accept connections from the local host.  Therefore, only users who have\nconfigured Sendmail to listen to remote hosts would be able to be remotely\nexploited by this vulnerability.\n\nUsers of Sendmail are advised to upgrade to these erratum packages, which\ncontain a backported patch from the Sendmail team to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-03-22"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-0058",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-0058",
-          "impact": "critical",
-          "public": "20060322:1600"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-0058 security flaw",
-          "href": "https://bugzilla.redhat.com/1617872",
-          "id": "1617872"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264001",
-                    "comment": "sendmail is earlier than 0:8.13.1-3.RHEL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264002",
-                    "comment": "sendmail is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264003",
-                    "comment": "sendmail-cf is earlier than 0:8.13.1-3.RHEL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264004",
-                    "comment": "sendmail-cf is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264005",
-                    "comment": "sendmail-devel is earlier than 0:8.13.1-3.RHEL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264006",
-                    "comment": "sendmail-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264007",
-                    "comment": "sendmail-doc is earlier than 0:8.13.1-3.RHEL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060264008",
-                    "comment": "sendmail-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060264",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2006:0264: sendmail security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0264",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0264",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-0058",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-0058",
+				"source": "CVE"
+			}
+		],
+		"description": "Sendmail is a Mail Transport Agent (MTA) used to send mail between machines.\n\nA flaw in the handling of asynchronous signals was discovered in Sendmail.\nA remote attacker may be able to exploit a race condition to execute\narbitrary code as root.  The Common Vulnerabilities and Exposures project\nassigned the name CVE-2006-0058 to this issue.\n\nBy default on Red Hat Enterprise Linux 3 and 4, Sendmail is configured to\nonly accept connections from the local host.  Therefore, only users who have\nconfigured Sendmail to listen to remote hosts would be able to be remotely\nexploited by this vulnerability.\n\nUsers of Sendmail are advised to upgrade to these erratum packages, which\ncontain a backported patch from the Sendmail team to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-03-22"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-0058",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-0058",
+					"impact": "critical",
+					"public": "20060322:1600"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-0058 security flaw",
+					"href": "https://bugzilla.redhat.com/1617872",
+					"id": "1617872"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264001",
+										"comment": "sendmail is earlier than 0:8.13.1-3.RHEL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264002",
+										"comment": "sendmail is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264003",
+										"comment": "sendmail-cf is earlier than 0:8.13.1-3.RHEL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264004",
+										"comment": "sendmail-cf is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264005",
+										"comment": "sendmail-devel is earlier than 0:8.13.1-3.RHEL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264006",
+										"comment": "sendmail-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264007",
+										"comment": "sendmail-doc is earlier than 0:8.13.1-3.RHEL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060264008",
+										"comment": "sendmail-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

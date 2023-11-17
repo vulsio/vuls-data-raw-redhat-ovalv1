@@ -1,173 +1,173 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20071016",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2007:1016: samba security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:1016",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:1016",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4138",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4138",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-4572",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4572",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5398",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5398",
-        "source": "CVE"
-      }
-    ],
-    "description": "Samba is a suite of programs used by machines to share files, printers, and\nother information.\n\nA buffer overflow flaw was found in the way Samba creates NetBIOS replies.\nIf a Samba server is configured to run as a WINS server, a remote\nunauthenticated user could cause the Samba server to crash or execute\narbitrary code. (CVE-2007-5398)\n\nA heap-based buffer overflow flaw was found in the way Samba authenticates\nusers. A remote unauthenticated user could trigger this flaw to cause the\nSamba server to crash. Careful analysis of this flaw has determined that\narbitrary code execution is not possible, and under most circumstances will\nnot result in a crash of the Samba server. (CVE-2007-4572)\n\nA flaw was found in the way Samba assigned group IDs under certain\nconditions. If the \"winbind nss info\" parameter in smb.conf is set to\neither \"sfu\" or \"rfc2307\", Samba users are incorrectly assigned the group\nID of 0. (CVE-2007-4138)\n\nRed Hat would like to thank Alin Rad Pop of Secunia Research, Rick King,\nand the Samba developers for responsibly disclosing these issues.\n\nAll Samba users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-15"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4138",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4138",
-          "impact": "moderate",
-          "public": "20070911"
-        },
-        {
-          "text": "CVE-2007-4572",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4572",
-          "impact": "moderate",
-          "public": "20071115:1400"
-        },
-        {
-          "text": "CVE-2007-5398",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5398",
-          "impact": "critical",
-          "public": "20071115:1400"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4138 samba incorrect primary group assignment for domain users using the rfc2307 or sfu winbind nss info plugin",
-          "href": "https://bugzilla.redhat.com/286271",
-          "id": "286271"
-        },
-        {
-          "text": "CVE-2007-4572 samba buffer overflow",
-          "href": "https://bugzilla.redhat.com/294631",
-          "id": "294631"
-        },
-        {
-          "text": "CVE-2007-5398 Samba \"reply_netbios_packet()\" Buffer Overflow Vulnerability",
-          "href": "https://bugzilla.redhat.com/358831",
-          "id": "358831"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071016001",
-                    "comment": "samba is earlier than 0:3.0.25b-1.el4_6.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060591002",
-                    "comment": "samba is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071016003",
-                    "comment": "samba-client is earlier than 0:3.0.25b-1.el4_6.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060591004",
-                    "comment": "samba-client is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071016005",
-                    "comment": "samba-common is earlier than 0:3.0.25b-1.el4_6.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060591006",
-                    "comment": "samba-common is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071016007",
-                    "comment": "samba-swat is earlier than 0:3.0.25b-1.el4_6.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060591008",
-                    "comment": "samba-swat is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20071016",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2007:1016: samba security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:1016",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:1016",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4138",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4138",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-4572",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4572",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5398",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5398",
+				"source": "CVE"
+			}
+		],
+		"description": "Samba is a suite of programs used by machines to share files, printers, and\nother information.\n\nA buffer overflow flaw was found in the way Samba creates NetBIOS replies.\nIf a Samba server is configured to run as a WINS server, a remote\nunauthenticated user could cause the Samba server to crash or execute\narbitrary code. (CVE-2007-5398)\n\nA heap-based buffer overflow flaw was found in the way Samba authenticates\nusers. A remote unauthenticated user could trigger this flaw to cause the\nSamba server to crash. Careful analysis of this flaw has determined that\narbitrary code execution is not possible, and under most circumstances will\nnot result in a crash of the Samba server. (CVE-2007-4572)\n\nA flaw was found in the way Samba assigned group IDs under certain\nconditions. If the \"winbind nss info\" parameter in smb.conf is set to\neither \"sfu\" or \"rfc2307\", Samba users are incorrectly assigned the group\nID of 0. (CVE-2007-4138)\n\nRed Hat would like to thank Alin Rad Pop of Secunia Research, Rick King,\nand the Samba developers for responsibly disclosing these issues.\n\nAll Samba users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-15"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4138",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4138",
+					"impact": "moderate",
+					"public": "20070911"
+				},
+				{
+					"text": "CVE-2007-4572",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4572",
+					"impact": "moderate",
+					"public": "20071115:1400"
+				},
+				{
+					"text": "CVE-2007-5398",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5398",
+					"impact": "critical",
+					"public": "20071115:1400"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4138 samba incorrect primary group assignment for domain users using the rfc2307 or sfu winbind nss info plugin",
+					"href": "https://bugzilla.redhat.com/286271",
+					"id": "286271"
+				},
+				{
+					"text": "CVE-2007-4572 samba buffer overflow",
+					"href": "https://bugzilla.redhat.com/294631",
+					"id": "294631"
+				},
+				{
+					"text": "CVE-2007-5398 Samba \"reply_netbios_packet()\" Buffer Overflow Vulnerability",
+					"href": "https://bugzilla.redhat.com/358831",
+					"id": "358831"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071016001",
+										"comment": "samba is earlier than 0:3.0.25b-1.el4_6.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060591002",
+										"comment": "samba is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071016003",
+										"comment": "samba-client is earlier than 0:3.0.25b-1.el4_6.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060591004",
+										"comment": "samba-client is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071016005",
+										"comment": "samba-common is earlier than 0:3.0.25b-1.el4_6.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060591006",
+										"comment": "samba-common is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071016007",
+										"comment": "samba-swat is earlier than 0:3.0.25b-1.el4_6.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060591008",
+										"comment": "samba-swat is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

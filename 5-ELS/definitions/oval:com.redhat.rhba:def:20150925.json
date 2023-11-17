@@ -1,167 +1,167 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhba:def:20150925",
-  "version": "636",
-  "metadata": {
-    "title": "RHBA-2015:0925: nss and nspr bug fix and enhancement update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHBA-2015:0925",
-        "ref_url": "https://access.redhat.com/errata/RHBA-2015:0925",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2014-1569",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-1569",
-        "source": "CVE"
-      }
-    ],
-    "description": "Network Security Services (NSS) is a set of libraries designed to support cross-platform development of security-enabled client and server applications. Netscape Portable Runtime (NSPR) provides platform independence for non-GUI operating system facilities. \n\nThe nss packages have been upgraded to upstream version 3.18.0, and the nspr packages have been upgraded to upstream version 4.10.8. The upgraded versions provide a number of bug fixes and enhancements over the previous versions. Notably, these upgrades allow users to upgrade to Mozilla Firefox 38 Extended Support Release. (BZ#1200905, BZ#1200921)\n\nUsers of nss, nss-softokn, nss-util, and nspr are advised to upgrade to these updated packages, which fix these bugs and add these enhancements.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2015 Red Hat, Inc.",
-      "issued": {
-        "date": "2015-05-05"
-      },
-      "updated": {
-        "date": "2015-05-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2014-1569",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-1569",
-          "impact": "low",
-          "public": "20141201",
-          "cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2014-1569 nss: QuickDER decoder length issue",
-          "href": "https://bugzilla.redhat.com/1174492",
-          "id": "1174492"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925001",
-                    "comment": "nspr is earlier than 0:4.10.8-1.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925002",
-                    "comment": "nspr is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925003",
-                    "comment": "nspr-devel is earlier than 0:4.10.8-1.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925004",
-                    "comment": "nspr-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925005",
-                    "comment": "nss is earlier than 0:3.18.0-6.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925006",
-                    "comment": "nss is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925007",
-                    "comment": "nss-devel is earlier than 0:3.18.0-6.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925008",
-                    "comment": "nss-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925009",
-                    "comment": "nss-pkcs11-devel is earlier than 0:3.18.0-6.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925010",
-                    "comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925011",
-                    "comment": "nss-tools is earlier than 0:3.18.0-6.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20150925012",
-                    "comment": "nss-tools is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhba:def:20150925",
+	"version": "636",
+	"metadata": {
+		"title": "RHBA-2015:0925: nss and nspr bug fix and enhancement update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHBA-2015:0925",
+				"ref_url": "https://access.redhat.com/errata/RHBA-2015:0925",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2014-1569",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-1569",
+				"source": "CVE"
+			}
+		],
+		"description": "Network Security Services (NSS) is a set of libraries designed to support cross-platform development of security-enabled client and server applications. Netscape Portable Runtime (NSPR) provides platform independence for non-GUI operating system facilities. \n\nThe nss packages have been upgraded to upstream version 3.18.0, and the nspr packages have been upgraded to upstream version 4.10.8. The upgraded versions provide a number of bug fixes and enhancements over the previous versions. Notably, these upgrades allow users to upgrade to Mozilla Firefox 38 Extended Support Release. (BZ#1200905, BZ#1200921)\n\nUsers of nss, nss-softokn, nss-util, and nspr are advised to upgrade to these updated packages, which fix these bugs and add these enhancements.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2015 Red Hat, Inc.",
+			"issued": {
+				"date": "2015-05-05"
+			},
+			"updated": {
+				"date": "2015-05-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2014-1569",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-1569",
+					"impact": "low",
+					"public": "20141201",
+					"cvss_2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2014-1569 nss: QuickDER decoder length issue",
+					"href": "https://bugzilla.redhat.com/1174492",
+					"id": "1174492"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925001",
+										"comment": "nspr is earlier than 0:4.10.8-1.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925002",
+										"comment": "nspr is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925003",
+										"comment": "nspr-devel is earlier than 0:4.10.8-1.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925004",
+										"comment": "nspr-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925005",
+										"comment": "nss is earlier than 0:3.18.0-6.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925006",
+										"comment": "nss is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925007",
+										"comment": "nss-devel is earlier than 0:3.18.0-6.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925008",
+										"comment": "nss-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925009",
+										"comment": "nss-pkcs11-devel is earlier than 0:3.18.0-6.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925010",
+										"comment": "nss-pkcs11-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925011",
+										"comment": "nss-tools is earlier than 0:3.18.0-6.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20150925012",
+										"comment": "nss-tools is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

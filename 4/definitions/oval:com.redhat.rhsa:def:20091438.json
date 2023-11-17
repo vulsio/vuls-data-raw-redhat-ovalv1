@@ -1,316 +1,316 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091438",
-  "version": "664",
-  "metadata": {
-    "title": "RHSA-2009:1438: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1438",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1438",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-1883",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1883",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1895",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1895",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-2847",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2847",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-2848",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2848",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3238",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3238",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity issues:\n\n* the ADDR_COMPAT_LAYOUT and MMAP_PAGE_ZERO flags were not cleared when a\nsetuid or setgid program was executed. A local, unprivileged user could use\nthis flaw to bypass the mmap_min_addr protection mechanism and perform a\nNULL pointer dereference attack, or bypass the Address Space Layout\nRandomization (ASLR) security feature. (CVE-2009-1895, Important)\n\n* it was discovered that, when executing a new process, the clear_child_tid\npointer in the Linux kernel is not cleared. If this pointer points to a\nwritable portion of the memory of the new program, the kernel could corrupt\nfour bytes of memory, possibly leading to a local denial of service or\nprivilege escalation. (CVE-2009-2848, Important)\n\n* Solar Designer reported a missing capability check in the z90crypt driver\nin the Linux kernel. This missing check could allow a local user with an\neffective user ID (euid) of 0 to bypass intended capability restrictions.\n(CVE-2009-1883, Moderate)\n\n* a flaw was found in the way the do_sigaltstack() function in the Linux\nkernel copies the stack_t structure to user-space. On 64-bit machines, this\nflaw could lead to a four-byte information leak. (CVE-2009-2847, Moderate)\n\nBug fixes:\n\n* the gcc flag \"-fno-delete-null-pointer-checks\" was added to the kernel\nbuild options. This prevents gcc from optimizing out NULL pointer checks\nafter the first use of a pointer. NULL pointer bugs are often exploited by\nattackers. Keeping these checks is a safety measure. (BZ#517964)\n\n* the Emulex LPFC driver has been updated to version 8.0.16.47, which fixes\na memory leak that caused memory allocation failures and system hangs.\n(BZ#513192)\n\n* an error in the MPT Fusion driver makefile caused CSMI ioctls to not work\nwith Serial Attached SCSI devices. (BZ#516184)\n\n* this update adds the mmap_min_addr tunable and restriction checks to help\nprevent unprivileged users from creating new memory mappings below the\nminimum address. This can help prevent the exploitation of NULL pointer\ndeference bugs. Note that mmap_min_addr is set to zero (disabled) by\ndefault for backwards compatibility. (BZ#517904)\n\n* time-outs resulted in I/O errors being logged to \"/var/log/messages\" when\nrunning \"mt erase\" on tape drives using certain LSI MegaRAID SAS adapters,\npreventing the command from completing. The megaraid_sas driver's timeout\nvalue is now set to the OS layer value. (BZ#517965)\n\n* a locking issue caused the qla2xxx ioctl module to hang after\nencountering errors. This locking issue has been corrected. This ioctl\nmodule is used by the QLogic SAN management tools, such as SANsurfer and\nscli. (BZ#519428)\n\n* when a RAID 1 array that uses the mptscsi driver and the LSI 1030\ncontroller became degraded, the whole array was detected as being offline,\nwhich could cause kernel panics at boot or data loss. (BZ#517295)\n\n* on 32-bit architectures, if a file was held open and frequently written\nfor more than 25 days, it was possible that the kernel would stop flushing\nthose writes to storage. (BZ#515255)\n\n* a memory allocation bug in ib_mthca prevented the driver from loading if\nit was loaded with large values for the \"num_mpt=\" and \"num_mtt=\" options.\nSee Kbase link below for details. (BZ#518707)\n\n* with this update, get_random_int() is more random and no longer uses a\ncommon seed value, reducing the possibility of predicting the values\nreturned. See Kbase link below for details. (BZ#519692)\n\n* a bug in __ptrace_unlink() caused it to create deadlocked and unkillable\nprocesses. See Kbase link below for details. (BZ#519446)\n\n* previously, multiple threads using the fcntl() F_SETLK command to\nsynchronize file access caused a deadlock in posix_locks_deadlock(). This\ncould cause a system hang. (BZ#519429)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. Reboot the system for this update to take\neffect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-09-15"
-      },
-      "updated": {
-        "date": "2009-09-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-1883",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1883",
-          "impact": "moderate",
-          "public": "20090915",
-          "cvss_2": "6.9/AV:L/AC:M/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2009-1895",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1895",
-          "impact": "important",
-          "public": "20090626",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2009-2847",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2847",
-          "impact": "moderate",
-          "public": "20090731",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2009-2848",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2848",
-          "impact": "important",
-          "public": "20090731",
-          "cwe": "CWE-119",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2009-3238",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3238",
-          "impact": "important",
-          "public": "20090505",
-          "cwe": "CWE-330",
-          "cvss_2": "7.8/AV:N/AC:L/Au:N/C:C/I:N/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-1883 kernel: missing capability check in z90crypt",
-          "href": "https://bugzilla.redhat.com/505983",
-          "id": "505983"
-        },
-        {
-          "text": "CVE-2009-1895 kernel: personality: fix PER_CLEAR_ON_SETID",
-          "href": "https://bugzilla.redhat.com/511171",
-          "id": "511171"
-        },
-        {
-          "text": "CVE-2009-2847 kernel: information leak in sigaltstack",
-          "href": "https://bugzilla.redhat.com/515392",
-          "id": "515392"
-        },
-        {
-          "text": "CVE-2009-2848 kernel: execve: must clear current->clear_child_tid",
-          "href": "https://bugzilla.redhat.com/515423",
-          "id": "515423"
-        },
-        {
-          "text": "CVE-2009-3238 kernel: random: add robust get_random_u32, remove weak get_random_int",
-          "href": "https://bugzilla.redhat.com/524512",
-          "id": "524512"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20091438023",
-                "comment": "kernel earlier than 0:2.6.9-89.0.11.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20091438024",
-                "comment": "kernel earlier than 0:2.6.9-89.0.11.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438001",
-                    "comment": "kernel is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091438021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.0.11.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091438",
+	"version": "664",
+	"metadata": {
+		"title": "RHSA-2009:1438: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1438",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1438",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-1883",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1883",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1895",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1895",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-2847",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2847",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-2848",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2848",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3238",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3238",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nSecurity issues:\n\n* the ADDR_COMPAT_LAYOUT and MMAP_PAGE_ZERO flags were not cleared when a\nsetuid or setgid program was executed. A local, unprivileged user could use\nthis flaw to bypass the mmap_min_addr protection mechanism and perform a\nNULL pointer dereference attack, or bypass the Address Space Layout\nRandomization (ASLR) security feature. (CVE-2009-1895, Important)\n\n* it was discovered that, when executing a new process, the clear_child_tid\npointer in the Linux kernel is not cleared. If this pointer points to a\nwritable portion of the memory of the new program, the kernel could corrupt\nfour bytes of memory, possibly leading to a local denial of service or\nprivilege escalation. (CVE-2009-2848, Important)\n\n* Solar Designer reported a missing capability check in the z90crypt driver\nin the Linux kernel. This missing check could allow a local user with an\neffective user ID (euid) of 0 to bypass intended capability restrictions.\n(CVE-2009-1883, Moderate)\n\n* a flaw was found in the way the do_sigaltstack() function in the Linux\nkernel copies the stack_t structure to user-space. On 64-bit machines, this\nflaw could lead to a four-byte information leak. (CVE-2009-2847, Moderate)\n\nBug fixes:\n\n* the gcc flag \"-fno-delete-null-pointer-checks\" was added to the kernel\nbuild options. This prevents gcc from optimizing out NULL pointer checks\nafter the first use of a pointer. NULL pointer bugs are often exploited by\nattackers. Keeping these checks is a safety measure. (BZ#517964)\n\n* the Emulex LPFC driver has been updated to version 8.0.16.47, which fixes\na memory leak that caused memory allocation failures and system hangs.\n(BZ#513192)\n\n* an error in the MPT Fusion driver makefile caused CSMI ioctls to not work\nwith Serial Attached SCSI devices. (BZ#516184)\n\n* this update adds the mmap_min_addr tunable and restriction checks to help\nprevent unprivileged users from creating new memory mappings below the\nminimum address. This can help prevent the exploitation of NULL pointer\ndeference bugs. Note that mmap_min_addr is set to zero (disabled) by\ndefault for backwards compatibility. (BZ#517904)\n\n* time-outs resulted in I/O errors being logged to \"/var/log/messages\" when\nrunning \"mt erase\" on tape drives using certain LSI MegaRAID SAS adapters,\npreventing the command from completing. The megaraid_sas driver's timeout\nvalue is now set to the OS layer value. (BZ#517965)\n\n* a locking issue caused the qla2xxx ioctl module to hang after\nencountering errors. This locking issue has been corrected. This ioctl\nmodule is used by the QLogic SAN management tools, such as SANsurfer and\nscli. (BZ#519428)\n\n* when a RAID 1 array that uses the mptscsi driver and the LSI 1030\ncontroller became degraded, the whole array was detected as being offline,\nwhich could cause kernel panics at boot or data loss. (BZ#517295)\n\n* on 32-bit architectures, if a file was held open and frequently written\nfor more than 25 days, it was possible that the kernel would stop flushing\nthose writes to storage. (BZ#515255)\n\n* a memory allocation bug in ib_mthca prevented the driver from loading if\nit was loaded with large values for the \"num_mpt=\" and \"num_mtt=\" options.\nSee Kbase link below for details. (BZ#518707)\n\n* with this update, get_random_int() is more random and no longer uses a\ncommon seed value, reducing the possibility of predicting the values\nreturned. See Kbase link below for details. (BZ#519692)\n\n* a bug in __ptrace_unlink() caused it to create deadlocked and unkillable\nprocesses. See Kbase link below for details. (BZ#519446)\n\n* previously, multiple threads using the fcntl() F_SETLK command to\nsynchronize file access caused a deadlock in posix_locks_deadlock(). This\ncould cause a system hang. (BZ#519429)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. Reboot the system for this update to take\neffect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-09-15"
+			},
+			"updated": {
+				"date": "2009-09-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-1883",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1883",
+					"impact": "moderate",
+					"public": "20090915",
+					"cvss_2": "6.9/AV:L/AC:M/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2009-1895",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1895",
+					"impact": "important",
+					"public": "20090626",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2009-2847",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2847",
+					"impact": "moderate",
+					"public": "20090731",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2009-2848",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2848",
+					"impact": "important",
+					"public": "20090731",
+					"cwe": "CWE-119",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2009-3238",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3238",
+					"impact": "important",
+					"public": "20090505",
+					"cwe": "CWE-330",
+					"cvss_2": "7.8/AV:N/AC:L/Au:N/C:C/I:N/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-1883 kernel: missing capability check in z90crypt",
+					"href": "https://bugzilla.redhat.com/505983",
+					"id": "505983"
+				},
+				{
+					"text": "CVE-2009-1895 kernel: personality: fix PER_CLEAR_ON_SETID",
+					"href": "https://bugzilla.redhat.com/511171",
+					"id": "511171"
+				},
+				{
+					"text": "CVE-2009-2847 kernel: information leak in sigaltstack",
+					"href": "https://bugzilla.redhat.com/515392",
+					"id": "515392"
+				},
+				{
+					"text": "CVE-2009-2848 kernel: execve: must clear current->clear_child_tid",
+					"href": "https://bugzilla.redhat.com/515423",
+					"id": "515423"
+				},
+				{
+					"text": "CVE-2009-3238 kernel: random: add robust get_random_u32, remove weak get_random_int",
+					"href": "https://bugzilla.redhat.com/524512",
+					"id": "524512"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20091438023",
+								"comment": "kernel earlier than 0:2.6.9-89.0.11.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20091438024",
+								"comment": "kernel earlier than 0:2.6.9-89.0.11.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438001",
+										"comment": "kernel is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091438021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.0.11.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

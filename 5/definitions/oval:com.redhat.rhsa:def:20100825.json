@@ -1,325 +1,325 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100825",
-  "version": "644",
-  "metadata": {
-    "title": "RHSA-2010:0825: mysql security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0825",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0825",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-3677",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3677",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3680",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3680",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3681",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3681",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3682",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3682",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3833",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3833",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3835",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3835",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3836",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3836",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3837",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3837",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3838",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3838",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3839",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3839",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3840",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3840",
-        "source": "CVE"
-      }
-    ],
-    "description": "MySQL is a multi-user, multi-threaded SQL database server. It consists of\nthe MySQL server daemon (mysqld) and many client programs and libraries.\n\nIt was found that the MySQL PolyFromWKB() function did not sanity check\nWell-Known Binary (WKB) data. A remote, authenticated attacker could use\nspecially-crafted WKB data to crash mysqld. This issue only caused a\ntemporary denial of service, as mysqld was automatically restarted after\nthe crash. (CVE-2010-3840)\n\nA flaw was found in the way MySQL processed certain JOIN queries. If a\nstored procedure contained JOIN queries, and that procedure was executed\ntwice in sequence, it could cause an infinite loop, leading to excessive\nCPU use (up to 100%). A remote, authenticated attacker could use this flaw\nto cause a denial of service. (CVE-2010-3839)\n\nA flaw was found in the way MySQL processed queries that provide a mixture\nof numeric and longblob data types to the LEAST or GREATEST function. A\nremote, authenticated attacker could use this flaw to crash mysqld. This\nissue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3838)\n\nA flaw was found in the way MySQL processed PREPARE statements containing\nboth GROUP_CONCAT and the WITH ROLLUP modifier. A remote, authenticated\nattacker could use this flaw to crash mysqld. This issue only caused a\ntemporary denial of service, as mysqld was automatically restarted after\nthe crash. (CVE-2010-3837)\n\nIt was found that MySQL did not properly pre-evaluate LIKE arguments in\nview prepare mode. A remote, authenticated attacker could possibly use this\nflaw to crash mysqld. (CVE-2010-3836)\n\nA flaw was found in the way MySQL processed statements that assign a value\nto a user-defined variable and that also contain a logical value\nevaluation. A remote, authenticated attacker could use this flaw to crash\nmysqld. This issue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3835)\n\nA flaw was found in the way MySQL evaluated the arguments of extreme-value\nfunctions, such as LEAST and GREATEST. A remote, authenticated attacker\ncould use this flaw to crash mysqld. This issue only caused a temporary\ndenial of service, as mysqld was automatically restarted after the crash.\n(CVE-2010-3833)\n\nA flaw was found in the way MySQL processed EXPLAIN statements for some\ncomplex SELECT queries. A remote, authenticated attacker could use this\nflaw to crash mysqld. This issue only caused a temporary denial of service,\nas mysqld was automatically restarted after the crash. (CVE-2010-3682)\n\nA flaw was found in the way MySQL processed certain alternating READ\nrequests provided by HANDLER statements. A remote, authenticated attacker\ncould use this flaw to provide such requests, causing mysqld to crash. This\nissue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3681)\n\nA flaw was found in the way MySQL processed CREATE TEMPORARY TABLE\nstatements that define NULL columns when using the InnoDB storage engine. A\nremote, authenticated attacker could use this flaw to crash mysqld. This\nissue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3680)\n\nA flaw was found in the way MySQL processed JOIN queries that attempt to\nretrieve data from a unique SET column. A remote, authenticated attacker\ncould use this flaw to crash mysqld. This issue only caused a temporary\ndenial of service, as mysqld was automatically restarted after the crash.\n(CVE-2010-3677)\n\nAll MySQL users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the MySQL server daemon (mysqld) will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-11-03"
-      },
-      "updated": {
-        "date": "2010-11-03"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-3677",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3677",
-          "impact": "moderate",
-          "public": "20100709",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3680",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3680",
-          "impact": "moderate",
-          "public": "20100709",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3681",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3681",
-          "impact": "moderate",
-          "public": "20100709",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3682",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3682",
-          "impact": "moderate",
-          "public": "20100709",
-          "cwe": "CWE-119",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3833",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3833",
-          "impact": "moderate",
-          "public": "20100808",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3835",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3835",
-          "impact": "moderate",
-          "public": "20100726",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3836",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3836",
-          "impact": "moderate",
-          "public": "20100616",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3837",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3837",
-          "impact": "moderate",
-          "public": "20100614",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3838",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3838",
-          "impact": "moderate",
-          "public": "20100614",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3839",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3839",
-          "impact": "moderate",
-          "public": "20100510",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3840",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3840",
-          "impact": "moderate",
-          "public": "20100309",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-3677 MySQL: Mysqld DoS (crash) by processing joins involving a table with a unique SET column (MySQL BZ#54575)",
-          "href": "https://bugzilla.redhat.com/628040",
-          "id": "628040"
-        },
-        {
-          "text": "CVE-2010-3680 MySQL: mysqld DoS (assertion failure) by using temporary InnoDB engine tables with nullable columns (MySQL bug #54044)",
-          "href": "https://bugzilla.redhat.com/628192",
-          "id": "628192"
-        },
-        {
-          "text": "CVE-2010-3682 MySQL: mysqld DoS (crash) by processing EXPLAIN statements for complex SQL queries (MySQL bug #52711)",
-          "href": "https://bugzilla.redhat.com/628328",
-          "id": "628328"
-        },
-        {
-          "text": "CVE-2010-3681 MySQL: mysqld DoS (assertion failure) by alternate reads from two indexes on a table using the HANDLER interface (MySQL bug #54007)",
-          "href": "https://bugzilla.redhat.com/628680",
-          "id": "628680"
-        },
-        {
-          "text": "CVE-2010-3833 MySQL: CREATE TABLE ... SELECT causes crash when KILL_BAD_DATA is returned (MySQL Bug#55826)",
-          "href": "https://bugzilla.redhat.com/640751",
-          "id": "640751"
-        },
-        {
-          "text": "CVE-2010-3835 MySQL: crash with user variables, assignments, joins... (MySQL Bug #55564)",
-          "href": "https://bugzilla.redhat.com/640819",
-          "id": "640819"
-        },
-        {
-          "text": "CVE-2010-3836 MySQL: pre-evaluating LIKE arguments in view prepare mode causes crash (MySQL Bug#54568)",
-          "href": "https://bugzilla.redhat.com/640845",
-          "id": "640845"
-        },
-        {
-          "text": "CVE-2010-3837 MySQL: crash when group_concat and \"with rollup\" in prepared statements (MySQL Bug#54476)",
-          "href": "https://bugzilla.redhat.com/640856",
-          "id": "640856"
-        },
-        {
-          "text": "CVE-2010-3838 MySQL: crash with LONGBLOB and union or update with subquery (MySQL Bug#54461)",
-          "href": "https://bugzilla.redhat.com/640858",
-          "id": "640858"
-        },
-        {
-          "text": "CVE-2010-3839 MySQL: server hangs during JOIN query in stored procedures called twice in a row (MySQL Bug#53544)",
-          "href": "https://bugzilla.redhat.com/640861",
-          "id": "640861"
-        },
-        {
-          "text": "CVE-2010-3840 MySQL: crash when loading data into geometry function PolyFromWKB() (MySQL Bug#51875)",
-          "href": "https://bugzilla.redhat.com/640865",
-          "id": "640865"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100825001",
-                    "comment": "mysql is earlier than 0:5.0.77-4.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070875002",
-                    "comment": "mysql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100825003",
-                    "comment": "mysql-bench is earlier than 0:5.0.77-4.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070875004",
-                    "comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100825005",
-                    "comment": "mysql-devel is earlier than 0:5.0.77-4.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070875006",
-                    "comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100825007",
-                    "comment": "mysql-server is earlier than 0:5.0.77-4.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070875008",
-                    "comment": "mysql-server is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100825009",
-                    "comment": "mysql-test is earlier than 0:5.0.77-4.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070875015",
-                    "comment": "mysql-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100825",
+	"version": "644",
+	"metadata": {
+		"title": "RHSA-2010:0825: mysql security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0825",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0825",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-3677",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3677",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3680",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3680",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3681",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3681",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3682",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3682",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3833",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3833",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3835",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3835",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3836",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3836",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3837",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3837",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3838",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3838",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3839",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3839",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3840",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3840",
+				"source": "CVE"
+			}
+		],
+		"description": "MySQL is a multi-user, multi-threaded SQL database server. It consists of\nthe MySQL server daemon (mysqld) and many client programs and libraries.\n\nIt was found that the MySQL PolyFromWKB() function did not sanity check\nWell-Known Binary (WKB) data. A remote, authenticated attacker could use\nspecially-crafted WKB data to crash mysqld. This issue only caused a\ntemporary denial of service, as mysqld was automatically restarted after\nthe crash. (CVE-2010-3840)\n\nA flaw was found in the way MySQL processed certain JOIN queries. If a\nstored procedure contained JOIN queries, and that procedure was executed\ntwice in sequence, it could cause an infinite loop, leading to excessive\nCPU use (up to 100%). A remote, authenticated attacker could use this flaw\nto cause a denial of service. (CVE-2010-3839)\n\nA flaw was found in the way MySQL processed queries that provide a mixture\nof numeric and longblob data types to the LEAST or GREATEST function. A\nremote, authenticated attacker could use this flaw to crash mysqld. This\nissue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3838)\n\nA flaw was found in the way MySQL processed PREPARE statements containing\nboth GROUP_CONCAT and the WITH ROLLUP modifier. A remote, authenticated\nattacker could use this flaw to crash mysqld. This issue only caused a\ntemporary denial of service, as mysqld was automatically restarted after\nthe crash. (CVE-2010-3837)\n\nIt was found that MySQL did not properly pre-evaluate LIKE arguments in\nview prepare mode. A remote, authenticated attacker could possibly use this\nflaw to crash mysqld. (CVE-2010-3836)\n\nA flaw was found in the way MySQL processed statements that assign a value\nto a user-defined variable and that also contain a logical value\nevaluation. A remote, authenticated attacker could use this flaw to crash\nmysqld. This issue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3835)\n\nA flaw was found in the way MySQL evaluated the arguments of extreme-value\nfunctions, such as LEAST and GREATEST. A remote, authenticated attacker\ncould use this flaw to crash mysqld. This issue only caused a temporary\ndenial of service, as mysqld was automatically restarted after the crash.\n(CVE-2010-3833)\n\nA flaw was found in the way MySQL processed EXPLAIN statements for some\ncomplex SELECT queries. A remote, authenticated attacker could use this\nflaw to crash mysqld. This issue only caused a temporary denial of service,\nas mysqld was automatically restarted after the crash. (CVE-2010-3682)\n\nA flaw was found in the way MySQL processed certain alternating READ\nrequests provided by HANDLER statements. A remote, authenticated attacker\ncould use this flaw to provide such requests, causing mysqld to crash. This\nissue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3681)\n\nA flaw was found in the way MySQL processed CREATE TEMPORARY TABLE\nstatements that define NULL columns when using the InnoDB storage engine. A\nremote, authenticated attacker could use this flaw to crash mysqld. This\nissue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3680)\n\nA flaw was found in the way MySQL processed JOIN queries that attempt to\nretrieve data from a unique SET column. A remote, authenticated attacker\ncould use this flaw to crash mysqld. This issue only caused a temporary\ndenial of service, as mysqld was automatically restarted after the crash.\n(CVE-2010-3677)\n\nAll MySQL users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the MySQL server daemon (mysqld) will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-11-03"
+			},
+			"updated": {
+				"date": "2010-11-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-3677",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3677",
+					"impact": "moderate",
+					"public": "20100709",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3680",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3680",
+					"impact": "moderate",
+					"public": "20100709",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3681",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3681",
+					"impact": "moderate",
+					"public": "20100709",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3682",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3682",
+					"impact": "moderate",
+					"public": "20100709",
+					"cwe": "CWE-119",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3833",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3833",
+					"impact": "moderate",
+					"public": "20100808",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3835",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3835",
+					"impact": "moderate",
+					"public": "20100726",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3836",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3836",
+					"impact": "moderate",
+					"public": "20100616",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3837",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3837",
+					"impact": "moderate",
+					"public": "20100614",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3838",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3838",
+					"impact": "moderate",
+					"public": "20100614",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3839",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3839",
+					"impact": "moderate",
+					"public": "20100510",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3840",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3840",
+					"impact": "moderate",
+					"public": "20100309",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-3677 MySQL: Mysqld DoS (crash) by processing joins involving a table with a unique SET column (MySQL BZ#54575)",
+					"href": "https://bugzilla.redhat.com/628040",
+					"id": "628040"
+				},
+				{
+					"text": "CVE-2010-3680 MySQL: mysqld DoS (assertion failure) by using temporary InnoDB engine tables with nullable columns (MySQL bug #54044)",
+					"href": "https://bugzilla.redhat.com/628192",
+					"id": "628192"
+				},
+				{
+					"text": "CVE-2010-3682 MySQL: mysqld DoS (crash) by processing EXPLAIN statements for complex SQL queries (MySQL bug #52711)",
+					"href": "https://bugzilla.redhat.com/628328",
+					"id": "628328"
+				},
+				{
+					"text": "CVE-2010-3681 MySQL: mysqld DoS (assertion failure) by alternate reads from two indexes on a table using the HANDLER interface (MySQL bug #54007)",
+					"href": "https://bugzilla.redhat.com/628680",
+					"id": "628680"
+				},
+				{
+					"text": "CVE-2010-3833 MySQL: CREATE TABLE ... SELECT causes crash when KILL_BAD_DATA is returned (MySQL Bug#55826)",
+					"href": "https://bugzilla.redhat.com/640751",
+					"id": "640751"
+				},
+				{
+					"text": "CVE-2010-3835 MySQL: crash with user variables, assignments, joins... (MySQL Bug #55564)",
+					"href": "https://bugzilla.redhat.com/640819",
+					"id": "640819"
+				},
+				{
+					"text": "CVE-2010-3836 MySQL: pre-evaluating LIKE arguments in view prepare mode causes crash (MySQL Bug#54568)",
+					"href": "https://bugzilla.redhat.com/640845",
+					"id": "640845"
+				},
+				{
+					"text": "CVE-2010-3837 MySQL: crash when group_concat and \"with rollup\" in prepared statements (MySQL Bug#54476)",
+					"href": "https://bugzilla.redhat.com/640856",
+					"id": "640856"
+				},
+				{
+					"text": "CVE-2010-3838 MySQL: crash with LONGBLOB and union or update with subquery (MySQL Bug#54461)",
+					"href": "https://bugzilla.redhat.com/640858",
+					"id": "640858"
+				},
+				{
+					"text": "CVE-2010-3839 MySQL: server hangs during JOIN query in stored procedures called twice in a row (MySQL Bug#53544)",
+					"href": "https://bugzilla.redhat.com/640861",
+					"id": "640861"
+				},
+				{
+					"text": "CVE-2010-3840 MySQL: crash when loading data into geometry function PolyFromWKB() (MySQL Bug#51875)",
+					"href": "https://bugzilla.redhat.com/640865",
+					"id": "640865"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100825001",
+										"comment": "mysql is earlier than 0:5.0.77-4.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070875002",
+										"comment": "mysql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100825003",
+										"comment": "mysql-bench is earlier than 0:5.0.77-4.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070875004",
+										"comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100825005",
+										"comment": "mysql-devel is earlier than 0:5.0.77-4.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070875006",
+										"comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100825007",
+										"comment": "mysql-server is earlier than 0:5.0.77-4.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070875008",
+										"comment": "mysql-server is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100825009",
+										"comment": "mysql-test is earlier than 0:5.0.77-4.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070875015",
+										"comment": "mysql-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,128 +1,128 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120349",
-  "version": "632",
-  "metadata": {
-    "title": "RHSA-2012:0349: Red Hat Enterprise Linux 4 - Transition to Extended Life Phase Notice (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0349",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0349",
-        "source": "RHSA"
-      }
-    ],
-    "description": "On March 01, 2012, all Red Hat Enterprise Linux 4-based products listed\nbelow transition from the Production Phase to the Extended Life Phase:\n\nRed Hat Enterprise Linux AS 4\nRed Hat Enterprise Linux ES 4\nRed Hat Enterprise Linux WS 4\nRed Hat Desktop 4\nRed Hat Global File System 4\nRed Hat Cluster Suite 4\n\nRed Hat offers support and services for each major release of Red Hat\nEnterprise Linux throughout four phases – Production 1, 2, and 3, and\nExtended Life Phase. For Red Hat Enterprise Linux 4, the Production Phase\nspans seven years, followed by a three-year Extended Life Phase. Together,\nthese four phases constitute the \"life cycle\". The specific support and\nservices provided during each phase is described in detail at:\nhttp://redhat.com/rhel/lifecycle\n\nOn March 01, 2012, Red Hat Enterprise Linux 4 systems continue to be\nsubscribed to Red Hat Enterprise Linux 4 channels on Red Hat Network\n(RHN), continue to require a Red Hat Enterprise Linux entitlement, and\ncontinue to have access to:\n\n* Limited technical support for existing Red Hat Enterprise Linux 4\n  deployments (for customers with Basic, Premium, or Standard support).\n\n* Previously released bug fixes (RHBAs), security errata (RHSAs), and\n  product enhancements (RHEAs) via RHN. Software maintenance (new bug fix\n  and security errata) are no longer provided for the Red Hat Enterprise\n  Linux 4 product family.\n\n* Red Hat Knowledgebase and other content (white papers, reference\n  architectures, etc.) found in the Red Hat Customer Portal.\n\n* Red Hat Enterprise Linux 4 documentation.\n\nPlease also note that new bug fix, security, or product enhancements\nadvisories (RHBAs, RHSAs, and RHEAs) are no longer provided for the Red\nHat Enterprise Linux 4 Add-Ons after March 01.\n\nAfter March 01, you have several options. Your Red Hat subscription gives\nyou continuous access to all active versions of the Red Hat software in\nboth binary and source form, including all security updates and bug fixes.\nAs Red Hat Enterprise Linux 4 transitions out of the Production Phase, we\nstrongly recommend that you take full advantage of your subscription\nservices and upgrade to Red Hat Enterprise Linux 5 or 6, which contain\ncompelling new features and enablement for modern hardware platforms and\nISV applications.\n\nIf you must remain on Red Hat Enterprise Linux 4, we recommend that you\nadd the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On\nsubscription to your current Red Hat Enterprise Linux subscription. The\nELS Add-On complements your Red Hat Enterprise Linux subscription and\nprovides software maintenance services not otherwise available in the\nExtended Life Phase. Customers who purchase the ELS Add-On continue to\nreceive software maintenance (critical impact security and urgent priority\nbug fixes) and technical support as provided in the Production 3 Phase.\nELS is available for up to three years and requires that you have an\nexisting Red Hat Enterprise Linux subscription with equivalent\nsubscription terms and support level.\n\nFor more information on the Red Hat Enterprise Linux ELS Add-On, visit:\nhttp://www.redhat.com/products/enterprise-linux-add-ons/extended-lifecycle-support/",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-03-01"
-      },
-      "updated": {
-        "date": "2012-03-01"
-      },
-      "bugzilla": [
-        {
-          "text": "Send Out RHEL 4 Transition to Extended Life Phase Notice",
-          "href": "https://bugzilla.redhat.com/786375",
-          "id": "786375"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120349001",
-                    "comment": "redhat-release is earlier than 0:4Desktop-10.10"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
-                    "comment": "redhat-release is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120349003",
-                    "comment": "redhat-release is earlier than 0:4WS-10.10"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
-                    "comment": "redhat-release is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120349004",
-                    "comment": "redhat-release is earlier than 0:4ES-10.10"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
-                    "comment": "redhat-release is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120349005",
-                    "comment": "redhat-release is earlier than 0:4AS-10.10"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110219002",
-                    "comment": "redhat-release is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120349",
+	"version": "632",
+	"metadata": {
+		"title": "RHSA-2012:0349: Red Hat Enterprise Linux 4 - Transition to Extended Life Phase Notice (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0349",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0349",
+				"source": "RHSA"
+			}
+		],
+		"description": "On March 01, 2012, all Red Hat Enterprise Linux 4-based products listed\nbelow transition from the Production Phase to the Extended Life Phase:\n\nRed Hat Enterprise Linux AS 4\nRed Hat Enterprise Linux ES 4\nRed Hat Enterprise Linux WS 4\nRed Hat Desktop 4\nRed Hat Global File System 4\nRed Hat Cluster Suite 4\n\nRed Hat offers support and services for each major release of Red Hat\nEnterprise Linux throughout four phases – Production 1, 2, and 3, and\nExtended Life Phase. For Red Hat Enterprise Linux 4, the Production Phase\nspans seven years, followed by a three-year Extended Life Phase. Together,\nthese four phases constitute the \"life cycle\". The specific support and\nservices provided during each phase is described in detail at:\nhttp://redhat.com/rhel/lifecycle\n\nOn March 01, 2012, Red Hat Enterprise Linux 4 systems continue to be\nsubscribed to Red Hat Enterprise Linux 4 channels on Red Hat Network\n(RHN), continue to require a Red Hat Enterprise Linux entitlement, and\ncontinue to have access to:\n\n* Limited technical support for existing Red Hat Enterprise Linux 4\n  deployments (for customers with Basic, Premium, or Standard support).\n\n* Previously released bug fixes (RHBAs), security errata (RHSAs), and\n  product enhancements (RHEAs) via RHN. Software maintenance (new bug fix\n  and security errata) are no longer provided for the Red Hat Enterprise\n  Linux 4 product family.\n\n* Red Hat Knowledgebase and other content (white papers, reference\n  architectures, etc.) found in the Red Hat Customer Portal.\n\n* Red Hat Enterprise Linux 4 documentation.\n\nPlease also note that new bug fix, security, or product enhancements\nadvisories (RHBAs, RHSAs, and RHEAs) are no longer provided for the Red\nHat Enterprise Linux 4 Add-Ons after March 01.\n\nAfter March 01, you have several options. Your Red Hat subscription gives\nyou continuous access to all active versions of the Red Hat software in\nboth binary and source form, including all security updates and bug fixes.\nAs Red Hat Enterprise Linux 4 transitions out of the Production Phase, we\nstrongly recommend that you take full advantage of your subscription\nservices and upgrade to Red Hat Enterprise Linux 5 or 6, which contain\ncompelling new features and enablement for modern hardware platforms and\nISV applications.\n\nIf you must remain on Red Hat Enterprise Linux 4, we recommend that you\nadd the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On\nsubscription to your current Red Hat Enterprise Linux subscription. The\nELS Add-On complements your Red Hat Enterprise Linux subscription and\nprovides software maintenance services not otherwise available in the\nExtended Life Phase. Customers who purchase the ELS Add-On continue to\nreceive software maintenance (critical impact security and urgent priority\nbug fixes) and technical support as provided in the Production 3 Phase.\nELS is available for up to three years and requires that you have an\nexisting Red Hat Enterprise Linux subscription with equivalent\nsubscription terms and support level.\n\nFor more information on the Red Hat Enterprise Linux ELS Add-On, visit:\nhttp://www.redhat.com/products/enterprise-linux-add-ons/extended-lifecycle-support/",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-03-01"
+			},
+			"updated": {
+				"date": "2012-03-01"
+			},
+			"bugzilla": [
+				{
+					"text": "Send Out RHEL 4 Transition to Extended Life Phase Notice",
+					"href": "https://bugzilla.redhat.com/786375",
+					"id": "786375"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120349001",
+										"comment": "redhat-release is earlier than 0:4Desktop-10.10"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+										"comment": "redhat-release is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120349003",
+										"comment": "redhat-release is earlier than 0:4WS-10.10"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+										"comment": "redhat-release is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120349004",
+										"comment": "redhat-release is earlier than 0:4ES-10.10"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+										"comment": "redhat-release is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120349005",
+										"comment": "redhat-release is earlier than 0:4AS-10.10"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110219002",
+										"comment": "redhat-release is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

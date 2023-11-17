@@ -1,111 +1,111 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070345",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0345: vixie-cron security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0345",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0345",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-1856",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1856",
-        "source": "CVE"
-      }
-    ],
-    "description": "The vixie-cron package contains the Vixie version of cron. Cron is a\nstandard UNIX daemon that runs specified programs at scheduled times.\n\nRaphael Marichez discovered a denial of service bug in the way vixie-cron\nverifies crontab file integrity. A local user with the ability to create a\nhardlink to /etc/crontab can prevent vixie-cron from executing certain\nsystem  cron jobs. (CVE-2007-1856)\n\nAll users of vixie-cron should upgrade to these updated packages, which\ncontain a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-05-17"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-1856",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-1856",
-          "impact": "moderate",
-          "public": "20070410"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-1856 crontab denial of service",
-          "href": "https://bugzilla.redhat.com/235882",
-          "id": "235882"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070345001",
-            "comment": "vixie-cron is earlier than 4:4.1-47.EL4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070345002",
-            "comment": "vixie-cron is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070345004",
-            "comment": "vixie-cron is earlier than 4:4.1-70.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070345002",
-            "comment": "vixie-cron is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070345",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0345: vixie-cron security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0345",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0345",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-1856",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-1856",
+				"source": "CVE"
+			}
+		],
+		"description": "The vixie-cron package contains the Vixie version of cron. Cron is a\nstandard UNIX daemon that runs specified programs at scheduled times.\n\nRaphael Marichez discovered a denial of service bug in the way vixie-cron\nverifies crontab file integrity. A local user with the ability to create a\nhardlink to /etc/crontab can prevent vixie-cron from executing certain\nsystem  cron jobs. (CVE-2007-1856)\n\nAll users of vixie-cron should upgrade to these updated packages, which\ncontain a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-05-17"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-1856",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-1856",
+					"impact": "moderate",
+					"public": "20070410"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-1856 crontab denial of service",
+					"href": "https://bugzilla.redhat.com/235882",
+					"id": "235882"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070345001",
+						"comment": "vixie-cron is earlier than 4:4.1-47.EL4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070345002",
+						"comment": "vixie-cron is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070345004",
+						"comment": "vixie-cron is earlier than 4:4.1-70.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070345002",
+						"comment": "vixie-cron is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

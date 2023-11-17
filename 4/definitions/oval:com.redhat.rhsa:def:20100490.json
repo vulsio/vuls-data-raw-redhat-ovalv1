@@ -1,238 +1,238 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100490",
-  "version": "645",
-  "metadata": {
-    "title": "RHSA-2010:0490: cups security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0490",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0490",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-0540",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0540",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-0542",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0542",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1748",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1748",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX operating systems. The CUPS \"texttops\" filter converts text files\nto PostScript.\n\nA missing memory allocation failure check flaw, leading to a NULL pointer\ndereference, was found in the CUPS \"texttops\" filter. An attacker could\ncreate a malicious text file that would cause \"texttops\" to crash or,\npotentially, execute arbitrary code as the \"lp\" user if the file was\nprinted. (CVE-2010-0542)\n\nA Cross-Site Request Forgery (CSRF) issue was found in the CUPS web\ninterface. If a remote attacker could trick a user, who is logged into the\nCUPS web interface as an administrator, into visiting a specially-crafted\nwebsite, the attacker could reconfigure and disable CUPS, and gain access\nto print jobs and system files. (CVE-2010-0540)\n\nNote: As a result of the fix for CVE-2010-0540, cookies must now be enabled\nin your web browser to use the CUPS web interface.\n\nAn uninitialized memory read issue was found in the CUPS web interface. If\nan attacker had access to the CUPS web interface, they could use a\nspecially-crafted URL to leverage this flaw to read a limited amount of\nmemory from the cupsd process, possibly obtaining sensitive information.\n(CVE-2010-1748)\n\nRed Hat would like to thank the Apple Product Security team for responsibly\nreporting these issues. Upstream acknowledges regenrecht as the original\nreporter of CVE-2010-0542; Adrian 'pagvac' Pastor of GNUCITIZEN and Tim\nStarling as the original reporters of CVE-2010-0540; and Luca Carettoni as\nthe original reporter of CVE-2010-1748.\n\nUsers of cups are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the cupsd daemon will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-06-17"
-      },
-      "updated": {
-        "date": "2010-06-17"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-0540",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0540",
-          "impact": "moderate",
-          "public": "20100615",
-          "cwe": "CWE-352",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-0542",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0542",
-          "impact": "important",
-          "public": "20100617",
-          "cwe": "CWE-476",
-          "cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1748",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1748",
-          "impact": "moderate",
-          "public": "20100614",
-          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:P/I:N/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-0542 CUPS: texttops unchecked memory allocation failure leading to NULL pointer dereference",
-          "href": "https://bugzilla.redhat.com/587746",
-          "id": "587746"
-        },
-        {
-          "text": "CVE-2010-0540 CUPS administrator web interface CSRF",
-          "href": "https://bugzilla.redhat.com/588805",
-          "id": "588805"
-        },
-        {
-          "text": "CVE-2010-1748 cups: web interface memory disclosure",
-          "href": "https://bugzilla.redhat.com/591983",
-          "id": "591983"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100490001",
-                    "comment": "cups is earlier than 1:1.1.22-0.rc1.9.32.el4_8.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163002",
-                    "comment": "cups is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100490003",
-                    "comment": "cups-devel is earlier than 1:1.1.22-0.rc1.9.32.el4_8.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163004",
-                    "comment": "cups-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100490005",
-                    "comment": "cups-libs is earlier than 1:1.1.22-0.rc1.9.32.el4_8.6"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163006",
-                    "comment": "cups-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100490008",
-                    "comment": "cups is earlier than 1:1.3.7-18.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163002",
-                    "comment": "cups is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100490009",
-                    "comment": "cups-devel is earlier than 1:1.3.7-18.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163004",
-                    "comment": "cups-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100490010",
-                    "comment": "cups-libs is earlier than 1:1.3.7-18.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163006",
-                    "comment": "cups-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100490011",
-                    "comment": "cups-lpd is earlier than 1:1.3.7-18.el5_5.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070123012",
-                    "comment": "cups-lpd is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100490",
+	"version": "645",
+	"metadata": {
+		"title": "RHSA-2010:0490: cups security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0490",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0490",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-0540",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0540",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-0542",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0542",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1748",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1748",
+				"source": "CVE"
+			}
+		],
+		"description": "The Common UNIX Printing System (CUPS) provides a portable printing layer\nfor UNIX operating systems. The CUPS \"texttops\" filter converts text files\nto PostScript.\n\nA missing memory allocation failure check flaw, leading to a NULL pointer\ndereference, was found in the CUPS \"texttops\" filter. An attacker could\ncreate a malicious text file that would cause \"texttops\" to crash or,\npotentially, execute arbitrary code as the \"lp\" user if the file was\nprinted. (CVE-2010-0542)\n\nA Cross-Site Request Forgery (CSRF) issue was found in the CUPS web\ninterface. If a remote attacker could trick a user, who is logged into the\nCUPS web interface as an administrator, into visiting a specially-crafted\nwebsite, the attacker could reconfigure and disable CUPS, and gain access\nto print jobs and system files. (CVE-2010-0540)\n\nNote: As a result of the fix for CVE-2010-0540, cookies must now be enabled\nin your web browser to use the CUPS web interface.\n\nAn uninitialized memory read issue was found in the CUPS web interface. If\nan attacker had access to the CUPS web interface, they could use a\nspecially-crafted URL to leverage this flaw to read a limited amount of\nmemory from the cupsd process, possibly obtaining sensitive information.\n(CVE-2010-1748)\n\nRed Hat would like to thank the Apple Product Security team for responsibly\nreporting these issues. Upstream acknowledges regenrecht as the original\nreporter of CVE-2010-0542; Adrian 'pagvac' Pastor of GNUCITIZEN and Tim\nStarling as the original reporters of CVE-2010-0540; and Luca Carettoni as\nthe original reporter of CVE-2010-1748.\n\nUsers of cups are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the cupsd daemon will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-06-17"
+			},
+			"updated": {
+				"date": "2010-06-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-0540",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0540",
+					"impact": "moderate",
+					"public": "20100615",
+					"cwe": "CWE-352",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-0542",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0542",
+					"impact": "important",
+					"public": "20100617",
+					"cwe": "CWE-476",
+					"cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1748",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1748",
+					"impact": "moderate",
+					"public": "20100614",
+					"cvss_2": "3.3/AV:A/AC:L/Au:N/C:P/I:N/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-0542 CUPS: texttops unchecked memory allocation failure leading to NULL pointer dereference",
+					"href": "https://bugzilla.redhat.com/587746",
+					"id": "587746"
+				},
+				{
+					"text": "CVE-2010-0540 CUPS administrator web interface CSRF",
+					"href": "https://bugzilla.redhat.com/588805",
+					"id": "588805"
+				},
+				{
+					"text": "CVE-2010-1748 cups: web interface memory disclosure",
+					"href": "https://bugzilla.redhat.com/591983",
+					"id": "591983"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100490001",
+										"comment": "cups is earlier than 1:1.1.22-0.rc1.9.32.el4_8.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163002",
+										"comment": "cups is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100490003",
+										"comment": "cups-devel is earlier than 1:1.1.22-0.rc1.9.32.el4_8.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163004",
+										"comment": "cups-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100490005",
+										"comment": "cups-libs is earlier than 1:1.1.22-0.rc1.9.32.el4_8.6"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163006",
+										"comment": "cups-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100490008",
+										"comment": "cups is earlier than 1:1.3.7-18.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163002",
+										"comment": "cups is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100490009",
+										"comment": "cups-devel is earlier than 1:1.3.7-18.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163004",
+										"comment": "cups-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100490010",
+										"comment": "cups-libs is earlier than 1:1.3.7-18.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163006",
+										"comment": "cups-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100490011",
+										"comment": "cups-lpd is earlier than 1:1.3.7-18.el5_5.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070123012",
+										"comment": "cups-lpd is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

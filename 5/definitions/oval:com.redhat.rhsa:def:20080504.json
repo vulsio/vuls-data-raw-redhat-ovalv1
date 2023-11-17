@@ -1,232 +1,232 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080504",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2008:0504: xorg-x11-server security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0504",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0504",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1377",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1377",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-1379",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1379",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2360",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2360",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2361",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2361",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2362",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2362",
-        "source": "CVE"
-      }
-    ],
-    "description": "X.Org is an open source implementation of the X Window System. It provides\nbasic low-level functionality that full-fledged graphical user interfaces\nare designed upon.\n\nAn input validation flaw was discovered in X.org's Security and Record\nextensions. A malicious authorized client could exploit this issue to cause\na denial of service (crash) or, potentially, execute arbitrary code with\nroot privileges on the X.Org server. (CVE-2008-1377)\n\nMultiple integer overflow flaws were found in X.org's Render extension. A\nmalicious authorized client could exploit these issues to cause a denial of\nservice (crash) or, potentially, execute arbitrary code with root\nprivileges on the X.Org server. (CVE-2008-2360, CVE-2008-2361,\nCVE-2008-2362)\n\nAn input validation flaw was discovered in X.org's MIT-SHM extension. A\nclient connected to the X.org server could read arbitrary server memory.\nThis could result in the sensitive data of other users of the X.org server\nbeing disclosed. (CVE-2008-1379)\n\nUsers of xorg-x11-server should upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-06-11"
-      },
-      "updated": {
-        "date": "2008-06-13"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1377",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1377",
-          "impact": "important",
-          "public": "20080611"
-        },
-        {
-          "text": "CVE-2008-1379",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1379",
-          "impact": "moderate",
-          "public": "20080611"
-        },
-        {
-          "text": "CVE-2008-2360",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2360",
-          "impact": "important",
-          "public": "20080611",
-          "cwe": "CWE-122"
-        },
-        {
-          "text": "CVE-2008-2361",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2361",
-          "impact": "important",
-          "public": "20080611"
-        },
-        {
-          "text": "CVE-2008-2362",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2362",
-          "impact": "important",
-          "public": "20080611",
-          "cwe": "CWE-20"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1377 X.org Record and Security extensions memory corruption",
-          "href": "https://bugzilla.redhat.com/445403",
-          "id": "445403"
-        },
-        {
-          "text": "CVE-2008-1379 X.org MIT-SHM extension arbitrary memory read",
-          "href": "https://bugzilla.redhat.com/445414",
-          "id": "445414"
-        },
-        {
-          "text": "CVE-2008-2360 X.org Render extension AllocateGlyph() heap buffer overflow",
-          "href": "https://bugzilla.redhat.com/448783",
-          "id": "448783"
-        },
-        {
-          "text": "CVE-2008-2361 X.org Render extension ProcRenderCreateCursor() crash",
-          "href": "https://bugzilla.redhat.com/448784",
-          "id": "448784"
-        },
-        {
-          "text": "CVE-2008-2362 X.org Render extension input validation flaw causing memory corruption",
-          "href": "https://bugzilla.redhat.com/448785",
-          "id": "448785"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080504001",
-                    "comment": "xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.41.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070127002",
-                    "comment": "xorg-x11-server-Xdmx is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080504003",
-                    "comment": "xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.41.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070127004",
-                    "comment": "xorg-x11-server-Xephyr is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080504005",
-                    "comment": "xorg-x11-server-Xnest is earlier than 0:1.1.1-48.41.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070127006",
-                    "comment": "xorg-x11-server-Xnest is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080504007",
-                    "comment": "xorg-x11-server-Xorg is earlier than 0:1.1.1-48.41.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070127008",
-                    "comment": "xorg-x11-server-Xorg is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080504009",
-                    "comment": "xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.41.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070127010",
-                    "comment": "xorg-x11-server-Xvfb is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080504011",
-                    "comment": "xorg-x11-server-sdk is earlier than 0:1.1.1-48.41.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070127012",
-                    "comment": "xorg-x11-server-sdk is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080504",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2008:0504: xorg-x11-server security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0504",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0504",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1377",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1377",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-1379",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1379",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2360",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2360",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2361",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2361",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2362",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2362",
+				"source": "CVE"
+			}
+		],
+		"description": "X.Org is an open source implementation of the X Window System. It provides\nbasic low-level functionality that full-fledged graphical user interfaces\nare designed upon.\n\nAn input validation flaw was discovered in X.org's Security and Record\nextensions. A malicious authorized client could exploit this issue to cause\na denial of service (crash) or, potentially, execute arbitrary code with\nroot privileges on the X.Org server. (CVE-2008-1377)\n\nMultiple integer overflow flaws were found in X.org's Render extension. A\nmalicious authorized client could exploit these issues to cause a denial of\nservice (crash) or, potentially, execute arbitrary code with root\nprivileges on the X.Org server. (CVE-2008-2360, CVE-2008-2361,\nCVE-2008-2362)\n\nAn input validation flaw was discovered in X.org's MIT-SHM extension. A\nclient connected to the X.org server could read arbitrary server memory.\nThis could result in the sensitive data of other users of the X.org server\nbeing disclosed. (CVE-2008-1379)\n\nUsers of xorg-x11-server should upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-06-11"
+			},
+			"updated": {
+				"date": "2008-06-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1377",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1377",
+					"impact": "important",
+					"public": "20080611"
+				},
+				{
+					"text": "CVE-2008-1379",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1379",
+					"impact": "moderate",
+					"public": "20080611"
+				},
+				{
+					"text": "CVE-2008-2360",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2360",
+					"impact": "important",
+					"public": "20080611",
+					"cwe": "CWE-122"
+				},
+				{
+					"text": "CVE-2008-2361",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2361",
+					"impact": "important",
+					"public": "20080611"
+				},
+				{
+					"text": "CVE-2008-2362",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2362",
+					"impact": "important",
+					"public": "20080611",
+					"cwe": "CWE-20"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1377 X.org Record and Security extensions memory corruption",
+					"href": "https://bugzilla.redhat.com/445403",
+					"id": "445403"
+				},
+				{
+					"text": "CVE-2008-1379 X.org MIT-SHM extension arbitrary memory read",
+					"href": "https://bugzilla.redhat.com/445414",
+					"id": "445414"
+				},
+				{
+					"text": "CVE-2008-2360 X.org Render extension AllocateGlyph() heap buffer overflow",
+					"href": "https://bugzilla.redhat.com/448783",
+					"id": "448783"
+				},
+				{
+					"text": "CVE-2008-2361 X.org Render extension ProcRenderCreateCursor() crash",
+					"href": "https://bugzilla.redhat.com/448784",
+					"id": "448784"
+				},
+				{
+					"text": "CVE-2008-2362 X.org Render extension input validation flaw causing memory corruption",
+					"href": "https://bugzilla.redhat.com/448785",
+					"id": "448785"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080504001",
+										"comment": "xorg-x11-server-Xdmx is earlier than 0:1.1.1-48.41.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070127002",
+										"comment": "xorg-x11-server-Xdmx is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080504003",
+										"comment": "xorg-x11-server-Xephyr is earlier than 0:1.1.1-48.41.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070127004",
+										"comment": "xorg-x11-server-Xephyr is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080504005",
+										"comment": "xorg-x11-server-Xnest is earlier than 0:1.1.1-48.41.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070127006",
+										"comment": "xorg-x11-server-Xnest is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080504007",
+										"comment": "xorg-x11-server-Xorg is earlier than 0:1.1.1-48.41.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070127008",
+										"comment": "xorg-x11-server-Xorg is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080504009",
+										"comment": "xorg-x11-server-Xvfb is earlier than 0:1.1.1-48.41.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070127010",
+										"comment": "xorg-x11-server-Xvfb is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080504011",
+										"comment": "xorg-x11-server-sdk is earlier than 0:1.1.1-48.41.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070127012",
+										"comment": "xorg-x11-server-sdk is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

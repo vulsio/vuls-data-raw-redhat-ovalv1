@@ -1,128 +1,128 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20111019",
-  "version": "648",
-  "metadata": {
-    "title": "RHSA-2011:1019: libvirt security, bug fix, and enhancement update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:1019",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1019",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-2511",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2511",
-        "source": "CVE"
-      }
-    ],
-    "description": "The libvirt library is a C API for managing and interacting with the\nvirtualization capabilities of Linux and other operating systems.\n\nAn integer overflow flaw was found in libvirtd's RPC call handling. An\nattacker able to establish read-only connections to libvirtd could trigger\nthis flaw by calling virDomainGetVcpus() with specially-crafted parameters,\ncausing libvirtd to crash. (CVE-2011-2511)\n\nThis update fixes the following bugs:\n\n* libvirt was rebased from version 0.6.3 to version 0.8.2 in Red Hat\nEnterprise Linux 5.6. A code audit found a minor API change that effected\nerror messages seen by libvirt 0.8.2 clients talking to libvirt 0.7.1 –\n0.7.7 (0.7.x) servers. A libvirt 0.7.x server could send\nVIR_ERR_BUILD_FIREWALL errors where a libvirt 0.8.2 client expected\nVIR_ERR_CONFIG_UNSUPPORTED errors. In other circumstances, a libvirt 0.8.2\nclient saw a \"Timed out during operation\" message where it should see an\n\"Invalid network filter\" error. This update adds a backported patch that\nallows libvirt 0.8.2 clients to interoperate with the API as used by\nlibvirt 0.7.x servers, ensuring correct error messages are sent.\n(BZ#665075)\n\n* libvirt could crash if the maximum number of open file descriptors\n(_SC_OPEN_MAX) grew larger than the FD_SETSIZE value because it accessed\nfile descriptors outside the bounds of the set. With this update the\nmaximum number of open file descriptors can no longer grow larger than the\nFD_SETSIZE value. (BZ#665549)\n\n* A libvirt race condition was found. An array in the libvirt event\nhandlers was accessed with a lock temporarily released. In rare cases, if\none thread attempted to access this array but a second thread reallocated\nthe array before the first thread reacquired a lock, it could lead to the\nfirst thread attempting to access freed memory, potentially causing libvirt\nto crash. With this update libvirt no longer refers to the old array and,\nconsequently, behaves as expected. (BZ#671569)\n\n* Guests connected to a passthrough NIC would kernel panic if a\nsystem_reset signal was sent through the QEMU monitor. With this update you\ncan reset such guests as expected. (BZ#689880)\n\n* When using the Xen kernel, the rpmbuild command failed on the xencapstest\ntest. With this update you can run rpmbuild successfully when using the Xen\nkernel. (BZ#690459)\n\n* When a disk was hot unplugged, \"ret >= 0\" was passed to the qemuAuditDisk\ncalls in disk hotunplug operations before ret was, in fact, set to 0. As\nwell, the error path jumped to the \"cleanup\" label prematurely. As a\nconsequence, hotunplug failures were not audited and hotunplug successes\nwere audited as failures. This was corrected and hot unplugging checks now\nbehave as expected. (BZ#710151)\n\n* A conflict existed between filter update locking sequences and virtual\nmachine startup locking sequences. When a filter update occurred on one or\nmore virtual machines, a deadlock could consequently occur if a virtual\nmachine referencing a filter was started. This update changes and makes\nmore flexible several qemu locking sequences ensuring this deadlock no\nlonger occurs. (BZ#697749)\n\n* qemudDomainSaveImageStartVM closed some incoming file descriptor (fd)\narguments without informing the caller. The consequent double-closes could\ncause Domain restoration failure. This update alters the\nqemudDomainSaveImageStartVM signature to prevent the double-closes.\n(BZ#681623)\n\nThis update also adds the following enhancements:\n\n* The libvirt Xen driver now supports more than one serial port.\n(BZ#670789)\n\n* Enabling and disabling the High Precision Event Timer (HPET) in Xen\ndomains is now possible. (BZ#703193)\n\nAll libvirt users should install this update which addresses this\nvulnerability, fixes these bugs and adds these enhancements. After\ninstalling the updated packages, libvirtd must be restarted (\"service\nlibvirtd restart\") for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-07-21"
-      },
-      "updated": {
-        "date": "2011-07-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-2511",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-2511",
-          "impact": "moderate",
-          "public": "20110624",
-          "cwe": "CWE-190",
-          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-2511 libvirt: integer overflow in VirDomainGetVcpus",
-          "href": "https://bugzilla.redhat.com/717199",
-          "id": "717199"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111019001",
-                    "comment": "libvirt is earlier than 0:0.8.2-22.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090382002",
-                    "comment": "libvirt is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111019003",
-                    "comment": "libvirt-devel is earlier than 0:0.8.2-22.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090382004",
-                    "comment": "libvirt-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111019005",
-                    "comment": "libvirt-python is earlier than 0:0.8.2-22.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090382006",
-                    "comment": "libvirt-python is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20111019",
+	"version": "648",
+	"metadata": {
+		"title": "RHSA-2011:1019: libvirt security, bug fix, and enhancement update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:1019",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:1019",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-2511",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-2511",
+				"source": "CVE"
+			}
+		],
+		"description": "The libvirt library is a C API for managing and interacting with the\nvirtualization capabilities of Linux and other operating systems.\n\nAn integer overflow flaw was found in libvirtd's RPC call handling. An\nattacker able to establish read-only connections to libvirtd could trigger\nthis flaw by calling virDomainGetVcpus() with specially-crafted parameters,\ncausing libvirtd to crash. (CVE-2011-2511)\n\nThis update fixes the following bugs:\n\n* libvirt was rebased from version 0.6.3 to version 0.8.2 in Red Hat\nEnterprise Linux 5.6. A code audit found a minor API change that effected\nerror messages seen by libvirt 0.8.2 clients talking to libvirt 0.7.1 –\n0.7.7 (0.7.x) servers. A libvirt 0.7.x server could send\nVIR_ERR_BUILD_FIREWALL errors where a libvirt 0.8.2 client expected\nVIR_ERR_CONFIG_UNSUPPORTED errors. In other circumstances, a libvirt 0.8.2\nclient saw a \"Timed out during operation\" message where it should see an\n\"Invalid network filter\" error. This update adds a backported patch that\nallows libvirt 0.8.2 clients to interoperate with the API as used by\nlibvirt 0.7.x servers, ensuring correct error messages are sent.\n(BZ#665075)\n\n* libvirt could crash if the maximum number of open file descriptors\n(_SC_OPEN_MAX) grew larger than the FD_SETSIZE value because it accessed\nfile descriptors outside the bounds of the set. With this update the\nmaximum number of open file descriptors can no longer grow larger than the\nFD_SETSIZE value. (BZ#665549)\n\n* A libvirt race condition was found. An array in the libvirt event\nhandlers was accessed with a lock temporarily released. In rare cases, if\none thread attempted to access this array but a second thread reallocated\nthe array before the first thread reacquired a lock, it could lead to the\nfirst thread attempting to access freed memory, potentially causing libvirt\nto crash. With this update libvirt no longer refers to the old array and,\nconsequently, behaves as expected. (BZ#671569)\n\n* Guests connected to a passthrough NIC would kernel panic if a\nsystem_reset signal was sent through the QEMU monitor. With this update you\ncan reset such guests as expected. (BZ#689880)\n\n* When using the Xen kernel, the rpmbuild command failed on the xencapstest\ntest. With this update you can run rpmbuild successfully when using the Xen\nkernel. (BZ#690459)\n\n* When a disk was hot unplugged, \"ret >= 0\" was passed to the qemuAuditDisk\ncalls in disk hotunplug operations before ret was, in fact, set to 0. As\nwell, the error path jumped to the \"cleanup\" label prematurely. As a\nconsequence, hotunplug failures were not audited and hotunplug successes\nwere audited as failures. This was corrected and hot unplugging checks now\nbehave as expected. (BZ#710151)\n\n* A conflict existed between filter update locking sequences and virtual\nmachine startup locking sequences. When a filter update occurred on one or\nmore virtual machines, a deadlock could consequently occur if a virtual\nmachine referencing a filter was started. This update changes and makes\nmore flexible several qemu locking sequences ensuring this deadlock no\nlonger occurs. (BZ#697749)\n\n* qemudDomainSaveImageStartVM closed some incoming file descriptor (fd)\narguments without informing the caller. The consequent double-closes could\ncause Domain restoration failure. This update alters the\nqemudDomainSaveImageStartVM signature to prevent the double-closes.\n(BZ#681623)\n\nThis update also adds the following enhancements:\n\n* The libvirt Xen driver now supports more than one serial port.\n(BZ#670789)\n\n* Enabling and disabling the High Precision Event Timer (HPET) in Xen\ndomains is now possible. (BZ#703193)\n\nAll libvirt users should install this update which addresses this\nvulnerability, fixes these bugs and adds these enhancements. After\ninstalling the updated packages, libvirtd must be restarted (\"service\nlibvirtd restart\") for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-07-21"
+			},
+			"updated": {
+				"date": "2011-07-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-2511",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-2511",
+					"impact": "moderate",
+					"public": "20110624",
+					"cwe": "CWE-190",
+					"cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-2511 libvirt: integer overflow in VirDomainGetVcpus",
+					"href": "https://bugzilla.redhat.com/717199",
+					"id": "717199"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111019001",
+										"comment": "libvirt is earlier than 0:0.8.2-22.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090382002",
+										"comment": "libvirt is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111019003",
+										"comment": "libvirt-devel is earlier than 0:0.8.2-22.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090382004",
+										"comment": "libvirt-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111019005",
+										"comment": "libvirt-python is earlier than 0:0.8.2-22.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090382006",
+										"comment": "libvirt-python is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

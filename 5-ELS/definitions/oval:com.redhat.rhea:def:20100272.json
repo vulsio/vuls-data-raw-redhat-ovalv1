@@ -1,114 +1,114 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhea:def:20100272",
-  "version": "636",
-  "metadata": {
-    "title": "RHEA-2010:0272: valgrind bug fix and enhancement update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHEA-2010:0272",
-        "ref_url": "https://access.redhat.com/errata/RHEA-2010:0272",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-4865",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4865",
-        "source": "CVE"
-      }
-    ],
-    "description": "Valgrind is a tool to help you find memory-management problems in your\nprograms. When a program is run under Valgrind's supervision, all reads and\nwrites of memory are checked, and calls to malloc/new/free/delete are\nintercepted. As a result, Valgrind can detect a lot of problems that are\notherwise very hard to find/diagnose.\n\nThis update re-bases Valgrind to upstream version 3.5.0 (BZ#522330), and\napplies several enhancements and fixes including the following:\n\n* Valgrind now supports cmpxchg instructions. This allows Valgrind to\nprofile code that uses the Intel cmpxchg instruction. (BZ#476271)\n\n* The rebase also adds emulation for the 0x67 address-size-override prefix\nand support for multiple 0x66 operand size prefixes. This prevents\nunexpected \"unhandled instruction bytes\" errors when using Valgrind to\nprofile programs that use these prefixes. (BZ#515768 and BZ#530165)\n\nAll Valgrind users should apply this update.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-03-30"
-      },
-      "updated": {
-        "date": "2010-03-30"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-4865",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4865",
-          "impact": "low",
-          "public": "20081027",
-          "cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-4865 valgrind: .valgrindrc loaded from untrusted locations",
-          "href": "https://bugzilla.redhat.com/469657",
-          "id": "469657"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhea:tst:20100272001",
-                    "comment": "valgrind is earlier than 1:3.5.0-1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhea:tst:20100272002",
-                    "comment": "valgrind is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhea:tst:20100272003",
-                    "comment": "valgrind-devel is earlier than 1:3.5.0-1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhea:tst:20100272004",
-                    "comment": "valgrind-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhea:def:20100272",
+	"version": "636",
+	"metadata": {
+		"title": "RHEA-2010:0272: valgrind bug fix and enhancement update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHEA-2010:0272",
+				"ref_url": "https://access.redhat.com/errata/RHEA-2010:0272",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-4865",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4865",
+				"source": "CVE"
+			}
+		],
+		"description": "Valgrind is a tool to help you find memory-management problems in your\nprograms. When a program is run under Valgrind's supervision, all reads and\nwrites of memory are checked, and calls to malloc/new/free/delete are\nintercepted. As a result, Valgrind can detect a lot of problems that are\notherwise very hard to find/diagnose.\n\nThis update re-bases Valgrind to upstream version 3.5.0 (BZ#522330), and\napplies several enhancements and fixes including the following:\n\n* Valgrind now supports cmpxchg instructions. This allows Valgrind to\nprofile code that uses the Intel cmpxchg instruction. (BZ#476271)\n\n* The rebase also adds emulation for the 0x67 address-size-override prefix\nand support for multiple 0x66 operand size prefixes. This prevents\nunexpected \"unhandled instruction bytes\" errors when using Valgrind to\nprofile programs that use these prefixes. (BZ#515768 and BZ#530165)\n\nAll Valgrind users should apply this update.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-03-30"
+			},
+			"updated": {
+				"date": "2010-03-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-4865",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4865",
+					"impact": "low",
+					"public": "20081027",
+					"cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-4865 valgrind: .valgrindrc loaded from untrusted locations",
+					"href": "https://bugzilla.redhat.com/469657",
+					"id": "469657"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhea:tst:20100272001",
+										"comment": "valgrind is earlier than 1:3.5.0-1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhea:tst:20100272002",
+										"comment": "valgrind is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhea:tst:20100272003",
+										"comment": "valgrind-devel is earlier than 1:3.5.0-1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhea:tst:20100272004",
+										"comment": "valgrind-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

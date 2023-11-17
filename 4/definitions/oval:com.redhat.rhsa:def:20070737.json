@@ -1,131 +1,131 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070737",
-  "version": "639",
-  "metadata": {
-    "title": "RHSA-2007:0737: pam security, bug fix, and enhancement update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0737",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0737",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-1716",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-1716",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3102",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3102",
-        "source": "CVE"
-      }
-    ],
-    "description": "Pluggable Authentication Modules (PAM) provide a system whereby\nadministrators can set up authentication policies without having to\nrecompile programs that handle authentication.\n\nA flaw was found in the way pam_console set console device permissions. It\nwas possible for various console devices to retain ownership of the console\nuser after logging out, possibly leaking information to another local user.\n(CVE-2007-1716)\n\nA flaw was found in the way the PAM library wrote account names to the\naudit subsystem. An attacker could inject strings containing parts of audit\nmessages, which could possibly mislead or confuse audit log parsing tools.\n(CVE-2007-3102)\n\nAs well, these updated packages fix the following bugs:\n\n* the pam_xauth module, which is used for copying the X11 authentication\ncookie, did not reset the \"XAUTHORITY\" variable in certain circumstances,\ncausing unnecessary delays when using su command.\n\n* when calculating password similarity, pam_cracklib disregarded changes\nto the last character in passwords when \"difok=x\" (where \"x\" is the\nnumber of characters required to change) was configured in\n\"/etc/pam.d/system-auth\". This resulted in password changes that should\nhave been successful to fail with the following error:\n\nBAD PASSWORD: is too similar to the old one\n\nThis issue has been resolved in these updated packages.\n\n* the pam_limits module, which provides setting up system resources limits\nfor user sessions, reset the nice priority of the user session to \"0\" if it\nwas not configured otherwise in the \"/etc/security/limits.conf\"\nconfiguration file.\n\nThese updated packages add the following enhancement:\n\n* a new PAM module, pam_tally2, which allows accounts to be locked after a\nmaximum number of failed log in attempts.\n\nAll users of PAM should upgrade to these updated packages, which resolve\nthese issues and add this enhancement.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-11-15"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-1716",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-1716",
-          "impact": "low",
-          "public": "20070303"
-        },
-        {
-          "text": "CVE-2007-3102",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3102",
-          "impact": "moderate",
-          "public": "20071107"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3102 audit logging of failed logins",
-          "href": "https://bugzilla.redhat.com/243204",
-          "id": "243204"
-        },
-        {
-          "text": "CVE-2007-1716 security flaw",
-          "href": "https://bugzilla.redhat.com/1618305",
-          "id": "1618305"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070737001",
-                    "comment": "pam is earlier than 0:0.77-66.23"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070737002",
-                    "comment": "pam is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070737003",
-                    "comment": "pam-devel is earlier than 0:0.77-66.23"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070737004",
-                    "comment": "pam-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070737",
+	"version": "639",
+	"metadata": {
+		"title": "RHSA-2007:0737: pam security, bug fix, and enhancement update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0737",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0737",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-1716",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-1716",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3102",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3102",
+				"source": "CVE"
+			}
+		],
+		"description": "Pluggable Authentication Modules (PAM) provide a system whereby\nadministrators can set up authentication policies without having to\nrecompile programs that handle authentication.\n\nA flaw was found in the way pam_console set console device permissions. It\nwas possible for various console devices to retain ownership of the console\nuser after logging out, possibly leaking information to another local user.\n(CVE-2007-1716)\n\nA flaw was found in the way the PAM library wrote account names to the\naudit subsystem. An attacker could inject strings containing parts of audit\nmessages, which could possibly mislead or confuse audit log parsing tools.\n(CVE-2007-3102)\n\nAs well, these updated packages fix the following bugs:\n\n* the pam_xauth module, which is used for copying the X11 authentication\ncookie, did not reset the \"XAUTHORITY\" variable in certain circumstances,\ncausing unnecessary delays when using su command.\n\n* when calculating password similarity, pam_cracklib disregarded changes\nto the last character in passwords when \"difok=x\" (where \"x\" is the\nnumber of characters required to change) was configured in\n\"/etc/pam.d/system-auth\". This resulted in password changes that should\nhave been successful to fail with the following error:\n\nBAD PASSWORD: is too similar to the old one\n\nThis issue has been resolved in these updated packages.\n\n* the pam_limits module, which provides setting up system resources limits\nfor user sessions, reset the nice priority of the user session to \"0\" if it\nwas not configured otherwise in the \"/etc/security/limits.conf\"\nconfiguration file.\n\nThese updated packages add the following enhancement:\n\n* a new PAM module, pam_tally2, which allows accounts to be locked after a\nmaximum number of failed log in attempts.\n\nAll users of PAM should upgrade to these updated packages, which resolve\nthese issues and add this enhancement.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-11-15"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-1716",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-1716",
+					"impact": "low",
+					"public": "20070303"
+				},
+				{
+					"text": "CVE-2007-3102",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3102",
+					"impact": "moderate",
+					"public": "20071107"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3102 audit logging of failed logins",
+					"href": "https://bugzilla.redhat.com/243204",
+					"id": "243204"
+				},
+				{
+					"text": "CVE-2007-1716 security flaw",
+					"href": "https://bugzilla.redhat.com/1618305",
+					"id": "1618305"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070737001",
+										"comment": "pam is earlier than 0:0.77-66.23"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070737002",
+										"comment": "pam is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070737003",
+										"comment": "pam-devel is earlier than 0:0.77-66.23"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070737004",
+										"comment": "pam-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

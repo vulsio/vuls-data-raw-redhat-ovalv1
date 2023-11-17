@@ -1,176 +1,176 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100824",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2010:0824: mysql security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0824",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0824",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-1848",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1848",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3681",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3681",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-3840",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-3840",
-        "source": "CVE"
-      }
-    ],
-    "description": "MySQL is a multi-user, multi-threaded SQL database server. It consists of\nthe MySQL server daemon (mysqld) and many client programs and libraries.\n\nIt was found that the MySQL PolyFromWKB() function did not sanity check\nWell-Known Binary (WKB) data. A remote, authenticated attacker could use\nspecially-crafted WKB data to crash mysqld. This issue only caused a\ntemporary denial of service, as mysqld was automatically restarted after\nthe crash. (CVE-2010-3840)\n\nA flaw was found in the way MySQL processed certain alternating READ\nrequests provided by HANDLER statements. A remote, authenticated attacker\ncould use this flaw to provide such requests, causing mysqld to crash. This\nissue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3681)\n\nA directory traversal flaw was found in the way MySQL handled the\nparameters of the MySQL COM_FIELD_LIST network protocol command. A remote,\nauthenticated attacker could use this flaw to obtain descriptions of the\nfields of an arbitrary table using a request with a specially-crafted\ntable name. (CVE-2010-1848)\n\nAll MySQL users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the MySQL server daemon (mysqld) will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-11-03"
-      },
-      "updated": {
-        "date": "2010-11-03"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-1848",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1848",
-          "impact": "low",
-          "public": "20100513",
-          "cvss_2": "6.5/AV:N/AC:L/Au:S/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-3681",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3681",
-          "impact": "moderate",
-          "public": "20100709",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-3840",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-3840",
-          "impact": "moderate",
-          "public": "20100309",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-1848 mysql: multiple insufficient table name checks",
-          "href": "https://bugzilla.redhat.com/592079",
-          "id": "592079"
-        },
-        {
-          "text": "CVE-2010-3681 MySQL: mysqld DoS (assertion failure) by alternate reads from two indexes on a table using the HANDLER interface (MySQL bug #54007)",
-          "href": "https://bugzilla.redhat.com/628680",
-          "id": "628680"
-        },
-        {
-          "text": "CVE-2010-3840 MySQL: crash when loading data into geometry function PolyFromWKB() (MySQL Bug#51875)",
-          "href": "https://bugzilla.redhat.com/640865",
-          "id": "640865"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100824001",
-                    "comment": "mysql is earlier than 0:4.1.22-2.el4_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544002",
-                    "comment": "mysql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100824003",
-                    "comment": "mysql-bench is earlier than 0:4.1.22-2.el4_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544004",
-                    "comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100824005",
-                    "comment": "mysql-devel is earlier than 0:4.1.22-2.el4_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544006",
-                    "comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100824007",
-                    "comment": "mysql-server is earlier than 0:4.1.22-2.el4_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544008",
-                    "comment": "mysql-server is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100824",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2010:0824: mysql security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0824",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0824",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-1848",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1848",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3681",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3681",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-3840",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-3840",
+				"source": "CVE"
+			}
+		],
+		"description": "MySQL is a multi-user, multi-threaded SQL database server. It consists of\nthe MySQL server daemon (mysqld) and many client programs and libraries.\n\nIt was found that the MySQL PolyFromWKB() function did not sanity check\nWell-Known Binary (WKB) data. A remote, authenticated attacker could use\nspecially-crafted WKB data to crash mysqld. This issue only caused a\ntemporary denial of service, as mysqld was automatically restarted after\nthe crash. (CVE-2010-3840)\n\nA flaw was found in the way MySQL processed certain alternating READ\nrequests provided by HANDLER statements. A remote, authenticated attacker\ncould use this flaw to provide such requests, causing mysqld to crash. This\nissue only caused a temporary denial of service, as mysqld was\nautomatically restarted after the crash. (CVE-2010-3681)\n\nA directory traversal flaw was found in the way MySQL handled the\nparameters of the MySQL COM_FIELD_LIST network protocol command. A remote,\nauthenticated attacker could use this flaw to obtain descriptions of the\nfields of an arbitrary table using a request with a specially-crafted\ntable name. (CVE-2010-1848)\n\nAll MySQL users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the MySQL server daemon (mysqld) will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-11-03"
+			},
+			"updated": {
+				"date": "2010-11-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-1848",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1848",
+					"impact": "low",
+					"public": "20100513",
+					"cvss_2": "6.5/AV:N/AC:L/Au:S/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-3681",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3681",
+					"impact": "moderate",
+					"public": "20100709",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-3840",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-3840",
+					"impact": "moderate",
+					"public": "20100309",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-1848 mysql: multiple insufficient table name checks",
+					"href": "https://bugzilla.redhat.com/592079",
+					"id": "592079"
+				},
+				{
+					"text": "CVE-2010-3681 MySQL: mysqld DoS (assertion failure) by alternate reads from two indexes on a table using the HANDLER interface (MySQL bug #54007)",
+					"href": "https://bugzilla.redhat.com/628680",
+					"id": "628680"
+				},
+				{
+					"text": "CVE-2010-3840 MySQL: crash when loading data into geometry function PolyFromWKB() (MySQL Bug#51875)",
+					"href": "https://bugzilla.redhat.com/640865",
+					"id": "640865"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100824001",
+										"comment": "mysql is earlier than 0:4.1.22-2.el4_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544002",
+										"comment": "mysql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100824003",
+										"comment": "mysql-bench is earlier than 0:4.1.22-2.el4_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544004",
+										"comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100824005",
+										"comment": "mysql-devel is earlier than 0:4.1.22-2.el4_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544006",
+										"comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100824007",
+										"comment": "mysql-server is earlier than 0:4.1.22-2.el4_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544008",
+										"comment": "mysql-server is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

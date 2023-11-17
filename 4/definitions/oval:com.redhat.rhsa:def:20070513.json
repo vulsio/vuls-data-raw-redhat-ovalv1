@@ -1,210 +1,210 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070513",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2007:0513: gimp security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0513",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0513",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4519",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4519",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-2949",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2949",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3741",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3741",
-        "source": "CVE"
-      }
-    ],
-    "description": "The GIMP (GNU Image Manipulation Program) is an image composition and\nediting program.\n\nMultiple integer overflow and input validation flaws were found in The\nGIMP's image loaders.  An attacker could create a carefully crafted image\nfile that could cause The GIMP to crash or possibly execute arbitrary code\nif the file was opened by a victim. (CVE-2006-4519, CVE-2007-2949,\nCVE-2007-3741)\n\nUsers of The GIMP should update to these erratum packages, which contain a\nbackported fix to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-09-26"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4519",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4519",
-          "impact": "moderate",
-          "public": "20070709",
-          "cwe": "CWE-190"
-        },
-        {
-          "text": "CVE-2007-2949",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-2949",
-          "impact": "moderate",
-          "public": "20070627",
-          "cwe": "CWE-190"
-        },
-        {
-          "text": "CVE-2007-3741",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3741",
-          "impact": "moderate",
-          "public": "20070709",
-          "cwe": "CWE-20"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-2949 Gimp PSD integer overflow",
-          "href": "https://bugzilla.redhat.com/244400",
-          "id": "244400"
-        },
-        {
-          "text": "CVE-2006-4519 GIMP multiple image loader integer overflows",
-          "href": "https://bugzilla.redhat.com/247565",
-          "id": "247565"
-        },
-        {
-          "text": "CVE-2007-3741 Gimp image loader multiple input validation flaws",
-          "href": "https://bugzilla.redhat.com/248053",
-          "id": "248053"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070513001",
-                    "comment": "gimp is earlier than 1:2.0.5-7.0.7.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060598002",
-                    "comment": "gimp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070513003",
-                    "comment": "gimp-devel is earlier than 1:2.0.5-7.0.7.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060598004",
-                    "comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070513006",
-                    "comment": "gimp is earlier than 2:2.2.13-2.0.7.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060598002",
-                    "comment": "gimp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070513007",
-                    "comment": "gimp-devel is earlier than 2:2.2.13-2.0.7.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060598004",
-                    "comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070513008",
-                    "comment": "gimp-libs is earlier than 2:2.2.13-2.0.7.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070343009",
-                    "comment": "gimp-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070513",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2007:0513: gimp security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0513",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0513",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4519",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4519",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-2949",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-2949",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3741",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3741",
+				"source": "CVE"
+			}
+		],
+		"description": "The GIMP (GNU Image Manipulation Program) is an image composition and\nediting program.\n\nMultiple integer overflow and input validation flaws were found in The\nGIMP's image loaders.  An attacker could create a carefully crafted image\nfile that could cause The GIMP to crash or possibly execute arbitrary code\nif the file was opened by a victim. (CVE-2006-4519, CVE-2007-2949,\nCVE-2007-3741)\n\nUsers of The GIMP should update to these erratum packages, which contain a\nbackported fix to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-09-26"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4519",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4519",
+					"impact": "moderate",
+					"public": "20070709",
+					"cwe": "CWE-190"
+				},
+				{
+					"text": "CVE-2007-2949",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-2949",
+					"impact": "moderate",
+					"public": "20070627",
+					"cwe": "CWE-190"
+				},
+				{
+					"text": "CVE-2007-3741",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3741",
+					"impact": "moderate",
+					"public": "20070709",
+					"cwe": "CWE-20"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-2949 Gimp PSD integer overflow",
+					"href": "https://bugzilla.redhat.com/244400",
+					"id": "244400"
+				},
+				{
+					"text": "CVE-2006-4519 GIMP multiple image loader integer overflows",
+					"href": "https://bugzilla.redhat.com/247565",
+					"id": "247565"
+				},
+				{
+					"text": "CVE-2007-3741 Gimp image loader multiple input validation flaws",
+					"href": "https://bugzilla.redhat.com/248053",
+					"id": "248053"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070513001",
+										"comment": "gimp is earlier than 1:2.0.5-7.0.7.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060598002",
+										"comment": "gimp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070513003",
+										"comment": "gimp-devel is earlier than 1:2.0.5-7.0.7.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060598004",
+										"comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070513006",
+										"comment": "gimp is earlier than 2:2.2.13-2.0.7.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060598002",
+										"comment": "gimp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070513007",
+										"comment": "gimp-devel is earlier than 2:2.2.13-2.0.7.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060598004",
+										"comment": "gimp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070513008",
+										"comment": "gimp-libs is earlier than 2:2.2.13-2.0.7.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070343009",
+										"comment": "gimp-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

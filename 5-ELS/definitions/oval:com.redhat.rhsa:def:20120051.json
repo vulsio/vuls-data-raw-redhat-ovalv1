@@ -1,171 +1,171 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120051",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2012:0051: kvm security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0051",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0051",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-4622",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4622",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-0029",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0029",
-        "source": "CVE"
-      }
-    ],
-    "description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA heap overflow flaw was found in the way QEMU-KVM emulated the e1000\nnetwork interface card. A privileged guest user in a virtual machine whose\nnetwork interface is configured to use the e1000 emulated driver could use\nthis flaw to crash the host or, possibly, escalate their privileges on the\nhost. (CVE-2012-0029)\n\nA flaw was found in the way the KVM subsystem of a Linux kernel handled PIT\n(Programmable Interval Timer) IRQs (interrupt requests) when there was no\nvirtual interrupt controller set up. A malicious user in the kvm group on\nthe host could force this situation to occur, resulting in the host\ncrashing. (CVE-2011-4622)\n\nRed Hat would like to thank Nicolae Mogoreanu for reporting CVE-2012-0029.\n\nAll KVM users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. Note: The procedure in the\nSolution section must be performed before this update will take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-01-23"
-      },
-      "updated": {
-        "date": "2012-01-23"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-4622",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-4622",
-          "impact": "moderate",
-          "public": "20111214",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2012-0029",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0029",
-          "impact": "important",
-          "public": "20120123",
-          "cwe": "CWE-228->CWE-119",
-          "cvss_2": "7.4/AV:A/AC:M/Au:S/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-4622 kernel: kvm: pit timer with no irqchip crashes the system",
-          "href": "https://bugzilla.redhat.com/769721",
-          "id": "769721"
-        },
-        {
-          "text": "CVE-2012-0029 qemu: e1000: process_tx_desc legacy mode packets heap overflow",
-          "href": "https://bugzilla.redhat.com/772075",
-          "id": "772075"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120051001",
-                    "comment": "kmod-kvm is earlier than 0:83-239.el5_7.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465002",
-                    "comment": "kmod-kvm is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120051003",
-                    "comment": "kmod-kvm-debug is earlier than 0:83-239.el5_7.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110028004",
-                    "comment": "kmod-kvm-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120051005",
-                    "comment": "kvm is earlier than 0:83-239.el5_7.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465004",
-                    "comment": "kvm is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120051007",
-                    "comment": "kvm-qemu-img is earlier than 0:83-239.el5_7.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465006",
-                    "comment": "kvm-qemu-img is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120051009",
-                    "comment": "kvm-tools is earlier than 0:83-239.el5_7.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091465008",
-                    "comment": "kvm-tools is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120051",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2012:0051: kvm security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0051",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0051",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-4622",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-4622",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-0029",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0029",
+				"source": "CVE"
+			}
+		],
+		"description": "KVM (Kernel-based Virtual Machine) is a full virtualization solution for\nLinux on AMD64 and Intel 64 systems. KVM is a Linux kernel module built for\nthe standard Red Hat Enterprise Linux kernel.\n\nA heap overflow flaw was found in the way QEMU-KVM emulated the e1000\nnetwork interface card. A privileged guest user in a virtual machine whose\nnetwork interface is configured to use the e1000 emulated driver could use\nthis flaw to crash the host or, possibly, escalate their privileges on the\nhost. (CVE-2012-0029)\n\nA flaw was found in the way the KVM subsystem of a Linux kernel handled PIT\n(Programmable Interval Timer) IRQs (interrupt requests) when there was no\nvirtual interrupt controller set up. A malicious user in the kvm group on\nthe host could force this situation to occur, resulting in the host\ncrashing. (CVE-2011-4622)\n\nRed Hat would like to thank Nicolae Mogoreanu for reporting CVE-2012-0029.\n\nAll KVM users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. Note: The procedure in the\nSolution section must be performed before this update will take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-01-23"
+			},
+			"updated": {
+				"date": "2012-01-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-4622",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-4622",
+					"impact": "moderate",
+					"public": "20111214",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2012-0029",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0029",
+					"impact": "important",
+					"public": "20120123",
+					"cwe": "CWE-228->CWE-119",
+					"cvss_2": "7.4/AV:A/AC:M/Au:S/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-4622 kernel: kvm: pit timer with no irqchip crashes the system",
+					"href": "https://bugzilla.redhat.com/769721",
+					"id": "769721"
+				},
+				{
+					"text": "CVE-2012-0029 qemu: e1000: process_tx_desc legacy mode packets heap overflow",
+					"href": "https://bugzilla.redhat.com/772075",
+					"id": "772075"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120051001",
+										"comment": "kmod-kvm is earlier than 0:83-239.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465002",
+										"comment": "kmod-kvm is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120051003",
+										"comment": "kmod-kvm-debug is earlier than 0:83-239.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110028004",
+										"comment": "kmod-kvm-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120051005",
+										"comment": "kvm is earlier than 0:83-239.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465004",
+										"comment": "kvm is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120051007",
+										"comment": "kvm-qemu-img is earlier than 0:83-239.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465006",
+										"comment": "kvm-qemu-img is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120051009",
+										"comment": "kvm-tools is earlier than 0:83-239.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091465008",
+										"comment": "kvm-tools is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

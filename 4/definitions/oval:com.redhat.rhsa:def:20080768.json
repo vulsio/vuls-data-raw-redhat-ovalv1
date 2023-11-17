@@ -1,190 +1,190 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080768",
-  "version": "642",
-  "metadata": {
-    "title": "RHSA-2008:0768: mysql security, bug fix, and enhancement update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0768",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0768",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-3469",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-3469",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2006-4031",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4031",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-2691",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2691",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-2079",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-2079",
-        "source": "CVE"
-      }
-    ],
-    "description": "MySQL is a multi-user, multi-threaded SQL database server. MySQL is a\nclient/server implementation consisting of a server daemon (mysqld), and\nmany different client programs and libraries.\n\nMySQL did not correctly check directories used as arguments for the DATA\nDIRECTORY and INDEX DIRECTORY directives. Using this flaw, an authenticated\nattacker could elevate their access privileges to tables created by other\ndatabase users. Note: this attack does not work on existing tables. An\nattacker can only elevate their access to another user's tables as the\ntables are created. As well, the names of these created tables need to be\npredicted correctly for this attack to succeed. (CVE-2008-2079)\n\nMySQL did not require the \"DROP\" privilege for \"RENAME TABLE\" statements.\nAn authenticated user could use this flaw to rename arbitrary tables.\n(CVE-2007-2691)\n\nMySQL allowed an authenticated user to access a table through a previously\ncreated MERGE table, even after the user's privileges were revoked from the\noriginal table, which might violate intended security policy. This is\naddressed by allowing the MERGE storage engine to be disabled, which can be\ndone by running mysqld with the \"--skip-merge\" option. (CVE-2006-4031)\n\nA flaw in MySQL allowed an authenticated user to cause the MySQL daemon to\ncrash via crafted SQL queries. This only caused a temporary denial of\nservice, as the MySQL daemon is automatically restarted after the crash.\n(CVE-2006-3469)\n\nAs well, these updated packages fix the following bugs:\n\n* in the previous mysql packages, if a column name was referenced more\nthan once in an \"ORDER BY\" section of a query, a segmentation fault\noccurred.\n\n* when MySQL failed to start, the init script returned a successful (0)\nexit code. When using the Red Hat Cluster Suite, this may have caused\ncluster services to report a successful start, even when MySQL failed to\nstart. In these updated packages, the init script returns the correct exit\ncodes, which resolves this issue.\n\n* it was possible to use the mysqld_safe command to specify invalid port\nnumbers (higher than 65536), causing invalid ports to be created, and, in\nsome cases, a \"port number definition: unsigned short\" error. In these\nupdated packages, when an invalid port number is specified, the default\nport number is used.\n\n* when setting \"myisam_repair_threads > 1\", any repair set the index\ncardinality to \"1\", regardless of the table size.\n\n* the MySQL init script no longer runs \"chmod -R\" on the entire database\ndirectory tree during every startup.\n\n* when running \"mysqldump\" with the MySQL 4.0 compatibility mode option,\n\"--compatible=mysql40\", mysqldump created dumps that omitted the\n\"auto_increment\" field.\n\nAs well, the MySQL init script now uses more reliable methods for\ndetermining parameters, such as the data directory location.\n\nNote: these updated packages upgrade MySQL to version 4.1.22. For a full\nlist of bug fixes and enhancements, refer to the MySQL release notes:\nhttp://dev.mysql.com/doc/refman/4.1/en/news-4-1-22.html\n\nAll mysql users are advised to upgrade to these updated packages, which\nresolve these issues and add this enhancement.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-07-24"
-      },
-      "updated": {
-        "date": "2008-07-24"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-3469",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-3469",
-          "impact": "low",
-          "public": "20060627"
-        },
-        {
-          "text": "CVE-2006-4031",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4031",
-          "impact": "low",
-          "public": "20051123"
-        },
-        {
-          "text": "CVE-2007-2691",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-2691",
-          "impact": "low",
-          "public": "20070517"
-        },
-        {
-          "text": "CVE-2008-2079",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-2079",
-          "impact": "moderate",
-          "public": "20080313",
-          "cvss_2": "4.9/AV:N/AC:M/Au:S/C:P/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-3469 mysql server DoS",
-          "href": "https://bugzilla.redhat.com/201904",
-          "id": "201904"
-        },
-        {
-          "text": "CVE-2006-4031 MySQL improper permission revocation",
-          "href": "https://bugzilla.redhat.com/202246",
-          "id": "202246"
-        },
-        {
-          "text": "CVE-2007-2691 mysql DROP privilege not enforced when renaming tables",
-          "href": "https://bugzilla.redhat.com/241688",
-          "id": "241688"
-        },
-        {
-          "text": "CVE-2008-2079 mysql: privilege escalation via DATA/INDEX DIRECTORY directives",
-          "href": "https://bugzilla.redhat.com/445222",
-          "id": "445222"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080768001",
-                    "comment": "mysql is earlier than 0:4.1.22-2.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544002",
-                    "comment": "mysql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080768003",
-                    "comment": "mysql-bench is earlier than 0:4.1.22-2.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544004",
-                    "comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080768005",
-                    "comment": "mysql-devel is earlier than 0:4.1.22-2.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544006",
-                    "comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080768007",
-                    "comment": "mysql-server is earlier than 0:4.1.22-2.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060544008",
-                    "comment": "mysql-server is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080768",
+	"version": "642",
+	"metadata": {
+		"title": "RHSA-2008:0768: mysql security, bug fix, and enhancement update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0768",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0768",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-3469",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-3469",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2006-4031",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4031",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-2691",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-2691",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-2079",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-2079",
+				"source": "CVE"
+			}
+		],
+		"description": "MySQL is a multi-user, multi-threaded SQL database server. MySQL is a\nclient/server implementation consisting of a server daemon (mysqld), and\nmany different client programs and libraries.\n\nMySQL did not correctly check directories used as arguments for the DATA\nDIRECTORY and INDEX DIRECTORY directives. Using this flaw, an authenticated\nattacker could elevate their access privileges to tables created by other\ndatabase users. Note: this attack does not work on existing tables. An\nattacker can only elevate their access to another user's tables as the\ntables are created. As well, the names of these created tables need to be\npredicted correctly for this attack to succeed. (CVE-2008-2079)\n\nMySQL did not require the \"DROP\" privilege for \"RENAME TABLE\" statements.\nAn authenticated user could use this flaw to rename arbitrary tables.\n(CVE-2007-2691)\n\nMySQL allowed an authenticated user to access a table through a previously\ncreated MERGE table, even after the user's privileges were revoked from the\noriginal table, which might violate intended security policy. This is\naddressed by allowing the MERGE storage engine to be disabled, which can be\ndone by running mysqld with the \"--skip-merge\" option. (CVE-2006-4031)\n\nA flaw in MySQL allowed an authenticated user to cause the MySQL daemon to\ncrash via crafted SQL queries. This only caused a temporary denial of\nservice, as the MySQL daemon is automatically restarted after the crash.\n(CVE-2006-3469)\n\nAs well, these updated packages fix the following bugs:\n\n* in the previous mysql packages, if a column name was referenced more\nthan once in an \"ORDER BY\" section of a query, a segmentation fault\noccurred.\n\n* when MySQL failed to start, the init script returned a successful (0)\nexit code. When using the Red Hat Cluster Suite, this may have caused\ncluster services to report a successful start, even when MySQL failed to\nstart. In these updated packages, the init script returns the correct exit\ncodes, which resolves this issue.\n\n* it was possible to use the mysqld_safe command to specify invalid port\nnumbers (higher than 65536), causing invalid ports to be created, and, in\nsome cases, a \"port number definition: unsigned short\" error. In these\nupdated packages, when an invalid port number is specified, the default\nport number is used.\n\n* when setting \"myisam_repair_threads > 1\", any repair set the index\ncardinality to \"1\", regardless of the table size.\n\n* the MySQL init script no longer runs \"chmod -R\" on the entire database\ndirectory tree during every startup.\n\n* when running \"mysqldump\" with the MySQL 4.0 compatibility mode option,\n\"--compatible=mysql40\", mysqldump created dumps that omitted the\n\"auto_increment\" field.\n\nAs well, the MySQL init script now uses more reliable methods for\ndetermining parameters, such as the data directory location.\n\nNote: these updated packages upgrade MySQL to version 4.1.22. For a full\nlist of bug fixes and enhancements, refer to the MySQL release notes:\nhttp://dev.mysql.com/doc/refman/4.1/en/news-4-1-22.html\n\nAll mysql users are advised to upgrade to these updated packages, which\nresolve these issues and add this enhancement.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-07-24"
+			},
+			"updated": {
+				"date": "2008-07-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-3469",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-3469",
+					"impact": "low",
+					"public": "20060627"
+				},
+				{
+					"text": "CVE-2006-4031",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4031",
+					"impact": "low",
+					"public": "20051123"
+				},
+				{
+					"text": "CVE-2007-2691",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-2691",
+					"impact": "low",
+					"public": "20070517"
+				},
+				{
+					"text": "CVE-2008-2079",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-2079",
+					"impact": "moderate",
+					"public": "20080313",
+					"cvss_2": "4.9/AV:N/AC:M/Au:S/C:P/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-3469 mysql server DoS",
+					"href": "https://bugzilla.redhat.com/201904",
+					"id": "201904"
+				},
+				{
+					"text": "CVE-2006-4031 MySQL improper permission revocation",
+					"href": "https://bugzilla.redhat.com/202246",
+					"id": "202246"
+				},
+				{
+					"text": "CVE-2007-2691 mysql DROP privilege not enforced when renaming tables",
+					"href": "https://bugzilla.redhat.com/241688",
+					"id": "241688"
+				},
+				{
+					"text": "CVE-2008-2079 mysql: privilege escalation via DATA/INDEX DIRECTORY directives",
+					"href": "https://bugzilla.redhat.com/445222",
+					"id": "445222"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080768001",
+										"comment": "mysql is earlier than 0:4.1.22-2.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544002",
+										"comment": "mysql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080768003",
+										"comment": "mysql-bench is earlier than 0:4.1.22-2.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544004",
+										"comment": "mysql-bench is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080768005",
+										"comment": "mysql-devel is earlier than 0:4.1.22-2.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544006",
+										"comment": "mysql-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080768007",
+										"comment": "mysql-server is earlier than 0:4.1.22-2.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060544008",
+										"comment": "mysql-server is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

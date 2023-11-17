@@ -1,89 +1,89 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20140016",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2014:0016: gnupg security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2014:0016",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2014:0016",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2013-4576",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-4576",
-        "source": "CVE"
-      }
-    ],
-    "description": "The GNU Privacy Guard (GnuPG or GPG) is a tool for encrypting data and\ncreating digital signatures, compliant with the proposed OpenPGP Internet\nstandard and the S/MIME standard.\n\nIt was found that GnuPG was vulnerable to side-channel attacks via acoustic\ncryptanalysis. An attacker in close range to a target system that is\ndecrypting ciphertexts could possibly use this flaw to recover the RSA\nsecret key from that system. (CVE-2013-4576)\n\nRed Hat would like to thank Werner Koch of GnuPG upstream for reporting\nthis issue. Upstream acknowledges Genkin, Shamir, and Tromer as the\noriginal reporters.\n\nAll gnupg users are advised to upgrade to this updated package, which\ncontains a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2014 Red Hat, Inc.",
-      "issued": {
-        "date": "2014-01-08"
-      },
-      "updated": {
-        "date": "2014-01-08"
-      },
-      "cve": [
-        {
-          "text": "CVE-2013-4576",
-          "href": "https://access.redhat.com/security/cve/CVE-2013-4576",
-          "impact": "moderate",
-          "public": "20131218",
-          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:P/I:N/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2013-4576 gnupg: RSA secret key recovery via acoustic cryptanalysis",
-          "href": "https://bugzilla.redhat.com/1043327",
-          "id": "1043327"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20140016001",
-            "comment": "gnupg is earlier than 0:1.4.5-18.el5_10.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070107002",
-            "comment": "gnupg is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20140016",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2014:0016: gnupg security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2014:0016",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2014:0016",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2013-4576",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2013-4576",
+				"source": "CVE"
+			}
+		],
+		"description": "The GNU Privacy Guard (GnuPG or GPG) is a tool for encrypting data and\ncreating digital signatures, compliant with the proposed OpenPGP Internet\nstandard and the S/MIME standard.\n\nIt was found that GnuPG was vulnerable to side-channel attacks via acoustic\ncryptanalysis. An attacker in close range to a target system that is\ndecrypting ciphertexts could possibly use this flaw to recover the RSA\nsecret key from that system. (CVE-2013-4576)\n\nRed Hat would like to thank Werner Koch of GnuPG upstream for reporting\nthis issue. Upstream acknowledges Genkin, Shamir, and Tromer as the\noriginal reporters.\n\nAll gnupg users are advised to upgrade to this updated package, which\ncontains a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2014 Red Hat, Inc.",
+			"issued": {
+				"date": "2014-01-08"
+			},
+			"updated": {
+				"date": "2014-01-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2013-4576",
+					"href": "https://access.redhat.com/security/cve/CVE-2013-4576",
+					"impact": "moderate",
+					"public": "20131218",
+					"cvss_2": "2.9/AV:A/AC:M/Au:N/C:P/I:N/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2013-4576 gnupg: RSA secret key recovery via acoustic cryptanalysis",
+					"href": "https://bugzilla.redhat.com/1043327",
+					"id": "1043327"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20140016001",
+						"comment": "gnupg is earlier than 0:1.4.5-18.el5_10.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070107002",
+						"comment": "gnupg is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

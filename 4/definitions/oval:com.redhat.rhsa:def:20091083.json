@@ -1,165 +1,165 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091083",
-  "version": "652",
-  "metadata": {
-    "title": "RHSA-2009:1083: cups security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1083",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1083",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-0791",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0791",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0949",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0949",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1196",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1196",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Common UNIX® Printing System (CUPS) provides a portable printing layer\nfor UNIX operating systems. The Internet Printing Protocol (IPP) allows\nusers to print and manage printing-related tasks over a network. The CUPS\n\"pdftops\" filter converts Portable Document Format (PDF) files to\nPostScript. \"pdftops\" is based on Xpdf and the CUPS imaging library.\n\nA NULL pointer dereference flaw was found in the CUPS IPP routine, used for\nprocessing incoming IPP requests for the CUPS scheduler. An attacker could\nuse this flaw to send specially-crafted IPP requests that would crash the\ncupsd daemon. (CVE-2009-0949)\n\nA use-after-free flaw was found in the CUPS scheduler directory services\nroutine, used to process data about available printers and printer classes.\nAn attacker could use this flaw to cause a denial of service (cupsd daemon\nstop or crash). (CVE-2009-1196)\n\nMultiple integer overflows flaws, leading to heap-based buffer overflows,\nwere found in the CUPS \"pdftops\" filter. An attacker could create a\nmalicious PDF file that would cause \"pdftops\" to crash or, potentially,\nexecute arbitrary code as the \"lp\" user if the file was printed.\n(CVE-2009-0791)\n\nRed Hat would like to thank Anibal Sacco from Core Security Technologies\nfor reporting the CVE-2009-0949 flaw, and Swen van Brussel for reporting\nthe CVE-2009-1196 flaw.\n\nUsers of cups are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the cupsd daemon will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-06-03"
-      },
-      "updated": {
-        "date": "2009-06-03"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-0791",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0791",
-          "impact": "moderate",
-          "public": "20090519",
-          "cwe": "CWE-190",
-          "cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0949",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0949",
-          "impact": "important",
-          "public": "20090602",
-          "cwe": "CWE-476",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-1196",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1196",
-          "impact": "important",
-          "public": "20090602",
-          "cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-0791 xpdf: multiple integer overflows",
-          "href": "https://bugzilla.redhat.com/491840",
-          "id": "491840"
-        },
-        {
-          "text": "CVE-2009-1196 cups: DoS (stop, crash) by  renewing CUPS browse packets",
-          "href": "https://bugzilla.redhat.com/497135",
-          "id": "497135"
-        },
-        {
-          "text": "CVE-2009-0949 cups: IPP_TAG_UNSUPPORTED handling NULL pointer dereference DoS",
-          "href": "https://bugzilla.redhat.com/500972",
-          "id": "500972"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091083001",
-                    "comment": "cups is earlier than 1:1.1.22-0.rc1.9.32.el4_8.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163002",
-                    "comment": "cups is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091083003",
-                    "comment": "cups-devel is earlier than 1:1.1.22-0.rc1.9.32.el4_8.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163004",
-                    "comment": "cups-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091083005",
-                    "comment": "cups-libs is earlier than 1:1.1.22-0.rc1.9.32.el4_8.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060163006",
-                    "comment": "cups-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091083",
+	"version": "652",
+	"metadata": {
+		"title": "RHSA-2009:1083: cups security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1083",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1083",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-0791",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0791",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0949",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0949",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1196",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1196",
+				"source": "CVE"
+			}
+		],
+		"description": "The Common UNIX® Printing System (CUPS) provides a portable printing layer\nfor UNIX operating systems. The Internet Printing Protocol (IPP) allows\nusers to print and manage printing-related tasks over a network. The CUPS\n\"pdftops\" filter converts Portable Document Format (PDF) files to\nPostScript. \"pdftops\" is based on Xpdf and the CUPS imaging library.\n\nA NULL pointer dereference flaw was found in the CUPS IPP routine, used for\nprocessing incoming IPP requests for the CUPS scheduler. An attacker could\nuse this flaw to send specially-crafted IPP requests that would crash the\ncupsd daemon. (CVE-2009-0949)\n\nA use-after-free flaw was found in the CUPS scheduler directory services\nroutine, used to process data about available printers and printer classes.\nAn attacker could use this flaw to cause a denial of service (cupsd daemon\nstop or crash). (CVE-2009-1196)\n\nMultiple integer overflows flaws, leading to heap-based buffer overflows,\nwere found in the CUPS \"pdftops\" filter. An attacker could create a\nmalicious PDF file that would cause \"pdftops\" to crash or, potentially,\nexecute arbitrary code as the \"lp\" user if the file was printed.\n(CVE-2009-0791)\n\nRed Hat would like to thank Anibal Sacco from Core Security Technologies\nfor reporting the CVE-2009-0949 flaw, and Swen van Brussel for reporting\nthe CVE-2009-1196 flaw.\n\nUsers of cups are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. After installing this\nupdate, the cupsd daemon will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-06-03"
+			},
+			"updated": {
+				"date": "2009-06-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-0791",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0791",
+					"impact": "moderate",
+					"public": "20090519",
+					"cwe": "CWE-190",
+					"cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0949",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0949",
+					"impact": "important",
+					"public": "20090602",
+					"cwe": "CWE-476",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-1196",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1196",
+					"impact": "important",
+					"public": "20090602",
+					"cvss_2": "3.3/AV:A/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-0791 xpdf: multiple integer overflows",
+					"href": "https://bugzilla.redhat.com/491840",
+					"id": "491840"
+				},
+				{
+					"text": "CVE-2009-1196 cups: DoS (stop, crash) by  renewing CUPS browse packets",
+					"href": "https://bugzilla.redhat.com/497135",
+					"id": "497135"
+				},
+				{
+					"text": "CVE-2009-0949 cups: IPP_TAG_UNSUPPORTED handling NULL pointer dereference DoS",
+					"href": "https://bugzilla.redhat.com/500972",
+					"id": "500972"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091083001",
+										"comment": "cups is earlier than 1:1.1.22-0.rc1.9.32.el4_8.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163002",
+										"comment": "cups is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091083003",
+										"comment": "cups-devel is earlier than 1:1.1.22-0.rc1.9.32.el4_8.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163004",
+										"comment": "cups-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091083005",
+										"comment": "cups-libs is earlier than 1:1.1.22-0.rc1.9.32.el4_8.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060163006",
+										"comment": "cups-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

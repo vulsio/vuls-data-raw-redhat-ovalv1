@@ -1,456 +1,456 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100399",
-  "version": "659",
-  "metadata": {
-    "title": "RHSA-2010:0399: tetex security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0399",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0399",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-5935",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5935",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0146",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0146",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0147",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0147",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0166",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0166",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0195",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0195",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0791",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0791",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0799",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0799",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0800",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0800",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1179",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1179",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1180",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1180",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1181",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1181",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1182",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1182",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1183",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1183",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3609",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3609",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-0739",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0739",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-0827",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0827",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1440",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1440",
-        "source": "CVE"
-      }
-    ],
-    "description": "teTeX is an implementation of TeX. TeX takes a text file and a set of\nformatting commands as input, and creates a typesetter-independent DeVice\nIndependent (DVI) file as output.\n\nA buffer overflow flaw was found in the way teTeX processed virtual font\nfiles when converting DVI files into PostScript. An attacker could create a\nmalicious DVI file that would cause the dvips executable to crash or,\npotentially, execute arbitrary code. (CVE-2010-0827)\n\nMultiple integer overflow flaws were found in the way teTeX processed\nspecial commands when converting DVI files into PostScript. An attacker\ncould create a malicious DVI file that would cause the dvips executable to\ncrash or, potentially, execute arbitrary code. (CVE-2010-0739,\nCVE-2010-1440)\n\nA stack-based buffer overflow flaw was found in the way teTeX processed DVI\nfiles containing HyperTeX references with long titles, when converting them\ninto PostScript. An attacker could create a malicious DVI file that would\ncause the dvips executable to crash. (CVE-2007-5935)\n\nteTeX embeds a copy of Xpdf, an open source Portable Document Format (PDF)\nfile viewer, to allow adding images in PDF format to the generated PDF\ndocuments. The following issues affect Xpdf code:\n\nMultiple integer overflow flaws were found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash or, potentially,\nexecute arbitrary code with the privileges of the user running pdflatex.\n(CVE-2009-0147, CVE-2009-1179)\n\nMultiple integer overflow flaws were found in Xpdf. If a local user\ngenerated a PDF file from a TeX document, referencing a specially-crafted\nPDF file, it would cause Xpdf to crash or, potentially, execute arbitrary\ncode with the privileges of the user running pdflatex. (CVE-2009-0791,\nCVE-2009-3609)\n\nA heap-based buffer overflow flaw was found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash or, potentially,\nexecute arbitrary code with the privileges of the user running pdflatex.\n(CVE-2009-0195)\n\nMultiple buffer overflow flaws were found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash or, potentially,\nexecute arbitrary code with the privileges of the user running pdflatex.\n(CVE-2009-0146, CVE-2009-1182)\n\nMultiple flaws were found in Xpdf's JBIG2 decoder that could lead to the\nfreeing of arbitrary memory. If a local user generated a PDF file from a\nTeX document, referencing a specially-crafted PDF file, it would cause\nXpdf to crash or, potentially, execute arbitrary code with the privileges\nof the user running pdflatex. (CVE-2009-0166, CVE-2009-1180)\n\nMultiple input validation flaws were found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash or, potentially,\nexecute arbitrary code with the privileges of the user running pdflatex.\n(CVE-2009-0800)\n\nMultiple denial of service flaws were found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash. (CVE-2009-0799,\nCVE-2009-1181, CVE-2009-1183)\n\nRed Hat would like to thank Braden Thomas and Drew Yao of the Apple Product\nSecurity team, Will Dormann of the CERT/CC, and Alin Rad Pop of Secunia\nResearch, for responsibly reporting the Xpdf flaws.\n\nAll users of tetex are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-05-06"
-      },
-      "updated": {
-        "date": "2010-05-06"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-5935",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5935",
-          "impact": "low",
-          "public": "20071017"
-        },
-        {
-          "text": "CVE-2009-0146",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0146",
-          "impact": "important",
-          "public": "20090416",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0147",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0147",
-          "impact": "important",
-          "public": "20090416",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0166",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0166",
-          "impact": "low",
-          "public": "20090416",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-0195",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0195",
-          "impact": "important",
-          "public": "20090416",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0791",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0791",
-          "impact": "moderate",
-          "public": "20090519",
-          "cwe": "CWE-190",
-          "cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0799",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0799",
-          "impact": "low",
-          "public": "20090416",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-0800",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0800",
-          "impact": "important",
-          "public": "20090416",
-          "cwe": "CWE-20",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-1179",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1179",
-          "impact": "important",
-          "public": "20090416",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-1180",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1180",
-          "impact": "important",
-          "public": "20090416",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-1181",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1181",
-          "impact": "low",
-          "public": "20090416",
-          "cwe": "CWE-476",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-1182",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1182",
-          "impact": "important",
-          "public": "20090416",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-1183",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1183",
-          "impact": "low",
-          "public": "20090416",
-          "cwe": "CWE-835",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-3609",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3609",
-          "impact": "low",
-          "public": "20091014",
-          "cwe": "CWE-190",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2010-0739",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0739",
-          "impact": "moderate",
-          "public": "20100412",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-0827",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0827",
-          "impact": "moderate",
-          "public": "20100325",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1440",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1440",
-          "impact": "moderate",
-          "public": "20100503",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-5935 dvips -z buffer overflow with long href",
-          "href": "https://bugzilla.redhat.com/368591",
-          "id": "368591"
-        },
-        {
-          "text": "CVE-2009-0146 xpdf: Multiple buffer overflows in JBIG2 decoder (setBitmap, readSymbolDictSeg) (CVE-2009-0195)",
-          "href": "https://bugzilla.redhat.com/490612",
-          "id": "490612"
-        },
-        {
-          "text": "CVE-2009-0147 xpdf: Multiple integer overflows in JBIG2 decoder",
-          "href": "https://bugzilla.redhat.com/490614",
-          "id": "490614"
-        },
-        {
-          "text": "CVE-2009-0166 xpdf: Freeing of potentially uninitialized memory in JBIG2 decoder",
-          "href": "https://bugzilla.redhat.com/490625",
-          "id": "490625"
-        },
-        {
-          "text": "CVE-2009-0791 xpdf: multiple integer overflows",
-          "href": "https://bugzilla.redhat.com/491840",
-          "id": "491840"
-        },
-        {
-          "text": "CVE-2009-0799 PDF JBIG2 decoder OOB read",
-          "href": "https://bugzilla.redhat.com/495886",
-          "id": "495886"
-        },
-        {
-          "text": "CVE-2009-0800 PDF JBIG2 multiple input validation flaws",
-          "href": "https://bugzilla.redhat.com/495887",
-          "id": "495887"
-        },
-        {
-          "text": "CVE-2009-1179 PDF JBIG2 integer overflow",
-          "href": "https://bugzilla.redhat.com/495889",
-          "id": "495889"
-        },
-        {
-          "text": "CVE-2009-1180 PDF JBIG2 invalid free()",
-          "href": "https://bugzilla.redhat.com/495892",
-          "id": "495892"
-        },
-        {
-          "text": "CVE-2009-1181 PDF JBIG2 NULL dereference",
-          "href": "https://bugzilla.redhat.com/495894",
-          "id": "495894"
-        },
-        {
-          "text": "CVE-2009-1182 PDF JBIG2 MMR decoder buffer overflows",
-          "href": "https://bugzilla.redhat.com/495896",
-          "id": "495896"
-        },
-        {
-          "text": "CVE-2009-1183 PDF JBIG2 MMR infinite loop DoS",
-          "href": "https://bugzilla.redhat.com/495899",
-          "id": "495899"
-        },
-        {
-          "text": "CVE-2009-3609 xpdf/poppler: ImageStream::ImageStream integer overflow",
-          "href": "https://bugzilla.redhat.com/526893",
-          "id": "526893"
-        },
-        {
-          "text": "CVE-2010-0827 tetex, texlive: Buffer overflow flaw by processing virtual font files",
-          "href": "https://bugzilla.redhat.com/572914",
-          "id": "572914"
-        },
-        {
-          "text": "CVE-2010-0739 tetex, texlive: Integer overflow by processing special commands",
-          "href": "https://bugzilla.redhat.com/572941",
-          "id": "572941"
-        },
-        {
-          "text": "CVE-2010-1440 tetex, texlive: Integer overflow by processing special commands",
-          "href": "https://bugzilla.redhat.com/586819",
-          "id": "586819"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100399001",
-                    "comment": "tetex is earlier than 0:2.0.2-22.0.1.EL4.16"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060160002",
-                    "comment": "tetex is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100399003",
-                    "comment": "tetex-afm is earlier than 0:2.0.2-22.0.1.EL4.16"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060160004",
-                    "comment": "tetex-afm is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100399005",
-                    "comment": "tetex-doc is earlier than 0:2.0.2-22.0.1.EL4.16"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060160006",
-                    "comment": "tetex-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100399007",
-                    "comment": "tetex-dvips is earlier than 0:2.0.2-22.0.1.EL4.16"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060160008",
-                    "comment": "tetex-dvips is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100399009",
-                    "comment": "tetex-fonts is earlier than 0:2.0.2-22.0.1.EL4.16"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060160010",
-                    "comment": "tetex-fonts is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100399011",
-                    "comment": "tetex-latex is earlier than 0:2.0.2-22.0.1.EL4.16"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060160012",
-                    "comment": "tetex-latex is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100399013",
-                    "comment": "tetex-xdvi is earlier than 0:2.0.2-22.0.1.EL4.16"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060160014",
-                    "comment": "tetex-xdvi is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100399",
+	"version": "659",
+	"metadata": {
+		"title": "RHSA-2010:0399: tetex security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0399",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0399",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-5935",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5935",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0146",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0146",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0147",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0147",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0166",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0166",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0195",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0195",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0791",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0791",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0799",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0799",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0800",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0800",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1179",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1179",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1180",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1180",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1181",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1181",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1182",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1182",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1183",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1183",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3609",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3609",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-0739",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0739",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-0827",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0827",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1440",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1440",
+				"source": "CVE"
+			}
+		],
+		"description": "teTeX is an implementation of TeX. TeX takes a text file and a set of\nformatting commands as input, and creates a typesetter-independent DeVice\nIndependent (DVI) file as output.\n\nA buffer overflow flaw was found in the way teTeX processed virtual font\nfiles when converting DVI files into PostScript. An attacker could create a\nmalicious DVI file that would cause the dvips executable to crash or,\npotentially, execute arbitrary code. (CVE-2010-0827)\n\nMultiple integer overflow flaws were found in the way teTeX processed\nspecial commands when converting DVI files into PostScript. An attacker\ncould create a malicious DVI file that would cause the dvips executable to\ncrash or, potentially, execute arbitrary code. (CVE-2010-0739,\nCVE-2010-1440)\n\nA stack-based buffer overflow flaw was found in the way teTeX processed DVI\nfiles containing HyperTeX references with long titles, when converting them\ninto PostScript. An attacker could create a malicious DVI file that would\ncause the dvips executable to crash. (CVE-2007-5935)\n\nteTeX embeds a copy of Xpdf, an open source Portable Document Format (PDF)\nfile viewer, to allow adding images in PDF format to the generated PDF\ndocuments. The following issues affect Xpdf code:\n\nMultiple integer overflow flaws were found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash or, potentially,\nexecute arbitrary code with the privileges of the user running pdflatex.\n(CVE-2009-0147, CVE-2009-1179)\n\nMultiple integer overflow flaws were found in Xpdf. If a local user\ngenerated a PDF file from a TeX document, referencing a specially-crafted\nPDF file, it would cause Xpdf to crash or, potentially, execute arbitrary\ncode with the privileges of the user running pdflatex. (CVE-2009-0791,\nCVE-2009-3609)\n\nA heap-based buffer overflow flaw was found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash or, potentially,\nexecute arbitrary code with the privileges of the user running pdflatex.\n(CVE-2009-0195)\n\nMultiple buffer overflow flaws were found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash or, potentially,\nexecute arbitrary code with the privileges of the user running pdflatex.\n(CVE-2009-0146, CVE-2009-1182)\n\nMultiple flaws were found in Xpdf's JBIG2 decoder that could lead to the\nfreeing of arbitrary memory. If a local user generated a PDF file from a\nTeX document, referencing a specially-crafted PDF file, it would cause\nXpdf to crash or, potentially, execute arbitrary code with the privileges\nof the user running pdflatex. (CVE-2009-0166, CVE-2009-1180)\n\nMultiple input validation flaws were found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash or, potentially,\nexecute arbitrary code with the privileges of the user running pdflatex.\n(CVE-2009-0800)\n\nMultiple denial of service flaws were found in Xpdf's JBIG2 decoder. If a\nlocal user generated a PDF file from a TeX document, referencing a\nspecially-crafted PDF file, it would cause Xpdf to crash. (CVE-2009-0799,\nCVE-2009-1181, CVE-2009-1183)\n\nRed Hat would like to thank Braden Thomas and Drew Yao of the Apple Product\nSecurity team, Will Dormann of the CERT/CC, and Alin Rad Pop of Secunia\nResearch, for responsibly reporting the Xpdf flaws.\n\nAll users of tetex are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-05-06"
+			},
+			"updated": {
+				"date": "2010-05-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-5935",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5935",
+					"impact": "low",
+					"public": "20071017"
+				},
+				{
+					"text": "CVE-2009-0146",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0146",
+					"impact": "important",
+					"public": "20090416",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0147",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0147",
+					"impact": "important",
+					"public": "20090416",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0166",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0166",
+					"impact": "low",
+					"public": "20090416",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-0195",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0195",
+					"impact": "important",
+					"public": "20090416",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0791",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0791",
+					"impact": "moderate",
+					"public": "20090519",
+					"cwe": "CWE-190",
+					"cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0799",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0799",
+					"impact": "low",
+					"public": "20090416",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-0800",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0800",
+					"impact": "important",
+					"public": "20090416",
+					"cwe": "CWE-20",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-1179",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1179",
+					"impact": "important",
+					"public": "20090416",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-1180",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1180",
+					"impact": "important",
+					"public": "20090416",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-1181",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1181",
+					"impact": "low",
+					"public": "20090416",
+					"cwe": "CWE-476",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-1182",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1182",
+					"impact": "important",
+					"public": "20090416",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-1183",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1183",
+					"impact": "low",
+					"public": "20090416",
+					"cwe": "CWE-835",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-3609",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3609",
+					"impact": "low",
+					"public": "20091014",
+					"cwe": "CWE-190",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2010-0739",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0739",
+					"impact": "moderate",
+					"public": "20100412",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-0827",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0827",
+					"impact": "moderate",
+					"public": "20100325",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1440",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1440",
+					"impact": "moderate",
+					"public": "20100503",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-5935 dvips -z buffer overflow with long href",
+					"href": "https://bugzilla.redhat.com/368591",
+					"id": "368591"
+				},
+				{
+					"text": "CVE-2009-0146 xpdf: Multiple buffer overflows in JBIG2 decoder (setBitmap, readSymbolDictSeg) (CVE-2009-0195)",
+					"href": "https://bugzilla.redhat.com/490612",
+					"id": "490612"
+				},
+				{
+					"text": "CVE-2009-0147 xpdf: Multiple integer overflows in JBIG2 decoder",
+					"href": "https://bugzilla.redhat.com/490614",
+					"id": "490614"
+				},
+				{
+					"text": "CVE-2009-0166 xpdf: Freeing of potentially uninitialized memory in JBIG2 decoder",
+					"href": "https://bugzilla.redhat.com/490625",
+					"id": "490625"
+				},
+				{
+					"text": "CVE-2009-0791 xpdf: multiple integer overflows",
+					"href": "https://bugzilla.redhat.com/491840",
+					"id": "491840"
+				},
+				{
+					"text": "CVE-2009-0799 PDF JBIG2 decoder OOB read",
+					"href": "https://bugzilla.redhat.com/495886",
+					"id": "495886"
+				},
+				{
+					"text": "CVE-2009-0800 PDF JBIG2 multiple input validation flaws",
+					"href": "https://bugzilla.redhat.com/495887",
+					"id": "495887"
+				},
+				{
+					"text": "CVE-2009-1179 PDF JBIG2 integer overflow",
+					"href": "https://bugzilla.redhat.com/495889",
+					"id": "495889"
+				},
+				{
+					"text": "CVE-2009-1180 PDF JBIG2 invalid free()",
+					"href": "https://bugzilla.redhat.com/495892",
+					"id": "495892"
+				},
+				{
+					"text": "CVE-2009-1181 PDF JBIG2 NULL dereference",
+					"href": "https://bugzilla.redhat.com/495894",
+					"id": "495894"
+				},
+				{
+					"text": "CVE-2009-1182 PDF JBIG2 MMR decoder buffer overflows",
+					"href": "https://bugzilla.redhat.com/495896",
+					"id": "495896"
+				},
+				{
+					"text": "CVE-2009-1183 PDF JBIG2 MMR infinite loop DoS",
+					"href": "https://bugzilla.redhat.com/495899",
+					"id": "495899"
+				},
+				{
+					"text": "CVE-2009-3609 xpdf/poppler: ImageStream::ImageStream integer overflow",
+					"href": "https://bugzilla.redhat.com/526893",
+					"id": "526893"
+				},
+				{
+					"text": "CVE-2010-0827 tetex, texlive: Buffer overflow flaw by processing virtual font files",
+					"href": "https://bugzilla.redhat.com/572914",
+					"id": "572914"
+				},
+				{
+					"text": "CVE-2010-0739 tetex, texlive: Integer overflow by processing special commands",
+					"href": "https://bugzilla.redhat.com/572941",
+					"id": "572941"
+				},
+				{
+					"text": "CVE-2010-1440 tetex, texlive: Integer overflow by processing special commands",
+					"href": "https://bugzilla.redhat.com/586819",
+					"id": "586819"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100399001",
+										"comment": "tetex is earlier than 0:2.0.2-22.0.1.EL4.16"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060160002",
+										"comment": "tetex is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100399003",
+										"comment": "tetex-afm is earlier than 0:2.0.2-22.0.1.EL4.16"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060160004",
+										"comment": "tetex-afm is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100399005",
+										"comment": "tetex-doc is earlier than 0:2.0.2-22.0.1.EL4.16"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060160006",
+										"comment": "tetex-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100399007",
+										"comment": "tetex-dvips is earlier than 0:2.0.2-22.0.1.EL4.16"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060160008",
+										"comment": "tetex-dvips is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100399009",
+										"comment": "tetex-fonts is earlier than 0:2.0.2-22.0.1.EL4.16"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060160010",
+										"comment": "tetex-fonts is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100399011",
+										"comment": "tetex-latex is earlier than 0:2.0.2-22.0.1.EL4.16"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060160012",
+										"comment": "tetex-latex is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100399013",
+										"comment": "tetex-xdvi is earlier than 0:2.0.2-22.0.1.EL4.16"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060160014",
+										"comment": "tetex-xdvi is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

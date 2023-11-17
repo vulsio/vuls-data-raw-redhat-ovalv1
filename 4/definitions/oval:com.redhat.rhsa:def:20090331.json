@@ -1,298 +1,298 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090331",
-  "version": "648",
-  "metadata": {
-    "title": "RHSA-2009:0331: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0331",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0331",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-5700",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5700",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0031",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0031",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0065",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0065",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0322",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0322",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update addresses the following security issues:\n\n* a buffer overflow was found in the Linux kernel Partial Reliable Stream\nControl Transmission Protocol (PR-SCTP) implementation. This could,\npotentially, lead to a denial of service if a Forward-TSN chunk is received\nwith a large stream ID. (CVE-2009-0065, Important)\n\n* a memory leak was found in keyctl handling. A local, unprivileged user\ncould use this flaw to deplete kernel memory, eventually leading to a\ndenial of service. (CVE-2009-0031, Important)\n\n* a deficiency was found in the Remote BIOS Update (RBU) driver for Dell\nsystems. This could allow a local, unprivileged user to cause a denial of\nservice by reading zero bytes from the image_type or packet_size file in\n\"/sys/devices/platform/dell_rbu/\". (CVE-2009-0322, Important)\n\n* a deficiency was found in the libATA implementation. This could,\npotentially, lead to a denial of service. Note: by default, \"/dev/sg*\"\ndevices are accessible only to the root user. (CVE-2008-5700, Low)\n\nThis update also fixes the following bugs:\n\n* when the hypervisor changed a page table entry (pte) mapping from\nread-only to writable via a make_writable hypercall, accessing the changed\npage immediately following the change caused a spurious page fault. When\ntrying to install a para-virtualized Red Hat Enterprise Linux 4 guest on a\nRed Hat Enterprise Linux 5.3 dom0 host, this fault crashed the installer\nwith a kernel backtrace. With this update, the \"spurious\" page fault is\nhandled properly. (BZ#483748)\n\n* net_rx_action could detect its cpu poll_list as non-empty, but have that\nsame list reduced to empty by the poll_napi path. This resulted in garbage\ndata being returned when net_rx_action calls list_entry, which subsequently\nresulted in several possible crash conditions. The race condition in the\nnetwork code which caused this has been fixed. (BZ#475970, BZ#479681,\nBZ#480741)\n\n* a misplaced memory barrier at unlock_buffer() could lead to a concurrent\nh_refcounter update which produced a reference counter leak and, later, a\ndouble free in ext3_xattr_release_block(). Consequent to the double free,\next3 reported an error\n\n    ext3_free_blocks_sb: bit already cleared for block [block number]\n\nand mounted itself as read-only. With this update, the memory barrier is\nnow placed before the buffer head lock bit, forcing the write order and\npreventing the double free. (BZ#476533)\n\n* when the iptables module was unloaded, it was assumed the correct entry\nfor removal had been found if \"wrapper->ops->pf\" matched the value passed\nin by \"reg->pf\". If several ops ranges were registered against the same\nprotocol family, however, (which was likely if you had both ip_conntrack\nand ip_contrack_* loaded) this assumption could lead to NULL list pointers\nand cause a kernel panic. With this update, \"wrapper->ops\" is matched to\npointer values \"reg\", which ensures the correct entry is removed and\nresults in no NULL list pointers. (BZ#477147)\n\n* when the pidmap page (used for tracking process ids, pids) incremented to\nan even page (ie the second, fourth, sixth, etc. pidmap page), the\nalloc_pidmap() routine skipped the page. This resulted in \"holes\" in the\nallocated pids. For example, after pid 32767, you would expect 32768 to be\nallocated. If the page skipping behavior presented, however, the pid\nallocated after 32767 was 65536. With this update, alloc_pidmap() no longer\nskips alternate pidmap pages and allocated pid holes no longer occur. This\nfix also corrects an error which allowed pid_max to be set higher than the\npid_max limit has been corrected. (BZ#479182)\n\nAll Red Hat Enterprise Linux 4 users should upgrade to these updated\npackages, which contain backported patches to resolve these issues. The\nsystem must be rebooted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-03-12"
-      },
-      "updated": {
-        "date": "2009-03-12"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-5700",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5700",
-          "impact": "low",
-          "public": "20081205",
-          "cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-0031",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0031",
-          "impact": "important",
-          "public": "20090117",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2009-0065",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0065",
-          "impact": "important",
-          "public": "20081226",
-          "cwe": "CWE-228->CWE-119",
-          "cvss_2": "8.3/AV:A/AC:L/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2009-0322",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0322",
-          "impact": "moderate",
-          "public": "20090117",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-5700 kernel: enforce a minimum SG_IO timeout",
-          "href": "https://bugzilla.redhat.com/474495",
-          "id": "474495"
-        },
-        {
-          "text": "CVE-2009-0065 kernel: sctp: memory overflow when FWD-TSN chunk is received with bad stream ID",
-          "href": "https://bugzilla.redhat.com/478800",
-          "id": "478800"
-        },
-        {
-          "text": "CVE-2009-0031 kernel: local denial of service in keyctl_join_session_keyring",
-          "href": "https://bugzilla.redhat.com/480592",
-          "id": "480592"
-        },
-        {
-          "text": "CVE-2009-0322 kernel: dell_rbu local oops",
-          "href": "https://bugzilla.redhat.com/482866",
-          "id": "482866"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20090331023",
-                "comment": "kernel earlier than 0:2.6.9-78.0.17.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20090331024",
-                "comment": "kernel earlier than 0:2.6.9-78.0.17.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331001",
-                    "comment": "kernel is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090331021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-78.0.17.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090331",
+	"version": "648",
+	"metadata": {
+		"title": "RHSA-2009:0331: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0331",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0331",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-5700",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5700",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0031",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0031",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0065",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0065",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0322",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0322",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update addresses the following security issues:\n\n* a buffer overflow was found in the Linux kernel Partial Reliable Stream\nControl Transmission Protocol (PR-SCTP) implementation. This could,\npotentially, lead to a denial of service if a Forward-TSN chunk is received\nwith a large stream ID. (CVE-2009-0065, Important)\n\n* a memory leak was found in keyctl handling. A local, unprivileged user\ncould use this flaw to deplete kernel memory, eventually leading to a\ndenial of service. (CVE-2009-0031, Important)\n\n* a deficiency was found in the Remote BIOS Update (RBU) driver for Dell\nsystems. This could allow a local, unprivileged user to cause a denial of\nservice by reading zero bytes from the image_type or packet_size file in\n\"/sys/devices/platform/dell_rbu/\". (CVE-2009-0322, Important)\n\n* a deficiency was found in the libATA implementation. This could,\npotentially, lead to a denial of service. Note: by default, \"/dev/sg*\"\ndevices are accessible only to the root user. (CVE-2008-5700, Low)\n\nThis update also fixes the following bugs:\n\n* when the hypervisor changed a page table entry (pte) mapping from\nread-only to writable via a make_writable hypercall, accessing the changed\npage immediately following the change caused a spurious page fault. When\ntrying to install a para-virtualized Red Hat Enterprise Linux 4 guest on a\nRed Hat Enterprise Linux 5.3 dom0 host, this fault crashed the installer\nwith a kernel backtrace. With this update, the \"spurious\" page fault is\nhandled properly. (BZ#483748)\n\n* net_rx_action could detect its cpu poll_list as non-empty, but have that\nsame list reduced to empty by the poll_napi path. This resulted in garbage\ndata being returned when net_rx_action calls list_entry, which subsequently\nresulted in several possible crash conditions. The race condition in the\nnetwork code which caused this has been fixed. (BZ#475970, BZ#479681,\nBZ#480741)\n\n* a misplaced memory barrier at unlock_buffer() could lead to a concurrent\nh_refcounter update which produced a reference counter leak and, later, a\ndouble free in ext3_xattr_release_block(). Consequent to the double free,\next3 reported an error\n\n    ext3_free_blocks_sb: bit already cleared for block [block number]\n\nand mounted itself as read-only. With this update, the memory barrier is\nnow placed before the buffer head lock bit, forcing the write order and\npreventing the double free. (BZ#476533)\n\n* when the iptables module was unloaded, it was assumed the correct entry\nfor removal had been found if \"wrapper->ops->pf\" matched the value passed\nin by \"reg->pf\". If several ops ranges were registered against the same\nprotocol family, however, (which was likely if you had both ip_conntrack\nand ip_contrack_* loaded) this assumption could lead to NULL list pointers\nand cause a kernel panic. With this update, \"wrapper->ops\" is matched to\npointer values \"reg\", which ensures the correct entry is removed and\nresults in no NULL list pointers. (BZ#477147)\n\n* when the pidmap page (used for tracking process ids, pids) incremented to\nan even page (ie the second, fourth, sixth, etc. pidmap page), the\nalloc_pidmap() routine skipped the page. This resulted in \"holes\" in the\nallocated pids. For example, after pid 32767, you would expect 32768 to be\nallocated. If the page skipping behavior presented, however, the pid\nallocated after 32767 was 65536. With this update, alloc_pidmap() no longer\nskips alternate pidmap pages and allocated pid holes no longer occur. This\nfix also corrects an error which allowed pid_max to be set higher than the\npid_max limit has been corrected. (BZ#479182)\n\nAll Red Hat Enterprise Linux 4 users should upgrade to these updated\npackages, which contain backported patches to resolve these issues. The\nsystem must be rebooted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-03-12"
+			},
+			"updated": {
+				"date": "2009-03-12"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-5700",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5700",
+					"impact": "low",
+					"public": "20081205",
+					"cvss_2": "1.9/AV:L/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-0031",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0031",
+					"impact": "important",
+					"public": "20090117",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2009-0065",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0065",
+					"impact": "important",
+					"public": "20081226",
+					"cwe": "CWE-228->CWE-119",
+					"cvss_2": "8.3/AV:A/AC:L/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2009-0322",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0322",
+					"impact": "moderate",
+					"public": "20090117",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-5700 kernel: enforce a minimum SG_IO timeout",
+					"href": "https://bugzilla.redhat.com/474495",
+					"id": "474495"
+				},
+				{
+					"text": "CVE-2009-0065 kernel: sctp: memory overflow when FWD-TSN chunk is received with bad stream ID",
+					"href": "https://bugzilla.redhat.com/478800",
+					"id": "478800"
+				},
+				{
+					"text": "CVE-2009-0031 kernel: local denial of service in keyctl_join_session_keyring",
+					"href": "https://bugzilla.redhat.com/480592",
+					"id": "480592"
+				},
+				{
+					"text": "CVE-2009-0322 kernel: dell_rbu local oops",
+					"href": "https://bugzilla.redhat.com/482866",
+					"id": "482866"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20090331023",
+								"comment": "kernel earlier than 0:2.6.9-78.0.17.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20090331024",
+								"comment": "kernel earlier than 0:2.6.9-78.0.17.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331001",
+										"comment": "kernel is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090331021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-78.0.17.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

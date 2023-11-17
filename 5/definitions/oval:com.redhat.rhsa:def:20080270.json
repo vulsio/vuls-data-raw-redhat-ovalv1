@@ -1,197 +1,197 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080270",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2008:0270: libvorbis security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0270",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0270",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1419",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1419",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-1420",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1420",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-1423",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1423",
-        "source": "CVE"
-      }
-    ],
-    "description": "The libvorbis packages contain runtime libraries for use in programs that\nsupport Ogg Vorbis. Ogg Vorbis is a fully open, non-proprietary, patent-and\nroyalty-free, general-purpose compressed audio format.\n\nWill Drewry of the Google Security Team reported several flaws in the way\nlibvorbis processed audio data. An attacker could create a carefully\ncrafted OGG audio file in such a way that it could cause an application\nlinked with libvorbis to crash, or execute arbitrary code when it was\nopened. (CVE-2008-1419, CVE-2008-1420, CVE-2008-1423)\n\nMoreover, additional OGG file sanity-checks have been added to prevent\npossible exploitation of similar issues in the future.\n\nUsers of libvorbis are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-05-14"
-      },
-      "updated": {
-        "date": "2008-05-14"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1419",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1419",
-          "impact": "important",
-          "public": "20080514",
-          "cwe": "CWE-835"
-        },
-        {
-          "text": "CVE-2008-1420",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1420",
-          "impact": "important",
-          "public": "20080514",
-          "cwe": "CWE-190"
-        },
-        {
-          "text": "CVE-2008-1423",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1423",
-          "impact": "important",
-          "public": "20080514",
-          "cwe": "CWE-190->CWE-122"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1419 vorbis: zero-dim codebooks can cause crash, infinite loop or heap overflow",
-          "href": "https://bugzilla.redhat.com/440700",
-          "id": "440700"
-        },
-        {
-          "text": "CVE-2008-1420 vorbis: integer overflow in partvals computation",
-          "href": "https://bugzilla.redhat.com/440706",
-          "id": "440706"
-        },
-        {
-          "text": "CVE-2008-1423 vorbis: integer oveflow caused by huge codebooks",
-          "href": "https://bugzilla.redhat.com/440709",
-          "id": "440709"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080270001",
-                    "comment": "libvorbis is earlier than 1:1.1.0-3.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070845002",
-                    "comment": "libvorbis is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080270003",
-                    "comment": "libvorbis-devel is earlier than 1:1.1.0-3.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070845004",
-                    "comment": "libvorbis-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080270006",
-                    "comment": "libvorbis is earlier than 1:1.1.2-3.el5_1.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070845002",
-                    "comment": "libvorbis is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080270007",
-                    "comment": "libvorbis-devel is earlier than 1:1.1.2-3.el5_1.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070845004",
-                    "comment": "libvorbis-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080270",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2008:0270: libvorbis security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0270",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0270",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1419",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1419",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-1420",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1420",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-1423",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1423",
+				"source": "CVE"
+			}
+		],
+		"description": "The libvorbis packages contain runtime libraries for use in programs that\nsupport Ogg Vorbis. Ogg Vorbis is a fully open, non-proprietary, patent-and\nroyalty-free, general-purpose compressed audio format.\n\nWill Drewry of the Google Security Team reported several flaws in the way\nlibvorbis processed audio data. An attacker could create a carefully\ncrafted OGG audio file in such a way that it could cause an application\nlinked with libvorbis to crash, or execute arbitrary code when it was\nopened. (CVE-2008-1419, CVE-2008-1420, CVE-2008-1423)\n\nMoreover, additional OGG file sanity-checks have been added to prevent\npossible exploitation of similar issues in the future.\n\nUsers of libvorbis are advised to upgrade to these updated packages, which\ncontain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-05-14"
+			},
+			"updated": {
+				"date": "2008-05-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1419",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1419",
+					"impact": "important",
+					"public": "20080514",
+					"cwe": "CWE-835"
+				},
+				{
+					"text": "CVE-2008-1420",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1420",
+					"impact": "important",
+					"public": "20080514",
+					"cwe": "CWE-190"
+				},
+				{
+					"text": "CVE-2008-1423",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1423",
+					"impact": "important",
+					"public": "20080514",
+					"cwe": "CWE-190->CWE-122"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1419 vorbis: zero-dim codebooks can cause crash, infinite loop or heap overflow",
+					"href": "https://bugzilla.redhat.com/440700",
+					"id": "440700"
+				},
+				{
+					"text": "CVE-2008-1420 vorbis: integer overflow in partvals computation",
+					"href": "https://bugzilla.redhat.com/440706",
+					"id": "440706"
+				},
+				{
+					"text": "CVE-2008-1423 vorbis: integer oveflow caused by huge codebooks",
+					"href": "https://bugzilla.redhat.com/440709",
+					"id": "440709"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080270001",
+										"comment": "libvorbis is earlier than 1:1.1.0-3.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070845002",
+										"comment": "libvorbis is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080270003",
+										"comment": "libvorbis-devel is earlier than 1:1.1.0-3.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070845004",
+										"comment": "libvorbis-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080270006",
+										"comment": "libvorbis is earlier than 1:1.1.2-3.el5_1.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070845002",
+										"comment": "libvorbis is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080270007",
+										"comment": "libvorbis-devel is earlier than 1:1.1.2-3.el5_1.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070845004",
+										"comment": "libvorbis-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

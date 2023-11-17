@@ -1,141 +1,141 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20140474",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2014:0474: struts security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2014:0474",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2014:0474",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2014-0114",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-0114",
-        "source": "CVE"
-      }
-    ],
-    "description": "Apache Struts is a framework for building web applications with Java.\n\nIt was found that the Struts 1 ActionForm object allowed access to the\n'class' parameter, which is directly mapped to the getClass() method. A\nremote attacker could use this flaw to manipulate the ClassLoader used by\nan application server running Struts 1. This could lead to remote code\nexecution under certain conditions. (CVE-2014-0114)\n\nAll struts users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. All running applications\nusing struts must be restarted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2014 Red Hat, Inc.",
-      "issued": {
-        "date": "2014-05-07"
-      },
-      "updated": {
-        "date": "2014-05-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2014-0114",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-0114",
-          "impact": "important",
-          "public": "20140429",
-          "cwe": "CWE-470",
-          "cvss_2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2014-0114 Apache Struts 1: Class Loader manipulation via request parameters",
-          "href": "https://bugzilla.redhat.com/1091938",
-          "id": "1091938"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20140474001",
-                    "comment": "struts is earlier than 0:1.2.9-4jpp.8.el5_10"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20140474002",
-                    "comment": "struts is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20140474003",
-                    "comment": "struts-javadoc is earlier than 0:1.2.9-4jpp.8.el5_10"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20140474004",
-                    "comment": "struts-javadoc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20140474005",
-                    "comment": "struts-manual is earlier than 0:1.2.9-4jpp.8.el5_10"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20140474006",
-                    "comment": "struts-manual is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20140474007",
-                    "comment": "struts-webapps-tomcat5 is earlier than 0:1.2.9-4jpp.8.el5_10"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20140474008",
-                    "comment": "struts-webapps-tomcat5 is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20140474",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2014:0474: struts security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2014:0474",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2014:0474",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2014-0114",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-0114",
+				"source": "CVE"
+			}
+		],
+		"description": "Apache Struts is a framework for building web applications with Java.\n\nIt was found that the Struts 1 ActionForm object allowed access to the\n'class' parameter, which is directly mapped to the getClass() method. A\nremote attacker could use this flaw to manipulate the ClassLoader used by\nan application server running Struts 1. This could lead to remote code\nexecution under certain conditions. (CVE-2014-0114)\n\nAll struts users are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue. All running applications\nusing struts must be restarted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2014 Red Hat, Inc.",
+			"issued": {
+				"date": "2014-05-07"
+			},
+			"updated": {
+				"date": "2014-05-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2014-0114",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-0114",
+					"impact": "important",
+					"public": "20140429",
+					"cwe": "CWE-470",
+					"cvss_2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2014-0114 Apache Struts 1: Class Loader manipulation via request parameters",
+					"href": "https://bugzilla.redhat.com/1091938",
+					"id": "1091938"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20140474001",
+										"comment": "struts is earlier than 0:1.2.9-4jpp.8.el5_10"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20140474002",
+										"comment": "struts is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20140474003",
+										"comment": "struts-javadoc is earlier than 0:1.2.9-4jpp.8.el5_10"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20140474004",
+										"comment": "struts-javadoc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20140474005",
+										"comment": "struts-manual is earlier than 0:1.2.9-4jpp.8.el5_10"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20140474006",
+										"comment": "struts-manual is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20140474007",
+										"comment": "struts-webapps-tomcat5 is earlier than 0:1.2.9-4jpp.8.el5_10"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20140474008",
+										"comment": "struts-webapps-tomcat5 is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

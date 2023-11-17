@@ -1,165 +1,165 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20151197",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2015:1197: openssl security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2015:1197",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2015:1197",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2015-1789",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2015-1789",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2015-1790",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2015-1790",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2015-4000",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2015-4000",
-        "source": "CVE"
-      }
-    ],
-    "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nAn out-of-bounds read flaw was found in the X509_cmp_time() function of\nOpenSSL. A specially crafted X.509 certificate or a Certificate Revocation\nList (CRL) could possibly cause a TLS/SSL server or client using OpenSSL\nto crash. (CVE-2015-1789)\n\nA NULL pointer dereference was found in the way OpenSSL handled certain\nPKCS#7 inputs. A specially crafted PKCS#7 input with missing\nEncryptedContent data could cause an application using OpenSSL to crash.\n(CVE-2015-1790)\n\nA flaw was found in the way the TLS protocol composes the Diffie-Hellman \n(DH) key exchange. A man-in-the-middle attacker could use this flaw to \nforce the use of weak 512 bit export-grade keys during the key exchange, \nallowing them to decrypt all traffic. (CVE-2015-4000)\n\nNote: This update forces the TLS/SSL client implementation in OpenSSL to \nreject DH key sizes below 768 bits, which prevents sessions to be \ndowngraded to export-grade keys. Future updates may raise this limit to \n1024 bits.\n\nRed Hat would like to thank the OpenSSL project for reporting CVE-2015-1789\nand CVE-2015-1790. Upstream acknowledges Robert Swiecki and Hanno Böck as\nthe original reporters of CVE-2015-1789, and Michal Zalewski as the\noriginal reporter of CVE-2015-1790.\n\nAll openssl users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. For the update to take\neffect, all services linked to the OpenSSL library must be restarted, or\nthe system rebooted.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2015 Red Hat, Inc.",
-      "issued": {
-        "date": "2015-06-30"
-      },
-      "updated": {
-        "date": "2015-06-30"
-      },
-      "cve": [
-        {
-          "text": "CVE-2015-1789",
-          "href": "https://access.redhat.com/security/cve/CVE-2015-1789",
-          "impact": "moderate",
-          "public": "20150611",
-          "cwe": "CWE-125",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2015-1790",
-          "href": "https://access.redhat.com/security/cve/CVE-2015-1790",
-          "impact": "moderate",
-          "public": "20150611",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2015-4000",
-          "href": "https://access.redhat.com/security/cve/CVE-2015-4000",
-          "impact": "moderate",
-          "public": "20150520",
-          "cwe": "CWE-327",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N",
-          "cvss_3": "3.7/CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2015-4000 LOGJAM: TLS connections which support export grade DHE key-exchange are vulnerable to MITM attacks",
-          "href": "https://bugzilla.redhat.com/1223211",
-          "id": "1223211"
-        },
-        {
-          "text": "CVE-2015-1789 OpenSSL: out-of-bounds read in X509_cmp_time",
-          "href": "https://bugzilla.redhat.com/1228603",
-          "id": "1228603"
-        },
-        {
-          "text": "CVE-2015-1790 OpenSSL: PKCS7 crash with missing EnvelopedContent",
-          "href": "https://bugzilla.redhat.com/1228604",
-          "id": "1228604"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20151197001",
-                    "comment": "openssl is earlier than 0:0.9.8e-36.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964002",
-                    "comment": "openssl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20151197003",
-                    "comment": "openssl-devel is earlier than 0:0.9.8e-36.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964004",
-                    "comment": "openssl-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20151197005",
-                    "comment": "openssl-perl is earlier than 0:0.9.8e-36.el5_11"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964006",
-                    "comment": "openssl-perl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20151197",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2015:1197: openssl security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2015:1197",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2015:1197",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2015-1789",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2015-1789",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2015-1790",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2015-1790",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2015-4000",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2015-4000",
+				"source": "CVE"
+			}
+		],
+		"description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL v2/v3)\nand Transport Layer Security (TLS v1) protocols, as well as a\nfull-strength, general purpose cryptography library.\n\nAn out-of-bounds read flaw was found in the X509_cmp_time() function of\nOpenSSL. A specially crafted X.509 certificate or a Certificate Revocation\nList (CRL) could possibly cause a TLS/SSL server or client using OpenSSL\nto crash. (CVE-2015-1789)\n\nA NULL pointer dereference was found in the way OpenSSL handled certain\nPKCS#7 inputs. A specially crafted PKCS#7 input with missing\nEncryptedContent data could cause an application using OpenSSL to crash.\n(CVE-2015-1790)\n\nA flaw was found in the way the TLS protocol composes the Diffie-Hellman \n(DH) key exchange. A man-in-the-middle attacker could use this flaw to \nforce the use of weak 512 bit export-grade keys during the key exchange, \nallowing them to decrypt all traffic. (CVE-2015-4000)\n\nNote: This update forces the TLS/SSL client implementation in OpenSSL to \nreject DH key sizes below 768 bits, which prevents sessions to be \ndowngraded to export-grade keys. Future updates may raise this limit to \n1024 bits.\n\nRed Hat would like to thank the OpenSSL project for reporting CVE-2015-1789\nand CVE-2015-1790. Upstream acknowledges Robert Swiecki and Hanno Böck as\nthe original reporters of CVE-2015-1789, and Michal Zalewski as the\noriginal reporter of CVE-2015-1790.\n\nAll openssl users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. For the update to take\neffect, all services linked to the OpenSSL library must be restarted, or\nthe system rebooted.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2015 Red Hat, Inc.",
+			"issued": {
+				"date": "2015-06-30"
+			},
+			"updated": {
+				"date": "2015-06-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2015-1789",
+					"href": "https://access.redhat.com/security/cve/CVE-2015-1789",
+					"impact": "moderate",
+					"public": "20150611",
+					"cwe": "CWE-125",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2015-1790",
+					"href": "https://access.redhat.com/security/cve/CVE-2015-1790",
+					"impact": "moderate",
+					"public": "20150611",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2015-4000",
+					"href": "https://access.redhat.com/security/cve/CVE-2015-4000",
+					"impact": "moderate",
+					"public": "20150520",
+					"cwe": "CWE-327",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N",
+					"cvss_3": "3.7/CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2015-4000 LOGJAM: TLS connections which support export grade DHE key-exchange are vulnerable to MITM attacks",
+					"href": "https://bugzilla.redhat.com/1223211",
+					"id": "1223211"
+				},
+				{
+					"text": "CVE-2015-1789 OpenSSL: out-of-bounds read in X509_cmp_time",
+					"href": "https://bugzilla.redhat.com/1228603",
+					"id": "1228603"
+				},
+				{
+					"text": "CVE-2015-1790 OpenSSL: PKCS7 crash with missing EnvelopedContent",
+					"href": "https://bugzilla.redhat.com/1228604",
+					"id": "1228604"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20151197001",
+										"comment": "openssl is earlier than 0:0.9.8e-36.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964002",
+										"comment": "openssl is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20151197003",
+										"comment": "openssl-devel is earlier than 0:0.9.8e-36.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964004",
+										"comment": "openssl-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20151197005",
+										"comment": "openssl-perl is earlier than 0:0.9.8e-36.el5_11"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964006",
+										"comment": "openssl-perl is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

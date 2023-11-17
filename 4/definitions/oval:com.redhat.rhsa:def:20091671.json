@@ -1,298 +1,298 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091671",
-  "version": "658",
-  "metadata": {
-    "title": "RHSA-2009:1671: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1671",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1671",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-2910",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2910",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3613",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3613",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3620",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3620",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3621",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3621",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* a flaw was found in the Realtek r8169 Ethernet driver in the Linux\nkernel. pci_unmap_single() presented a memory leak that could lead to IOMMU\nspace exhaustion and a system crash. An attacker on the local network could\ntrigger this flaw by using jumbo frames for large amounts of network\ntraffic. (CVE-2009-3613, Important)\n\n* NULL pointer dereference flaws were found in the r128 driver in the Linux\nkernel. Checks to test if the Concurrent Command Engine state was\ninitialized were missing in private IOCTL functions. An attacker could use\nthese flaws to cause a local denial of service or escalate their\nprivileges. (CVE-2009-3620, Important)\n\n* an information leak was found in the Linux kernel. On AMD64 systems,\n32-bit processes could access and read certain 64-bit registers by\ntemporarily switching themselves to 64-bit mode. (CVE-2009-2910, Moderate)\n\n* the unix_stream_connect() function in the Linux kernel did not check if a\nUNIX domain socket was in the shutdown state. This could lead to a\ndeadlock. A local, unprivileged user could use this flaw to cause a denial\nof service. (CVE-2009-3621, Moderate)\n\nThis update also fixes the following bugs:\n\n* an iptables rule with the recent module and a hit count value greater\nthan the ip_pkt_list_tot parameter (the default is 20), did not have any\neffect over packets, as the hit count could not be reached. (BZ#529306)\n\n* in environments that use dual-controller storage devices with the cciss\ndriver, Device-Mapper Multipath maps could not be detected and configured,\ndue to the cciss driver not exporting the bus attribute via sysfs. This\nattribute is now exported. (BZ#529309)\n\n* the kernel crashed with a divide error when a certain joystick was\nattached. (BZ#532027)\n\n* a bug in the mptctl_do_mpt_command() function in the mpt driver may have\nresulted in crashes during boot on i386 systems with certain adapters using\nthe mpt driver, and also running the hugemem kernel. (BZ#533798)\n\n* on certain hardware, the igb driver was unable to detect link statuses\ncorrectly. This may have caused problems for network bonding, such as\nfailover not occurring. (BZ#534105)\n\n* the RHSA-2009:1024 update introduced a regression. After updating to Red\nHat Enterprise Linux 4.8 and rebooting, network links often failed to be\nbrought up for interfaces using the forcedeth driver. \"no link during\ninitialization\" messages may have been logged. (BZ#534112)\n\n* the RHSA-2009:1024 update introduced a second regression. On certain\nsystems, PS/2 keyboards failed to work. (BZ#537344)\n\n* a bug in checksum offload calculations could have crashed the bnx2x\nfirmware when the iptable_nat module was loaded, causing network traffic\nto stop. (BZ#537013)\n\n* a check has been added to the IPv4 code to make sure that the routing\ntable data structure, rt, is not NULL, to help prevent future bugs in\nfunctions that call ip_append_data() from being exploitable. (BZ#537016)\n\n* possible kernel pointer dereferences on systems with several NFS mounts\n(a mixture of \"-o lock\" and \"-o nolock\"), which in rare cases may have\ncaused a system crash, have been resolved. (BZ#537017)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-12-15"
-      },
-      "updated": {
-        "date": "2009-12-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-2910",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2910",
-          "impact": "moderate",
-          "public": "20091001",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2009-3613",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3613",
-          "impact": "important",
-          "public": "20071128",
-          "cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2009-3620",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3620",
-          "impact": "moderate",
-          "public": "20090830",
-          "cwe": "CWE-476",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2009-3621",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3621",
-          "impact": "moderate",
-          "public": "20091019",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-2910 kernel: x86_64 32 bit process register leak",
-          "href": "https://bugzilla.redhat.com/526788",
-          "id": "526788"
-        },
-        {
-          "text": "CVE-2009-3613 kernel: flood ping cause out-of-iommu error and panic when mtu larger than 1500",
-          "href": "https://bugzilla.redhat.com/529137",
-          "id": "529137"
-        },
-        {
-          "text": "CVE-2009-3620 kernel: r128 IOCTL NULL pointer dereferences when CCE state is uninitialised",
-          "href": "https://bugzilla.redhat.com/529597",
-          "id": "529597"
-        },
-        {
-          "text": "CVE-2009-3621 kernel: AF_UNIX: Fix deadlock on connecting to shutdown socket",
-          "href": "https://bugzilla.redhat.com/529626",
-          "id": "529626"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20091671023",
-                "comment": "kernel earlier than 0:2.6.9-89.0.18.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20091671024",
-                "comment": "kernel earlier than 0:2.6.9-89.0.18.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671001",
-                    "comment": "kernel is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091671021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.0.18.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091671",
+	"version": "658",
+	"metadata": {
+		"title": "RHSA-2009:1671: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1671",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1671",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-2910",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2910",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3613",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3613",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3620",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3620",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3621",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3621",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* a flaw was found in the Realtek r8169 Ethernet driver in the Linux\nkernel. pci_unmap_single() presented a memory leak that could lead to IOMMU\nspace exhaustion and a system crash. An attacker on the local network could\ntrigger this flaw by using jumbo frames for large amounts of network\ntraffic. (CVE-2009-3613, Important)\n\n* NULL pointer dereference flaws were found in the r128 driver in the Linux\nkernel. Checks to test if the Concurrent Command Engine state was\ninitialized were missing in private IOCTL functions. An attacker could use\nthese flaws to cause a local denial of service or escalate their\nprivileges. (CVE-2009-3620, Important)\n\n* an information leak was found in the Linux kernel. On AMD64 systems,\n32-bit processes could access and read certain 64-bit registers by\ntemporarily switching themselves to 64-bit mode. (CVE-2009-2910, Moderate)\n\n* the unix_stream_connect() function in the Linux kernel did not check if a\nUNIX domain socket was in the shutdown state. This could lead to a\ndeadlock. A local, unprivileged user could use this flaw to cause a denial\nof service. (CVE-2009-3621, Moderate)\n\nThis update also fixes the following bugs:\n\n* an iptables rule with the recent module and a hit count value greater\nthan the ip_pkt_list_tot parameter (the default is 20), did not have any\neffect over packets, as the hit count could not be reached. (BZ#529306)\n\n* in environments that use dual-controller storage devices with the cciss\ndriver, Device-Mapper Multipath maps could not be detected and configured,\ndue to the cciss driver not exporting the bus attribute via sysfs. This\nattribute is now exported. (BZ#529309)\n\n* the kernel crashed with a divide error when a certain joystick was\nattached. (BZ#532027)\n\n* a bug in the mptctl_do_mpt_command() function in the mpt driver may have\nresulted in crashes during boot on i386 systems with certain adapters using\nthe mpt driver, and also running the hugemem kernel. (BZ#533798)\n\n* on certain hardware, the igb driver was unable to detect link statuses\ncorrectly. This may have caused problems for network bonding, such as\nfailover not occurring. (BZ#534105)\n\n* the RHSA-2009:1024 update introduced a regression. After updating to Red\nHat Enterprise Linux 4.8 and rebooting, network links often failed to be\nbrought up for interfaces using the forcedeth driver. \"no link during\ninitialization\" messages may have been logged. (BZ#534112)\n\n* the RHSA-2009:1024 update introduced a second regression. On certain\nsystems, PS/2 keyboards failed to work. (BZ#537344)\n\n* a bug in checksum offload calculations could have crashed the bnx2x\nfirmware when the iptable_nat module was loaded, causing network traffic\nto stop. (BZ#537013)\n\n* a check has been added to the IPv4 code to make sure that the routing\ntable data structure, rt, is not NULL, to help prevent future bugs in\nfunctions that call ip_append_data() from being exploitable. (BZ#537016)\n\n* possible kernel pointer dereferences on systems with several NFS mounts\n(a mixture of \"-o lock\" and \"-o nolock\"), which in rare cases may have\ncaused a system crash, have been resolved. (BZ#537017)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-12-15"
+			},
+			"updated": {
+				"date": "2009-12-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-2910",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2910",
+					"impact": "moderate",
+					"public": "20091001",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2009-3613",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3613",
+					"impact": "important",
+					"public": "20071128",
+					"cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2009-3620",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3620",
+					"impact": "moderate",
+					"public": "20090830",
+					"cwe": "CWE-476",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2009-3621",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3621",
+					"impact": "moderate",
+					"public": "20091019",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-2910 kernel: x86_64 32 bit process register leak",
+					"href": "https://bugzilla.redhat.com/526788",
+					"id": "526788"
+				},
+				{
+					"text": "CVE-2009-3613 kernel: flood ping cause out-of-iommu error and panic when mtu larger than 1500",
+					"href": "https://bugzilla.redhat.com/529137",
+					"id": "529137"
+				},
+				{
+					"text": "CVE-2009-3620 kernel: r128 IOCTL NULL pointer dereferences when CCE state is uninitialised",
+					"href": "https://bugzilla.redhat.com/529597",
+					"id": "529597"
+				},
+				{
+					"text": "CVE-2009-3621 kernel: AF_UNIX: Fix deadlock on connecting to shutdown socket",
+					"href": "https://bugzilla.redhat.com/529626",
+					"id": "529626"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20091671023",
+								"comment": "kernel earlier than 0:2.6.9-89.0.18.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20091671024",
+								"comment": "kernel earlier than 0:2.6.9-89.0.18.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671001",
+										"comment": "kernel is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091671021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-89.0.18.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

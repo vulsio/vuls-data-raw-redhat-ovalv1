@@ -1,128 +1,128 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090005",
-  "version": "639",
-  "metadata": {
-    "title": "RHSA-2009:0005: gnome-vfs, gnome-vfs2 security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0005",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0005",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-0706",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-0706",
-        "source": "CVE"
-      }
-    ],
-    "description": "GNOME VFS is the GNOME virtual file system. It provides a modular\narchitecture and ships with several modules that implement support for\nvarious local and remote file systems as well as numerous protocols,\nincluding HTTP, FTP, and others.\n\nA buffer overflow flaw was discovered in the GNOME virtual file system when\nhandling data returned by CDDB servers. If a user connected to a malicious\nCDDB server, an attacker could use this flaw to execute arbitrary code on\nthe victim's machine. (CVE-2005-0706)\n\nUsers of gnome-vfs and gnome-vfs2 are advised to upgrade to these updated\npackages, which contain a backported patch to correct this issue. All\nrunning GNOME sessions must be restarted for the update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-01-07"
-      },
-      "updated": {
-        "date": "2009-01-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-0706",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-0706",
-          "impact": "moderate",
-          "public": "20050309"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2005-0706 grip,libcdaudio: buffer overflow caused by large amount of CDDB replies",
-          "href": "https://bugzilla.redhat.com/470552",
-          "id": "470552"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090005001",
-                    "comment": "gnome-vfs2 is earlier than 0:2.8.2-8.7.el4_7.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090005002",
-                    "comment": "gnome-vfs2 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090005003",
-                    "comment": "gnome-vfs2-devel is earlier than 0:2.8.2-8.7.el4_7.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090005004",
-                    "comment": "gnome-vfs2-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090005005",
-                    "comment": "gnome-vfs2-smb is earlier than 0:2.8.2-8.7.el4_7.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090005006",
-                    "comment": "gnome-vfs2-smb is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090005",
+	"version": "639",
+	"metadata": {
+		"title": "RHSA-2009:0005: gnome-vfs, gnome-vfs2 security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0005",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0005",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-0706",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-0706",
+				"source": "CVE"
+			}
+		],
+		"description": "GNOME VFS is the GNOME virtual file system. It provides a modular\narchitecture and ships with several modules that implement support for\nvarious local and remote file systems as well as numerous protocols,\nincluding HTTP, FTP, and others.\n\nA buffer overflow flaw was discovered in the GNOME virtual file system when\nhandling data returned by CDDB servers. If a user connected to a malicious\nCDDB server, an attacker could use this flaw to execute arbitrary code on\nthe victim's machine. (CVE-2005-0706)\n\nUsers of gnome-vfs and gnome-vfs2 are advised to upgrade to these updated\npackages, which contain a backported patch to correct this issue. All\nrunning GNOME sessions must be restarted for the update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-01-07"
+			},
+			"updated": {
+				"date": "2009-01-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-0706",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-0706",
+					"impact": "moderate",
+					"public": "20050309"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2005-0706 grip,libcdaudio: buffer overflow caused by large amount of CDDB replies",
+					"href": "https://bugzilla.redhat.com/470552",
+					"id": "470552"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090005001",
+										"comment": "gnome-vfs2 is earlier than 0:2.8.2-8.7.el4_7.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090005002",
+										"comment": "gnome-vfs2 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090005003",
+										"comment": "gnome-vfs2-devel is earlier than 0:2.8.2-8.7.el4_7.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090005004",
+										"comment": "gnome-vfs2-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090005005",
+										"comment": "gnome-vfs2-smb is earlier than 0:2.8.2-8.7.el4_7.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090005006",
+										"comment": "gnome-vfs2-smb is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

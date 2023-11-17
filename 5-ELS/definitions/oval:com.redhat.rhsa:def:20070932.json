@@ -1,114 +1,114 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070932",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2007:0932: pwlib security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0932",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0932",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-4897",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-4897",
-        "source": "CVE"
-      }
-    ],
-    "description": "PWLib is a library used to support cross-platform applications.  \n\nIn Red Hat Enterprise Linux 5, the Ekiga teleconferencing application uses\nPWLib.\n\nA memory management flaw was discovered in PWLib.  An attacker could use this\nflaw to crash an application, such as Ekiga, which is linked with pwlib\n(CVE-2007-4897).  \n\nUsers should upgrade to these updated packages which contain a backported\npatch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-10-08"
-      },
-      "updated": {
-        "date": "2007-10-08"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-4897",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-4897",
-          "impact": "moderate",
-          "public": "20070912"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-4897 ekiga GetHostAddress remote DoS",
-          "href": "https://bugzilla.redhat.com/292831",
-          "id": "292831"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_productivity:5",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070932001",
-                    "comment": "pwlib is earlier than 0:1.10.1-7.0.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070932002",
-                    "comment": "pwlib is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070932003",
-                    "comment": "pwlib-devel is earlier than 0:1.10.1-7.0.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070932004",
-                    "comment": "pwlib-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070932",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2007:0932: pwlib security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0932",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0932",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-4897",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-4897",
+				"source": "CVE"
+			}
+		],
+		"description": "PWLib is a library used to support cross-platform applications.  \n\nIn Red Hat Enterprise Linux 5, the Ekiga teleconferencing application uses\nPWLib.\n\nA memory management flaw was discovered in PWLib.  An attacker could use this\nflaw to crash an application, such as Ekiga, which is linked with pwlib\n(CVE-2007-4897).  \n\nUsers should upgrade to these updated packages which contain a backported\npatch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-10-08"
+			},
+			"updated": {
+				"date": "2007-10-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-4897",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-4897",
+					"impact": "moderate",
+					"public": "20070912"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-4897 ekiga GetHostAddress remote DoS",
+					"href": "https://bugzilla.redhat.com/292831",
+					"id": "292831"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_productivity:5",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070932001",
+										"comment": "pwlib is earlier than 0:1.10.1-7.0.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070932002",
+										"comment": "pwlib is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070932003",
+										"comment": "pwlib-devel is earlier than 0:1.10.1-7.0.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070932004",
+										"comment": "pwlib-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

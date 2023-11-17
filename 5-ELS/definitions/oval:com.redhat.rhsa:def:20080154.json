@@ -1,321 +1,321 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080154",
-  "version": "648",
-  "metadata": {
-    "title": "RHSA-2008:0154: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0154",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0154",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-6921",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-6921",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-5938",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-5938",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-6063",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6063",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-6207",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6207",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-6694",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6694",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThese updated packages fix the following security issues:\n\n* a flaw in the hypervisor for hosts running on Itanium architectures\nallowed an Intel VTi domain to read arbitrary physical memory from other\nIntel VTi domains, which could make information available to unauthorized\nusers. (CVE-2007-6207, Important)\n\n* two buffer overflow flaws were found in ISDN subsystem. A local\nunprivileged user could use these flaws to cause a denial of service.\n(CVE-2007-5938: Important, CVE-2007-6063: Moderate)\n\n* a possible NULL pointer dereference was found in the subsystem used for\nshowing CPU information, as used by CHRP systems on PowerPC architectures.\nThis may have allowed a local unprivileged user to cause a denial of\nservice (crash). (CVE-2007-6694, Moderate)\n\n* a flaw was found in the handling of zombie processes. A local user could\ncreate processes that would not be properly reaped, possibly causing a\ndenial of service. (CVE-2006-6921, Moderate)\n\nAs well, these updated packages fix the following bugs:\n\n* a bug was found in the Linux kernel audit subsystem. When the audit\ndaemon was setup to log the execve system call with a large number of\narguments, the kernel could run out of memory, causing a kernel panic.\n\n* on IBM System z architectures, using the IBM Hardware Management Console\nto toggle IBM FICON channel path ids (CHPID) caused a file ID miscompare,\npossibly causing data corruption.\n\n* when running the IA-32 Execution Layer (IA-32EL) or a Java VM on Itanium\narchitectures, a bug in the address translation in the hypervisor caused\nthe wrong address to be registered, causing Dom0 to hang.\n\n* on Itanium architectures, frequent Corrected Platform Error errors may\nhave caused the hypervisor to hang.\n\n* when enabling a CPU without hot plug support, routines for checking the\npresence of the CPU were missing. The CPU tried to access its own\nresources, causing a kernel panic.\n\n* after updating to kernel-2.6.18-53.el5, a bug in the CCISS driver caused\nthe HP Array Configuration Utility CLI to become unstable, possibly causing\na system hang, or a kernel panic.\n\n* a bug in NFS directory caching could have caused different hosts to have\ndifferent views of NFS directories.\n\n* on Itanium architectures, the Corrected Machine Check Interrupt masked\nhot-added CPUs as disabled.\n\n* when running Oracle database software on the Intel 64 and AMD64\narchitectures, if an SGA larger than 4GB was created, and had hugepages\nallocated to it, the hugepages were not freed after database shutdown.\n\n* in a clustered environment, when two or more NFS clients had the same\nlogical volume mounted, and one of them modified a file on the volume, NULL\ncharacters may have been inserted, possibly causing data corruption.\n\nThese updated packages resolve several severe issues in the lpfc driver:\n\n* a system hang after LUN discovery.\n\n* a general fault protection, a NULL pointer dereference, or slab\ncorruption could occur while running a debug on the kernel.\n\n* the inability to handle kernel paging requests in \"lpfc_get_scsi_buf\".\n\n* erroneous structure references caused certain FC discovery routines to\nreference and change \"lpfc_nodelist\" structures, even after they were\nfreed.\n\n* the lpfc driver failed to interpret certain fields correctly, causing\ntape backup software to fail. Tape drives reported \"Illegal Request\".\n\n* the lpfc driver did not clear structures correctly, resulting in SCSI\nI/Os being rejected by targets, and causing errors.\n\nRed Hat Enterprise Linux 5 users are advised to upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-03-05"
-      },
-      "updated": {
-        "date": "2008-03-06"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-6921",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-6921",
-          "impact": "moderate",
-          "public": "20061219"
-        },
-        {
-          "text": "CVE-2007-5938",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-5938",
-          "impact": "important",
-          "public": "20071120",
-          "cwe": "CWE-476"
-        },
-        {
-          "text": "CVE-2007-6063",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6063",
-          "impact": "moderate",
-          "public": "20071120"
-        },
-        {
-          "text": "CVE-2007-6207",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6207",
-          "impact": "important",
-          "public": "20071122"
-        },
-        {
-          "text": "CVE-2007-6694",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6694",
-          "impact": "moderate",
-          "public": "20071123"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-6921 kernel: denial of service with wedged processes",
-          "href": "https://bugzilla.redhat.com/302921",
-          "id": "302921"
-        },
-        {
-          "text": "CVE-2007-5938 NULL dereference in iwl driver",
-          "href": "https://bugzilla.redhat.com/385861",
-          "id": "385861"
-        },
-        {
-          "text": "CVE-2007-6063 Linux Kernel isdn_net_setcfg buffer overflow",
-          "href": "https://bugzilla.redhat.com/392101",
-          "id": "392101"
-        },
-        {
-          "text": "CVE-2007-6694 /proc/cpuinfo DoS on some ppc machines",
-          "href": "https://bugzilla.redhat.com/396751",
-          "id": "396751"
-        },
-        {
-          "text": "CVE-2007-6207 [5.2][XEN] Security: some HVM domain can access another domain memory.",
-          "href": "https://bugzilla.redhat.com/406881",
-          "id": "406881"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20080154025",
-                "comment": "kernel earlier than 0:2.6.18-53.1.14.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20080154026",
-                "comment": "kernel earlier than 0:2.6.18-53.1.14.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154001",
-                    "comment": "kernel is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080154023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-53.1.14.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080154",
+	"version": "648",
+	"metadata": {
+		"title": "RHSA-2008:0154: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0154",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0154",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-6921",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-6921",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-5938",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-5938",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-6063",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6063",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-6207",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6207",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-6694",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6694",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThese updated packages fix the following security issues:\n\n* a flaw in the hypervisor for hosts running on Itanium architectures\nallowed an Intel VTi domain to read arbitrary physical memory from other\nIntel VTi domains, which could make information available to unauthorized\nusers. (CVE-2007-6207, Important)\n\n* two buffer overflow flaws were found in ISDN subsystem. A local\nunprivileged user could use these flaws to cause a denial of service.\n(CVE-2007-5938: Important, CVE-2007-6063: Moderate)\n\n* a possible NULL pointer dereference was found in the subsystem used for\nshowing CPU information, as used by CHRP systems on PowerPC architectures.\nThis may have allowed a local unprivileged user to cause a denial of\nservice (crash). (CVE-2007-6694, Moderate)\n\n* a flaw was found in the handling of zombie processes. A local user could\ncreate processes that would not be properly reaped, possibly causing a\ndenial of service. (CVE-2006-6921, Moderate)\n\nAs well, these updated packages fix the following bugs:\n\n* a bug was found in the Linux kernel audit subsystem. When the audit\ndaemon was setup to log the execve system call with a large number of\narguments, the kernel could run out of memory, causing a kernel panic.\n\n* on IBM System z architectures, using the IBM Hardware Management Console\nto toggle IBM FICON channel path ids (CHPID) caused a file ID miscompare,\npossibly causing data corruption.\n\n* when running the IA-32 Execution Layer (IA-32EL) or a Java VM on Itanium\narchitectures, a bug in the address translation in the hypervisor caused\nthe wrong address to be registered, causing Dom0 to hang.\n\n* on Itanium architectures, frequent Corrected Platform Error errors may\nhave caused the hypervisor to hang.\n\n* when enabling a CPU without hot plug support, routines for checking the\npresence of the CPU were missing. The CPU tried to access its own\nresources, causing a kernel panic.\n\n* after updating to kernel-2.6.18-53.el5, a bug in the CCISS driver caused\nthe HP Array Configuration Utility CLI to become unstable, possibly causing\na system hang, or a kernel panic.\n\n* a bug in NFS directory caching could have caused different hosts to have\ndifferent views of NFS directories.\n\n* on Itanium architectures, the Corrected Machine Check Interrupt masked\nhot-added CPUs as disabled.\n\n* when running Oracle database software on the Intel 64 and AMD64\narchitectures, if an SGA larger than 4GB was created, and had hugepages\nallocated to it, the hugepages were not freed after database shutdown.\n\n* in a clustered environment, when two or more NFS clients had the same\nlogical volume mounted, and one of them modified a file on the volume, NULL\ncharacters may have been inserted, possibly causing data corruption.\n\nThese updated packages resolve several severe issues in the lpfc driver:\n\n* a system hang after LUN discovery.\n\n* a general fault protection, a NULL pointer dereference, or slab\ncorruption could occur while running a debug on the kernel.\n\n* the inability to handle kernel paging requests in \"lpfc_get_scsi_buf\".\n\n* erroneous structure references caused certain FC discovery routines to\nreference and change \"lpfc_nodelist\" structures, even after they were\nfreed.\n\n* the lpfc driver failed to interpret certain fields correctly, causing\ntape backup software to fail. Tape drives reported \"Illegal Request\".\n\n* the lpfc driver did not clear structures correctly, resulting in SCSI\nI/Os being rejected by targets, and causing errors.\n\nRed Hat Enterprise Linux 5 users are advised to upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-03-05"
+			},
+			"updated": {
+				"date": "2008-03-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-6921",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-6921",
+					"impact": "moderate",
+					"public": "20061219"
+				},
+				{
+					"text": "CVE-2007-5938",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-5938",
+					"impact": "important",
+					"public": "20071120",
+					"cwe": "CWE-476"
+				},
+				{
+					"text": "CVE-2007-6063",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6063",
+					"impact": "moderate",
+					"public": "20071120"
+				},
+				{
+					"text": "CVE-2007-6207",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6207",
+					"impact": "important",
+					"public": "20071122"
+				},
+				{
+					"text": "CVE-2007-6694",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6694",
+					"impact": "moderate",
+					"public": "20071123"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-6921 kernel: denial of service with wedged processes",
+					"href": "https://bugzilla.redhat.com/302921",
+					"id": "302921"
+				},
+				{
+					"text": "CVE-2007-5938 NULL dereference in iwl driver",
+					"href": "https://bugzilla.redhat.com/385861",
+					"id": "385861"
+				},
+				{
+					"text": "CVE-2007-6063 Linux Kernel isdn_net_setcfg buffer overflow",
+					"href": "https://bugzilla.redhat.com/392101",
+					"id": "392101"
+				},
+				{
+					"text": "CVE-2007-6694 /proc/cpuinfo DoS on some ppc machines",
+					"href": "https://bugzilla.redhat.com/396751",
+					"id": "396751"
+				},
+				{
+					"text": "CVE-2007-6207 [5.2][XEN] Security: some HVM domain can access another domain memory.",
+					"href": "https://bugzilla.redhat.com/406881",
+					"id": "406881"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20080154025",
+								"comment": "kernel earlier than 0:2.6.18-53.1.14.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20080154026",
+								"comment": "kernel earlier than 0:2.6.18-53.1.14.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154001",
+										"comment": "kernel is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080154023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-53.1.14.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

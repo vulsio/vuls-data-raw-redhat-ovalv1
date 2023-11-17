@@ -1,154 +1,154 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060197",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2006:0197: python security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0197",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0197",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-2491",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-2491",
-        "source": "CVE"
-      }
-    ],
-    "description": "Python is an interpreted, interactive, object-oriented programming language.\n\nAn integer overflow flaw was found in Python's PCRE library that could be\ntriggered by a maliciously crafted regular expression. On systems that\naccept arbitrary regular expressions from untrusted users, this could be\nexploited to execute arbitrary code with the privileges of the application\nusing the library.  The Common Vulnerabilities and Exposures project\nassigned the name CVE-2005-2491 to this issue.\n\nUsers of Python should upgrade to these updated packages, which contain a\nbackported patch that is not vulnerable to this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-03-09"
-      },
-      "updated": {
-        "date": "2006-03-09"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-2491",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-2491",
-          "impact": "moderate",
-          "public": "20050801"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2005-2491 pcre heap overflow",
-          "href": "https://bugzilla.redhat.com/430638",
-          "id": "430638"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197001",
-                    "comment": "python is earlier than 0:2.3.4-14.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197002",
-                    "comment": "python is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197003",
-                    "comment": "python-devel is earlier than 0:2.3.4-14.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197004",
-                    "comment": "python-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197005",
-                    "comment": "python-docs is earlier than 0:2.3.4-14.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197006",
-                    "comment": "python-docs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197007",
-                    "comment": "python-tools is earlier than 0:2.3.4-14.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197008",
-                    "comment": "python-tools is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197009",
-                    "comment": "tkinter is earlier than 0:2.3.4-14.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060197010",
-                    "comment": "tkinter is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060197",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2006:0197: python security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0197",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0197",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-2491",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-2491",
+				"source": "CVE"
+			}
+		],
+		"description": "Python is an interpreted, interactive, object-oriented programming language.\n\nAn integer overflow flaw was found in Python's PCRE library that could be\ntriggered by a maliciously crafted regular expression. On systems that\naccept arbitrary regular expressions from untrusted users, this could be\nexploited to execute arbitrary code with the privileges of the application\nusing the library.  The Common Vulnerabilities and Exposures project\nassigned the name CVE-2005-2491 to this issue.\n\nUsers of Python should upgrade to these updated packages, which contain a\nbackported patch that is not vulnerable to this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-03-09"
+			},
+			"updated": {
+				"date": "2006-03-09"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-2491",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-2491",
+					"impact": "moderate",
+					"public": "20050801"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2005-2491 pcre heap overflow",
+					"href": "https://bugzilla.redhat.com/430638",
+					"id": "430638"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197001",
+										"comment": "python is earlier than 0:2.3.4-14.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197002",
+										"comment": "python is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197003",
+										"comment": "python-devel is earlier than 0:2.3.4-14.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197004",
+										"comment": "python-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197005",
+										"comment": "python-docs is earlier than 0:2.3.4-14.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197006",
+										"comment": "python-docs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197007",
+										"comment": "python-tools is earlier than 0:2.3.4-14.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197008",
+										"comment": "python-tools is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197009",
+										"comment": "tkinter is earlier than 0:2.3.4-14.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060197010",
+										"comment": "tkinter is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

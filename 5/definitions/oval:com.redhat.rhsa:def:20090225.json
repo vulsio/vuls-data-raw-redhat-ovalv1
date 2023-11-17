@@ -1,307 +1,307 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090225",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2009:0225: Red Hat Enterprise Linux 5.3 kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0225",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0225",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-5029",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5029",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-5079",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5079",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-5182",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5182",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-5300",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5300",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Linux kernel (the core of the Linux operating system)\n\nThese updated packages contain 730 bug fixes and enhancements for the Linux\nkernel. Space precludes a detailed description of each of these changes in\nthis advisory and users are therefore directed to the release notes for Red\nHat Enterprise Linux 5.3 for information on 97 of the most significant of\nthese changes. \n\nDetails of three security-related bug fixes are set out below, along with\nnotes on other broad categories of change not covered in the release notes.\nFor more detailed information on specific bug fixes or enhancements, please\nconsult the Bugzilla numbers listed in this advisory.\n\n* when fput() was called to close a socket, the __scm_destroy() function  \nin the Linux kernel could make indirect recursive calls to itself. This  \ncould, potentially, lead to a denial of service issue. (CVE-2008-5029,  \nImportant)\n\n* a flaw was found in the Asynchronous Transfer Mode (ATM) subsystem. A\nlocal, unprivileged user could use the flaw to listen on the same socket\nmore than once, possibly causing a denial of service. (CVE-2008-5079,\nImportant)\n\n* a race condition was found in the Linux kernel \"inotify\" watch removal\nand umount implementation. This could allow a local, unprivileged user  \nto cause a privilege escalation or a denial of service. (CVE-2008-5182,  \nImportant)\n\n* Bug fixes and enhancements are provided for:\n\n* support for specific NICs, including products from the following\nmanufacturers:\nBroadcom\nChelsio\nCisco\nIntel\nMarvell\nNetXen\nRealtek\nSun\n\n* Fiber Channel support, including support for Qlogic qla2xxx,\nqla4xxx, and qla84xx HBAs and the FCoE, FCP, and zFCP protocols.\n\n* support for various CPUs, including:\nAMD Opteron processors with 45 nm SOI (\"Shanghai\")\nAMD Turion Ultra processors\nCell processors\nIntel Core i7 processors\n\n* Xen support, including issues specific to the IA64 platform, systems\nusing AMD processors, and Dell Optiplex GX280 systems\n\n* ext3, ext4, GFS2, NFS, and SPUFS\n\n* Infiniband (including eHCA, eHEA, and IPoIB) support\n\n* common I/O (CIO), direct I/O (DIO), and queued direct I/O (qdio) support\n\n* the kernel distributed lock manager (DLM)\n\n* hardware issues with: SCSI, IEEE 1394 (FireWire), RAID (including issues\nspecific to Adaptec controllers), SATA (including NCQ), PCI, audio, serial\nconnections, tape-drives, and USB\n\n* ACPI, some of a general nature and some related to specific hardware\nincluding: certain Lenovo Thinkpad notebooks, HP DC7700 systems, and\ncertain machines based on Intel Centrino processor technology.\n\n* CIFS, including Kerberos support and a tech-preview of DFS support\n\n* networking support, including IPv6, PPPoE, and IPSec\n\n* support for Intel chipsets, including:\nIntel Cantiga chipsets\nIntel Eagle Lake chipsets\nIntel i915 chipsets\nIntel i965 chipsets\nIntel Ibex Peak chipsets\nIntel chipsets offering QuickPath Interconnects (QPI)\n\n* device mapping issues, including some in device mapper itself\n\n* various issues specific to IA64 and PPC\n\n* CCISS, including support for Compaq SMART Array controllers P711m and\nP712m and other new hardware\n\n* various issues affecting specific HP systems, including:\nDL785G5\nXW4800\nXW8600\nXW8600\nXW9400\n\n* IOMMU support, including specific\nissues with AMD and IBM Calgary hardware\n\n* the audit subsystem\n\n* DASD support\n\n* iSCSI support, including issues specific to Chelsio T3 adapters\n\n* LVM issues\n\n* SCTP management information base (MIB) support\n\n* issues with: autofs, kdump, kobject_add, libata, lpar, ptrace, and utrace\n\n* IBM Power platforms using Enhanced I/O Error Handling (EEH)\n\n* EDAC issues for AMD K8 and Intel i5000\n\n* ALSA, including support for new hardware\n\n* futex support\n\n* hugepage support\n\n* Intelligent Platform Management Interface (IPMI) support\n\n* issues affecting NEC/Stratus servers\n\n* OFED support\n\n* SELinux \n\n* various Virtio issues\n\nAll users are advised to upgrade to these updated packages, which resolve\nthese issues and add these enhancements.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-01-20"
-      },
-      "updated": {
-        "date": "2009-01-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-5029",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5029",
-          "impact": "important",
-          "public": "20081106",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2008-5079",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5079",
-          "impact": "important",
-          "public": "20081205"
-        },
-        {
-          "text": "CVE-2008-5182",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5182",
-          "impact": "important",
-          "public": "20081115",
-          "cwe": "CWE-662->CWE-362->CWE-672->CWE-476",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2008-5300",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5300",
-          "impact": "important",
-          "public": "20081120"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-5029 kernel: Unix sockets kernel panic",
-          "href": "https://bugzilla.redhat.com/470201",
-          "id": "470201"
-        },
-        {
-          "text": "CVE-2008-5182 kernel: fix inotify watch removal/umount races",
-          "href": "https://bugzilla.redhat.com/472325",
-          "id": "472325"
-        },
-        {
-          "text": "CVE-2008-5300 kernel: fix soft lockups/OOM issues with unix socket garbage collector",
-          "href": "https://bugzilla.redhat.com/473259",
-          "id": "473259"
-        },
-        {
-          "text": "CVE-2008-5079 Linux Kernel 'atm module' Local Denial of Service",
-          "href": "https://bugzilla.redhat.com/473696",
-          "id": "473696"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20090225025",
-                "comment": "kernel earlier than 0:2.6.18-128.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20090225026",
-                "comment": "kernel earlier than 0:2.6.18-128.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225001",
-                    "comment": "kernel is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090225023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-128.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090225",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2009:0225: Red Hat Enterprise Linux 5.3 kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0225",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0225",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-5029",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5029",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-5079",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5079",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-5182",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5182",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-5300",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5300",
+				"source": "CVE"
+			}
+		],
+		"description": "The Linux kernel (the core of the Linux operating system)\n\nThese updated packages contain 730 bug fixes and enhancements for the Linux\nkernel. Space precludes a detailed description of each of these changes in\nthis advisory and users are therefore directed to the release notes for Red\nHat Enterprise Linux 5.3 for information on 97 of the most significant of\nthese changes. \n\nDetails of three security-related bug fixes are set out below, along with\nnotes on other broad categories of change not covered in the release notes.\nFor more detailed information on specific bug fixes or enhancements, please\nconsult the Bugzilla numbers listed in this advisory.\n\n* when fput() was called to close a socket, the __scm_destroy() function  \nin the Linux kernel could make indirect recursive calls to itself. This  \ncould, potentially, lead to a denial of service issue. (CVE-2008-5029,  \nImportant)\n\n* a flaw was found in the Asynchronous Transfer Mode (ATM) subsystem. A\nlocal, unprivileged user could use the flaw to listen on the same socket\nmore than once, possibly causing a denial of service. (CVE-2008-5079,\nImportant)\n\n* a race condition was found in the Linux kernel \"inotify\" watch removal\nand umount implementation. This could allow a local, unprivileged user  \nto cause a privilege escalation or a denial of service. (CVE-2008-5182,  \nImportant)\n\n* Bug fixes and enhancements are provided for:\n\n* support for specific NICs, including products from the following\nmanufacturers:\nBroadcom\nChelsio\nCisco\nIntel\nMarvell\nNetXen\nRealtek\nSun\n\n* Fiber Channel support, including support for Qlogic qla2xxx,\nqla4xxx, and qla84xx HBAs and the FCoE, FCP, and zFCP protocols.\n\n* support for various CPUs, including:\nAMD Opteron processors with 45 nm SOI (\"Shanghai\")\nAMD Turion Ultra processors\nCell processors\nIntel Core i7 processors\n\n* Xen support, including issues specific to the IA64 platform, systems\nusing AMD processors, and Dell Optiplex GX280 systems\n\n* ext3, ext4, GFS2, NFS, and SPUFS\n\n* Infiniband (including eHCA, eHEA, and IPoIB) support\n\n* common I/O (CIO), direct I/O (DIO), and queued direct I/O (qdio) support\n\n* the kernel distributed lock manager (DLM)\n\n* hardware issues with: SCSI, IEEE 1394 (FireWire), RAID (including issues\nspecific to Adaptec controllers), SATA (including NCQ), PCI, audio, serial\nconnections, tape-drives, and USB\n\n* ACPI, some of a general nature and some related to specific hardware\nincluding: certain Lenovo Thinkpad notebooks, HP DC7700 systems, and\ncertain machines based on Intel Centrino processor technology.\n\n* CIFS, including Kerberos support and a tech-preview of DFS support\n\n* networking support, including IPv6, PPPoE, and IPSec\n\n* support for Intel chipsets, including:\nIntel Cantiga chipsets\nIntel Eagle Lake chipsets\nIntel i915 chipsets\nIntel i965 chipsets\nIntel Ibex Peak chipsets\nIntel chipsets offering QuickPath Interconnects (QPI)\n\n* device mapping issues, including some in device mapper itself\n\n* various issues specific to IA64 and PPC\n\n* CCISS, including support for Compaq SMART Array controllers P711m and\nP712m and other new hardware\n\n* various issues affecting specific HP systems, including:\nDL785G5\nXW4800\nXW8600\nXW8600\nXW9400\n\n* IOMMU support, including specific\nissues with AMD and IBM Calgary hardware\n\n* the audit subsystem\n\n* DASD support\n\n* iSCSI support, including issues specific to Chelsio T3 adapters\n\n* LVM issues\n\n* SCTP management information base (MIB) support\n\n* issues with: autofs, kdump, kobject_add, libata, lpar, ptrace, and utrace\n\n* IBM Power platforms using Enhanced I/O Error Handling (EEH)\n\n* EDAC issues for AMD K8 and Intel i5000\n\n* ALSA, including support for new hardware\n\n* futex support\n\n* hugepage support\n\n* Intelligent Platform Management Interface (IPMI) support\n\n* issues affecting NEC/Stratus servers\n\n* OFED support\n\n* SELinux \n\n* various Virtio issues\n\nAll users are advised to upgrade to these updated packages, which resolve\nthese issues and add these enhancements.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-01-20"
+			},
+			"updated": {
+				"date": "2009-01-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-5029",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5029",
+					"impact": "important",
+					"public": "20081106",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2008-5079",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5079",
+					"impact": "important",
+					"public": "20081205"
+				},
+				{
+					"text": "CVE-2008-5182",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5182",
+					"impact": "important",
+					"public": "20081115",
+					"cwe": "CWE-662->CWE-362->CWE-672->CWE-476",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2008-5300",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5300",
+					"impact": "important",
+					"public": "20081120"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-5029 kernel: Unix sockets kernel panic",
+					"href": "https://bugzilla.redhat.com/470201",
+					"id": "470201"
+				},
+				{
+					"text": "CVE-2008-5182 kernel: fix inotify watch removal/umount races",
+					"href": "https://bugzilla.redhat.com/472325",
+					"id": "472325"
+				},
+				{
+					"text": "CVE-2008-5300 kernel: fix soft lockups/OOM issues with unix socket garbage collector",
+					"href": "https://bugzilla.redhat.com/473259",
+					"id": "473259"
+				},
+				{
+					"text": "CVE-2008-5079 Linux Kernel 'atm module' Local Denial of Service",
+					"href": "https://bugzilla.redhat.com/473696",
+					"id": "473696"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20090225025",
+								"comment": "kernel earlier than 0:2.6.18-128.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20090225026",
+								"comment": "kernel earlier than 0:2.6.18-128.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225001",
+										"comment": "kernel is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090225023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-128.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

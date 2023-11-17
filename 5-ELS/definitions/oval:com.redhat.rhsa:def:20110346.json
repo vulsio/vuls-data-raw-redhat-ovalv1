@@ -1,180 +1,180 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20110346",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2011:0346: openldap security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:0346",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:0346",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-1024",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1024",
-        "source": "CVE"
-      }
-    ],
-    "description": "OpenLDAP is an open source suite of LDAP (Lightweight Directory Access\nProtocol) applications and development tools.\n\nA flaw was found in the way OpenLDAP handled authentication failures being\npassed from an OpenLDAP slave to the master. If OpenLDAP was configured\nwith a chain overlay and it forwarded authentication failures, OpenLDAP\nwould bind to the directory as an anonymous user and return success, rather\nthan return failure on the authenticated bind. This could allow a user on a\nsystem that uses LDAP for authentication to log into a directory-based\naccount without knowing the password. (CVE-2011-1024)\n\nThis update also fixes the following bug:\n\n* Previously, multiple concurrent connections to an OpenLDAP server could\ncause the slapd service to terminate unexpectedly with an assertion error.\nThis update adds mutexes to protect multiple threads from accessing a\nstructure with a connection, and the slapd service no longer crashes.\n(BZ#677611)\n\nUsers of OpenLDAP should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. After installing this update,\nthe OpenLDAP daemons will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-03-10"
-      },
-      "updated": {
-        "date": "2011-03-10"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-1024",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-1024",
-          "impact": "moderate",
-          "public": "20100728",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-1024 openldap: forwarded bind failure messages cause success",
-          "href": "https://bugzilla.redhat.com/680466",
-          "id": "680466"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110346001",
-                    "comment": "compat-openldap is earlier than 0:2.3.43_2.2.29-12.el5_6.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071037002",
-                    "comment": "compat-openldap is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110346003",
-                    "comment": "openldap is earlier than 0:2.3.43-12.el5_6.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071037004",
-                    "comment": "openldap is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110346005",
-                    "comment": "openldap-clients is earlier than 0:2.3.43-12.el5_6.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071037006",
-                    "comment": "openldap-clients is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110346007",
-                    "comment": "openldap-devel is earlier than 0:2.3.43-12.el5_6.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071037008",
-                    "comment": "openldap-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110346009",
-                    "comment": "openldap-servers is earlier than 0:2.3.43-12.el5_6.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071037010",
-                    "comment": "openldap-servers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110346011",
-                    "comment": "openldap-servers-overlays is earlier than 0:2.3.43-12.el5_6.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100198012",
-                    "comment": "openldap-servers-overlays is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110346013",
-                    "comment": "openldap-servers-sql is earlier than 0:2.3.43-12.el5_6.7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20071037012",
-                    "comment": "openldap-servers-sql is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20110346",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2011:0346: openldap security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:0346",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:0346",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-1024",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-1024",
+				"source": "CVE"
+			}
+		],
+		"description": "OpenLDAP is an open source suite of LDAP (Lightweight Directory Access\nProtocol) applications and development tools.\n\nA flaw was found in the way OpenLDAP handled authentication failures being\npassed from an OpenLDAP slave to the master. If OpenLDAP was configured\nwith a chain overlay and it forwarded authentication failures, OpenLDAP\nwould bind to the directory as an anonymous user and return success, rather\nthan return failure on the authenticated bind. This could allow a user on a\nsystem that uses LDAP for authentication to log into a directory-based\naccount without knowing the password. (CVE-2011-1024)\n\nThis update also fixes the following bug:\n\n* Previously, multiple concurrent connections to an OpenLDAP server could\ncause the slapd service to terminate unexpectedly with an assertion error.\nThis update adds mutexes to protect multiple threads from accessing a\nstructure with a connection, and the slapd service no longer crashes.\n(BZ#677611)\n\nUsers of OpenLDAP should upgrade to these updated packages, which contain\nbackported patches to resolve these issues. After installing this update,\nthe OpenLDAP daemons will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-03-10"
+			},
+			"updated": {
+				"date": "2011-03-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-1024",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-1024",
+					"impact": "moderate",
+					"public": "20100728",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-1024 openldap: forwarded bind failure messages cause success",
+					"href": "https://bugzilla.redhat.com/680466",
+					"id": "680466"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110346001",
+										"comment": "compat-openldap is earlier than 0:2.3.43_2.2.29-12.el5_6.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071037002",
+										"comment": "compat-openldap is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110346003",
+										"comment": "openldap is earlier than 0:2.3.43-12.el5_6.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071037004",
+										"comment": "openldap is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110346005",
+										"comment": "openldap-clients is earlier than 0:2.3.43-12.el5_6.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071037006",
+										"comment": "openldap-clients is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110346007",
+										"comment": "openldap-devel is earlier than 0:2.3.43-12.el5_6.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071037008",
+										"comment": "openldap-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110346009",
+										"comment": "openldap-servers is earlier than 0:2.3.43-12.el5_6.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071037010",
+										"comment": "openldap-servers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110346011",
+										"comment": "openldap-servers-overlays is earlier than 0:2.3.43-12.el5_6.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100198012",
+										"comment": "openldap-servers-overlays is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110346013",
+										"comment": "openldap-servers-sql is earlier than 0:2.3.43-12.el5_6.7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20071037012",
+										"comment": "openldap-servers-sql is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

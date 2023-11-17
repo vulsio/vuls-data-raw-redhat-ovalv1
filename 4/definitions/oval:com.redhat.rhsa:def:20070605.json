@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070605",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0605: HelixPlayer security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0605",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0605",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-3410",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3410",
-        "source": "CVE"
-      }
-    ],
-    "description": "HelixPlayer is a media player.\n\nA buffer overflow flaw was found in the way HelixPlayer processed\nSynchronized Multimedia Integration Language (SMIL) files. It was possible\nfor a malformed SMIL file to execute arbitrary code with the permissions of\nthe user running HelixPlayer. (CVE-2007-3410)\n\nAll users of HelixPlayer are advised to upgrade to this updated package,\nwhich contains a backported patch and is not vulnerable to this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-06-27"
-      },
-      "updated": {
-        "date": "2007-06-27"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-3410",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3410",
-          "impact": "critical",
-          "public": "20070626"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-3410 RealPlayer/HelixPlayer buffer overflow",
-          "href": "https://bugzilla.redhat.com/245836",
-          "id": "245836"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070605001",
-                    "comment": "HelixPlayer is earlier than 1:1.0.6-0.EL4.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070605002",
-                    "comment": "HelixPlayer is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070605003",
-                    "comment": "HelixPlayer is earlier than 1:1.0.6-0.EL4.2.0.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070605002",
-                    "comment": "HelixPlayer is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070605",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0605: HelixPlayer security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0605",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0605",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-3410",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3410",
+				"source": "CVE"
+			}
+		],
+		"description": "HelixPlayer is a media player.\n\nA buffer overflow flaw was found in the way HelixPlayer processed\nSynchronized Multimedia Integration Language (SMIL) files. It was possible\nfor a malformed SMIL file to execute arbitrary code with the permissions of\nthe user running HelixPlayer. (CVE-2007-3410)\n\nAll users of HelixPlayer are advised to upgrade to this updated package,\nwhich contains a backported patch and is not vulnerable to this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-06-27"
+			},
+			"updated": {
+				"date": "2007-06-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-3410",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3410",
+					"impact": "critical",
+					"public": "20070626"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-3410 RealPlayer/HelixPlayer buffer overflow",
+					"href": "https://bugzilla.redhat.com/245836",
+					"id": "245836"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070605001",
+										"comment": "HelixPlayer is earlier than 1:1.0.6-0.EL4.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070605002",
+										"comment": "HelixPlayer is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070605003",
+										"comment": "HelixPlayer is earlier than 1:1.0.6-0.EL4.2.0.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070605002",
+										"comment": "HelixPlayer is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

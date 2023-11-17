@@ -1,205 +1,205 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20130134",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2013:0134: freeradius2 security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2013:0134",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0134",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-4966",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-4966",
-        "source": "CVE"
-      }
-    ],
-    "description": "FreeRADIUS is an open-source Remote Authentication Dial-In User Service\n(RADIUS) server which allows RADIUS clients to perform authentication\nagainst the RADIUS server. The RADIUS server may optionally perform\naccounting of its operations using the RADIUS protocol.\n\nIt was found that the \"unix\" module ignored the password expiration\nsetting in \"/etc/shadow\". If FreeRADIUS was configured to use this module\nfor user authentication, this flaw could allow users with an expired\npassword to successfully authenticate, even though their access should have\nbeen denied. (CVE-2011-4966)\n\nThis update also fixes the following bugs:\n\n* After log rotation, the freeradius logrotate script failed to reload the\nradiusd daemon and log messages were lost. This update has added a command\nto the freeradius logrotate script to reload the radiusd daemon and the\nradiusd daemon re-initializes and reopens its log files after log rotation\nas expected. (BZ#787111)\n\n* The radtest script with the \"eap-md5\" option failed because it passed the\nIP family argument when invoking the radeapclient utility and the\nradeapclient utility did not recognize the IP family. The radeapclient\nutility now recognizes the IP family argument and radtest now works with\neap-md5 as expected. (BZ#846476)\n\n* Previously, freeradius was compiled without the \"--with-udpfromto\"\noption. Consequently, with a multihomed server and explicitly specifying\nthe IP address, freeradius sent the reply with the wrong IP source address.\nWith this update, freeradius has been built with the \"--with-udpfromto\"\nconfiguration option and the RADIUS reply is always sourced from the IP\naddress the request was sent to. (BZ#846471)\n\n* Due to invalid syntax in the PostgreSQL admin schema file, the FreeRADIUS\nPostgreSQL tables failed to be created. With this update, the syntax has\nbeen adjusted and the tables are created as expected. (BZ#818885)\n\n* FreeRADIUS has a thread pool that dynamically grows based on load. If\nmultiple threads using the \"rlm_perl()\" function are spawned in quick\nsuccession, the FreeRADIUS server sometimes terminated unexpectedly with a\nsegmentation fault due to parallel calls to the \"rlm_perl_clone()\"\nfunction. With this update, a mutex for the threads has been added and the\nproblem no longer occurs. (BZ#846475)\n\n* The man page for \"rlm_dbm_parser\" was incorrectly installed as\n\"rlm_dbm_parse\", omitting the trailing \"r\". The man page now correctly\nappears as rlm_dbm_parser. (BZ#781877)\n\nAll users of freeradius2 are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues. They are also\nadvised to check for RPM backup files ending in \".rpmnew\" or \".rpmsave\"\nunder the /etc/raddb/ directory after the update because the FreeRADIUS\nserver will attempt to load every file it finds in its configuration\ndirectory. The extra files will often cause the wrong configuration values\nto be applied resulting in either unpredictable behavior or the failure of\nthe server to initialize and run.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-01-08"
-      },
-      "updated": {
-        "date": "2013-01-08"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-4966",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-4966",
-          "impact": "low",
-          "public": "20111114",
-          "cvss_2": "2.1/AV:N/AC:H/Au:S/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-4966 freeradius: does not respect expired passwords when using the unix module",
-          "href": "https://bugzilla.redhat.com/879045",
-          "id": "879045"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134001",
-                    "comment": "freeradius2 is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327002",
-                    "comment": "freeradius2 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134003",
-                    "comment": "freeradius2-krb5 is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327004",
-                    "comment": "freeradius2-krb5 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134005",
-                    "comment": "freeradius2-ldap is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327006",
-                    "comment": "freeradius2-ldap is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134007",
-                    "comment": "freeradius2-mysql is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327008",
-                    "comment": "freeradius2-mysql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134009",
-                    "comment": "freeradius2-perl is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327010",
-                    "comment": "freeradius2-perl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134011",
-                    "comment": "freeradius2-postgresql is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327012",
-                    "comment": "freeradius2-postgresql is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134013",
-                    "comment": "freeradius2-python is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327014",
-                    "comment": "freeradius2-python is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134015",
-                    "comment": "freeradius2-unixODBC is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327016",
-                    "comment": "freeradius2-unixODBC is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130134017",
-                    "comment": "freeradius2-utils is earlier than 0:2.1.12-5.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20121327018",
-                    "comment": "freeradius2-utils is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20130134",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2013:0134: freeradius2 security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2013:0134",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2013:0134",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-4966",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-4966",
+				"source": "CVE"
+			}
+		],
+		"description": "FreeRADIUS is an open-source Remote Authentication Dial-In User Service\n(RADIUS) server which allows RADIUS clients to perform authentication\nagainst the RADIUS server. The RADIUS server may optionally perform\naccounting of its operations using the RADIUS protocol.\n\nIt was found that the \"unix\" module ignored the password expiration\nsetting in \"/etc/shadow\". If FreeRADIUS was configured to use this module\nfor user authentication, this flaw could allow users with an expired\npassword to successfully authenticate, even though their access should have\nbeen denied. (CVE-2011-4966)\n\nThis update also fixes the following bugs:\n\n* After log rotation, the freeradius logrotate script failed to reload the\nradiusd daemon and log messages were lost. This update has added a command\nto the freeradius logrotate script to reload the radiusd daemon and the\nradiusd daemon re-initializes and reopens its log files after log rotation\nas expected. (BZ#787111)\n\n* The radtest script with the \"eap-md5\" option failed because it passed the\nIP family argument when invoking the radeapclient utility and the\nradeapclient utility did not recognize the IP family. The radeapclient\nutility now recognizes the IP family argument and radtest now works with\neap-md5 as expected. (BZ#846476)\n\n* Previously, freeradius was compiled without the \"--with-udpfromto\"\noption. Consequently, with a multihomed server and explicitly specifying\nthe IP address, freeradius sent the reply with the wrong IP source address.\nWith this update, freeradius has been built with the \"--with-udpfromto\"\nconfiguration option and the RADIUS reply is always sourced from the IP\naddress the request was sent to. (BZ#846471)\n\n* Due to invalid syntax in the PostgreSQL admin schema file, the FreeRADIUS\nPostgreSQL tables failed to be created. With this update, the syntax has\nbeen adjusted and the tables are created as expected. (BZ#818885)\n\n* FreeRADIUS has a thread pool that dynamically grows based on load. If\nmultiple threads using the \"rlm_perl()\" function are spawned in quick\nsuccession, the FreeRADIUS server sometimes terminated unexpectedly with a\nsegmentation fault due to parallel calls to the \"rlm_perl_clone()\"\nfunction. With this update, a mutex for the threads has been added and the\nproblem no longer occurs. (BZ#846475)\n\n* The man page for \"rlm_dbm_parser\" was incorrectly installed as\n\"rlm_dbm_parse\", omitting the trailing \"r\". The man page now correctly\nappears as rlm_dbm_parser. (BZ#781877)\n\nAll users of freeradius2 are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues. They are also\nadvised to check for RPM backup files ending in \".rpmnew\" or \".rpmsave\"\nunder the /etc/raddb/ directory after the update because the FreeRADIUS\nserver will attempt to load every file it finds in its configuration\ndirectory. The extra files will often cause the wrong configuration values\nto be applied resulting in either unpredictable behavior or the failure of\nthe server to initialize and run.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-01-08"
+			},
+			"updated": {
+				"date": "2013-01-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-4966",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-4966",
+					"impact": "low",
+					"public": "20111114",
+					"cvss_2": "2.1/AV:N/AC:H/Au:S/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-4966 freeradius: does not respect expired passwords when using the unix module",
+					"href": "https://bugzilla.redhat.com/879045",
+					"id": "879045"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134001",
+										"comment": "freeradius2 is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327002",
+										"comment": "freeradius2 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134003",
+										"comment": "freeradius2-krb5 is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327004",
+										"comment": "freeradius2-krb5 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134005",
+										"comment": "freeradius2-ldap is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327006",
+										"comment": "freeradius2-ldap is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134007",
+										"comment": "freeradius2-mysql is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327008",
+										"comment": "freeradius2-mysql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134009",
+										"comment": "freeradius2-perl is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327010",
+										"comment": "freeradius2-perl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134011",
+										"comment": "freeradius2-postgresql is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327012",
+										"comment": "freeradius2-postgresql is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134013",
+										"comment": "freeradius2-python is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327014",
+										"comment": "freeradius2-python is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134015",
+										"comment": "freeradius2-unixODBC is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327016",
+										"comment": "freeradius2-unixODBC is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130134017",
+										"comment": "freeradius2-utils is earlier than 0:2.1.12-5.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20121327018",
+										"comment": "freeradius2-utils is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

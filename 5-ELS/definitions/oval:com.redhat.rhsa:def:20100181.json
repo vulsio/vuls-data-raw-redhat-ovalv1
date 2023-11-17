@@ -1,128 +1,128 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100181",
-  "version": "651",
-  "metadata": {
-    "title": "RHSA-2010:0181: brltty security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0181",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0181",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-3279",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3279",
-        "source": "CVE"
-      }
-    ],
-    "description": "brltty (Braille TTY) is a background process (daemon) which provides access\nto the Linux console (when in text mode) for a blind person using a\nrefreshable braille display. It drives the braille display, and provides\ncomplete screen review functionality.\n\nIt was discovered that a brltty library had an insecure relative RPATH\n(runtime library search path) set in the ELF (Executable and Linking\nFormat) header. A local user able to convince another user to run an\napplication using brltty in an attacker-controlled directory, could run\narbitrary code with the privileges of the victim. (CVE-2008-3279)\n\nThese updated packages also provide fixes for the following bugs:\n\n* the brltty configuration file is documented in the brltty manual page,\nbut there is no separate manual page for the /etc/brltty.conf configuration\nfile: running \"man brltty.conf\" returned \"No manual entry for brltty.conf\"\nrather than opening the brltty manual entry. This update adds brltty.conf.5\nas an alias to the brltty manual page. Consequently, running \"man\nbrltty.conf\" now opens the manual entry documenting the brltty.conf\nspecification. (BZ#530554)\n\n* previously, the brltty-pm.conf configuration file was installed in the\n/etc/brltty/ directory. This file, which configures Papenmeier Braille\nTerminals for use with Red Hat Enterprise Linux, is optional. As well, it\ndid not come with a corresponding manual page. With this update, the file\nhas been moved to /usr/share/doc/brltty-3.7.2/BrailleDrivers/Papenmeier/.\nThis directory also includes a README document that explains the file's\npurpose and format. (BZ#530554)\n\n* during the brltty packages installation, the message\n\nCreating screen inspection device /dev/vcsa...done.\n\nwas presented at the console. This was inadequate, especially during the\ninitial install of the system. These updated packages do not send any\nmessage to the console during installation. (BZ#529163)\n\n* although brltty contains ELF objects, the brltty-debuginfo package was\nempty. With this update, the -debuginfo package contains valid debugging\ninformation as expected. (BZ#500545)\n\n* the MAX_NR_CONSOLES definition was acquired by brltty by #including\nlinux/tty.h in Programs/api_client.c. MAX_NR_CONSOLES has since moved to\nlinux/vt.h but the #include in api_client.c was not updated. Consequently,\nbrltty could not be built from the source RPM against the Red Hat\nEnterprise Linux 5 kernel. This update corrects the #include in\napi_client.c to linux/vt.h and brltty now builds from source as expected.\n(BZ#456247)\n\nAll brltty users are advised to upgrade to these updated packages, which\nresolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-03-29"
-      },
-      "updated": {
-        "date": "2010-03-30"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-3279",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-3279",
-          "impact": "low",
-          "public": "20080612",
-          "cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-3279 brltty: insecure relative RPATH",
-          "href": "https://bugzilla.redhat.com/457942",
-          "id": "457942"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100181001",
-                    "comment": "brlapi is earlier than 0:0.4.1-4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100181002",
-                    "comment": "brlapi is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100181003",
-                    "comment": "brlapi-devel is earlier than 0:0.4.1-4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100181004",
-                    "comment": "brlapi-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100181005",
-                    "comment": "brltty is earlier than 0:3.7.2-4.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100181006",
-                    "comment": "brltty is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100181",
+	"version": "651",
+	"metadata": {
+		"title": "RHSA-2010:0181: brltty security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0181",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0181",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-3279",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-3279",
+				"source": "CVE"
+			}
+		],
+		"description": "brltty (Braille TTY) is a background process (daemon) which provides access\nto the Linux console (when in text mode) for a blind person using a\nrefreshable braille display. It drives the braille display, and provides\ncomplete screen review functionality.\n\nIt was discovered that a brltty library had an insecure relative RPATH\n(runtime library search path) set in the ELF (Executable and Linking\nFormat) header. A local user able to convince another user to run an\napplication using brltty in an attacker-controlled directory, could run\narbitrary code with the privileges of the victim. (CVE-2008-3279)\n\nThese updated packages also provide fixes for the following bugs:\n\n* the brltty configuration file is documented in the brltty manual page,\nbut there is no separate manual page for the /etc/brltty.conf configuration\nfile: running \"man brltty.conf\" returned \"No manual entry for brltty.conf\"\nrather than opening the brltty manual entry. This update adds brltty.conf.5\nas an alias to the brltty manual page. Consequently, running \"man\nbrltty.conf\" now opens the manual entry documenting the brltty.conf\nspecification. (BZ#530554)\n\n* previously, the brltty-pm.conf configuration file was installed in the\n/etc/brltty/ directory. This file, which configures Papenmeier Braille\nTerminals for use with Red Hat Enterprise Linux, is optional. As well, it\ndid not come with a corresponding manual page. With this update, the file\nhas been moved to /usr/share/doc/brltty-3.7.2/BrailleDrivers/Papenmeier/.\nThis directory also includes a README document that explains the file's\npurpose and format. (BZ#530554)\n\n* during the brltty packages installation, the message\n\nCreating screen inspection device /dev/vcsa...done.\n\nwas presented at the console. This was inadequate, especially during the\ninitial install of the system. These updated packages do not send any\nmessage to the console during installation. (BZ#529163)\n\n* although brltty contains ELF objects, the brltty-debuginfo package was\nempty. With this update, the -debuginfo package contains valid debugging\ninformation as expected. (BZ#500545)\n\n* the MAX_NR_CONSOLES definition was acquired by brltty by #including\nlinux/tty.h in Programs/api_client.c. MAX_NR_CONSOLES has since moved to\nlinux/vt.h but the #include in api_client.c was not updated. Consequently,\nbrltty could not be built from the source RPM against the Red Hat\nEnterprise Linux 5 kernel. This update corrects the #include in\napi_client.c to linux/vt.h and brltty now builds from source as expected.\n(BZ#456247)\n\nAll brltty users are advised to upgrade to these updated packages, which\nresolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-03-29"
+			},
+			"updated": {
+				"date": "2010-03-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-3279",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-3279",
+					"impact": "low",
+					"public": "20080612",
+					"cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-3279 brltty: insecure relative RPATH",
+					"href": "https://bugzilla.redhat.com/457942",
+					"id": "457942"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100181001",
+										"comment": "brlapi is earlier than 0:0.4.1-4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100181002",
+										"comment": "brlapi is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100181003",
+										"comment": "brlapi-devel is earlier than 0:0.4.1-4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100181004",
+										"comment": "brlapi-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100181005",
+										"comment": "brltty is earlier than 0:3.7.2-4.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100181006",
+										"comment": "brltty is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

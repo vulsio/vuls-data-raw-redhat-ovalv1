@@ -1,154 +1,154 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120306",
-  "version": "649",
-  "metadata": {
-    "title": "RHSA-2012:0306: krb5 security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0306",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0306",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-1526",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1526",
-        "source": "CVE"
-      }
-    ],
-    "description": "Kerberos is a network authentication system which allows clients and\nservers to authenticate to each other using symmetric encryption and a\ntrusted third-party, the Key Distribution Center (KDC).\n\nIt was found that ftpd, a Kerberos-aware FTP server, did not properly drop\nprivileges. On Red Hat Enterprise Linux 5, the ftpd daemon did not check\nfor the potential failure of the effective group ID change system call. If\nthe group ID change failed, a remote FTP user could use this flaw to gain\nunauthorized read or write access to files that are owned by the root\ngroup. (CVE-2011-1526)\n\nRed Hat would like to thank the MIT Kerberos project for reporting this\nissue. Upstream acknowledges Tim Zingelman as the original reporter.\n\nThis update also fixes the following bugs:\n\n* Due to a mistake in the Kerberos libraries, a client could fail to\ncontact a Key Distribution Center (KDC) or terminate unexpectedly if the\nclient had already more than 1024 file descriptors in use. This update\nbackports modifications to the Kerberos libraries and the libraries use\nthe poll() function instead of the select() function, as poll() does not\nhave this limitation. (BZ#701444)\n\n* The KDC failed to release memory when processing a TGS (ticket-granting\nserver) request from a client if the client request included an\nauthenticator with a subkey. As a result, the KDC consumed an excessive\namount of memory. With this update, the code releasing the memory has been\nadded and the problem no longer occurs. (BZ#708516)\n\n* Under certain circumstances, if services requiring Kerberos\nauthentication sent two authentication requests to the authenticating\nserver, the second authentication request was flagged as a replay attack.\nAs a result, the second authentication attempt was denied. This update\napplies an upstream patch that fixes this bug. (BZ#713500)\n\n* Previously, if Kerberos credentials had expired, the klist command could\nterminate unexpectedly with a segmentation fault when invoked with the -s\noption. This happened when klist encountered and failed to process an entry\nwith no realm name while scanning the credential cache. With this update,\nthe underlying code has been modified and the command handles such entries\ncorrectly. (BZ#729067)\n\n* Due to a regression, multi-line FTP macros terminated prematurely with a\nsegmentation fault. This occurred because the previously-added patch failed\nto properly support multi-line macros. This update restores the support for\nmulti-line macros and the problem no longer occurs. (BZ#735363, BZ#736132)\n\nAll users of krb5 are advised to upgrade to these updated packages, which\nresolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-02-21"
-      },
-      "updated": {
-        "date": "2012-02-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-1526",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-1526",
-          "impact": "important",
-          "public": "20110705",
-          "cvss_2": "5.5/AV:N/AC:L/Au:S/C:P/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-1526 krb5, krb5-appl: ftpd incorrect group privilege dropping (MITKRB5-SA-2011-005)",
-          "href": "https://bugzilla.redhat.com/711419",
-          "id": "711419"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120306001",
-                    "comment": "krb5-devel is earlier than 0:1.6.1-70.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070095011",
-                    "comment": "krb5-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120306003",
-                    "comment": "krb5-libs is earlier than 0:1.6.1-70.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070095013",
-                    "comment": "krb5-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120306005",
-                    "comment": "krb5-server is earlier than 0:1.6.1-70.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070095015",
-                    "comment": "krb5-server is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120306007",
-                    "comment": "krb5-server-ldap is earlier than 0:1.6.1-70.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20110199008",
-                    "comment": "krb5-server-ldap is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120306009",
-                    "comment": "krb5-workstation is earlier than 0:1.6.1-70.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070095017",
-                    "comment": "krb5-workstation is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120306",
+	"version": "649",
+	"metadata": {
+		"title": "RHSA-2012:0306: krb5 security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0306",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0306",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-1526",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-1526",
+				"source": "CVE"
+			}
+		],
+		"description": "Kerberos is a network authentication system which allows clients and\nservers to authenticate to each other using symmetric encryption and a\ntrusted third-party, the Key Distribution Center (KDC).\n\nIt was found that ftpd, a Kerberos-aware FTP server, did not properly drop\nprivileges. On Red Hat Enterprise Linux 5, the ftpd daemon did not check\nfor the potential failure of the effective group ID change system call. If\nthe group ID change failed, a remote FTP user could use this flaw to gain\nunauthorized read or write access to files that are owned by the root\ngroup. (CVE-2011-1526)\n\nRed Hat would like to thank the MIT Kerberos project for reporting this\nissue. Upstream acknowledges Tim Zingelman as the original reporter.\n\nThis update also fixes the following bugs:\n\n* Due to a mistake in the Kerberos libraries, a client could fail to\ncontact a Key Distribution Center (KDC) or terminate unexpectedly if the\nclient had already more than 1024 file descriptors in use. This update\nbackports modifications to the Kerberos libraries and the libraries use\nthe poll() function instead of the select() function, as poll() does not\nhave this limitation. (BZ#701444)\n\n* The KDC failed to release memory when processing a TGS (ticket-granting\nserver) request from a client if the client request included an\nauthenticator with a subkey. As a result, the KDC consumed an excessive\namount of memory. With this update, the code releasing the memory has been\nadded and the problem no longer occurs. (BZ#708516)\n\n* Under certain circumstances, if services requiring Kerberos\nauthentication sent two authentication requests to the authenticating\nserver, the second authentication request was flagged as a replay attack.\nAs a result, the second authentication attempt was denied. This update\napplies an upstream patch that fixes this bug. (BZ#713500)\n\n* Previously, if Kerberos credentials had expired, the klist command could\nterminate unexpectedly with a segmentation fault when invoked with the -s\noption. This happened when klist encountered and failed to process an entry\nwith no realm name while scanning the credential cache. With this update,\nthe underlying code has been modified and the command handles such entries\ncorrectly. (BZ#729067)\n\n* Due to a regression, multi-line FTP macros terminated prematurely with a\nsegmentation fault. This occurred because the previously-added patch failed\nto properly support multi-line macros. This update restores the support for\nmulti-line macros and the problem no longer occurs. (BZ#735363, BZ#736132)\n\nAll users of krb5 are advised to upgrade to these updated packages, which\nresolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-02-21"
+			},
+			"updated": {
+				"date": "2012-02-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-1526",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-1526",
+					"impact": "important",
+					"public": "20110705",
+					"cvss_2": "5.5/AV:N/AC:L/Au:S/C:P/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-1526 krb5, krb5-appl: ftpd incorrect group privilege dropping (MITKRB5-SA-2011-005)",
+					"href": "https://bugzilla.redhat.com/711419",
+					"id": "711419"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120306001",
+										"comment": "krb5-devel is earlier than 0:1.6.1-70.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070095011",
+										"comment": "krb5-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120306003",
+										"comment": "krb5-libs is earlier than 0:1.6.1-70.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070095013",
+										"comment": "krb5-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120306005",
+										"comment": "krb5-server is earlier than 0:1.6.1-70.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070095015",
+										"comment": "krb5-server is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120306007",
+										"comment": "krb5-server-ldap is earlier than 0:1.6.1-70.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20110199008",
+										"comment": "krb5-server-ldap is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120306009",
+										"comment": "krb5-workstation is earlier than 0:1.6.1-70.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070095017",
+										"comment": "krb5-workstation is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

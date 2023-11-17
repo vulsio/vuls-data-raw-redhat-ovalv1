@@ -1,342 +1,342 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090014",
-  "version": "655",
-  "metadata": {
-    "title": "RHSA-2009:0014: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0014",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0014",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-3275",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3275",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-4933",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4933",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-4934",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4934",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-5025",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5025",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-5029",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5029",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-5300",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5300",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-5702",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5702",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update addresses the following security issues:\n\n* the sendmsg() function in the Linux kernel did not block during UNIX\nsocket garbage collection. This could, potentially, lead to a local denial\nof service. (CVE-2008-5300, Important)\n\n* when fput() was called to close a socket, the __scm_destroy() function in\nthe Linux kernel could make indirect recursive calls to itself. This could,\npotentially, lead to a local denial of service. (CVE-2008-5029, Important)\n\n* a deficiency was found in the Linux kernel virtual file system (VFS)\nimplementation. This could allow a local, unprivileged user to make a\nseries of file creations within deleted directories, possibly causing a\ndenial of service. (CVE-2008-3275, Moderate)\n\n* a buffer underflow flaw was found in the Linux kernel IB700 SBC watchdog\ntimer driver. This deficiency could lead to a possible information leak. By\ndefault, the \"/dev/watchdog\" device is accessible only to the root user.\n(CVE-2008-5702, Low)\n\n* the hfs and hfsplus file systems code failed to properly handle corrupted\ndata structures. This could, potentially, lead to a local denial of\nservice. (CVE-2008-4933, CVE-2008-5025, Low)\n\n* a flaw was found in the hfsplus file system implementation. This could,\npotentially, lead to a local denial of service when write operations were\nperformed. (CVE-2008-4934, Low)\n\nThis update also fixes the following bugs:\n\n* when running Red Hat Enterprise Linux 4.6 and 4.7 on some systems running\nIntel® CPUs, the cpuspeed daemon did not run, preventing the CPU speed from\nbeing changed, such as not being reduced to an idle state when not in use.\n\n* mmap() could be used to gain access to beyond the first megabyte of RAM,\ndue to insufficient checks in the Linux kernel code. Checks have been added\nto prevent this.\n\n* attempting to turn keyboard LEDs on and off rapidly on keyboards with\nslow keyboard controllers, may have caused key presses to fail.\n\n* after migrating a hypervisor guest, the MAC address table was not\nupdated, causing packet loss and preventing network connections to the\nguest. Now, a gratuitous ARP request is sent after migration. This\nrefreshes the ARP caches, minimizing network downtime.\n\n* writing crash dumps with diskdump may have caused a kernel panic on\nNon-Uniform Memory Access (NUMA) systems with certain memory\nconfigurations.\n\n* on big-endian systems, such as PowerPC, the getsockopt() function\nincorrectly returned 0 depending on the parameters passed to it when the\ntime to live (TTL) value equaled 255, possibly causing memory corruption\nand application crashes.\n\n* a problem in the kernel packages provided by the RHSA-2008:0508 advisory\ncaused the Linux kernel's built-in memory copy procedure to return the\nwrong error code after recovering from a page fault on AMD64 and Intel 64\nsystems. This may have caused other Linux kernel functions to return wrong\nerror codes.\n\n* a divide-by-zero bug in the Linux kernel process scheduler, which may\nhave caused kernel panics on certain systems, has been resolved.\n\n* the netconsole kernel module caused the Linux kernel to hang when slave\ninterfaces of bonded network interfaces were started, resulting in a system\nhang or kernel panic when restarting the network.\n\n* the \"/proc/xen/\" directory existed even if systems were not running Red\nHat Virtualization. This may have caused problems for third-party software\nthat checks virtualization-ability based on the existence of \"/proc/xen/\".\nNote: this update will remove the \"/proc/xen/\" directory on systems not\nrunning Red Hat Virtualization.\n\nAll Red Hat Enterprise Linux 4 users should upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-01-14"
-      },
-      "updated": {
-        "date": "2009-01-14"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-3275",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-3275",
-          "impact": "moderate",
-          "public": "20080702"
-        },
-        {
-          "text": "CVE-2008-4933",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4933",
-          "impact": "low",
-          "public": "20081015"
-        },
-        {
-          "text": "CVE-2008-4934",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4934",
-          "impact": "low",
-          "public": "20081015"
-        },
-        {
-          "text": "CVE-2008-5025",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5025",
-          "impact": "low",
-          "public": "20081015"
-        },
-        {
-          "text": "CVE-2008-5029",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5029",
-          "impact": "important",
-          "public": "20081106",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2008-5300",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5300",
-          "impact": "important",
-          "public": "20081120"
-        },
-        {
-          "text": "CVE-2008-5702",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5702",
-          "impact": "low",
-          "public": "20080821"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-3275 Linux kernel local filesystem DoS",
-          "href": "https://bugzilla.redhat.com/457858",
-          "id": "457858"
-        },
-        {
-          "text": "CVE-2008-4933 kernel: hfsplus: fix Buffer overflow with a corrupted image",
-          "href": "https://bugzilla.redhat.com/469631",
-          "id": "469631"
-        },
-        {
-          "text": "CVE-2008-4934 kernel: hfsplus: check read_mapping_page() return value",
-          "href": "https://bugzilla.redhat.com/469640",
-          "id": "469640"
-        },
-        {
-          "text": "CVE-2008-5029 kernel: Unix sockets kernel panic",
-          "href": "https://bugzilla.redhat.com/470201",
-          "id": "470201"
-        },
-        {
-          "text": "CVE-2008-5025 kernel: hfs: fix namelength memory corruption",
-          "href": "https://bugzilla.redhat.com/470769",
-          "id": "470769"
-        },
-        {
-          "text": "CVE-2008-5300 kernel: fix soft lockups/OOM issues with unix socket garbage collector",
-          "href": "https://bugzilla.redhat.com/473259",
-          "id": "473259"
-        },
-        {
-          "text": "CVE-2008-5702 kernel: watchdog: ib700wdt.c - buffer_underflow bug",
-          "href": "https://bugzilla.redhat.com/475733",
-          "id": "475733"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20090014023",
-                "comment": "kernel earlier than 0:2.6.9-78.0.13.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20090014024",
-                "comment": "kernel earlier than 0:2.6.9-78.0.13.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014001",
-                    "comment": "kernel is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090014021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-78.0.13.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090014",
+	"version": "655",
+	"metadata": {
+		"title": "RHSA-2009:0014: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0014",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0014",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-3275",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-3275",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-4933",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4933",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-4934",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4934",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-5025",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5025",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-5029",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5029",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-5300",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5300",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-5702",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5702",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update addresses the following security issues:\n\n* the sendmsg() function in the Linux kernel did not block during UNIX\nsocket garbage collection. This could, potentially, lead to a local denial\nof service. (CVE-2008-5300, Important)\n\n* when fput() was called to close a socket, the __scm_destroy() function in\nthe Linux kernel could make indirect recursive calls to itself. This could,\npotentially, lead to a local denial of service. (CVE-2008-5029, Important)\n\n* a deficiency was found in the Linux kernel virtual file system (VFS)\nimplementation. This could allow a local, unprivileged user to make a\nseries of file creations within deleted directories, possibly causing a\ndenial of service. (CVE-2008-3275, Moderate)\n\n* a buffer underflow flaw was found in the Linux kernel IB700 SBC watchdog\ntimer driver. This deficiency could lead to a possible information leak. By\ndefault, the \"/dev/watchdog\" device is accessible only to the root user.\n(CVE-2008-5702, Low)\n\n* the hfs and hfsplus file systems code failed to properly handle corrupted\ndata structures. This could, potentially, lead to a local denial of\nservice. (CVE-2008-4933, CVE-2008-5025, Low)\n\n* a flaw was found in the hfsplus file system implementation. This could,\npotentially, lead to a local denial of service when write operations were\nperformed. (CVE-2008-4934, Low)\n\nThis update also fixes the following bugs:\n\n* when running Red Hat Enterprise Linux 4.6 and 4.7 on some systems running\nIntel® CPUs, the cpuspeed daemon did not run, preventing the CPU speed from\nbeing changed, such as not being reduced to an idle state when not in use.\n\n* mmap() could be used to gain access to beyond the first megabyte of RAM,\ndue to insufficient checks in the Linux kernel code. Checks have been added\nto prevent this.\n\n* attempting to turn keyboard LEDs on and off rapidly on keyboards with\nslow keyboard controllers, may have caused key presses to fail.\n\n* after migrating a hypervisor guest, the MAC address table was not\nupdated, causing packet loss and preventing network connections to the\nguest. Now, a gratuitous ARP request is sent after migration. This\nrefreshes the ARP caches, minimizing network downtime.\n\n* writing crash dumps with diskdump may have caused a kernel panic on\nNon-Uniform Memory Access (NUMA) systems with certain memory\nconfigurations.\n\n* on big-endian systems, such as PowerPC, the getsockopt() function\nincorrectly returned 0 depending on the parameters passed to it when the\ntime to live (TTL) value equaled 255, possibly causing memory corruption\nand application crashes.\n\n* a problem in the kernel packages provided by the RHSA-2008:0508 advisory\ncaused the Linux kernel's built-in memory copy procedure to return the\nwrong error code after recovering from a page fault on AMD64 and Intel 64\nsystems. This may have caused other Linux kernel functions to return wrong\nerror codes.\n\n* a divide-by-zero bug in the Linux kernel process scheduler, which may\nhave caused kernel panics on certain systems, has been resolved.\n\n* the netconsole kernel module caused the Linux kernel to hang when slave\ninterfaces of bonded network interfaces were started, resulting in a system\nhang or kernel panic when restarting the network.\n\n* the \"/proc/xen/\" directory existed even if systems were not running Red\nHat Virtualization. This may have caused problems for third-party software\nthat checks virtualization-ability based on the existence of \"/proc/xen/\".\nNote: this update will remove the \"/proc/xen/\" directory on systems not\nrunning Red Hat Virtualization.\n\nAll Red Hat Enterprise Linux 4 users should upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-01-14"
+			},
+			"updated": {
+				"date": "2009-01-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-3275",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-3275",
+					"impact": "moderate",
+					"public": "20080702"
+				},
+				{
+					"text": "CVE-2008-4933",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4933",
+					"impact": "low",
+					"public": "20081015"
+				},
+				{
+					"text": "CVE-2008-4934",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4934",
+					"impact": "low",
+					"public": "20081015"
+				},
+				{
+					"text": "CVE-2008-5025",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5025",
+					"impact": "low",
+					"public": "20081015"
+				},
+				{
+					"text": "CVE-2008-5029",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5029",
+					"impact": "important",
+					"public": "20081106",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2008-5300",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5300",
+					"impact": "important",
+					"public": "20081120"
+				},
+				{
+					"text": "CVE-2008-5702",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5702",
+					"impact": "low",
+					"public": "20080821"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-3275 Linux kernel local filesystem DoS",
+					"href": "https://bugzilla.redhat.com/457858",
+					"id": "457858"
+				},
+				{
+					"text": "CVE-2008-4933 kernel: hfsplus: fix Buffer overflow with a corrupted image",
+					"href": "https://bugzilla.redhat.com/469631",
+					"id": "469631"
+				},
+				{
+					"text": "CVE-2008-4934 kernel: hfsplus: check read_mapping_page() return value",
+					"href": "https://bugzilla.redhat.com/469640",
+					"id": "469640"
+				},
+				{
+					"text": "CVE-2008-5029 kernel: Unix sockets kernel panic",
+					"href": "https://bugzilla.redhat.com/470201",
+					"id": "470201"
+				},
+				{
+					"text": "CVE-2008-5025 kernel: hfs: fix namelength memory corruption",
+					"href": "https://bugzilla.redhat.com/470769",
+					"id": "470769"
+				},
+				{
+					"text": "CVE-2008-5300 kernel: fix soft lockups/OOM issues with unix socket garbage collector",
+					"href": "https://bugzilla.redhat.com/473259",
+					"id": "473259"
+				},
+				{
+					"text": "CVE-2008-5702 kernel: watchdog: ib700wdt.c - buffer_underflow bug",
+					"href": "https://bugzilla.redhat.com/475733",
+					"id": "475733"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20090014023",
+								"comment": "kernel earlier than 0:2.6.9-78.0.13.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20090014024",
+								"comment": "kernel earlier than 0:2.6.9-78.0.13.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014001",
+										"comment": "kernel is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090014021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-78.0.13.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

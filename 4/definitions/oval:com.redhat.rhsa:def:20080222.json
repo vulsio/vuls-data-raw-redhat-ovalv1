@@ -1,111 +1,111 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080222",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2008:0222: firefox security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0222",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0222",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1380",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1380",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mozilla Firefox is an open source Web browser.\n\nA flaw was found in the processing of malformed JavaScript content. A web\npage containing such malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code as the user running Firefox.\n(CVE-2008-1380)\n\nAll Firefox users should upgrade to these updated packages, which contain\nbackported patches that correct these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-04-17"
-      },
-      "updated": {
-        "date": "2008-04-17"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1380",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1380",
-          "impact": "critical",
-          "public": "20080416"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1380 Firefox JavaScript garbage collection crash",
-          "href": "https://bugzilla.redhat.com/440518",
-          "id": "440518"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080222001",
-            "comment": "firefox is earlier than 0:1.5.0.12-0.15.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
-            "comment": "firefox is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066008",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080222004",
-            "comment": "firefox is earlier than 0:1.5.0.12-15.el5_1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060200002",
-            "comment": "firefox is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080222",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2008:0222: firefox security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0222",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0222",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1380",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1380",
+				"source": "CVE"
+			}
+		],
+		"description": "Mozilla Firefox is an open source Web browser.\n\nA flaw was found in the processing of malformed JavaScript content. A web\npage containing such malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code as the user running Firefox.\n(CVE-2008-1380)\n\nAll Firefox users should upgrade to these updated packages, which contain\nbackported patches that correct these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-04-17"
+			},
+			"updated": {
+				"date": "2008-04-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1380",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1380",
+					"impact": "critical",
+					"public": "20080416"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1380 Firefox JavaScript garbage collection crash",
+					"href": "https://bugzilla.redhat.com/440518",
+					"id": "440518"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080222001",
+						"comment": "firefox is earlier than 0:1.5.0.12-0.15.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+						"comment": "firefox is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066008",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080222004",
+						"comment": "firefox is earlier than 0:1.5.0.12-15.el5_1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060200002",
+						"comment": "firefox is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

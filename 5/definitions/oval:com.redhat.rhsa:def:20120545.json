@@ -1,183 +1,183 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120545",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2012:0545: ImageMagick security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0545",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0545",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-0247",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0247",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-0248",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0248",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-0260",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0260",
-        "source": "CVE"
-      }
-    ],
-    "description": "ImageMagick is an image display and manipulation tool for the X Window\nSystem that can read and write multiple image formats.\n\nA flaw was found in the way ImageMagick processed images with malformed\nExchangeable image file format (Exif) metadata. An attacker could create a\nspecially-crafted image file that, when opened by a victim, would cause\nImageMagick to crash or, potentially, execute arbitrary code.\n(CVE-2012-0247)\n\nA denial of service flaw was found in the way ImageMagick processed images\nwith malformed Exif metadata. An attacker could create a specially-crafted\nimage file that, when opened by a victim, could cause ImageMagick to enter\nan infinite loop. (CVE-2012-0248)\n\nA denial of service flaw was found in the way ImageMagick decoded certain\nJPEG images. A remote attacker could provide a JPEG image with\nspecially-crafted sequences of RST0 up to RST7 restart markers (used to\nindicate the input stream to be corrupted), which once processed by\nImageMagick, would cause it to consume excessive amounts of memory and CPU\ntime. (CVE-2012-0260)\n\nRed Hat would like to thank CERT-FI for reporting CVE-2012-0260. CERT-FI\nacknowledges Aleksis Kauppinen, Joonas Kuorilehto, Tuomas Parttimaa and\nLasse Ylivainio of Codenomicon's CROSS project as the original reporters.\n\nThis update also fixes the following bug:\n\n* The fix for Red Hat Bugzilla bug 694922, provided by the RHSA-2012:0301\nImageMagick update, introduced a regression. Attempting to use the\n\"convert\" utility to convert a PostScript document could fail with a\n\"/undefinedfilename\" error. With this update, conversion works as expected.\n(BZ#804546)\n\nUsers of ImageMagick are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues. All running\ninstances of ImageMagick must be restarted for this update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-05-07"
-      },
-      "updated": {
-        "date": "2012-05-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-0247",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0247",
-          "impact": "moderate",
-          "public": "20120203",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2012-0248",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0248",
-          "impact": "moderate",
-          "public": "20120203",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2012-0260",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0260",
-          "impact": "low",
-          "public": "20120328",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-0247 CVE-2012-0248 ImageMagick: invalid validation of images denial of service",
-          "href": "https://bugzilla.redhat.com/789443",
-          "id": "789443"
-        },
-        {
-          "text": "CVE-2012-0260 ImageMagick: excessive CPU use DoS by processing JPEG images with crafted restart markers",
-          "href": "https://bugzilla.redhat.com/807994",
-          "id": "807994"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120545001",
-                    "comment": "ImageMagick is earlier than 0:6.2.8.0-15.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080145002",
-                    "comment": "ImageMagick is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120545003",
-                    "comment": "ImageMagick-c++ is earlier than 0:6.2.8.0-15.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080145004",
-                    "comment": "ImageMagick-c++ is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120545005",
-                    "comment": "ImageMagick-c++-devel is earlier than 0:6.2.8.0-15.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080145006",
-                    "comment": "ImageMagick-c++-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120545007",
-                    "comment": "ImageMagick-devel is earlier than 0:6.2.8.0-15.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080145008",
-                    "comment": "ImageMagick-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120545009",
-                    "comment": "ImageMagick-perl is earlier than 0:6.2.8.0-15.el5_8"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080145010",
-                    "comment": "ImageMagick-perl is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120545",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2012:0545: ImageMagick security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0545",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0545",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-0247",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0247",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-0248",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0248",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-0260",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0260",
+				"source": "CVE"
+			}
+		],
+		"description": "ImageMagick is an image display and manipulation tool for the X Window\nSystem that can read and write multiple image formats.\n\nA flaw was found in the way ImageMagick processed images with malformed\nExchangeable image file format (Exif) metadata. An attacker could create a\nspecially-crafted image file that, when opened by a victim, would cause\nImageMagick to crash or, potentially, execute arbitrary code.\n(CVE-2012-0247)\n\nA denial of service flaw was found in the way ImageMagick processed images\nwith malformed Exif metadata. An attacker could create a specially-crafted\nimage file that, when opened by a victim, could cause ImageMagick to enter\nan infinite loop. (CVE-2012-0248)\n\nA denial of service flaw was found in the way ImageMagick decoded certain\nJPEG images. A remote attacker could provide a JPEG image with\nspecially-crafted sequences of RST0 up to RST7 restart markers (used to\nindicate the input stream to be corrupted), which once processed by\nImageMagick, would cause it to consume excessive amounts of memory and CPU\ntime. (CVE-2012-0260)\n\nRed Hat would like to thank CERT-FI for reporting CVE-2012-0260. CERT-FI\nacknowledges Aleksis Kauppinen, Joonas Kuorilehto, Tuomas Parttimaa and\nLasse Ylivainio of Codenomicon's CROSS project as the original reporters.\n\nThis update also fixes the following bug:\n\n* The fix for Red Hat Bugzilla bug 694922, provided by the RHSA-2012:0301\nImageMagick update, introduced a regression. Attempting to use the\n\"convert\" utility to convert a PostScript document could fail with a\n\"/undefinedfilename\" error. With this update, conversion works as expected.\n(BZ#804546)\n\nUsers of ImageMagick are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues. All running\ninstances of ImageMagick must be restarted for this update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-05-07"
+			},
+			"updated": {
+				"date": "2012-05-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-0247",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0247",
+					"impact": "moderate",
+					"public": "20120203",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2012-0248",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0248",
+					"impact": "moderate",
+					"public": "20120203",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2012-0260",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0260",
+					"impact": "low",
+					"public": "20120328",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-0247 CVE-2012-0248 ImageMagick: invalid validation of images denial of service",
+					"href": "https://bugzilla.redhat.com/789443",
+					"id": "789443"
+				},
+				{
+					"text": "CVE-2012-0260 ImageMagick: excessive CPU use DoS by processing JPEG images with crafted restart markers",
+					"href": "https://bugzilla.redhat.com/807994",
+					"id": "807994"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120545001",
+										"comment": "ImageMagick is earlier than 0:6.2.8.0-15.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080145002",
+										"comment": "ImageMagick is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120545003",
+										"comment": "ImageMagick-c++ is earlier than 0:6.2.8.0-15.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080145004",
+										"comment": "ImageMagick-c++ is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120545005",
+										"comment": "ImageMagick-c++-devel is earlier than 0:6.2.8.0-15.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080145006",
+										"comment": "ImageMagick-c++-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120545007",
+										"comment": "ImageMagick-devel is earlier than 0:6.2.8.0-15.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080145008",
+										"comment": "ImageMagick-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120545009",
+										"comment": "ImageMagick-perl is earlier than 0:6.2.8.0-15.el5_8"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080145010",
+										"comment": "ImageMagick-perl is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

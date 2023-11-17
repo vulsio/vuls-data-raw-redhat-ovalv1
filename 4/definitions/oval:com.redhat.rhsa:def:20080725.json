@@ -1,92 +1,92 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080725",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2008:0725: rdesktop security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0725",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0725",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1801",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1801",
-        "source": "CVE"
-      }
-    ],
-    "description": "rdesktop is an open source client for Microsoft Windows NT Terminal Server\nand Microsoft Windows 2000 and 2003 Terminal Services, capable of natively\nusing the Remote Desktop Protocol (RDP) to present the user's NT desktop.\nNo additional server extensions are required.\n\nAn integer underflow vulnerability was discovered in the rdesktop. If an\nattacker could convince a victim to connect to a malicious RDP server, the\nattacker could cause the victim's rdesktop to crash or, possibly, execute\nan arbitrary code. (CVE-2008-1801)\n\nAdditionally, the following bug was fixed:\n\nA missing command line option caused rdesktop to fail when using the krdc\nremote desktop utility. Using krdc to connect to a terminal server resulted\nin errors such as the following:\n\nThe version of rdesktop you are using ([version]) is too old:\n\nrdesktop [version] or greater is required. A working patch for rdesktop\n[version] can be found in KDE CVS.\n\nIn this updated package, krdc successfully connects to terminal servers.\n\nUsers of rdesktop should upgrade to these updated packages, which contain a\nbackported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-07-24"
-      },
-      "updated": {
-        "date": "2008-07-25"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1801",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1801",
-          "impact": "moderate",
-          "public": "20080507",
-          "cwe": "CWE-190",
-          "cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1801 rdesktop: iso_recv_msg() Integer Underflow Vulnerability",
-          "href": "https://bugzilla.redhat.com/445825",
-          "id": "445825"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080725001",
-            "comment": "rdesktop is earlier than 0:1.3.1-9"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080725002",
-            "comment": "rdesktop is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080725",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2008:0725: rdesktop security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0725",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0725",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1801",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1801",
+				"source": "CVE"
+			}
+		],
+		"description": "rdesktop is an open source client for Microsoft Windows NT Terminal Server\nand Microsoft Windows 2000 and 2003 Terminal Services, capable of natively\nusing the Remote Desktop Protocol (RDP) to present the user's NT desktop.\nNo additional server extensions are required.\n\nAn integer underflow vulnerability was discovered in the rdesktop. If an\nattacker could convince a victim to connect to a malicious RDP server, the\nattacker could cause the victim's rdesktop to crash or, possibly, execute\nan arbitrary code. (CVE-2008-1801)\n\nAdditionally, the following bug was fixed:\n\nA missing command line option caused rdesktop to fail when using the krdc\nremote desktop utility. Using krdc to connect to a terminal server resulted\nin errors such as the following:\n\nThe version of rdesktop you are using ([version]) is too old:\n\nrdesktop [version] or greater is required. A working patch for rdesktop\n[version] can be found in KDE CVS.\n\nIn this updated package, krdc successfully connects to terminal servers.\n\nUsers of rdesktop should upgrade to these updated packages, which contain a\nbackported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-07-24"
+			},
+			"updated": {
+				"date": "2008-07-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1801",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1801",
+					"impact": "moderate",
+					"public": "20080507",
+					"cwe": "CWE-190",
+					"cvss_2": "5.4/AV:A/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1801 rdesktop: iso_recv_msg() Integer Underflow Vulnerability",
+					"href": "https://bugzilla.redhat.com/445825",
+					"id": "445825"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080725001",
+						"comment": "rdesktop is earlier than 0:1.3.1-9"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080725002",
+						"comment": "rdesktop is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

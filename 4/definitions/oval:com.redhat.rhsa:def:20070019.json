@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070019",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0019: gtk2 security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0019",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0019",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2007-0010",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-0010",
-        "source": "CVE"
-      }
-    ],
-    "description": "The gtk2 package contains the GIMP ToolKit (GTK+), a library for creating\ngraphical user interfaces for the X Window System.\n\nA bug was found in the way the gtk2 GdkPixbufLoader() function processed\ninvalid input.   Applications linked against gtk2 could crash if they\nloaded a malformed image file. (CVE-2007-0010)\n\nUsers of gtk2 are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-01-24"
-      },
-      "updated": {
-        "date": "2008-03-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2007-0010",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-0010",
-          "impact": "moderate",
-          "public": "20070110"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-0010 security flaw",
-          "href": "https://bugzilla.redhat.com/1618260",
-          "id": "1618260"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070019001",
-                    "comment": "gtk2 is earlier than 0:2.4.13-22"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070019002",
-                    "comment": "gtk2 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070019003",
-                    "comment": "gtk2-devel is earlier than 0:2.4.13-22"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070019004",
-                    "comment": "gtk2-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070019",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0019: gtk2 security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0019",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0019",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2007-0010",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-0010",
+				"source": "CVE"
+			}
+		],
+		"description": "The gtk2 package contains the GIMP ToolKit (GTK+), a library for creating\ngraphical user interfaces for the X Window System.\n\nA bug was found in the way the gtk2 GdkPixbufLoader() function processed\ninvalid input.   Applications linked against gtk2 could crash if they\nloaded a malformed image file. (CVE-2007-0010)\n\nUsers of gtk2 are advised to upgrade to these updated packages, which\ncontain a backported patch to correct this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-01-24"
+			},
+			"updated": {
+				"date": "2008-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-0010",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-0010",
+					"impact": "moderate",
+					"public": "20070110"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-0010 security flaw",
+					"href": "https://bugzilla.redhat.com/1618260",
+					"id": "1618260"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070019001",
+										"comment": "gtk2 is earlier than 0:2.4.13-22"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070019002",
+										"comment": "gtk2 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070019003",
+										"comment": "gtk2-devel is earlier than 0:2.4.13-22"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070019004",
+										"comment": "gtk2-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

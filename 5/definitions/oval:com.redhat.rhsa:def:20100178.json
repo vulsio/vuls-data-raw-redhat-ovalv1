@@ -1,310 +1,310 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100178",
-  "version": "646",
-  "metadata": {
-    "title": "RHSA-2010:0178: Red Hat Enterprise Linux 5.5 kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0178",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0178",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-4027",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4027",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-4307",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4307",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-0727",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0727",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1188",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1188",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* a race condition was found in the mac80211 implementation, a framework\nused for writing drivers for wireless devices. An attacker could trigger\nthis flaw by sending a Delete Block ACK (DELBA) packet to a target system,\nresulting in a remote denial of service. Note: This issue only affected\nusers on 802.11n networks, and that also use the iwlagn driver with Intel\nwireless hardware. (CVE-2009-4027, Important)\n\n* a flaw was found in the gfs2_lock() implementation. The GFS2 locking code\ncould skip the lock operation for files that have the S_ISGID bit\n(set-group-ID on execution) in their mode set. A local, unprivileged user\non a system that has a GFS2 file system mounted could use this flaw to\ncause a kernel panic. (CVE-2010-0727, Moderate)\n\n* a divide-by-zero flaw was found in the ext4 file system code. A local\nattacker could use this flaw to cause a denial of service by mounting a\nspecially-crafted ext4 file system. (CVE-2009-4307, Low)\n\nThese updated packages also include several hundred bug fixes for and\nenhancements to the Linux kernel. Space precludes documenting each of these\nchanges in this advisory and users are directed to the Red Hat Enterprise\nLinux 5.5 Release Notes for information on the most significant of these\nchanges:\n\nhttp://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.5/html/Release_Notes/\n\nAlso, for details concerning every bug fixed in and every enhancement added\nto the kernel for this release, refer to the kernel chapter in the Red Hat\nEnterprise Linux 5.5 Technical Notes:\n\nhttp://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.5/html/Technical_Notes/kernel.html\n\nAll Red Hat Enterprise Linux 5 users are advised to install these updated\npackages, which address these vulnerabilities as well as fixing the bugs\nand adding the enhancements noted in the Red Hat Enterprise Linux 5.5\nRelease Notes and Technical Notes. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-03-29"
-      },
-      "updated": {
-        "date": "2010-03-30"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-4027",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4027",
-          "impact": "important",
-          "public": "20091130",
-          "cwe": "CWE-617",
-          "cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2009-4307",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4307",
-          "impact": "low",
-          "public": "20091123",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2010-0727",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0727",
-          "impact": "moderate",
-          "public": "20100311",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2010-1188",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1188",
-          "impact": "important",
-          "public": "20070123",
-          "cwe": "CWE-672->CWE-119",
-          "cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-4026 CVE-2009-4027 kernel: mac80211: fix spurious delBA handling",
-          "href": "https://bugzilla.redhat.com/541149",
-          "id": "541149"
-        },
-        {
-          "text": "CVE-2009-4307 kernel: ext4: avoid divide by zero when trying to mount a corrupted file system",
-          "href": "https://bugzilla.redhat.com/547251",
-          "id": "547251"
-        },
-        {
-          "text": "CVE-2010-0727 kernel: bug in GFS/GFS2 locking code leads to dos",
-          "href": "https://bugzilla.redhat.com/570863",
-          "id": "570863"
-        },
-        {
-          "text": "CVE-2010-1188 kernel: ipv6: skb is unexpectedly freed",
-          "href": "https://bugzilla.redhat.com/577711",
-          "id": "577711"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100178025",
-                "comment": "kernel earlier than 0:2.6.18-194.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20100178026",
-                "comment": "kernel earlier than 0:2.6.18-194.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178001",
-                    "comment": "kernel is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100178023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-194.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100178",
+	"version": "646",
+	"metadata": {
+		"title": "RHSA-2010:0178: Red Hat Enterprise Linux 5.5 kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0178",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0178",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-4027",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4027",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-4307",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4307",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-0727",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0727",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1188",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1188",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* a race condition was found in the mac80211 implementation, a framework\nused for writing drivers for wireless devices. An attacker could trigger\nthis flaw by sending a Delete Block ACK (DELBA) packet to a target system,\nresulting in a remote denial of service. Note: This issue only affected\nusers on 802.11n networks, and that also use the iwlagn driver with Intel\nwireless hardware. (CVE-2009-4027, Important)\n\n* a flaw was found in the gfs2_lock() implementation. The GFS2 locking code\ncould skip the lock operation for files that have the S_ISGID bit\n(set-group-ID on execution) in their mode set. A local, unprivileged user\non a system that has a GFS2 file system mounted could use this flaw to\ncause a kernel panic. (CVE-2010-0727, Moderate)\n\n* a divide-by-zero flaw was found in the ext4 file system code. A local\nattacker could use this flaw to cause a denial of service by mounting a\nspecially-crafted ext4 file system. (CVE-2009-4307, Low)\n\nThese updated packages also include several hundred bug fixes for and\nenhancements to the Linux kernel. Space precludes documenting each of these\nchanges in this advisory and users are directed to the Red Hat Enterprise\nLinux 5.5 Release Notes for information on the most significant of these\nchanges:\n\nhttp://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.5/html/Release_Notes/\n\nAlso, for details concerning every bug fixed in and every enhancement added\nto the kernel for this release, refer to the kernel chapter in the Red Hat\nEnterprise Linux 5.5 Technical Notes:\n\nhttp://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.5/html/Technical_Notes/kernel.html\n\nAll Red Hat Enterprise Linux 5 users are advised to install these updated\npackages, which address these vulnerabilities as well as fixing the bugs\nand adding the enhancements noted in the Red Hat Enterprise Linux 5.5\nRelease Notes and Technical Notes. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-03-29"
+			},
+			"updated": {
+				"date": "2010-03-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-4027",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4027",
+					"impact": "important",
+					"public": "20091130",
+					"cwe": "CWE-617",
+					"cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2009-4307",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4307",
+					"impact": "low",
+					"public": "20091123",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2010-0727",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0727",
+					"impact": "moderate",
+					"public": "20100311",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2010-1188",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1188",
+					"impact": "important",
+					"public": "20070123",
+					"cwe": "CWE-672->CWE-119",
+					"cvss_2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-4026 CVE-2009-4027 kernel: mac80211: fix spurious delBA handling",
+					"href": "https://bugzilla.redhat.com/541149",
+					"id": "541149"
+				},
+				{
+					"text": "CVE-2009-4307 kernel: ext4: avoid divide by zero when trying to mount a corrupted file system",
+					"href": "https://bugzilla.redhat.com/547251",
+					"id": "547251"
+				},
+				{
+					"text": "CVE-2010-0727 kernel: bug in GFS/GFS2 locking code leads to dos",
+					"href": "https://bugzilla.redhat.com/570863",
+					"id": "570863"
+				},
+				{
+					"text": "CVE-2010-1188 kernel: ipv6: skb is unexpectedly freed",
+					"href": "https://bugzilla.redhat.com/577711",
+					"id": "577711"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100178025",
+								"comment": "kernel earlier than 0:2.6.18-194.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20100178026",
+								"comment": "kernel earlier than 0:2.6.18-194.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178001",
+										"comment": "kernel is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100178023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-194.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

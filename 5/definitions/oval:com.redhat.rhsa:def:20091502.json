@@ -1,206 +1,206 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091502",
-  "version": "637",
-  "metadata": {
-    "title": "RHSA-2009:1502: kdegraphics security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1502",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1502",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-0791",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0791",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-1188",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1188",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3604",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3604",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3606",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3606",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3608",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3608",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-3609",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-3609",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kdegraphics packages contain applications for the K Desktop\nEnvironment, including KPDF, a viewer for Portable Document Format (PDF)\nfiles.\n\nMultiple integer overflow flaws were found in KPDF. An attacker could\ncreate a malicious PDF file that would cause KPDF to crash or, potentially,\nexecute arbitrary code when opened. (CVE-2009-0791, CVE-2009-1188,\nCVE-2009-3604, CVE-2009-3606, CVE-2009-3608, CVE-2009-3609)\n\nRed Hat would like to thank Adam Zabrocki for reporting the CVE-2009-3604\nissue, and Chris Rohlf for reporting the CVE-2009-3608 issue.\n\nUsers are advised to upgrade to these updated packages, which contain a\nbackported patch to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-10-15"
-      },
-      "updated": {
-        "date": "2009-10-15"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-0791",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0791",
-          "impact": "moderate",
-          "public": "20090519",
-          "cwe": "CWE-190",
-          "cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-1188",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1188",
-          "impact": "important",
-          "public": "20090416",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3604",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3604",
-          "impact": "important",
-          "public": "20091014",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3606",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3606",
-          "impact": "moderate",
-          "public": "20091014",
-          "cwe": "CWE-190",
-          "cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3608",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3608",
-          "impact": "important",
-          "public": "20091014",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-3609",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-3609",
-          "impact": "low",
-          "public": "20091014",
-          "cwe": "CWE-190",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-0791 xpdf: multiple integer overflows",
-          "href": "https://bugzilla.redhat.com/491840",
-          "id": "491840"
-        },
-        {
-          "text": "CVE-2009-1188 xpdf/poppler: SplashBitmap integer overflow",
-          "href": "https://bugzilla.redhat.com/495907",
-          "id": "495907"
-        },
-        {
-          "text": "CVE-2009-3608 xpdf/poppler: integer overflow in ObjectStream::ObjectStream (oCERT-2009-016)",
-          "href": "https://bugzilla.redhat.com/526637",
-          "id": "526637"
-        },
-        {
-          "text": "CVE-2009-3606 xpdf/poppler: PSOutputDev::doImageL1Sep integer overflow",
-          "href": "https://bugzilla.redhat.com/526877",
-          "id": "526877"
-        },
-        {
-          "text": "CVE-2009-3609 xpdf/poppler: ImageStream::ImageStream integer overflow",
-          "href": "https://bugzilla.redhat.com/526893",
-          "id": "526893"
-        },
-        {
-          "text": "CVE-2009-3604 xpdf/poppler: Splash::drawImage integer overflow and missing allocation return value check",
-          "href": "https://bugzilla.redhat.com/526911",
-          "id": "526911"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_productivity:5",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091502001",
-                    "comment": "kdegraphics is earlier than 7:3.5.4-15.el5_4.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070729002",
-                    "comment": "kdegraphics is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091502003",
-                    "comment": "kdegraphics-devel is earlier than 7:3.5.4-15.el5_4.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070729004",
-                    "comment": "kdegraphics-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091502",
+	"version": "637",
+	"metadata": {
+		"title": "RHSA-2009:1502: kdegraphics security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1502",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1502",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-0791",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0791",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-1188",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1188",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3604",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3604",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3606",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3606",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3608",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3608",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-3609",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-3609",
+				"source": "CVE"
+			}
+		],
+		"description": "The kdegraphics packages contain applications for the K Desktop\nEnvironment, including KPDF, a viewer for Portable Document Format (PDF)\nfiles.\n\nMultiple integer overflow flaws were found in KPDF. An attacker could\ncreate a malicious PDF file that would cause KPDF to crash or, potentially,\nexecute arbitrary code when opened. (CVE-2009-0791, CVE-2009-1188,\nCVE-2009-3604, CVE-2009-3606, CVE-2009-3608, CVE-2009-3609)\n\nRed Hat would like to thank Adam Zabrocki for reporting the CVE-2009-3604\nissue, and Chris Rohlf for reporting the CVE-2009-3608 issue.\n\nUsers are advised to upgrade to these updated packages, which contain a\nbackported patch to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-10-15"
+			},
+			"updated": {
+				"date": "2009-10-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-0791",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0791",
+					"impact": "moderate",
+					"public": "20090519",
+					"cwe": "CWE-190",
+					"cvss_2": "5.8/AV:A/AC:L/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-1188",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1188",
+					"impact": "important",
+					"public": "20090416",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3604",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3604",
+					"impact": "important",
+					"public": "20091014",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3606",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3606",
+					"impact": "moderate",
+					"public": "20091014",
+					"cwe": "CWE-190",
+					"cvss_2": "3.7/AV:L/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3608",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3608",
+					"impact": "important",
+					"public": "20091014",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-3609",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-3609",
+					"impact": "low",
+					"public": "20091014",
+					"cwe": "CWE-190",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-0791 xpdf: multiple integer overflows",
+					"href": "https://bugzilla.redhat.com/491840",
+					"id": "491840"
+				},
+				{
+					"text": "CVE-2009-1188 xpdf/poppler: SplashBitmap integer overflow",
+					"href": "https://bugzilla.redhat.com/495907",
+					"id": "495907"
+				},
+				{
+					"text": "CVE-2009-3608 xpdf/poppler: integer overflow in ObjectStream::ObjectStream (oCERT-2009-016)",
+					"href": "https://bugzilla.redhat.com/526637",
+					"id": "526637"
+				},
+				{
+					"text": "CVE-2009-3606 xpdf/poppler: PSOutputDev::doImageL1Sep integer overflow",
+					"href": "https://bugzilla.redhat.com/526877",
+					"id": "526877"
+				},
+				{
+					"text": "CVE-2009-3609 xpdf/poppler: ImageStream::ImageStream integer overflow",
+					"href": "https://bugzilla.redhat.com/526893",
+					"id": "526893"
+				},
+				{
+					"text": "CVE-2009-3604 xpdf/poppler: Splash::drawImage integer overflow and missing allocation return value check",
+					"href": "https://bugzilla.redhat.com/526911",
+					"id": "526911"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_productivity:5",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091502001",
+										"comment": "kdegraphics is earlier than 7:3.5.4-15.el5_4.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070729002",
+										"comment": "kdegraphics is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091502003",
+										"comment": "kdegraphics-devel is earlier than 7:3.5.4-15.el5_4.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070729004",
+										"comment": "kdegraphics-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

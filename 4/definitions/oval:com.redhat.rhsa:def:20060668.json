@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060668",
-  "version": "642",
-  "metadata": {
-    "title": "RHSA-2006:0668: squirrelmail security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0668",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0668",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4019",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4019",
-        "source": "CVE"
-      }
-    ],
-    "description": "SquirrelMail is a standards-based webmail package written in PHP.\n\nA dynamic variable evaluation flaw was found in SquirrelMail.  Users who\nhave an account on a SquirrelMail server and are logged in could use this\nflaw to overwrite variables which may allow them to read or write other\nusers' preferences or attachments.  (CVE-2006-4019)\n\nUsers of SquirrelMail should upgrade to this erratum package, which\ncontains SquirrelMail 1.4.8 to correct this issue.  This package also\ncontains a number of additional patches to correct various bugs.\n\nNote: After installing this update, users are advised to restart their httpd\nservice to ensure that the new version functions correctly.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-09-26"
-      },
-      "updated": {
-        "date": "2006-09-26"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4019",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4019",
-          "impact": "moderate",
-          "public": "20060811"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4019 security flaw",
-          "href": "https://bugzilla.redhat.com/1618173",
-          "id": "1618173"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060668001",
-            "comment": "squirrelmail is earlier than 0:1.4.8-2.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20060283002",
-            "comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060668",
+	"version": "642",
+	"metadata": {
+		"title": "RHSA-2006:0668: squirrelmail security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0668",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0668",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4019",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4019",
+				"source": "CVE"
+			}
+		],
+		"description": "SquirrelMail is a standards-based webmail package written in PHP.\n\nA dynamic variable evaluation flaw was found in SquirrelMail.  Users who\nhave an account on a SquirrelMail server and are logged in could use this\nflaw to overwrite variables which may allow them to read or write other\nusers' preferences or attachments.  (CVE-2006-4019)\n\nUsers of SquirrelMail should upgrade to this erratum package, which\ncontains SquirrelMail 1.4.8 to correct this issue.  This package also\ncontains a number of additional patches to correct various bugs.\n\nNote: After installing this update, users are advised to restart their httpd\nservice to ensure that the new version functions correctly.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-09-26"
+			},
+			"updated": {
+				"date": "2006-09-26"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4019",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4019",
+					"impact": "moderate",
+					"public": "20060811"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4019 security flaw",
+					"href": "https://bugzilla.redhat.com/1618173",
+					"id": "1618173"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060668001",
+						"comment": "squirrelmail is earlier than 0:1.4.8-2.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20060283002",
+						"comment": "squirrelmail is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

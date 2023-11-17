@@ -1,325 +1,325 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080237",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2008:0237: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0237",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0237",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2005-0504",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2005-0504",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-6282",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-6282",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-0007",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-0007",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-1375",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1375",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-1615",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1615",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-1669",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1669",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThese updated packages fix the following security issues:\n\n* the absence of a protection mechanism when attempting to access a\ncritical section of code has been found in the Linux kernel open file\ndescriptors control mechanism, fcntl. This could allow a local unprivileged\nuser to simultaneously execute code, which would otherwise be protected\nagainst parallel execution. As well, a race condition when handling locks\nin the Linux kernel fcntl functionality, may have allowed a process\nbelonging to a local unprivileged user to gain re-ordered access to the\ndescriptor table. (CVE-2008-1669, Important)\n\n* on AMD64 architectures, the possibility of a kernel crash was discovered\nby testing the Linux kernel process-trace ability. This could allow a local\nunprivileged user to cause a denial of service (kernel crash).\n(CVE-2008-1615, Important)\n\n* the absence of a protection mechanism when attempting to access a\ncritical section of code, as well as a race condition, have been found\nin the Linux kernel file system event notifier, dnotify. This could allow a\nlocal unprivileged user to get inconsistent data, or to send arbitrary\nsignals to arbitrary system processes. (CVE-2008-1375, Important)\n\nRed Hat would like to thank Nick Piggin for responsibly disclosing the\nfollowing issue:\n\n* when accessing kernel memory locations, certain Linux kernel drivers\nregistering a fault handler did not perform required range checks. A local\nunprivileged user could use this flaw to gain read or write access to\narbitrary kernel memory, or possibly cause a kernel crash.\n(CVE-2008-0007, Important)\n\n* the possibility of a kernel crash was found in the Linux kernel IPsec\nprotocol implementation, due to improper handling of fragmented ESP\npackets. When an attacker controlling an intermediate router fragmented\nthese packets into very small pieces, it would cause a kernel crash on the\nreceiving node during packet reassembly. (CVE-2007-6282, Important)\n\n* a flaw in the MOXA serial driver could allow a local unprivileged user\nto perform privileged operations, such as replacing firmware.\n(CVE-2005-0504, Important)\n\nAs well, these updated packages fix the following bugs:\n\n* multiple buffer overflows in the neofb driver have been resolved. It was\nnot possible for an unprivileged user to exploit these issues, and as such,\nthey have not been handled as security issues.\n\n* a kernel panic, due to inconsistent detection of AGP aperture size, has\nbeen resolved.\n\n* a race condition in UNIX domain sockets may have caused \"recv()\" to\nreturn zero. In clustered configurations, this may have caused unexpected\nfailovers.\n\n* to prevent link storms, network link carrier events were delayed by up to\none second, causing unnecessary packet loss. Now, link carrier events are\nscheduled immediately.\n\n* a client-side race on blocking locks caused large time delays on NFS file\nsystems.\n\n* in certain situations, the libATA sata_nv driver may have sent commands\nwith duplicate tags, which were rejected by SATA devices. This may have\ncaused infinite reboots.\n\n* running the \"service network restart\" command may have caused networking\nto fail.\n\n* a bug in NFS caused cached information about directories to be stored\nfor too long, causing wrong attributes to be read.\n\n* on systems with a large highmem/lowmem ratio, NFS write performance may\nhave been very slow when using small files.\n\n* a bug, which caused network hangs when the system clock was wrapped\naround zero, has been resolved.\n\nRed Hat Enterprise Linux 4 users are advised to upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-05-07"
-      },
-      "updated": {
-        "date": "2008-05-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2005-0504",
-          "href": "https://access.redhat.com/security/cve/CVE-2005-0504",
-          "impact": "important",
-          "public": "20070430"
-        },
-        {
-          "text": "CVE-2007-6282",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-6282",
-          "impact": "important",
-          "public": "20080222"
-        },
-        {
-          "text": "CVE-2008-0007",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-0007",
-          "impact": "important",
-          "public": "20080208"
-        },
-        {
-          "text": "CVE-2008-1375",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1375",
-          "impact": "important",
-          "public": "20080501"
-        },
-        {
-          "text": "CVE-2008-1615",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1615",
-          "impact": "important",
-          "public": "20080202"
-        },
-        {
-          "text": "CVE-2008-1669",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1669",
-          "impact": "important",
-          "public": "20080506"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-6282 IPSec ESP kernel panics",
-          "href": "https://bugzilla.redhat.com/404291",
-          "id": "404291"
-        },
-        {
-          "text": "CVE-2005-0504 Buffer overflow in moxa driver",
-          "href": "https://bugzilla.redhat.com/423111",
-          "id": "423111"
-        },
-        {
-          "text": "CVE-2008-0007 kernel: insufficient range checks in fault handlers with mremap",
-          "href": "https://bugzilla.redhat.com/428961",
-          "id": "428961"
-        },
-        {
-          "text": "CVE-2008-1615 kernel: ptrace: Unprivileged crash on x86_64 %cs corruption",
-          "href": "https://bugzilla.redhat.com/431430",
-          "id": "431430"
-        },
-        {
-          "text": "CVE-2008-1375 kernel: race condition in dnotify (local DoS, local roothole possible)",
-          "href": "https://bugzilla.redhat.com/439754",
-          "id": "439754"
-        },
-        {
-          "text": "CVE-2008-1669 kernel: add rcu_read_lock() to fcheck() in both dnotify, locks.c and fix fcntl store/load race in locks.c",
-          "href": "https://bugzilla.redhat.com/443433",
-          "id": "443433"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20080237023",
-                "comment": "kernel earlier than 0:2.6.9-67.0.15.EL is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20080237024",
-                "comment": "kernel earlier than 0:2.6.9-67.0.15.EL is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237001",
-                    "comment": "kernel is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237003",
-                    "comment": "kernel-devel is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304004",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237005",
-                    "comment": "kernel-doc is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304006",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237007",
-                    "comment": "kernel-hugemem is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304008",
-                    "comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237009",
-                    "comment": "kernel-hugemem-devel is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304010",
-                    "comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237011",
-                    "comment": "kernel-largesmp is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304012",
-                    "comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237013",
-                    "comment": "kernel-largesmp-devel is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304014",
-                    "comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237015",
-                    "comment": "kernel-smp is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304016",
-                    "comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237017",
-                    "comment": "kernel-smp-devel is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304018",
-                    "comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237019",
-                    "comment": "kernel-xenU is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304020",
-                    "comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080237021",
-                    "comment": "kernel-xenU-devel is earlier than 0:2.6.9-67.0.15.EL"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20070304022",
-                    "comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080237",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2008:0237: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0237",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0237",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2005-0504",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2005-0504",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-6282",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-6282",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-0007",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-0007",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-1375",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1375",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-1615",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1615",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-1669",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1669",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThese updated packages fix the following security issues:\n\n* the absence of a protection mechanism when attempting to access a\ncritical section of code has been found in the Linux kernel open file\ndescriptors control mechanism, fcntl. This could allow a local unprivileged\nuser to simultaneously execute code, which would otherwise be protected\nagainst parallel execution. As well, a race condition when handling locks\nin the Linux kernel fcntl functionality, may have allowed a process\nbelonging to a local unprivileged user to gain re-ordered access to the\ndescriptor table. (CVE-2008-1669, Important)\n\n* on AMD64 architectures, the possibility of a kernel crash was discovered\nby testing the Linux kernel process-trace ability. This could allow a local\nunprivileged user to cause a denial of service (kernel crash).\n(CVE-2008-1615, Important)\n\n* the absence of a protection mechanism when attempting to access a\ncritical section of code, as well as a race condition, have been found\nin the Linux kernel file system event notifier, dnotify. This could allow a\nlocal unprivileged user to get inconsistent data, or to send arbitrary\nsignals to arbitrary system processes. (CVE-2008-1375, Important)\n\nRed Hat would like to thank Nick Piggin for responsibly disclosing the\nfollowing issue:\n\n* when accessing kernel memory locations, certain Linux kernel drivers\nregistering a fault handler did not perform required range checks. A local\nunprivileged user could use this flaw to gain read or write access to\narbitrary kernel memory, or possibly cause a kernel crash.\n(CVE-2008-0007, Important)\n\n* the possibility of a kernel crash was found in the Linux kernel IPsec\nprotocol implementation, due to improper handling of fragmented ESP\npackets. When an attacker controlling an intermediate router fragmented\nthese packets into very small pieces, it would cause a kernel crash on the\nreceiving node during packet reassembly. (CVE-2007-6282, Important)\n\n* a flaw in the MOXA serial driver could allow a local unprivileged user\nto perform privileged operations, such as replacing firmware.\n(CVE-2005-0504, Important)\n\nAs well, these updated packages fix the following bugs:\n\n* multiple buffer overflows in the neofb driver have been resolved. It was\nnot possible for an unprivileged user to exploit these issues, and as such,\nthey have not been handled as security issues.\n\n* a kernel panic, due to inconsistent detection of AGP aperture size, has\nbeen resolved.\n\n* a race condition in UNIX domain sockets may have caused \"recv()\" to\nreturn zero. In clustered configurations, this may have caused unexpected\nfailovers.\n\n* to prevent link storms, network link carrier events were delayed by up to\none second, causing unnecessary packet loss. Now, link carrier events are\nscheduled immediately.\n\n* a client-side race on blocking locks caused large time delays on NFS file\nsystems.\n\n* in certain situations, the libATA sata_nv driver may have sent commands\nwith duplicate tags, which were rejected by SATA devices. This may have\ncaused infinite reboots.\n\n* running the \"service network restart\" command may have caused networking\nto fail.\n\n* a bug in NFS caused cached information about directories to be stored\nfor too long, causing wrong attributes to be read.\n\n* on systems with a large highmem/lowmem ratio, NFS write performance may\nhave been very slow when using small files.\n\n* a bug, which caused network hangs when the system clock was wrapped\naround zero, has been resolved.\n\nRed Hat Enterprise Linux 4 users are advised to upgrade to these updated\npackages, which contain backported patches to resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-05-07"
+			},
+			"updated": {
+				"date": "2008-05-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2005-0504",
+					"href": "https://access.redhat.com/security/cve/CVE-2005-0504",
+					"impact": "important",
+					"public": "20070430"
+				},
+				{
+					"text": "CVE-2007-6282",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-6282",
+					"impact": "important",
+					"public": "20080222"
+				},
+				{
+					"text": "CVE-2008-0007",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-0007",
+					"impact": "important",
+					"public": "20080208"
+				},
+				{
+					"text": "CVE-2008-1375",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1375",
+					"impact": "important",
+					"public": "20080501"
+				},
+				{
+					"text": "CVE-2008-1615",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1615",
+					"impact": "important",
+					"public": "20080202"
+				},
+				{
+					"text": "CVE-2008-1669",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1669",
+					"impact": "important",
+					"public": "20080506"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-6282 IPSec ESP kernel panics",
+					"href": "https://bugzilla.redhat.com/404291",
+					"id": "404291"
+				},
+				{
+					"text": "CVE-2005-0504 Buffer overflow in moxa driver",
+					"href": "https://bugzilla.redhat.com/423111",
+					"id": "423111"
+				},
+				{
+					"text": "CVE-2008-0007 kernel: insufficient range checks in fault handlers with mremap",
+					"href": "https://bugzilla.redhat.com/428961",
+					"id": "428961"
+				},
+				{
+					"text": "CVE-2008-1615 kernel: ptrace: Unprivileged crash on x86_64 %cs corruption",
+					"href": "https://bugzilla.redhat.com/431430",
+					"id": "431430"
+				},
+				{
+					"text": "CVE-2008-1375 kernel: race condition in dnotify (local DoS, local roothole possible)",
+					"href": "https://bugzilla.redhat.com/439754",
+					"id": "439754"
+				},
+				{
+					"text": "CVE-2008-1669 kernel: add rcu_read_lock() to fcheck() in both dnotify, locks.c and fix fcntl store/load race in locks.c",
+					"href": "https://bugzilla.redhat.com/443433",
+					"id": "443433"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20080237023",
+								"comment": "kernel earlier than 0:2.6.9-67.0.15.EL is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20080237024",
+								"comment": "kernel earlier than 0:2.6.9-67.0.15.EL is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237001",
+										"comment": "kernel is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237003",
+										"comment": "kernel-devel is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304004",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237005",
+										"comment": "kernel-doc is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304006",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237007",
+										"comment": "kernel-hugemem is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304008",
+										"comment": "kernel-hugemem is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237009",
+										"comment": "kernel-hugemem-devel is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304010",
+										"comment": "kernel-hugemem-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237011",
+										"comment": "kernel-largesmp is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304012",
+										"comment": "kernel-largesmp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237013",
+										"comment": "kernel-largesmp-devel is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304014",
+										"comment": "kernel-largesmp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237015",
+										"comment": "kernel-smp is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304016",
+										"comment": "kernel-smp is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237017",
+										"comment": "kernel-smp-devel is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304018",
+										"comment": "kernel-smp-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237019",
+										"comment": "kernel-xenU is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304020",
+										"comment": "kernel-xenU is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080237021",
+										"comment": "kernel-xenU-devel is earlier than 0:2.6.9-67.0.15.EL"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20070304022",
+										"comment": "kernel-xenU-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

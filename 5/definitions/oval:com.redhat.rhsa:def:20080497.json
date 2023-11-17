@@ -1,931 +1,931 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080497",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2008:0497: sblim security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0497",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0497",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1951",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1951",
-        "source": "CVE"
-      }
-    ],
-    "description": "SBLIM stands for Standards-Based Linux Instrumentation for Manageability.\nIt consists of a set of standards-based, Web-Based Enterprise Management\n(WBEM) modules that use the Common Information Model (CIM) standard to\ngather and provide systems management information, events, and methods to\nlocal or networked consumers via a CIM object services broker using the\nCMPI (Common Manageability Programming Interface) standard. This package\nprovides a set of core providers and development tools for systems\nmanagement applications.\n\nIt was discovered that certain sblim libraries had an RPATH (runtime\nlibrary search path) set in the ELF (Executable and Linking Format) header.\nThis RPATH pointed to a sub-directory of a world-writable, temporary\ndirectory. A local user could create a file with the same name as a library\nrequired by sblim (such as libc.so) and place it in the directory defined\nin the RPATH. This file could then execute arbitrary code with the\nprivileges of the user running an application that used sblim (eg\ntog-pegasus). (CVE-2008-1951)\n\nUsers are advised to upgrade to these updated sblim packages, which resolve\nthis issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-06-24"
-      },
-      "updated": {
-        "date": "2008-06-24"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1951",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1951",
-          "impact": "important",
-          "public": "20080624",
-          "cwe": "CWE-426",
-          "cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1951 sblim: libraries built with insecure RPATH",
-          "href": "https://bugzilla.redhat.com/447705",
-          "id": "447705"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497001",
-                    "comment": "sblim-cmpi-base is earlier than 0:1.5.4-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497002",
-                    "comment": "sblim-cmpi-base is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497003",
-                    "comment": "sblim-cmpi-base-devel is earlier than 0:1.5.4-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497004",
-                    "comment": "sblim-cmpi-base-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497005",
-                    "comment": "sblim-cmpi-base-test is earlier than 0:1.5.4-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497006",
-                    "comment": "sblim-cmpi-base-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497007",
-                    "comment": "sblim-cmpi-devel is earlier than 0:1.0.4-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497008",
-                    "comment": "sblim-cmpi-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497009",
-                    "comment": "sblim-cmpi-fsvol is earlier than 0:1.4.3-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497010",
-                    "comment": "sblim-cmpi-fsvol is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497011",
-                    "comment": "sblim-cmpi-fsvol-devel is earlier than 0:1.4.3-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497012",
-                    "comment": "sblim-cmpi-fsvol-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497013",
-                    "comment": "sblim-cmpi-fsvol-test is earlier than 0:1.4.3-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497014",
-                    "comment": "sblim-cmpi-fsvol-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497015",
-                    "comment": "sblim-cmpi-network is earlier than 0:1.3.7-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497016",
-                    "comment": "sblim-cmpi-network is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497017",
-                    "comment": "sblim-cmpi-network-devel is earlier than 0:1.3.7-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497018",
-                    "comment": "sblim-cmpi-network-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497019",
-                    "comment": "sblim-cmpi-network-test is earlier than 0:1.3.7-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497020",
-                    "comment": "sblim-cmpi-network-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497021",
-                    "comment": "sblim-cmpi-nfsv3 is earlier than 0:1.0.13-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497022",
-                    "comment": "sblim-cmpi-nfsv3 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497023",
-                    "comment": "sblim-cmpi-nfsv3-test is earlier than 0:1.0.13-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497024",
-                    "comment": "sblim-cmpi-nfsv3-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497025",
-                    "comment": "sblim-cmpi-nfsv4 is earlier than 0:1.0.11-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497026",
-                    "comment": "sblim-cmpi-nfsv4 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497027",
-                    "comment": "sblim-cmpi-nfsv4-test is earlier than 0:1.0.11-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497028",
-                    "comment": "sblim-cmpi-nfsv4-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497029",
-                    "comment": "sblim-cmpi-params is earlier than 0:1.2.4-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497030",
-                    "comment": "sblim-cmpi-params is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497031",
-                    "comment": "sblim-cmpi-params-test is earlier than 0:1.2.4-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497032",
-                    "comment": "sblim-cmpi-params-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497033",
-                    "comment": "sblim-cmpi-sysfs is earlier than 0:1.1.8-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497034",
-                    "comment": "sblim-cmpi-sysfs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497035",
-                    "comment": "sblim-cmpi-sysfs-test is earlier than 0:1.1.8-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497036",
-                    "comment": "sblim-cmpi-sysfs-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497037",
-                    "comment": "sblim-cmpi-syslog is earlier than 0:0.7.9-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497038",
-                    "comment": "sblim-cmpi-syslog is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497039",
-                    "comment": "sblim-cmpi-syslog-test is earlier than 0:0.7.9-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497040",
-                    "comment": "sblim-cmpi-syslog-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497041",
-                    "comment": "sblim-gather is earlier than 0:2.1.1-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497042",
-                    "comment": "sblim-gather is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497043",
-                    "comment": "sblim-gather-devel is earlier than 0:2.1.1-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497044",
-                    "comment": "sblim-gather-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497045",
-                    "comment": "sblim-gather-provider is earlier than 0:2.1.1-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497046",
-                    "comment": "sblim-gather-provider is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497047",
-                    "comment": "sblim-gather-test is earlier than 0:2.1.1-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497048",
-                    "comment": "sblim-gather-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497049",
-                    "comment": "sblim-testsuite is earlier than 0:1.2.4-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497050",
-                    "comment": "sblim-testsuite is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497051",
-                    "comment": "sblim-wbemcli is earlier than 0:1.5.1-13a.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497052",
-                    "comment": "sblim-wbemcli is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497054",
-                    "comment": "sblim-cim-client is earlier than 0:1.3.3-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497055",
-                    "comment": "sblim-cim-client is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497056",
-                    "comment": "sblim-cim-client-javadoc is earlier than 0:1-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497057",
-                    "comment": "sblim-cim-client-javadoc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497058",
-                    "comment": "sblim-cim-client-manual is earlier than 0:1-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497059",
-                    "comment": "sblim-cim-client-manual is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497060",
-                    "comment": "sblim-cmpi-base is earlier than 0:1.5.5-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497002",
-                    "comment": "sblim-cmpi-base is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497061",
-                    "comment": "sblim-cmpi-base-devel is earlier than 0:1.5.5-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497004",
-                    "comment": "sblim-cmpi-base-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497062",
-                    "comment": "sblim-cmpi-base-test is earlier than 0:1.5.5-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497006",
-                    "comment": "sblim-cmpi-base-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497063",
-                    "comment": "sblim-cmpi-devel is earlier than 0:1.0.4-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497008",
-                    "comment": "sblim-cmpi-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497064",
-                    "comment": "sblim-cmpi-dns is earlier than 0:0.5.2-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497065",
-                    "comment": "sblim-cmpi-dns is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497066",
-                    "comment": "sblim-cmpi-dns-devel is earlier than 0:1-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497067",
-                    "comment": "sblim-cmpi-dns-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497068",
-                    "comment": "sblim-cmpi-dns-test is earlier than 0:1-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497069",
-                    "comment": "sblim-cmpi-dns-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497070",
-                    "comment": "sblim-cmpi-fsvol is earlier than 0:1.4.4-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497010",
-                    "comment": "sblim-cmpi-fsvol is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497071",
-                    "comment": "sblim-cmpi-fsvol-devel is earlier than 0:1.4.4-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497012",
-                    "comment": "sblim-cmpi-fsvol-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497072",
-                    "comment": "sblim-cmpi-fsvol-test is earlier than 0:1.4.4-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497014",
-                    "comment": "sblim-cmpi-fsvol-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497073",
-                    "comment": "sblim-cmpi-network is earlier than 0:1.3.8-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497016",
-                    "comment": "sblim-cmpi-network is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497074",
-                    "comment": "sblim-cmpi-network-devel is earlier than 0:1.3.8-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497018",
-                    "comment": "sblim-cmpi-network-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497075",
-                    "comment": "sblim-cmpi-network-test is earlier than 0:1.3.8-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497020",
-                    "comment": "sblim-cmpi-network-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497076",
-                    "comment": "sblim-cmpi-nfsv3 is earlier than 0:1.0.14-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497022",
-                    "comment": "sblim-cmpi-nfsv3 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497077",
-                    "comment": "sblim-cmpi-nfsv3-test is earlier than 0:1.0.14-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497024",
-                    "comment": "sblim-cmpi-nfsv3-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497078",
-                    "comment": "sblim-cmpi-nfsv4 is earlier than 0:1.0.12-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497026",
-                    "comment": "sblim-cmpi-nfsv4 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497079",
-                    "comment": "sblim-cmpi-nfsv4-test is earlier than 0:1.0.12-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497028",
-                    "comment": "sblim-cmpi-nfsv4-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497080",
-                    "comment": "sblim-cmpi-params is earlier than 0:1.2.6-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497030",
-                    "comment": "sblim-cmpi-params is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497081",
-                    "comment": "sblim-cmpi-params-test is earlier than 0:1.2.6-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497032",
-                    "comment": "sblim-cmpi-params-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497082",
-                    "comment": "sblim-cmpi-samba is earlier than 0:0.5.2-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497083",
-                    "comment": "sblim-cmpi-samba is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497084",
-                    "comment": "sblim-cmpi-samba-devel is earlier than 0:1-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497085",
-                    "comment": "sblim-cmpi-samba-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497086",
-                    "comment": "sblim-cmpi-samba-test is earlier than 0:1-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497087",
-                    "comment": "sblim-cmpi-samba-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497088",
-                    "comment": "sblim-cmpi-sysfs is earlier than 0:1.1.9-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497034",
-                    "comment": "sblim-cmpi-sysfs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497089",
-                    "comment": "sblim-cmpi-sysfs-test is earlier than 0:1.1.9-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497036",
-                    "comment": "sblim-cmpi-sysfs-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497090",
-                    "comment": "sblim-cmpi-syslog is earlier than 0:0.7.11-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497038",
-                    "comment": "sblim-cmpi-syslog is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497091",
-                    "comment": "sblim-cmpi-syslog-test is earlier than 0:0.7.11-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497040",
-                    "comment": "sblim-cmpi-syslog-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497092",
-                    "comment": "sblim-gather is earlier than 0:2.1.2-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497042",
-                    "comment": "sblim-gather is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497093",
-                    "comment": "sblim-gather-devel is earlier than 0:2.1.2-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497044",
-                    "comment": "sblim-gather-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497094",
-                    "comment": "sblim-gather-provider is earlier than 0:2.1.2-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497046",
-                    "comment": "sblim-gather-provider is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497095",
-                    "comment": "sblim-gather-test is earlier than 0:2.1.2-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497048",
-                    "comment": "sblim-gather-test is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497096",
-                    "comment": "sblim-testsuite is earlier than 0:1.2.4-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497050",
-                    "comment": "sblim-testsuite is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497097",
-                    "comment": "sblim-tools-libra is earlier than 0:0.2.3-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497098",
-                    "comment": "sblim-tools-libra is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497099",
-                    "comment": "sblim-tools-libra-devel is earlier than 0:0.2.3-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497100",
-                    "comment": "sblim-tools-libra-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497101",
-                    "comment": "sblim-wbemcli is earlier than 0:1.5.1-31.el5_2.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080497052",
-                    "comment": "sblim-wbemcli is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080497",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2008:0497: sblim security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0497",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0497",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1951",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1951",
+				"source": "CVE"
+			}
+		],
+		"description": "SBLIM stands for Standards-Based Linux Instrumentation for Manageability.\nIt consists of a set of standards-based, Web-Based Enterprise Management\n(WBEM) modules that use the Common Information Model (CIM) standard to\ngather and provide systems management information, events, and methods to\nlocal or networked consumers via a CIM object services broker using the\nCMPI (Common Manageability Programming Interface) standard. This package\nprovides a set of core providers and development tools for systems\nmanagement applications.\n\nIt was discovered that certain sblim libraries had an RPATH (runtime\nlibrary search path) set in the ELF (Executable and Linking Format) header.\nThis RPATH pointed to a sub-directory of a world-writable, temporary\ndirectory. A local user could create a file with the same name as a library\nrequired by sblim (such as libc.so) and place it in the directory defined\nin the RPATH. This file could then execute arbitrary code with the\nprivileges of the user running an application that used sblim (eg\ntog-pegasus). (CVE-2008-1951)\n\nUsers are advised to upgrade to these updated sblim packages, which resolve\nthis issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-06-24"
+			},
+			"updated": {
+				"date": "2008-06-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1951",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1951",
+					"impact": "important",
+					"public": "20080624",
+					"cwe": "CWE-426",
+					"cvss_2": "7.2/AV:L/AC:L/Au:N/C:C/I:C/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1951 sblim: libraries built with insecure RPATH",
+					"href": "https://bugzilla.redhat.com/447705",
+					"id": "447705"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497001",
+										"comment": "sblim-cmpi-base is earlier than 0:1.5.4-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497002",
+										"comment": "sblim-cmpi-base is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497003",
+										"comment": "sblim-cmpi-base-devel is earlier than 0:1.5.4-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497004",
+										"comment": "sblim-cmpi-base-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497005",
+										"comment": "sblim-cmpi-base-test is earlier than 0:1.5.4-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497006",
+										"comment": "sblim-cmpi-base-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497007",
+										"comment": "sblim-cmpi-devel is earlier than 0:1.0.4-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497008",
+										"comment": "sblim-cmpi-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497009",
+										"comment": "sblim-cmpi-fsvol is earlier than 0:1.4.3-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497010",
+										"comment": "sblim-cmpi-fsvol is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497011",
+										"comment": "sblim-cmpi-fsvol-devel is earlier than 0:1.4.3-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497012",
+										"comment": "sblim-cmpi-fsvol-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497013",
+										"comment": "sblim-cmpi-fsvol-test is earlier than 0:1.4.3-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497014",
+										"comment": "sblim-cmpi-fsvol-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497015",
+										"comment": "sblim-cmpi-network is earlier than 0:1.3.7-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497016",
+										"comment": "sblim-cmpi-network is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497017",
+										"comment": "sblim-cmpi-network-devel is earlier than 0:1.3.7-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497018",
+										"comment": "sblim-cmpi-network-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497019",
+										"comment": "sblim-cmpi-network-test is earlier than 0:1.3.7-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497020",
+										"comment": "sblim-cmpi-network-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497021",
+										"comment": "sblim-cmpi-nfsv3 is earlier than 0:1.0.13-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497022",
+										"comment": "sblim-cmpi-nfsv3 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497023",
+										"comment": "sblim-cmpi-nfsv3-test is earlier than 0:1.0.13-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497024",
+										"comment": "sblim-cmpi-nfsv3-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497025",
+										"comment": "sblim-cmpi-nfsv4 is earlier than 0:1.0.11-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497026",
+										"comment": "sblim-cmpi-nfsv4 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497027",
+										"comment": "sblim-cmpi-nfsv4-test is earlier than 0:1.0.11-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497028",
+										"comment": "sblim-cmpi-nfsv4-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497029",
+										"comment": "sblim-cmpi-params is earlier than 0:1.2.4-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497030",
+										"comment": "sblim-cmpi-params is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497031",
+										"comment": "sblim-cmpi-params-test is earlier than 0:1.2.4-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497032",
+										"comment": "sblim-cmpi-params-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497033",
+										"comment": "sblim-cmpi-sysfs is earlier than 0:1.1.8-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497034",
+										"comment": "sblim-cmpi-sysfs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497035",
+										"comment": "sblim-cmpi-sysfs-test is earlier than 0:1.1.8-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497036",
+										"comment": "sblim-cmpi-sysfs-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497037",
+										"comment": "sblim-cmpi-syslog is earlier than 0:0.7.9-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497038",
+										"comment": "sblim-cmpi-syslog is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497039",
+										"comment": "sblim-cmpi-syslog-test is earlier than 0:0.7.9-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497040",
+										"comment": "sblim-cmpi-syslog-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497041",
+										"comment": "sblim-gather is earlier than 0:2.1.1-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497042",
+										"comment": "sblim-gather is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497043",
+										"comment": "sblim-gather-devel is earlier than 0:2.1.1-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497044",
+										"comment": "sblim-gather-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497045",
+										"comment": "sblim-gather-provider is earlier than 0:2.1.1-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497046",
+										"comment": "sblim-gather-provider is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497047",
+										"comment": "sblim-gather-test is earlier than 0:2.1.1-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497048",
+										"comment": "sblim-gather-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497049",
+										"comment": "sblim-testsuite is earlier than 0:1.2.4-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497050",
+										"comment": "sblim-testsuite is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497051",
+										"comment": "sblim-wbemcli is earlier than 0:1.5.1-13a.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497052",
+										"comment": "sblim-wbemcli is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497054",
+										"comment": "sblim-cim-client is earlier than 0:1.3.3-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497055",
+										"comment": "sblim-cim-client is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497056",
+										"comment": "sblim-cim-client-javadoc is earlier than 0:1-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497057",
+										"comment": "sblim-cim-client-javadoc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497058",
+										"comment": "sblim-cim-client-manual is earlier than 0:1-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497059",
+										"comment": "sblim-cim-client-manual is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497060",
+										"comment": "sblim-cmpi-base is earlier than 0:1.5.5-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497002",
+										"comment": "sblim-cmpi-base is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497061",
+										"comment": "sblim-cmpi-base-devel is earlier than 0:1.5.5-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497004",
+										"comment": "sblim-cmpi-base-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497062",
+										"comment": "sblim-cmpi-base-test is earlier than 0:1.5.5-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497006",
+										"comment": "sblim-cmpi-base-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497063",
+										"comment": "sblim-cmpi-devel is earlier than 0:1.0.4-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497008",
+										"comment": "sblim-cmpi-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497064",
+										"comment": "sblim-cmpi-dns is earlier than 0:0.5.2-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497065",
+										"comment": "sblim-cmpi-dns is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497066",
+										"comment": "sblim-cmpi-dns-devel is earlier than 0:1-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497067",
+										"comment": "sblim-cmpi-dns-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497068",
+										"comment": "sblim-cmpi-dns-test is earlier than 0:1-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497069",
+										"comment": "sblim-cmpi-dns-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497070",
+										"comment": "sblim-cmpi-fsvol is earlier than 0:1.4.4-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497010",
+										"comment": "sblim-cmpi-fsvol is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497071",
+										"comment": "sblim-cmpi-fsvol-devel is earlier than 0:1.4.4-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497012",
+										"comment": "sblim-cmpi-fsvol-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497072",
+										"comment": "sblim-cmpi-fsvol-test is earlier than 0:1.4.4-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497014",
+										"comment": "sblim-cmpi-fsvol-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497073",
+										"comment": "sblim-cmpi-network is earlier than 0:1.3.8-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497016",
+										"comment": "sblim-cmpi-network is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497074",
+										"comment": "sblim-cmpi-network-devel is earlier than 0:1.3.8-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497018",
+										"comment": "sblim-cmpi-network-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497075",
+										"comment": "sblim-cmpi-network-test is earlier than 0:1.3.8-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497020",
+										"comment": "sblim-cmpi-network-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497076",
+										"comment": "sblim-cmpi-nfsv3 is earlier than 0:1.0.14-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497022",
+										"comment": "sblim-cmpi-nfsv3 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497077",
+										"comment": "sblim-cmpi-nfsv3-test is earlier than 0:1.0.14-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497024",
+										"comment": "sblim-cmpi-nfsv3-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497078",
+										"comment": "sblim-cmpi-nfsv4 is earlier than 0:1.0.12-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497026",
+										"comment": "sblim-cmpi-nfsv4 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497079",
+										"comment": "sblim-cmpi-nfsv4-test is earlier than 0:1.0.12-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497028",
+										"comment": "sblim-cmpi-nfsv4-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497080",
+										"comment": "sblim-cmpi-params is earlier than 0:1.2.6-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497030",
+										"comment": "sblim-cmpi-params is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497081",
+										"comment": "sblim-cmpi-params-test is earlier than 0:1.2.6-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497032",
+										"comment": "sblim-cmpi-params-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497082",
+										"comment": "sblim-cmpi-samba is earlier than 0:0.5.2-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497083",
+										"comment": "sblim-cmpi-samba is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497084",
+										"comment": "sblim-cmpi-samba-devel is earlier than 0:1-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497085",
+										"comment": "sblim-cmpi-samba-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497086",
+										"comment": "sblim-cmpi-samba-test is earlier than 0:1-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497087",
+										"comment": "sblim-cmpi-samba-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497088",
+										"comment": "sblim-cmpi-sysfs is earlier than 0:1.1.9-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497034",
+										"comment": "sblim-cmpi-sysfs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497089",
+										"comment": "sblim-cmpi-sysfs-test is earlier than 0:1.1.9-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497036",
+										"comment": "sblim-cmpi-sysfs-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497090",
+										"comment": "sblim-cmpi-syslog is earlier than 0:0.7.11-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497038",
+										"comment": "sblim-cmpi-syslog is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497091",
+										"comment": "sblim-cmpi-syslog-test is earlier than 0:0.7.11-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497040",
+										"comment": "sblim-cmpi-syslog-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497092",
+										"comment": "sblim-gather is earlier than 0:2.1.2-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497042",
+										"comment": "sblim-gather is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497093",
+										"comment": "sblim-gather-devel is earlier than 0:2.1.2-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497044",
+										"comment": "sblim-gather-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497094",
+										"comment": "sblim-gather-provider is earlier than 0:2.1.2-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497046",
+										"comment": "sblim-gather-provider is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497095",
+										"comment": "sblim-gather-test is earlier than 0:2.1.2-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497048",
+										"comment": "sblim-gather-test is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497096",
+										"comment": "sblim-testsuite is earlier than 0:1.2.4-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497050",
+										"comment": "sblim-testsuite is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497097",
+										"comment": "sblim-tools-libra is earlier than 0:0.2.3-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497098",
+										"comment": "sblim-tools-libra is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497099",
+										"comment": "sblim-tools-libra-devel is earlier than 0:0.2.3-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497100",
+										"comment": "sblim-tools-libra-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497101",
+										"comment": "sblim-wbemcli is earlier than 0:1.5.1-31.el5_2.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080497052",
+										"comment": "sblim-wbemcli is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

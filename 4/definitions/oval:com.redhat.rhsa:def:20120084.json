@@ -1,185 +1,185 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120084",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2012:0084: seamonkey security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0084",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0084",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-3670",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-3670",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-0442",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0442",
-        "source": "CVE"
-      }
-    ],
-    "description": "SeaMonkey is an open source web browser, e-mail and newsgroup client, IRC\nchat client, and HTML editor.\n\nA flaw was found in the processing of malformed web content. A web page\ncontaining malicious content could cause SeaMonkey to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nSeaMonkey. (CVE-2012-0442)\n\nThe same-origin policy in SeaMonkey treated http://example.com and\nhttp://[example.com] as interchangeable. A malicious script could possibly\nuse this flaw to gain access to sensitive information (such as a client's\nIP and user e-mail address, or httpOnly cookies) that may be included in\nHTTP proxy error replies, generated in response to invalid URLs using\nsquare brackets. (CVE-2011-3670)\n\nAll SeaMonkey users should upgrade to these updated packages, which correct\nthese issues. After installing the update, SeaMonkey must be restarted for\nthe changes to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-02-01"
-      },
-      "updated": {
-        "date": "2012-02-01"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-3670",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-3670",
-          "impact": "low",
-          "public": "20120131",
-          "cvss_2": "2.9/AV:A/AC:M/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2012-0442",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0442",
-          "impact": "critical",
-          "public": "20120131",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-0442 Mozilla: memory safety hazards in 10.0/1.9.2.26 (MFSA 2012-01)",
-          "href": "https://bugzilla.redhat.com/785085",
-          "id": "785085"
-        },
-        {
-          "text": "CVE-2011-3670 Mozilla: Same-origin bypass using IPv6-like hostname syntax (MFSA 2012-02)",
-          "href": "https://bugzilla.redhat.com/785464",
-          "id": "785464"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120084001",
-                    "comment": "seamonkey is earlier than 0:1.0.9-78.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609002",
-                    "comment": "seamonkey is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120084003",
-                    "comment": "seamonkey-chat is earlier than 0:1.0.9-78.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609004",
-                    "comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120084005",
-                    "comment": "seamonkey-devel is earlier than 0:1.0.9-78.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609006",
-                    "comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120084007",
-                    "comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-78.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609008",
-                    "comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120084009",
-                    "comment": "seamonkey-js-debugger is earlier than 0:1.0.9-78.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609010",
-                    "comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120084011",
-                    "comment": "seamonkey-mail is earlier than 0:1.0.9-78.el4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060609012",
-                    "comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120084",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2012:0084: seamonkey security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0084",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0084",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-3670",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-3670",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-0442",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0442",
+				"source": "CVE"
+			}
+		],
+		"description": "SeaMonkey is an open source web browser, e-mail and newsgroup client, IRC\nchat client, and HTML editor.\n\nA flaw was found in the processing of malformed web content. A web page\ncontaining malicious content could cause SeaMonkey to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nSeaMonkey. (CVE-2012-0442)\n\nThe same-origin policy in SeaMonkey treated http://example.com and\nhttp://[example.com] as interchangeable. A malicious script could possibly\nuse this flaw to gain access to sensitive information (such as a client's\nIP and user e-mail address, or httpOnly cookies) that may be included in\nHTTP proxy error replies, generated in response to invalid URLs using\nsquare brackets. (CVE-2011-3670)\n\nAll SeaMonkey users should upgrade to these updated packages, which correct\nthese issues. After installing the update, SeaMonkey must be restarted for\nthe changes to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-02-01"
+			},
+			"updated": {
+				"date": "2012-02-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-3670",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-3670",
+					"impact": "low",
+					"public": "20120131",
+					"cvss_2": "2.9/AV:A/AC:M/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2012-0442",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0442",
+					"impact": "critical",
+					"public": "20120131",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-0442 Mozilla: memory safety hazards in 10.0/1.9.2.26 (MFSA 2012-01)",
+					"href": "https://bugzilla.redhat.com/785085",
+					"id": "785085"
+				},
+				{
+					"text": "CVE-2011-3670 Mozilla: Same-origin bypass using IPv6-like hostname syntax (MFSA 2012-02)",
+					"href": "https://bugzilla.redhat.com/785464",
+					"id": "785464"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120084001",
+										"comment": "seamonkey is earlier than 0:1.0.9-78.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609002",
+										"comment": "seamonkey is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120084003",
+										"comment": "seamonkey-chat is earlier than 0:1.0.9-78.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609004",
+										"comment": "seamonkey-chat is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120084005",
+										"comment": "seamonkey-devel is earlier than 0:1.0.9-78.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609006",
+										"comment": "seamonkey-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120084007",
+										"comment": "seamonkey-dom-inspector is earlier than 0:1.0.9-78.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609008",
+										"comment": "seamonkey-dom-inspector is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120084009",
+										"comment": "seamonkey-js-debugger is earlier than 0:1.0.9-78.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609010",
+										"comment": "seamonkey-js-debugger is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120084011",
+										"comment": "seamonkey-mail is earlier than 0:1.0.9-78.el4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060609012",
+										"comment": "seamonkey-mail is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,141 +1,141 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100018",
-  "version": "639",
-  "metadata": {
-    "title": "RHSA-2010:0018: dbus security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0018",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0018",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-1189",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-1189",
-        "source": "CVE"
-      }
-    ],
-    "description": "D-Bus is a system for sending messages between applications. It is used for\nthe system-wide message bus service and as a per-user-login-session\nmessaging facility.\n\nIt was discovered that the Red Hat Security Advisory RHSA-2009:0008 did\nnot correctly fix the denial of service flaw in the system for sending\nmessages between applications. A local user could use this flaw to send a\nmessage with a malformed signature to the bus, causing the bus (and,\nconsequently, any process using libdbus to receive messages) to abort.\n(CVE-2009-1189)\n\nNote: Users running any application providing services over the system\nmessage bus are advised to test this update carefully before deploying it\nin production environments.\n\nAll users are advised to upgrade to these updated packages, which contain a\nbackported patch to correct this issue. For the update to take effect, all\nrunning instances of dbus-daemon and all running applications using the\nlibdbus library must be restarted, or the system rebooted.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-01-07"
-      },
-      "updated": {
-        "date": "2010-01-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-1189",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-1189",
-          "impact": "moderate",
-          "public": "20090416",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-1189 dbus: invalid fix for CVE-2008-3834",
-          "href": "https://bugzilla.redhat.com/496672",
-          "id": "496672"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100018001",
-                    "comment": "dbus is earlier than 0:1.1.2-12.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080159002",
-                    "comment": "dbus is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100018003",
-                    "comment": "dbus-devel is earlier than 0:1.1.2-12.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080159004",
-                    "comment": "dbus-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100018005",
-                    "comment": "dbus-libs is earlier than 0:1.1.2-12.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100018006",
-                    "comment": "dbus-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100018007",
-                    "comment": "dbus-x11 is earlier than 0:1.1.2-12.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080159006",
-                    "comment": "dbus-x11 is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100018",
+	"version": "639",
+	"metadata": {
+		"title": "RHSA-2010:0018: dbus security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0018",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0018",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-1189",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-1189",
+				"source": "CVE"
+			}
+		],
+		"description": "D-Bus is a system for sending messages between applications. It is used for\nthe system-wide message bus service and as a per-user-login-session\nmessaging facility.\n\nIt was discovered that the Red Hat Security Advisory RHSA-2009:0008 did\nnot correctly fix the denial of service flaw in the system for sending\nmessages between applications. A local user could use this flaw to send a\nmessage with a malformed signature to the bus, causing the bus (and,\nconsequently, any process using libdbus to receive messages) to abort.\n(CVE-2009-1189)\n\nNote: Users running any application providing services over the system\nmessage bus are advised to test this update carefully before deploying it\nin production environments.\n\nAll users are advised to upgrade to these updated packages, which contain a\nbackported patch to correct this issue. For the update to take effect, all\nrunning instances of dbus-daemon and all running applications using the\nlibdbus library must be restarted, or the system rebooted.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-01-07"
+			},
+			"updated": {
+				"date": "2010-01-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-1189",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-1189",
+					"impact": "moderate",
+					"public": "20090416",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-1189 dbus: invalid fix for CVE-2008-3834",
+					"href": "https://bugzilla.redhat.com/496672",
+					"id": "496672"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100018001",
+										"comment": "dbus is earlier than 0:1.1.2-12.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080159002",
+										"comment": "dbus is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100018003",
+										"comment": "dbus-devel is earlier than 0:1.1.2-12.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080159004",
+										"comment": "dbus-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100018005",
+										"comment": "dbus-libs is earlier than 0:1.1.2-12.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100018006",
+										"comment": "dbus-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100018007",
+										"comment": "dbus-x11 is earlier than 0:1.1.2-12.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080159006",
+										"comment": "dbus-x11 is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

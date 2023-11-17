@@ -1,167 +1,167 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120313",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2012:0313: samba security, bug fix, and enhancement update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0313",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0313",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-0926",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0926",
-        "source": "CVE"
-      }
-    ],
-    "description": "Samba is an open-source implementation of the Server Message Block (SMB) or\nCommon Internet File System (CIFS) protocol, which allows PC-compatible\nmachines to share files, printers, and other information.\n\nThe default Samba server configuration enabled both the \"wide links\" and\n\"unix extensions\" options, allowing Samba clients with write access to a\nshare to create symbolic links that point to any location on the file\nsystem. Clients connecting with CIFS UNIX extensions disabled could have\nsuch links resolved on the server, allowing them to access and possibly\noverwrite files outside of the share. With this update, \"wide links\" is\nset to \"no\" by default. In addition, the update ensures \"wide links\" is\ndisabled for shares that have \"unix extensions\" enabled. (CVE-2010-0926)\n\nWarning: This update may cause files and directories that are only linked\nto Samba shares using symbolic links to become inaccessible to Samba\nclients. In deployments where support for CIFS UNIX extensions is not\nneeded (such as when files are exported to Microsoft Windows clients),\nadministrators may prefer to set the \"unix extensions\" option to \"no\" to\nallow the use of symbolic links to access files out of the shared\ndirectories. All existing symbolic links in a share should be reviewed\nbefore re-enabling \"wide links\".\n\nThese updated samba packages also fix the following bug:\n\n* The smbclient tool sometimes failed to return the proper exit status\ncode. Consequently, using smbclient in a script caused some scripts to\nfail. With this update, an upstream patch has been applied and smbclient\nnow returns the correct exit status. (BZ#768908)\n\nIn addition, these updated samba packages provide the following\nenhancement:\n\n* With this update, support for Windows Server 2008 R2 domains has been\nadded. (BZ#736124)\n\nUsers are advised to upgrade to these updated samba packages, which correct\nthese issues and add this enhancement. After installing this update, the\nsmb service will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-02-21"
-      },
-      "updated": {
-        "date": "2012-02-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-0926",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0926",
-          "impact": "low",
-          "public": "20100205",
-          "cvss_2": "4.0/AV:N/AC:L/Au:S/C:P/I:N/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-0926 samba: insecure \"wide links\" default",
-          "href": "https://bugzilla.redhat.com/562568",
-          "id": "562568"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120313001",
-                    "comment": "libsmbclient is earlier than 0:3.0.33-3.37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488011",
-                    "comment": "libsmbclient is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120313003",
-                    "comment": "libsmbclient-devel is earlier than 0:3.0.33-3.37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100488013",
-                    "comment": "libsmbclient-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120313005",
-                    "comment": "samba is earlier than 0:3.0.33-3.37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070061002",
-                    "comment": "samba is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120313007",
-                    "comment": "samba-client is earlier than 0:3.0.33-3.37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070061004",
-                    "comment": "samba-client is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120313009",
-                    "comment": "samba-common is earlier than 0:3.0.33-3.37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070061006",
-                    "comment": "samba-common is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120313011",
-                    "comment": "samba-swat is earlier than 0:3.0.33-3.37.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070061008",
-                    "comment": "samba-swat is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120313",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2012:0313: samba security, bug fix, and enhancement update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0313",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0313",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-0926",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0926",
+				"source": "CVE"
+			}
+		],
+		"description": "Samba is an open-source implementation of the Server Message Block (SMB) or\nCommon Internet File System (CIFS) protocol, which allows PC-compatible\nmachines to share files, printers, and other information.\n\nThe default Samba server configuration enabled both the \"wide links\" and\n\"unix extensions\" options, allowing Samba clients with write access to a\nshare to create symbolic links that point to any location on the file\nsystem. Clients connecting with CIFS UNIX extensions disabled could have\nsuch links resolved on the server, allowing them to access and possibly\noverwrite files outside of the share. With this update, \"wide links\" is\nset to \"no\" by default. In addition, the update ensures \"wide links\" is\ndisabled for shares that have \"unix extensions\" enabled. (CVE-2010-0926)\n\nWarning: This update may cause files and directories that are only linked\nto Samba shares using symbolic links to become inaccessible to Samba\nclients. In deployments where support for CIFS UNIX extensions is not\nneeded (such as when files are exported to Microsoft Windows clients),\nadministrators may prefer to set the \"unix extensions\" option to \"no\" to\nallow the use of symbolic links to access files out of the shared\ndirectories. All existing symbolic links in a share should be reviewed\nbefore re-enabling \"wide links\".\n\nThese updated samba packages also fix the following bug:\n\n* The smbclient tool sometimes failed to return the proper exit status\ncode. Consequently, using smbclient in a script caused some scripts to\nfail. With this update, an upstream patch has been applied and smbclient\nnow returns the correct exit status. (BZ#768908)\n\nIn addition, these updated samba packages provide the following\nenhancement:\n\n* With this update, support for Windows Server 2008 R2 domains has been\nadded. (BZ#736124)\n\nUsers are advised to upgrade to these updated samba packages, which correct\nthese issues and add this enhancement. After installing this update, the\nsmb service will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-02-21"
+			},
+			"updated": {
+				"date": "2012-02-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-0926",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0926",
+					"impact": "low",
+					"public": "20100205",
+					"cvss_2": "4.0/AV:N/AC:L/Au:S/C:P/I:N/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-0926 samba: insecure \"wide links\" default",
+					"href": "https://bugzilla.redhat.com/562568",
+					"id": "562568"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120313001",
+										"comment": "libsmbclient is earlier than 0:3.0.33-3.37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488011",
+										"comment": "libsmbclient is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120313003",
+										"comment": "libsmbclient-devel is earlier than 0:3.0.33-3.37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100488013",
+										"comment": "libsmbclient-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120313005",
+										"comment": "samba is earlier than 0:3.0.33-3.37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070061002",
+										"comment": "samba is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120313007",
+										"comment": "samba-client is earlier than 0:3.0.33-3.37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070061004",
+										"comment": "samba-client is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120313009",
+										"comment": "samba-common is earlier than 0:3.0.33-3.37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070061006",
+										"comment": "samba-common is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120313011",
+										"comment": "samba-swat is earlier than 0:3.0.33-3.37.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070061008",
+										"comment": "samba-swat is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

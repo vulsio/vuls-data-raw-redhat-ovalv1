@@ -1,287 +1,287 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080146",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2008:0146: gd security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0146",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0146",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4484",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4484",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-0455",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-0455",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-2756",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-2756",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3472",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3472",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3473",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3473",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3475",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3475",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2007-3476",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2007-3476",
-        "source": "CVE"
-      }
-    ],
-    "description": "The gd package contains a graphics library used for the dynamic creation of\nimages such as PNG and JPEG.\n\nMultiple issues were discovered in the gd GIF image-handling code. A\ncarefully-crafted GIF file could cause a crash or possibly execute code\nwith the privileges of the application using the gd library.\n(CVE-2006-4484, CVE-2007-3475, CVE-2007-3476)\n\nAn integer overflow was discovered in the gdImageCreateTrueColor()\nfunction, leading to incorrect memory allocations. A carefully crafted\nimage could cause a crash or possibly execute code with the privileges of\nthe application using the gd library. (CVE-2007-3472)\n\nA buffer over-read flaw was discovered. This could cause a crash in an\napplication using the gd library to render certain strings using a\nJIS-encoded font. (CVE-2007-0455)\n\nA flaw was discovered in the gd PNG image handling code. A truncated PNG\nimage could cause an infinite loop in an application using the gd library.\n(CVE-2007-2756)\n\nA flaw was discovered in the gd X BitMap (XBM) image-handling code. A\nmalformed or truncated XBM image could cause a crash in an application\nusing the gd library. (CVE-2007-3473)\n\nUsers of gd should upgrade to these updated packages, which contain\nbackported patches which resolve these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-02-28"
-      },
-      "updated": {
-        "date": "2008-02-28"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4484",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4484",
-          "impact": "moderate",
-          "public": "20060716"
-        },
-        {
-          "text": "CVE-2007-0455",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-0455",
-          "impact": "low",
-          "public": "20070126"
-        },
-        {
-          "text": "CVE-2007-2756",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-2756",
-          "impact": "low",
-          "public": "20070516",
-          "cwe": "CWE-835"
-        },
-        {
-          "text": "CVE-2007-3472",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3472",
-          "impact": "low",
-          "public": "20070621",
-          "cwe": "CWE-190"
-        },
-        {
-          "text": "CVE-2007-3473",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3473",
-          "impact": "low",
-          "public": "20070621",
-          "cwe": "CWE-476"
-        },
-        {
-          "text": "CVE-2007-3475",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3475",
-          "impact": "low",
-          "public": "20070621"
-        },
-        {
-          "text": "CVE-2007-3476",
-          "href": "https://access.redhat.com/security/cve/CVE-2007-3476",
-          "impact": "moderate",
-          "public": "20070621"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2007-0455 gd: buffer overrun",
-          "href": "https://bugzilla.redhat.com/224607",
-          "id": "224607"
-        },
-        {
-          "text": "CVE-2007-2756 gd / php-gd ImageCreateFromPng infinite loop caused by truncated PNG",
-          "href": "https://bugzilla.redhat.com/242033",
-          "id": "242033"
-        },
-        {
-          "text": "CVE-2007-3472 libgd Integer overflow in TrueColor code",
-          "href": "https://bugzilla.redhat.com/276751",
-          "id": "276751"
-        },
-        {
-          "text": "CVE-2007-3473 libgd NULL pointer dereference when reading a corrupt X bitmap",
-          "href": "https://bugzilla.redhat.com/276791",
-          "id": "276791"
-        },
-        {
-          "text": "CVE-2007-3475 libgd Denial of service by GIF images without a global color map",
-          "href": "https://bugzilla.redhat.com/277181",
-          "id": "277181"
-        },
-        {
-          "text": "CVE-2007-3476 libgd Denial of service by corrupted GIF images",
-          "href": "https://bugzilla.redhat.com/277201",
-          "id": "277201"
-        },
-        {
-          "text": "CVE-2006-4484 gd: GIF handling buffer overflow",
-          "href": "https://bugzilla.redhat.com/431568",
-          "id": "431568"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146001",
-                    "comment": "gd is earlier than 0:2.0.28-5.4E.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146002",
-                    "comment": "gd is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146003",
-                    "comment": "gd-devel is earlier than 0:2.0.28-5.4E.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146004",
-                    "comment": "gd-devel is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146005",
-                    "comment": "gd-progs is earlier than 0:2.0.28-5.4E.el4_6.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146006",
-                    "comment": "gd-progs is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146008",
-                    "comment": "gd is earlier than 0:2.0.33-9.4.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146009",
-                    "comment": "gd is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146010",
-                    "comment": "gd-devel is earlier than 0:2.0.33-9.4.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146011",
-                    "comment": "gd-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146012",
-                    "comment": "gd-progs is earlier than 0:2.0.33-9.4.el5_1.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080146013",
-                    "comment": "gd-progs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080146",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2008:0146: gd security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0146",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0146",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4484",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4484",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-0455",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-0455",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-2756",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-2756",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3472",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3472",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3473",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3473",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3475",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3475",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2007-3476",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2007-3476",
+				"source": "CVE"
+			}
+		],
+		"description": "The gd package contains a graphics library used for the dynamic creation of\nimages such as PNG and JPEG.\n\nMultiple issues were discovered in the gd GIF image-handling code. A\ncarefully-crafted GIF file could cause a crash or possibly execute code\nwith the privileges of the application using the gd library.\n(CVE-2006-4484, CVE-2007-3475, CVE-2007-3476)\n\nAn integer overflow was discovered in the gdImageCreateTrueColor()\nfunction, leading to incorrect memory allocations. A carefully crafted\nimage could cause a crash or possibly execute code with the privileges of\nthe application using the gd library. (CVE-2007-3472)\n\nA buffer over-read flaw was discovered. This could cause a crash in an\napplication using the gd library to render certain strings using a\nJIS-encoded font. (CVE-2007-0455)\n\nA flaw was discovered in the gd PNG image handling code. A truncated PNG\nimage could cause an infinite loop in an application using the gd library.\n(CVE-2007-2756)\n\nA flaw was discovered in the gd X BitMap (XBM) image-handling code. A\nmalformed or truncated XBM image could cause a crash in an application\nusing the gd library. (CVE-2007-3473)\n\nUsers of gd should upgrade to these updated packages, which contain\nbackported patches which resolve these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-02-28"
+			},
+			"updated": {
+				"date": "2008-02-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4484",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4484",
+					"impact": "moderate",
+					"public": "20060716"
+				},
+				{
+					"text": "CVE-2007-0455",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-0455",
+					"impact": "low",
+					"public": "20070126"
+				},
+				{
+					"text": "CVE-2007-2756",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-2756",
+					"impact": "low",
+					"public": "20070516",
+					"cwe": "CWE-835"
+				},
+				{
+					"text": "CVE-2007-3472",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3472",
+					"impact": "low",
+					"public": "20070621",
+					"cwe": "CWE-190"
+				},
+				{
+					"text": "CVE-2007-3473",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3473",
+					"impact": "low",
+					"public": "20070621",
+					"cwe": "CWE-476"
+				},
+				{
+					"text": "CVE-2007-3475",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3475",
+					"impact": "low",
+					"public": "20070621"
+				},
+				{
+					"text": "CVE-2007-3476",
+					"href": "https://access.redhat.com/security/cve/CVE-2007-3476",
+					"impact": "moderate",
+					"public": "20070621"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2007-0455 gd: buffer overrun",
+					"href": "https://bugzilla.redhat.com/224607",
+					"id": "224607"
+				},
+				{
+					"text": "CVE-2007-2756 gd / php-gd ImageCreateFromPng infinite loop caused by truncated PNG",
+					"href": "https://bugzilla.redhat.com/242033",
+					"id": "242033"
+				},
+				{
+					"text": "CVE-2007-3472 libgd Integer overflow in TrueColor code",
+					"href": "https://bugzilla.redhat.com/276751",
+					"id": "276751"
+				},
+				{
+					"text": "CVE-2007-3473 libgd NULL pointer dereference when reading a corrupt X bitmap",
+					"href": "https://bugzilla.redhat.com/276791",
+					"id": "276791"
+				},
+				{
+					"text": "CVE-2007-3475 libgd Denial of service by GIF images without a global color map",
+					"href": "https://bugzilla.redhat.com/277181",
+					"id": "277181"
+				},
+				{
+					"text": "CVE-2007-3476 libgd Denial of service by corrupted GIF images",
+					"href": "https://bugzilla.redhat.com/277201",
+					"id": "277201"
+				},
+				{
+					"text": "CVE-2006-4484 gd: GIF handling buffer overflow",
+					"href": "https://bugzilla.redhat.com/431568",
+					"id": "431568"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146001",
+										"comment": "gd is earlier than 0:2.0.28-5.4E.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146002",
+										"comment": "gd is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146003",
+										"comment": "gd-devel is earlier than 0:2.0.28-5.4E.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146004",
+										"comment": "gd-devel is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146005",
+										"comment": "gd-progs is earlier than 0:2.0.28-5.4E.el4_6.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146006",
+										"comment": "gd-progs is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146008",
+										"comment": "gd is earlier than 0:2.0.33-9.4.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146009",
+										"comment": "gd is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146010",
+										"comment": "gd-devel is earlier than 0:2.0.33-9.4.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146011",
+										"comment": "gd-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146012",
+										"comment": "gd-progs is earlier than 0:2.0.33-9.4.el5_1.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080146013",
+										"comment": "gd-progs is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,90 +1,90 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhba:def:20141206",
-  "version": "641",
-  "metadata": {
-    "title": "RHBA-2014:1206: virt-who bug fix and enhancement update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHBA-2014:1206",
-        "ref_url": "https://access.redhat.com/errata/RHBA-2014:1206",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2014-0189",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-0189",
-        "source": "CVE"
-      }
-    ],
-    "description": "The virt-who package provides an agent that collects information about virtual\nguests present in the system and reports them to the subscription manager.\n\nThe virt-who package has been upgraded to upstream version 0.9, which provides a\nnumber of bug fixes and enhancements over the previous version. \nNotably, the permissions for the configuration file has been changed from\nworld-readable to root-only readable. This change is only for new installations\nof virt-who; existing installations should be fixed manually by setting the\npermission of the /etc/sysconfig/virt-who file to 600. (BZ#861552)\n\nThis update also fixes the following bugs:\n\n* Prior to this update, the configuration file for virt-who contained incorrect\npermissions and was world-readable, although this file can contain passwords. As\na consequence, any user could read the passwords from the configuration file. To\nfix this bug, the permissions have been changed to be root-readable only, and\nnon-root users can no longer read passwords from the virt-who configuration\nfile. (BZ#1088756) \n\n* Previously, the virt-who utility did not report the state of virtual guests to\nthe Subscription Asset Manager (SAM) server. To fix this bug, the info() method\nfrom libvirt has been used, and the state of a virtual machine is now reported\nto the SAM server. (BZ#1124732)\n\nIn addition, this update adds the following enhancements:\n\n* With this update, support for Red Hat Enterprise Virtualization Manager\nvirtualization back end has been added to virt-who. Now, the user can use\nvirt-who on Red Hat Enterprise Linux 5.11.0 to gather host/guest associations\nfrom Red Hat Enterprise Virtualization Manager. (BZ#1009401)\n\n* Although virt-who worked properly with VMware ESX software, the support for\nVMware ESXi software was not functional due to differences between ESX and ESXi.\nWith this update, support for ESXi as virtualization back end has been provided\nfor virt-who, which can now use both ESX and ESXi as virtualization back ends.\n(BZ#1078858)\n\nUsers of virt-who are advised to upgrade to these updated packages, which fix\nthese bugs and add these enhancements.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2014 Red Hat, Inc.",
-      "issued": {
-        "date": "2014-09-16"
-      },
-      "updated": {
-        "date": "2014-09-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2014-0189",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-0189",
-          "impact": "moderate",
-          "public": "20140326",
-          "cwe": "(CWE-732|CWE-522)",
-          "cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2014-0189 virt-who: plaintext hypervisor passwords in world-readable /etc/sysconfig/virt-who configuration file",
-          "href": "https://bugzilla.redhat.com/1088732",
-          "id": "1088732"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20141206001",
-            "comment": "virt-who is earlier than 0:0.9-6.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20141206002",
-            "comment": "virt-who is signed with Red Hat redhatrelease2 key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhba:def:20141206",
+	"version": "641",
+	"metadata": {
+		"title": "RHBA-2014:1206: virt-who bug fix and enhancement update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHBA-2014:1206",
+				"ref_url": "https://access.redhat.com/errata/RHBA-2014:1206",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2014-0189",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-0189",
+				"source": "CVE"
+			}
+		],
+		"description": "The virt-who package provides an agent that collects information about virtual\nguests present in the system and reports them to the subscription manager.\n\nThe virt-who package has been upgraded to upstream version 0.9, which provides a\nnumber of bug fixes and enhancements over the previous version. \nNotably, the permissions for the configuration file has been changed from\nworld-readable to root-only readable. This change is only for new installations\nof virt-who; existing installations should be fixed manually by setting the\npermission of the /etc/sysconfig/virt-who file to 600. (BZ#861552)\n\nThis update also fixes the following bugs:\n\n* Prior to this update, the configuration file for virt-who contained incorrect\npermissions and was world-readable, although this file can contain passwords. As\na consequence, any user could read the passwords from the configuration file. To\nfix this bug, the permissions have been changed to be root-readable only, and\nnon-root users can no longer read passwords from the virt-who configuration\nfile. (BZ#1088756) \n\n* Previously, the virt-who utility did not report the state of virtual guests to\nthe Subscription Asset Manager (SAM) server. To fix this bug, the info() method\nfrom libvirt has been used, and the state of a virtual machine is now reported\nto the SAM server. (BZ#1124732)\n\nIn addition, this update adds the following enhancements:\n\n* With this update, support for Red Hat Enterprise Virtualization Manager\nvirtualization back end has been added to virt-who. Now, the user can use\nvirt-who on Red Hat Enterprise Linux 5.11.0 to gather host/guest associations\nfrom Red Hat Enterprise Virtualization Manager. (BZ#1009401)\n\n* Although virt-who worked properly with VMware ESX software, the support for\nVMware ESXi software was not functional due to differences between ESX and ESXi.\nWith this update, support for ESXi as virtualization back end has been provided\nfor virt-who, which can now use both ESX and ESXi as virtualization back ends.\n(BZ#1078858)\n\nUsers of virt-who are advised to upgrade to these updated packages, which fix\nthese bugs and add these enhancements.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2014 Red Hat, Inc.",
+			"issued": {
+				"date": "2014-09-16"
+			},
+			"updated": {
+				"date": "2014-09-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2014-0189",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-0189",
+					"impact": "moderate",
+					"public": "20140326",
+					"cwe": "(CWE-732|CWE-522)",
+					"cvss_2": "2.1/AV:L/AC:L/Au:N/C:P/I:N/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2014-0189 virt-who: plaintext hypervisor passwords in world-readable /etc/sysconfig/virt-who configuration file",
+					"href": "https://bugzilla.redhat.com/1088732",
+					"id": "1088732"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20141206001",
+						"comment": "virt-who is earlier than 0:0.9-6.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20141206002",
+						"comment": "virt-who is signed with Red Hat redhatrelease2 key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

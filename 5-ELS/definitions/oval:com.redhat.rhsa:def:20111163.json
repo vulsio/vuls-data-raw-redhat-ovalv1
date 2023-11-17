@@ -1,273 +1,273 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20111163",
-  "version": "653",
-  "metadata": {
-    "title": "RHSA-2011:1163: kernel security and bug fix update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2011:1163",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2011:1163",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2011-1780",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-1780",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2011-2525",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2011-2525",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update includes backported fixes for two security issues. These issues\nonly affected users of Red Hat Enterprise Linux 5.6 Extended Update\nSupport, as they have already been addressed for users of Red Hat\nEnterprise Linux 5 in the 5.7 update, RHSA-2011:1065.\n\nThis update fixes the following security issues:\n\n* A flaw was found in the way the Xen hypervisor implementation handled\ninstruction emulation during virtual machine exits. A malicious user-space\nprocess running in an SMP guest could trick the emulator into reading a\ndifferent instruction than the one that caused the virtual machine to exit.\nAn unprivileged guest user could trigger this flaw to crash the host. This\nonly affects systems with both an AMD x86 processor and the AMD\nVirtualization (AMD-V) extensions enabled. (CVE-2011-1780, Important)\n\n* A flaw allowed the tc_fill_qdisc() function in the Linux kernel's packet\nscheduler API implementation to be called on built-in qdisc structures. A\nlocal, unprivileged user could use this flaw to trigger a NULL pointer\ndereference, resulting in a denial of service. (CVE-2011-2525, Moderate)\n\nThis update also fixes the following bugs:\n\n* A bug was found in the way the x86_emulate() function handled the IMUL\ninstruction in the Xen hypervisor. On systems without support for hardware\nassisted paging (HAP), such as those running CPUs that do not have support\nfor (or those that have it disabled) Intel Extended Page Tables (EPT) or\nAMD Virtualization (AMD-V) Rapid Virtualization Indexing (RVI), this bug\ncould cause fully-virtualized guests to crash or lead to silent memory\ncorruption. In reported cases, this issue occurred when booting\nfully-virtualized Red Hat Enterprise Linux 6.1 guests with memory cgroups\nenabled. (BZ#712884)\n\n* A bug in the way the ibmvscsi driver handled interrupts may have\nprevented automatic path recovery for multipath devices. This bug only\naffected 64-bit PowerPC systems. (BZ#720929)\n\n* The RHSA-2009:1243 update introduced a regression in the way file locking\non NFS (Network File System) was handled. This caused applications to hang\nif they made a lock request on a file on an NFS version 2 or 3 file system\nthat was mounted with the \"sec=krb5\" option. With this update, the original\nbehavior of using mixed RPC authentication flavors for NFS and locking\nrequests has been restored. (BZ#722854)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to resolve these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2011 Red Hat, Inc.",
-      "issued": {
-        "date": "2011-08-16"
-      },
-      "updated": {
-        "date": "2011-08-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2011-1780",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-1780",
-          "impact": "important",
-          "public": "20110707",
-          "cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
-        },
-        {
-          "text": "CVE-2011-2525",
-          "href": "https://access.redhat.com/security/cve/CVE-2011-2525",
-          "impact": "moderate",
-          "public": "20100521",
-          "cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2011-1780 kernel: xen: svm: insufficiencies in handling emulated instructions during vm exits",
-          "href": "https://bugzilla.redhat.com/702657",
-          "id": "702657"
-        },
-        {
-          "text": "CVE-2011-2525 kernel: kernel: net_sched: fix qdisc_notify()",
-          "href": "https://bugzilla.redhat.com/720552",
-          "id": "720552"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20111163025",
-                "comment": "kernel earlier than 0:2.6.18-238.21.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20111163026",
-                "comment": "kernel earlier than 0:2.6.18-238.21.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163001",
-                    "comment": "kernel is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20111163023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-238.21.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20111163",
+	"version": "653",
+	"metadata": {
+		"title": "RHSA-2011:1163: kernel security and bug fix update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2011:1163",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2011:1163",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2011-1780",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-1780",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2011-2525",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2011-2525",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update includes backported fixes for two security issues. These issues\nonly affected users of Red Hat Enterprise Linux 5.6 Extended Update\nSupport, as they have already been addressed for users of Red Hat\nEnterprise Linux 5 in the 5.7 update, RHSA-2011:1065.\n\nThis update fixes the following security issues:\n\n* A flaw was found in the way the Xen hypervisor implementation handled\ninstruction emulation during virtual machine exits. A malicious user-space\nprocess running in an SMP guest could trick the emulator into reading a\ndifferent instruction than the one that caused the virtual machine to exit.\nAn unprivileged guest user could trigger this flaw to crash the host. This\nonly affects systems with both an AMD x86 processor and the AMD\nVirtualization (AMD-V) extensions enabled. (CVE-2011-1780, Important)\n\n* A flaw allowed the tc_fill_qdisc() function in the Linux kernel's packet\nscheduler API implementation to be called on built-in qdisc structures. A\nlocal, unprivileged user could use this flaw to trigger a NULL pointer\ndereference, resulting in a denial of service. (CVE-2011-2525, Moderate)\n\nThis update also fixes the following bugs:\n\n* A bug was found in the way the x86_emulate() function handled the IMUL\ninstruction in the Xen hypervisor. On systems without support for hardware\nassisted paging (HAP), such as those running CPUs that do not have support\nfor (or those that have it disabled) Intel Extended Page Tables (EPT) or\nAMD Virtualization (AMD-V) Rapid Virtualization Indexing (RVI), this bug\ncould cause fully-virtualized guests to crash or lead to silent memory\ncorruption. In reported cases, this issue occurred when booting\nfully-virtualized Red Hat Enterprise Linux 6.1 guests with memory cgroups\nenabled. (BZ#712884)\n\n* A bug in the way the ibmvscsi driver handled interrupts may have\nprevented automatic path recovery for multipath devices. This bug only\naffected 64-bit PowerPC systems. (BZ#720929)\n\n* The RHSA-2009:1243 update introduced a regression in the way file locking\non NFS (Network File System) was handled. This caused applications to hang\nif they made a lock request on a file on an NFS version 2 or 3 file system\nthat was mounted with the \"sec=krb5\" option. With this update, the original\nbehavior of using mixed RPC authentication flavors for NFS and locking\nrequests has been restored. (BZ#722854)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to resolve these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2011 Red Hat, Inc.",
+			"issued": {
+				"date": "2011-08-16"
+			},
+			"updated": {
+				"date": "2011-08-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-1780",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-1780",
+					"impact": "important",
+					"public": "20110707",
+					"cvss_2": "6.1/AV:A/AC:L/Au:N/C:N/I:N/A:C"
+				},
+				{
+					"text": "CVE-2011-2525",
+					"href": "https://access.redhat.com/security/cve/CVE-2011-2525",
+					"impact": "moderate",
+					"public": "20100521",
+					"cvss_2": "4.9/AV:L/AC:L/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2011-1780 kernel: xen: svm: insufficiencies in handling emulated instructions during vm exits",
+					"href": "https://bugzilla.redhat.com/702657",
+					"id": "702657"
+				},
+				{
+					"text": "CVE-2011-2525 kernel: kernel: net_sched: fix qdisc_notify()",
+					"href": "https://bugzilla.redhat.com/720552",
+					"id": "720552"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20111163025",
+								"comment": "kernel earlier than 0:2.6.18-238.21.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20111163026",
+								"comment": "kernel earlier than 0:2.6.18-238.21.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163001",
+										"comment": "kernel is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20111163023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-238.21.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

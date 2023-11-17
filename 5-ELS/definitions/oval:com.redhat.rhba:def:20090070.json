@@ -1,89 +1,89 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhba:def:20090070",
-  "version": "635",
-  "metadata": {
-    "title": "RHBA-2009:0070: util-linux bug-fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHBA-2009:0070",
-        "ref_url": "https://access.redhat.com/errata/RHBA-2009:0070",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-1926",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-1926",
-        "source": "CVE"
-      }
-    ],
-    "description": "The util-linux package contains a large variety of low-level system\nutilities that are necessary for a Linux system to function. Among\nothers, util-linux contains the fdisk configuration tool and the login\nprogram.\n\nThis update fixes the following bugs:\n\n* The login command segmentation fault on EOF.\n* The script command does not log all commands to the typescript file.\n* Obsolete information in the mkfs man page.\n* Obsolete information about fstab-sync in the fstab man page.\n* Obsolete information in the fdisk man page.\n* The blockdev command calls the blkpg ioctl with a wrong data structure.\n* The mount command does not check for validity of mtab information.\n* The mkswap defaults to v0 format on ppc64.\n* The fdisk command does not warn about DOS partition table limitations on\non large hard drives.\n* The fdisk command does not properly detect VMware partitions.\n* The sfdisk command does not work correctly with large hard drives.\n* The logger command cannot be used when /usr is non-root partition.\n* The audit log injection attack via the login command.\n* The swapon command with the \"-a\" option does not complain about missing\ndevices.\n\nUsers of util-linux are advised to upgrade to this updated package, which\nresolves these issues.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-01-20"
-      },
-      "updated": {
-        "date": "2009-01-20"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-1926",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-1926",
-          "impact": "low",
-          "public": "20080421",
-          "cvss_2": "2.6/AV:N/AC:H/AU:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-1926 util-linux: audit log injection via login",
-          "href": "https://bugzilla.redhat.com/443925",
-          "id": "443925"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20090070001",
-            "comment": "util-linux is earlier than 0:2.13-0.50.el5"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20090070002",
-            "comment": "util-linux is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhba:def:20090070",
+	"version": "635",
+	"metadata": {
+		"title": "RHBA-2009:0070: util-linux bug-fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHBA-2009:0070",
+				"ref_url": "https://access.redhat.com/errata/RHBA-2009:0070",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-1926",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-1926",
+				"source": "CVE"
+			}
+		],
+		"description": "The util-linux package contains a large variety of low-level system\nutilities that are necessary for a Linux system to function. Among\nothers, util-linux contains the fdisk configuration tool and the login\nprogram.\n\nThis update fixes the following bugs:\n\n* The login command segmentation fault on EOF.\n* The script command does not log all commands to the typescript file.\n* Obsolete information in the mkfs man page.\n* Obsolete information about fstab-sync in the fstab man page.\n* Obsolete information in the fdisk man page.\n* The blockdev command calls the blkpg ioctl with a wrong data structure.\n* The mount command does not check for validity of mtab information.\n* The mkswap defaults to v0 format on ppc64.\n* The fdisk command does not warn about DOS partition table limitations on\non large hard drives.\n* The fdisk command does not properly detect VMware partitions.\n* The sfdisk command does not work correctly with large hard drives.\n* The logger command cannot be used when /usr is non-root partition.\n* The audit log injection attack via the login command.\n* The swapon command with the \"-a\" option does not complain about missing\ndevices.\n\nUsers of util-linux are advised to upgrade to this updated package, which\nresolves these issues.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-01-20"
+			},
+			"updated": {
+				"date": "2009-01-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-1926",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-1926",
+					"impact": "low",
+					"public": "20080421",
+					"cvss_2": "2.6/AV:N/AC:H/AU:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-1926 util-linux: audit log injection via login",
+					"href": "https://bugzilla.redhat.com/443925",
+					"id": "443925"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20090070001",
+						"comment": "util-linux is earlier than 0:2.13-0.50.el5"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20090070002",
+						"comment": "util-linux is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

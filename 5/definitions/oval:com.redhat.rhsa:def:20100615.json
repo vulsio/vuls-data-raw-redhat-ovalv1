@@ -1,144 +1,144 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100615",
-  "version": "652",
-  "metadata": {
-    "title": "RHSA-2010:0615: libvirt security and bug fix update (Low)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0615",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0615",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-2239",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2239",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-2242",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2242",
-        "source": "CVE"
-      }
-    ],
-    "description": "The libvirt library is a C API for managing and interacting with the\nvirtualization capabilities of Linux and other operating systems. In\naddition, libvirt provides tools for remotely managing virtualized systems.\n\nIt was found that libvirt did not set the user-defined backing store format\nwhen creating a new image, possibly resulting in applications having to\nprobe the backing store to discover the format. A privileged guest user\ncould use this flaw to read arbitrary files on the host. (CVE-2010-2239)\n\nIt was found that libvirt created insecure iptables rules on the host when\na guest system was configured for IP masquerading, allowing the guest to\nuse privileged ports on the host when accessing network resources. A\nprivileged guest user could use this flaw to access network resources that\nwould otherwise not be accessible to the guest. (CVE-2010-2242)\n\nRed Hat would like to thank Jeremy Nickurak for reporting the CVE-2010-2242\nissue.\n\nThis update also fixes the following bugs:\n\n* a Linux software bridge assumes the MAC address of the enslaved interface\nwith the numerically lowest MAC address. When the bridge changes its MAC\naddress, for a period of time it does not relay packets across network\nsegments, resulting in a temporary network \"blackout\". The bridge should\nthus avoid changing its MAC address in order not to disrupt network\ncommunications.\n\nThe Linux kernel assigns network TAP devices a random MAC address.\nOccasionally, this random MAC address is lower than that of the physical\ninterface which is enslaved (for example, eth0 or eth1), which causes the\nbridge to change its MAC address, thereby disrupting network communications\nfor a period of time.\n\nWith this update, libvirt now sets an explicit MAC address for all TAP\ndevices created using the configured MAC address from the XML, but with the\nhigh bit set to 0xFE. The result is that TAP device MAC addresses are now\nnumerically greater than those for physical interfaces, and bridges should\nno longer attempt to switch their MAC address to that of the TAP device,\nthus avoiding potential spurious network disruptions. (BZ#617243)\n\n* a memory leak in the libvirt driver for the Xen hypervisor has been fixed\nwith this update. (BZ#619711)\n\n* the xm and virsh management user interfaces for virtual guests can be\ncalled on the command line to list the number of active guests. However,\nunder certain circumstances, running the \"virsh list\" command resulted in\nvirsh not listing all of the virtual guests that were active (that is,\nrunning) at the time. This update incorporates a fix that matches the logic\nused for determining active guests with that of \"xm list\", such that both\ncommands should now list the same number of active virtual guests under all\ncircumstances. (BZ#618200)\n\nAll users of libvirt are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues. After installing\nthe updated packages, the system must be rebooted for the update to take\neffect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Low",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-08-10"
-      },
-      "updated": {
-        "date": "2010-08-10"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-2239",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2239",
-          "impact": "moderate",
-          "public": "20100712",
-          "cvss_2": "4.4/AV:L/AC:M/Au:S/C:C/I:N/A:N"
-        },
-        {
-          "text": "CVE-2010-2242",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2242",
-          "impact": "low",
-          "public": "20100712",
-          "cvss_2": "1.5/AV:L/AC:M/Au:S/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-2242 libvirt: improperly mapped source privileged ports may allow for obtaining privileged resources on the host",
-          "href": "https://bugzilla.redhat.com/602455",
-          "id": "602455"
-        },
-        {
-          "text": "CVE-2010-2239 libvirt: not setting user defined backing store format when creating new image",
-          "href": "https://bugzilla.redhat.com/607812",
-          "id": "607812"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/a:redhat:rhel_virtualization:5",
-          "cpe:/a:redhat:rhel_virtualization:5::client",
-          "cpe:/a:redhat:rhel_virtualization:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100615001",
-                    "comment": "libvirt is earlier than 0:0.6.3-33.el5_5.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090382002",
-                    "comment": "libvirt is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100615003",
-                    "comment": "libvirt-devel is earlier than 0:0.6.3-33.el5_5.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090382004",
-                    "comment": "libvirt-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100615005",
-                    "comment": "libvirt-python is earlier than 0:0.6.3-33.el5_5.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090382006",
-                    "comment": "libvirt-python is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100615",
+	"version": "652",
+	"metadata": {
+		"title": "RHSA-2010:0615: libvirt security and bug fix update (Low)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0615",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0615",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-2239",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2239",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-2242",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2242",
+				"source": "CVE"
+			}
+		],
+		"description": "The libvirt library is a C API for managing and interacting with the\nvirtualization capabilities of Linux and other operating systems. In\naddition, libvirt provides tools for remotely managing virtualized systems.\n\nIt was found that libvirt did not set the user-defined backing store format\nwhen creating a new image, possibly resulting in applications having to\nprobe the backing store to discover the format. A privileged guest user\ncould use this flaw to read arbitrary files on the host. (CVE-2010-2239)\n\nIt was found that libvirt created insecure iptables rules on the host when\na guest system was configured for IP masquerading, allowing the guest to\nuse privileged ports on the host when accessing network resources. A\nprivileged guest user could use this flaw to access network resources that\nwould otherwise not be accessible to the guest. (CVE-2010-2242)\n\nRed Hat would like to thank Jeremy Nickurak for reporting the CVE-2010-2242\nissue.\n\nThis update also fixes the following bugs:\n\n* a Linux software bridge assumes the MAC address of the enslaved interface\nwith the numerically lowest MAC address. When the bridge changes its MAC\naddress, for a period of time it does not relay packets across network\nsegments, resulting in a temporary network \"blackout\". The bridge should\nthus avoid changing its MAC address in order not to disrupt network\ncommunications.\n\nThe Linux kernel assigns network TAP devices a random MAC address.\nOccasionally, this random MAC address is lower than that of the physical\ninterface which is enslaved (for example, eth0 or eth1), which causes the\nbridge to change its MAC address, thereby disrupting network communications\nfor a period of time.\n\nWith this update, libvirt now sets an explicit MAC address for all TAP\ndevices created using the configured MAC address from the XML, but with the\nhigh bit set to 0xFE. The result is that TAP device MAC addresses are now\nnumerically greater than those for physical interfaces, and bridges should\nno longer attempt to switch their MAC address to that of the TAP device,\nthus avoiding potential spurious network disruptions. (BZ#617243)\n\n* a memory leak in the libvirt driver for the Xen hypervisor has been fixed\nwith this update. (BZ#619711)\n\n* the xm and virsh management user interfaces for virtual guests can be\ncalled on the command line to list the number of active guests. However,\nunder certain circumstances, running the \"virsh list\" command resulted in\nvirsh not listing all of the virtual guests that were active (that is,\nrunning) at the time. This update incorporates a fix that matches the logic\nused for determining active guests with that of \"xm list\", such that both\ncommands should now list the same number of active virtual guests under all\ncircumstances. (BZ#618200)\n\nAll users of libvirt are advised to upgrade to these updated packages,\nwhich contain backported patches to correct these issues. After installing\nthe updated packages, the system must be rebooted for the update to take\neffect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Low",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-08-10"
+			},
+			"updated": {
+				"date": "2010-08-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-2239",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2239",
+					"impact": "moderate",
+					"public": "20100712",
+					"cvss_2": "4.4/AV:L/AC:M/Au:S/C:C/I:N/A:N"
+				},
+				{
+					"text": "CVE-2010-2242",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2242",
+					"impact": "low",
+					"public": "20100712",
+					"cvss_2": "1.5/AV:L/AC:M/Au:S/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-2242 libvirt: improperly mapped source privileged ports may allow for obtaining privileged resources on the host",
+					"href": "https://bugzilla.redhat.com/602455",
+					"id": "602455"
+				},
+				{
+					"text": "CVE-2010-2239 libvirt: not setting user defined backing store format when creating new image",
+					"href": "https://bugzilla.redhat.com/607812",
+					"id": "607812"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:redhat:rhel_virtualization:5",
+					"cpe:/a:redhat:rhel_virtualization:5::client",
+					"cpe:/a:redhat:rhel_virtualization:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100615001",
+										"comment": "libvirt is earlier than 0:0.6.3-33.el5_5.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090382002",
+										"comment": "libvirt is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100615003",
+										"comment": "libvirt-devel is earlier than 0:0.6.3-33.el5_5.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090382004",
+										"comment": "libvirt-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100615005",
+										"comment": "libvirt-python is earlier than 0:0.6.3-33.el5_5.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090382006",
+										"comment": "libvirt-python is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

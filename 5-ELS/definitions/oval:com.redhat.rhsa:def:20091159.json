@@ -1,181 +1,181 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091159",
-  "version": "643",
-  "metadata": {
-    "title": "RHSA-2009:1159: libtiff security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1159",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1159",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-2285",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2285",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-2347",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-2347",
-        "source": "CVE"
-      }
-    ],
-    "description": "The libtiff packages contain a library of functions for manipulating Tagged\nImage File Format (TIFF) files.\n\nSeveral integer overflow flaws, leading to heap-based buffer overflows,\nwere found in various libtiff color space conversion tools. An attacker\ncould create a specially-crafted TIFF file, which once opened by an\nunsuspecting user, would cause the conversion tool to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nthe tool. (CVE-2009-2347)\n\nA buffer underwrite flaw was found in libtiff's Lempel-Ziv-Welch (LZW)\ncompression algorithm decoder. An attacker could create a specially-crafted\nLZW-encoded TIFF file, which once opened by an unsuspecting user, would\ncause an application linked with libtiff to access an out-of-bounds memory\nlocation, leading to a denial of service (application crash).\n(CVE-2009-2285)\n\nThe CVE-2009-2347 flaws were discovered by Tielei Wang from ICST-ERCIS,\nPeking University.\n\nAll libtiff users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. After installing this update,\nall applications linked with the libtiff library (such as Konqueror) must\nbe restarted for the update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-07-16"
-      },
-      "updated": {
-        "date": "2009-07-16"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-2285",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2285",
-          "impact": "moderate",
-          "public": "20090103",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2009-2347",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-2347",
-          "impact": "moderate",
-          "public": "20090713",
-          "cwe": "CWE-190",
-          "cvss_2": "6.4/AV:N/AC:L/Au:N/C:N/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-2285 libtiff: LZWDecodeCompat underflow",
-          "href": "https://bugzilla.redhat.com/507465",
-          "id": "507465"
-        },
-        {
-          "text": "CVE-2009-2347 libtiff: integer overflows in various inter-color spaces conversion tools (crash, ACE)",
-          "href": "https://bugzilla.redhat.com/510041",
-          "id": "510041"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091159001",
-                    "comment": "libtiff is earlier than 0:3.6.1-12.el4_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091159002",
-                    "comment": "libtiff is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091159003",
-                    "comment": "libtiff-devel is earlier than 0:3.6.1-12.el4_8.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091159004",
-                    "comment": "libtiff-devel is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091159006",
-                    "comment": "libtiff is earlier than 0:3.8.2-7.el5_3.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080847002",
-                    "comment": "libtiff is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091159008",
-                    "comment": "libtiff-devel is earlier than 0:3.8.2-7.el5_3.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080847004",
-                    "comment": "libtiff-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091159",
+	"version": "643",
+	"metadata": {
+		"title": "RHSA-2009:1159: libtiff security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1159",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1159",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-2285",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2285",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-2347",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-2347",
+				"source": "CVE"
+			}
+		],
+		"description": "The libtiff packages contain a library of functions for manipulating Tagged\nImage File Format (TIFF) files.\n\nSeveral integer overflow flaws, leading to heap-based buffer overflows,\nwere found in various libtiff color space conversion tools. An attacker\ncould create a specially-crafted TIFF file, which once opened by an\nunsuspecting user, would cause the conversion tool to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nthe tool. (CVE-2009-2347)\n\nA buffer underwrite flaw was found in libtiff's Lempel-Ziv-Welch (LZW)\ncompression algorithm decoder. An attacker could create a specially-crafted\nLZW-encoded TIFF file, which once opened by an unsuspecting user, would\ncause an application linked with libtiff to access an out-of-bounds memory\nlocation, leading to a denial of service (application crash).\n(CVE-2009-2285)\n\nThe CVE-2009-2347 flaws were discovered by Tielei Wang from ICST-ERCIS,\nPeking University.\n\nAll libtiff users should upgrade to these updated packages, which contain\nbackported patches to correct these issues. After installing this update,\nall applications linked with the libtiff library (such as Konqueror) must\nbe restarted for the update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-07-16"
+			},
+			"updated": {
+				"date": "2009-07-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-2285",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2285",
+					"impact": "moderate",
+					"public": "20090103",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2009-2347",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-2347",
+					"impact": "moderate",
+					"public": "20090713",
+					"cwe": "CWE-190",
+					"cvss_2": "6.4/AV:N/AC:L/Au:N/C:N/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-2285 libtiff: LZWDecodeCompat underflow",
+					"href": "https://bugzilla.redhat.com/507465",
+					"id": "507465"
+				},
+				{
+					"text": "CVE-2009-2347 libtiff: integer overflows in various inter-color spaces conversion tools (crash, ACE)",
+					"href": "https://bugzilla.redhat.com/510041",
+					"id": "510041"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091159001",
+										"comment": "libtiff is earlier than 0:3.6.1-12.el4_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091159002",
+										"comment": "libtiff is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091159003",
+										"comment": "libtiff-devel is earlier than 0:3.6.1-12.el4_8.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091159004",
+										"comment": "libtiff-devel is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091159006",
+										"comment": "libtiff is earlier than 0:3.8.2-7.el5_3.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080847002",
+										"comment": "libtiff is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091159008",
+										"comment": "libtiff-devel is earlier than 0:3.8.2-7.el5_3.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080847004",
+										"comment": "libtiff-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

@@ -1,256 +1,256 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20130847",
-  "version": "641",
-  "metadata": {
-    "title": "RHSA-2013:0847: kernel security and bug fix update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2013:0847",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2013:0847",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2013-0153",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2013-0153",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issue:\n\n* A flaw was found in the way the Xen hypervisor AMD IOMMU driver handled\ninterrupt remapping entries. By default, a single interrupt remapping\ntable is used, and old interrupt remapping entries are not cleared,\npotentially allowing a privileged guest user in a guest that has a\npassed-through, bus-mastering capable PCI device to inject interrupt\nentries into others guests, including the privileged management domain\n(Dom0), leading to a denial of service. (CVE-2013-0153, Moderate)\n\nRed Hat would like to thank the Xen project for reporting the CVE-2013-0153\nissue.\n\nThis update also fixes the following bugs:\n\n* When a process is opening a file over NFSv4, sometimes an OPEN call can\nsucceed while the following GETATTR operation fails with an NFS4ERR_DELAY\nerror. The NFSv4 code did not handle such a situation correctly and allowed\nan NFSv4 client to attempt to use the buffer that should contain the\nGETATTR information. However, the buffer did not contain the valid GETATTR\ninformation, which caused the client to return a \"-ENOTDIR\" error.\nConsequently, the process failed to open the requested file. This update\nbackports a patch that adds a test condition verifying validity of the\nGETATTR information. If the GETATTR information is invalid, it is obtained\nlater and the process opens the requested file as expected. (BZ#947736)\n\n* Previously, the xdr routines in NFS version 2 and 3 conditionally updated\nthe res->count variable. Read retry attempts after a short NFS read() call\ncould fail to update the res->count variable, resulting in truncated read\ndata being returned. With this update, the res->count variable is updated\nunconditionally so this bug can no longer occur. (BZ#952098)\n\n* When handling requests from Intelligent Platform Management Interface\n(IPMI) clients, the IPMI driver previously used two different locks for an\nIPMI request. If two IPMI clients sent their requests at the same time,\neach request could receive one of the locks and then wait for the second\nlock to become available. This resulted in a deadlock situation and the\nsystem became unresponsive. The problem could occur more likely in\nenvironments with many IPMI clients. This update modifies the IPMI driver\nto handle the received messages using tasklets so the driver now uses a\nsafe locking technique when handling IPMI requests and the mentioned\ndeadlock can no longer occur. (BZ#953435)\n\n* Incorrect locking around the cl_state_owners list could cause the NFSv4\nstate reclaimer thread to enter an infinite loop while holding the Big\nKernel Lock (BLK). As a consequence, the NFSv4 client became unresponsive.\nWith this update, safe list iteration is used, which prevents the NFSv4\nclient from hanging in this scenario. (BZ#954296)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2013 Red Hat, Inc.",
-      "issued": {
-        "date": "2013-05-21"
-      },
-      "updated": {
-        "date": "2013-05-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2013-0153",
-          "href": "https://access.redhat.com/security/cve/CVE-2013-0153",
-          "impact": "moderate",
-          "public": "20130205",
-          "cvss_2": "4.3/AV:A/AC:H/Au:S/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2013-0153 kernel: xen: interrupt remap entries shared and old ones not cleared on AMD IOMMUs",
-          "href": "https://bugzilla.redhat.com/910903",
-          "id": "910903"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20130847025",
-                "comment": "kernel earlier than 0:2.6.18-348.6.1.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20130847026",
-                "comment": "kernel earlier than 0:2.6.18-348.6.1.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847001",
-                    "comment": "kernel is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20130847023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-348.6.1.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20130847",
+	"version": "641",
+	"metadata": {
+		"title": "RHSA-2013:0847: kernel security and bug fix update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2013:0847",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2013:0847",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2013-0153",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2013-0153",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issue:\n\n* A flaw was found in the way the Xen hypervisor AMD IOMMU driver handled\ninterrupt remapping entries. By default, a single interrupt remapping\ntable is used, and old interrupt remapping entries are not cleared,\npotentially allowing a privileged guest user in a guest that has a\npassed-through, bus-mastering capable PCI device to inject interrupt\nentries into others guests, including the privileged management domain\n(Dom0), leading to a denial of service. (CVE-2013-0153, Moderate)\n\nRed Hat would like to thank the Xen project for reporting the CVE-2013-0153\nissue.\n\nThis update also fixes the following bugs:\n\n* When a process is opening a file over NFSv4, sometimes an OPEN call can\nsucceed while the following GETATTR operation fails with an NFS4ERR_DELAY\nerror. The NFSv4 code did not handle such a situation correctly and allowed\nan NFSv4 client to attempt to use the buffer that should contain the\nGETATTR information. However, the buffer did not contain the valid GETATTR\ninformation, which caused the client to return a \"-ENOTDIR\" error.\nConsequently, the process failed to open the requested file. This update\nbackports a patch that adds a test condition verifying validity of the\nGETATTR information. If the GETATTR information is invalid, it is obtained\nlater and the process opens the requested file as expected. (BZ#947736)\n\n* Previously, the xdr routines in NFS version 2 and 3 conditionally updated\nthe res->count variable. Read retry attempts after a short NFS read() call\ncould fail to update the res->count variable, resulting in truncated read\ndata being returned. With this update, the res->count variable is updated\nunconditionally so this bug can no longer occur. (BZ#952098)\n\n* When handling requests from Intelligent Platform Management Interface\n(IPMI) clients, the IPMI driver previously used two different locks for an\nIPMI request. If two IPMI clients sent their requests at the same time,\neach request could receive one of the locks and then wait for the second\nlock to become available. This resulted in a deadlock situation and the\nsystem became unresponsive. The problem could occur more likely in\nenvironments with many IPMI clients. This update modifies the IPMI driver\nto handle the received messages using tasklets so the driver now uses a\nsafe locking technique when handling IPMI requests and the mentioned\ndeadlock can no longer occur. (BZ#953435)\n\n* Incorrect locking around the cl_state_owners list could cause the NFSv4\nstate reclaimer thread to enter an infinite loop while holding the Big\nKernel Lock (BLK). As a consequence, the NFSv4 client became unresponsive.\nWith this update, safe list iteration is used, which prevents the NFSv4\nclient from hanging in this scenario. (BZ#954296)\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2013 Red Hat, Inc.",
+			"issued": {
+				"date": "2013-05-21"
+			},
+			"updated": {
+				"date": "2013-05-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2013-0153",
+					"href": "https://access.redhat.com/security/cve/CVE-2013-0153",
+					"impact": "moderate",
+					"public": "20130205",
+					"cvss_2": "4.3/AV:A/AC:H/Au:S/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2013-0153 kernel: xen: interrupt remap entries shared and old ones not cleared on AMD IOMMUs",
+					"href": "https://bugzilla.redhat.com/910903",
+					"id": "910903"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20130847025",
+								"comment": "kernel earlier than 0:2.6.18-348.6.1.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20130847026",
+								"comment": "kernel earlier than 0:2.6.18-348.6.1.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847001",
+										"comment": "kernel is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20130847023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-348.6.1.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

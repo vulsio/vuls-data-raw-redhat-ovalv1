@@ -1,115 +1,115 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20070011",
-  "version": "636",
-  "metadata": {
-    "title": "RHSA-2007:0011: libgsf security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2007:0011",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2007:0011",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-4514",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-4514",
-        "source": "CVE"
-      }
-    ],
-    "description": "The GNOME Structured File Library is a utility library for reading and\nwriting structured file formats.\n\nA heap based buffer overflow flaw was found in the way GNOME Structured\nFile Library processes and certain OLE documents. If an person opened a\nspecially crafted OLE file, it could cause the client application to crash or\nexecute arbitrary code. (CVE-2006-4514)\n\nUsers of GNOME Structured File Library should upgrade to these updated\npackages, which contain a backported patch that resolves this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2007 Red Hat, Inc.",
-      "issued": {
-        "date": "2007-01-11"
-      },
-      "updated": {
-        "date": "2007-01-11"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-4514",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-4514",
-          "impact": "moderate",
-          "public": "20061130"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-4514 security flaw",
-          "href": "https://bugzilla.redhat.com/1618189",
-          "id": "1618189"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070011001",
-                    "comment": "libgsf is earlier than 0:1.10.1-2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070011002",
-                    "comment": "libgsf is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070011003",
-                    "comment": "libgsf-devel is earlier than 0:1.10.1-2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070011004",
-                    "comment": "libgsf-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20070011",
+	"version": "636",
+	"metadata": {
+		"title": "RHSA-2007:0011: libgsf security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2007:0011",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2007:0011",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-4514",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-4514",
+				"source": "CVE"
+			}
+		],
+		"description": "The GNOME Structured File Library is a utility library for reading and\nwriting structured file formats.\n\nA heap based buffer overflow flaw was found in the way GNOME Structured\nFile Library processes and certain OLE documents. If an person opened a\nspecially crafted OLE file, it could cause the client application to crash or\nexecute arbitrary code. (CVE-2006-4514)\n\nUsers of GNOME Structured File Library should upgrade to these updated\npackages, which contain a backported patch that resolves this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2007 Red Hat, Inc.",
+			"issued": {
+				"date": "2007-01-11"
+			},
+			"updated": {
+				"date": "2007-01-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-4514",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-4514",
+					"impact": "moderate",
+					"public": "20061130"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-4514 security flaw",
+					"href": "https://bugzilla.redhat.com/1618189",
+					"id": "1618189"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070011001",
+										"comment": "libgsf is earlier than 0:1.10.1-2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070011002",
+										"comment": "libgsf is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070011003",
+										"comment": "libgsf-devel is earlier than 0:1.10.1-2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070011004",
+										"comment": "libgsf-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

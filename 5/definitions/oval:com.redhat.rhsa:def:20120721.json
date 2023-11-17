@@ -1,274 +1,274 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20120721",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2012:0721: kernel security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2012:0721",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2012:0721",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2012-0217",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-0217",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2012-2934",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2012-2934",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* It was found that the Xen hypervisor implementation as shipped with Red\nHat Enterprise Linux 5 did not properly restrict the syscall return\naddresses in the sysret return path to canonical addresses. An unprivileged\nuser in a 64-bit para-virtualized guest, that is running on a 64-bit host\nthat has an Intel CPU, could use this flaw to crash the host or,\npotentially, escalate their privileges, allowing them to execute arbitrary\ncode at the hypervisor level. (CVE-2012-0217, Important)\n\n* It was found that guests could trigger a bug in earlier AMD CPUs, leading\nto a CPU hard lockup, when running on the Xen hypervisor implementation. An\nunprivileged user in a 64-bit para-virtualized guest could use this flaw to\ncrash the host. Warning: After installing this update, hosts that are using\nan affected AMD CPU (refer to Red Hat Bugzilla bug #824966 for a list) will\nfail to boot. In order to boot such hosts, the new kernel parameter,\nallow_unsafe, can be used (\"allow_unsafe=on\"). This option should only be\nused with hosts that are running trusted guests, as setting it to \"on\"\nreintroduces the flaw (allowing guests to crash the host). (CVE-2012-2934,\nModerate)\n\nNote: For Red Hat Enterprise Linux guests, only privileged guest users can\nexploit the CVE-2012-0217 and CVE-2012-2934 issues.\n\nRed Hat would like to thank the Xen project for reporting these issues.\nUpstream acknowledges Rafal Wojtczuk as the original reporter of\nCVE-2012-0217.\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2012 Red Hat, Inc.",
-      "issued": {
-        "date": "2012-06-12"
-      },
-      "updated": {
-        "date": "2012-06-12"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-0217",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-0217",
-          "impact": "important",
-          "public": "20120612",
-          "cvss_2": "7.9/AV:A/AC:M/Au:N/C:C/I:C/A:C"
-        },
-        {
-          "text": "CVE-2012-2934",
-          "href": "https://access.redhat.com/security/cve/CVE-2012-2934",
-          "impact": "moderate",
-          "public": "20120612",
-          "cvss_2": "4.6/AV:A/AC:H/Au:N/C:N/I:N/A:C"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2012-0217 kernel: x86-64: avoid sysret to non-canonical address",
-          "href": "https://bugzilla.redhat.com/813428",
-          "id": "813428"
-        },
-        {
-          "text": "CVE-2012-2934 kernel: denial of service due to AMD Erratum #121",
-          "href": "https://bugzilla.redhat.com/824966",
-          "id": "824966"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20120721025",
-                "comment": "kernel earlier than 0:2.6.18-308.8.2.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20120721026",
-                "comment": "kernel earlier than 0:2.6.18-308.8.2.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721001",
-                    "comment": "kernel is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20120721023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-308.8.2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20120721",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2012:0721: kernel security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2012:0721",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2012:0721",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2012-0217",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-0217",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2012-2934",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2012-2934",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\nThis update fixes the following security issues:\n\n* It was found that the Xen hypervisor implementation as shipped with Red\nHat Enterprise Linux 5 did not properly restrict the syscall return\naddresses in the sysret return path to canonical addresses. An unprivileged\nuser in a 64-bit para-virtualized guest, that is running on a 64-bit host\nthat has an Intel CPU, could use this flaw to crash the host or,\npotentially, escalate their privileges, allowing them to execute arbitrary\ncode at the hypervisor level. (CVE-2012-0217, Important)\n\n* It was found that guests could trigger a bug in earlier AMD CPUs, leading\nto a CPU hard lockup, when running on the Xen hypervisor implementation. An\nunprivileged user in a 64-bit para-virtualized guest could use this flaw to\ncrash the host. Warning: After installing this update, hosts that are using\nan affected AMD CPU (refer to Red Hat Bugzilla bug #824966 for a list) will\nfail to boot. In order to boot such hosts, the new kernel parameter,\nallow_unsafe, can be used (\"allow_unsafe=on\"). This option should only be\nused with hosts that are running trusted guests, as setting it to \"on\"\nreintroduces the flaw (allowing guests to crash the host). (CVE-2012-2934,\nModerate)\n\nNote: For Red Hat Enterprise Linux guests, only privileged guest users can\nexploit the CVE-2012-0217 and CVE-2012-2934 issues.\n\nRed Hat would like to thank the Xen project for reporting these issues.\nUpstream acknowledges Rafal Wojtczuk as the original reporter of\nCVE-2012-0217.\n\nUsers should upgrade to these updated packages, which contain backported\npatches to correct these issues. The system must be rebooted for this\nupdate to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2012 Red Hat, Inc.",
+			"issued": {
+				"date": "2012-06-12"
+			},
+			"updated": {
+				"date": "2012-06-12"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-0217",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-0217",
+					"impact": "important",
+					"public": "20120612",
+					"cvss_2": "7.9/AV:A/AC:M/Au:N/C:C/I:C/A:C"
+				},
+				{
+					"text": "CVE-2012-2934",
+					"href": "https://access.redhat.com/security/cve/CVE-2012-2934",
+					"impact": "moderate",
+					"public": "20120612",
+					"cvss_2": "4.6/AV:A/AC:H/Au:N/C:N/I:N/A:C"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2012-0217 kernel: x86-64: avoid sysret to non-canonical address",
+					"href": "https://bugzilla.redhat.com/813428",
+					"id": "813428"
+				},
+				{
+					"text": "CVE-2012-2934 kernel: denial of service due to AMD Erratum #121",
+					"href": "https://bugzilla.redhat.com/824966",
+					"id": "824966"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20120721025",
+								"comment": "kernel earlier than 0:2.6.18-308.8.2.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20120721026",
+								"comment": "kernel earlier than 0:2.6.18-308.8.2.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721001",
+										"comment": "kernel is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20120721023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-308.8.2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

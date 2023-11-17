@@ -1,201 +1,201 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20141053",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2014:1053: openssl security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2014:1053",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2014:1053",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2014-0221",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-0221",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2014-3505",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-3505",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2014-3506",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-3506",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2014-3508",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-3508",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2014-3510",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2014-3510",
-        "source": "CVE"
-      }
-    ],
-    "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL),\nTransport Layer Security (TLS), and Datagram Transport Layer Security\n(DTLS) protocols, as well as a full-strength, general purpose cryptography\nlibrary.\n\nIt was discovered that the OBJ_obj2txt() function could fail to properly\nNUL-terminate its output. This could possibly cause an application using\nOpenSSL functions to format fields of X.509 certificates to disclose\nportions of its memory. (CVE-2014-3508)\n\nMultiple flaws were discovered in the way OpenSSL handled DTLS packets.\nA remote attacker could use these flaws to cause a DTLS server or client\nusing OpenSSL to crash or use excessive amounts of memory. (CVE-2014-0221,\nCVE-2014-3505, CVE-2014-3506)\n\nA NULL pointer dereference flaw was found in the way OpenSSL performed a\nhandshake when using the anonymous Diffie-Hellman (DH) key exchange. A\nmalicious server could cause a DTLS client using OpenSSL to crash if that\nclient had anonymous DH cipher suites enabled. (CVE-2014-3510)\n\nRed Hat would like to thank the OpenSSL project for reporting\nCVE-2014-0221. Upstream acknowledges Imre Rad of Search-Lab as the original\nreporter of this issue.\n\nAll OpenSSL users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. For the update to take\neffect, all services linked to the OpenSSL library (such as httpd and other\nSSL-enabled services) must be restarted or the system rebooted.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2014 Red Hat, Inc.",
-      "issued": {
-        "date": "2014-08-13"
-      },
-      "updated": {
-        "date": "2014-08-13"
-      },
-      "cve": [
-        {
-          "text": "CVE-2014-0221",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-0221",
-          "impact": "moderate",
-          "public": "20140605",
-          "cwe": "CWE-400",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2014-3505",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-3505",
-          "impact": "moderate",
-          "public": "20140806",
-          "cwe": "CWE-672",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2014-3506",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-3506",
-          "impact": "moderate",
-          "public": "20140806",
-          "cwe": "CWE-862->CWE-400",
-          "cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "text": "CVE-2014-3508",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-3508",
-          "impact": "moderate",
-          "public": "20140806",
-          "cwe": "CWE-200",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2014-3510",
-          "href": "https://access.redhat.com/security/cve/CVE-2014-3510",
-          "impact": "moderate",
-          "public": "20140806",
-          "cwe": "CWE-476",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2014-0221 openssl: DoS when sending invalid DTLS handshake",
-          "href": "https://bugzilla.redhat.com/1103593",
-          "id": "1103593"
-        },
-        {
-          "text": "CVE-2014-3508 openssl: information leak in pretty printing functions",
-          "href": "https://bugzilla.redhat.com/1127490",
-          "id": "1127490"
-        },
-        {
-          "text": "CVE-2014-3505 openssl: DTLS packet processing double free",
-          "href": "https://bugzilla.redhat.com/1127499",
-          "id": "1127499"
-        },
-        {
-          "text": "CVE-2014-3506 openssl: DTLS memory exhaustion",
-          "href": "https://bugzilla.redhat.com/1127500",
-          "id": "1127500"
-        },
-        {
-          "text": "CVE-2014-3510 openssl: DTLS anonymous (EC)DH denial of service",
-          "href": "https://bugzilla.redhat.com/1127503",
-          "id": "1127503"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20141053001",
-                    "comment": "openssl is earlier than 0:0.9.8e-27.el5_10.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964002",
-                    "comment": "openssl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20141053003",
-                    "comment": "openssl-devel is earlier than 0:0.9.8e-27.el5_10.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964004",
-                    "comment": "openssl-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20141053005",
-                    "comment": "openssl-perl is earlier than 0:0.9.8e-27.el5_10.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070964006",
-                    "comment": "openssl-perl is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20141053",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2014:1053: openssl security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2014:1053",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2014:1053",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2014-0221",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-0221",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2014-3505",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-3505",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2014-3506",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-3506",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2014-3508",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-3508",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2014-3510",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2014-3510",
+				"source": "CVE"
+			}
+		],
+		"description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL),\nTransport Layer Security (TLS), and Datagram Transport Layer Security\n(DTLS) protocols, as well as a full-strength, general purpose cryptography\nlibrary.\n\nIt was discovered that the OBJ_obj2txt() function could fail to properly\nNUL-terminate its output. This could possibly cause an application using\nOpenSSL functions to format fields of X.509 certificates to disclose\nportions of its memory. (CVE-2014-3508)\n\nMultiple flaws were discovered in the way OpenSSL handled DTLS packets.\nA remote attacker could use these flaws to cause a DTLS server or client\nusing OpenSSL to crash or use excessive amounts of memory. (CVE-2014-0221,\nCVE-2014-3505, CVE-2014-3506)\n\nA NULL pointer dereference flaw was found in the way OpenSSL performed a\nhandshake when using the anonymous Diffie-Hellman (DH) key exchange. A\nmalicious server could cause a DTLS client using OpenSSL to crash if that\nclient had anonymous DH cipher suites enabled. (CVE-2014-3510)\n\nRed Hat would like to thank the OpenSSL project for reporting\nCVE-2014-0221. Upstream acknowledges Imre Rad of Search-Lab as the original\nreporter of this issue.\n\nAll OpenSSL users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues. For the update to take\neffect, all services linked to the OpenSSL library (such as httpd and other\nSSL-enabled services) must be restarted or the system rebooted.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2014 Red Hat, Inc.",
+			"issued": {
+				"date": "2014-08-13"
+			},
+			"updated": {
+				"date": "2014-08-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2014-0221",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-0221",
+					"impact": "moderate",
+					"public": "20140605",
+					"cwe": "CWE-400",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2014-3505",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-3505",
+					"impact": "moderate",
+					"public": "20140806",
+					"cwe": "CWE-672",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2014-3506",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-3506",
+					"impact": "moderate",
+					"public": "20140806",
+					"cwe": "CWE-862->CWE-400",
+					"cvss_2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+				},
+				{
+					"text": "CVE-2014-3508",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-3508",
+					"impact": "moderate",
+					"public": "20140806",
+					"cwe": "CWE-200",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2014-3510",
+					"href": "https://access.redhat.com/security/cve/CVE-2014-3510",
+					"impact": "moderate",
+					"public": "20140806",
+					"cwe": "CWE-476",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2014-0221 openssl: DoS when sending invalid DTLS handshake",
+					"href": "https://bugzilla.redhat.com/1103593",
+					"id": "1103593"
+				},
+				{
+					"text": "CVE-2014-3508 openssl: information leak in pretty printing functions",
+					"href": "https://bugzilla.redhat.com/1127490",
+					"id": "1127490"
+				},
+				{
+					"text": "CVE-2014-3505 openssl: DTLS packet processing double free",
+					"href": "https://bugzilla.redhat.com/1127499",
+					"id": "1127499"
+				},
+				{
+					"text": "CVE-2014-3506 openssl: DTLS memory exhaustion",
+					"href": "https://bugzilla.redhat.com/1127500",
+					"id": "1127500"
+				},
+				{
+					"text": "CVE-2014-3510 openssl: DTLS anonymous (EC)DH denial of service",
+					"href": "https://bugzilla.redhat.com/1127503",
+					"id": "1127503"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20141053001",
+										"comment": "openssl is earlier than 0:0.9.8e-27.el5_10.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964002",
+										"comment": "openssl is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20141053003",
+										"comment": "openssl-devel is earlier than 0:0.9.8e-27.el5_10.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964004",
+										"comment": "openssl-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20141053005",
+										"comment": "openssl-perl is earlier than 0:0.9.8e-27.el5_10.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070964006",
+										"comment": "openssl-perl is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

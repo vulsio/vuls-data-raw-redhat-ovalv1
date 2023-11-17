@@ -1,188 +1,188 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080836",
-  "version": "640",
-  "metadata": {
-    "title": "RHSA-2008:0836: libxml2 security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0836",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0836",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-3281",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3281",
-        "source": "CVE"
-      }
-    ],
-    "description": "The libxml2 packages provide a library that allows you to manipulate XML\nfiles. It includes support to read, modify, and write XML and HTML files.\n\nA denial of service flaw was found in the way libxml2 processes certain\ncontent. If an application linked against libxml2 processes malformed XML\ncontent, it could cause the application to stop responding. (CVE-2008-3281)\n\nRed Hat would like to thank Andreas Solberg for responsibly disclosing this\nissue.\n\nAll users of libxml2 are advised to upgrade to these updated packages,\nwhich contain a backported patch to resolve this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-08-21"
-      },
-      "updated": {
-        "date": "2008-08-26"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-3281",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-3281",
-          "impact": "moderate",
-          "public": "20080820"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-3281 libxml2 denial of service",
-          "href": "https://bugzilla.redhat.com/458086",
-          "id": "458086"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080836001",
-                    "comment": "libxml2 is earlier than 0:2.6.16-12.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080032002",
-                    "comment": "libxml2 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080836003",
-                    "comment": "libxml2-devel is earlier than 0:2.6.16-12.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080032004",
-                    "comment": "libxml2-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080836005",
-                    "comment": "libxml2-python is earlier than 0:2.6.16-12.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080032006",
-                    "comment": "libxml2-python is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080836008",
-                    "comment": "libxml2 is earlier than 0:2.6.26-2.1.2.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080032002",
-                    "comment": "libxml2 is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080836009",
-                    "comment": "libxml2-devel is earlier than 0:2.6.26-2.1.2.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080032004",
-                    "comment": "libxml2-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080836010",
-                    "comment": "libxml2-python is earlier than 0:2.6.26-2.1.2.4"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080032006",
-                    "comment": "libxml2-python is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080836",
+	"version": "640",
+	"metadata": {
+		"title": "RHSA-2008:0836: libxml2 security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0836",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0836",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-3281",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-3281",
+				"source": "CVE"
+			}
+		],
+		"description": "The libxml2 packages provide a library that allows you to manipulate XML\nfiles. It includes support to read, modify, and write XML and HTML files.\n\nA denial of service flaw was found in the way libxml2 processes certain\ncontent. If an application linked against libxml2 processes malformed XML\ncontent, it could cause the application to stop responding. (CVE-2008-3281)\n\nRed Hat would like to thank Andreas Solberg for responsibly disclosing this\nissue.\n\nAll users of libxml2 are advised to upgrade to these updated packages,\nwhich contain a backported patch to resolve this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-08-21"
+			},
+			"updated": {
+				"date": "2008-08-26"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-3281",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-3281",
+					"impact": "moderate",
+					"public": "20080820"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-3281 libxml2 denial of service",
+					"href": "https://bugzilla.redhat.com/458086",
+					"id": "458086"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080836001",
+										"comment": "libxml2 is earlier than 0:2.6.16-12.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080032002",
+										"comment": "libxml2 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080836003",
+										"comment": "libxml2-devel is earlier than 0:2.6.16-12.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080032004",
+										"comment": "libxml2-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080836005",
+										"comment": "libxml2-python is earlier than 0:2.6.16-12.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080032006",
+										"comment": "libxml2-python is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080836008",
+										"comment": "libxml2 is earlier than 0:2.6.26-2.1.2.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080032002",
+										"comment": "libxml2 is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080836009",
+										"comment": "libxml2-devel is earlier than 0:2.6.26-2.1.2.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080032004",
+										"comment": "libxml2-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080836010",
+										"comment": "libxml2-python is earlier than 0:2.6.26-2.1.2.4"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080032006",
+										"comment": "libxml2-python is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

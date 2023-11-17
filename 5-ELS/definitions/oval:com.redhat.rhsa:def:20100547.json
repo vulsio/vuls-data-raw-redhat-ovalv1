@@ -1,408 +1,408 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100547",
-  "version": "642",
-  "metadata": {
-    "title": "RHSA-2010:0547: firefox security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0547",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0547",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-0654",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-0654",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1205",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1205",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1206",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1206",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1207",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1207",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1208",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1208",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1209",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1209",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1210",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1210",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1211",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1211",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1212",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1212",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1213",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1213",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1214",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1214",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-1215",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-1215",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-2751",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2751",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-2752",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2752",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-2753",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2753",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2010-2754",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-2754",
-        "source": "CVE"
-      }
-    ],
-    "description": "Mozilla Firefox is an open source web browser. XULRunner provides the XUL\nRuntime environment for Mozilla Firefox.\n\nSeveral flaws were found in the processing of malformed web content. A web\npage containing malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nFirefox. (CVE-2010-1208, CVE-2010-1209, CVE-2010-1211, CVE-2010-1212,\nCVE-2010-1214, CVE-2010-1215, CVE-2010-2752, CVE-2010-2753)\n\nA memory corruption flaw was found in the way Firefox decoded certain PNG\nimages. An attacker could create a specially-crafted PNG image that, when\nopened, could cause Firefox to crash or, potentially, execute arbitrary\ncode with the privileges of the user running Firefox. (CVE-2010-1205)\n\nSeveral same-origin policy bypass flaws were found in Firefox. An attacker\ncould create a malicious web page that, when viewed by a victim, could\nsteal private data from a different website the victim has loaded with\nFirefox. (CVE-2010-0654, CVE-2010-1207, CVE-2010-1213, CVE-2010-2754)\n\nA flaw was found in the way Firefox presented the location bar to a user. A\nmalicious website could trick a user into thinking they are visiting the\nsite reported by the location bar, when the page is actually content\ncontrolled by an attacker. (CVE-2010-1206)\n\nA flaw was found in the way Firefox displayed the location bar when\nvisiting a secure web page. A malicious server could use this flaw to\npresent data that appears to originate from a secure server, even though it\ndoes not. (CVE-2010-2751)\n\nA flaw was found in the way Firefox displayed certain malformed characters.\nA malicious web page could use this flaw to bypass certain string\nsanitization methods, allowing it to display malicious information to\nusers. (CVE-2010-1210)\n\nFor technical details regarding these flaws, refer to the Mozilla security\nadvisories for Firefox 3.6.7. You can find a link to the Mozilla advisories\nin the References section of this erratum.\n\nAll Firefox users should upgrade to these updated packages, which contain\nFirefox version 3.6.7, which corrects these issues. After installing the\nupdate, Firefox must be restarted for the changes to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-07-21"
-      },
-      "updated": {
-        "date": "2010-07-21"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-0654",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-0654",
-          "impact": "moderate",
-          "public": "20091228",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2010-1205",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1205",
-          "impact": "critical",
-          "public": "20100625",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1206",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1206",
-          "impact": "low",
-          "public": "20100402",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "text": "CVE-2010-1207",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1207",
-          "impact": "moderate",
-          "public": "20100720",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1208",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1208",
-          "impact": "critical",
-          "public": "20100720",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1209",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1209",
-          "impact": "critical",
-          "public": "20100720",
-          "cwe": "CWE-416",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1210",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1210",
-          "impact": "moderate",
-          "public": "20100720",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1211",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1211",
-          "impact": "critical",
-          "public": "20100720",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1212",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1212",
-          "impact": "critical",
-          "public": "20100720",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1213",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1213",
-          "impact": "moderate",
-          "public": "20100720",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1214",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1214",
-          "impact": "critical",
-          "public": "20100720",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-1215",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-1215",
-          "impact": "critical",
-          "public": "20100720",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-2751",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2751",
-          "impact": "moderate",
-          "public": "20100720",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "text": "CVE-2010-2752",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2752",
-          "impact": "critical",
-          "public": "20100720",
-          "cwe": "CWE-190",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-2753",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2753",
-          "impact": "critical",
-          "public": "20100720",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2010-2754",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-2754",
-          "impact": "moderate",
-          "public": "20100720",
-          "cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-0654 firefox: cross-domain information disclosure",
-          "href": "https://bugzilla.redhat.com/568231",
-          "id": "568231"
-        },
-        {
-          "text": "CVE-2010-1205 libpng: out-of-bounds memory write",
-          "href": "https://bugzilla.redhat.com/608238",
-          "id": "608238"
-        },
-        {
-          "text": "CVE-2010-1206 Firefox: Spoofing attacks via vectors involving 'No Content' status code or via a windows.stop call",
-          "href": "https://bugzilla.redhat.com/608763",
-          "id": "608763"
-        },
-        {
-          "text": "CVE-2010-1211 Mozilla miscellaneous memory safety hazards",
-          "href": "https://bugzilla.redhat.com/615455",
-          "id": "615455"
-        },
-        {
-          "text": "CVE-2010-1212 Mozilla miscellaneous memory safety hazards",
-          "href": "https://bugzilla.redhat.com/615456",
-          "id": "615456"
-        },
-        {
-          "text": "CVE-2010-1208 Mozilla DOM attribute cloning remote code execution vulnerability",
-          "href": "https://bugzilla.redhat.com/615458",
-          "id": "615458"
-        },
-        {
-          "text": "CVE-2010-1209 Mozilla Use-after-free error in NodeIterator",
-          "href": "https://bugzilla.redhat.com/615459",
-          "id": "615459"
-        },
-        {
-          "text": "CVE-2010-1214 Mozilla Plugin parameter EnsureCachedAttrParamArrays remote code execution vulnerability",
-          "href": "https://bugzilla.redhat.com/615462",
-          "id": "615462"
-        },
-        {
-          "text": "CVE-2010-1215 Mozilla Arbitrary code execution using SJOW and fast native function",
-          "href": "https://bugzilla.redhat.com/615463",
-          "id": "615463"
-        },
-        {
-          "text": "CVE-2010-2752 Mozilla nsCSSValue::Array index integer overflow",
-          "href": "https://bugzilla.redhat.com/615464",
-          "id": "615464"
-        },
-        {
-          "text": "CVE-2010-2753 Mozilla nsTreeSelection dangling pointer remote code execution vulnerability",
-          "href": "https://bugzilla.redhat.com/615466",
-          "id": "615466"
-        },
-        {
-          "text": "CVE-2010-1213 Mozilla Cross-origin data disclosure via Web Workers and importScripts",
-          "href": "https://bugzilla.redhat.com/615471",
-          "id": "615471"
-        },
-        {
-          "text": "CVE-2010-1207 Mozilla Same-origin bypass using canvas context",
-          "href": "https://bugzilla.redhat.com/615472",
-          "id": "615472"
-        },
-        {
-          "text": "CVE-2010-1210 Mozilla Characters mapped to U+FFFD in 8 bit encodings cause subsequent character to vanish",
-          "href": "https://bugzilla.redhat.com/615474",
-          "id": "615474"
-        },
-        {
-          "text": "CVE-2010-2751 Mozilla SSL spoofing with history.back() and history.forward()",
-          "href": "https://bugzilla.redhat.com/615480",
-          "id": "615480"
-        },
-        {
-          "text": "CVE-2010-2754 Mozilla Cross-origin data leakage from script filename in error messages",
-          "href": "https://bugzilla.redhat.com/615488",
-          "id": "615488"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20100547001",
-            "comment": "firefox is earlier than 0:3.6.7-2.el4"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070400002",
-            "comment": "firefox is signed with Red Hat master key"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100547004",
-                    "comment": "xulrunner is earlier than 0:1.9.2.7-2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080569002",
-                    "comment": "xulrunner is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100547006",
-                    "comment": "xulrunner-devel is earlier than 0:1.9.2.7-2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20080569004",
-                    "comment": "xulrunner-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100547008",
-                    "comment": "firefox is earlier than 0:3.6.7-2.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070097008",
-                    "comment": "firefox is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100547",
+	"version": "642",
+	"metadata": {
+		"title": "RHSA-2010:0547: firefox security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0547",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0547",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-0654",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-0654",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1205",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1205",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1206",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1206",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1207",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1207",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1208",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1208",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1209",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1209",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1210",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1210",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1211",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1211",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1212",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1212",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1213",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1213",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1214",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1214",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-1215",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-1215",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-2751",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2751",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-2752",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2752",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-2753",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2753",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2010-2754",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-2754",
+				"source": "CVE"
+			}
+		],
+		"description": "Mozilla Firefox is an open source web browser. XULRunner provides the XUL\nRuntime environment for Mozilla Firefox.\n\nSeveral flaws were found in the processing of malformed web content. A web\npage containing malicious content could cause Firefox to crash or,\npotentially, execute arbitrary code with the privileges of the user running\nFirefox. (CVE-2010-1208, CVE-2010-1209, CVE-2010-1211, CVE-2010-1212,\nCVE-2010-1214, CVE-2010-1215, CVE-2010-2752, CVE-2010-2753)\n\nA memory corruption flaw was found in the way Firefox decoded certain PNG\nimages. An attacker could create a specially-crafted PNG image that, when\nopened, could cause Firefox to crash or, potentially, execute arbitrary\ncode with the privileges of the user running Firefox. (CVE-2010-1205)\n\nSeveral same-origin policy bypass flaws were found in Firefox. An attacker\ncould create a malicious web page that, when viewed by a victim, could\nsteal private data from a different website the victim has loaded with\nFirefox. (CVE-2010-0654, CVE-2010-1207, CVE-2010-1213, CVE-2010-2754)\n\nA flaw was found in the way Firefox presented the location bar to a user. A\nmalicious website could trick a user into thinking they are visiting the\nsite reported by the location bar, when the page is actually content\ncontrolled by an attacker. (CVE-2010-1206)\n\nA flaw was found in the way Firefox displayed the location bar when\nvisiting a secure web page. A malicious server could use this flaw to\npresent data that appears to originate from a secure server, even though it\ndoes not. (CVE-2010-2751)\n\nA flaw was found in the way Firefox displayed certain malformed characters.\nA malicious web page could use this flaw to bypass certain string\nsanitization methods, allowing it to display malicious information to\nusers. (CVE-2010-1210)\n\nFor technical details regarding these flaws, refer to the Mozilla security\nadvisories for Firefox 3.6.7. You can find a link to the Mozilla advisories\nin the References section of this erratum.\n\nAll Firefox users should upgrade to these updated packages, which contain\nFirefox version 3.6.7, which corrects these issues. After installing the\nupdate, Firefox must be restarted for the changes to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-07-21"
+			},
+			"updated": {
+				"date": "2010-07-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-0654",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-0654",
+					"impact": "moderate",
+					"public": "20091228",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2010-1205",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1205",
+					"impact": "critical",
+					"public": "20100625",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1206",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1206",
+					"impact": "low",
+					"public": "20100402",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N"
+				},
+				{
+					"text": "CVE-2010-1207",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1207",
+					"impact": "moderate",
+					"public": "20100720",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1208",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1208",
+					"impact": "critical",
+					"public": "20100720",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1209",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1209",
+					"impact": "critical",
+					"public": "20100720",
+					"cwe": "CWE-416",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1210",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1210",
+					"impact": "moderate",
+					"public": "20100720",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1211",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1211",
+					"impact": "critical",
+					"public": "20100720",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1212",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1212",
+					"impact": "critical",
+					"public": "20100720",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1213",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1213",
+					"impact": "moderate",
+					"public": "20100720",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1214",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1214",
+					"impact": "critical",
+					"public": "20100720",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-1215",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-1215",
+					"impact": "critical",
+					"public": "20100720",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-2751",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2751",
+					"impact": "moderate",
+					"public": "20100720",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+				},
+				{
+					"text": "CVE-2010-2752",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2752",
+					"impact": "critical",
+					"public": "20100720",
+					"cwe": "CWE-190",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-2753",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2753",
+					"impact": "critical",
+					"public": "20100720",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2010-2754",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-2754",
+					"impact": "moderate",
+					"public": "20100720",
+					"cvss_2": "5.1/AV:N/AC:H/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-0654 firefox: cross-domain information disclosure",
+					"href": "https://bugzilla.redhat.com/568231",
+					"id": "568231"
+				},
+				{
+					"text": "CVE-2010-1205 libpng: out-of-bounds memory write",
+					"href": "https://bugzilla.redhat.com/608238",
+					"id": "608238"
+				},
+				{
+					"text": "CVE-2010-1206 Firefox: Spoofing attacks via vectors involving 'No Content' status code or via a windows.stop call",
+					"href": "https://bugzilla.redhat.com/608763",
+					"id": "608763"
+				},
+				{
+					"text": "CVE-2010-1211 Mozilla miscellaneous memory safety hazards",
+					"href": "https://bugzilla.redhat.com/615455",
+					"id": "615455"
+				},
+				{
+					"text": "CVE-2010-1212 Mozilla miscellaneous memory safety hazards",
+					"href": "https://bugzilla.redhat.com/615456",
+					"id": "615456"
+				},
+				{
+					"text": "CVE-2010-1208 Mozilla DOM attribute cloning remote code execution vulnerability",
+					"href": "https://bugzilla.redhat.com/615458",
+					"id": "615458"
+				},
+				{
+					"text": "CVE-2010-1209 Mozilla Use-after-free error in NodeIterator",
+					"href": "https://bugzilla.redhat.com/615459",
+					"id": "615459"
+				},
+				{
+					"text": "CVE-2010-1214 Mozilla Plugin parameter EnsureCachedAttrParamArrays remote code execution vulnerability",
+					"href": "https://bugzilla.redhat.com/615462",
+					"id": "615462"
+				},
+				{
+					"text": "CVE-2010-1215 Mozilla Arbitrary code execution using SJOW and fast native function",
+					"href": "https://bugzilla.redhat.com/615463",
+					"id": "615463"
+				},
+				{
+					"text": "CVE-2010-2752 Mozilla nsCSSValue::Array index integer overflow",
+					"href": "https://bugzilla.redhat.com/615464",
+					"id": "615464"
+				},
+				{
+					"text": "CVE-2010-2753 Mozilla nsTreeSelection dangling pointer remote code execution vulnerability",
+					"href": "https://bugzilla.redhat.com/615466",
+					"id": "615466"
+				},
+				{
+					"text": "CVE-2010-1213 Mozilla Cross-origin data disclosure via Web Workers and importScripts",
+					"href": "https://bugzilla.redhat.com/615471",
+					"id": "615471"
+				},
+				{
+					"text": "CVE-2010-1207 Mozilla Same-origin bypass using canvas context",
+					"href": "https://bugzilla.redhat.com/615472",
+					"id": "615472"
+				},
+				{
+					"text": "CVE-2010-1210 Mozilla Characters mapped to U+FFFD in 8 bit encodings cause subsequent character to vanish",
+					"href": "https://bugzilla.redhat.com/615474",
+					"id": "615474"
+				},
+				{
+					"text": "CVE-2010-2751 Mozilla SSL spoofing with history.back() and history.forward()",
+					"href": "https://bugzilla.redhat.com/615480",
+					"id": "615480"
+				},
+				{
+					"text": "CVE-2010-2754 Mozilla Cross-origin data leakage from script filename in error messages",
+					"href": "https://bugzilla.redhat.com/615488",
+					"id": "615488"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20100547001",
+						"comment": "firefox is earlier than 0:3.6.7-2.el4"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070400002",
+						"comment": "firefox is signed with Red Hat master key"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100547004",
+										"comment": "xulrunner is earlier than 0:1.9.2.7-2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080569002",
+										"comment": "xulrunner is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100547006",
+										"comment": "xulrunner-devel is earlier than 0:1.9.2.7-2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20080569004",
+										"comment": "xulrunner-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100547008",
+										"comment": "firefox is earlier than 0:3.6.7-2.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070097008",
+										"comment": "firefox is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

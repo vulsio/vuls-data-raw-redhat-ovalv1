@@ -1,88 +1,88 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20080907",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2008:0907: pam_krb5 security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2008:0907",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2008:0907",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-3825",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-3825",
-        "source": "CVE"
-      }
-    ],
-    "description": "The pam_krb5 module allows Pluggable Authentication Modules (PAM) aware\napplications to use Kerberos to verify user identities by obtaining user\ncredentials at log in time.\n\nA flaw was found in the pam_krb5 \"existing_ticket\" configuration option. If\na system is configured to use an existing credential cache via the\n\"existing_ticket\" option, it may be possible for a local user to gain\nelevated privileges by using a different, local user's credential cache.\n(CVE-2008-3825)\n\nRed Hat would like to thank Stéphane Bertin for responsibly disclosing this\nissue.\n\nUsers of pam_krb5 should upgrade to this updated package, which contains a\nbackported patch to resolve this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2008 Red Hat, Inc.",
-      "issued": {
-        "date": "2008-10-02"
-      },
-      "updated": {
-        "date": "2008-10-02"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-3825",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-3825",
-          "impact": "moderate",
-          "public": "20081001"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-3825 pam_krb5 existing_ticket permission flaw",
-          "href": "https://bugzilla.redhat.com/461960",
-          "id": "461960"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080907001",
-            "comment": "pam_krb5 is earlier than 0:2.2.14-1.el5_2.1"
-          },
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20080907002",
-            "comment": "pam_krb5 is signed with Red Hat redhatrelease key"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20080907",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2008:0907: pam_krb5 security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2008:0907",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2008:0907",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-3825",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-3825",
+				"source": "CVE"
+			}
+		],
+		"description": "The pam_krb5 module allows Pluggable Authentication Modules (PAM) aware\napplications to use Kerberos to verify user identities by obtaining user\ncredentials at log in time.\n\nA flaw was found in the pam_krb5 \"existing_ticket\" configuration option. If\na system is configured to use an existing credential cache via the\n\"existing_ticket\" option, it may be possible for a local user to gain\nelevated privileges by using a different, local user's credential cache.\n(CVE-2008-3825)\n\nRed Hat would like to thank Stéphane Bertin for responsibly disclosing this\nissue.\n\nUsers of pam_krb5 should upgrade to this updated package, which contains a\nbackported patch to resolve this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2008 Red Hat, Inc.",
+			"issued": {
+				"date": "2008-10-02"
+			},
+			"updated": {
+				"date": "2008-10-02"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-3825",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-3825",
+					"impact": "moderate",
+					"public": "20081001"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-3825 pam_krb5 existing_ticket permission flaw",
+					"href": "https://bugzilla.redhat.com/461960",
+					"id": "461960"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080907001",
+						"comment": "pam_krb5 is earlier than 0:2.2.14-1.el5_2.1"
+					},
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20080907002",
+						"comment": "pam_krb5 is signed with Red Hat redhatrelease key"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

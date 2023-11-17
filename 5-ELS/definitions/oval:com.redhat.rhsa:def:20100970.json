@@ -1,202 +1,202 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20100970",
-  "version": "646",
-  "metadata": {
-    "title": "RHSA-2010:0970: exim security update (Critical)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2010:0970",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2010:0970",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2010-4344",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2010-4344",
-        "source": "CVE"
-      }
-    ],
-    "description": "Exim is a mail transport agent (MTA) developed at the University of\nCambridge for use on Unix systems connected to the Internet.\n\nA buffer overflow flaw was discovered in Exim's internal\nstring_vformat() function. A remote attacker could use this flaw to\nexecute arbitrary code on the mail server running Exim. (CVE-2010-4344)\n\nNote: successful exploitation would allow a remote attacker to execute\narbitrary code as root on a Red Hat Enterprise Linux 4 or 5 system that\nis running the Exim mail server. An exploit for this issue is known to\nexist.\n\nFor additional information regarding this flaw, along with mitigation\nadvice, please see the Knowledge Base article linked to in the\nReferences section of this advisory.\n\nUsers of Exim are advised to update to these erratum packages which\ncontain a backported patch to correct this issue. After installing this\nupdate, the Exim daemon will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Critical",
-      "rights": "Copyright 2010 Red Hat, Inc.",
-      "issued": {
-        "date": "2010-12-10"
-      },
-      "updated": {
-        "date": "2010-12-10"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-4344",
-          "href": "https://access.redhat.com/security/cve/CVE-2010-4344",
-          "impact": "critical",
-          "public": "20101207",
-          "cwe": "CWE-78",
-          "cvss_2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2010-4344 exim: remote code execution flaw",
-          "href": "https://bugzilla.redhat.com/661756",
-          "id": "661756"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970001",
-                    "comment": "exim is earlier than 0:4.43-1.RHEL4.5.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970002",
-                    "comment": "exim is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970003",
-                    "comment": "exim-doc is earlier than 0:4.43-1.RHEL4.5.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970004",
-                    "comment": "exim-doc is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970005",
-                    "comment": "exim-mon is earlier than 0:4.43-1.RHEL4.5.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970006",
-                    "comment": "exim-mon is signed with Red Hat master key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970007",
-                    "comment": "exim-sa is earlier than 0:4.43-1.RHEL4.5.el4_8.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970008",
-                    "comment": "exim-sa is signed with Red Hat master key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970010",
-                    "comment": "exim is earlier than 0:4.63-5.el5_5.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970011",
-                    "comment": "exim is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970012",
-                    "comment": "exim-mon is earlier than 0:4.63-5.el5_5.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970013",
-                    "comment": "exim-mon is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970014",
-                    "comment": "exim-sa is earlier than 0:4.63-5.el5_5.2"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20100970015",
-                    "comment": "exim-sa is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20100970",
+	"version": "646",
+	"metadata": {
+		"title": "RHSA-2010:0970: exim security update (Critical)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2010:0970",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2010:0970",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2010-4344",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2010-4344",
+				"source": "CVE"
+			}
+		],
+		"description": "Exim is a mail transport agent (MTA) developed at the University of\nCambridge for use on Unix systems connected to the Internet.\n\nA buffer overflow flaw was discovered in Exim's internal\nstring_vformat() function. A remote attacker could use this flaw to\nexecute arbitrary code on the mail server running Exim. (CVE-2010-4344)\n\nNote: successful exploitation would allow a remote attacker to execute\narbitrary code as root on a Red Hat Enterprise Linux 4 or 5 system that\nis running the Exim mail server. An exploit for this issue is known to\nexist.\n\nFor additional information regarding this flaw, along with mitigation\nadvice, please see the Knowledge Base article linked to in the\nReferences section of this advisory.\n\nUsers of Exim are advised to update to these erratum packages which\ncontain a backported patch to correct this issue. After installing this\nupdate, the Exim daemon will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Critical",
+			"rights": "Copyright 2010 Red Hat, Inc.",
+			"issued": {
+				"date": "2010-12-10"
+			},
+			"updated": {
+				"date": "2010-12-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-4344",
+					"href": "https://access.redhat.com/security/cve/CVE-2010-4344",
+					"impact": "critical",
+					"public": "20101207",
+					"cwe": "CWE-78",
+					"cvss_2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2010-4344 exim: remote code execution flaw",
+					"href": "https://bugzilla.redhat.com/661756",
+					"id": "661756"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970001",
+										"comment": "exim is earlier than 0:4.43-1.RHEL4.5.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970002",
+										"comment": "exim is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970003",
+										"comment": "exim-doc is earlier than 0:4.43-1.RHEL4.5.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970004",
+										"comment": "exim-doc is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970005",
+										"comment": "exim-mon is earlier than 0:4.43-1.RHEL4.5.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970006",
+										"comment": "exim-mon is signed with Red Hat master key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970007",
+										"comment": "exim-sa is earlier than 0:4.43-1.RHEL4.5.el4_8.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970008",
+										"comment": "exim-sa is signed with Red Hat master key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970010",
+										"comment": "exim is earlier than 0:4.63-5.el5_5.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970011",
+										"comment": "exim is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970012",
+										"comment": "exim-mon is earlier than 0:4.63-5.el5_5.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970013",
+										"comment": "exim-mon is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970014",
+										"comment": "exim-sa is earlier than 0:4.63-5.el5_5.2"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20100970015",
+										"comment": "exim-sa is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

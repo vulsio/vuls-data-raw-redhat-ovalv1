@@ -1,309 +1,309 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20090313",
-  "version": "634",
-  "metadata": {
-    "title": "RHSA-2009:0313: wireshark security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4",
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:0313",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:0313",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2008-4680",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4680",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-4681",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4681",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-4682",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4682",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-4683",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4683",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-4684",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4684",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-4685",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-4685",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-5285",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-5285",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2008-6472",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2008-6472",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0599",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0599",
-        "source": "CVE"
-      },
-      {
-        "ref_id": "CVE-2009-0600",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-0600",
-        "source": "CVE"
-      }
-    ],
-    "description": "Wireshark is a program for monitoring network traffic. Wireshark was\npreviously known as Ethereal.\n\nMultiple buffer overflow flaws were found in Wireshark. If Wireshark read\na malformed packet off a network or opened a malformed dump file, it could\ncrash or, possibly, execute arbitrary code as the user running Wireshark.\n(CVE-2008-4683, CVE-2009-0599)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malformed dump file. (CVE-2008-4680, CVE-2008-4681, CVE-2008-4682,\nCVE-2008-4684, CVE-2008-4685, CVE-2008-5285, CVE-2009-0600)\n\nUsers of wireshark should upgrade to these updated packages, which contain\nWireshark version 1.0.6, and resolve these issues. All running instances of\nWireshark must be restarted for the update to take effect.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-03-04"
-      },
-      "updated": {
-        "date": "2009-03-04"
-      },
-      "cve": [
-        {
-          "text": "CVE-2008-4680",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4680",
-          "impact": "low",
-          "public": "20081001"
-        },
-        {
-          "text": "CVE-2008-4681",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4681",
-          "impact": "low",
-          "public": "20081020"
-        },
-        {
-          "text": "CVE-2008-4682",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4682",
-          "impact": "low",
-          "public": "20081001"
-        },
-        {
-          "text": "CVE-2008-4683",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4683",
-          "impact": "moderate",
-          "public": "20070404"
-        },
-        {
-          "text": "CVE-2008-4684",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4684",
-          "impact": "low",
-          "public": "20080516"
-        },
-        {
-          "text": "CVE-2008-4685",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-4685",
-          "impact": "low",
-          "public": "20080913"
-        },
-        {
-          "text": "CVE-2008-5285",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-5285",
-          "impact": "low",
-          "public": "20081122",
-          "cwe": "CWE-835"
-        },
-        {
-          "text": "CVE-2008-6472",
-          "href": "https://access.redhat.com/security/cve/CVE-2008-6472",
-          "impact": "low",
-          "public": "20081208"
-        },
-        {
-          "text": "CVE-2009-0599",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0599",
-          "impact": "moderate",
-          "public": "20090206",
-          "cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "text": "CVE-2009-0600",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-0600",
-          "impact": "low",
-          "public": "20090206",
-          "cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2008-4680 wireshark: DoS (app crash or abort) via malformed USB Request Block (URB).",
-          "href": "https://bugzilla.redhat.com/468166",
-          "id": "468166"
-        },
-        {
-          "text": "CVE-2008-4681 wireshark: DoS (app crash or abort) in Bluetooth RFCOMM dissector via unknown packets",
-          "href": "https://bugzilla.redhat.com/468167",
-          "id": "468167"
-        },
-        {
-          "text": "CVE-2008-4682 wireshark: DoS (app abort) via a malformed  .ncf file with an unknown/unexpected packet type",
-          "href": "https://bugzilla.redhat.com/468169",
-          "id": "468169"
-        },
-        {
-          "text": "CVE-2008-4683 wireshark: DoS (app crash or abort) in Bluetooth ACL dissector  via a packet with an invalid length",
-          "href": "https://bugzilla.redhat.com/468171",
-          "id": "468171"
-        },
-        {
-          "text": "CVE-2008-4684 wireshark: DoS (app crash) via certain series of packets by enabling the (1) PRP or (2) MATE post dissector",
-          "href": "https://bugzilla.redhat.com/468174",
-          "id": "468174"
-        },
-        {
-          "text": "CVE-2008-4685 wireshark: DoS (app crash or abort) in Q.931 dissector via certain packets",
-          "href": "https://bugzilla.redhat.com/468175",
-          "id": "468175"
-        },
-        {
-          "text": "CVE-2008-5285 wireshark: DoS (infinite loop) in SMTP dissector via large SMTP request",
-          "href": "https://bugzilla.redhat.com/472737",
-          "id": "472737"
-        },
-        {
-          "text": "CVE-2009-0599 wireshark: buffer overflows in NetScreen snoop file reader",
-          "href": "https://bugzilla.redhat.com/485888",
-          "id": "485888"
-        },
-        {
-          "text": "CVE-2009-0600 wireshark: denial of service (application crash) via a crafted Tektronix K12 text capture file",
-          "href": "https://bugzilla.redhat.com/485889",
-          "id": "485889"
-        },
-        {
-          "text": "CVE-2008-6472 wireshark: DoS vulnerability in WLCCP dissector",
-          "href": "https://bugzilla.redhat.com/490370",
-          "id": "490370"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws",
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090313001",
-                    "comment": "wireshark is earlier than 0:1.0.6-2.el4_7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
-                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090313003",
-                    "comment": "wireshark-gnome is earlier than 0:1.0.6-2.el4_7"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
-                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhsa:tst:20070066005",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090313006",
-                    "comment": "wireshark is earlier than 0:1.0.6-2.el5_3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070066002",
-                    "comment": "wireshark is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20090313007",
-                    "comment": "wireshark-gnome is earlier than 0:1.0.6-2.el5_3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070066004",
-                    "comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20090313",
+	"version": "634",
+	"metadata": {
+		"title": "RHSA-2009:0313: wireshark security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4",
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:0313",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:0313",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2008-4680",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4680",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-4681",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4681",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-4682",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4682",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-4683",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4683",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-4684",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4684",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-4685",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-4685",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-5285",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-5285",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2008-6472",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2008-6472",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0599",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0599",
+				"source": "CVE"
+			},
+			{
+				"ref_id": "CVE-2009-0600",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-0600",
+				"source": "CVE"
+			}
+		],
+		"description": "Wireshark is a program for monitoring network traffic. Wireshark was\npreviously known as Ethereal.\n\nMultiple buffer overflow flaws were found in Wireshark. If Wireshark read\na malformed packet off a network or opened a malformed dump file, it could\ncrash or, possibly, execute arbitrary code as the user running Wireshark.\n(CVE-2008-4683, CVE-2009-0599)\n\nSeveral denial of service flaws were found in Wireshark. Wireshark could\ncrash or stop responding if it read a malformed packet off a network, or\nopened a malformed dump file. (CVE-2008-4680, CVE-2008-4681, CVE-2008-4682,\nCVE-2008-4684, CVE-2008-4685, CVE-2008-5285, CVE-2009-0600)\n\nUsers of wireshark should upgrade to these updated packages, which contain\nWireshark version 1.0.6, and resolve these issues. All running instances of\nWireshark must be restarted for the update to take effect.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-03-04"
+			},
+			"updated": {
+				"date": "2009-03-04"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-4680",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4680",
+					"impact": "low",
+					"public": "20081001"
+				},
+				{
+					"text": "CVE-2008-4681",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4681",
+					"impact": "low",
+					"public": "20081020"
+				},
+				{
+					"text": "CVE-2008-4682",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4682",
+					"impact": "low",
+					"public": "20081001"
+				},
+				{
+					"text": "CVE-2008-4683",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4683",
+					"impact": "moderate",
+					"public": "20070404"
+				},
+				{
+					"text": "CVE-2008-4684",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4684",
+					"impact": "low",
+					"public": "20080516"
+				},
+				{
+					"text": "CVE-2008-4685",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-4685",
+					"impact": "low",
+					"public": "20080913"
+				},
+				{
+					"text": "CVE-2008-5285",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-5285",
+					"impact": "low",
+					"public": "20081122",
+					"cwe": "CWE-835"
+				},
+				{
+					"text": "CVE-2008-6472",
+					"href": "https://access.redhat.com/security/cve/CVE-2008-6472",
+					"impact": "low",
+					"public": "20081208"
+				},
+				{
+					"text": "CVE-2009-0599",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0599",
+					"impact": "moderate",
+					"public": "20090206",
+					"cvss_2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+				},
+				{
+					"text": "CVE-2009-0600",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-0600",
+					"impact": "low",
+					"public": "20090206",
+					"cvss_2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2008-4680 wireshark: DoS (app crash or abort) via malformed USB Request Block (URB).",
+					"href": "https://bugzilla.redhat.com/468166",
+					"id": "468166"
+				},
+				{
+					"text": "CVE-2008-4681 wireshark: DoS (app crash or abort) in Bluetooth RFCOMM dissector via unknown packets",
+					"href": "https://bugzilla.redhat.com/468167",
+					"id": "468167"
+				},
+				{
+					"text": "CVE-2008-4682 wireshark: DoS (app abort) via a malformed  .ncf file with an unknown/unexpected packet type",
+					"href": "https://bugzilla.redhat.com/468169",
+					"id": "468169"
+				},
+				{
+					"text": "CVE-2008-4683 wireshark: DoS (app crash or abort) in Bluetooth ACL dissector  via a packet with an invalid length",
+					"href": "https://bugzilla.redhat.com/468171",
+					"id": "468171"
+				},
+				{
+					"text": "CVE-2008-4684 wireshark: DoS (app crash) via certain series of packets by enabling the (1) PRP or (2) MATE post dissector",
+					"href": "https://bugzilla.redhat.com/468174",
+					"id": "468174"
+				},
+				{
+					"text": "CVE-2008-4685 wireshark: DoS (app crash or abort) in Q.931 dissector via certain packets",
+					"href": "https://bugzilla.redhat.com/468175",
+					"id": "468175"
+				},
+				{
+					"text": "CVE-2008-5285 wireshark: DoS (infinite loop) in SMTP dissector via large SMTP request",
+					"href": "https://bugzilla.redhat.com/472737",
+					"id": "472737"
+				},
+				{
+					"text": "CVE-2009-0599 wireshark: buffer overflows in NetScreen snoop file reader",
+					"href": "https://bugzilla.redhat.com/485888",
+					"id": "485888"
+				},
+				{
+					"text": "CVE-2009-0600 wireshark: denial of service (application crash) via a crafted Tektronix K12 text capture file",
+					"href": "https://bugzilla.redhat.com/485889",
+					"id": "485889"
+				},
+				{
+					"text": "CVE-2008-6472 wireshark: DoS vulnerability in WLCCP dissector",
+					"href": "https://bugzilla.redhat.com/490370",
+					"id": "490370"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws",
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090313001",
+										"comment": "wireshark is earlier than 0:1.0.6-2.el4_7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+										"comment": "wireshark is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090313003",
+										"comment": "wireshark-gnome is earlier than 0:1.0.6-2.el4_7"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+										"comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhsa:tst:20070066005",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090313006",
+										"comment": "wireshark is earlier than 0:1.0.6-2.el5_3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070066002",
+										"comment": "wireshark is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20090313007",
+										"comment": "wireshark-gnome is earlier than 0:1.0.6-2.el5_3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070066004",
+										"comment": "wireshark-gnome is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

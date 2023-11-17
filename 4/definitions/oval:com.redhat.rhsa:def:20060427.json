@@ -1,180 +1,180 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20060427",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2006:0427: ruby security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 4"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2006:0427",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2006:0427",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2006-1931",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2006-1931",
-        "source": "CVE"
-      }
-    ],
-    "description": "Ruby is an interpreted scripting language for object-oriented programming. \n\nA bug was found in the way Ruby creates its xmlrpc and http servers. The\nservers use a non blocking socket, which enables a remote user to cause a\ndenial of service condition if they are able to transmit a large volume of\ninformation from the network server. (CVE-2006-1931)\n\nUsers of Ruby should update to these erratum packages, which contain a\nbackported patch and are not vulnerable to this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2006 Red Hat, Inc.",
-      "issued": {
-        "date": "2006-05-09"
-      },
-      "updated": {
-        "date": "2006-05-09"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-1931",
-          "href": "https://access.redhat.com/security/cve/CVE-2006-1931",
-          "impact": "moderate",
-          "public": "20050630"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2006-1931 security flaw",
-          "href": "https://bugzilla.redhat.com/1618072",
-          "id": "1618072"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:4",
-          "cpe:/o:redhat:enterprise_linux:4::as",
-          "cpe:/o:redhat:enterprise_linux:4::desktop",
-          "cpe:/o:redhat:enterprise_linux:4::es",
-          "cpe:/o:redhat:enterprise_linux:4::ws"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427001",
-                    "comment": "irb is earlier than 0:1.8.1-7.EL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427002",
-                    "comment": "irb is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427003",
-                    "comment": "ruby is earlier than 0:1.8.1-7.EL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427004",
-                    "comment": "ruby is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427005",
-                    "comment": "ruby-devel is earlier than 0:1.8.1-7.EL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427006",
-                    "comment": "ruby-devel is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427007",
-                    "comment": "ruby-docs is earlier than 0:1.8.1-7.EL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427008",
-                    "comment": "ruby-docs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427009",
-                    "comment": "ruby-libs is earlier than 0:1.8.1-7.EL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427010",
-                    "comment": "ruby-libs is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427011",
-                    "comment": "ruby-mode is earlier than 0:1.8.1-7.EL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427012",
-                    "comment": "ruby-mode is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427013",
-                    "comment": "ruby-tcltk is earlier than 0:1.8.1-7.EL4.3"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20060427014",
-                    "comment": "ruby-tcltk is signed with Red Hat redhatrelease2 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070304025",
-            "comment": "Red Hat Enterprise Linux 4 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070304026",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20060427",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2006:0427: ruby security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 4"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2006:0427",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2006:0427",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2006-1931",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2006-1931",
+				"source": "CVE"
+			}
+		],
+		"description": "Ruby is an interpreted scripting language for object-oriented programming. \n\nA bug was found in the way Ruby creates its xmlrpc and http servers. The\nservers use a non blocking socket, which enables a remote user to cause a\ndenial of service condition if they are able to transmit a large volume of\ninformation from the network server. (CVE-2006-1931)\n\nUsers of Ruby should update to these erratum packages, which contain a\nbackported patch and are not vulnerable to this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2006 Red Hat, Inc.",
+			"issued": {
+				"date": "2006-05-09"
+			},
+			"updated": {
+				"date": "2006-05-09"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-1931",
+					"href": "https://access.redhat.com/security/cve/CVE-2006-1931",
+					"impact": "moderate",
+					"public": "20050630"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2006-1931 security flaw",
+					"href": "https://bugzilla.redhat.com/1618072",
+					"id": "1618072"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:4",
+					"cpe:/o:redhat:enterprise_linux:4::as",
+					"cpe:/o:redhat:enterprise_linux:4::desktop",
+					"cpe:/o:redhat:enterprise_linux:4::es",
+					"cpe:/o:redhat:enterprise_linux:4::ws"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427001",
+										"comment": "irb is earlier than 0:1.8.1-7.EL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427002",
+										"comment": "irb is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427003",
+										"comment": "ruby is earlier than 0:1.8.1-7.EL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427004",
+										"comment": "ruby is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427005",
+										"comment": "ruby-devel is earlier than 0:1.8.1-7.EL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427006",
+										"comment": "ruby-devel is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427007",
+										"comment": "ruby-docs is earlier than 0:1.8.1-7.EL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427008",
+										"comment": "ruby-docs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427009",
+										"comment": "ruby-libs is earlier than 0:1.8.1-7.EL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427010",
+										"comment": "ruby-libs is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427011",
+										"comment": "ruby-mode is earlier than 0:1.8.1-7.EL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427012",
+										"comment": "ruby-mode is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427013",
+										"comment": "ruby-tcltk is earlier than 0:1.8.1-7.EL4.3"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20060427014",
+										"comment": "ruby-tcltk is signed with Red Hat redhatrelease2 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070304025",
+						"comment": "Red Hat Enterprise Linux 4 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070304026",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

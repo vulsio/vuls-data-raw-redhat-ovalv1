@@ -1,256 +1,256 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20172801",
-  "version": "635",
-  "metadata": {
-    "title": "RHSA-2017:2801: kernel security update (Important)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5 Extended Lifecycle Support"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2017:2801",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2017:2801",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2017-1000253",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2017-1000253",
-        "source": "CVE"
-      }
-    ],
-    "description": "The kernel packages contain the Linux kernel, the core of any Linux operating system.\n\nSecurity Fix(es):\n\n* A flaw was found in the way the Linux kernel loaded ELF executables. Provided that an application was built as Position Independent Executable (PIE), the loader could allow part of that application's data segment to map over the memory area reserved for its stack, potentially resulting in memory corruption. An unprivileged local user with access to SUID (or otherwise privileged) PIE binary could use this flaw to escalate their privileges on the system. (CVE-2017-1000253, Important)\n\nRed Hat would like to thank Qualys Research Labs for reporting this issue.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Important",
-      "rights": "Copyright 2017 Red Hat, Inc.",
-      "issued": {
-        "date": "2017-09-26"
-      },
-      "updated": {
-        "date": "2017-09-26"
-      },
-      "cve": [
-        {
-          "text": "CVE-2017-1000253",
-          "href": "https://access.redhat.com/security/cve/CVE-2017-1000253",
-          "impact": "important",
-          "public": "20170926",
-          "cwe": "CWE-119",
-          "cvss_3": "7.8/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2017-1000253 kernel: load_elf_ binary() does not take account of the need to allocate sufficient space for the entire binary",
-          "href": "https://bugzilla.redhat.com/1492212",
-          "id": "1492212"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:rhel_els:5"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterions": [
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20172801025",
-                "comment": "kernel earlier than 0:2.6.18-423.el5 is currently running"
-              },
-              {
-                "test_ref": "oval:com.redhat.rhsa:tst:20172801026",
-                "comment": "kernel earlier than 0:2.6.18-423.el5 is set to boot up on next boot"
-              }
-            ]
-          },
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801001",
-                    "comment": "kernel is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314002",
-                    "comment": "kernel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801003",
-                    "comment": "kernel-PAE is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314004",
-                    "comment": "kernel-PAE is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801005",
-                    "comment": "kernel-PAE-devel is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314006",
-                    "comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801007",
-                    "comment": "kernel-debug is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314008",
-                    "comment": "kernel-debug is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801009",
-                    "comment": "kernel-debug-devel is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314010",
-                    "comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801011",
-                    "comment": "kernel-devel is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314012",
-                    "comment": "kernel-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801013",
-                    "comment": "kernel-doc is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314014",
-                    "comment": "kernel-doc is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801015",
-                    "comment": "kernel-headers is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314016",
-                    "comment": "kernel-headers is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801017",
-                    "comment": "kernel-kdump is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314018",
-                    "comment": "kernel-kdump is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801019",
-                    "comment": "kernel-kdump-devel is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314020",
-                    "comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801021",
-                    "comment": "kernel-xen is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314022",
-                    "comment": "kernel-xen is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20172801023",
-                    "comment": "kernel-xen-devel is earlier than 0:2.6.18-423.el5"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhba:tst:20080314024",
-                    "comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20172801",
+	"version": "635",
+	"metadata": {
+		"title": "RHSA-2017:2801: kernel security update (Important)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5 Extended Lifecycle Support"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2017:2801",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2017:2801",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2017-1000253",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2017-1000253",
+				"source": "CVE"
+			}
+		],
+		"description": "The kernel packages contain the Linux kernel, the core of any Linux operating system.\n\nSecurity Fix(es):\n\n* A flaw was found in the way the Linux kernel loaded ELF executables. Provided that an application was built as Position Independent Executable (PIE), the loader could allow part of that application's data segment to map over the memory area reserved for its stack, potentially resulting in memory corruption. An unprivileged local user with access to SUID (or otherwise privileged) PIE binary could use this flaw to escalate their privileges on the system. (CVE-2017-1000253, Important)\n\nRed Hat would like to thank Qualys Research Labs for reporting this issue.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Important",
+			"rights": "Copyright 2017 Red Hat, Inc.",
+			"issued": {
+				"date": "2017-09-26"
+			},
+			"updated": {
+				"date": "2017-09-26"
+			},
+			"cve": [
+				{
+					"text": "CVE-2017-1000253",
+					"href": "https://access.redhat.com/security/cve/CVE-2017-1000253",
+					"impact": "important",
+					"public": "20170926",
+					"cwe": "CWE-119",
+					"cvss_3": "7.8/CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2017-1000253 kernel: load_elf_ binary() does not take account of the need to allocate sufficient space for the entire binary",
+					"href": "https://bugzilla.redhat.com/1492212",
+					"id": "1492212"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:rhel_els:5"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterions": [
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20172801025",
+								"comment": "kernel earlier than 0:2.6.18-423.el5 is currently running"
+							},
+							{
+								"test_ref": "oval:com.redhat.rhsa:tst:20172801026",
+								"comment": "kernel earlier than 0:2.6.18-423.el5 is set to boot up on next boot"
+							}
+						]
+					},
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801001",
+										"comment": "kernel is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314002",
+										"comment": "kernel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801003",
+										"comment": "kernel-PAE is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314004",
+										"comment": "kernel-PAE is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801005",
+										"comment": "kernel-PAE-devel is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314006",
+										"comment": "kernel-PAE-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801007",
+										"comment": "kernel-debug is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314008",
+										"comment": "kernel-debug is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801009",
+										"comment": "kernel-debug-devel is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314010",
+										"comment": "kernel-debug-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801011",
+										"comment": "kernel-devel is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314012",
+										"comment": "kernel-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801013",
+										"comment": "kernel-doc is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314014",
+										"comment": "kernel-doc is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801015",
+										"comment": "kernel-headers is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314016",
+										"comment": "kernel-headers is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801017",
+										"comment": "kernel-kdump is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314018",
+										"comment": "kernel-kdump is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801019",
+										"comment": "kernel-kdump-devel is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314020",
+										"comment": "kernel-kdump-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801021",
+										"comment": "kernel-xen is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314022",
+										"comment": "kernel-xen is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20172801023",
+										"comment": "kernel-xen-devel is earlier than 0:2.6.18-423.el5"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhba:tst:20080314024",
+										"comment": "kernel-xen-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }

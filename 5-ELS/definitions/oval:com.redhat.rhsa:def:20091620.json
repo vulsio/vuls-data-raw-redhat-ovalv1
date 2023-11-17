@@ -1,193 +1,193 @@
 {
-  "class": "patch",
-  "id": "oval:com.redhat.rhsa:def:20091620",
-  "version": "638",
-  "metadata": {
-    "title": "RHSA-2009:1620: bind security update (Moderate)",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Red Hat Enterprise Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "ref_id": "RHSA-2009:1620",
-        "ref_url": "https://access.redhat.com/errata/RHSA-2009:1620",
-        "source": "RHSA"
-      },
-      {
-        "ref_id": "CVE-2009-4022",
-        "ref_url": "https://access.redhat.com/security/cve/CVE-2009-4022",
-        "source": "CVE"
-      }
-    ],
-    "description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain\nName System (DNS) protocols. BIND includes a DNS server (named); a resolver\nlibrary (routines for applications to use when interfacing with DNS); and\ntools for verifying that the DNS server is operating correctly.\n\nMichael Sinatra discovered that BIND was incorrectly caching responses\nwithout performing proper DNSSEC validation, when those responses were\nreceived during the resolution of a recursive client query that requested\nDNSSEC records but indicated that checking should be disabled. A remote\nattacker could use this flaw to bypass the DNSSEC validation check and\nperform a cache poisoning attack if the target BIND server was receiving\nsuch client queries. (CVE-2009-4022)\n\nAll BIND users are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing the\nupdate, the BIND daemon (named) will be restarted automatically.",
-    "advisory": {
-      "from": "secalert@redhat.com",
-      "severity": "Moderate",
-      "rights": "Copyright 2009 Red Hat, Inc.",
-      "issued": {
-        "date": "2009-11-30"
-      },
-      "updated": {
-        "date": "2009-11-30"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-4022",
-          "href": "https://access.redhat.com/security/cve/CVE-2009-4022",
-          "impact": "moderate",
-          "public": "20091123",
-          "cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
-        }
-      ],
-      "bugzilla": [
-        {
-          "text": "CVE-2009-4022 bind: cache poisoning using not validated DNSSEC responses",
-          "href": "https://bugzilla.redhat.com/538744",
-          "id": "538744"
-        }
-      ],
-      "affected_cpe_list": {
-        "cpe": [
-          "cpe:/o:redhat:enterprise_linux:5",
-          "cpe:/o:redhat:enterprise_linux:5::client",
-          "cpe:/o:redhat:enterprise_linux:5::client_workstation",
-          "cpe:/o:redhat:enterprise_linux:5::server"
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091620001",
-                    "comment": "bind is earlier than 30:9.3.6-4.P1.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070057002",
-                    "comment": "bind is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091620003",
-                    "comment": "bind-chroot is earlier than 30:9.3.6-4.P1.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070057004",
-                    "comment": "bind-chroot is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091620005",
-                    "comment": "bind-devel is earlier than 30:9.3.6-4.P1.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070057006",
-                    "comment": "bind-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091620007",
-                    "comment": "bind-libbind-devel is earlier than 30:9.3.6-4.P1.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070057008",
-                    "comment": "bind-libbind-devel is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091620009",
-                    "comment": "bind-libs is earlier than 30:9.3.6-4.P1.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070057010",
-                    "comment": "bind-libs is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091620011",
-                    "comment": "bind-sdb is earlier than 30:9.3.6-4.P1.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070057012",
-                    "comment": "bind-sdb is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091620013",
-                    "comment": "bind-utils is earlier than 30:9.3.6-4.P1.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070057014",
-                    "comment": "bind-utils is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20091620015",
-                    "comment": "caching-nameserver is earlier than 30:9.3.6-4.P1.el5_4.1"
-                  },
-                  {
-                    "test_ref": "oval:com.redhat.rhsa:tst:20070057016",
-                    "comment": "caching-nameserver is signed with Red Hat redhatrelease key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.redhat.rhba:tst:20070331005",
-            "comment": "Red Hat Enterprise Linux 5 is installed"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.redhat.rhba:tst:20070331006",
-        "comment": "Red Hat Enterprise Linux must be installed"
-      }
-    ]
-  }
+	"class": "patch",
+	"id": "oval:com.redhat.rhsa:def:20091620",
+	"version": "638",
+	"metadata": {
+		"title": "RHSA-2009:1620: bind security update (Moderate)",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Red Hat Enterprise Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"ref_id": "RHSA-2009:1620",
+				"ref_url": "https://access.redhat.com/errata/RHSA-2009:1620",
+				"source": "RHSA"
+			},
+			{
+				"ref_id": "CVE-2009-4022",
+				"ref_url": "https://access.redhat.com/security/cve/CVE-2009-4022",
+				"source": "CVE"
+			}
+		],
+		"description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain\nName System (DNS) protocols. BIND includes a DNS server (named); a resolver\nlibrary (routines for applications to use when interfacing with DNS); and\ntools for verifying that the DNS server is operating correctly.\n\nMichael Sinatra discovered that BIND was incorrectly caching responses\nwithout performing proper DNSSEC validation, when those responses were\nreceived during the resolution of a recursive client query that requested\nDNSSEC records but indicated that checking should be disabled. A remote\nattacker could use this flaw to bypass the DNSSEC validation check and\nperform a cache poisoning attack if the target BIND server was receiving\nsuch client queries. (CVE-2009-4022)\n\nAll BIND users are advised to upgrade to these updated packages, which\ncontain a backported patch to resolve this issue. After installing the\nupdate, the BIND daemon (named) will be restarted automatically.",
+		"advisory": {
+			"from": "secalert@redhat.com",
+			"severity": "Moderate",
+			"rights": "Copyright 2009 Red Hat, Inc.",
+			"issued": {
+				"date": "2009-11-30"
+			},
+			"updated": {
+				"date": "2009-11-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-4022",
+					"href": "https://access.redhat.com/security/cve/CVE-2009-4022",
+					"impact": "moderate",
+					"public": "20091123",
+					"cvss_2": "2.6/AV:N/AC:H/Au:N/C:N/I:P/A:N"
+				}
+			],
+			"bugzilla": [
+				{
+					"text": "CVE-2009-4022 bind: cache poisoning using not validated DNSSEC responses",
+					"href": "https://bugzilla.redhat.com/538744",
+					"id": "538744"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:redhat:enterprise_linux:5",
+					"cpe:/o:redhat:enterprise_linux:5::client",
+					"cpe:/o:redhat:enterprise_linux:5::client_workstation",
+					"cpe:/o:redhat:enterprise_linux:5::server"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091620001",
+										"comment": "bind is earlier than 30:9.3.6-4.P1.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070057002",
+										"comment": "bind is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091620003",
+										"comment": "bind-chroot is earlier than 30:9.3.6-4.P1.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070057004",
+										"comment": "bind-chroot is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091620005",
+										"comment": "bind-devel is earlier than 30:9.3.6-4.P1.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070057006",
+										"comment": "bind-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091620007",
+										"comment": "bind-libbind-devel is earlier than 30:9.3.6-4.P1.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070057008",
+										"comment": "bind-libbind-devel is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091620009",
+										"comment": "bind-libs is earlier than 30:9.3.6-4.P1.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070057010",
+										"comment": "bind-libs is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091620011",
+										"comment": "bind-sdb is earlier than 30:9.3.6-4.P1.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070057012",
+										"comment": "bind-sdb is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091620013",
+										"comment": "bind-utils is earlier than 30:9.3.6-4.P1.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070057014",
+										"comment": "bind-utils is signed with Red Hat redhatrelease key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20091620015",
+										"comment": "caching-nameserver is earlier than 30:9.3.6-4.P1.el5_4.1"
+									},
+									{
+										"test_ref": "oval:com.redhat.rhsa:tst:20070057016",
+										"comment": "caching-nameserver is signed with Red Hat redhatrelease key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.redhat.rhba:tst:20070331005",
+						"comment": "Red Hat Enterprise Linux 5 is installed"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.redhat.rhba:tst:20070331006",
+				"comment": "Red Hat Enterprise Linux must be installed"
+			}
+		]
+	}
 }
